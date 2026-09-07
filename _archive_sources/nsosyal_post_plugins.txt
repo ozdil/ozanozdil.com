@@ -1,0 +1,21 @@
+🛡️ Açık kaynak ve siber güvenlik odaklı çalışmalarımı bir adım öteye taşıyarak, Omarchy Linux masaüstü ekosistemi için 9 adet özgün siber güvenlik/geliştirici eklentisi (plugin) ve 4 resmi temayı geliştirip açık kaynak olarak yayınladım! 🚀🇹🇷
+
+Geliştirdiğim Eklentiler (Plugins):
+🔒 OpSec Cleaner: Sosyal medyaya görsel yüklemeden önce GPS ve cihaz kimlik izlerini temizleyen dijital hijyen aracı.
+🛡️ BadUSB Shield: Masum görünen ancak klavye gibi davranan zararlı USB enjeksiyonlarını (Rubber Ducky) engelleyen kalkan.
+🚨 Auth Watch: Hatalı sudo şifre denemelerini ve yetkisiz SSH sızma girişimlerini canlı izleyen nöbetçi.
+🪤 Tripwire Vault: Kritik dizinlere kriptografik honey-token yerleştirerek fidye yazılımı (ransomware) erken uyarısı veren tuzak.
+🌐 DNS Leak Guard: DNS sorgularının İSS'ye düz metin sızmasını engelleyen ve DNS-over-TLS (DoT) doğrulayan kalkan.
+🎭 Ghost MAC: Halka açık Wi-Fi ağlarında fiziksel MAC adresinizi rastgele sahte bir kimlikle maskeleyen anonimlik aracı.
+🛡️ CVE Radar: Arch Linux resmi güvenlik bültenleri (API) ve SUID yetkili binary zafiyet denetçisi.
+🌐 Cyber Sentinel: Dış dünyaya açılan canlı ağ soketlerini izleyen siber güvenlik radarı.
+⚡ Git Radar: Yerel depolardaki commit nabzını ve günlük kodlama ısı haritasını barda gösteren geliştirici paneli.
+
+Ayrıca 21 ikonik tarihi mekanımızı içeren Türkiye Teması başta olmak üzere 4 resmi temayı da topluluğa kazandırdık.
+
+Tüm projeler MIT lisansıyla açık kaynaktır.
+
+🔗 GitHub: https://github.com/ozdil
+🔗 Blogger Yazım: https://ozanozdil.blogspot.com
+
+#AçıkKaynak #SiberGüvenlik #Linux #Omarchy #ArchLinux #Yazılım #MilliTeknoloji #OPSEC #Gizlilik

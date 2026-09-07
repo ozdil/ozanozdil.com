@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<style>
+  .post-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    color: #e2e8f0;
+    background-color: #0b0f19;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 900px;
+    margin: auto;
+    border: 1px solid #1e293b;
+  }
+  .post-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #38bdf8;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 12px;
+  }
+  .post-subtitle {
+    font-size: 16px;
+    color: #94a3b8;
+    margin-bottom: 24px;
+  }
+  .badge {
+    display: inline-block;
+    background: #0369a1;
+    color: #f0f9ff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-right: 6px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 18px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover {
+    border-color: #38bdf8;
+    transform: translateY(-2px);
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #60a5fa;
+    margin-bottom: 8px;
+  }
+  .card-desc {
+    font-size: 13.5px;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+  }
+  .card-link {
+    display: inline-block;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .card-link:hover {
+    text-decoration: underline;
+  }
+  .callout {
+    background: #0f172a;
+    border-left: 4px solid #38bdf8;
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+    color: #cbd5e1;
+  }
+  .footer-note {
+    font-size: 13px;
+    color: #64748b;
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #1e293b;
+    padding-top: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="post-container">
+  <div class="post-title">🛡️ Omarchy İçin Geliştirdiğim 9 Özgün Siber Güvenlik Eklentisi & 4 Resmi Tema</div>
+  <div class="post-subtitle">
+    <span class="badge">Açık Kaynak</span>
+    <span class="badge">Siber Güvenlik</span>
+    <span class="badge">Linux / Omarchy</span>
+    Yazar: <strong>Ozan Özdil (ozdil)</strong>
+  </div>
+
+  <p>Linux ve açık kaynak dünyasında masaüstü deneyimini bir üst seviyeye taşımak için Omarchy (Arch Linux tabanlı modern masaüstü) ekosistemine özel <strong>9 adet özgün siber güvenlik & geliştirici eklentisi</strong> ile <strong>4 adet resmi masaüstü temasını</strong> geliştirip açık kaynak olarak yayınladım.</p>
+
+  <div class="callout">
+    🚀 Tüm eklentiler resmi <strong>Omarchy Plugin Marketplace</strong> (plugins.omarchy.org) dizinine sunulmuş olup, MIT lisansı ile tamamen ücretsiz ve açık kaynaklıdır.
+  </div>
+
+  <!-- SİBER GÜVENLİK EKLENTİLERİ -->
+  <div class="section-title">🔒 1. Siber Güvenlik, OPSEC & Sistem Kalkanı Eklentileri</div>
+  <div class="card-grid">
+    
+    <div class="card">
+      <div class="card-title">🛡️ BadUSB Shield</div>
+      <div class="card-desc">Sisteme takılan USB donanımları izler. Masum görünen ancak klavye gibi davranan zararlı HID enjeksiyon aygıtlarını (BadUSB / Rubber Ducky) anında tespit eder.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-badusb-shield" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🚨 Auth Watch</div>
+      <div class="card-desc">Sistemdeki başarısız <code>sudo</code> parola denemelerini ve dışarıdan gelen SSH sızma / brute-force girişimlerini canlı izleyerek üst barda anlık uyarı verir.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-auth-watch" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🪤 Tripwire Vault</div>
+      <div class="card-desc">Kritik dizinlere kriptografik kanarya (honey-token) dosyalar yerleştirir. Bir zararlı yazılım veya fidye yazılımı (ransomware) dosyalara dokunduğu anda alarm fırlatır.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-tripwire-vault" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🌐 DNS Leak Guard</div>
+      <div class="card-desc">DNS sorgularınızın İSS'ye açık metin sızıp sızmadığını denetler. DNS-over-TLS (DoT) şifrelemesini doğrulayarak internet gizliliğinizi korur.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-dns-leak-guard" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🎭 Ghost MAC</div>
+      <div class="card-desc">Halka açık Wi-Fi ağlarında (belediye, kafe, havalimanı) donanım MAC adresinizi ve makine adınızı rastgele sahte bir kimlikle maskeleyerek fiziksel takibi engeller.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-ghost-mac" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔒 OpSec Cleaner</div>
+      <div class="card-desc">Sosyal medyaya fotoğraf yüklemeden önce üzerindeki GPS konum koordinatlarını, kamera seri numarasını ve kullanıcı izlerini sıfırlayan dijital hijyen aracı.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-opsec-cleaner" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🛡️ CVE Radar</div>
+      <div class="card-desc">Resmi Arch Linux Security Tracker API'si ile sistemdeki 1,100+ paketi ve SUID yetkili binary'leri tarayarak güvenlik açıklarını barda raporlar.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-cve-radar" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🌐 Cyber Sentinel</div>
+      <div class="card-desc">Dış dünyaya açılan tüm aktif ağ soketlerini canlı izler. Şüpheli ve standart dışı portlara giden bağlantılarda anında tek tıkla süreci sonlandırma imkanı sunar.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-cyber-sentinel" target="_blank">GitHub'da İncele →</a>
+    </div>
+
+  </div>
+
+  <!-- GELİŞTİRİCİ EKLENTİLERİ -->
+  <div class="section-title">⚡ 2. Geliştirici & Çalışma Alanı Eklentileri</div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">⚡ Git Radar</div>
+      <div class="card-desc">Tüm yerel repolarınızı tarar. Günlük commit sayınızı, kaydedilmemiş değişiklik olan repoları ve son 7 günün GitHub tarzı commit ısı haritasını doğrudan barda görselleştirir.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-git-radar" target="_blank">GitHub'da İncele →</a>
+    </div>
+  </div>
+
+  <!-- TEMALAR -->
+  <div class="section-title">🎨 3. Resmi Omarchy Masaüstü Temaları</div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🇹🇷 Türkiye Teması (21 İkonik Mekan)</div>
+      <div class="card-desc">Kapadokya, Göbeklitepe, Pamukkale, Nemrut, Sümela ve Türkiye'nin 21 eşsiz tarihi mekanını 8K vektörel duvar kağıtları ve OLED turkuaz renk paletiyle buluşturur.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-turkiye-theme" target="_blank">GitHub'da İncele →</a>
+    </div>
+    <div class="card">
+      <div class="card-title">🎮 Steam Machine Teması</div>
+      <div class="card-desc">Valve, Half-Life ve retro arcade ruhunu taşıyan karanlık siberpunk oyun teması.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-steammachine-theme" target="_blank">GitHub'da İncele →</a>
+    </div>
+    <div class="card">
+      <div class="card-title">🏛️ Ankara & 🌙 İstanbul Temaları</div>
+      <div class="card-desc">Başkent ve Boğaziçi'nin kadim estetiğini modern Linux masaüstüne taşıyan temalar.</div>
+      <a class="card-link" href="https://github.com/ozdil/omarchy-ankara-theme" target="_blank">GitHub'da İncele →</a>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Tüm projeler açık kaynaklıdır • GitHub: <a href="https://github.com/ozdil" style="color:#38bdf8;" target="_blank">github.com/ozdil</a> • NSosyal: <a href="https://nsosyal.com/ozanozdil" style="color:#38bdf8;" target="_blank">@ozanozdil</a><br>
+    © 2026 Ozan Özdil.
+  </div>
+</div>
+
+</body>
+</html>

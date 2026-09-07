@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultmessages='false' b:layoutsVersion='3' lang='tr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta charset='UTF-8'/>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0' name='viewport'/>
+  <meta content='light dark' name='color-scheme'/>
+  <meta content='#090a0f' id='meta-theme-color' name='theme-color'/>
+  
+  <!-- ============================================================
+       GOOGLE 1. SIRA SEO, INDEXLEME & KNOWLEDGE GRAPH META ETİKETLERİ
+       ============================================================ -->
+  <meta content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' name='robots'/>
+  <meta content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' name='googlebot'/>
+  <meta content='Ozan Özdil' name='author'/>
+  
+  <b:if cond='data:blog.pageType == &quot;index&quot;'>
+    <title>Ozan Özdil</title>
+    <meta content='Ozan Özdil resmi web arşivi. TrueNAS SCALE ve OPNsense ile Zero-Trust homelab altyapısı, CachyOS &amp; Omarchy Linux sistemleri ve Fujifilm GFX orta format fotoğrafçılık.' name='description'/>
+    <meta content='Ozan Özdil, ozan özdil, ozanozdil, The aged linux Gamer, TrueNAS homelab, Zero-Trust mimarisi, CachyOS, Omarchy Linux, Fujifilm GFX 100S, Fujifilm GFX 50R, orta format fotoğrafçılık' name='keywords'/>
+    
+    <!-- Open Graph (Facebook, LinkedIn, Discord) -->
+    <meta content='website' property='og:type'/>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta content='tr_TR' property='og:locale'/>
+    <meta content='Ozan Özdil' property='og:title'/>
+    <meta content='Ozan Özdil resmi web arşivi. TrueNAS SCALE ve OPNsense ile Zero-Trust homelab altyapısı, CachyOS &amp; Omarchy Linux sistemleri ve Fujifilm GFX orta format fotoğrafçılık.' property='og:description'/>
+    <meta expr:content='data:blog.url.canonical' property='og:url'/>
+    
+    <!-- Twitter Kartları -->
+    <meta content='summary_large_image' name='twitter:card'/>
+    <meta content='Ozan Özdil' name='twitter:title'/>
+    <meta content='Ozan Özdil resmi web arşivi. TrueNAS SCALE ve OPNsense ile Zero-Trust homelab altyapısı, CachyOS &amp; Omarchy Linux sistemleri ve Fujifilm GFX orta format fotoğrafçılık.' name='twitter:description'/>
+  <b:elseif cond='data:blog.pageType == &quot;item&quot;'/>
+    <title><data:blog.pageName/> — Ozan Özdil</title>
+    <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : data:blog.pageName + &quot; — Ozan Özdil teknik notlar ve mühendislik arşivi.&quot;' name='description'/>
+    <meta content='article' property='og:type'/>
+    <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta content='tr_TR' property='og:locale'/>
+    <meta expr:content='data:blog.pageName + &quot; — Ozan Özdil&quot;' property='og:title'/>
+    <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : data:blog.pageName' property='og:description'/>
+    <meta expr:content='data:blog.url.canonical' property='og:url'/>
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+      <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+      <meta content='summary_large_image' name='twitter:card'/>
+      <meta expr:content='data:blog.postImageThumbnailUrl' name='twitter:image'/>
+    <b:else/>
+      <meta content='summary' name='twitter:card'/>
+    </b:if>
+    <meta expr:content='data:blog.pageName + &quot; — Ozan Özdil&quot;' name='twitter:title'/>
+    <meta expr:content='data:blog.metaDescription ? data:blog.metaDescription : data:blog.pageName' name='twitter:description'/>
+  <b:else/>
+    <title><data:blog.pageName/> — Ozan Özdil</title>
+  </b:if>
+
+  <link expr:href='data:blog.url.canonical' rel='canonical'/>
+
+  <!-- ============================================================
+       GOOGLE KNOWLEDGE GRAPH ZENGİN VERİ ŞEMASI (JSON-LD @graph)
+       ============================================================ -->
+  <script type='application/ld+json'>
+  {
+    &quot;@context&quot;: &quot;https://schema.org&quot;,
+    &quot;@graph&quot;: [
+      {
+        &quot;@type&quot;: &quot;Person&quot;,
+        &quot;@id&quot;: &quot;https://ozanozdil.com/#person&quot;,
+        &quot;name&quot;: &quot;Ozan Özdil&quot;,
+        &quot;alternateName&quot;: [&quot;ozanozdil&quot;, &quot;The aged linux Gamer&quot;],
+        &quot;url&quot;: &quot;https://ozanozdil.com/&quot;,
+        &quot;jobTitle&quot;: &quot;Sistem Mühendisi &amp; Altyapı Mimarı&quot;,
+        &quot;alumniOf&quot;: {
+          &quot;@type&quot;: &quot;CollegeOrUniversity&quot;,
+          &quot;name&quot;: &quot;Karadeniz Teknik Üniversitesi&quot;
+        },
+        &quot;knowsAbout&quot;: [
+          &quot;Zero-Trust Network Architecture&quot;,
+          &quot;TrueNAS SCALE&quot;,
+          &quot;OPNsense&quot;,
+          &quot;Linux Kernel Optimization&quot;,
+          &quot;CachyOS&quot;,
+          &quot;Omarchy Linux&quot;,
+          &quot;Fujifilm GFX Medium Format Photography&quot;,
+          &quot;Google Antigravity CLI&quot;,
+          &quot;Vulnerability Analysis&quot;
+        ],
+        &quot;sameAs&quot;: [
+          &quot;https://github.com/ozdil&quot;,
+          &quot;https://nsosyal.com/@ozanozdil&quot;,
+          &quot;https://www.flickr.com/photos/204447030@N04/&quot;,
+          &quot;https://www.youtube.com/@TheagedlinuxGamer&quot;
+        ]
+      },
+      {
+        &quot;@type&quot;: &quot;WebSite&quot;,
+        &quot;@id&quot;: &quot;https://ozanozdil.com/#website&quot;,
+        &quot;url&quot;: &quot;https://ozanozdil.com/&quot;,
+        &quot;name&quot;: &quot;Ozan Özdil&quot;,
+        &quot;publisher&quot;: {
+          &quot;@id&quot;: &quot;https://ozanozdil.com/#person&quot;
+        }
+      }
+    ]
+  }
+  </script>
+
+  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+    <script type='application/ld+json'>
+    {
+      &quot;@context&quot;: &quot;https://schema.org&quot;,
+      &quot;@type&quot;: &quot;BlogPosting&quot;,
+      &quot;headline&quot;: &quot;<data:blog.pageName/>&quot;,
+      &quot;url&quot;: &quot;<data:blog.url.canonical/>&quot;,
+      &quot;author&quot;: {
+        &quot;@type&quot;: &quot;Person&quot;,
+        &quot;name&quot;: &quot;Ozan Özdil&quot;,
+        &quot;url&quot;: &quot;https://ozanozdil.com/&quot;
+      },
+      &quot;publisher&quot;: {
+        &quot;@type&quot;: &quot;Person&quot;,
+        &quot;name&quot;: &quot;Ozan Özdil&quot;
+      }
+    }
+    </script>
+  </b:if>
+
+  <!-- MODERN ÇİFT TİPOGRAFİ (Plus Jakarta Sans + JetBrains Mono) -->
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
+
+  <!-- ANLIK TEMA TESPİTİ (FOUC Önleyici) -->
+  <script type='text/javascript'>
+    //<![CDATA[
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'light' || (!saved && !prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+    //]]>
+  </script>
+
+  <b:skin><![CDATA[
+    :root {
+      color-scheme: dark;
+      
+      --bg-primary: #090a0f;
+      --bg-secondary: #12141c;
+      --bg-card: rgba(18, 20, 28, 0.75);
+      --bg-card-hover: rgba(26, 29, 41, 0.9);
+      --bg-glass: rgba(9, 10, 15, 0.88);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-tertiary: #64748b;
+      
+      --accent-cyan: #38bdf8;
+      --accent-emerald: #10b981;
+      --code-bg: #0f1118;
+      --selection-bg: #38bdf8;
+      --selection-text: #090a0f;
+      
+      --font-ui: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme='light'] {
+      color-scheme: light;
+      
+      --bg-primary: #fafbfc;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --bg-glass: rgba(250, 251, 252, 0.92);
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-tertiary: #94a3b8;
+      
+      --accent-cyan: #0284c7;
+      --accent-emerald: #059669;
+      --code-bg: #f1f5f9;
+      --selection-bg: #0284c7;
+      --selection-text: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      background-image: radial-gradient(ellipse at 50% -10%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+      background-attachment: fixed;
+    }
+
+    @keyframes scrollIndicator {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    .scroll-progress-line {
+      position: fixed; top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald));
+      transform-origin: 0 50%; z-index: 10000;
+      animation: scrollIndicator auto linear; animation-timeline: scroll();
+    }
+
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.22s; }
+    ::selection { background: var(--selection-bg); color: var(--selection-text); }
+    :focus-visible { outline: 2px solid var(--accent-cyan); outline-offset: 3px; }
+
+    /* TELEMETRİ BARI */
+    .telemetry-banner {
+      background: var(--bg-secondary); border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-secondary); padding: 6px 0;
+    }
+    .telemetry-inner {
+      max-width: 1320px; width: 92%; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    }
+    .telemetry-item { display: inline-flex; align-items: center; gap: 6px; }
+    .status-dot-pulse {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent-emerald);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.8); animation: pulseAnim 2s infinite;
+    }
+    @keyframes pulseAnim {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* HEADER */
+    header {
+      position: sticky; top: 0; z-index: 999;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-container {
+      max-width: 1320px; width: 92%; margin: 0 auto; padding: 12px 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 15px;
+    }
+    
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-logo {
+      font-size: 1.35rem; font-weight: 800; letter-spacing: -0.5px;
+      color: var(--text-primary); text-decoration: none;
+    }
+    .brand-tag {
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700;
+      background: rgba(56, 189, 248, 0.12); color: var(--accent-cyan);
+      padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .cli-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.75rem;
+      padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: all 0.2s;
+    }
+    .cli-pill:hover { border-color: var(--accent-cyan); color: var(--text-primary); }
+    .kbd-key {
+      background: var(--border-subtle); color: var(--text-primary);
+      padding: 1px 5px; border-radius: 3px; font-size: 0.68rem;
+    }
+
+    .theme-button {
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      color: var(--text-primary); border-radius: 6px; padding: 6px 12px;
+      font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+    }
+    .theme-button:hover { border-color: var(--text-primary); }
+
+    /* ============================================================
+       HEADER NAVİGASYONU & SEKMELER (MİNİMALİST MONO TABS)
+       ============================================================ */
+    .header-nav {
+      display: flex; align-items: center; gap: 4px;
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 4px;
+    }
+    .nav-item {
+      appearance: none; -webkit-appearance: none;
+      background: transparent; border: 1px solid transparent;
+      color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.8rem;
+      font-weight: 600; padding: 6px 14px; border-radius: 6px; cursor: pointer;
+      transition: all 0.18s ease; text-decoration: none; white-space: nowrap;
+    }
+    .nav-item:hover { color: var(--text-primary); }
+    .nav-item.active {
+      background: var(--bg-card); color: var(--accent-cyan);
+      border-color: var(--border-strong); font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* SEKME İÇERİK PANELLERİ */
+    .main-wrap { max-width: 1320px; width: 92%; margin: 0 auto; padding: 30px 0 60px 0; }
+    
+    .tab-pane {
+      display: none;
+      animation: tabFade 0.22s ease-out forwards;
+    }
+    .tab-pane.active { display: block; }
+    @keyframes tabFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* TEKİL POST SAYFASINDA OTOMATİK DÜZEN */
+    body.is-post-page .header-nav { display: none; }
+
+    /* HERO & BENTO */
+    .hero-box { margin-bottom: 50px; }
+    .hero-eyebrow {
+      font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700;
+      color: var(--accent-cyan); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px;
+    }
+    .hero-title {
+      font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.15;
+      letter-spacing: -1.2px; margin: 0 0 18px 0; color: var(--text-primary);
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-secondary);
+      max-width: 840px; line-height: 1.8; margin-bottom: 30px;
+    }
+
+    .bento-grid {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; margin-bottom: 40px;
+    }
+    .bento-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 12px; padding: 26px; backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative; overflow: hidden;
+    }
+    .bento-card:hover {
+      transform: translateY(-3px); border-color: var(--border-strong);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    .bento-card.col-7 { grid-column: span 7; }
+    .bento-card.col-5 { grid-column: span 5; }
+
+    .bento-icon {
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+      display: inline-block; padding: 4px 10px; border-radius: 6px;
+      margin-bottom: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-subtle);
+    }
+    .bento-title { font-size: 1.25rem; font-weight: 700; margin: 0 0 10px 0; color: var(--text-primary); }
+    .bento-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; margin: 0 0 16px 0; }
+    .bento-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .b-tag {
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600;
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      padding: 3px 8px; border-radius: 4px; color: var(--text-secondary);
+    }
+
+    .section-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 30px;
+    }
+    .section-head h2 {
+      font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; margin: 0; color: var(--text-primary);
+    }
+    .section-head h2 span { font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 400; }
+
+    /* BLOG KARTLARI */
+    .archive-select-box {
+      width: 100%; padding: 14px; border: 1px solid var(--border-subtle); border-radius: 8px;
+      background: var(--bg-secondary); color: var(--text-primary); font-family: var(--font-mono);
+      font-weight: 700; margin-bottom: 25px; outline: none;
+    }
+
+    .article-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 10px; padding: 30px; margin-bottom: 25px; transition: border-color 0.2s, transform 0.2s;
+    }
+    .article-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+    .article-date {
+      font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
+      color: var(--accent-cyan); display: inline-block; margin-bottom: 12px;
+    }
+    .article-title {
+      font-size: 1.6rem; font-weight: 800; line-height: 1.35; color: var(--text-primary) !important;
+      text-decoration: none; display: block; margin-bottom: 16px; letter-spacing: -0.4px;
+    }
+    .article-title:hover { color: var(--accent-cyan) !important; }
+    .article-content { color: var(--text-secondary); line-height: 1.85; font-size: 1.02rem; }
+    .article-content img {
+      max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-subtle); margin: 25px 0;
+    }
+    .article-content a { color: var(--accent-cyan); text-decoration: underline; text-underline-offset: 4px; }
+
+    pre {
+      background: var(--code-bg); border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 20px; font-family: var(--font-mono);
+      font-size: 0.88rem; overflow-x: auto; margin: 25px 0;
+    }
+    code { font-family: var(--font-mono); }
+
+    .page-nav { display: flex; justify-content: space-between; margin-top: 40px; }
+    .nav-btn {
+      font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700;
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      color: var(--text-primary) !important; text-decoration: none; padding: 10px 18px; border-radius: 6px;
+      transition: all 0.2s; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .nav-btn:hover { border-color: var(--text-primary); }
+
+    /* FOTOĞRAF GALERİSİ */
+    #album-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 24px; margin-bottom: 30px;
+    }
+    .gallery-album-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px;
+      padding: 12px; cursor: pointer; transition: all 0.25s ease;
+    }
+    .gallery-album-card:hover {
+      transform: translateY(-4px); border-color: var(--accent-cyan);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .gallery-album-card img {
+      width: 100%; height: 200px; object-fit: cover; border-radius: 6px;
+      border: 1px solid var(--border-subtle); aspect-ratio: 16/10;
+    }
+    .gallery-album-title {
+      font-size: 0.95rem; font-weight: 700; margin-top: 12px; text-align: center;
+    }
+
+    #photos-container {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 25px;
+    }
+    .photo-cell {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 10px; padding: 12px; transition: transform 0.2s, border-color 0.2s;
+    }
+    .photo-cell:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+    .photo-cell img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px;
+      cursor: zoom-in; display: block; background: var(--bg-secondary);
+    }
+    .exif-telemetry-hud {
+      margin-top: 12px; background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      border-radius: 6px; padding: 8px 12px; font-family: var(--font-mono); font-size: 0.72rem;
+      color: var(--text-secondary); line-height: 1.5; min-height: 48px;
+    }
+    .exif-cam { color: var(--text-primary); font-weight: 700; display: block; margin-bottom: 2px; }
+
+    /* NATIVE MODAL */
+    dialog.photo-modal-native {
+      border: none; padding: 0; background: transparent; max-width: 95vw; max-height: 95vh;
+      color: var(--text-primary); overflow: visible;
+      transition: opacity 0.25s ease, transform 0.25s ease, overlay 0.25s ease allow-discrete, display 0.25s ease allow-discrete;
+      opacity: 0; transform: scale(0.96);
+    }
+    dialog.photo-modal-native[open] { opacity: 1; transform: scale(1); }
+    @starting-style {
+      dialog.photo-modal-native[open] { opacity: 0; transform: scale(0.96); }
+    }
+    dialog.photo-modal-native::backdrop {
+      background-color: rgba(0, 0, 0, 0.88); backdrop-filter: blur(12px);
+      transition: background-color 0.25s ease, backdrop-filter 0.25s ease, overlay 0.25s ease allow-discrete, display 0.25s ease allow-discrete;
+    }
+    .modal-frame { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .modal-frame img {
+      max-width: 92vw; max-height: 75vh; object-fit: contain; border-radius: 8px;
+      border: 1px solid var(--border-subtle); box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+    .modal-bottom-hud {
+      margin-top: 16px; background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      border-radius: 8px; padding: 12px 20px; width: 100%; max-width: 650px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+    }
+    .modal-hud-text { font-family: var(--font-mono); font-size: 0.8rem; }
+    .modal-hud-controls { display: flex; gap: 8px; }
+    .hud-control-btn {
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700;
+      background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-primary);
+      padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: all 0.15s;
+    }
+    .hud-control-btn:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+    .modal-close-round {
+      position: absolute; top: -14px; right: -14px; background: var(--text-primary); color: var(--bg-primary);
+      border: none; border-radius: 50%; width: 32px; height: 32px; font-weight: 800; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+
+    dialog.cli-palette {
+      background: var(--bg-secondary); border: 1px solid var(--border-strong);
+      border-radius: 12px; width: 92vw; max-width: 620px; color: var(--text-primary);
+      padding: 0; box-shadow: 0 25px 60px rgba(0,0,0,0.6); overflow: hidden;
+    }
+    .cli-bar {
+      background: var(--bg-primary); border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 18px; display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-mono); font-size: 0.8rem;
+    }
+    .cli-content { padding: 18px; font-family: var(--font-mono); font-size: 0.85rem; }
+    .cli-log {
+      max-height: 320px; overflow-y: auto; margin-bottom: 15px; white-space: pre-wrap; line-height: 1.6;
+    }
+    .cli-input-wrapper { display: flex; align-items: center; gap: 10px; }
+    .cli-prefix { color: var(--accent-emerald); font-weight: 800; }
+    .cli-type-input {
+      width: 100%; background: transparent; border: none; outline: none;
+      color: var(--text-primary); font-family: var(--font-mono); font-size: 0.9rem;
+    }
+
+    .form-box {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 12px; padding: 35px; max-width: 680px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+      color: var(--text-secondary); margin-bottom: 8px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 14px 16px; border: 1px solid var(--border-subtle);
+      border-radius: 8px; background: var(--bg-secondary); color: var(--text-primary);
+      font-family: inherit; font-size: 0.95rem; outline: none; transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent-cyan); }
+    .submit-cta {
+      font-family: var(--font-mono); font-weight: 700; font-size: 0.95rem;
+      background: var(--text-primary); color: var(--bg-primary); border: none;
+      padding: 14px 28px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s; width: 100%;
+    }
+    .submit-cta:hover { opacity: 0.9; }
+
+    .resume-container {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 12px; padding: 35px; margin-bottom: 30px;
+    }
+    .resume-section-item { margin-bottom: 32px; }
+    .resume-section-item:last-child { margin-bottom: 0; }
+    .resume-title {
+      font-size: 1.25rem; font-weight: 700; color: var(--text-primary);
+      border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; margin: 0 0 14px 0;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .resume-title span { font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 400; font-size: 1rem; }
+    .resume-text {
+      color: var(--text-secondary); line-height: 1.85; font-size: 1.02rem; margin: 0;
+    }
+    .resume-text strong { color: var(--text-primary); }
+    .skills-cluster {
+      margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .skill-badge {
+      background: var(--bg-secondary); border: 1px solid var(--border-subtle);
+      color: var(--text-primary); padding: 8px 16px; border-radius: 20px;
+      font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+      transition: all 0.2s ease; cursor: default;
+    }
+    
+    .social-links-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;
+      margin-bottom: 35px;
+    }
+    .social-card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+      text-decoration: none; color: var(--text-primary); transition: all 0.2s ease;
+    }
+    .social-card:hover {
+      border-color: var(--accent-cyan); transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .social-icon { color: var(--accent-cyan); flex-shrink: 0; }
+    .social-meta { display: flex; flex-direction: column; }
+    .social-label { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+    .social-val { font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-tertiary); }
+
+    .skill-badge:hover {
+      background: var(--text-primary); color: var(--bg-primary); border-color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+
+    footer {
+      border-top: 1px solid var(--border-subtle); padding: 50px 0; text-align: center;
+      font-size: 0.88rem; color: var(--text-tertiary);
+    }
+    .footer-inner { max-width: 1320px; width: 92%; margin: 0 auto; }
+
+    @media (max-width: 960px) {
+      .bento-card.col-7, .bento-card.col-5 { grid-column: span 12; }
+      .brand-tag { display: none; }
+      .header-nav { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; }
+      .header-nav::-webkit-scrollbar { display: none; }
+      .nav-item { flex: 1 1 auto; text-align: center; padding: 6px 10px; font-size: 0.75rem; }
+    }
+  ]]></b:skin>
+</head>
+
+<body expr:class='data:blog.pageType == &quot;item&quot; ? &quot;is-post-page&quot; : &quot;&quot;'>
+  <!-- GPU İlerleme Çubuğu -->
+  <div class='scroll-progress-line'/>
+
+  <!-- CANLI TELEMETRİ BARI -->
+  <div class='telemetry-banner'>
+    <div class='telemetry-inner'>
+      <div class='telemetry-item'>
+        <span class='status-dot-pulse'/>
+        <span>Kastamonu, TR [41.38&#176;N 33.77&#176;E]</span>
+      </div>
+      <div class='telemetry-item'>
+        <span>KERNEL: Linux (CachyOS &amp; Omarchy) &#8226; TrueNAS SCALE Homelab [ozdil.cloud]</span>
+      </div>
+      <div class='telemetry-item'>
+        <span>OPTICS: Fujifilm GFX 100S / 50R</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER & NAVİGASYON -->
+  <header>
+    <div class='header-container'>
+      <div class='brand'>
+        <a class='brand-logo' href='/'>ozan özdil</a>
+        <span class='brand-tag'>SYS_ENG / GFX</span>
+      </div>
+
+      <nav aria-label='Bölüm Gezintisi' class='header-nav' role='tablist'>
+        <button aria-selected='true' class='nav-item active' data-tab='altyapi' onclick='switchTab(&quot;altyapi&quot;)' role='tab'>~/altyapı</button>
+        <button aria-selected='false' class='nav-item' data-tab='ozgecmis' onclick='switchTab(&quot;ozgecmis&quot;)' role='tab'>~/özgeçmiş</button>
+        <button aria-selected='false' class='nav-item' data-tab='gunluk' onclick='switchTab(&quot;gunluk&quot;)' role='tab'>~/günlük</button>
+        <button aria-selected='false' class='nav-item' data-tab='fotograflar' onclick='switchTab(&quot;fotograflar&quot;)' role='tab'>~/fotoğraflar</button>
+        <button aria-selected='false' class='nav-item' data-tab='iletisim' onclick='switchTab(&quot;iletisim&quot;)' role='tab'>~/iletişim</button>
+      </nav>
+
+      <div class='header-actions'>
+        <button aria-label='Komut Konsolu' class='cli-pill' onclick='openCLI()'>
+          <span>&gt;_ CLI</span> <span class='kbd-key'>Ctrl+K</span>
+        </button>
+        <button aria-label='Koyu/Açık Tema' class='theme-button' id='themeBtn' onclick='toggleTheme()'>MOD</button>
+      </div>
+    </div>
+  </header>
+
+  <main class='main-wrap'>
+    
+    <!-- ============================================================
+         SEKME 1: ALTYAPI & HOMELAB BENTO MİMARİSİ
+         ============================================================ -->
+    <section aria-labelledby='tab-altyapi-head' class='tab-pane active' id='tab-altyapi' role='tabpanel'>
+      <div class='hero-box'>
+        <h1 class='hero-title' id='tab-altyapi-head'>ozan özdil</h1>
+        <p class='hero-subtitle'>sistem mühendisliği &#8226; homelab &#8226; orta format</p>
+      </div>
+
+      <div class='bento-grid'>
+        <div class='bento-card col-7'>
+          <span class='bento-icon'>INFRASTRUCTURE</span>
+          <h3 class='bento-title'>TrueNAS SCALE, OPNsense &amp; Zero-Trust Topoloji</h3>
+          <p class='bento-desc'>
+            Dijital egemenlik (digital sovereignty) ilkeleriyle kurulan <strong>ozdil.cloud</strong> altyapısı. Kapsüllenmiş (containerized) mikroservisler (Nextcloud, Vaultwarden, Immich), izole VLAN topolojileri ve Zero-Trust tünellerle korunan yerel homelab.
+          </p>
+          <div class='bento-tags'>
+            <span class='b-tag'>TrueNAS SCALE</span>
+            <span class='b-tag'>OPNsense</span>
+            <span class='b-tag'>Omada SDN</span>
+            <span class='b-tag'>Docker</span>
+            <span class='b-tag'>WireGuard</span>
+          </div>
+        </div>
+
+        <div class='bento-card col-5'>
+          <span class='bento-icon'>OPTICS &amp; COLOR</span>
+          <h3 class='bento-title'>Fujifilm GFX Orta Format Arşivi</h3>
+          <p class='bento-desc'>
+            102 MP GFX 100S ve 50R geniş dinamik aralıklı sensörlerle profesyonel belgeleme. DaVinci Resolve Studio ve Photomator üzerinde 16-bit RAW dijital karanlık oda süreçleri.
+          </p>
+          <div class='bento-tags'>
+            <span class='b-tag'>GFX 100S</span>
+            <span class='b-tag'>GFX 50R</span>
+            <span class='b-tag'>16-bit RAW</span>
+            <span class='b-tag'>DaVinci Studio</span>
+          </div>
+        </div>
+
+        <div class='bento-card col-5'>
+          <span class='bento-icon'>SIMULATION &amp; OS</span>
+          <h3 class='bento-title'>CachyOS, Omarchy &amp; Düşük Gecikmeli Sim Racing</h3>
+          <p class='bento-desc'>
+            BORE scheduler optimize CachyOS ve Omarchy Linux çekirdekleri üzerinde, Wayland ortamında telemetri odaklı simülasyon (ACC / AMS2). YouTube'da <strong>&quot;The aged linux Gamer&quot;</strong> platformu.
+          </p>
+          <div class='bento-tags'>
+            <span class='b-tag'>CachyOS</span>
+            <span class='b-tag'>Omarchy</span>
+            <span class='b-tag'>Wayland</span>
+            <span class='b-tag'>Steam Deck</span>
+            <span class='b-tag'>Telemetry</span>
+          </div>
+        </div>
+
+        <div class='bento-card col-7'>
+          <span class='bento-icon'>HOMELAB &amp; AI</span>
+          <h3 class='bento-title'>Akıllı Homelab &amp; Yapay Zekâ Analitiği</h3>
+          <p class='bento-desc'>
+            Yerel altyapı yönetiminde zafiyet analizi (vulnerability scanning), ağ anomalisi tespiti ve sistem otomasyonlarında <strong>Google Antigravity CLI</strong> ve açık kaynaklı ileri karar destek modelleri.
+          </p>
+          <div class='bento-tags'>
+            <span class='b-tag'>Sistem Mühendisi</span>
+            <span class='b-tag'>Homelab Güvenliği</span>
+            <span class='b-tag'>Google Antigravity</span>
+            <span class='b-tag'>Zafiyet Analizi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEKME: ÖZGEÇMİŞ & PROFESYONEL BİYOGRAFİ
+         ============================================================ -->
+    <section aria-labelledby='tab-ozgecmis-head' class='tab-pane' id='tab-ozgecmis' role='tabpanel'>
+      <div class='section-head'>
+        <h2 id='tab-ozgecmis-head'><span>01.</span> Profesyonel Profil, Biyografi &amp; Beceriler</h2>
+      </div>
+
+      <div class='resume-container'>
+        <div class='resume-section-item'>
+          <h3 class='resume-title'><span>&gt;</span> Profesyonel Profil &amp; Akademik Eğitim</h3>
+          <p class='resume-text'>
+            Karadeniz Teknik Üniversitesi Orman Mühendisliği mezunuyum ve bilgisayar programcılığı alanında akademik eğitimime devam ediyorum. Bilgi sistemleri, teknolojik altyapı inşası ve kurumsal Ar-Ge projelerinin yönetiminde <strong>mühendis</strong> olarak aktif rol alıyor; mühendislik disiplinini modern yazılım ve sistem mimarisi ilkeleriyle birleştiriyorum.
+          </p>
+        </div>
+
+        <div class='resume-section-item'>
+          <h3 class='resume-title'><span>&gt;</span> Sistem Mimarisi, Ağ Güvenliği &amp; YZ Otomasyonu</h3>
+          <p class='resume-text'>
+            Dijital egemenlik (digital sovereignty) ve açık kaynak felsefesini temel alarak kendi altyapılarımı inşa ediyorum. OPNsense ve Omada tabanlı ağ topolojimde (<strong>ozdil.cloud</strong>) Sıfır Güven (Zero-Trust) mimarisini uyguluyor, TrueNAS SCALE homelab sunucumda kapsüllenmiş (containerized) mikroservisler (Nextcloud, Vaultwarden, Immich) barındırıyorum.<br/><br/>
+            İşletim sistemi (<strong>CachyOS ve Omarchy Linux</strong>) optimizasyonlarında, kernel parametrelerinin ince ayarında ve ağ güvenliği taramalarında <strong>Google Antigravity CLI</strong> gibi gelişmiş yapay zekâ modellemelerini aktif olarak kullanıyorum. YZ&#39;yi salt bir araç olarak değil; anomali tespiti (anomaly detection), zafiyet analizi (vulnerability scanning) ve heuristik sistem iyileştirmelerinde karar destek mekanizması olarak konumlandırıyorum.
+          </p>
+        </div>
+
+        <div class='resume-section-item'>
+          <h3 class='resume-title'><span>&gt;</span> Dijital Prodüksiyon &amp; Orta Format Fotoğrafçılık</h3>
+          <p class='resume-text'>
+            Görsel hikaye anlatıcılığını mühendislik disipliniyle birleştiriyorum. Profesyonel çekim projelerimde yüksek dinamik aralığa sahip orta format <strong>Fujifilm GFX 100S</strong> ve <strong>GFX 50R</strong> sensörlerini kullanıyorum. Dijital karanlık oda (RAW işleme) ve renk derecelendirme (color grading) süreçlerini DaVinci Resolve Studio ve Photomator ekosistemlerinde yürütüyorum.
+          </p>
+        </div>
+
+        <div class='resume-section-item'>
+          <h3 class='resume-title'><span>&gt;</span> Simülasyon &amp; Linux Oyunculuğu</h3>
+          <p class='resume-text'>
+            Gelişmiş Wayland pencere yöneticileri üzerinde düşük gecikmeli (low-latency) oyun deneyimi üzerine deneysel çalışmalar yapıyorum. YouTube&#39;da <strong>&quot;The aged linux Gamer&quot;</strong> kanalı üzerinden Assetto Corsa Competizione ve Automobilista 2 gibi telemetri yoğun simülasyonları Linux ve Steam Deck ekosisteminde test ediyor, optimizasyon rehberleri üretiyorum.
+          </p>
+        </div>
+
+        <div class='skills-cluster'>
+          <span class='skill-badge'>Mühendis</span>
+          <span class='skill-badge'>KTÜ Mezunu</span>
+          <span class='skill-badge'>Yapay Zekâ (AI) Entegrasyonu</span>
+          <span class='skill-badge'>Siber Güvenlik &amp; Zafiyet Analizi</span>
+          <span class='skill-badge'>Google Antigravity CLI</span>
+          <span class='skill-badge'>Linux (CachyOS &amp; Omarchy)</span>
+          <span class='skill-badge'>Wayland &amp; BORE Scheduler</span>
+          <span class='skill-badge'>TrueNAS SCALE / Docker</span>
+          <span class='skill-badge'>OPNsense &amp; Zero-Trust Ağlar</span>
+          <span class='skill-badge'>Fujifilm GFX 100S / 50R</span>
+          <span class='skill-badge'>DaVinci Resolve Studio</span>
+          <span class='skill-badge'>Sim Racing (ACC / AMS2)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEKME 2: GÜNLÜK (BLOG & TEKNİK YAZILAR)
+         ============================================================ -->
+    <section aria-labelledby='tab-gunluk-head' class='tab-pane' id='tab-gunluk' role='tabpanel'>
+      <div class='section-head'>
+        <h2 id='tab-gunluk-head'><span>01.</span> Mühendislik Günlüğü &amp; Notlar</h2>
+      </div>
+
+      <b:section id='sidebar-archive' showaddelement='no'>
+        <b:widget id='BlogArchive1' locked='false' title='Arşiv' type='BlogArchive' version='1'>
+          <b:widget-settings>
+            <b:widget-setting name='showStyle'>HIERARCHY</b:widget-setting>
+            <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+            <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+            <b:widget-setting name='monthPattern'>MMMM</b:widget-setting>
+            <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+            <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+            <b:widget-setting name='chronological'>false</b:widget-setting>
+            <b:widget-setting name='showPosts'>true</b:widget-setting>
+            <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <select aria-label='Yazı Arşivi' class='archive-select-box' onchange='if(this.value) location.href=this.value;'>
+              <option value=''>~/geçmiş_yazıları_filtrele...</option>
+              <b:loop values='data:data' var='i'>
+                <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
+              </b:loop>
+            </select>
+          </b:includable>
+          <b:includable id='flat' var='data'><ul class='flat'><b:loop values='data:data' var='i'><li class='archivedate'><a expr:href='data:i.url'><data:i.name/></a> (<data:i.post-count/>)</li></b:loop></ul></b:includable>
+          <b:includable id='interval' var='intervalData'><b:loop values='data:intervalData' var='interval'><ul class='hierarchy'><li expr:class='&quot;archivedate &quot; + data:interval.expclass'><b:include cond='data:interval.toggleId' data='interval' name='toggle'/><a class='post-count-link' expr:href='data:interval.url'><data:interval.name/></a><span class='post-count' dir='ltr'>(<data:interval.post-count/>)</span><b:include cond='data:interval.data' data='interval.data' name='interval'/><b:include cond='data:interval.posts' data='interval.posts' name='posts'/></li></ul></b:loop></b:includable>
+          <b:includable id='menu' var='data'><select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'><option value=''><data:title/></option><b:loop values='data:data' var='i'><option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option></b:loop></select></b:includable>
+          <b:includable id='posts' var='posts'><ul class='posts'><b:loop values='data:posts' var='post'><li><a expr:href='data:post.url'><data:post.title/></a></li></b:loop></ul></b:includable>
+          <b:includable id='toggle' var='interval'><a class='toggle' href='javascript:void(0)'><span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'><b:if cond='data:interval.expclass == &quot;expanded&quot;'>&#9660;&#160;<b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>&#9668;&#160;<b:else/>&#9658;&#160;</b:if></span></a></b:includable>
+        </b:widget>
+      </b:section>
+
+      <b:section id='blog-posts' showaddelement='yes'>
+        <b:widget id='Blog1' locked='true' title='Blog Kayıtları' type='Blog' version='1'>
+          <b:widget-settings>
+            <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+            <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+            <b:widget-setting name='showAuthor'>true</b:widget-setting>
+            <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+            <b:widget-setting name='reactionsLabel'/>
+            <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+            <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+            <b:widget-setting name='showLabels'>true</b:widget-setting>
+            <b:widget-setting name='showLocation'>true</b:widget-setting>
+            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+            <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+            <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+            <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+            <b:widget-setting name='showReactions'>false</b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <b:loop values='data:posts' var='post'>
+              <article class='article-card'>
+                <span class='article-date'><data:post.dateHeader/></span>
+                <a class='article-title' expr:href='data:post.url'><data:post.title/></a>
+                <div class='article-content'><data:post.body/></div>
+              </article>
+            </b:loop>
+            
+            <div class='page-nav'>
+              <b:if cond='data:newerPageUrl'>
+                <a class='nav-btn' expr:href='data:newerPageUrl'>&lt; Daha Yeni</a>
+              <b:else/>
+                <span/>
+              </b:if>
+              <b:if cond='data:olderPageUrl'>
+                <a class='nav-btn' expr:href='data:olderPageUrl'>Daha Eski &gt;</a>
+              </b:if>
+            </div>
+          </b:includable>
+          <b:includable id='backlinkDeleteIcon' var='backlink'/>
+          <b:includable id='backlinks' var='post'/>
+          <b:includable id='comment-form' var='post'/>
+          <b:includable id='commentDeleteIcon' var='comment'/>
+          <b:includable id='comment_count_picker' var='post'/>
+          <b:includable id='comment_picker' var='post'/>
+          <b:includable id='comments' var='post'/>
+          <b:includable id='feedLinks'/>
+          <b:includable id='feedLinksBody' var='links'/>
+          <b:includable id='iframe_comments' var='post'/>
+          <b:includable id='mobile-index-post' var='post'/>
+          <b:includable id='mobile-main' var='top'/>
+          <b:includable id='mobile-nextprev'/>
+          <b:includable id='mobile-post' var='post'/>
+          <b:includable id='nextprev'/>
+          <b:includable id='post' var='post'/>
+          <b:includable id='postQuickEdit' var='post'/>
+          <b:includable id='shareButtons' var='post'/>
+          <b:includable id='status-message'/>
+          <b:includable id='threaded-comment-form' var='post'/>
+          <b:includable id='threaded_comment_js' var='post'/>
+          <b:includable id='threaded_comments' var='post'/>
+        </b:widget>
+      </b:section>
+    </section>
+
+    <!-- ============================================================
+         SEKME 3: FOTOĞRAFLAR (FUJIFILM GFX ARŞİVİ)
+         ============================================================ -->
+    <section aria-labelledby='tab-foto-head' class='tab-pane' id='tab-fotograflar' role='tabpanel'>
+      <div class='section-head'>
+        <h2 id='tab-foto-head'><span>02.</span> Fujifilm GFX Orta Format Arşivi</h2>
+        <a class='nav-btn' href='https://www.flickr.com/photos/204447030@N04/' rel='noopener noreferrer' target='_blank'>Flickr Profili [↗]</a>
+      </div>
+
+      <div id='album-view'>
+        <div id='album-grid'>/API telemetrisi kuruluyor...</div>
+      </div>
+      
+      <div id='photo-view' style='display:none;'>
+        <button class='nav-btn' onclick='showAlbums()' style='margin-bottom:25px;'>&lt; Albümlere Dön</button>
+        <div id='photos-container'/>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEKME 4: İLETİŞİM
+         ============================================================ -->
+    <section aria-labelledby='tab-iletisim-head' class='tab-pane' id='tab-iletisim' role='tabpanel'>
+      <div class='section-head'>
+        <h2 id='tab-iletisim-head'><span>03.</span> İletişim &amp; Doğrudan Bağlantı</h2>
+      </div>
+
+      <div class='form-box'>
+        <form action='https://formspree.io/f/mqakpjne' method='POST'>
+          <div class='form-group'>
+            <label for='user-name'>&gt; AD SOYAD</label>
+            <input id='user-name' name='name' placeholder='Adınız ve Soyadınız' required='required' type='text'/>
+          </div>
+          <div class='form-group'>
+            <label for='user-email'>&gt; E-POSTA</label>
+            <input id='user-email' name='email' placeholder='ornek@alanadi.com' required='required' type='email'/>
+          </div>
+          <div class='form-group'>
+            <label for='user-message'>&gt; MESAJ</label>
+            <textarea id='user-message' name='message' placeholder='Mesajınızı buraya bırakabilirsiniz...' required='required' rows='5'/>
+          </div>
+          <button class='submit-cta' type='submit'>&gt;_ İLETİYİ GÖNDER</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NATIVE <dialog> FOTOĞRAF MODALİ -->
+  <dialog aria-label='Fotoğraf Detayı' class='photo-modal-native' id='photoModal'>
+    <div class='modal-frame'>
+      <button aria-label='Kapat' class='modal-close-round' onclick='closePhotoModal()'>&#215;</button>
+      <img alt='Fotoğraf Detayı' id='photoModalImg' src=''/>
+      <div class='modal-bottom-hud'>
+        <div class='modal-hud-text' id='photoModalExif'>Telemetri okunuyor...</div>
+        <div class='modal-hud-controls'>
+          <button class='hud-control-btn' onclick='shiftPhoto(-1)'>&#8592; Önceki</button>
+          <button class='hud-control-btn' onclick='shiftPhoto(1)'>Sonraki &#8594;</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- CLI COMMAND PALETTE DIALOG -->
+  <dialog aria-label='Komut Konsolu' class='cli-palette' id='cliDialog'>
+    <div class='cli-bar'>
+      <span>ozan@ozdil-core:~$</span>
+      <button class='hud-control-btn' onclick='closeCLI()'>Esc</button>
+    </div>
+    <div class='cli-content'>
+      <div class='cli-log' id='cliLog'>Ozan Özdil Terminal Arayüzü v3.2
+Yardım için 'help' yazabilirsiniz.
+--------------------------------------------</div>
+      <div class='cli-input-wrapper'>
+        <span class='cli-prefix'>&gt;</span>
+        <input autocomplete='off' class='cli-type-input' id='cliCommand' placeholder='komut girin...' type='text'/>
+      </div>
+    </div>
+  </dialog>
+
+  <footer>
+    <div class='footer-inner'>
+      <p>&#169; <span id='currentYear'>2026</span> Ozan Özdil. Sistem Mühendisi &amp; Fotoğrafçı.</p>
+      <p style='font-family:var(--font-mono); font-size:0.75rem; color:var(--text-tertiary); margin-top:8px;'>
+        Built with Native Web Standards &#8226; Zero External JS Dependencies &#8226; Hosted on Blogger Core
+      </p>
+    </div>
+  </footer>
+
+  <!-- SIFIR BAĞIMLILIKLI MODERN JS MOTORU -->
+  <script type='text/javascript'>
+  //<![CDATA[
+    document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+    // ============================================
+    // SEKMELİ YAPI KONTROL MOTORU (TAB SWITCHER)
+    // ============================================
+    function switchTab(tabId) {
+      var validTabs = ['altyapi', 'ozgecmis', 'gunluk', 'fotograflar', 'iletisim'];
+      if (validTabs.indexOf(tabId) === -1) return;
+
+      function renderTab() {
+        var panes = document.querySelectorAll('.tab-pane');
+        for (var i = 0; i < panes.length; i++) {
+          panes[i].classList.remove('active');
+        }
+
+        var triggers = document.querySelectorAll('.nav-item');
+        for (var j = 0; j < triggers.length; j++) {
+          var isCurrent = triggers[j].getAttribute('data-tab') === tabId;
+          triggers[j].classList.toggle('active', isCurrent);
+          triggers[j].setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+        }
+
+        var activePane = document.getElementById('tab-' + tabId);
+        if (activePane) activePane.classList.add('active');
+
+        if (window.location.hash !== '#' + tabId) {
+          history.replaceState(null, '', '#' + tabId);
+        }
+      }
+
+      if (document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.startViewTransition(renderTab);
+      } else {
+        renderTab();
+      }
+    }
+
+    // URL Hash veya Post Sayfasına Göre Otomatik Sekme Seçimi
+    window.addEventListener('DOMContentLoaded', function() {
+      var hash = window.location.hash.replace('#', '');
+      var isPost = document.body.classList.contains('is-post-page');
+      
+      if (isPost) {
+        switchTab('gunluk');
+      } else if (['altyapi', 'ozgecmis', 'gunluk', 'fotograflar', 'iletisim'].indexOf(hash) !== -1) {
+        switchTab(hash);
+      } else {
+        switchTab('altyapi');
+      }
+    });
+
+    // ============================================
+    // VIEW TRANSITIONS API İLE TEMA YÖNETİMİ
+    // ============================================
+    var themeBtn = document.getElementById('themeBtn');
+    var metaTheme = document.getElementById('meta-theme-color');
+
+    function syncThemeUI() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (themeBtn) themeBtn.innerText = isDark ? 'MOD: KOYU' : 'MOD: AÇIK';
+      if (metaTheme) metaTheme.setAttribute('content', isDark ? '#090a0f' : '#fafbfc');
+    }
+
+    function changeTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('theme', themeName);
+      syncThemeUI();
+    }
+
+    function toggleTheme() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var target = isDark ? 'light' : 'dark';
+
+      if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        changeTheme(target);
+      } else {
+        document.startViewTransition(function() { changeTheme(target); });
+      }
+    }
+    syncThemeUI();
+
+    // ============================================
+    // FLICKR MOTORU & TELEMETRİ ÖNBELLEĞİ
+    // ============================================
+    var apiKey = "3954ec9c533459f470080bf24178df16"; 
+    var userID = "204447030@N04"; 
+    var exifStore = new Map();
+    var photoList = [];
+    var activePhotoIdx = 0;
+
+    document.addEventListener('DOMContentLoaded', fetchFlickrAlbums);
+
+    async function fetchFlickrAlbums() {
+      var grid = document.getElementById('album-grid');
+      var url = "https://www.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=" + apiKey + "&user_id=" + userID + "&format=json&nojsoncallback=1";
+      
+      try {
+        var res = await fetch(url);
+        var data = await res.json();
+        
+        if (data.photosets && data.photosets.photoset) {
+          var html = "";
+          data.photosets.photoset.forEach(function(set) {
+            var thumb = "https://live.staticflickr.com/" + set.server + "/" + set.primary + "_" + set.secret + "_z.jpg";
+            var title = escapeText(set.title._content);
+            html += '<div class=\"gallery-album-card\" role=\"button\" tabindex=\"0\" onclick=\"displayAlbumPhotos(\'' + set.id + '\')" onkeydown=\"if(event.key===\'Enter\'||event.key===\' \')displayAlbumPhotos(\'' + set.id + '\')\">' +
+                       '<img loading=\"lazy\" src=\"' + thumb + '\" alt=\"' + title + '\" width=\"290\" height=\"180\"/>' +
+                       '<div class=\"gallery-album-title\">' + title + '</div>' +
+                     '</div>';
+          });
+          grid.innerHTML = html;
+        } else {
+          grid.innerHTML = "/Hata: Albümler sunucudan alınamadı.";
+        }
+      } catch (err) {
+        grid.innerHTML = "/Hata: Flickr bağlantısı kurulamadı.";
+      }
+    }
+
+    function showAlbums() {
+      document.getElementById('photo-view').style.display = 'none';
+      document.getElementById('album-view').style.display = 'block';
+    }
+
+    async function displayAlbumPhotos(setID) {
+      document.getElementById('album-view').style.display = 'none'; 
+      var photoView = document.getElementById('photo-view');
+      var container = document.getElementById('photos-container');
+      photoView.style.display = 'block'; 
+      container.innerHTML = "/Görseller indeksleniyor...";
+      
+      var url = "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=" + apiKey + "&photoset_id=" + setID + "&user_id=" + userID + "&format=json&nojsoncallback=1";
+      
+      try {
+        var res = await fetch(url);
+        var data = await res.json();
+        
+        if (data.photoset && data.photoset.photo) {
+          photoList = data.photoset.photo;
+          var html = "";
+          photoList.forEach(function(photo, idx) {
+            var thumb = "https://live.staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + "_z.jpg";
+            html += '<div class=\"photo-cell\" data-photo-id=\"' + photo.id + '\">' +
+                      '<img loading=\"lazy\" src=\"' + thumb + '\" alt=\"Ozan Özdil Orta Format\" onclick=\"openPhotoModal(' + idx + ')\" width=\"340\" height=\"255\"/>' +
+                      '<div class=\"exif-telemetry-hud\" id=\"exif-' + photo.id + '\">[Telemetri Taranıyor...]</div>' +
+                    '</div>';
+          });
+          container.innerHTML = html;
+          attachExifObserver();
+        }
+      } catch (err) {
+        container.innerHTML = "/Hata: Fotoğraflar alınamadı.";
+      }
+    }
+
+    function attachExifObserver() {
+      if (!('IntersectionObserver' in window)) return;
+      var obs = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var pid = entry.target.getAttribute('data-photo-id');
+            if (pid) {
+              getExifTelemetry(pid, 'exif-' + pid);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, { rootMargin: '120px' });
+
+      document.querySelectorAll('.photo-cell').forEach(function(cell) { obs.observe(cell); });
+    }
+
+    async function getExifTelemetry(photoID, targetDomId) {
+      var el = targetDomId ? document.getElementById(targetDomId) : null;
+      
+      if (exifStore.has(photoID)) {
+        var val = exifStore.get(photoID);
+        if (el) el.innerHTML = val;
+        return val;
+      }
+
+      var url = "https://www.flickr.com/services/rest/?method=flickr.photos.getExif&api_key=" + apiKey + "&photo_id=" + photoID + "&format=json&nojsoncallback=1";
+      try {
+        var res = await fetch(url);
+        var data = await res.json();
+        if (data.photo && data.photo.exif) {
+          var iso = "-", f = "-", s = "-", camera = "-", lens = "-";
+          data.photo.exif.forEach(function(e) {
+            if (e.tag === "Model") camera = e.raw._content;
+            if (e.tag === "LensModel") lens = e.raw._content;
+            if (e.tag === "ISO") iso = e.raw._content;
+            if (e.tag === "FNumber") f = "f/" + e.raw._content;
+            if (e.tag === "ExposureTime") s = e.raw._content + "s";
+          });
+          var hudHtml = '<span class=\"exif-cam\">' + camera + '</span>' + lens + ' &#8226; ' + f + ' &#8226; ' + s + ' &#8226; ISO ' + iso;
+          exifStore.set(photoID, hudHtml);
+          if (el) el.innerHTML = hudHtml;
+          return hudHtml;
+        }
+      } catch (err) {}
+      var fallback = "[EXIF TEMİZLENMİŞ]";
+      exifStore.set(photoID, fallback);
+      if (el) el.innerText = fallback;
+      return fallback;
+    }
+
+    // ============================================
+    // NATIVE <dialog> MODAL VE KLAVYE YÖNETİMİ
+    // ============================================
+    var pModal = document.getElementById('photoModal');
+
+    async function openPhotoModal(index) {
+      if (!photoList[index]) return;
+      activePhotoIdx = index;
+      var p = photoList[index];
+      var fullUrl = "https://live.staticflickr.com/" + p.server + "/" + p.id + "_" + p.secret + "_b.jpg";
+      
+      document.getElementById('photoModalImg').src = fullUrl;
+      var exifArea = document.getElementById('photoModalExif');
+      exifArea.innerText = "Metadata okunuyor...";
+      
+      if (typeof pModal.showModal === "function") {
+        pModal.showModal();
+      } else {
+        pModal.setAttribute('open', '');
+      }
+
+      var info = await getExifTelemetry(p.id);
+      exifArea.innerHTML = info;
+    }
+
+    function closePhotoModal() {
+      if (typeof pModal.close === "function") {
+        pModal.close();
+      } else {
+        pModal.removeAttribute('open');
+      }
+      document.getElementById('photoModalImg').src = '';
+    }
+
+    function shiftPhoto(offset) {
+      var next = activePhotoIdx + offset;
+      if (next < 0) next = photoList.length - 1;
+      if (next >= photoList.length) next = 0;
+      openPhotoModal(next);
+    }
+
+    pModal.addEventListener('click', function(e) {
+      var r = pModal.getBoundingClientRect();
+      var inside = (r.top <= e.clientY && e.clientY <= r.top + r.height && r.left <= e.clientX && e.clientX <= r.left + r.width);
+      if (!inside) closePhotoModal();
+    });
+
+    // ============================================
+    // TERMINAL COMMAND PALETTE (CTRL+K)
+    // ============================================
+    var cliDlg = document.getElementById('cliDialog');
+    var cliIn = document.getElementById('cliCommand');
+    var cliLog = document.getElementById('cliLog');
+
+    function openCLI() {
+      if (typeof cliDlg.showModal === "function") {
+        cliDlg.showModal();
+      } else {
+        cliDlg.setAttribute('open', '');
+      }
+      setTimeout(function() { cliIn.focus(); }, 50);
+    }
+
+    function closeCLI() {
+      if (typeof cliDlg.close === "function") {
+        cliDlg.close();
+      } else {
+        cliDlg.removeAttribute('open');
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        if (cliDlg.open) closeCLI(); else openCLI();
+      }
+      if (pModal.open) {
+        if (e.key === 'ArrowLeft') shiftPhoto(-1);
+        if (e.key === 'ArrowRight') shiftPhoto(1);
+      }
+    });
+
+    cliIn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        var cmd = cliIn.value.trim().toLowerCase();
+        cliIn.value = '';
+        runCLI(cmd);
+      }
+    });
+
+    function runCLI(cmd) {
+      var text = '> ' + cmd + '\n';
+      switch(cmd) {
+        case 'help':
+          text += 'Komutlar:\n- neofetch : Sistem ve donanım özellikleri\n- whoami   : Ozan Özdil profili\n- altyapi  : Altyapı ve mimari sekmesine git\n- photos   : Galeri sekmesine git\n- blog     : Günlük sekmesine git\n- contact  : İletişim sekmesine git\n- theme    : Koyu/Açık tema değiştir\n- clear    : Ekranı temizle\n- exit     : Terminali kapat';
+          break;
+        case 'whoami':
+          text += 'Ozan Özdil\nSistem Mühendisi & Altyapı Mimarı\nZero-Trust & Homelab Güvenliği | Fujifilm Orta Format Fotoğrafçı';
+          break;
+        case 'neofetch':
+          text += 'OS: CachyOS & Omarchy Linux x86_64 (Kernel 6.x BORE)\nShell: Antigravity CLI / Fish\nInfrastructure: TrueNAS SCALE + Docker Microservices\nNetwork: OPNsense + Omada Zero-Trust Topoloji [ozdil.cloud]\nOptics: Fujifilm GFX 100S / GFX 50R (102MP Medium Format)\nSimulation: Assetto Corsa Competizione (ACC) on Wayland';
+          break;
+        case 'theme':
+          toggleTheme();
+          text += 'Tema modu güncellendi.';
+          break;
+        case 'ozgecmis':
+        case 'hakkimda':
+        case 'about':
+          closeCLI();
+          switchTab('ozgecmis');
+          return;
+        case 'altyapi':
+          closeCLI();
+          switchTab('altyapi');
+          return;
+        case 'photos':
+        case 'fotograflar':
+          closeCLI();
+          switchTab('fotograflar');
+          return;
+        case 'blog':
+        case 'gunluk':
+          closeCLI();
+          switchTab('gunluk');
+          return;
+        case 'contact':
+        case 'iletisim':
+          closeCLI();
+          switchTab('iletisim');
+          return;
+        case 'clear':
+          cliLog.innerText = '';
+          return;
+        case 'exit':
+          closeCLI();
+          return;
+        default:
+          text += 'Bilinmeyen komut: \'' + cmd + '\'. Yardım için \'help\' yazın.';
+      }
+      cliLog.innerText += '\n' + text + '\n';
+      cliLog.scrollTop = cliLog.scrollHeight;
+    }
+
+    function escapeText(str) {
+      return str.replace(/[&<>'"]/g, function(t) {
+        return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[t] || t;
+      });
+    }
+  //]]>
+  </script>
+</body>
+</html>

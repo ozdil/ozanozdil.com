@@ -1,0 +1,62 @@
+<p>Linux ve açık kaynak dünyasında masaüstü deneyimini bir üst seviyeye taşımak için modern Arch Linux masaüstü ortamı olan <strong>Omarchy</strong> ekosistemine özel <strong>9 adet özgün siber güvenlik & geliştirici eklentisi (plugin)</strong> ile <strong>4 adet resmi masaüstü temasını</strong> geliştirip açık kaynak olarak yayınladım.</p>
+
+<p>Geliştirilen tüm eklentiler resmi <strong>Omarchy Plugin Marketplace</strong> (<a href="https://plugins.omarchy.org" target="_blank">plugins.omarchy.org</a>) dizinine sunulmuş olup, <strong>MIT lisansı</strong> ile tamamen ücretsiz ve açık kaynaklıdır.</p>
+
+<hr />
+
+<h2>🔒 1. Siber Güvenlik, OPSEC & Sistem Kalkanı Eklentileri</h2>
+
+<h3>🛡️ BadUSB Shield (Anti-BadUSB & Donanım Nöbetçisi)</h3>
+<p>Sisteme takılan USB donanımları izler. Masum bir USB bellek gibi görünen ancak arka planda klavye gibi davranarak zararlı kod enjekte eden aygıtları (BadUSB / Rubber Ducky saldırıları) anında tespit eder.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-badusb-shield" target="_blank">GitHub Deposu: ozdil/omarchy-badusb-shield</a></p>
+
+<h3>🚨 Auth Watch (SSH & Sudo Yetkisiz Giriş Nöbetçisi)</h3>
+<p>Sistemdeki hatalı <code>sudo</code> parola denemelerini ve dışarıdan gelen SSH sızma / brute-force girişimlerini canlı filtreleyerek üst barda anlık uyarı verir.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-auth-watch" target="_blank">GitHub Deposu: ozdil/omarchy-auth-watch</a></p>
+
+<h3>🪤 Tripwire Vault (Kanarya Dosya & Fidye Yazılımı Tuzağı)</h3>
+<p>Kritik sistem dizinlerine kriptografik kanarya (honey-token) dosyalar yerleştirir. Bir zararlı yazılım veya fidye yazılımı (ransomware) dosyalara dokunduğu anda masaüstünde alarm fırlatır.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-tripwire-vault" target="_blank">GitHub Deposu: ozdil/omarchy-tripwire-vault</a></p>
+
+<h3>🌐 DNS Leak Guard (Canlı DNS Sızıntısı & DoT Kalkanı)</h3>
+<p>DNS sorgularınızın İSS'ye açık metin sızıp sızmadığını denetler. DNS-over-TLS (DoT) şifrelemesini doğrulayarak internet gizliliğinizi korur.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-dns-leak-guard" target="_blank">GitHub Deposu: ozdil/omarchy-dns-leak-guard</a></p>
+
+<h3>🎭 Ghost MAC (Wi-Fi Anonimlik & Rastgele MAC Maskesi)</h3>
+<p>Halka açık Wi-Fi ağlarında (belediye, kafe, havalimanı) fiziksel donanım MAC adresinizi ve makine adınızı rastgele sahte bir kimlikle maskeleyerek fiziksel takibi engeller.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-ghost-mac" target="_blank">GitHub Deposu: ozdil/omarchy-ghost-mac</a></p>
+
+<h3>🔒 OpSec Cleaner (Dijital Parmak İzi & EXIF Sanitizörü)</h3>
+<p>Sosyal medyaya fotoğraf yüklemeden önce üzerindeki GPS konum koordinatlarını, kamera seri numarasını, çekim zaman damgasını ve kullanıcı izlerini sıfırlayan dijital hijyen aracıdır.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-opsec-cleaner" target="_blank">GitHub Deposu: ozdil/omarchy-opsec-cleaner</a></p>
+
+<h3>🛡️ CVE Radar (Arch Linux Paket & Binary Güvenlik Denetçisi)</h3>
+<p>Resmi Arch Linux Security Tracker API'si ile sistemdeki 1,100+ paketi ve SUID yetkili sistem binary'lerini tarayarak güvenlik açıklarını anlık raporlar.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-cve-radar" target="_blank">GitHub Deposu: ozdil/omarchy-cve-radar</a></p>
+
+<h3>🌐 Cyber Sentinel (Canlı Ağ Radarı & Port Nöbetçisi)</h3>
+<p>Dış dünyaya açılan tüm aktif ağ soketlerini canlı izler. Şüpheli ve standart dışı portlara giden bağlantılarda anında tek tıkla süreci sonlandırma imkanı sunar.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-cyber-sentinel" target="_blank">GitHub Deposu: ozdil/omarchy-cyber-sentinel</a></p>
+
+<hr />
+
+<h2>⚡ 2. Geliştirici & Çalışma Alanı Eklentileri</h2>
+
+<h3>⚡ Git Radar (Geliştirici Nabzı & Commit Isı Haritası)</h3>
+<p>Tüm yerel depolarınızı tarar. Günlük commit sayınızı, kaydedilmemiş değişiklik olan repoları ve son 7 günün GitHub tarzı commit ısı haritasını doğrudan barda görselleştirir.</p>
+<p>🔗 <a href="https://github.com/ozdil/omarchy-git-radar" target="_blank">GitHub Deposu: ozdil/omarchy-git-radar</a></p>
+
+<hr />
+
+<h2>🎨 3. Resmi Omarchy Masaüstü Temaları</h2>
+
+<ul>
+  <li><strong>🇹🇷 Türkiye Teması (21 İkonik Mekan):</strong> Kapadokya, Göbeklitepe, Pamukkale, Nemrut, Sümela ve Türkiye'nin 21 eşsiz tarihi mekanını 8K vektörel duvar kağıtları ve OLED turkuaz renk paletiyle buluşturur. (<a href="https://github.com/ozdil/omarchy-turkiye-theme" target="_blank">GitHub</a>)</li>
+  <li><strong>🎮 Steam Machine Teması:</strong> Valve, Half-Life ve retro arcade ruhunu taşıyan karanlık siberpunk oyun teması. (<a href="https://github.com/ozdil/omarchy-steammachine-theme" target="_blank">GitHub</a>)</li>
+  <li><strong>🏛️ Ankara & 🌙 İstanbul Temaları:</strong> Başkent ve Boğaziçi'nin kadim estetiğini modern Linux masaüstüne taşıyan temalar. (<a href="https://github.com/ozdil/omarchy-ankara-theme" target="_blank">GitHub Ankara</a> | <a href="https://github.com/ozdil/omarchy-istanbul-theme" target="_blank">GitHub İstanbul</a>)</li>
+</ul>
+
+<hr />
+
+<p><strong>Yazar:</strong> Ozan Özdil (<a href="https://github.com/ozdil" target="_blank">github.com/ozdil</a> | <a href="https://nsosyal.com/ozanozdil" target="_blank">@ozanozdil</a>)<br />
+<em>Tüm projeler MIT lisansıyla açık kaynak olarak paylaşılmıştır.</em></p>

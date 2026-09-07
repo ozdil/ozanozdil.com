@@ -1,0 +1,22 @@
+🚀 Omarchy 4.0.2 Linux için geliştirdiğim 4 özel açık kaynak temayı yayınladım! 🇹🇷🎮
+
+Tüm temalar OLED dostu saf siyah (#000000) zemin, göz yormayan renk teorisi ve 8K keskin vektörel çizim duvar kağıtlarıyla hazırlandı:
+
+🇹🇷 Türkiye (21 İkonik Yer Vektörel Koleksiyonu):
+👉 https://github.com/ozdil/omarchy-turkiye-theme
+
+🎮 Steam Machine Edition (Valve, Steam Deck & Half-Life):
+👉 https://github.com/ozdil/omarchy-steammachine-theme
+
+🏛️ Ankara (Hitit Güneşi, Kuğulu Park & Atakule):
+👉 https://github.com/ozdil/omarchy-ankara-theme
+
+🌙 Istanbul (İznik Çinisi, Boğaziçi & Kediler):
+👉 https://github.com/ozdil/omarchy-istanbul-theme
+
+Resmi Omarchy Extra Themes listesine dahil edilmesi için PR'lar da açıldı. Denemek isteyenler tek komutla kurabilir:
+`omarchy theme install <github-linki>`
+
+Yıldızlayıp destek olursanız sevinirim! ⭐
+
+#Omarchy #Linux #AçıkKaynak #ArchLinux #Hyprland #Teknoloji #Tasarım #Geliştirici #NSosyal
