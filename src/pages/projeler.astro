@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const repositories = [
   {
     name: 'omarchy',
-    desc: 'Arch Linux tabanlı, estetik, yüksek performanslı ve modern sistem ekosistemi ve dotfiles mimarisi.',
+    desc: 'Arch Linux tabanlı, optimize edilmiş yüksek performanslı sistem ekosistemi ve mimari yapılandırma paketi.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['arch-linux', 'hyprland', 'system-craft'],
@@ -12,7 +12,7 @@ const repositories = [
   },
   {
     name: 'omarchy-cyber-sentinel',
-    desc: '🛡️ Canlı ağ trafiği analizi, siber saldırı tespiti ve proaktif sistem savunma modülü.',
+    desc: 'Canlı ağ trafiği analizi, tehdit tespiti ve kurumsal düzeyde proaktif sistem savunma modülü.',
     lang: 'Python / Bash',
     langColor: '#3572A5',
     tags: ['cybersecurity', 'network', 'sentinel'],
@@ -20,7 +20,7 @@ const repositories = [
   },
   {
     name: 'omarchy-badusb-shield',
-    desc: '⚡ Donanımsal USB saldırılarına (Rubber Ducky, BadUSB) karşı dinamik port denetimi ve kalkan.',
+    desc: 'Donanımsal USB ve harici çevre birimi tabanlı saldırılara karşı dinamik yetkilendirme ve port kalkanı.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['badusb', 'hardware-sec', 'linux'],
@@ -28,7 +28,7 @@ const repositories = [
   },
   {
     name: 'omarchy-cve-radar',
-    desc: '🛡️ Arch Linux kurulu paketlerdeki güncel CVE açıklarını takip eden otomatik radar motoru.',
+    desc: 'Linux sistem paketleri ve uygulama bağımlılıkları için gerçek zamanlı güvenlik açığı (CVE) denetim motoru.',
     lang: 'Python',
     langColor: '#3572A5',
     tags: ['cve', 'vulnerability-scanner'],
@@ -36,7 +36,7 @@ const repositories = [
   },
   {
     name: 'omarchy-omarank',
-    desc: '📊 Arch Linux çekirdek ve donanım bileşenleri için sentetik performans benchmark paketi.',
+    desc: 'Linux çekirdeği ve donanım bileşenleri için kapsamlı sentetik kıyaslama (benchmark) ve performans analiz paketi.',
     lang: 'Rust / C',
     langColor: '#dea584',
     tags: ['benchmark', 'performance'],
@@ -44,7 +44,7 @@ const repositories = [
   },
   {
     name: 'omarchy-omasend',
-    desc: '🚀 Cihazlar arası yüksek hızlı, uçtan uca şifreli kablosuz dosya transfer aracı (AirBridge).',
+    desc: 'Yerel ağ üzerinde uçtan uca şifreli, yüksek hızlı p2p dosya ve veri aktarım protokolü (AirBridge).',
     lang: 'Go / Shell',
     langColor: '#00ADD8',
     tags: ['p2p', 'file-transfer', 'go'],
@@ -52,7 +52,7 @@ const repositories = [
   },
   {
     name: 'omarchy-auth-watch',
-    desc: '🚨 Başarısız SSH ve oturum açma girişimlerini izleyip anında bloklayan güvenlik bekçisi.',
+    desc: 'Yetkisiz oturum açma ve SSH sızma girişimlerini anlık takip edip engelleyen kimlik doğrulama bekçisi.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['security', 'auth', 'audit'],
@@ -60,7 +60,7 @@ const repositories = [
   },
   {
     name: 'omarchy-ghost-mac',
-    desc: '🎭 Wi-Fi donanım adreslerini (MAC) ağ bazlı dinamik ve güvenli biçimde gizleyen anonimlik aracı.',
+    desc: 'Kablosuz ağ donanım adreslerini (MAC) ağ bazlı dinamik ve güvenli biçimde anonimleştiren gizlilik aracı.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['privacy', 'wifi', 'opsec'],
@@ -68,7 +68,7 @@ const repositories = [
   },
   {
     name: 'omarchy-dns-leak-guard',
-    desc: '🌐 Canlı DNS sızıntılarını denetleyen ve şifreli DNS (DoH/DoT) tünellemesini güvenceye alan araç.',
+    desc: 'Ağ üzerinde DNS sızıntılarını denetleyen ve şifreli DNS (DoH/DoT) tünellemesini güvenceye alan araç.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['dns', 'privacy', 'network'],
@@ -76,7 +76,7 @@ const repositories = [
   },
   {
     name: 'omarchy-tripwire-vault',
-    desc: '🪤 Honey-token ve tuzak dosyalarla dosya sistemi yetkisiz erişim alarm mekanizması.',
+    desc: 'Tuzak belirteçler (canary tokens) ile dosya sistemi üzerinde yetkisiz erişim tespit mekanizması.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['honeypot', 'security'],
@@ -84,7 +84,7 @@ const repositories = [
   },
   {
     name: 'omarchy-turkiye-theme',
-    desc: '🇹🇷 Göz yormayan, OLED dostu, milli ve kültürel motiflerle bezenmiş sistem teması.',
+    desc: 'Göz yormayan, OLED uyumlu, fonksiyonel ve ergonomik sistem arayüz teması.',
     lang: 'CSS / Shell',
     langColor: '#563d7c',
     tags: ['theme', 'hyprland', 'oled'],
@@ -94,8 +94,8 @@ const repositories = [
 ---
 
 <BaseLayout
-  title="Açık Kaynak Projeler (Repositories) — Ozan Özdil"
-  description="Ozan Özdil tarafından geliştirilen açık kaynak Linux, siber güvenlik ve sistem araçları deposu."
+  title="Açık Kaynak Projeler — Ozan Özdil"
+  description="Ozan Özdil tarafından geliştirilen açık kaynak sistem yazılımları, ağ savunma ve Linux mimari araçları."
   currentPath="/projeler"
 >
   <div class="mb-6">
@@ -108,16 +108,16 @@ const repositories = [
           </span>
         </h1>
         <p class="text-xs text-gh-textMuted mt-1">
-          Arch Linux, siber savunma, otonom yapay zekâ ve sistem güvenliği alanında geliştirdiğimiz açık kaynak projeler.
+          Arch Linux, siber savunma, otonom sistemler ve ağ güvenliği alanında geliştirdiğimiz açık kaynak projeler.
         </p>
       </div>
     </div>
   </div>
 
   <!-- Repositories List (GitHub Style) -->
-  <div class="space-y-4">
+  <div class="space-y-3.5">
     {repositories.map((repo) => (
-      <div class="p-5 rounded-md border border-gh-border bg-gh-bg hover:border-gh-textMuted transition-colors flex flex-col justify-between">
+      <div class="p-4 sm:p-5 rounded-md border border-gh-border bg-gh-bg hover:border-gh-textMuted transition-colors flex flex-col justify-between">
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
           <div class="flex items-center space-x-2">
             <svg class="w-4 h-4 text-gh-textMuted flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
@@ -137,11 +137,11 @@ const repositories = [
           </div>
         </div>
 
-        <p class="text-xs text-gh-textMuted mb-4 leading-relaxed">
+        <p class="text-xs text-gh-textMuted mb-3.5 leading-relaxed">
           {repo.desc}
         </p>
 
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gh-textMuted font-mono">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gh-textMuted font-mono pt-2.5 border-t border-gh-borderMuted">
           <span class="flex items-center space-x-1.5">
             <span class="w-2.5 h-2.5 rounded-full" style={`background-color: ${repo.langColor}`}></span>
             <span>{repo.lang}</span>
