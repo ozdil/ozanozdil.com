@@ -8,7 +8,7 @@ draft: false
 legacyUrl: "/2026/09/omarchy-linux-ai-ajan-mimarisi.html"
 ---
 
-**Özet:**Arch Linux tabanlı, klavye odaklı ve Hyprland pencere yöneticisi üzerine kurulu olan**Omarchy**, otonom yapay zeka ajanları için deterministik bir çalışma ortamı sunar. Grafik arayüzlü (GUI) sistemlerin piksel tabanlı yüksek gecikmeli modelleri yerine; Omarchy'nin UNIX domain soketleri (IPC), Lua tabanlı dinamik konfigürasyonu ve saf metin (CLI/TUI) akışları, yapay zekanın sıfır görsel yük ve minimum token maliyetiyle sistem yönetimini ve yazılım mühendisliği süreçlerini yürütmesini sağlar.
+> **Özet:** Arch Linux tabanlı, klavye odaklı ve Hyprland pencere yöneticisi üzerine kurulu olan **Omarchy**, otonom yapay zeka ajanları için deterministik bir çalışma ortamı sunar. Grafik arayüzlü (GUI) sistemlerin piksel tabanlı yüksek gecikmeli modelleri yerine; Omarchy'nin UNIX domain soketleri (IPC), Lua tabanlı dinamik konfigürasyonu ve saf metin (CLI/TUI) akışları, yapay zekanın sıfır görsel yük ve minimum token maliyetiyle sistem yönetimini ve yazılım mühendisliği süreçlerini yürütmesini sağlar.
 
 ## 1. Giriş: Ajanlar Çağında İşletim Sistemi Mimarisi
 
