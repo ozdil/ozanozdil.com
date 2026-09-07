@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout
+  title={`${post.data.title} — Ozan Özdil`}
+  description={post.data.description}
+  currentPath="/blog"
+>
+  <div class="border border-gh-border rounded-md bg-gh-bg overflow-hidden shadow-sm">
+    <!-- File Header Bar (GitHub Document View) -->
+    <div class="px-4 py-3 bg-gh-subtle border-b border-gh-border flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
+      <div class="flex items-center space-x-2 text-gh-textMuted">
+        <a href="/blog" class="text-gh-link hover:underline">blog</a>
+        <span>/</span>
+        <span class="text-gh-text font-semibold">{post.slug}.md</span>
+      </div>
+
+      <div class="flex items-center space-x-3 text-gh-textMuted">
+        <time datetime={post.data.pubDate.toISOString()}>
+          {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </time>
+        <span>•</span>
+        <a href="/blog" class="text-gh-link hover:underline">← Tüm Yazılar</a>
+      </div>
+    </div>
+
+    <!-- Article Header -->
+    <div class="p-6 sm:p-8 pb-4 border-b border-gh-borderMuted">
+      <h1 class="text-2xl sm:text-3xl font-bold text-gh-text leading-tight mb-3">
+        {post.data.title}
+      </h1>
+      <p class="text-sm text-gh-textMuted leading-relaxed mb-4">
+        {post.data.description}
+      </p>
+
+      {post.data.tags.length > 0 && (
+        <div class="flex flex-wrap gap-1.5">
+          {post.data.tags.map((tag) => (
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-gh-subtle border border-gh-border text-gh-textMuted">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- Rendered Markdown Body -->
+    <div class="p-6 sm:p-8 markdown-body">
+      <Content />
+    </div>
+
+    <!-- Article Footer -->
+    <div class="p-6 bg-gh-subtle border-t border-gh-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div class="flex items-center space-x-2 text-gh-textMuted">
+        <span>Yazar:</span>
+        <strong class="text-gh-text font-mono">Ozan Özdil (@ozdil)</strong>
+      </div>
+
+      <div class="flex items-center space-x-3 font-mono">
+        <a
+          href="https://nsosyal.com/ozanozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gh-link hover:underline"
+        >
+          NSosyal'de Tartış
+        </a>
+        <span class="text-gh-border">|</span>
+        <a
+          href="https://github.com/ozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gh-link hover:underline"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-gh-bg: #ffffff;
+  --color-gh-subtle: #f6f8fa;
+  --color-gh-border: #d0d7de;
+  --color-gh-border-muted: #eaeef2;
+  --color-gh-text: #1f2328;
+  --color-gh-text-muted: #656d76;
+  --color-gh-link: #0969da;
+  --color-gh-badge: #eff1f3;
+}
+
+.dark {
+  --color-gh-bg: #0d1117;
+  --color-gh-subtle: #161b22;
+  --color-gh-border: #30363d;
+  --color-gh-border-muted: #21262d;
+  --color-gh-text: #e6edf3;
+  --color-gh-text-muted: #848d97;
+  --color-gh-link: #58a6ff;
+  --color-gh-badge: #1f242c;
+}
+
+body {
+  background-color: var(--color-gh-bg);
+  color: var(--color-gh-text);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* Markdown Rendering Styles (GitHub README / Issue style) */
+.markdown-body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.markdown-body h1 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-gh-border);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-body h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--color-gh-border-muted);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body p {
+  margin-bottom: 1rem;
+}
+
+.markdown-body ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-body ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-body li {
+  margin-bottom: 0.35rem;
+}
+
+.markdown-body blockquote {
+  padding: 0.5rem 1rem;
+  color: var(--color-gh-text-muted);
+  border-left: 0.25rem solid var(--color-gh-border);
+  background-color: var(--color-gh-subtle);
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 1rem;
+}
+
+.markdown-body hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: var(--color-gh-border);
+  border: 0;
+}
+
+.markdown-body pre {
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #161b22 !important;
+  border: 1px solid var(--color-gh-border);
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.markdown-body code:not(pre code) {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: var(--color-gh-badge);
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.markdown-body a {
+  color: var(--color-gh-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--color-gh-border);
+  margin: 1.25rem auto;
+}

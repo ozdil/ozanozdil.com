@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
+
+const pinnedProjects = [
+  {
+    name: 'omarchy',
+    desc: 'Modern, performant and beautifully crafted Arch Linux ecosystem & system configuration.',
+    lang: 'Shell',
+    langColor: '#89e051',
+    stars: 'Public',
+    url: 'https://github.com/ozdil/omarchy'
+  },
+  {
+    name: 'omarchy-cyber-sentinel',
+    desc: '🛡️ Canlı ağ trafiği izleme, anomali tespiti ve proaktif savunma analiz aracı.',
+    lang: 'Python / Bash',
+    langColor: '#3572A5',
+    stars: 'Public',
+    url: 'https://github.com/ozdil/omarchy-cyber-sentinel'
+  },
+  {
+    name: 'omarchy-badusb-shield',
+    desc: '⚡ Donanımsal USB saldırılarına ve yetkisiz çevre birimlerine karşı dinamik koruma kalkanı.',
+    lang: 'Shell',
+    langColor: '#89e051',
+    stars: 'Public',
+    url: 'https://github.com/ozdil/omarchy-badusb-shield'
+  },
+  {
+    name: 'omarchy-cve-radar',
+    desc: '🔍 Arch Linux paketleri ve sistem bağımlılıkları için gerçek zamanlı güvenlik açığı radarı.',
+    lang: 'Python',
+    langColor: '#3572A5',
+    stars: 'Public',
+    url: 'https://github.com/ozdil/omarchy-cve-radar'
+  },
+  {
+    name: 'omarchy-omasend',
+    desc: '🚀 Yerel ağda cihazlar arası güvenli, şifreli ve kablosuz dosya transfer aracı (AirBridge).',
+    lang: 'Go / Shell',
+    langColor: '#00ADD8',
+    stars: 'Public',
+    url: 'https://github.com/ozdil/omarchy-omasend'
+  },
+  {
+    name: 'omarchy-omarank',
+    desc: '📊 Arch Linux çekirdek ve donanım bileşenleri için sentetik performans benchmark paketi.',
+    lang: 'Rust / C',
+    langColor: '#dea584',
+    stars: 'Public',
+    url: 'https://github.com/ozdil/omarchy-omarank'
+  }
+];
+---
+
+<BaseLayout title="Ozan Özdil (@ozdil) — Genel Bakış" currentPath="/">
+  <!-- README.md Box (GitHub Profile Readme Style) -->
+  <div class="border border-gh-border rounded-md bg-gh-bg overflow-hidden mb-8 shadow-sm">
+    <div class="px-4 py-2.5 bg-gh-subtle border-b border-gh-border flex items-center justify-between text-xs text-gh-textMuted font-mono">
+      <div class="flex items-center space-x-2">
+        <svg class="w-3.5 h-3.5 text-gh-textMuted" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path>
+          <path d="M8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+        </svg>
+        <span>ozdil / <strong>README.md</strong></span>
+      </div>
+      <span class="text-[11px] text-gh-textMuted">Markdown</span>
+    </div>
+
+    <div class="p-6 markdown-body">
+      <h2 class="!mt-0 !text-xl font-bold flex items-center gap-2">
+        <span>Selamün aleyküm; Hoş Geldiniz</span>
+        <span class="inline-block animate-pulse">🐺</span>
+      </h2>
+      <p>
+        KTÜ Orman Fakültesi'nden aldığım sistem ve kök bilinciyle; 2019 yerel seçim stratejisini yöneten, belediye başkan danışmanlığından Ar-Ge ve Bilgi İşlem müdürlüklerine kadar kurumsal teknolojiyi ve kitle iletişimini sevk ve idare eden bir tecrübe biriktirdik.
+      </p>
+      <p>
+        Bugün arşivin sükûnetinde; <strong>açık kaynak Linux çekirdeğini</strong>, <strong>siber savunma araçlarını</strong> ve <strong>yapay zekayı</strong> geleceğin milli projelerine zemin kılmak için satır satır kodluyoruz.
+      </p>
+
+      <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+        <div class="p-3 rounded-md bg-gh-subtle border border-gh-border text-xs">
+          <span class="font-semibold text-gh-text block mb-1">🌲 Kök & Sistem Bilinci</span>
+          <span class="text-gh-textMuted">Orman mühendisliği ekolojisinden gelen disiplinli analiz ve stratejik planlama.</span>
+        </div>
+        <div class="p-3 rounded-md bg-gh-subtle border border-gh-border text-xs">
+          <span class="font-semibold text-gh-text block mb-1">⚡ Siber Güvenlik & Linux</span>
+          <span class="text-gh-textMuted">Arch Linux mimarisi, çekirdek optimizasyonu, donanım güvenliği ve Omarchy ekosistemi.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pinned Repositories Section (GitHub Style) -->
+  <div class="mb-8">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-sm font-semibold text-gh-text font-mono flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-gh-textMuted" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM4 1.5h8a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V2a.5.5 0 0 1 .5-.5Z"></path>
+        </svg>
+        <span>Öne Çıkan Açık Kaynak Projeleri (Pinned)</span>
+      </h3>
+      <a href="/projeler" class="text-xs text-gh-link hover:underline font-mono">Tümünü gör →</a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {pinnedProjects.map((p) => (
+        <div class="p-4 rounded-md border border-gh-border bg-gh-bg flex flex-col justify-between hover:border-gh-textMuted transition-colors">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm font-semibold text-gh-link hover:underline font-mono flex items-center gap-1.5"
+              >
+                <svg class="w-3.5 h-3.5 text-gh-textMuted" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.6-1.2-1.6 1.2a.25.25 0 0 1-.4-.2Z"></path>
+                </svg>
+                <span>{p.name}</span>
+              </a>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border border-gh-border text-gh-textMuted bg-gh-subtle">
+                {p.stars}
+              </span>
+            </div>
+            <p class="text-xs text-gh-textMuted line-clamp-2 mb-4 leading-relaxed">
+              {p.desc}
+            </p>
+          </div>
+
+          <div class="flex items-center space-x-3 text-xs text-gh-textMuted font-mono">
+            <span class="flex items-center space-x-1.5">
+              <span class="w-2.5 h-2.5 rounded-full" style={`background-color: ${p.langColor}`}></span>
+              <span>{p.lang}</span>
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Recent Articles (Timeline / Commit Style) -->
+  <div>
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-sm font-semibold text-gh-text font-mono flex items-center gap-1.5">
+        <svg class="w-4 h-4 text-gh-textMuted" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M0 2.75C0 1.784.784 1 1.75 1h12.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25Zm1.75-.25a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V2.75a.25.25 0 0 0-.25-.25ZM3 4.5h10v1.5H3Zm0 3h10V9H3Zm0 3h6v1.5H3Z"></path>
+        </svg>
+        <span>Son Yazılar & Arşiv (Latest Articles)</span>
+      </h3>
+      <a href="/blog" class="text-xs text-gh-link hover:underline font-mono">Tüm Yazılar ({allPosts.length}) →</a>
+    </div>
+
+    <div class="border border-gh-border rounded-md divide-y divide-gh-border bg-gh-bg overflow-hidden shadow-sm">
+      {sortedPosts.map((post) => (
+        <article class="p-4 hover:bg-gh-subtle transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div class="min-w-0 flex-1">
+            <a href={`/blog/${post.slug}`} class="text-sm font-semibold text-gh-text hover:text-gh-link block truncate">
+              {post.data.title}
+            </a>
+            <p class="text-xs text-gh-textMuted line-clamp-1 mt-1">
+              {post.data.description}
+            </p>
+          </div>
+          <div class="flex items-center space-x-2 text-xs text-gh-textMuted font-mono flex-shrink-0">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+            </time>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

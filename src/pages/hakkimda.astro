@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="README.md / Hakkımda — Ozan Özdil"
+  description="Ozan Özdil hakkında detaylı özgeçmiş, siyasal iletişim, Ar-Ge yöneticiliği ve açık kaynak araştırmaları."
+  currentPath="/hakkimda"
+>
+  <!-- GitHub Document Card -->
+  <div class="border border-gh-border rounded-md bg-gh-bg overflow-hidden shadow-sm">
+    <!-- File Header Bar -->
+    <div class="px-4 py-2.5 bg-gh-subtle border-b border-gh-border flex items-center justify-between text-xs text-gh-textMuted font-mono">
+      <div class="flex items-center space-x-2">
+        <svg class="w-3.5 h-3.5 text-gh-textMuted" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path>
+          <path d="M8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
+        </svg>
+        <span>ozdil / <strong>README.md</strong></span>
+      </div>
+      <span class="text-[11px] text-gh-textMuted">Markdown • UTF-8</span>
+    </div>
+
+    <!-- Rendered Markdown Content -->
+    <div class="p-6 sm:p-8 markdown-body">
+      <h1>🐺 Ozan Özdil (@ozdil)</h1>
+
+      <blockquote>
+        <em>"Kökleri ormanın bilgeliğinde, gözleri yarının siber ufkunda."</em>
+      </blockquote>
+
+      <p>
+        Evli ve iki evlat babası. Karadeniz Teknik Üniversitesi (KTÜ) Orman Mühendisliği mezunu; siyasal iletişim stratejisti, eski Ar-Ge & Bilgi İşlem yöneticisi, açık kaynak Linux ve siber güvenlik araştırmacısı.
+      </p>
+
+      <h2>💼 Yolculuk, Deneyim ve İdare</h2>
+      <ul>
+        <li>
+          <strong>Siyasal İletişim & Seçim Koordinasyonu (2019):</strong> MHP Kastamonu yerel seçim kampanyasının stratejik yönetimi, saha prodüksiyonu, veri analizi ve iletişim liderliği (zaferle sonuçlanan kampanya süreci).
+        </li>
+        <li>
+          <strong>Başkan Danışmanlığı & Medya Koordinasyonu:</strong> Kastamonu Belediyesi basın, halkla ilişkiler ve dijital medya yönetimi (3 ay gibi kısa bir sürede 25M+ organik kitle erişim rekoru).
+        </li>
+        <li>
+          <strong>Ar-Ge & Bilgi İşlem Yöneticiliği (2022):</strong> Kurumsal teknolojik altyapının modernizasyonu, veri güvenliği protokolleri ve Ar-Ge projeleri yönetimi.
+        </li>
+        <li>
+          <strong>Açık Kaynak & Teknoloji Karargâhı (Günümüz):</strong> Arşiv biriminin sükûnetinde; siber güvenlik, Linux çekirdek mimarisi (Omarchy/Arch), yapay zekâ modelleri ve açık kaynak sistem araçları geliştirme.
+        </li>
+      </ul>
+
+      <h2>🛠️ İlgi & Uzmanlık Alanları</h2>
+      <ul>
+        <li><strong>İşletim Sistemleri & Kernel:</strong> Arch Linux, Hyprland, Omarchy Sistem Mimarisi, Dotfiles zanaati.</li>
+        <li><strong>Siber Savunma & Tehdit Analizi:</strong> Ağ trafiği analitiği, BadUSB / donanımsal saldırı engelleme, CVE radarları ve honeypot mekanizmaları.</li>
+        <li><strong>Yapay Zekâ & Otonom Ajanlar:</strong> Yerel (on-premise) LLM kurulumları, otonom kodlama ajanları, prompt stratejileri.</li>
+        <li><strong>Siyasal Strateji & Kitle İletişimi:</strong> Dijital kampanya yönetimi, algı ve duygu analizi, kriz iletişimi.</li>
+      </ul>
+
+      <h2>🌐 Dijital Bağlantılar</h2>
+      <p>
+        Benimle iletişime geçmek, projeleri incelemek veya düşünceleri takip etmek için:
+      </p>
+      <ul>
+        <li><strong>NSosyal:</strong> <a href="https://nsosyal.com/ozanozdil" target="_blank" rel="noopener noreferrer">@ozanozdil</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/ozdil" target="_blank" rel="noopener noreferrer">@ozdil</a></li>
+        <li><strong>E-Posta / Web:</strong> <a href="https://ozanozdil.com">ozanozdil.com</a></li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>
