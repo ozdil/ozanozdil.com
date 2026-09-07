@@ -17,7 +17,14 @@ const { Content } = await post.render();
 <BaseLayout
   title={`${post.data.title} — Ozan Özdil`}
   description={post.data.description}
+  image={post.data.heroImage || '/avatar.jpg'}
   currentPath="/blog"
+  type="article"
+  article={{
+    pubDate: post.data.pubDate,
+    updatedDate: post.data.updatedDate,
+    tags: post.data.tags,
+  }}
 >
   <div class="border border-gh-border rounded-md bg-gh-bg overflow-hidden shadow-sm">
     <!-- File Header Bar (GitHub Document View) -->
