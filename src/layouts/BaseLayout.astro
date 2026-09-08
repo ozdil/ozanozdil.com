@@ -18,12 +18,12 @@ interface Props {
 }
 
 const {
-  title = 'Ozan Özdil (@ozdil) — Stratejist & Teknoloji Araştırmacısı',
-  description = 'Orman Mühendisi (KTÜ), Stratejist & Dijital İletişim Danışmanı. Açık Kaynak, Siber Güvenlik ve AI Araştırmacısı Ozan Özdil resmi web sitesi.',
+  title = 'Ozan Özdil',
+  description = 'Orman Mühendisi (KTÜ). Açık kaynak sistemler, Linux mimarisi ve dijital güvenlik üzerine araştırmalar ve notlar.',
   image = '/avatar.jpg',
   type = 'website',
   article,
-  maxWidthClass = 'max-w-5xl',
+  maxWidthClass = 'max-w-4xl',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ozanozdil.com');
@@ -63,7 +63,7 @@ const jsonLd = type === 'article' && article?.pubDate ? {
   'name': 'Ozan Özdil',
   'url': 'https://ozanozdil.com',
   'image': 'https://ozanozdil.com/avatar.jpg',
-  'jobTitle': 'Stratejist & Teknoloji Araştırmacısı',
+  'jobTitle': 'Orman Mühendisi & Araştırmacı',
   'description': description,
   'sameAs': [
     'https://github.com/ozdil',

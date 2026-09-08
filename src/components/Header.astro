@@ -8,7 +8,6 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 
 const navItems = [
-  { href: '/', label: 'Giriş' },
   { href: '/blog', label: 'Yazılar' },
   { href: '/projeler', label: 'Projeler' },
   { href: '/galeri', label: 'Galeri' },
@@ -16,40 +15,30 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-50/85 dark:bg-zinc-950/85 border-b border-zinc-200/70 dark:border-zinc-800/70 transition-colors">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="sticky top-0 z-50 backdrop-blur-md bg-[#fafafa]/80 dark:bg-[#09090b]/80 border-b border-zinc-200/60 dark:border-zinc-800/60 transition-colors">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 gap-4">
-      <!-- Brand & Status -->
-      <div class="flex items-center space-x-3 flex-shrink-0">
-        <a href="/" class="flex items-center space-x-2.5 group">
-          <div class="w-8 h-8 rounded-full overflow-hidden border border-zinc-300 dark:border-zinc-700/80 shadow-sm group-hover:scale-105 transition-transform duration-200 bg-zinc-100 dark:bg-zinc-800">
-            <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
-          </div>
-          <div class="flex flex-col">
-            <span class="font-semibold text-sm tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              Ozan Özdil
-            </span>
-          </div>
-        </a>
-
-        <!-- Live Status Pill -->
-        <span class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20" title="Aktif Çalışma Durumu">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Ar-Ge & Sistem</span>
+      <!-- Brand -->
+      <a href="/" class="flex items-center space-x-2.5 group">
+        <div class="w-7 h-7 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xs bg-zinc-100 dark:bg-zinc-800 flex-shrink-0">
+          <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
+        </div>
+        <span class="font-medium text-sm tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+          Ozan Özdil
         </span>
-      </div>
+      </a>
 
       <!-- Navigation Links -->
-      <nav class="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto no-scrollbar py-1" aria-label="Ana Navigasyon">
+      <nav class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto no-scrollbar py-1" aria-label="Ana Navigasyon">
         {navItems.map((item) => {
-          const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+          const isActive = currentPath.startsWith(item.href);
           return (
             <a
               href={item.href}
-              class={`px-3 py-1.5 rounded-lg text-xs sm:text-sm transition-all whitespace-nowrap ${
+              class={`px-3 py-1.5 rounded-lg text-xs sm:text-sm transition-colors whitespace-nowrap ${
                 isActive
-                  ? 'bg-zinc-200/75 dark:bg-zinc-800/80 text-zinc-950 dark:text-zinc-50 font-medium shadow-xs'
-                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 hover:bg-zinc-100/80 dark:hover:bg-zinc-800/40'
+                  ? 'text-zinc-950 dark:text-zinc-50 font-medium'
+                  : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
               }`}
             >
               {item.label}

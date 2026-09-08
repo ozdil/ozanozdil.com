@@ -85,33 +85,34 @@ const { Content } = await post.render();
 
     <!-- Article Footer & Author Bio -->
     <footer class="mt-16 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80">
-      <div class="p-6 rounded-2xl bg-zinc-100/60 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-zinc-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div class="flex items-center space-x-3.5">
-          <div class="w-12 h-12 rounded-full overflow-hidden border border-zinc-300 dark:border-zinc-700 flex-shrink-0">
+          <div class="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800">
             <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
           </div>
           <div>
-            <h4 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50">Ozan Özdil</h4>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
-              Stratejist & Açık Kaynak Sistem Mimarisi Araştırmacısı
+            <h4 class="text-sm font-medium text-zinc-950 dark:text-zinc-50">Ozan Özdil</h4>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+              Orman mühendisi & araştırmacı • Kastamonu
             </p>
           </div>
         </div>
 
-        <div class="flex items-center space-x-3 text-xs font-medium">
+        <div class="flex items-center space-x-3 text-xs">
           <a
             href="https://nsosyal.com/ozanozdil"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-3 py-1.5 rounded-lg bg-zinc-200/70 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-300/80 dark:hover:bg-zinc-700 transition-colors"
+            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors"
           >
             NSosyal'de Tartış
           </a>
+          <span class="text-zinc-300 dark:text-zinc-700">•</span>
           <a
             href="https://github.com/ozdil"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-3 py-1.5 rounded-lg border border-zinc-300/80 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors"
           >
             GitHub
           </a>
