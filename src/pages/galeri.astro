@@ -7,17 +7,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   description="Kastamonu, tarihi yapılar ve doğa fotoğraflarından oluşan dinamik Flickr fotoğraf koleksiyonu."
   currentPath="/galeri"
 >
-  <div class="mb-6">
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-gh-border gap-3">
+  <!-- Page Header -->
+  <div class="mb-10 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
-        <h1 class="text-xl font-bold text-gh-text flex items-center gap-2">
-          <span>Fotoğraf Koleksiyonu & Arşiv</span>
-          <span class="text-xs font-mono font-normal px-2 py-0.5 rounded-full bg-gh-badge text-gh-textMuted border border-gh-border">
+        <div class="flex flex-wrap items-center gap-2.5 mb-2">
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+            Fotoğraf Koleksiyonu & Arşiv
+          </h1>
+          <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/80 dark:border-zinc-700/80">
             Flickr API Live
           </span>
-        </h1>
-        <p class="text-xs text-gh-textMuted mt-1">
-          Kastamonu tarihi dokusu, ahşap mimari, kaleler ve doğa belgeseli fotoğraf serileri.
+        </div>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+          Kastamonu tarihi mimarisi, ahşap yapılar, kaleler ve doğa belgeseli fotoğraf serileri (EXIF telemetrisi ile).
         </p>
       </div>
 
@@ -25,10 +28,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         href="https://www.flickr.com/photos/204447030@N04/"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center space-x-1.5 text-xs font-mono px-3 py-1.5 rounded-md border border-gh-border bg-gh-subtle text-gh-text hover:bg-gh-borderMuted transition-colors flex-shrink-0 self-start sm:self-auto"
+        class="inline-flex items-center space-x-2 text-xs font-mono px-4 py-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all flex-shrink-0 self-start sm:self-auto"
       >
         <span>Flickr Profili</span>
-        <svg class="w-3.5 h-3.5 text-gh-textMuted" viewBox="0 0 16 16" fill="currentColor">
+        <svg class="w-3.5 h-3.5 text-zinc-400" viewBox="0 0 16 16" fill="currentColor">
           <path d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2Zm6.75-.75a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0V3.56L8.53 8.03a.75.75 0 0 1-1.06-1.06l4.47-4.47h-1.19a.75.75 0 0 1-.75-.75Z"></path>
         </svg>
       </a>
@@ -39,28 +42,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div id="album-view">
     <div id="album-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- Loading Skeleton -->
-      <div class="p-4 rounded-md border border-gh-border bg-gh-subtle animate-pulse h-64 flex flex-col justify-end">
-        <div class="h-4 bg-gh-border rounded w-3/4 mb-2"></div>
-        <div class="h-3 bg-gh-border rounded w-1/2"></div>
+      <div class="p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/40 animate-pulse h-64 flex flex-col justify-end">
+        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-2"></div>
+        <div class="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-1/2"></div>
       </div>
-      <div class="p-4 rounded-md border border-gh-border bg-gh-subtle animate-pulse h-64 flex flex-col justify-end">
-        <div class="h-4 bg-gh-border rounded w-3/4 mb-2"></div>
-        <div class="h-3 bg-gh-border rounded w-1/2"></div>
+      <div class="p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/40 animate-pulse h-64 flex flex-col justify-end">
+        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-2"></div>
+        <div class="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-1/2"></div>
       </div>
     </div>
   </div>
 
   <!-- VIEW 2: PHOTOS IN SELECTED ALBUM (HIDDEN INITIALLY) -->
   <div id="photo-view" class="hidden">
-    <div class="flex items-center justify-between mb-4 pb-3 border-b border-gh-border">
+    <div class="flex items-center justify-between mb-6 pb-3 border-b border-zinc-200/80 dark:border-zinc-800/80">
       <button
         id="btn-back-albums"
         type="button"
-        class="inline-flex items-center space-x-1.5 text-xs font-mono px-3 py-1.5 rounded-md border border-gh-border bg-gh-subtle text-gh-text hover:bg-gh-borderMuted transition-colors"
+        class="inline-flex items-center space-x-2 text-xs font-mono px-3.5 py-1.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
       >
         <span>← Tüm Albümlere Dön</span>
       </button>
-      <h2 id="album-active-title" class="text-sm font-semibold text-gh-text truncate max-w-md font-mono"></h2>
+      <h2 id="album-active-title" class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 truncate max-w-md font-mono"></h2>
     </div>
 
     <div id="photos-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -71,14 +74,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- LIGHTBOX / PHOTO MODAL -->
   <dialog
     id="photoModal"
-    class="backdrop:bg-black/85 bg-gh-bg text-gh-text border border-gh-border rounded-lg max-w-5xl w-full p-0 shadow-2xl overflow-hidden m-auto"
+    class="backdrop:bg-black/90 backdrop:backdrop-blur-md bg-zinc-950 text-zinc-100 border border-zinc-800 rounded-2xl max-w-5xl w-full p-0 shadow-2xl overflow-hidden m-auto"
   >
-    <div class="flex items-center justify-between px-4 py-2.5 bg-gh-subtle border-b border-gh-border text-xs font-mono">
-      <span id="photoModalTitle" class="truncate text-gh-textMuted">Fotoğraf Detayı</span>
+    <div class="flex items-center justify-between px-5 py-3 bg-zinc-900/90 border-b border-zinc-800 text-xs font-mono">
+      <span id="photoModalTitle" class="truncate text-zinc-400">Fotoğraf Detayı</span>
       <button
         id="btnCloseModal"
         type="button"
-        class="text-gh-textMuted hover:text-gh-text p-1 rounded hover:bg-gh-bg transition-colors"
+        class="text-zinc-400 hover:text-white p-1 rounded-lg hover:bg-zinc-800 transition-colors"
       >
         ✕ Kapat
       </button>
@@ -96,7 +99,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <button
         id="btnPrevPhoto"
         type="button"
-        class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-2.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100"
+        class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100"
         title="Önceki (Sol Ok)"
       >
         ‹
@@ -104,7 +107,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <button
         id="btnNextPhoto"
         type="button"
-        class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-2.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100"
+        class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100"
         title="Sonraki (Sağ Ok)"
       >
         ›
@@ -112,11 +115,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
 
     <!-- EXIF Telemetry Footer -->
-    <div class="p-3.5 bg-gh-subtle border-t border-gh-border flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono">
-      <div id="photoModalExif" class="text-gh-textMuted truncate">
+    <div class="p-4 bg-zinc-900/90 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono">
+      <div id="photoModalExif" class="text-zinc-400 truncate">
         Telemetri taranıyor...
       </div>
-      <div class="text-[11px] text-gh-textMuted flex-shrink-0">
+      <div class="text-[11px] text-zinc-500 flex-shrink-0">
         Klavye: [← / →] Geçiş • [ESC] Kapat
       </div>
     </div>
@@ -151,25 +154,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           html += `
             <div
-              class="rounded-md border border-gh-border bg-gh-bg overflow-hidden hover:border-gh-textMuted transition-all cursor-pointer group flex flex-col justify-between"
+              class="rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group flex flex-col justify-between"
               onclick="displayAlbumPhotos('${set.id}', '${encodeURIComponent(title)}')"
             >
-              <div class="relative aspect-video w-full overflow-hidden bg-gh-subtle">
+              <div class="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
                 <img
                   loading="lazy"
                   src="${thumb}"
                   alt="${title}"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded text-[11px] font-mono bg-black/75 text-white backdrop-blur-sm border border-white/20">
+                <span class="absolute bottom-2.5 right-2.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-black/75 text-white backdrop-blur-sm border border-white/20">
                   ${count} Fotoğraf
                 </span>
               </div>
-              <div class="p-4">
-                <h3 class="text-sm font-semibold text-gh-text group-hover:text-gh-link transition-colors font-mono">
+              <div class="p-5">
+                <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-mono">
                   ${title}
                 </h3>
-                <p class="text-xs text-gh-textMuted mt-1 line-clamp-2 leading-relaxed">
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">
                   ${escapeHtml(set.description._content || 'Koleksiyon detayları ve yüksek çözünürlüklü fotoğraflar.')}
                 </p>
               </div>
@@ -178,10 +181,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
         grid.innerHTML = html;
       } else {
-        grid.innerHTML = '<div class="p-4 text-xs font-mono text-gh-textMuted border border-gh-border rounded">Albümler sunucudan alınamadı.</div>';
+        grid.innerHTML = '<div class="p-5 text-xs font-mono text-zinc-500 border border-zinc-200 dark:border-zinc-800 rounded-xl">Albümler sunucudan alınamadı.</div>';
       }
     } catch {
-      grid.innerHTML = '<div class="p-4 text-xs font-mono text-gh-textMuted border border-gh-border rounded">Flickr bağlantısı kurulamadı.</div>';
+      grid.innerHTML = '<div class="p-5 text-xs font-mono text-zinc-500 border border-zinc-200 dark:border-zinc-800 rounded-xl">Flickr bağlantısı kurulamadı.</div>';
     }
   }
 
@@ -194,7 +197,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     albumView.classList.add('hidden');
     photoView.classList.remove('hidden');
     titleEl.textContent = decodeURIComponent(encodedTitle);
-    container.innerHTML = '<div class="col-span-full p-8 text-center text-xs font-mono text-gh-textMuted">Fotoğraflar indeksleniyor...</div>';
+    container.innerHTML = '<div class="col-span-full p-8 text-center text-xs font-mono text-zinc-500">Fotoğraflar indeksleniyor...</div>';
 
     const url = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${apiKey}&photoset_id=${setID}&user_id=${userID}&format=json&nojsoncallback=1`;
 
@@ -209,11 +212,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           const thumb = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_z.jpg`;
           html += `
             <div
-              class="photo-cell rounded-md border border-gh-border bg-gh-bg overflow-hidden hover:border-gh-textMuted transition-all group flex flex-col justify-between"
+              class="photo-cell rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group flex flex-col justify-between"
               data-photo-id="${photo.id}"
             >
               <div
-                class="relative aspect-video w-full overflow-hidden bg-gh-subtle cursor-pointer"
+                class="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800 cursor-pointer"
                 onclick="openPhotoModal(${idx})"
               >
                 <img
@@ -223,7 +226,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div id="exif-${photo.id}" class="p-2.5 bg-gh-subtle border-t border-gh-border text-[11px] font-mono text-gh-textMuted truncate">
+              <div id="exif-${photo.id}" class="p-2.5 bg-zinc-50 dark:bg-zinc-950/80 border-t border-zinc-100 dark:border-zinc-800/80 text-[11px] font-mono text-zinc-500 dark:text-zinc-400 truncate">
                 Telemetri taranıyor...
               </div>
             </div>
@@ -233,7 +236,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         attachExifObserver();
       }
     } catch {
-      container.innerHTML = '<div class="col-span-full p-4 text-xs font-mono text-gh-textMuted">Fotoğraflar alınamadı.</div>';
+      container.innerHTML = '<div class="col-span-full p-5 text-xs font-mono text-zinc-500">Fotoğraflar alınamadı.</div>';
     }
   };
 
@@ -281,7 +284,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           if (e.tag === "FNumber") f = "f/" + e.raw._content;
           if (e.tag === "ExposureTime") s = e.raw._content + "s";
         });
-        const hud = `<span class="text-gh-text font-semibold">${camera}</span> • ${f} • ${s} • ISO ${iso}`;
+        const hud = `<span class="text-zinc-900 dark:text-zinc-100 font-semibold">${camera}</span> • ${f} • ${s} • ISO ${iso}`;
         exifStore.set(photoID, hud);
         if (el) el.innerHTML = hud;
         return hud;

@@ -5,17 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        gh: {
-          bg: 'var(--color-gh-bg)',
-          subtle: 'var(--color-gh-subtle)',
-          border: 'var(--color-gh-border)',
-          borderMuted: 'var(--color-gh-border-muted)',
-          text: 'var(--color-gh-text)',
-          textMuted: 'var(--color-gh-text-muted)',
-          link: 'var(--color-gh-link)',
-          green: '#238636',
-          greenHover: '#2ea043',
-          badge: 'var(--color-gh-badge)',
+        canvas: {
+          light: '#fafafa',
+          dark: '#09090b',
+        },
+        surface: {
+          light: '#ffffff',
+          dark: '#121215',
         }
       },
       fontFamily: {

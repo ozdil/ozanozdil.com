@@ -1,29 +1,29 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ProfileSidebar from '../components/ProfileSidebar.astro';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
   image?: string;
-  showSidebar?: boolean;
+  currentPath?: string;
   type?: 'website' | 'article';
   article?: {
     pubDate?: Date;
     updatedDate?: Date;
     tags?: string[];
   };
+  maxWidthClass?: string;
 }
 
 const {
-  title = 'Ozan Özdil (@ozdil) — Açık Kaynak, Siber Güvenlik & Strateji',
+  title = 'Ozan Özdil (@ozdil) — Stratejist & Teknoloji Araştırmacısı',
   description = 'Orman Mühendisi (KTÜ), Stratejist & Dijital İletişim Danışmanı. Açık Kaynak, Siber Güvenlik ve AI Araştırmacısı Ozan Özdil resmi web sitesi.',
   image = '/avatar.jpg',
-  showSidebar = true,
   type = 'website',
   article,
+  maxWidthClass = 'max-w-5xl',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ozanozdil.com');
@@ -144,22 +144,11 @@ const jsonLd = type === 'article' && article?.pubDate ? {
       }
     </script>
   </head>
-  <body class="min-h-screen flex flex-col bg-gh-bg text-gh-text selection:bg-gh-link selection:text-white font-sans antialiased">
+  <body class="min-h-screen flex flex-col bg-[#fafafa] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 selection:bg-zinc-900 selection:text-white dark:selection:bg-zinc-100 dark:selection:text-zinc-900 font-sans antialiased transition-colors duration-200">
     <Header currentPath={currentPath} />
 
-    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
-      {showSidebar ? (
-        <div class="flex flex-col lg:flex-row gap-8 items-start">
-          <ProfileSidebar />
-          <section class="flex-1 w-full min-w-0">
-            <slot />
-          </section>
-        </div>
-      ) : (
-        <div class="max-w-4xl mx-auto w-full">
-          <slot />
-        </div>
-      )}
+    <main class={`flex-grow w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 ${maxWidthClass}`}>
+      <slot />
     </main>
 
     <Footer />

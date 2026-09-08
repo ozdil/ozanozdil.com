@@ -98,50 +98,50 @@ const repositories = [
   description="Ozan Özdil tarafından geliştirilen açık kaynak sistem yazılımları, ağ savunma ve Linux mimari araçları."
   currentPath="/projeler"
 >
-  <div class="mb-6">
-    <div class="flex items-center justify-between pb-4 border-b border-gh-border">
-      <div>
-        <h1 class="text-xl font-bold text-gh-text flex items-center gap-2">
-          <span>Açık Kaynak Projeler & Araçlar</span>
-          <span class="text-xs font-mono font-normal px-2 py-0.5 rounded-full bg-gh-badge text-gh-textMuted border border-gh-border">
-            {repositories.length} repo
-          </span>
-        </h1>
-        <p class="text-xs text-gh-textMuted mt-1">
-          Arch Linux, siber savunma, otonom sistemler ve ağ güvenliği alanında geliştirdiğimiz açık kaynak projeler.
-        </p>
-      </div>
+  <!-- Page Header -->
+  <div class="mb-10 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="flex flex-wrap items-center gap-2.5 mb-2">
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+        Açık Kaynak Projeler & Araçlar
+      </h1>
+      <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/80 dark:border-zinc-700/80">
+        {repositories.length} Depo
+      </span>
     </div>
+    <p class="text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+      Arch Linux, Omarchy mimarisi, proaktif ağ savunması, BadUSB kalkanları ve donanım optimizasyonu alanında geliştirdiğimiz açık kaynak yazılım araçları.
+    </p>
   </div>
 
-  <!-- Repositories List (GitHub Style) -->
-  <div class="space-y-3.5">
+  <!-- Repositories Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {repositories.map((repo) => (
-      <div class="p-4 sm:p-5 rounded-md border border-gh-border bg-gh-bg hover:border-gh-textMuted transition-colors flex flex-col justify-between">
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-          <div class="flex items-center space-x-2">
-            <svg class="w-4 h-4 text-gh-textMuted flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.6-1.2-1.6 1.2a.25.25 0 0 1-.4-.2Z"></path>
-            </svg>
+      <div class="p-5 sm:p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2.5">
             <a
               href={repo.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-base font-semibold text-gh-link hover:underline font-mono"
+              class="text-base font-semibold font-mono text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5"
             >
-              {repo.name}
+              <span>{repo.name}</span>
+              <svg class="w-3.5 h-3.5 text-zinc-400 opacity-60 group-hover:opacity-100" viewBox="0 0 16 16" fill="currentColor">
+                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5Z"/>
+                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5Z"/>
+              </svg>
             </a>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border border-gh-border text-gh-textMuted bg-gh-subtle">
-              Public
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 bg-zinc-50 dark:bg-zinc-950">
+              Açık Kaynak
             </span>
           </div>
+
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed font-normal">
+            {repo.desc}
+          </p>
         </div>
 
-        <p class="text-xs text-gh-textMuted mb-3.5 leading-relaxed">
-          {repo.desc}
-        </p>
-
-        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gh-textMuted font-mono pt-2.5 border-t border-gh-borderMuted">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono text-zinc-500 dark:text-zinc-400 pt-3 border-t border-zinc-100 dark:border-zinc-800/60">
           <span class="flex items-center space-x-1.5">
             <span class="w-2.5 h-2.5 rounded-full" style={`background-color: ${repo.langColor}`}></span>
             <span>{repo.lang}</span>
@@ -149,8 +149,8 @@ const repositories = [
 
           <div class="flex flex-wrap gap-1">
             {repo.tags.map((tag) => (
-              <span class="text-[10px] px-1.5 py-0.5 rounded bg-gh-subtle border border-gh-border">
-                {tag}
+              <span class="text-[10px] px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-700/60">
+                #{tag}
               </span>
             ))}
           </div>

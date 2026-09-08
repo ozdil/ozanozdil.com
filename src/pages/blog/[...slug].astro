@@ -20,81 +20,103 @@ const { Content } = await post.render();
   image={post.data.heroImage || '/avatar.jpg'}
   currentPath="/blog"
   type="article"
+  maxWidthClass="max-w-3xl"
   article={{
     pubDate: post.data.pubDate,
     updatedDate: post.data.updatedDate,
     tags: post.data.tags,
   }}
 >
-  <div class="border border-gh-border rounded-md bg-gh-bg overflow-hidden shadow-sm">
-    <!-- File Header Bar (GitHub Document View) -->
-    <div class="px-4 py-3 bg-gh-subtle border-b border-gh-border flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
-      <div class="flex items-center space-x-2 text-gh-textMuted">
-        <a href="/blog" class="text-gh-link hover:underline">blog</a>
-        <span>/</span>
-        <span class="text-gh-text font-semibold">{post.slug}.md</span>
-      </div>
+  <article class="pt-2 sm:pt-4">
+    <!-- Top Back Link -->
+    <div class="mb-8">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors"
+      >
+        <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z" clip-rule="evenodd"/>
+        </svg>
+        <span>Tüm Yazılar</span>
+      </a>
+    </div>
 
-      <div class="flex items-center space-x-3 text-gh-textMuted">
+    <!-- Article Header -->
+    <header class="mb-10 pb-8 border-b border-zinc-200/80 dark:border-zinc-800/80">
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-4">
         <time datetime={post.data.pubDate.toISOString()}>
           {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
         </time>
         <span>•</span>
-        <a href="/blog" class="text-gh-link hover:underline">← Tüm Yazılar</a>
+        <span>Ozan Özdil</span>
+        {post.data.updatedDate && (
+          <>
+            <span>•</span>
+            <span class="text-zinc-400 dark:text-zinc-500">
+              Güncellendi: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+            </span>
+          </>
+        )}
       </div>
-    </div>
 
-    <!-- Article Header -->
-    <div class="p-6 sm:p-8 pb-4 border-b border-gh-borderMuted">
-      <h1 class="text-2xl sm:text-3xl font-bold text-gh-text leading-tight mb-3">
+      <h1 class="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 leading-[1.2] mb-4">
         {post.data.title}
       </h1>
-      <p class="text-sm text-gh-textMuted leading-relaxed mb-4">
+
+      <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal mb-6">
         {post.data.description}
       </p>
 
       {post.data.tags.length > 0 && (
         <div class="flex flex-wrap gap-1.5">
           {post.data.tags.map((tag) => (
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-gh-subtle border border-gh-border text-gh-textMuted">
+            <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/80 dark:border-zinc-700/80">
               #{tag}
             </span>
           ))}
         </div>
       )}
-    </div>
+    </header>
 
     <!-- Rendered Markdown Body -->
-    <div class="p-6 sm:p-8 markdown-body">
+    <div class="markdown-body leading-relaxed">
       <Content />
     </div>
 
-    <!-- Article Footer -->
-    <div class="p-6 bg-gh-subtle border-t border-gh-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-      <div class="flex items-center space-x-2 text-gh-textMuted">
-        <span>Yazar:</span>
-        <strong class="text-gh-text font-mono">Ozan Özdil (@ozdil)</strong>
-      </div>
+    <!-- Article Footer & Author Bio -->
+    <footer class="mt-16 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80">
+      <div class="p-6 rounded-2xl bg-zinc-100/60 dark:bg-zinc-900/40 border border-zinc-200/80 dark:border-zinc-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-center space-x-3.5">
+          <div class="w-12 h-12 rounded-full overflow-hidden border border-zinc-300 dark:border-zinc-700 flex-shrink-0">
+            <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50">Ozan Özdil</h4>
+            <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5">
+              Stratejist & Açık Kaynak Sistem Mimarisi Araştırmacısı
+            </p>
+          </div>
+        </div>
 
-      <div class="flex items-center space-x-3 font-mono">
-        <a
-          href="https://nsosyal.com/ozanozdil"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gh-link hover:underline"
-        >
-          NSosyal'de Tartış
-        </a>
-        <span class="text-gh-border">|</span>
-        <a
-          href="https://github.com/ozdil"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gh-link hover:underline"
-        >
-          GitHub
-        </a>
+        <div class="flex items-center space-x-3 text-xs font-medium">
+          <a
+            href="https://nsosyal.com/ozanozdil"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 rounded-lg bg-zinc-200/70 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-300/80 dark:hover:bg-zinc-700 transition-colors"
+          >
+            NSosyal'de Tartış
+          </a>
+          <a
+            href="https://github.com/ozdil"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 rounded-lg border border-zinc-300/80 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+          >
+            GitHub
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
+    </footer>
+  </article>
 </BaseLayout>

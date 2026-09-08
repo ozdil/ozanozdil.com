@@ -10,31 +10,30 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
 <BaseLayout
-  title="Yazılar & Düşünceler — Ozan Özdil"
+  title="Yazılar & Makaleler — Ozan Özdil"
   description="Açık kaynak, Linux çekirdeği, siber güvenlik, yapay zekâ ve siyasal iletişim üzerine makaleler."
   currentPath="/blog"
 >
-  <div class="mb-6">
-    <div class="flex items-center justify-between pb-4 border-b border-gh-border">
-      <div>
-        <h1 class="text-xl font-bold text-gh-text flex items-center gap-2">
-          <span>Yazılar & Makaleler</span>
-          <span class="text-xs font-mono font-normal px-2 py-0.5 rounded-full bg-gh-badge text-gh-textMuted border border-gh-border">
-            {posts.length} yazı
-          </span>
-        </h1>
-        <p class="text-xs text-gh-textMuted mt-1">
-          Açık kaynak dünyası, siber güvenlik araştırmaları, siyasal strateji ve kişisel arşiv notları.
-        </p>
-      </div>
+  <!-- Page Header -->
+  <div class="mb-10 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <div class="flex flex-wrap items-center gap-2.5 mb-2">
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+        Yazılar & Makaleler
+      </h1>
+      <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/80 dark:border-zinc-700/80">
+        {posts.length} Makale
+      </span>
     </div>
+    <p class="text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+      Açık kaynak dünyası, Linux çekirdek mimarisi, siber savunma, yapay zekâ ve stratejik iletişim üzerine yayınlanmış tüm makale arşivi.
+    </p>
 
     <!-- Tags Bar -->
     {allTags.length > 0 && (
-      <div class="flex flex-wrap gap-1.5 pt-3">
-        <span class="text-xs font-mono text-gh-textMuted py-0.5">Etiketler:</span>
+      <div class="flex flex-wrap items-center gap-1.5 pt-5">
+        <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 mr-1">Konular:</span>
         {allTags.map((tag) => (
-          <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-gh-badge text-gh-textMuted border border-gh-border">
+          <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800/70 text-zinc-600 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-700/60 hover:border-zinc-400 dark:hover:border-zinc-500 transition-colors">
             #{tag}
           </span>
         ))}
@@ -42,32 +41,34 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
     )}
   </div>
 
-  <!-- Articles List (GitHub Issue/Commit Style) -->
-  <div class="border border-gh-border rounded-md divide-y divide-gh-border bg-gh-bg overflow-hidden shadow-sm">
+  <!-- Articles List -->
+  <div class="divide-y divide-zinc-200/80 dark:divide-zinc-800/80 border border-zinc-200/80 dark:border-zinc-800/80 rounded-2xl bg-white/70 dark:bg-zinc-900/50 overflow-hidden">
     {sortedPosts.map((post) => (
-      <article class="p-5 hover:bg-gh-subtle transition-colors">
+      <article class="p-5 sm:p-6 hover:bg-zinc-50/80 dark:hover:bg-zinc-800/30 transition-colors">
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-          <h2 class="text-base font-semibold">
-            <a href={`/blog/${post.slug}`} class="text-gh-text hover:text-gh-link">
+          <h2 class="text-base sm:text-lg font-semibold">
+            <a href={`/blog/${post.slug}`} class="text-zinc-950 dark:text-zinc-50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               {post.data.title}
             </a>
           </h2>
-          <time datetime={post.data.pubDate.toISOString()} class="text-xs font-mono text-gh-textMuted flex-shrink-0">
+          <time datetime={post.data.pubDate.toISOString()} class="text-xs font-mono text-zinc-500 dark:text-zinc-400 flex-shrink-0">
             {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
           </time>
         </div>
 
-        <p class="text-xs text-gh-textMuted mb-3 line-clamp-2 leading-relaxed">
+        <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mb-3.5 line-clamp-2 leading-relaxed font-normal">
           {post.data.description}
         </p>
 
-        <div class="flex items-center space-x-2">
-          {post.data.tags.map((tag) => (
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-gh-subtle border border-gh-border text-gh-textMuted">
-              #{tag}
-            </span>
-          ))}
-        </div>
+        {post.data.tags.length > 0 && (
+          <div class="flex flex-wrap gap-1.5">
+            {post.data.tags.map((tag) => (
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-700/60">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
       </article>
     ))}
   </div>

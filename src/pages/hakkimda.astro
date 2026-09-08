@@ -6,71 +6,161 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Özgeçmiş & Profesyonel Profil — Ozan Özdil"
   description="Ozan Özdil profesyonel özgeçmişi, idari tecrübeleri, açık kaynak sistem mimarisi ve siber savunma çalışmaları."
   currentPath="/hakkimda"
+  maxWidthClass="max-w-3xl"
 >
-  <!-- GitHub Document Card -->
-  <div class="border border-gh-border rounded-md bg-gh-bg overflow-hidden shadow-sm">
-    <!-- File Header Bar -->
-    <div class="px-4 py-2.5 bg-gh-subtle border-b border-gh-border flex items-center justify-between text-xs text-gh-textMuted font-mono">
-      <div class="flex items-center space-x-2">
-        <svg class="w-3.5 h-3.5 text-gh-textMuted" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25Z"></path>
-          <path d="M8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path>
-        </svg>
-        <span>ozdil / <strong>README.md</strong></span>
+  <div class="space-y-12">
+    <!-- Header / Intro -->
+    <header class="pb-8 border-b border-zinc-200/80 dark:border-zinc-800/80">
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-800 flex-shrink-0">
+          <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
+        </div>
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+            Ozan Özdil
+          </h1>
+          <p class="text-sm font-medium text-zinc-600 dark:text-zinc-400 mt-1">
+            Stratejist • Açık Kaynak Sistem Mimarı • Kastamonu, TR
+          </p>
+        </div>
       </div>
-      <span class="text-[11px] text-gh-textMuted font-mono">Curriculum Vitae</span>
-    </div>
 
-    <!-- Rendered Markdown Content -->
-    <div class="p-6 sm:p-8 markdown-body">
-      <h1>Ozan Özdil</h1>
-
-      <blockquote>
-        <em>"Sistemik düşünce, analitik strateji ve açık kaynak teknolojileriyle kurumsal değer üretimi."</em>
+      <blockquote class="p-4 rounded-xl bg-zinc-100/70 dark:bg-zinc-900/50 border-l-4 border-blue-600 text-sm text-zinc-700 dark:text-zinc-300 italic">
+        "Sistemik düşünce, analitik strateji ve açık kaynak teknolojileriyle kurumsal değer üretimi."
       </blockquote>
+    </header>
 
-      <p>
-        Karadeniz Teknik Üniversitesi Orman Fakültesi mezunu; siyasal iletişim stratejisti, eski Ar-Ge ve Bilgi İşlem yöneticisi, açık kaynak sistem mimarı ve siber savunma araştırmacısı.
-      </p>
+    <!-- Executive Summary -->
+    <section>
+      <h2 class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-mono mb-4">
+        Yönetici Özeti
+      </h2>
+      <div class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-4 font-normal">
+        <p>
+          Karadeniz Teknik Üniversitesi Orman Fakültesi formasyonunun kazandırdığı çok değişkenli ve ekolojik analitik düşünce disiplinini kurumsal yönetim ve iletişim süreçlerine entegre eden Ozan Özdil; kamu kurumlarında kriz yönetimi, kitle iletişimi, seçim kampanyası liderliği ve kurumsal bilişim altyapılarının modernizasyonu süreçlerinde yöneticilik yapmıştır.
+        </p>
+        <p>
+          Günümüzde kurumsal yönetim birikimini; Linux çekirdek mimarisi, ağ güvenliği, uçtan uca veri savunması ve yerel yapay zekâ entegrasyonları odağında açık kaynaklı sistem projeleri geliştirerek sürdürmektedir.
+        </p>
+      </div>
+    </section>
 
-      <h2>Yönetici Özeti</h2>
-      <p>
-        Ekolojik sistemlerin gerektirdiği çok değişkenli analitik düşünce disiplinini kurumsal yönetim ve iletişim süreçlerine entegre eden Ozan Özdil; kamu kurumlarında kriz yönetimi, kitle iletişimi, seçim kampanyası liderliği ve kurumsal bilişim altyapılarının modernizasyonu süreçlerinde yöneticilik yapmıştır.
-      </p>
-      <p>
-        Günümüzde kurumsal yönetim birikimini; Linux çekirdek mimarisi, ağ güvenliği, uçtan uca veri savunması ve yerel yapay zekâ entegrasyonları odağında açık kaynaklı sistem projeleri geliştirerek sürdürmektedir.
-      </p>
+    <!-- Career Timeline -->
+    <section>
+      <h2 class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-mono mb-6">
+        Mesleki Deneyim & İdari Sorumluluklar
+      </h2>
 
-      <h2>Mesleki Deneyim ve İdari Sorumluluklar</h2>
-      <ul>
-        <li>
-          <strong>Siyasal İletişim & Kampanya Koordinatörlüğü (2019):</strong> MHP Kastamonu yerel seçim sürecinde stratejik planlama, saha veri analitiği, prodüksiyon ve kitle iletişimi yönetimi (zaferle sonuçlanan kampanya süreci).
-        </li>
-        <li>
-          <strong>Başkan Danışmanlığı & Medya Yönetimi:</strong> Kastamonu Belediyesi basın, halkla ilişkiler ve dijital iletişim stratejilerinin icrası (3 aylık dönemde 25 milyonun üzerinde organik kitle erişimi).
-        </li>
-        <li>
-          <strong>Ar-Ge & Bilgi İşlem Yöneticiliği (2022):</strong> Kurumsal dijital dönüşüm, bilişim altyapısının güvenliği, sunucu yönetimi ve teknolojik Ar-Ge projeleri koordinasyonu.
-        </li>
-        <li>
-          <strong>Sistem Mimarisi & Açık Kaynak Araştırmaları (Günümüz):</strong> Kurumsal arşiv bünyesinde bağımsız sistem güvenliği, Linux mimarisi (Arch / Omarchy), otonom yapay zekâ modelleri ve açık kaynak savunma araçları geliştirme.
-        </li>
-      </ul>
+      <div class="relative pl-6 space-y-8 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-px before:bg-zinc-200 dark:before:bg-zinc-800">
+        <!-- Item 1 -->
+        <div class="relative group">
+          <span class="absolute -left-6 top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-zinc-950 bg-blue-600"></span>
+          <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">2022 — Günümüz</span>
+          <h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50 mt-0.5">
+            Sistem Mimarisi & Bağımsız Açık Kaynak Araştırmaları
+          </h3>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-1.5">
+            Kurumsal arşiv bünyesinde bağımsız sistem güvenliği, Linux mimarisi (Arch / Omarchy), otonom yapay zekâ modelleri ve açık kaynak savunma araçları geliştirme.
+          </p>
+        </div>
 
-      <h2>Temel Uzmanlık Alanları</h2>
-      <ul>
-        <li><strong>Stratejik İletişim & Kriz Yönetimi:</strong> Kamuoyu algı yönetimi, veri temelli kampanya kurguları, itibar yönetimi ve medya koordinasyonu.</li>
-        <li><strong>İşletim Sistemleri & Çekirdek:</strong> Arch Linux mimarisi, çekirdek optimizasyonları, pencere yöneticileri (Hyprland), hafif ve yüksek performanslı sistem kurguları.</li>
-        <li><strong>Siber Savunma & Sistem Güvenliği:</strong> Canlı ağ trafiği analitiği, BadUSB ve harici donanım kalkanları, güvenlik açığı (CVE) radarları, tuzak dosya (honeypot) mekanizmaları.</li>
-        <li><strong>Yapay Zekâ Entegrasyonu:</strong> Yerel (on-premise / edge) LLM mimarileri, otonom yazılım ajanları ve prompt mühendisliği.</li>
-      </ul>
+        <!-- Item 2 -->
+        <div class="relative group">
+          <span class="absolute -left-6 top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-zinc-950 bg-emerald-600"></span>
+          <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">2022</span>
+          <h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50 mt-0.5">
+            Ar-Ge & Bilgi İşlem Yöneticiliği
+          </h3>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-1.5">
+            Kurumsal dijital dönüşüm, bilişim altyapısının güvenliği, sunucu yönetimi ve teknolojik Ar-Ge projeleri koordinasyonu.
+          </p>
+        </div>
 
-      <h2>İletişim ve Ağlar</h2>
-      <ul>
-        <li><strong>GitHub:</strong> <a href="https://github.com/ozdil" target="_blank" rel="noopener noreferrer">@ozdil</a></li>
-        <li><strong>NSosyal:</strong> <a href="https://nsosyal.com/ozanozdil" target="_blank" rel="noopener noreferrer">@ozanozdil</a></li>
-        <li><strong>Resmi Web Sitesi:</strong> <a href="https://ozanozdil.com">ozanozdil.com</a></li>
-      </ul>
-    </div>
+        <!-- Item 3 -->
+        <div class="relative group">
+          <span class="absolute -left-6 top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-zinc-950 bg-amber-600"></span>
+          <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">2019 — 2022</span>
+          <h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50 mt-0.5">
+            Başkan Danışmanlığı & Medya Yönetimi
+          </h3>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-1.5">
+            Kastamonu Belediyesi basın, halkla ilişkiler ve dijital iletişim stratejilerinin icrası (3 aylık dönemde 25 milyonun üzerinde organik kitle erişimi).
+          </p>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="relative group">
+          <span class="absolute -left-6 top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-zinc-950 bg-purple-600"></span>
+          <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400">2019</span>
+          <h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50 mt-0.5">
+            Siyasal İletişim & Seçim Kampanyası Koordinatörlüğü
+          </h3>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-1.5">
+            MHP Kastamonu yerel seçim sürecinde stratejik planlama, saha veri analitiği, prodüksiyon ve kitle iletişimi yönetimi (zaferle sonuçlanan kampanya süreci).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Competencies -->
+    <section>
+      <h2 class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-mono mb-4">
+        Temel Uzmanlık Alanları
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div class="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50">
+          <h4 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 mb-1">Stratejik İletişim & Kriz Yönetimi</h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">Kamuoyu algı yönetimi, veri temelli kampanya kurguları, itibar yönetimi ve medya koordinasyonu.</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50">
+          <h4 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 mb-1">İşletim Sistemleri & Çekirdek</h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">Arch Linux mimarisi, çekirdek optimizasyonları, pencere yöneticileri (Hyprland), hafif ve yüksek performanslı kurgular.</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50">
+          <h4 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 mb-1">Siber Savunma & Sistem Güvenliği</h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">Canlı ağ trafiği analitiği, BadUSB harici donanım kalkanları, CVE denetim motorları ve tuzak dosya mekanizmaları.</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50">
+          <h4 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 mb-1">Yapay Zekâ Entegrasyonları</h4>
+          <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">Yerel (on-premise / edge) LLM mimarileri, otonom yazılım ajanları ve prompt mühendisliği.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Communication & Network -->
+    <section class="pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80">
+      <h2 class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-mono mb-4">
+        İletişim & Ağlar
+      </h2>
+
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono">
+        <a
+          href="https://github.com/ozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-4 py-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
+        >
+          GitHub: @ozdil
+        </a>
+        <a
+          href="https://nsosyal.com/ozanozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-4 py-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
+        >
+          NSosyal: @ozanozdil
+        </a>
+        <a
+          href="https://ozanozdil.com"
+          class="px-4 py-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
+        >
+          ozanozdil.com
+        </a>
+      </div>
+    </section>
   </div>
 </BaseLayout>
