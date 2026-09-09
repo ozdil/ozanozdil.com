@@ -2,15 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import galleryData from '../data/gallery.json';
 
-const { albums, years, totalAlbums, totalPhotos } = galleryData;
+const { albums, years, cameras, lenses, totalAlbums, totalPhotos } = galleryData;
 
 // Structured Data for Google Images & Search
 const imageGallerySchema = {
   "@context": "https://schema.org",
   "@type": "ImageGallery",
   "name": "Ozan Özdil — Fotoğraf Galerisi & Mimari Arşiv",
-  "description": "Kastamonu tarihi yapıları, ahşap camileri (Mahmutbey Camii UNESCO), Ağlı Kalesi ve kadim coğrafi rotaları. Orta format Fujifilm GFX sistemiyle çekilmiş fotoğraf koleksiyonu.",
+  "description": "Kastamonu tarihi yapıları, ahşap camileri (Mahmutbey Camii UNESCO), Ağlı Kalesi, Cide & Gideros Koyu ve kadim coğrafi rotaları. Orta format Fujifilm GFX sistemiyle çekilmiş fotoğraf sergisi.",
   "url": "https://ozanozdil.com/galeri",
+  "copyrightNotice": "© 2026 Ozan Özdil. Tüm hakları saklıdır. İzinsiz kopyalanamaz veya çoğaltılamaz.",
   "author": {
     "@type": "Person",
     "name": "Ozan Özdil",
@@ -44,7 +45,8 @@ const imageGallerySchema = {
         "@type": "Person",
         "name": "Ozan Özdil"
       },
-      "copyrightNotice": "© 2026 Ozan Özdil. Tüm hakları saklıdır."
+      "copyrightNotice": "© 2026 Ozan Özdil. Tüm hakları saklıdır.",
+      "acquireLicensePage": "https://ozanozdil.com/hakkimda"
     }))
   )
 };
@@ -52,7 +54,7 @@ const imageGallerySchema = {
 
 <BaseLayout
   title="Fotoğraf Galerisi — Ozan Özdil"
-  description="Kastamonu tarihi sivil mimarisi, ahşap çivisiz camileri (UNESCO) ve kadim rotaları. Fujifilm GFX orta format sistemiyle çekilmiş bağımsız fotoğraf koleksiyonu."
+  description="Kastamonu tarihi sivil mimarisi, ahşap çivisiz camileri (UNESCO), Ağlı Kalesi ve Cide sahilleri. Fujifilm GFX orta format sistemiyle çekilmiş bağımsız fotoğraf koleksiyonu."
   currentPath="/galeri"
   image="/gallery/agli-kalesi/01_55199063062.webp"
 >
@@ -77,99 +79,157 @@ const imageGallerySchema = {
       </div>
     </div>
 
-    <!-- Year Filters -->
-    <div class="mt-6 flex flex-wrap items-center gap-2 pt-4 border-t border-zinc-100 dark:border-zinc-900">
-      <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 mr-2">Yıl Filtresi:</span>
-      <button
-        type="button"
-        class="filter-year-btn active text-xs font-mono px-3 py-1 rounded-lg border border-zinc-900 dark:border-zinc-100 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 transition-all cursor-pointer"
-        data-year="all"
-      >
-        Tümü ({totalAlbums})
-      </button>
-      {years.map((y) => {
-        const count = albums.filter((a) => a.year === y).length;
-        return (
+    <!-- Multi-Tag Filter System: Years, Cameras, Lenses -->
+    <div class="mt-6 space-y-3 pt-4 border-t border-zinc-100 dark:border-zinc-900 text-xs font-mono">
+      <!-- Year Filter Row -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Yıllar:</span>
+        <button
+          type="button"
+          class="filter-tag-btn active-tag px-2.5 py-1 rounded-lg border border-zinc-900 dark:border-zinc-100 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 cursor-pointer transition-all"
+          data-type="year"
+          data-val="all"
+        >
+          Tümü ({totalAlbums})
+        </button>
+        {years.map((y) => (
           <button
             type="button"
-            class="filter-year-btn text-xs font-mono px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 transition-all cursor-pointer"
-            data-year={y}
+            class="filter-tag-btn px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
+            data-type="year"
+            data-val={y}
           >
-            {y} ({count})
+            {y}
           </button>
-        );
-      })}
+        ))}
+      </div>
+
+      <!-- Camera Filter Row -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Gövdeler:</span>
+        <button
+          type="button"
+          class="filter-tag-btn active-tag px-2.5 py-1 rounded-lg border border-zinc-900 dark:border-zinc-100 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 cursor-pointer transition-all"
+          data-type="camera"
+          data-val="all"
+        >
+          Tümü
+        </button>
+        {cameras.map((c) => (
+          <button
+            type="button"
+            class="filter-tag-btn px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
+            data-type="camera"
+            data-val={c}
+          >
+            {c.replace('Fujifilm ', '')}
+          </button>
+        ))}
+      </div>
+
+      <!-- Lens Filter Row -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Lensler:</span>
+        <button
+          type="button"
+          class="filter-tag-btn active-tag px-2.5 py-1 rounded-lg border border-zinc-900 dark:border-zinc-100 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 cursor-pointer transition-all"
+          data-type="lens"
+          data-val="all"
+        >
+          Tümü
+        </button>
+        {lenses.map((l) => (
+          <button
+            type="button"
+            class="filter-tag-btn px-2.5 py-1 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
+            data-type="lens"
+            data-val={l}
+          >
+            {l.split('F')[0].replace('GF', 'GF ')}
+          </button>
+        ))}
+      </div>
     </div>
   </header>
 
   <!-- VIEW 1: ALBUMS / LOCATIONS GRID (DESCENDING - LATEST FIRST) -->
   <div id="album-view" class="space-y-10">
     <div id="albums-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {albums.map((album, idx) => (
-        <article
-          class="album-card group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-md"
-          data-slug={album.slug}
-          data-year={album.year}
-        >
-          <div class="relative aspect-video w-full overflow-hidden bg-zinc-950">
-            <img
-              src={album.coverPhoto}
-              alt={`${album.title} - ${album.locationFull} fotoğraf serisi - Ozan Özdil`}
-              loading={idx < 2 ? "eager" : "lazy"}
-              decoding="async"
-              width="800"
-              height="600"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-            
-            <!-- Top Badges: Location & Year -->
-            <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-black/70 backdrop-blur-md text-zinc-200 border border-white/10 shadow-xs flex items-center gap-1.5">
-                <span class="text-red-400">📍</span>
-                <span>{album.location}</span>
-              </span>
+      {albums.map((album, idx) => {
+        const albumCameras = Array.from(new Set(album.photos.map((p) => p.exif.camera))).join(', ');
+        const albumLenses = Array.from(new Set(album.photos.map((p) => p.exif.lens.trim()))).join(', ');
+        return (
+          <article
+            class="album-card group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-md select-none"
+            data-slug={album.slug}
+            data-year={album.year}
+            data-camera={albumCameras}
+            data-lens={albumLenses}
+          >
+            <div class="relative aspect-video w-full overflow-hidden bg-zinc-950">
+              <img
+                src={album.coverPhoto}
+                alt={`${album.title} - ${album.locationFull} fotoğraf serisi - Ozan Özdil`}
+                loading={idx < 2 ? "eager" : "lazy"}
+                decoding="async"
+                width="800"
+                height="600"
+                draggable="false"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100 pointer-events-none"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-60 transition-opacity pointer-events-none"></div>
+              
+              <!-- Anti-Copy Transparent Shield -->
+              <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
 
-              <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-black/70 backdrop-blur-md text-zinc-300 border border-white/10 shadow-xs font-semibold">
-                {album.year}
-              </span>
-            </div>
+              <!-- Top Badges: Location & Year -->
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-20 pointer-events-none">
+                <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-black/70 backdrop-blur-md text-zinc-200 border border-white/10 shadow-xs flex items-center gap-1.5">
+                  <span class="text-red-400">📍</span>
+                  <span>{album.location}</span>
+                </span>
 
-            <!-- Bottom Badges: Equipment & Count -->
-            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-zinc-300">
-              <span class="truncate max-w-[200px] text-zinc-400 bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
-                {album.equipment.split('•')[0]}
-              </span>
-              <span class="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-white border border-white/20 shadow-xs font-semibold">
-                {album.photoCount} Kare
-              </span>
-            </div>
-          </div>
-
-          <div class="p-5 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-1">
-                <h2 class="text-base font-semibold text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-mono">
-                  {album.title}
-                </h2>
-                <span class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
-                  {album.dateFormatted}
+                <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-black/70 backdrop-blur-md text-zinc-300 border border-white/10 shadow-xs font-semibold">
+                  {album.year}
                 </span>
               </div>
-              <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-3 leading-relaxed font-serif">
-                {album.description.split('\n\n')[0]}
-              </p>
+
+              <!-- Bottom Badges: Equipment & Count -->
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-zinc-300 z-20 pointer-events-none">
+                <span class="truncate max-w-[200px] text-zinc-400 bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
+                  {album.equipment.split('•')[0]}
+                </span>
+                <span class="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-white border border-white/20 shadow-xs font-semibold">
+                  {album.photoCount} Kare
+                </span>
+              </div>
             </div>
 
-            <div class="mt-5 pt-3.5 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
-              <span class="truncate max-w-[180px]">{album.equipment}</span>
-              <span class="text-zinc-900 dark:text-zinc-100 font-medium group-hover:translate-x-0.5 transition-transform flex-shrink-0">
-                Koleksiyonu İncele →
-              </span>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-1">
+                  <h2 class="text-base font-semibold text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-mono">
+                    {album.title}
+                  </h2>
+                  <span class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
+                    {album.dateFormatted}
+                  </span>
+                </div>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-3 leading-relaxed font-serif">
+                  {album.description.split('\n\n')[0]}
+                </p>
+              </div>
+
+              <div class="mt-5 pt-3.5 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                <span class="truncate max-w-[180px]">{album.equipment}</span>
+                <span class="text-zinc-900 dark:text-zinc-100 font-medium group-hover:translate-x-0.5 transition-transform flex-shrink-0">
+                  Koleksiyonu İncele →
+                </span>
+              </div>
             </div>
-          </div>
-        </article>
-      ))}
+          </article>
+        );
+      })}
     </div>
   </div>
 
@@ -205,10 +265,10 @@ const imageGallerySchema = {
     </div>
   </div>
 
-  <!-- LIGHTBOX / FULL EXIF & CAPTION DARKROOM MODAL -->
+  <!-- LIGHTBOX / FULL EXIF & CAPTION DARKROOM MODAL WITH WATERMARK & COPY PROTECTION -->
   <dialog
     id="photoModal"
-    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-zinc-950 text-zinc-100 border border-zinc-800 rounded-2xl max-w-6xl w-full p-0 shadow-2xl overflow-hidden m-auto"
+    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-zinc-950 text-zinc-100 border border-zinc-800 rounded-2xl max-w-6xl w-full p-0 shadow-2xl overflow-hidden m-auto select-none"
   >
     <!-- Modal Top Header -->
     <div class="flex items-center justify-between px-5 py-3.5 bg-zinc-900/90 border-b border-zinc-800 text-xs font-mono">
@@ -216,29 +276,49 @@ const imageGallerySchema = {
         <span id="modalPhotoIndex" class="px-2.5 py-0.5 rounded bg-zinc-800 text-zinc-300 text-[11px] font-bold">01 / 09</span>
         <span id="photoModalTitle" class="truncate text-zinc-200 max-w-md font-semibold"></span>
       </div>
-      <button
-        id="btnCloseModal"
-        type="button"
-        class="text-zinc-400 hover:text-white px-3 py-1 rounded-lg hover:bg-zinc-800 transition-colors cursor-pointer text-xs"
-      >
-        ✕ Kapat [ESC]
-      </button>
+      
+      <div class="flex items-center gap-3">
+        <!-- Copyright Watermark Tag -->
+        <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-black/60 border border-zinc-800 text-zinc-400 text-[11px]">
+          <span class="text-amber-500">©</span>
+          <span>Ozan Özdil • Tüm Hakları Saklıdır</span>
+        </span>
+
+        <button
+          id="btnCloseModal"
+          type="button"
+          class="text-zinc-400 hover:text-white px-3 py-1 rounded-lg hover:bg-zinc-800 transition-colors cursor-pointer text-xs"
+        >
+          ✕ Kapat [ESC]
+        </button>
+      </div>
     </div>
 
-    <!-- Modal Viewport with Image -->
+    <!-- Modal Viewport with Image & Transparent Protection Shield -->
     <div class="relative bg-black flex items-center justify-center min-h-[380px] max-h-[68vh] sm:max-h-[72vh] overflow-hidden select-none group">
       <img
         id="photoModalImg"
         src=""
         alt="Fotoğraf"
-        class="max-w-full max-h-[68vh] sm:max-h-[72vh] object-contain transition-opacity duration-200"
+        draggable="false"
+        class="max-w-full max-h-[68vh] sm:max-h-[72vh] object-contain transition-opacity duration-200 pointer-events-none"
       />
+
+      <!-- Invisible Click / Protection Overlay: Blocks right click & image dragging -->
+      <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
+
+      <!-- Watermark Badge overlay on photo bottom-right -->
+      <div class="absolute bottom-4 right-4 z-20 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity">
+        <span class="px-3 py-1 rounded-lg bg-black/75 backdrop-blur-md text-zinc-300 text-[11px] font-mono border border-white/10 shadow-lg">
+          © Ozan Özdil
+        </span>
+      </div>
 
       <!-- Navigation Arrows -->
       <button
         id="btnPrevPhoto"
         type="button"
-        class="absolute left-4 top-1/2 -translate-y-1/2 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
         title="Önceki (Sol Ok)"
       >
         ‹
@@ -246,7 +326,7 @@ const imageGallerySchema = {
       <button
         id="btnNextPhoto"
         type="button"
-        class="absolute right-4 top-1/2 -translate-y-1/2 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
         title="Sonraki (Sağ Ok)"
       >
         ›
@@ -262,8 +342,9 @@ const imageGallerySchema = {
 
       <!-- Comprehensive EXIF Table -->
       <div class="pt-2 border-t border-zinc-800/80">
-        <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-2 font-semibold">
-          Optik Telemetri & EXIF Verileri (Fujifilm GFX)
+        <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-2 font-semibold">
+          <span>Optik Telemetri & EXIF Verileri (Fujifilm GFX)</span>
+          <span class="text-zinc-600 dark:text-zinc-400">© OZAN ÖZDİL • TELİF HAKLARI KORUNMAKTADIR</span>
         </div>
 
         <div id="photoModalExifGrid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2 text-xs font-mono">
@@ -272,11 +353,32 @@ const imageGallerySchema = {
       </div>
     </div>
   </dialog>
+
+  <!-- Anti-Theft Copyright Toast Alert -->
+  <div
+    id="copyrightToast"
+    class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-zinc-950/95 border border-amber-500/40 text-zinc-200 px-4 py-3 rounded-xl shadow-2xl backdrop-blur-md max-w-sm flex items-start gap-3"
+  >
+    <span class="text-amber-400 text-base flex-shrink-0 mt-0.5">🛡️</span>
+    <div class="text-xs font-mono">
+      <div class="font-semibold text-white">Telif Hakları Korunmaktadır</div>
+      <div class="text-zinc-400 mt-0.5 text-[11px] leading-relaxed">
+        Fotoğraflar Ozan Özdil'e aittir. İzinsiz kopyalanamaz, kaydedilemez veya çoğaltılamaz.
+      </div>
+    </div>
+  </div>
 </BaseLayout>
 
 <script define:vars={{ albums }}>
   let currentAlbum = null;
   let activeIndex = 0;
+
+  // Active filter state
+  let currentFilter = {
+    year: 'all',
+    camera: 'all',
+    lens: 'all'
+  };
 
   const albumView = document.getElementById('album-view');
   const photoView = document.getElementById('photo-view');
@@ -293,29 +395,45 @@ const imageGallerySchema = {
   const modalIndex = document.getElementById('modalPhotoIndex');
   const modalCaption = document.getElementById('photoModalCaption');
   const modalExifGrid = document.getElementById('photoModalExifGrid');
+  const copyrightToast = document.getElementById('copyrightToast');
 
-  // Year Filter Click Handlers
-  document.querySelectorAll('.filter-year-btn').forEach((btn) => {
+  // Multi-Tag Filter Click Handlers
+  document.querySelectorAll('.filter-tag-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-year-btn').forEach((b) => {
-        b.classList.remove('active', 'border-zinc-900', 'dark:border-zinc-100', 'bg-zinc-900', 'dark:bg-zinc-100', 'text-white', 'dark:text-zinc-950');
+      const type = btn.getAttribute('data-type');
+      const val = btn.getAttribute('data-val');
+
+      // Update active style in row
+      document.querySelectorAll(`.filter-tag-btn[data-type="${type}"]`).forEach((b) => {
+        b.classList.remove('border-zinc-900', 'dark:border-zinc-100', 'bg-zinc-900', 'dark:bg-zinc-100', 'text-white', 'dark:text-zinc-950');
         b.classList.add('border-zinc-200', 'dark:border-zinc-800', 'bg-white/80', 'dark:bg-zinc-900/80', 'text-zinc-600', 'dark:text-zinc-400');
       });
 
-      btn.classList.add('active', 'border-zinc-900', 'dark:border-zinc-100', 'bg-zinc-900', 'dark:bg-zinc-100', 'text-white', 'dark:text-zinc-950');
+      btn.classList.add('border-zinc-900', 'dark:border-zinc-100', 'bg-zinc-900', 'dark:bg-zinc-100', 'text-white', 'dark:text-zinc-950');
       btn.classList.remove('border-zinc-200', 'dark:border-zinc-800', 'bg-white/80', 'dark:bg-zinc-900/80', 'text-zinc-600', 'dark:text-zinc-400');
 
-      const targetYear = btn.getAttribute('data-year');
-      document.querySelectorAll('.album-card').forEach((card) => {
-        const cardYear = card.getAttribute('data-year');
-        if (targetYear === 'all' || cardYear === targetYear) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
+      currentFilter[type] = val;
+      applyFilters();
     });
   });
+
+  function applyFilters() {
+    document.querySelectorAll('.album-card').forEach((card) => {
+      const cYear = card.getAttribute('data-year');
+      const cCamera = card.getAttribute('data-camera') || '';
+      const cLens = card.getAttribute('data-lens') || '';
+
+      const matchYear = currentFilter.year === 'all' || cYear === currentFilter.year;
+      const matchCamera = currentFilter.camera === 'all' || cCamera.includes(currentFilter.camera);
+      const matchLens = currentFilter.lens === 'all' || cLens.includes(currentFilter.lens);
+
+      if (matchYear && matchCamera && matchLens) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
 
   // Album Card Click Handlers
   document.querySelectorAll('.album-card').forEach((card) => {
@@ -359,7 +477,7 @@ const imageGallerySchema = {
       const e = photo.exif;
       gridHtml += `
         <figure
-          class="photo-card group relative rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-md"
+          class="photo-card group relative rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-md select-none"
           onclick="window.openLightbox(${idx})"
         >
           <div class="relative aspect-video w-full overflow-hidden bg-zinc-950">
@@ -370,14 +488,19 @@ const imageGallerySchema = {
               decoding="async"
               width="800"
               height="600"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              draggable="false"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
             />
-            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
               <span class="px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md text-white text-xs font-mono border border-white/20 shadow-lg">
                 İncele & EXIF 🔍
               </span>
             </div>
-            <div class="absolute top-2.5 left-2.5">
+            
+            <!-- Anti-Theft Shield on card -->
+            <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
+
+            <div class="absolute top-2.5 left-2.5 z-20 pointer-events-none">
               <span class="px-2 py-0.5 rounded bg-black/70 backdrop-blur-md text-white text-[10px] font-mono border border-white/10">
                 #${String(idx + 1).padStart(2, '0')}
               </span>
@@ -504,6 +627,35 @@ const imageGallerySchema = {
     const r = modal.getBoundingClientRect();
     const inside = (r.top <= e.clientY && e.clientY <= r.top + r.height && r.left <= e.clientX && e.clientX <= r.left + r.width);
     if (!inside) closeModal();
+  });
+
+  // Copyright Right-Click Protection Toast
+  let toastTimer = null;
+  function triggerCopyrightNotice(e) {
+    e.preventDefault();
+    if (!copyrightToast) return;
+    
+    copyrightToast.classList.remove('translate-y-20', 'opacity-0');
+    copyrightToast.classList.add('translate-y-0', 'opacity-100');
+
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      copyrightToast.classList.remove('translate-y-0', 'opacity-100');
+      copyrightToast.classList.add('translate-y-20', 'opacity-0');
+    }, 2800);
+  }
+
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.closest('.album-card, .photo-card, #photoModal, img, figure')) {
+      triggerCopyrightNotice(e);
+    }
+  });
+
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.closest('.album-card, .photo-card, #photoModal, img, figure')) {
+      e.preventDefault();
+      triggerCopyrightNotice(e);
+    }
   });
 
   // URL Hash Deep Linking
