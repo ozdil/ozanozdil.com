@@ -62,115 +62,97 @@ const imageGallerySchema = {
   <!-- Schema.org ImageGallery JSON-LD for Googlebot / Google Images -->
   <script type="application/ld+json" set:html={JSON.stringify(imageGallerySchema)} />
 
-  <!-- QuickShell Viewfinder Window Header -->
-  <header class="qs-window mb-8">
-    <div class="qs-titlebar">
-      <div class="flex items-center gap-2">
-        <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[viewfinder]</span>
-        <span class="text-zinc-300 dark:text-zinc-700">/</span>
-        <span class="text-zinc-800 dark:text-zinc-200 font-medium">fujifilm-gfx.raw (GFX 100 & 50R)</span>
-      </div>
-      <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 font-mono">
-        <span>SENSOR: 43.8×32.9mm</span>
-        <span class="text-zinc-300 dark:text-zinc-700">|</span>
-        <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">medium-format</span>
-      </div>
-    </div>
-
-    <div class="p-4 sm:p-6 font-mono text-xs">
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
-        <div>
-          <div class="flex items-center gap-2 text-emerald-600 dark:text-[#00ffcc] font-semibold mb-1.5">
-            <span>$</span>
-            <span>exiftool -Model="Fujifilm GFX" ~/galeri</span>
-          </div>
-          <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-            Kastamonu tarihi mimarisi, ahşap işçiliği ve coğrafi rotalar. Fujifilm GFX 100 & GFX 50R orta format sistemle belgelenmiş bağımsız fotoğraf koleksiyonu.
-          </p>
-        </div>
-
-        <div class="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-[#141820] px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800 flex-shrink-0">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>{totalAlbums} Konum • {totalPhotos} Kare</span>
-        </div>
-      </div>
-
-      <!-- Multi-Tag Filter System: Years, Cameras, Lenses -->
-      <div class="mt-5 space-y-2.5 pt-4 border-t border-zinc-200/80 dark:border-zinc-800/80 text-xs font-mono">
-        <!-- Year Filter Row -->
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Yıllar:</span>
-          <button
-            type="button"
-            class="filter-tag-btn active-tag px-2.5 py-1 rounded-md border border-zinc-900 dark:border-[#00ffcc] bg-zinc-900 dark:bg-[#141820] text-white dark:text-[#00ffcc] cursor-pointer transition-all"
-            data-type="year"
-            data-val="all"
-          >
-            Tümü ({totalAlbums})
-          </button>
-          {years.map((y) => (
-            <button
-              type="button"
-              class="filter-tag-btn px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#101318] text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
-              data-type="year"
-              data-val={y}
-            >
-              {y}
-            </button>
-          ))}
-        </div>
-
-        <!-- Camera Filter Row -->
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Gövdeler:</span>
-          <button
-            type="button"
-            class="filter-tag-btn active-tag px-2.5 py-1 rounded-md border border-zinc-900 dark:border-[#00ffcc] bg-zinc-900 dark:bg-[#141820] text-white dark:text-[#00ffcc] cursor-pointer transition-all"
-            data-type="camera"
-            data-val="all"
-          >
-            Tümü
-          </button>
-          {cameras.map((c) => (
-            <button
-              type="button"
-              class="filter-tag-btn px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#101318] text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
-              data-type="camera"
-              data-val={c}
-            >
-              {c.replace('Fujifilm ', '')}
-            </button>
-          ))}
-        </div>
-
-        <!-- Lens Filter Row -->
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Lensler:</span>
-          <button
-            type="button"
-            class="filter-tag-btn active-tag px-2.5 py-1 rounded-md border border-zinc-900 dark:border-[#00ffcc] bg-zinc-900 dark:bg-[#141820] text-white dark:text-[#00ffcc] cursor-pointer transition-all"
-            data-type="lens"
-            data-val="all"
-          >
-            Tümü
-          </button>
-          {lenses.map((l) => {
-            const label = l.replace(' R LM WR', '').replace(' R WR', '').replace('GF', 'GF ').replace('mmF', 'mm f/');
-            return (
-              <button
-                type="button"
-                class="filter-tag-btn px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#101318] text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
-                data-type="lens"
-                data-val={l}
-              >
-                {label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+  <!-- Header: Omarchy / QuickShell Style -->
+  <header class="pb-8 text-center">
+    <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase sm:text-sm">
+      Görsel Arşiv
+    </p>
+    <h1 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+      Orta Format Mimari & Doğa Koleksiyonu
+    </h1>
+    <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
+      Kastamonu tarihi ahşap mimarisi, çivisiz camiler (UNESCO) ve kadim coğrafi rotalar. Fujifilm GFX 100 & 50R.
+    </p>
+    <div class="inline-flex items-center gap-2 mt-4 text-xs font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-[#141820] px-3 py-1.5 rounded-md border border-zinc-200 dark:border-zinc-800">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span>{totalAlbums} Konum • {totalPhotos} Kare • Sensör: 43.8×32.9mm Orta Format</span>
     </div>
   </header>
+
+  <!-- Multi-Tag Filter System: Years, Cameras, Lenses -->
+  <div class="mb-8 p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#0e1117] text-xs font-mono space-y-2.5">
+    <!-- Year Filter Row -->
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Yıllar:</span>
+      <button
+        type="button"
+        class="filter-tag-btn active-tag px-2.5 py-1 rounded-md border border-zinc-900 dark:border-[#00ffcc] bg-zinc-900 dark:bg-[#141820] text-white dark:text-[#00ffcc] cursor-pointer transition-all"
+        data-type="year"
+        data-val="all"
+      >
+        Tümü ({totalAlbums})
+      </button>
+      {years.map((y) => (
+        <button
+          type="button"
+          class="filter-tag-btn px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#101318] text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
+          data-type="year"
+          data-val={y}
+        >
+          {y}
+        </button>
+      ))}
+    </div>
+
+    <!-- Camera Filter Row -->
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Gövdeler:</span>
+      <button
+        type="button"
+        class="filter-tag-btn active-tag px-2.5 py-1 rounded-md border border-zinc-900 dark:border-[#00ffcc] bg-zinc-900 dark:bg-[#141820] text-white dark:text-[#00ffcc] cursor-pointer transition-all"
+        data-type="camera"
+        data-val="all"
+      >
+        Tümü
+      </button>
+      {cameras.map((c) => (
+        <button
+          type="button"
+          class="filter-tag-btn px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#101318] text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
+          data-type="camera"
+          data-val={c}
+        >
+          {c}
+        </button>
+      ))}
+    </div>
+
+    <!-- Lens Filter Row -->
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="text-zinc-400 dark:text-zinc-500 w-16 flex-shrink-0">Lensler:</span>
+      <button
+        type="button"
+        class="filter-tag-btn active-tag px-2.5 py-1 rounded-md border border-zinc-900 dark:border-[#00ffcc] bg-zinc-900 dark:bg-[#141820] text-white dark:text-[#00ffcc] cursor-pointer transition-all"
+        data-type="lens"
+        data-val="all"
+      >
+        Tümü
+      </button>
+      {lenses.map((l) => {
+        const label = l.replace(' R LM WR', '').replace(' R WR', '').replace('GF', 'GF ').replace('mmF', 'mm f/');
+        return (
+          <button
+            type="button"
+            class="filter-tag-btn px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#101318] text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 cursor-pointer transition-all"
+            data-type="lens"
+            data-val={l}
+          >
+            {label}
+          </button>
+        );
+      })}
+    </div>
+  </div>
 
   <!-- VIEW 1: ALBUMS / LOCATIONS GRID (DESCENDING - LATEST FIRST) -->
   <div id="album-view" class="space-y-10">

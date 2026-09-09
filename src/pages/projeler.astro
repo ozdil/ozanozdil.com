@@ -95,82 +95,65 @@ const repositories = [
 
 <BaseLayout
   title="Projeler & Servisler — Ozan Özdil"
-  description="Ozan Özdil tarafından geliştirilen açık kaynak sistem mimarileri, Omarchy Linux servisleri ve siber savunma kalkanları."
+  description="Ozan Özdil tarafından geliştirilen açık kaynak sistem mimarileri, Linux servisleri ve siber savunma kalkanları."
   currentPath="/projeler"
-  maxWidthClass="max-w-5xl"
+  maxWidthClass="max-w-4xl"
 >
-  <div class="space-y-6">
-    <!-- QuickShell Header Window -->
-    <div class="qs-window">
-      <div class="qs-titlebar">
-        <div class="flex items-center gap-2">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[systemctl]</span>
-          <span class="text-zinc-300 dark:text-zinc-700">/</span>
-          <span class="text-zinc-800 dark:text-zinc-200 font-medium">unit-files.target (Sistem Servisleri)</span>
-        </div>
-        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">
-          <span>{repositories.length} AKTİF SERVİS</span>
-          <span class="text-zinc-300 dark:text-zinc-700">|</span>
-          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">systemd</span>
-        </div>
-      </div>
-
-      <div class="p-4 sm:p-6 font-mono text-xs">
-        <div class="flex items-center gap-2 text-emerald-600 dark:text-[#00ffcc] font-semibold mb-2">
-          <span>$</span>
-          <span>systemctl list-units --type=service --all</span>
-        </div>
-        <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-          Omarchy Linux ekosistemi, ağ trafiği anomalisi izleme, USB donanım kalkanları, p2p veri aktarımı ve sentetik çekirdek kıyaslama araçları.
-        </p>
-      </div>
-    </div>
+  <div class="py-2 sm:py-4">
+    <!-- Header: Omarchy / QuickShell Style -->
+    <header class="pb-8 text-center">
+      <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase sm:text-sm">
+        Projeler & Servisler
+      </p>
+      <h1 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+        Açık Kaynak Sistem Mimarileri & Güvenlik Kalkanları
+      </h1>
+      <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
+        Linux çekirdek optimizasyonu, siber savunma kalkanları, p2p veri aktarımı ve sentetik kıyaslama araçları.
+      </p>
+    </header>
 
     <!-- Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {repositories.map((repo) => (
-        <div class="qs-window hover:border-sky-500/50 dark:hover:border-[#00ffcc]/40 transition-all flex flex-col justify-between">
-          <!-- Card Titlebar -->
-          <div class="qs-titlebar py-1.5 px-3 bg-zinc-50 dark:bg-[#12161e]">
-            <div class="flex items-center gap-1.5 truncate">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span class="font-mono text-xs text-zinc-900 dark:text-zinc-200 font-semibold truncate">
-                {repo.name}.service
+        <div class="p-5 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117] hover:border-sky-500/50 dark:hover:border-[#00ffcc]/50 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="font-sans font-semibold text-base text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors truncate">
+                {repo.name}
+              </span>
+              <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+                {repo.lang}
               </span>
             </div>
-            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-200/80 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 flex-shrink-0">
-              {repo.lang}
-            </span>
-          </div>
-
-          <div class="p-4 flex-grow flex flex-col justify-between">
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
               {repo.desc}
             </p>
+          </div>
 
-            <div class="space-y-3 pt-2 border-t border-zinc-200/60 dark:border-zinc-800/60">
-              <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                {repo.tags.map((tag) => (
-                  <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-[#141820] text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800">
-                    --{tag}
-                  </span>
-                ))}
-              </div>
-
-              <div class="flex items-center justify-between font-mono text-[11px] pt-1">
-                <span class="text-emerald-600 dark:text-emerald-400 text-[10px]">
-                  ● active (running)
+          <div class="space-y-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
+            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
+              {repo.tags.map((tag) => (
+                <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-500 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-800">
+                  #{tag}
                 </span>
-                <a
-                  href={repo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="qs-btn py-1 px-2.5 text-[11px]"
-                >
-                  <span>git repo</span>
-                  <span>→</span>
-                </a>
-              </div>
+              ))}
+            </div>
+
+            <div class="flex items-center justify-between font-mono text-[11px]">
+              <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-[10px]">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>active</span>
+              </span>
+              <a
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors"
+              >
+                <span>git repo</span>
+                <span>→</span>
+              </a>
             </div>
           </div>
         </div>

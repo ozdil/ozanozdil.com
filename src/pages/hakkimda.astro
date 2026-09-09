@@ -8,249 +8,234 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   currentPath="/hakkimda"
   maxWidthClass="max-w-4xl"
 >
-  <div class="space-y-6">
-    <!-- QuickShell Dossier Master Window -->
-    <div class="qs-window">
-      <!-- Dossier Buffer Bar -->
-      <div class="qs-titlebar">
-        <div class="flex items-center gap-2">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[dossier]</span>
-          <span class="text-zinc-300 dark:text-zinc-700">/</span>
-          <span class="text-zinc-800 dark:text-zinc-200 font-medium">~/dossier.md (Kimlik & Biyografi)</span>
+<BaseLayout
+  title="Hakkımda — Ozan Özdil"
+  description="Ozan Özdil hakkında: Orman Mühendisliği kökeni, kamu yönetimi ve stratejik iletişim tecrübesi, açık kaynak Linux mimarisi, siber güvenlik ve orta format fotoğrafçılık (Fujifilm GFX 100 / GFX 50R)."
+  currentPath="/hakkimda"
+  maxWidthClass="max-w-4xl"
+>
+  <div class="space-y-10 py-2 sm:py-4">
+    <!-- Profile Header Card -->
+    <div class="p-6 sm:p-8 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117]">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden border border-zinc-300 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 shadow-xs p-0.5">
+          <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover rounded-lg" />
+          <span class="absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-[#08090b]"></span>
         </div>
-        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 font-mono">
-          <span>PROFİL: ÖZGEÇMİŞ</span>
-          <span class="text-zinc-300 dark:text-zinc-700">|</span>
-          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">markdown</span>
-        </div>
-      </div>
-
-      <!-- Hero Dossier Profile Header -->
-      <div class="p-6 sm:p-8 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-[#11141c]">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden border border-zinc-300 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 shadow-sm p-0.5">
-            <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover rounded-lg" />
-            <span class="absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-[#08090b]"></span>
+        <div class="space-y-2">
+          <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase">
+            Orman Mühendisi & Sistem Mimarı
+          </p>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+            Ozan Özdil
+          </h1>
+          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
+            Açık kaynak sistem mimarisi, Linux optimizasyonu, siber savunma ve orta format belgesel fotoğrafçılık.
+          </p>
+          <div class="flex flex-wrap items-center gap-1.5 pt-1 text-xs font-mono">
+            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-700/80 text-[11px]">
+              [LOC: Kastamonu, TR]
+            </span>
+            <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60 text-[11px]">
+              [EDU: KTÜ Orman]
+            </span>
+            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-700/80 text-[11px]">
+              [CAM: Fujifilm GFX]
+            </span>
           </div>
-          <div class="space-y-2">
-            <div class="flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-[#00ffcc]">
-              <span>● ACTIVE IDENTITY VERIFIED</span>
-            </div>
-            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
-              Ozan Özdil
-            </h1>
-            <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 font-medium font-sans">
-              Orman Mühendisi (KTÜ) • Açık Kaynak Sistem Mimarisi & Siber Savunma
-            </p>
-            <div class="flex flex-wrap items-center gap-1.5 pt-1 text-xs font-mono">
-              <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-[#141820] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-800/80 text-[11px]">
-                [LOC: Kastamonu, TR]
-              </span>
-              <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60 text-[11px]">
-                [EDU: KTÜ Orman]
-              </span>
-              <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-[#141820] text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-800/80 text-[11px]">
-                [CAM: Fujifilm GFX]
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Biography Section -->
-      <div class="p-6 sm:p-8 border-b border-zinc-200/80 dark:border-zinc-800/80 space-y-4 font-sans text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
-        <div class="flex items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400 mb-2">
-          <span>$</span>
-          <span>cat /var/log/dossier/vision.txt</span>
-        </div>
-
-        <p>
-          Karadeniz Teknik Üniversitesi Orman Fakültesi mezunuyum. Orman mühendisliği formasyonunun kazandırdığı karmaşık ekosistemleri anlama, döngüsel sistem analitiği ve kök bilinci; teknolojiye ve dijital mimarilere bakışımın da temel omurgasını oluşturuyor.
-        </p>
-
-        <p>
-          Kariyerimin önemli bir bölümünde kamu yönetimi, stratejik kitle iletişimi, medya yönetimi ve kurumsal bilişim süreçlerinde görev aldım. 2019 yerel seçim sürecinde kampanya stratejisi ve iletişim liderliğini yürüttüm; ardından belediye başkan danışmanlığı ile Ar-Ge ve Bilgi İşlem yöneticiliği görevlerinde bulundum. Milyonlara ulaşan dijital iletişim süreçlerini, kriz yönetimini ve kurumsal sunucu altyapılarının modernizasyonunu koordine ettim.
-        </p>
-
-        <p>
-          Günümüzde çalışmalarımı bağımsız olarak açık kaynak ekosistemine yönelttim. Arch Linux tabanlı özelleştirilmiş sistem mimarisi (<a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-[#00ffcc] font-medium underline underline-offset-4 hover:opacity-80">Omarchy</a>), uçtan uca ağ savunması, yerel donanımda çalışan yapay zeka ajan kümeleri ve donanım yetkilendirme araçları geliştiriyorum.
-        </p>
-
-        <p>
-          Aynı zamanda 102 megapiksellik amiral gemisi Fujifilm GFX 100 ve GFX 50R orta format kamera sistemleriyle belgesel mimari ve tabiat fotoğrafçılığı yürütüyor; Kastamonu'nun bin yıllık beylikler mirasını, kündekari ahşap sanatını ve kanyonlarını kronolojik seriler halinde belgeliyorum.
-        </p>
-      </div>
-
-      <!-- Skills Grid Inside Window -->
-      <div class="p-6 sm:p-8 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/20 dark:bg-[#10131a]">
-        <div class="flex items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400 mb-4">
-          <span>$</span>
-          <span>lshw -class capability</span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-[#141820]">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-mono text-sky-600 dark:text-[#00ffcc] font-bold">[SYS]</span>
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-mono">Linux & Sistem Mimarisi</h3>
-            </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
-              Arch Linux çekirdek optimizasyonları, Wayland / Hyprland IPC, klavye odaklı pencere yönetimi, Omarchy dağıtım altyapısı ve QuickShell entegrasyonu.
-            </p>
-          </div>
-
-          <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-[#141820]">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">[SEC]</span>
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-mono">Siber Savunma & Veri Güvenliği</h3>
-            </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
-              BadUSB donanım kalkanı, bağımlılık güvenlik açığı denetimi (CVE Radar), uçtan uca şifreli P2P transfer protokolleri ve proaktif ağ telemetrisi.
-            </p>
-          </div>
-
-          <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-[#141820]">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-mono text-purple-600 dark:text-purple-400 font-bold">[AI]</span>
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-mono">Lokal Yapay Zekâ & Ajanlar</h3>
-            </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
-              Ev ortamında NVIDIA PAIR ve LM Studio ile yerel yapay zeka kümeleri, çoklu ajan (multiagent) iş akışları ve Antigravity CLI otonom entegrasyonu.
-            </p>
-          </div>
-
-          <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-[#141820]">
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-mono text-amber-600 dark:text-amber-400 font-bold">[OPT]</span>
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-mono">Orta Format Fotoğrafçılık</h3>
-            </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
-              102 MP Fujifilm GFX 100 ve GFX 50R orta format gövdeler, GF lenslerle tarihi miras, Selçuklu/Candaroğlu kündekari sanatı ve tabiat belgeseli.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Experience Timeline -->
-      <div class="p-6 sm:p-8 border-b border-zinc-200/80 dark:border-zinc-800/80 font-mono text-xs">
-        <div class="flex items-center gap-2 text-zinc-500 dark:text-zinc-400 mb-6">
-          <span>$</span>
-          <span>journalctl --unit=career.timeline --reverse</span>
-        </div>
-
-        <div class="relative border-l border-zinc-200 dark:border-zinc-800 ml-2 space-y-6 pl-5">
-          <div class="relative group">
-            <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-[#0e1116]"></div>
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
-                Açık Kaynak Sistem Mimarisi & Bağımsız Araştırma
-              </h3>
-              <span class="text-[11px] text-zinc-400 dark:text-zinc-500">2022 — Günümüz</span>
-            </div>
-            <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-              Omarchy Linux ekosistemi, siber savunma modülleri, otonom yapay zeka ajanları ve açık kaynak araç geliştirme çalışmaları.
-            </p>
-          </div>
-
-          <div class="relative group">
-            <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#0e1116]"></div>
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
-                Ar-Ge & Bilgi İşlem Yöneticiliği
-              </h3>
-              <span class="text-[11px] text-zinc-400 dark:text-zinc-500">2022</span>
-            </div>
-            <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-              Kurumsal bilişim altyapısı, sunucu sistemleri yönetimi, dijital dönüşüm ve Ar-Ge projelerinin koordinasyonu.
-            </p>
-          </div>
-
-          <div class="relative group">
-            <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#0e1116]"></div>
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
-                Belediye Başkan Danışmanlığı & Medya Yönetimi
-              </h3>
-              <span class="text-[11px] text-zinc-400 dark:text-zinc-500">2019 — 2022</span>
-            </div>
-            <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-              Kastamonu Belediyesi basın-yayın, kitle iletişimi, halkla ilişkiler ve dijital medya yönetimi (3 ayda 25M+ organik erişim).
-            </p>
-          </div>
-
-          <div class="relative group">
-            <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#0e1116]"></div>
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
-                Siyasal İletişim & Seçim Koordinasyonu
-              </h3>
-              <span class="text-[11px] text-zinc-400 dark:text-zinc-500">2019</span>
-            </div>
-            <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-              Yerel seçim kampanyasında saha veri analitiği, kitle iletişimi, görsel prodüksiyon ve kampanya liderliği.
-            </p>
-          </div>
-
-          <div class="relative group">
-            <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#0e1116]"></div>
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-              <h3 class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
-                Karadeniz Teknik Üniversitesi
-              </h3>
-              <span class="text-[11px] text-zinc-400 dark:text-zinc-500">Lisans</span>
-            </div>
-            <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
-              Orman Fakültesi, Orman Mühendisliği Bölümü.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick Action Connect Launcher -->
-      <div class="p-6 sm:p-8 bg-zinc-50/40 dark:bg-[#11141c]">
-        <div class="flex items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400 mb-4">
-          <span>$</span>
-          <span>netstat --connect</span>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 font-mono text-xs">
-          <a
-            href="https://github.com/ozdil"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="qs-btn justify-center flex-col py-3 text-center"
-          >
-            <span class="text-[10px] text-zinc-400 block">Git Hub</span>
-            <span class="font-semibold text-zinc-900 dark:text-zinc-100">@ozdil</span>
-          </a>
-
-          <a
-            href="https://nsosyal.com/ozanozdil"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="qs-btn justify-center flex-col py-3 text-center"
-          >
-            <span class="text-[10px] text-zinc-400 block">NSosyal</span>
-            <span class="font-semibold text-zinc-900 dark:text-zinc-100">@ozanozdil</span>
-          </a>
-
-          <a
-            href="/galeri"
-            class="qs-btn justify-center flex-col py-3 text-center"
-          >
-            <span class="text-[10px] text-zinc-400 block">GFX 100</span>
-            <span class="font-semibold text-zinc-900 dark:text-zinc-100">Galeri</span>
-          </a>
-
-          <a
-            href="/rss.xml"
-            class="qs-btn justify-center flex-col py-3 text-center"
-          >
-            <span class="text-[10px] text-zinc-400 block">Akış</span>
-            <span class="font-semibold text-zinc-900 dark:text-zinc-100">RSS.xml</span>
-          </a>
         </div>
       </div>
     </div>
+
+    <!-- Biography Section -->
+    <section class="space-y-4 font-sans text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-2">
+        Biyografi & Vizyon
+      </h2>
+
+      <p>
+        Karadeniz Teknik Üniversitesi Orman Fakültesi mezunuyum. Orman mühendisliği formasyonunun kazandırdığı karmaşık ekosistemleri anlama, döngüsel sistem analitiği ve kök bilinci; teknolojiye ve dijital mimarilere bakışımın da temel omurgasını oluşturuyor.
+      </p>
+
+      <p>
+        Kariyerimin önemli bir bölümünde kamu yönetimi, stratejik kitle iletişimi, medya yönetimi ve kurumsal bilişim süreçlerinde görev aldım. 2019 yerel seçim sürecinde kampanya stratejisi ve iletişim liderliğini yürüttüm; ardından belediye başkan danışmanlığı ile Ar-Ge ve Bilgi İşlem yöneticiliği görevlerinde bulundum. Milyonlara ulaşan dijital iletişim süreçlerini, kriz yönetimini ve kurumsal sunucu altyapılarının modernizasyonunu koordine ettim.
+      </p>
+
+      <p>
+        Günümüzde çalışmalarımı bağımsız olarak açık kaynak ekosistemine yönelttim. Arch Linux tabanlı özelleştirilmiş sistem mimarisi (<a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-[#00ffcc] font-medium underline underline-offset-4 hover:opacity-80">Omarchy</a>), uçtan uca ağ savunması, yerel donanımda çalışan yapay zeka ajan kümeleri ve donanım yetkilendirme araçları geliştiriyorum.
+      </p>
+
+      <p>
+        Aynı zamanda 102 megapiksellik amiral gemisi Fujifilm GFX 100 ve GFX 50R orta format kamera sistemleriyle belgesel mimari ve tabiat fotoğrafçılığı yürütüyor; Kastamonu'nun bin yıllık beylikler mirasını, kündekari ahşap sanatını ve kanyonlarını kronolojik seriler halinde belgeliyorum.
+      </p>
+    </section>
+
+    <!-- Skills Grid -->
+    <section class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-2">
+        Teknik Odaklar & Yetkinlikler
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-mono text-sky-600 dark:text-[#00ffcc] font-bold">[SYS]</span>
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">Linux & Sistem Mimarisi</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
+            Arch Linux çekirdek optimizasyonları, Wayland / Hyprland IPC, klavye odaklı pencere yönetimi, Omarchy dağıtım altyapısı ve QuickShell entegrasyonu.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">[SEC]</span>
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">Siber Savunma & Veri Güvenliği</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
+            BadUSB donanım kalkanı, bağımlılık güvenlik açığı denetimi (CVE Radar), uçtan uca şifreli P2P transfer protokolleri ve proaktif ağ telemetrisi.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-mono text-purple-600 dark:text-purple-400 font-bold">[AI]</span>
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">Lokal Yapay Zekâ & Ajanlar</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
+            Ev ortamında NVIDIA PAIR ve LM Studio ile yerel yapay zeka kümeleri, çoklu ajan (multiagent) iş akışları ve Antigravity CLI otonom entegrasyonu.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117]">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-mono text-amber-600 dark:text-amber-400 font-bold">[OPT]</span>
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">Orta Format Fotoğrafçılık</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
+            102 MP Fujifilm GFX 100 ve GFX 50R orta format gövdeler, GF lenslerle tarihi miras, Selçuklu/Candaroğlu kündekari sanatı ve tabiat belgeseli.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-2">
+        Kariyer & Deneyim
+      </h2>
+
+      <div class="relative border-l border-zinc-200 dark:border-zinc-800 ml-2 space-y-6 pl-5 pt-2">
+        <div class="relative group">
+          <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-[#08090b]"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
+              Açık Kaynak Sistem Mimarisi & Bağımsız Araştırma
+            </h3>
+            <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2022 — Günümüz</span>
+          </div>
+          <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+            Omarchy Linux ekosistemi, siber savunma modülleri, otonom yapay zeka ajanları ve açık kaynak araç geliştirme çalışmaları.
+          </p>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#08090b]"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
+              Ar-Ge & Bilgi İşlem Yöneticiliği
+            </h3>
+            <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2022</span>
+          </div>
+          <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+            Kurumsal bilişim altyapısı, sunucu sistemleri yönetimi, dijital dönüşüm ve Ar-Ge projelerinin koordinasyonu.
+          </p>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#08090b]"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
+              Belediye Başkan Danışmanlığı & Medya Yönetimi
+            </h3>
+            <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2019 — 2022</span>
+          </div>
+          <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+            Kastamonu Belediyesi basın-yayın, kitle iletişimi, halkla ilişkiler ve dijital medya yönetimi (3 ayda 25M+ organik erişim).
+          </p>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#08090b]"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
+              Siyasal İletişim & Seçim Koordinasyonu
+            </h3>
+            <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">2019</span>
+          </div>
+          <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+            Yerel seçim kampanyasında saha veri analitiği, kitle iletişimi, görsel prodüksiyon ve kampanya liderliği.
+          </p>
+        </div>
+
+        <div class="relative group">
+          <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#08090b]"></div>
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
+              Karadeniz Teknik Üniversitesi
+            </h3>
+            <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">Lisans</span>
+          </div>
+          <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
+            Orman Fakültesi, Orman Mühendisliği Bölümü.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect Links -->
+    <section class="space-y-4">
+      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 border-b border-zinc-200/80 dark:border-zinc-800/80 pb-2">
+        Bağlantılar
+      </h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 font-mono text-xs">
+        <a
+          href="https://github.com/ozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117] hover:border-sky-500 dark:hover:border-[#00ffcc] text-center transition-all group"
+        >
+          <span class="text-[11px] text-zinc-400 block mb-1">GitHub</span>
+          <span class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">@ozdil</span>
+        </a>
+
+        <a
+          href="https://nsosyal.com/ozanozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117] hover:border-sky-500 dark:hover:border-[#00ffcc] text-center transition-all group"
+        >
+          <span class="text-[11px] text-zinc-400 block mb-1">NSosyal</span>
+          <span class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">@ozanozdil</span>
+        </a>
+
+        <a
+          href="/galeri"
+          class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117] hover:border-sky-500 dark:hover:border-[#00ffcc] text-center transition-all group"
+        >
+          <span class="text-[11px] text-zinc-400 block mb-1">GFX 100</span>
+          <span class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">Galeri</span>
+        </a>
+
+        <a
+          href="/rss.xml"
+          class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117] hover:border-sky-500 dark:hover:border-[#00ffcc] text-center transition-all group"
+        >
+          <span class="text-[11px] text-zinc-400 block mb-1">Akış</span>
+          <span class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">RSS.xml</span>
+        </a>
+      </div>
+    </section>
   </div>
 </BaseLayout>

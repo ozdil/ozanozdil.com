@@ -9,98 +9,72 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
 <BaseLayout
-  title="Yazılar & Arşiv — Ozan Özdil"
+  title="Yazılar & Notlar — Ozan Özdil"
   description="Linux sistemleri, açık kaynak mimarileri, dijital egemenlik ve siber güvenlik araştırmaları."
   currentPath="/blog"
-  maxWidthClass="max-w-5xl"
+  maxWidthClass="max-w-3xl"
 >
-  <div class="space-y-6">
-    <!-- QuickShell Window Header -->
-    <div class="qs-window">
-      <div class="qs-titlebar">
-        <div class="flex items-center gap-2">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[dir: blog]</span>
-          <span class="text-zinc-300 dark:text-zinc-700">/</span>
-          <span class="text-zinc-800 dark:text-zinc-200 font-medium">~/blog/*.md (Arşiv Dizini)</span>
-        </div>
-        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">
-          <span>{posts.length} DOKÜMAN</span>
-          <span class="text-zinc-300 dark:text-zinc-700">|</span>
-          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">ls -lh</span>
-        </div>
-      </div>
+  <div class="py-2 sm:py-4">
+    <!-- Header: Omarchy / QuickShell Style -->
+    <header class="pb-8 text-center">
+      <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase sm:text-sm">
+        Yazılar & Notlar
+      </p>
+      <h1 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+        Açık Kaynak Sistem Mimarisi ve Araştırmalar
+      </h1>
+      <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
+        Linux çekirdek optimizasyonu, siber savunma kalkanları, bağımsız mimari ve dijital egemenlik.
+      </p>
 
-      <div class="p-4 sm:p-6 font-mono text-xs">
-        <div class="flex items-center gap-2 text-emerald-600 dark:text-[#00ffcc] font-semibold mb-2">
-          <span>$</span>
-          <span>ls -lh --sort=time ~/blog/*.md</span>
+      <!-- Topic Tags Bar -->
+      {allTags.length > 0 && (
+        <div class="flex flex-wrap items-center justify-center gap-1.5 mt-5 font-mono text-xs">
+          {allTags.map((tag) => (
+            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700/60 text-[11px]">
+              #{tag}
+            </span>
+          ))}
         </div>
-        <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-          Linux çekirdek optimizasyonu, açık kaynak sistem mimarisi, siber savunma kalkanları ve bağımsız teknoloji araştırmaları.
-        </p>
+      )}
+    </header>
 
-        <!-- Topic Switch Flags -->
-        {allTags.length > 0 && (
-          <div class="flex flex-wrap items-center gap-1.5 pt-3 border-t border-zinc-200/80 dark:border-zinc-800/80">
-            <span class="text-zinc-400 dark:text-zinc-500 text-[11px] mr-1">FİLTRE:</span>
-            {allTags.map((tag) => (
-              <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-[#141820] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 text-[11px] hover:border-sky-500 dark:hover:border-[#00ffcc] hover:text-sky-600 dark:hover:text-[#00ffcc] cursor-default transition-all">
-                --{tag}
+    <!-- Articles List: Pure Omarchy.org/news/ style -->
+    <ul class="divide-y divide-zinc-200 dark:divide-zinc-800 border-t border-zinc-200 dark:border-zinc-800">
+      {sortedPosts.map((post) => (
+        <li>
+          <a
+            href={`/blog/${post.slug}`}
+            class="group flex flex-col gap-1.5 py-6 transition-colors"
+          >
+            <time datetime={post.data.pubDate.toISOString()} class="font-mono text-xs text-zinc-500 dark:text-zinc-400">
+              {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </time>
+            <span class="flex items-baseline gap-2 font-sans text-lg sm:text-xl font-medium text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">
+              <span>{post.data.title}</span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4 shrink-0 self-center text-zinc-400 dark:text-zinc-500 transition-transform duration-150 ease-out group-hover:translate-x-1 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc]">
+                <path d="M14 5.75L20.25 12L14 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+                <path d="M19.5 12H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
+              </svg>
+            </span>
+            {post.data.description && (
+              <span class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {post.data.description}
               </span>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-
-    <!-- Article Entries Window -->
-    <div class="qs-window">
-      <div class="qs-titlebar">
-        <div class="flex items-center gap-2">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[pane: 02]</span>
-          <span class="text-zinc-300 dark:text-zinc-700">/</span>
-          <span class="text-zinc-800 dark:text-zinc-200 font-medium">/var/log/blog_archive.idx</span>
-        </div>
-        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 font-mono">
-          <span>PERM: 0644</span>
-          <span class="text-zinc-300 dark:text-zinc-700">|</span>
-          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">records</span>
-        </div>
-      </div>
-
-      <div class="divide-y divide-zinc-200/80 dark:divide-zinc-800/80">
-        {sortedPosts.map((post) => (
-          <article class="p-4 sm:p-5 hover:bg-zinc-50/80 dark:hover:bg-[#12161f] transition-all group">
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 mb-2 font-mono text-xs">
-              <div class="flex items-baseline gap-2">
-                <span class="text-zinc-400 dark:text-zinc-600 select-none">›</span>
-                <h2 class="text-base font-semibold font-sans">
-                  <a href={`/blog/${post.slug}`} class="text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">
-                    {post.data.title}
-                  </a>
-                </h2>
-              </div>
-              <time datetime={post.data.pubDate.toISOString()} class="text-[11px] text-zinc-400 dark:text-zinc-500 flex-shrink-0">
-                {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-              </time>
-            </div>
-
-            <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mb-3 line-clamp-2 leading-relaxed ml-4">
-              {post.data.description}
-            </p>
-
-            {post.data.tags.length > 0 && (
-              <div class="flex flex-wrap gap-1.5 ml-4 font-mono text-[10px]">
+            )}
+            {post.data.tags && post.data.tags.length > 0 && (
+              <span class="flex flex-wrap gap-1.5 mt-1 font-mono text-[10px]">
                 {post.data.tags.map((tag) => (
-                  <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800">
+                  <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 border border-zinc-200/80 dark:border-zinc-800">
                     #{tag}
                   </span>
                 ))}
-              </div>
+              </span>
             )}
-          </article>
-        ))}
-      </div>
-    </div>
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </BaseLayout>
+

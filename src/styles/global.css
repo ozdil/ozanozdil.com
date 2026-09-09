@@ -62,84 +62,73 @@ p, blockquote, li {
   }
 }
 
-/* QuickShell Editorial & Terminal Markdown Typography */
+/* QuickShell / Omarchy Editorial Prose & Typography */
 .markdown-body {
-  font-size: 1.0625rem;
-  line-height: 1.8;
-  color: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+@media (min-width: 640px) {
+  .markdown-body {
+    font-size: 16px;
+    line-height: 1.72;
+  }
 }
 
 .markdown-body h1 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.875rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   margin-top: 2rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   line-height: 1.25;
+  color: var(--text-main);
+  font-family: var(--font-sans, inherit);
 }
 
 .markdown-body h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.35;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-color);
-  font-family: var(--font-sans, sans-serif);
-}
-
-.markdown-body h2::before {
-  content: "## ";
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-  color: var(--qs-accent);
-  opacity: 0.8;
+  font-size: 1.35rem;
   font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+  color: var(--text-main);
+  font-family: var(--font-sans, inherit);
 }
 
 .markdown-body h3 {
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
   line-height: 1.4;
-  font-family: var(--font-sans, sans-serif);
-}
-
-.markdown-body h3::before {
-  content: "### ";
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-  color: var(--qs-accent);
-  opacity: 0.7;
-  font-weight: 500;
+  color: var(--text-main);
+  font-family: var(--font-sans, inherit);
 }
 
 .markdown-body h4 {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
-  font-family: var(--font-sans, sans-serif);
-}
-
-.markdown-body h4::before {
-  content: "#### ";
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-  color: var(--qs-accent);
-  opacity: 0.6;
-  font-weight: 500;
+  color: var(--text-main);
+  font-family: var(--font-sans, inherit);
 }
 
 .markdown-body p {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.2em;
   color: var(--text-main);
-  opacity: 0.94;
+  opacity: 0.95;
 }
 
 .markdown-body ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 1.35rem;
+  list-style-type: square;
+  padding-left: 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .markdown-body ul > li::marker {
@@ -148,35 +137,35 @@ p, blockquote, li {
 
 .markdown-body ol {
   list-style-type: decimal;
-  padding-left: 1.5rem;
-  margin-bottom: 1.35rem;
+  padding-left: 1.35rem;
+  margin-bottom: 1.25rem;
 }
 
 .markdown-body ol > li::marker {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  color: var(--qs-accent);
+  color: var(--text-muted);
   font-size: 0.85em;
 }
 
 .markdown-body li {
-  margin-bottom: 0.4rem;
-  line-height: 1.7;
+  margin-bottom: 0.35rem;
+  line-height: 1.68;
 }
 
 .markdown-body blockquote {
-  margin: 1.75rem 0;
-  padding: 1rem 1.25rem;
-  border-left: 3px solid var(--qs-accent);
-  background-color: var(--surface-subtle);
-  border-radius: 0 0.5rem 0.5rem 0;
-  color: var(--text-main);
+  margin: 1.5rem 0;
+  padding: 0.35rem 0 0.35rem 1.25rem;
+  border-left: 2px solid var(--qs-accent);
+  background: transparent;
+  color: var(--text-muted);
+  font-style: italic;
   font-size: 0.95rem;
   line-height: 1.65;
 }
 
 .dark .markdown-body blockquote {
-  background-color: #11151d;
   border-left-color: #00ffcc;
+  color: #9ca3af;
 }
 
 .markdown-body hr {
