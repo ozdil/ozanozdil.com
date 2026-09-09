@@ -48,53 +48,80 @@ const featuredProjects = [
 <BaseLayout title="Ozan Özdil" currentPath="/">
   <!-- Giriş / Profil -->
   <section class="mb-16 pt-2 sm:pt-6">
-    <div class="flex items-center gap-4 mb-6">
-      <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 shadow-xs">
+    <!-- Üst Kısım: Solda Foto, Sağda Açıklama -->
+    <div class="flex flex-row items-start gap-4 sm:gap-7 md:gap-8">
+      <!-- Solda Foto -->
+      <div class="w-20 h-20 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 shadow-sm">
         <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
       </div>
-      <div>
-        <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-          Ozan Özdil
-        </h1>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 font-normal">
-          Orman Mühendisi • Kastamonu, Türkiye
-        </p>
+
+      <!-- Sağda Açıklama -->
+      <div class="flex-1 min-w-0 space-y-3">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+            Ozan Özdil
+          </h1>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5 font-normal">
+            Orman Mühendisi • Kastamonu, Türkiye
+          </p>
+        </div>
+
+        <div class="space-y-2 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
+          <p>
+            Orman mühendisiyim. Linux sistem mimarisi, açık kaynak yazılımlar ve dijital güvenlik üzerine çalışıyorum.
+          </p>
+          <p>
+            Burada kişisel notlarımı, teknik araştırmalarımı ve geliştirdiğim açık kaynak araçları bulabilirsiniz.
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="space-y-3 text-zinc-600 dark:text-zinc-400 text-base leading-relaxed max-w-2xl font-normal">
-      <p>
-        Orman mühendisiyim. Linux sistem mimarisi, açık kaynak yazılımlar ve dijital güvenlik üzerine çalışıyorum.
-      </p>
-      <p>
-        Burada kişisel notlarımı, teknik araştırmalarımı ve geliştirdiğim açık kaynak araçları bulabilirsiniz.
-      </p>
-    </div>
-
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 pt-6 text-sm">
-      <a href="/blog" class="text-zinc-900 dark:text-zinc-100 hover:underline underline-offset-4 font-medium">
-        Yazılar ({allPosts.length})
-      </a>
-      <span class="text-zinc-300 dark:text-zinc-700">•</span>
-      <a href="/projeler" class="text-zinc-900 dark:text-zinc-100 hover:underline underline-offset-4 font-medium">
-        Projeler
-      </a>
-      <span class="text-zinc-300 dark:text-zinc-700">•</span>
-      <a href="/hakkimda" class="text-zinc-900 dark:text-zinc-100 hover:underline underline-offset-4 font-medium">
-        Hakkımda
-      </a>
-      <span class="text-zinc-300 dark:text-zinc-700">•</span>
-      <a href="https://github.com/ozdil" target="_blank" rel="noopener noreferrer" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-        GitHub
-      </a>
-      <span class="text-zinc-300 dark:text-zinc-700">•</span>
-      <a href="https://nsosyal.com/ozanozdil" target="_blank" rel="noopener noreferrer" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-        NSosyal
-      </a>
-      <span class="text-zinc-300 dark:text-zinc-700">•</span>
-      <a href="/galeri" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-        Galeri
-      </a>
+    <!-- Altında Genişliğe Sığdırılmış Linkler -->
+    <div class="mt-8 pt-6 border-t border-zinc-200/60 dark:border-zinc-800/60">
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-2.5 w-full">
+        <a
+          href="/blog"
+          class="flex items-center justify-center py-2 px-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/50 hover:bg-zinc-200/80 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs sm:text-sm font-medium transition-all text-center group"
+        >
+          <span>Yazılar</span>
+          <span class="ml-1 text-[11px] font-mono text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300">({allPosts.length})</span>
+        </a>
+        <a
+          href="/projeler"
+          class="flex items-center justify-center py-2 px-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/50 hover:bg-zinc-200/80 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs sm:text-sm font-medium transition-all text-center"
+        >
+          Projeler
+        </a>
+        <a
+          href="/galeri"
+          class="flex items-center justify-center py-2 px-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/50 hover:bg-zinc-200/80 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs sm:text-sm font-medium transition-all text-center"
+        >
+          Galeri
+        </a>
+        <a
+          href="/hakkimda"
+          class="flex items-center justify-center py-2 px-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/50 hover:bg-zinc-200/80 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 text-xs sm:text-sm font-medium transition-all text-center"
+        >
+          Hakkımda
+        </a>
+        <a
+          href="https://github.com/ozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center py-2 px-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/50 hover:bg-zinc-200/80 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 text-xs sm:text-sm font-medium transition-all text-center"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://nsosyal.com/ozanozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center py-2 px-2 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/50 hover:bg-zinc-200/80 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-50 text-xs sm:text-sm font-medium transition-all text-center"
+        >
+          NSosyal
+        </a>
+      </div>
     </div>
   </section>
 

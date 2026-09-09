@@ -458,12 +458,20 @@ const imageGallerySchema = {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  const legacySlugMap = {
+    'nasrullah-camii-ic-mekan': 'seyh-saban-i-veli',
+    'kure-daglari-gece-gokyuzu': 'agli-kalesi',
+    'ilica-selalesi': 'azdavay-saray-selalesi',
+    'nasrullah-camii': 'seyh-saban-i-veli'
+  };
+
   function openAlbum(slug) {
-    const found = albums.find((a) => a.slug === slug || a.id === slug);
+    const targetSlug = legacySlugMap[slug] || slug;
+    const found = albums.find((a) => a.slug === targetSlug || a.id === targetSlug);
     if (!found) return;
 
     currentAlbum = found;
-    history.pushState(null, '', `/galeri#${slug}`);
+    history.replaceState(null, '', `/galeri#${targetSlug}`);
 
     activeTitle.textContent = currentAlbum.title;
     activeLocationBadge.textContent = `📍 ${currentAlbum.locationFull}`;
