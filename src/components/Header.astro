@@ -6,7 +6,6 @@ interface Props {
 }
 
 const { currentPath = '/' } = Astro.props;
-const isHome = currentPath === '/' || currentPath === '';
 
 const navItems = [
   { href: '/blog', label: 'Yazılar' },
@@ -16,19 +15,11 @@ const navItems = [
 ];
 ---
 
-<header
-  id="main-header"
-  class={`z-50 backdrop-blur-md bg-[#fafafa]/80 dark:bg-[#09090b]/80 border-b border-zinc-200/60 dark:border-zinc-800/60 transition-all duration-300 ease-in-out ${
-    isHome
-      ? 'fixed top-0 left-0 right-0 -translate-y-full opacity-0 pointer-events-none'
-      : 'sticky top-0 opacity-100 translate-y-0'
-  }`}
-  data-is-home={isHome ? 'true' : 'false'}
->
+<header class="sticky top-0 z-50 backdrop-blur-md bg-[#fafafa]/80 dark:bg-[#09090b]/80 border-b border-zinc-200/60 dark:border-zinc-800/60 transition-colors">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 gap-4">
       <!-- Brand -->
-      <a href="/" class="flex items-center space-x-2.5 group">
+      <a href="/" class="flex items-center space-x-2.5 group flex-shrink-0">
         <div class="w-7 h-7 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xs bg-zinc-100 dark:bg-zinc-800 flex-shrink-0">
           <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
         </div>
@@ -56,7 +47,7 @@ const navItems = [
         })}
       </nav>
 
-      <!-- Right Actions & Theme Toggle -->
+      <!-- Right Actions: Social Media & Theme Toggle -->
       <div class="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
         <!-- GitHub -->
         <a
@@ -72,6 +63,20 @@ const navItems = [
           </svg>
         </a>
 
+        <!-- NSosyal -->
+        <a
+          href="https://nsosyal.com/ozanozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 border border-zinc-200/70 dark:border-zinc-800/70 transition-all"
+          title="NSosyal: @ozanozdil"
+          aria-label="NSosyal"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 4h3.5l7 10.5V4H19v16h-3.5L8.5 9.5V20H5V4z"/>
+          </svg>
+        </a>
+
         <!-- RSS -->
         <a
           href="/rss.xml"
@@ -84,37 +89,9 @@ const navItems = [
           </svg>
         </a>
 
-        <!-- Theme Toggle -->
+        <!-- Theme Toggle (Aydınlatma Butonu) -->
         <ThemeToggle />
       </div>
     </div>
   </div>
 </header>
-
-<script is:inline>
-  (function() {
-    const header = document.getElementById('main-header');
-    if (!header || header.getAttribute('data-is-home') !== 'true') return;
-
-    let isVisible = false;
-    function onScroll() {
-      const scrollY = window.scrollY || window.pageYOffset;
-      if (scrollY > 140) {
-        if (!isVisible) {
-          header.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-          header.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto', 'shadow-xs');
-          isVisible = true;
-        }
-      } else {
-        if (isVisible) {
-          header.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto', 'shadow-xs');
-          header.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-          isVisible = false;
-        }
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
-</script>
