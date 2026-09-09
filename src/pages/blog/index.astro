@@ -9,65 +9,89 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
 <BaseLayout
-  title="Yazılar — Ozan Özdil"
-  description="Linux sistemleri, açık kaynak yazılımlar, dijital güvenlik ve kişisel araştırmalar."
+  title="Yazılar & Arşiv — Ozan Özdil"
+  description="Linux sistemleri, açık kaynak mimarileri, dijital egemenlik ve siber güvenlik araştırmaları."
   currentPath="/blog"
+  maxWidthClass="max-w-5xl"
 >
-  <!-- Başlık -->
-  <div class="mb-10 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
-    <div class="flex items-baseline gap-2.5 mb-2">
-      <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
-        Yazılar
-      </h1>
-      <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500">
-        ({posts.length})
-      </span>
-    </div>
-    <p class="text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed font-normal">
-      Linux sistemleri, açık kaynak yazılımlar, dijital güvenlik ve kişisel araştırmalar.
-    </p>
-
-    <!-- Konular -->
-    {allTags.length > 0 && (
-      <div class="flex flex-wrap items-center gap-2 pt-4">
-        {allTags.map((tag) => (
-          <span class="text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-            #{tag}
-          </span>
-        ))}
-      </div>
-    )}
-  </div>
-
-  <!-- Yazı Listesi -->
-  <div class="divide-y divide-zinc-200/60 dark:divide-zinc-800/60">
-    {sortedPosts.map((post) => (
-      <article class="py-5 first:pt-0 group">
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
-          <h2 class="text-base sm:text-lg font-medium">
-            <a href={`/blog/${post.slug}`} class="text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              {post.data.title}
-            </a>
-          </h2>
-          <time datetime={post.data.pubDate.toISOString()} class="text-xs font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
-            {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-          </time>
+  <div class="space-y-6">
+    <!-- QuickShell Window Header -->
+    <div class="qs-window">
+      <div class="qs-titlebar">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+          <span class="ml-2 text-zinc-700 dark:text-zinc-300">dir: ~/blog (Arşiv Dizini)</span>
         </div>
+        <div class="text-[11px] text-zinc-400 dark:text-zinc-500">
+          <span>{posts.length} DOKÜMAN</span>
+        </div>
+      </div>
 
-        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-2.5 line-clamp-2 leading-relaxed font-normal">
-          {post.data.description}
+      <div class="p-4 sm:p-6 font-mono text-xs">
+        <div class="flex items-center gap-2 text-emerald-600 dark:text-[#00ffcc] font-semibold mb-2">
+          <span>$</span>
+          <span>ls -lh --sort=time ~/blog/*.md</span>
+        </div>
+        <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+          Linux çekirdek optimizasyonu, açık kaynak sistem mimarisi, siber savunma kalkanları ve bağımsız teknoloji araştırmaları.
         </p>
 
-        {post.data.tags.length > 0 && (
-          <div class="flex flex-wrap gap-2">
-            {post.data.tags.map((tag) => (
-              <span class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
-                #{tag}
+        <!-- Topic Switch Flags -->
+        {allTags.length > 0 && (
+          <div class="flex flex-wrap items-center gap-1.5 pt-3 border-t border-zinc-200/80 dark:border-zinc-800/80">
+            <span class="text-zinc-400 dark:text-zinc-500 text-[11px] mr-1">FİLTRE:</span>
+            {allTags.map((tag) => (
+              <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-[#141820] text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 text-[11px] hover:border-sky-500 dark:hover:border-[#00ffcc] hover:text-sky-600 dark:hover:text-[#00ffcc] cursor-default transition-all">
+                --{tag}
               </span>
             ))}
           </div>
         )}
-      </article>
-    ))}
+      </div>
+    </div>
+
+    <!-- Article Entries Window -->
+    <div class="qs-window">
+      <div class="qs-titlebar">
+        <span class="text-zinc-600 dark:text-zinc-400">INDEX: /var/log/blog_archive.idx</span>
+        <span class="text-[11px] text-zinc-400">PERM: 0644</span>
+      </div>
+
+      <div class="divide-y divide-zinc-200/80 dark:divide-zinc-800/80">
+        {sortedPosts.map((post) => (
+          <article class="p-4 sm:p-5 hover:bg-zinc-50/80 dark:hover:bg-[#12161f] transition-all group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 mb-2 font-mono text-xs">
+              <div class="flex items-baseline gap-2">
+                <span class="text-zinc-400 dark:text-zinc-600 select-none">›</span>
+                <h2 class="text-base font-semibold font-sans">
+                  <a href={`/blog/${post.slug}`} class="text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">
+                    {post.data.title}
+                  </a>
+                </h2>
+              </div>
+              <time datetime={post.data.pubDate.toISOString()} class="text-[11px] text-zinc-400 dark:text-zinc-500 flex-shrink-0">
+                {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </time>
+            </div>
+
+            <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mb-3 line-clamp-2 leading-relaxed ml-4">
+              {post.data.description}
+            </p>
+
+            {post.data.tags.length > 0 && (
+              <div class="flex flex-wrap gap-1.5 ml-4 font-mono text-[10px]">
+                {post.data.tags.map((tag) => (
+                  <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
   </div>
 </BaseLayout>

@@ -20,104 +20,118 @@ const { Content } = await post.render();
   image={post.data.heroImage || '/avatar.jpg'}
   currentPath="/blog"
   type="article"
-  maxWidthClass="max-w-3xl"
+  maxWidthClass="max-w-4xl"
   article={{
     pubDate: post.data.pubDate,
     updatedDate: post.data.updatedDate,
     tags: post.data.tags,
   }}
 >
-  <article class="pt-2 sm:pt-4">
-    <!-- Top Back Link -->
-    <div class="mb-8">
-      <a
-        href="/blog"
-        class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors"
-      >
-        <svg class="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor">
-          <path fill-rule="evenodd" d="M14 8a.75.75 0 0 1-.75.75H4.56l3.22 3.22a.75.75 0 1 1-1.06 1.06l-4.5-4.5a.75.75 0 0 1 0-1.06l4.5-4.5a.75.75 0 0 1 1.06 1.06L4.56 7.25h8.69A.75.75 0 0 1 14 8Z" clip-rule="evenodd"/>
-        </svg>
-        <span>Tüm Yazılar</span>
-      </a>
-    </div>
+  <div class="space-y-6 pt-2">
+    <!-- QuickShell Reader Window -->
+    <article class="qs-window">
+      <!-- Window Titlebar -->
+      <div class="qs-titlebar">
+        <div class="flex items-center gap-2">
+          <a
+            href="/blog"
+            class="hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors flex items-center gap-1 text-zinc-500 dark:text-zinc-400"
+            title="Dizine Dön"
+          >
+            <span>←</span>
+            <span>~/blog</span>
+          </a>
+          <span class="text-zinc-300 dark:text-zinc-700">/</span>
+          <span class="text-zinc-800 dark:text-zinc-200 truncate">{post.slug}.md</span>
+        </div>
+        <div class="flex items-center gap-3 text-[11px] text-zinc-400">
+          <span class="hidden sm:inline">MODE: READ-ONLY</span>
+          <span class="cursor-pointer hover:text-zinc-900 dark:hover:text-zinc-100">─ □ ✕</span>
+        </div>
+      </div>
 
-    <!-- Article Header -->
-    <header class="mb-10 pb-8 border-b border-zinc-200/80 dark:border-zinc-800/80">
-      <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-4">
-        <time datetime={post.data.pubDate.toISOString()}>
-          {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-        </time>
-        <span>•</span>
-        <span>Ozan Özdil</span>
-        {post.data.updatedDate && (
-          <>
-            <span>•</span>
-            <span class="text-zinc-400 dark:text-zinc-500">
-              Güncellendi: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
-            </span>
-          </>
+      <!-- Article Header Inside HUD -->
+      <header class="p-6 sm:p-8 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-[#11141c]">
+        <!-- Technical Telemetry Line -->
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-4 pb-3 border-b border-zinc-200/60 dark:border-zinc-800/60">
+          <span class="text-emerald-600 dark:text-emerald-400 font-semibold">● PUBLISHED</span>
+          <span>•</span>
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </time>
+          <span>•</span>
+          <span>Ozan Özdil</span>
+          {post.data.updatedDate && (
+            <>
+              <span>•</span>
+              <span class="text-zinc-400 dark:text-zinc-500">
+                Rev: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+              </span>
+            </>
+          )}
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 leading-[1.25] mb-4">
+          {post.data.title}
+        </h1>
+
+        {post.data.description && (
+          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal mb-5">
+            {post.data.description}
+          </p>
         )}
+
+        {post.data.tags.length > 0 && (
+          <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+            {post.data.tags.map((tag) => (
+              <span class="px-2 py-0.5 rounded bg-zinc-200/70 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-300/80 dark:border-zinc-700/80">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <!-- Rendered Markdown Body -->
+      <div class="p-6 sm:p-10 markdown-body leading-relaxed">
+        <Content />
       </div>
 
-      <h1 class="text-3xl sm:text-4xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 leading-[1.2] mb-4">
-        {post.data.title}
-      </h1>
-
-      <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal mb-6">
-        {post.data.description}
-      </p>
-
-      {post.data.tags.length > 0 && (
-        <div class="flex flex-wrap gap-1.5">
-          {post.data.tags.map((tag) => (
-            <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/80 dark:border-zinc-700/80">
-              #{tag}
-            </span>
-          ))}
-        </div>
-      )}
-    </header>
-
-    <!-- Rendered Markdown Body -->
-    <div class="markdown-body leading-relaxed">
-      <Content />
-    </div>
-
-    <!-- Article Footer & Author Bio -->
-    <footer class="mt-16 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div class="flex items-center space-x-3.5">
-          <div class="w-10 h-10 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800">
-            <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
+      <!-- Article Footer & Author Signature -->
+      <footer class="p-6 sm:p-8 border-t border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-[#11141c]">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-10 h-10 rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800">
+              <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 font-sans">Ozan Özdil</h4>
+              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                Orman mühendisi & sistem mimarı • Kastamonu
+              </p>
+            </div>
           </div>
-          <div>
-            <h4 class="text-sm font-medium text-zinc-950 dark:text-zinc-50">Ozan Özdil</h4>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-              Orman mühendisi & araştırmacı • Kastamonu
-            </p>
+
+          <div class="flex items-center space-x-2">
+            <a
+              href="https://nsosyal.com/ozanozdil"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="qs-btn"
+            >
+              NSosyal
+            </a>
+            <a
+              href="https://github.com/ozdil"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="qs-btn"
+            >
+              GitHub
+            </a>
           </div>
         </div>
-
-        <div class="flex items-center space-x-3 text-xs">
-          <a
-            href="https://nsosyal.com/ozanozdil"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors"
-          >
-            NSosyal'de Tartış
-          </a>
-          <span class="text-zinc-300 dark:text-zinc-700">•</span>
-          <a
-            href="https://github.com/ozdil"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors"
-          >
-            GitHub
-          </a>
-        </div>
-      </div>
-    </footer>
-  </article>
+      </footer>
+    </article>
+  </div>
 </BaseLayout>

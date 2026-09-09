@@ -8,90 +8,143 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 
 const navItems = [
-  { href: '/blog', label: 'Yazılar' },
-  { href: '/projeler', label: 'Projeler' },
-  { href: '/galeri', label: 'Galeri' },
-  { href: '/hakkimda', label: 'Hakkımda' },
+  { href: '/blog', id: '01', code: 'yazilar', label: 'Yazılar' },
+  { href: '/projeler', id: '02', code: 'projeler', label: 'Projeler' },
+  { href: '/galeri', id: '03', code: 'galeri', label: 'Galeri' },
+  { href: '/hakkimda', id: '04', code: 'hakkimda', label: 'Hakkımda' },
 ];
 ---
 
-<header class="sticky top-0 z-50 backdrop-blur-md bg-[#fafafa]/80 dark:bg-[#09090b]/80 border-b border-zinc-200/60 dark:border-zinc-800/60 transition-colors">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 gap-4">
-      <!-- Brand -->
-      <a href="/" class="flex items-center space-x-2.5 group flex-shrink-0">
-        <div class="w-7 h-7 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xs bg-zinc-100 dark:bg-zinc-800 flex-shrink-0">
-          <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
-        </div>
-        <span class="font-medium text-sm tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
-          Ozan Özdil
-        </span>
-      </a>
+<header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 dark:bg-[#08090b]/90 border-b border-zinc-200/80 dark:border-white/10 transition-colors">
+  <div class="max-w-6xl mx-auto px-3 sm:px-6">
+    <div class="flex items-center justify-between h-14 sm:h-15 gap-2 sm:gap-4">
+      <!-- Left: Shell Branding & Host Identifier -->
+      <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+        <a href="/" class="flex items-center space-x-2 group" title="QuickShell Home">
+          <div class="relative w-7 h-7 rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 flex-shrink-0 p-0.5">
+            <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover rounded-md" />
+            <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 border border-[#08090b]"></span>
+          </div>
+          <div class="flex flex-col text-left">
+            <div class="flex items-center gap-1.5 font-mono text-xs font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">
+              <span>ozdil@omarchy</span>
+              <span class="text-zinc-400 dark:text-zinc-600">:~#</span>
+            </div>
+          </div>
+        </a>
 
-      <!-- Navigation Links -->
-      <nav class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto no-scrollbar py-1" aria-label="Ana Navigasyon">
+        <!-- Desktop Workspace Indicator (Hyprland / QuickShell style) -->
+        <div class="hidden lg:flex items-center gap-1 pl-2 border-l border-zinc-200 dark:border-zinc-800 text-[10px] font-mono">
+          {navItems.map((item, index) => {
+            const isActive = currentPath.startsWith(item.href) || (item.href === '/' && currentPath === '/');
+            return (
+              <a
+                href={item.href}
+                class={`w-5 h-5 flex items-center justify-center rounded border transition-colors ${
+                  isActive
+                    ? 'bg-zinc-900 text-white dark:bg-[#00ffcc] dark:text-[#08090b] border-zinc-900 dark:border-[#00ffcc] font-bold'
+                    : 'bg-zinc-100 dark:bg-zinc-900/60 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 border-zinc-200 dark:border-zinc-800'
+                }`}
+                title={`Workspace ${index + 1}: ${item.label}`}
+              >
+                {index + 1}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      <!-- Center: QuickShell Modules (Navigation) -->
+      <nav class="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto no-scrollbar py-1 text-xs font-mono" aria-label="QuickShell Modülleri">
         {navItems.map((item) => {
           const isActive = currentPath.startsWith(item.href);
           return (
             <a
               href={item.href}
-              class={`px-3 py-1.5 rounded-lg text-xs sm:text-sm transition-colors whitespace-nowrap ${
+              class={`px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-md transition-all whitespace-nowrap flex items-center gap-1 border ${
                 isActive
-                  ? 'text-zinc-950 dark:text-zinc-50 font-medium'
-                  : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
+                  ? 'border-zinc-900 dark:border-[#00ffcc]/60 bg-zinc-100 dark:bg-[#141820] text-zinc-950 dark:text-[#00ffcc] font-medium shadow-2xs'
+                  : 'border-transparent text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700/60 hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 hover:text-zinc-900 dark:hover:text-zinc-200'
               }`}
             >
-              {item.label}
+              <span class="text-zinc-400 dark:text-zinc-500 text-[10px]">[{item.id}]</span>
+              <span>{item.label}</span>
             </a>
           );
         })}
       </nav>
 
-      <!-- Right Actions: Social Media & Theme Toggle -->
-      <div class="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
-        <!-- GitHub -->
+      <!-- Right: System Telemetry & Quick Action Launchers -->
+      <div class="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0 font-mono text-xs">
+        <!-- Live Digital Clock -->
+        <div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-[#101317] border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="qs-live-clock" class="tracking-widest font-mono text-[11px]">--:--:--</span>
+        </div>
+
+        <!-- Git Branch Badge -->
+        <span class="hidden xl:inline-flex items-center gap-1 px-2 py-1 rounded-md bg-zinc-100 dark:bg-[#101317] border border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-500 dark:text-zinc-400">
+          <span class="text-zinc-400">git:</span><span class="text-sky-600 dark:text-sky-400">main</span>
+        </span>
+
+        <!-- GitHub Launcher -->
         <a
           href="https://github.com/ozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 border border-zinc-200/70 dark:border-zinc-800/70 transition-all"
+          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all"
           title="GitHub: @ozdil"
           aria-label="GitHub"
         >
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 16 16" aria-hidden="true">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 16 16" aria-hidden="true">
             <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
           </svg>
         </a>
 
-        <!-- NSosyal -->
+        <!-- NSosyal Launcher -->
         <a
           href="https://nsosyal.com/ozanozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 border border-zinc-200/70 dark:border-zinc-800/70 transition-all"
+          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all"
           title="NSosyal: @ozanozdil"
           aria-label="NSosyal"
         >
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 4h3.5l7 10.5V4H19v16h-3.5L8.5 9.5V20H5V4z"/>
           </svg>
         </a>
 
-        <!-- RSS -->
+        <!-- RSS Feed -->
         <a
           href="/rss.xml"
-          class="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 border border-zinc-200/70 dark:border-zinc-800/70 transition-all hidden sm:inline-flex"
+          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all hidden sm:inline-flex"
           title="RSS Beslemesi"
           aria-label="RSS Feed"
         >
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" viewBox="0 0 24 24">
             <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
           </svg>
         </a>
 
-        <!-- Theme Toggle (Aydınlatma Butonu) -->
+        <!-- Theme Toggle -->
         <ThemeToggle />
       </div>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  function updateQuickShellClock() {
+    const clockEl = document.getElementById('qs-live-clock');
+    if (clockEl) {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      clockEl.textContent = `${h}:${m}:${s}`;
+    }
+  }
+  updateQuickShellClock();
+  setInterval(updateQuickShellClock, 1000);
+</script>

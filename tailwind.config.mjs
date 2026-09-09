@@ -6,12 +6,28 @@ export default {
     extend: {
       colors: {
         canvas: {
-          light: '#fafafa',
-          dark: '#09090b',
+          light: '#f8fafc',
+          dark: '#08090b',
         },
         surface: {
           light: '#ffffff',
-          dark: '#121215',
+          dark: '#0e1116',
+        },
+        qs: {
+          black: '#08090b',
+          panel: '#0e1116',
+          surface: '#141820',
+          hover: '#1b202a',
+          border: 'rgba(255, 255, 255, 0.08)',
+          'border-bright': 'rgba(255, 255, 255, 0.16)',
+          accent: '#00ffcc',
+          'accent-dim': '#00ffcc22',
+          muted: '#707880',
+          foreground: '#cacccc',
+          emerald: '#10b981',
+          cyan: '#06b6d4',
+          amber: '#f59e0b',
+          rose: '#f43f5e',
         }
       },
       fontFamily: {

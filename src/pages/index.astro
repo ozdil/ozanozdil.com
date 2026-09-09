@@ -10,110 +10,199 @@ const featuredProjects = [
     name: 'omarchy',
     desc: 'Arch Linux tabanlı, optimize edilmiş yüksek performanslı sistem yapılandırması.',
     lang: 'Shell',
+    status: 'active (running)',
     url: 'https://github.com/ozdil/omarchy'
   },
   {
     name: 'omarchy-cyber-sentinel',
     desc: 'Ağ trafiği izleme, anormallik tespiti ve proaktif sistem savunma modülü.',
     lang: 'Python / Bash',
+    status: 'active (monitoring)',
     url: 'https://github.com/ozdil/omarchy-cyber-sentinel'
   },
   {
     name: 'omarchy-badusb-shield',
     desc: 'Donanımsal USB saldırılarına karşı dinamik aygıt yetkilendirme aracı.',
     lang: 'Shell',
+    status: 'active (shielded)',
     url: 'https://github.com/ozdil/omarchy-badusb-shield'
   },
   {
     name: 'omarchy-cve-radar',
     desc: 'Sistem paketleri ve bağımlılıklar için güvenlik açığı (CVE) denetleme aracı.',
     lang: 'Python',
+    status: 'active (scanned)',
     url: 'https://github.com/ozdil/omarchy-cve-radar'
   },
   {
     name: 'omarchy-omasend',
     desc: 'Yerel ağda uçtan uca şifreli, p2p dosya ve veri aktarım protokolü.',
     lang: 'Go / Shell',
+    status: 'active (listening)',
     url: 'https://github.com/ozdil/omarchy-omasend'
   },
   {
     name: 'omarchy-omarank',
     desc: 'Linux çekirdeği ve donanım bileşenleri için sentetik performans kıyaslama paketi.',
     lang: 'Rust / C',
+    status: 'active (benchmarked)',
     url: 'https://github.com/ozdil/omarchy-omarank'
   }
 ];
 ---
 
-<BaseLayout title="Ozan Özdil" currentPath="/">
-  <!-- Son Yazılar -->
-  <section class="mb-16">
-    <div class="flex items-baseline justify-between mb-6 pb-2 border-b border-zinc-200/80 dark:border-zinc-800/80">
-      <h2 class="text-xs font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 font-mono">
-        Son Yazılar
-      </h2>
-      <a href="/blog" class="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-        Tüm arşiv ({allPosts.length}) →
-      </a>
-    </div>
+<BaseLayout title="Ozan Özdil — QuickShell Desktop" currentPath="/" maxWidthClass="max-w-5xl">
+  <div class="space-y-8">
+    <!-- QuickShell Window 1: System MOTD / Fastfetch Terminal -->
+    <div class="qs-window">
+      <div class="qs-titlebar">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+          <span class="ml-2 text-zinc-600 dark:text-zinc-400">session: ozdil@omarchy (tty1)</span>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] text-zinc-400 dark:text-zinc-500">
+          <span>HOST: 41.3887°N, 33.7827°E</span>
+          <span class="text-zinc-300 dark:text-zinc-700">|</span>
+          <span class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200 cursor-pointer">─ □ ✕</span>
+        </div>
+      </div>
 
-    <div class="divide-y divide-zinc-200/60 dark:divide-zinc-800/60">
-      {sortedPosts.map((post) => (
-        <article class="py-4 first:pt-0 group">
-          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
-            <h3 class="text-base font-medium">
-              <a href={`/blog/${post.slug}`} class="text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {post.data.title}
-              </a>
-            </h3>
-            <time datetime={post.data.pubDate.toISOString()} class="text-xs font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
-              {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
-            </time>
-          </div>
-          {post.data.description && (
-            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed font-normal">
-              {post.data.description}
-            </p>
-          )}
-        </article>
-      ))}
-    </div>
-  </section>
+      <div class="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed">
+        <div class="flex items-center gap-2 text-emerald-600 dark:text-[#00ffcc] font-semibold mb-4">
+          <span>$</span>
+          <span>fastfetch --system-profile</span>
+        </div>
 
-  <!-- Açık Kaynak Projeler -->
-  <section>
-    <div class="flex items-baseline justify-between mb-6 pb-2 border-b border-zinc-200/80 dark:border-zinc-800/80">
-      <h2 class="text-xs font-semibold tracking-wider uppercase text-zinc-500 dark:text-zinc-400 font-mono">
-        Açık Kaynak Projeler
-      </h2>
-      <a href="/projeler" class="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">
-        Tüm projeler →
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      {featuredProjects.map((p) => (
-        <a
-          href={p.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 hover:border-zinc-300 dark:hover:border-zinc-700 bg-white/50 dark:bg-zinc-900/30 transition-all flex flex-col justify-between"
-        >
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="text-sm font-medium font-mono text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
-                {p.name}
-              </span>
-              <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
-                {p.lang}
-              </span>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <!-- ASCII / System Emblem -->
+          <div class="md:col-span-4 p-3 rounded-lg bg-zinc-50 dark:bg-[#12161e] border border-zinc-200/80 dark:border-zinc-800/80 text-[11px] font-mono text-zinc-600 dark:text-zinc-400">
+            <div class="flex items-center gap-2 mb-2 pb-1 border-b border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-200 font-bold">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>OMARCHY SYSTEM INFO</span>
             </div>
-            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-              {p.desc}
-            </p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">USER:</span> <span class="text-zinc-900 dark:text-zinc-100 font-medium">ozdil (Ozan Özdil)</span></p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">HOST:</span> ozanozdil.com</p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">KERNEL:</span> Linux 6.x-omarchy</p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">WM / SHELL:</span> Hyprland / Quickshell</p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">SYSTEMS:</span> Fujifilm GFX 100 & 50R</p>
+            <p class="text-emerald-600 dark:text-[#00ffcc] mt-2 pt-1 border-t border-zinc-200 dark:border-zinc-800 text-[10px]">● STATUS: ONLINE (200 OK)</p>
           </div>
-        </a>
-      ))}
+
+          <!-- Profile Description & Mission -->
+          <div class="md:col-span-8 space-y-3 font-sans text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            <p>
+              <strong class="text-zinc-950 dark:text-zinc-50 font-mono font-medium text-xs">Orman Mühendisi (KTÜ)</strong> • Kamu yönetimi tecrübesi, açık kaynak sistem mimarisi, uçtan uca Linux ağ savunması ve 102 MP Fujifilm GFX orta format fotoğrafçılığı üzerine bağımsız Ar-Ge ve yayınlar.
+            </p>
+            <p class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+              Masaüstü ortamı olarak Quickshell ve Hyprland tabanlı <a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-[#00ffcc] underline underline-offset-2 hover:opacity-80">Omarchy Linux</a> ekosistemini inşa ediyor; siber savunma bekçileri, donanım güvenlik kalkanları ve yerel yapay zeka araçları geliştiriyorum.
+            </p>
+
+            <!-- Fast Action Commands -->
+            <div class="pt-2 flex flex-wrap items-center gap-2 font-mono text-xs">
+              <a href="/blog" class="qs-btn">
+                <span class="text-zinc-400">$</span> cd ~/blog
+              </a>
+              <a href="/projeler" class="qs-btn">
+                <span class="text-zinc-400">$</span> systemctl list-units
+              </a>
+              <a href="/galeri" class="qs-btn">
+                <span class="text-zinc-400">$</span> view ~/galeri
+              </a>
+              <a href="/hakkimda" class="qs-btn">
+                <span class="text-zinc-400">$</span> cat ~/dossier.md
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+
+    <!-- QuickShell Window 2: ~/blog/recent.log -->
+    <section class="qs-window">
+      <div class="qs-titlebar">
+        <div class="flex items-center gap-2">
+          <span class="text-zinc-400 dark:text-zinc-500">📄</span>
+          <span class="text-zinc-800 dark:text-zinc-300">~/blog/recent.log</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[11px] text-zinc-400 dark:text-zinc-500">TOPLAM: {allPosts.length} KAYIT</span>
+          <a href="/blog" class="text-sky-600 dark:text-[#00ffcc] hover:underline text-[11px] font-mono">
+            tüm arşiv [cat] →
+          </a>
+        </div>
+      </div>
+
+      <div class="divide-y divide-zinc-200/80 dark:divide-zinc-800/80 font-mono text-xs">
+        {sortedPosts.map((post) => (
+          <article class="p-3.5 sm:p-4 hover:bg-zinc-50/80 dark:hover:bg-[#12161f] transition-colors group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
+              <div class="flex items-baseline gap-2">
+                <span class="text-zinc-400 dark:text-zinc-600 font-mono select-none">›</span>
+                <h3 class="text-sm font-medium font-sans">
+                  <a href={`/blog/${post.slug}`} class="text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">
+                    {post.data.title}
+                  </a>
+                </h3>
+              </div>
+              <time datetime={post.data.pubDate.toISOString()} class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
+                {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+              </time>
+            </div>
+            {post.data.description && (
+              <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 line-clamp-2 leading-relaxed ml-4">
+                {post.data.description}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- QuickShell Window 3: ~/system/daemons.d (Featured Projects) -->
+    <section class="qs-window">
+      <div class="qs-titlebar">
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-500">⚙</span>
+          <span class="text-zinc-800 dark:text-zinc-300">~/system/daemons.d (Aktif Servisler)</span>
+        </div>
+        <a href="/projeler" class="text-sky-600 dark:text-[#00ffcc] hover:underline text-[11px] font-mono">
+          tüm servisler [systemctl] →
+        </a>
+      </div>
+
+      <div class="p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {featuredProjects.map((p) => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group p-3 sm:p-3.5 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 hover:border-sky-500/50 dark:hover:border-[#00ffcc]/40 bg-zinc-50/50 dark:bg-[#11141b] hover:bg-zinc-100/80 dark:hover:bg-[#151922] transition-all flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1.5 font-mono text-xs">
+                <span class="font-semibold text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors truncate">
+                  {p.name}.service
+                </span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-zinc-200/70 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+                  {p.lang}
+                </span>
+              </div>
+              <p class="text-xs font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                {p.desc}
+              </p>
+            </div>
+            <div class="mt-2.5 pt-2 border-t border-zinc-200/60 dark:border-zinc-800/60 flex items-center justify-between font-mono text-[10px] text-zinc-400 dark:text-zinc-500">
+              <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span>{p.status}</span>
+              </span>
+              <span class="group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">git →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
 </BaseLayout>

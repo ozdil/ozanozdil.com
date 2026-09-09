@@ -2,22 +2,39 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-zinc-200/60 dark:border-zinc-800/60 mt-20 py-8 text-xs text-zinc-500 dark:text-zinc-400">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <!-- İmza -->
-    <div class="flex items-center space-x-2">
-      <span>© {currentYear} Ozan Özdil</span>
-      <span class="text-zinc-300 dark:text-zinc-700">•</span>
-      <span>Kastamonu</span>
+<footer class="border-t border-zinc-200/80 dark:border-white/10 mt-20 py-6 text-xs font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-50/50 dark:bg-[#0b0e12]/60 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+    <!-- Left: Telemetry & Host -->
+    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 text-[11px]">
+      <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/60">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>SYS: 200 OK</span>
+      </span>
+      <span class="text-zinc-300 dark:text-zinc-700">|</span>
+      <span>OMARCHY DESKTOP</span>
+      <span class="text-zinc-300 dark:text-zinc-700">|</span>
+      <span>Kastamonu, TR</span>
     </div>
 
-    <!-- Alt Bağlantılar -->
-    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-      <a href="https://github.com/ozdil" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">GitHub</a>
-      <a href="https://nsosyal.com/ozanozdil" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">NSosyal</a>
-      <a href="https://github.com/ozdil/ozanozdil.com" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Kaynak Kod</a>
-      <a href="/rss.xml" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">RSS</a>
-      <a href="/sitemap-index.xml" class="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">Sitemap</a>
+    <!-- Center: Signature -->
+    <div class="text-[11px] text-zinc-600 dark:text-zinc-400">
+      <span>© {currentYear} Ozan Özdil. Tüm hakları saklıdır.</span>
+    </div>
+
+    <!-- Right: Quick Shell Links -->
+    <div class="flex flex-wrap items-center justify-center gap-2 text-[11px]">
+      <a href="https://github.com/ozdil/ozanozdil.com" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
+        [repo]
+      </a>
+      <a href="/rss.xml" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
+        [rss]
+      </a>
+      <a href="/sitemap-index.xml" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
+        [sitemap]
+      </a>
+      <a href="#top" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-sky-600 dark:hover:text-[#00ffcc] transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
+        [top ↑]
+      </a>
     </div>
   </div>
 </footer>
