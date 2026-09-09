@@ -8,72 +8,61 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 const featuredProjects = [
   {
     name: 'omarchy',
-    desc: 'Arch Linux tabanlı, optimize edilmiş yüksek performanslı sistem yapılandırması.',
+    desc: 'Arch Linux tabanlı, optimize edilmiş sistem yapılandırması.',
     lang: 'Shell',
-    status: 'active (running)',
     url: 'https://github.com/ozdil/omarchy'
   },
   {
     name: 'omarchy-cyber-sentinel',
-    desc: 'Ağ trafiği izleme, anormallik tespiti ve proaktif sistem savunma modülü.',
+    desc: 'Ağ trafiği izleme ve anormallik tespit aracı.',
     lang: 'Python / Bash',
-    status: 'active (monitoring)',
     url: 'https://github.com/ozdil/omarchy-cyber-sentinel'
   },
   {
     name: 'omarchy-badusb-shield',
-    desc: 'Donanımsal USB saldırılarına karşı dinamik aygıt yetkilendirme aracı.',
+    desc: 'USB aygıt yetkilendirme ve bağlantı güvenliği aracı.',
     lang: 'Shell',
-    status: 'active (shielded)',
     url: 'https://github.com/ozdil/omarchy-badusb-shield'
   },
   {
     name: 'omarchy-cve-radar',
-    desc: 'Sistem paketleri ve bağımlılıklar için güvenlik açığı (CVE) denetleme aracı.',
+    desc: 'Sistem paketleri ve bağımlılıklar için güvenlik açığı denetleyici.',
     lang: 'Python',
-    status: 'active (scanned)',
     url: 'https://github.com/ozdil/omarchy-cve-radar'
   },
   {
     name: 'omarchy-omasend',
-    desc: 'Yerel ağda uçtan uca şifreli, p2p dosya ve veri aktarım protokolü.',
+    desc: 'Yerel ağda şifreli dosya ve veri aktarım aracı.',
     lang: 'Go / Shell',
-    status: 'active (listening)',
     url: 'https://github.com/ozdil/omarchy-omasend'
   },
   {
     name: 'omarchy-omarank',
-    desc: 'Linux çekirdeği ve donanım bileşenleri için sentetik performans kıyaslama paketi.',
+    desc: 'Linux çekirdeği ve donanım performans kıyaslama paketi.',
     lang: 'Rust / C',
-    status: 'active (benchmarked)',
     url: 'https://github.com/ozdil/omarchy-omarank'
   }
 ];
 ---
 
-<BaseLayout title="Ozan Özdil — QuickShell" currentPath="/" maxWidthClass="max-w-4xl">
+<BaseLayout title="Ozan Özdil" currentPath="/" maxWidthClass="max-w-4xl">
   <div class="space-y-12 py-2 sm:py-4">
     <!-- Hero / Status Header -->
     <header class="pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
       <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase">
-        ozanozdil.com // quickshell
+        ozanozdil.com
       </p>
       <h1 class="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans leading-tight">
-        Açık Kaynak Sistem Mimarisi & Araştırmalar
+        Ozan Özdil
       </h1>
-      <p class="mt-3 text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl font-sans">
-        Linux çekirdek optimizasyonu, siber savunma kalkanları, bağımsız mimari ve orta format görsel arşiv.
+      <p class="mt-2 text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl font-sans">
+        Orman Mühendisi • Linux, Açık Kaynak ve Fotoğraf
       </p>
 
-      <div class="flex flex-wrap items-center gap-3 mt-4 text-xs font-mono text-zinc-500 dark:text-zinc-400">
-        <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>ONLINE</span>
-        </span>
+      <div class="flex flex-wrap items-center gap-2 mt-3 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+        <span>{allPosts.length} yazı</span>
         <span>•</span>
-        <span>{allPosts.length} Doküman</span>
-        <span>•</span>
-        <span>{featuredProjects.length} Sistem Servisi</span>
+        <span>{featuredProjects.length} açık kaynak proje</span>
       </div>
     </header>
 
@@ -81,10 +70,10 @@ const featuredProjects = [
     <section>
       <div class="flex items-baseline justify-between border-b border-zinc-200/80 dark:border-zinc-800/80 pb-3 mb-2">
         <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
-          Son Yazılar & Araştırmalar
+          Son Yazılar
         </h2>
         <a href="/blog" class="font-mono text-xs text-sky-600 dark:text-[#00ffcc] hover:underline flex items-center gap-1">
-          Tüm Arşiv →
+          Tüm Yazılar →
         </a>
       </div>
 
@@ -116,14 +105,14 @@ const featuredProjects = [
       </ul>
     </section>
 
-    <!-- Featured Projects / Daemons -->
+    <!-- Featured Projects -->
     <section>
       <div class="flex items-baseline justify-between border-b border-zinc-200/80 dark:border-zinc-800/80 pb-3 mb-4">
         <h2 class="text-xl sm:text-2xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
-          Açık Kaynak Sistem Servisleri
+          Projeler
         </h2>
         <a href="/projeler" class="font-mono text-xs text-sky-600 dark:text-[#00ffcc] hover:underline flex items-center gap-1">
-          Tüm Servisler →
+          Tüm Projeler →
         </a>
       </div>
 
@@ -148,12 +137,8 @@ const featuredProjects = [
                 {p.desc}
               </p>
             </div>
-            <div class="mt-3 pt-2 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between font-mono text-[10px] text-zinc-400 dark:text-zinc-500">
-              <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>{p.status}</span>
-              </span>
-              <span class="group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">git repo →</span>
+            <div class="mt-3 pt-2 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-end font-mono text-[10px] text-zinc-400 dark:text-zinc-500">
+              <span class="group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">GitHub →</span>
             </div>
           </a>
         ))}

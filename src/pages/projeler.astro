@@ -4,23 +4,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const repositories = [
   {
     name: 'omarchy',
-    desc: 'Arch Linux tabanlı, optimize edilmiş yüksek performanslı sistem ekosistemi ve mimari yapılandırma paketi.',
+    desc: 'Arch Linux tabanlı, optimize edilmiş sistem yapılandırması.',
     lang: 'Shell',
     langColor: '#89e051',
-    tags: ['arch-linux', 'hyprland', 'system-craft'],
+    tags: ['arch-linux', 'hyprland', 'dotfiles'],
     url: 'https://github.com/ozdil/omarchy'
   },
   {
     name: 'omarchy-cyber-sentinel',
-    desc: 'Canlı ağ trafiği analizi, tehdit tespiti ve proaktif sistem savunma modülü.',
+    desc: 'Ağ trafiği izleme ve anormallik tespit aracı.',
     lang: 'Python / Bash',
     langColor: '#3572A5',
-    tags: ['cybersecurity', 'network', 'sentinel'],
+    tags: ['security', 'network', 'sentinel'],
     url: 'https://github.com/ozdil/omarchy-cyber-sentinel'
   },
   {
     name: 'omarchy-badusb-shield',
-    desc: 'Donanımsal USB ve harici çevre birimi tabanlı saldırılara karşı dinamik yetkilendirme ve port koruması.',
+    desc: 'USB aygıt yetkilendirme ve bağlantı güvenliği aracı.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['badusb', 'hardware-sec', 'linux'],
@@ -28,7 +28,7 @@ const repositories = [
   },
   {
     name: 'omarchy-cve-radar',
-    desc: 'Linux sistem paketleri ve uygulama bağımlılıkları için güvenlik açığı (CVE) denetleme aracı.',
+    desc: 'Linux sistem paketleri için güvenlik açığı (CVE) denetleyici.',
     lang: 'Python',
     langColor: '#3572A5',
     tags: ['cve', 'vulnerability-scanner'],
@@ -36,7 +36,7 @@ const repositories = [
   },
   {
     name: 'omarchy-omarank',
-    desc: 'Linux çekirdeği ve donanım bileşenleri için sentetik kıyaslama (benchmark) ve performans analiz paketi.',
+    desc: 'Linux donanım ve çekirdek performans kıyaslama aracı.',
     lang: 'Rust / C',
     langColor: '#dea584',
     tags: ['benchmark', 'performance'],
@@ -44,7 +44,7 @@ const repositories = [
   },
   {
     name: 'omarchy-omasend',
-    desc: 'Yerel ağ üzerinde uçtan uca şifreli, yüksek hızlı p2p dosya ve veri aktarım protokolü.',
+    desc: 'Yerel ağda şifreli dosya ve veri aktarım aracı.',
     lang: 'Go / Shell',
     langColor: '#00ADD8',
     tags: ['p2p', 'file-transfer', 'go'],
@@ -52,7 +52,7 @@ const repositories = [
   },
   {
     name: 'omarchy-auth-watch',
-    desc: 'Yetkisiz oturum açma ve SSH sızma girişimlerini anlık takip edip engelleyen kimlik doğrulama bekçisi.',
+    desc: 'Yetkisiz oturum açma ve SSH denemelerini izleme aracı.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['security', 'auth', 'audit'],
@@ -60,7 +60,7 @@ const repositories = [
   },
   {
     name: 'omarchy-ghost-mac',
-    desc: 'Kablosuz ağ donanım adreslerini (MAC) ağ bazlı dinamik ve güvenli biçimde anonimleştiren gizlilik aracı.',
+    desc: 'Kablosuz ağ MAC adreslerini dinamik olarak anonimleştiren gizlilik aracı.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['privacy', 'wifi', 'opsec'],
@@ -68,7 +68,7 @@ const repositories = [
   },
   {
     name: 'omarchy-dns-leak-guard',
-    desc: 'Ağ üzerinde DNS sızıntılarını denetleyen ve şifreli DNS (DoH/DoT) tünellemesini güvenceye alan araç.',
+    desc: 'DNS sızıntılarını denetleyen ve şifreli DNS tünellemesini doğrulayan araç.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['dns', 'privacy', 'network'],
@@ -76,7 +76,7 @@ const repositories = [
   },
   {
     name: 'omarchy-tripwire-vault',
-    desc: 'Tuzak belirteçler (canary tokens) ile dosya sistemi üzerinde yetkisiz erişim tespit mekanizması.',
+    desc: 'Dosya sistemi üzerinde yetkisiz erişim tespit aracı.',
     lang: 'Shell',
     langColor: '#89e051',
     tags: ['honeypot', 'security'],
@@ -84,7 +84,7 @@ const repositories = [
   },
   {
     name: 'omarchy-turkiye-theme',
-    desc: 'Göz yormayan, OLED uyumlu, fonksiyonel ve ergonomik sistem arayüz teması.',
+    desc: 'OLED uyumlu, ergonomik sistem arayüz teması.',
     lang: 'CSS / Shell',
     langColor: '#563d7c',
     tags: ['theme', 'hyprland', 'oled'],
@@ -94,8 +94,8 @@ const repositories = [
 ---
 
 <BaseLayout
-  title="Projeler & Servisler — Ozan Özdil"
-  description="Ozan Özdil tarafından geliştirilen açık kaynak sistem mimarileri, Linux servisleri ve siber savunma kalkanları."
+  title="Projeler — Ozan Özdil"
+  description="Ozan Özdil tarafından geliştirilen açık kaynak projeler ve araçlar."
   currentPath="/projeler"
   maxWidthClass="max-w-4xl"
 >
@@ -103,13 +103,13 @@ const repositories = [
     <!-- Header: Omarchy / QuickShell Style -->
     <header class="pb-8 text-center">
       <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase sm:text-sm">
-        Projeler & Servisler
+        Projeler
       </p>
       <h1 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
-        Açık Kaynak Sistem Mimarileri & Güvenlik Kalkanları
+        Açık Kaynak Projeler
       </h1>
       <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
-        Linux çekirdek optimizasyonu, siber savunma kalkanları, p2p veri aktarımı ve sentetik kıyaslama araçları.
+        Linux, sistem araçları ve açık kaynak çalışmalarım.
       </p>
     </header>
 
