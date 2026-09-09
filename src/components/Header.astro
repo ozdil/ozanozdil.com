@@ -6,6 +6,7 @@ interface Props {
 }
 
 const { currentPath = '/' } = Astro.props;
+const isHome = currentPath === '/' || currentPath === '';
 
 const navItems = [
   { href: '/blog', label: 'Yazılar' },
@@ -15,7 +16,15 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 backdrop-blur-md bg-[#fafafa]/80 dark:bg-[#09090b]/80 border-b border-zinc-200/60 dark:border-zinc-800/60 transition-colors">
+<header
+  id="main-header"
+  class={`z-50 backdrop-blur-md bg-[#fafafa]/80 dark:bg-[#09090b]/80 border-b border-zinc-200/60 dark:border-zinc-800/60 transition-all duration-300 ease-in-out ${
+    isHome
+      ? 'fixed top-0 left-0 right-0 -translate-y-full opacity-0 pointer-events-none'
+      : 'sticky top-0 opacity-100 translate-y-0'
+  }`}
+  data-is-home={isHome ? 'true' : 'false'}
+>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 gap-4">
       <!-- Brand -->
@@ -81,3 +90,31 @@ const navItems = [
     </div>
   </div>
 </header>
+
+<script is:inline>
+  (function() {
+    const header = document.getElementById('main-header');
+    if (!header || header.getAttribute('data-is-home') !== 'true') return;
+
+    let isVisible = false;
+    function onScroll() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      if (scrollY > 140) {
+        if (!isVisible) {
+          header.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+          header.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto', 'shadow-xs');
+          isVisible = true;
+        }
+      } else {
+        if (isVisible) {
+          header.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto', 'shadow-xs');
+          header.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+          isVisible = false;
+        }
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
