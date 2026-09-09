@@ -205,7 +205,7 @@ const imageGallerySchema = {
               <!-- Top Badges: Location & Year -->
               <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-20 pointer-events-none">
                 <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-black/70 backdrop-blur-md text-zinc-200 border border-white/10 shadow-xs flex items-center gap-1.5">
-                  <span class="text-red-400">📍</span>
+                  <span class="text-sky-400 text-[10px]">[LOC]</span>
                   <span>{album.location}</span>
                 </span>
 
@@ -302,14 +302,12 @@ const imageGallerySchema = {
         <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-black/60 border border-zinc-800 text-zinc-400 text-[11px]">
           <span class="text-amber-500">©</span>
           <span>Ozan Özdil • Tüm Hakları Saklıdır</span>
-        </span>
-
         <button
           id="btnCloseModal"
           type="button"
-          class="text-zinc-400 hover:text-white px-3 py-1 rounded-lg hover:bg-zinc-800 transition-colors cursor-pointer text-xs"
+          class="text-zinc-400 hover:text-white px-3 py-1 rounded-lg hover:bg-zinc-800 transition-colors cursor-pointer text-xs font-mono"
         >
-          ✕ Kapat [ESC]
+          [ESC] Kapat
         </button>
       </div>
     </div>
@@ -328,9 +326,10 @@ const imageGallerySchema = {
       <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
 
       <!-- Watermark Badge overlay on photo bottom-right -->
-      <div class="absolute bottom-4 right-4 z-20 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity">
-        <span class="px-3 py-1 rounded-lg bg-black/75 backdrop-blur-md text-zinc-300 text-[11px] font-mono border border-white/10 shadow-lg">
-          © Ozan Özdil
+      <div class="absolute bottom-4 right-4 z-20 pointer-events-none flex items-center gap-2">
+        <span class="px-2.5 py-1 rounded-md text-[10px] font-mono bg-black/80 backdrop-blur-md text-zinc-300 border border-white/15 shadow-xl flex items-center gap-1.5">
+          <span class="text-emerald-400">●</span>
+          <span>102 MP GFX RAW ARCHIVE</span>
         </span>
       </div>
 
@@ -379,7 +378,7 @@ const imageGallerySchema = {
     id="copyrightToast"
     class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-zinc-950/95 border border-amber-500/40 text-zinc-200 px-4 py-3 rounded-xl shadow-2xl backdrop-blur-md max-w-sm flex items-start gap-3"
   >
-    <span class="text-amber-400 text-base flex-shrink-0 mt-0.5">🛡️</span>
+    <span class="text-amber-400 text-xs font-mono font-bold flex-shrink-0 mt-0.5">[OPSEC]</span>
     <div class="text-xs font-mono">
       <div class="font-semibold text-white">Telif Hakları Korunmaktadır</div>
       <div class="text-zinc-400 mt-0.5 text-[11px] leading-relaxed">
@@ -491,9 +490,9 @@ const imageGallerySchema = {
     history.replaceState(null, '', `/galeri#${targetSlug}`);
 
     activeTitle.textContent = currentAlbum.title;
-    activeLocationBadge.textContent = `📍 ${currentAlbum.locationFull}`;
+    activeLocationBadge.textContent = `[LOC] ${currentAlbum.locationFull}`;
     activeCountBadge.textContent = `${currentAlbum.photoCount} Kare (Kronolojik Çekim Sırası)`;
-    activeEquipmentBadge.textContent = `📷 ${currentAlbum.equipment}`;
+    activeEquipmentBadge.textContent = `[CAM] ${currentAlbum.equipment}`;
 
     // Format essay description
     const paragraphs = currentAlbum.description.split('\n\n').filter(Boolean);
@@ -521,7 +520,7 @@ const imageGallerySchema = {
             />
             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
               <span class="px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md text-white text-xs font-mono border border-white/20 shadow-lg">
-                İncele & EXIF 🔍
+                [İncele & EXIF]
               </span>
             </div>
             

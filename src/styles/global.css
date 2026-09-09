@@ -113,6 +113,23 @@ p, blockquote, li {
   font-weight: 500;
 }
 
+.markdown-body h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  font-family: var(--font-sans, sans-serif);
+}
+
+.markdown-body h4::before {
+  content: "#### ";
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  color: var(--qs-accent);
+  opacity: 0.6;
+  font-weight: 500;
+}
+
 .markdown-body p {
   margin-bottom: 1.35rem;
   color: var(--text-main);
@@ -169,30 +186,30 @@ p, blockquote, li {
 }
 
 .markdown-body pre {
-  padding: 1.25rem;
-  border-radius: 0.625rem;
-  background-color: #0a0d12 !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.15rem 1.25rem;
+  border-radius: 0.375rem;
+  background-color: #07090d !important;
+  border: 1px solid rgba(255, 255, 255, 0.09);
   overflow-x: auto;
   margin: 1.75rem 0;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   line-height: 1.65;
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
 }
 
 .markdown-body code:not(pre code) {
-  padding: 0.2em 0.45em;
+  padding: 0.15em 0.4em;
   margin: 0;
   font-size: 0.85em;
   background-color: var(--surface-subtle);
   border: 1px solid var(--border-color);
-  border-radius: 0.375rem;
-  font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
 }
 
 .dark .markdown-body code:not(pre code) {
-  background-color: #141822;
-  border-color: rgba(255, 255, 255, 0.1);
+  background-color: #10141d;
+  border-color: rgba(0, 255, 204, 0.25);
   color: #00ffcc;
 }
 

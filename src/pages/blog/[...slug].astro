@@ -106,19 +106,19 @@ const lineEstimate = post.body ? post.body.split('\n').length : 0;
         </div>
       </div>
 
-      <!-- Article Header Inside HUD -->
-      <header class="p-6 sm:p-8 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-[#11141c]">
-        <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 pb-3 border-b border-zinc-200/60 dark:border-zinc-800/60">
+      <!-- Article Header Inside QuickShell Buffer -->
+      <header class="p-6 sm:p-8 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-[#0d1017]">
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 pb-3 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
           <time datetime={post.data.pubDate.toISOString()}>
-            📅 {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
+            TARİH: {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
           </time>
           <span>•</span>
-          <span>Yazar: Ozan Özdil</span>
+          <span>YAZAR: Ozan Özdil</span>
           {post.data.updatedDate && (
             <>
               <span>•</span>
               <span class="text-zinc-400 dark:text-zinc-500">
-                Rev: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+                REV: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
               </span>
             </>
           )}
@@ -129,7 +129,7 @@ const lineEstimate = post.body ? post.body.split('\n').length : 0;
         </h1>
 
         {post.data.description && (
-          <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal mb-5 font-sans">
+          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal mb-5 font-sans">
             {post.data.description}
           </p>
         )}
@@ -137,7 +137,7 @@ const lineEstimate = post.body ? post.body.split('\n').length : 0;
         {post.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-1.5 font-mono text-xs">
             {post.data.tags.map((tag) => (
-              <span class="px-2 py-0.5 rounded bg-zinc-200/70 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-300/80 dark:border-zinc-700/80">
+              <span class="px-2 py-0.5 rounded bg-zinc-200/70 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-300/80 dark:border-zinc-700/80 text-[10px]">
                 --{tag}
               </span>
             ))}
@@ -151,66 +151,66 @@ const lineEstimate = post.body ? post.body.split('\n').length : 0;
       </div>
 
       <!-- QuickShell Document Pager (Prev / Next Buffer) -->
-      <div class="p-4 sm:p-6 border-t border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-[#10131b] font-mono text-xs">
+      <div class="p-4 sm:p-5 border-t border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-[#0d1017] font-mono text-xs">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {prevPost ? (
             <a
               href={`/blog/${prevPost.slug}`}
-              class="p-3 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-white dark:bg-[#141822] transition-all group flex flex-col justify-between"
+              class="p-3 rounded border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-white dark:bg-[#12161f] transition-all group flex flex-col justify-between"
             >
               <span class="text-[10px] text-zinc-400 dark:text-zinc-500 mb-1 flex items-center gap-1">
-                <span>← ÖNCEKİ YAZI</span>
+                <span>← BUFFER PREV</span>
               </span>
               <span class="font-sans font-medium text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
                 {prevPost.data.title}
               </span>
             </a>
           ) : (
-            <div class="p-3 rounded-lg border border-dashed border-zinc-200 dark:border-zinc-800/60 opacity-40 text-center text-[11px] text-zinc-400 flex items-center justify-center">
-              [En son dokümandasınız]
+            <div class="p-3 rounded border border-dashed border-zinc-200 dark:border-zinc-800/60 opacity-40 text-center text-[10px] text-zinc-400 flex items-center justify-center font-mono">
+              [EOF: Son Doküman]
             </div>
           )}
 
           {nextPost ? (
             <a
               href={`/blog/${nextPost.slug}`}
-              class="p-3 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-white dark:bg-[#141822] transition-all group flex flex-col justify-between sm:text-right"
+              class="p-3 rounded border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-white dark:bg-[#12161f] transition-all group flex flex-col justify-between sm:text-right"
             >
               <span class="text-[10px] text-zinc-400 dark:text-zinc-500 mb-1 flex items-center justify-start sm:justify-end gap-1">
-                <span>SONRAKİ YAZI →</span>
+                <span>BUFFER NEXT →</span>
               </span>
               <span class="font-sans font-medium text-xs text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
                 {nextPost.data.title}
               </span>
             </a>
           ) : (
-            <div class="p-3 rounded-lg border border-dashed border-zinc-200 dark:border-zinc-800/60 opacity-40 text-center text-[11px] text-zinc-400 flex items-center justify-center">
-              [İlk dokümandasınız]
+            <div class="p-3 rounded border border-dashed border-zinc-200 dark:border-zinc-800/60 opacity-40 text-center text-[10px] text-zinc-400 flex items-center justify-center font-mono">
+              [BOF: İlk Doküman]
             </div>
           )}
         </div>
       </div>
 
       <!-- QuickShell Window Statusline -->
-      <footer class="px-4 sm:px-6 py-2 bg-zinc-100 dark:bg-[#0e1117] border-t border-zinc-200/80 dark:border-zinc-800/80 font-mono text-[11px] flex flex-wrap items-center justify-between gap-2 text-zinc-500 dark:text-zinc-400">
+      <footer class="px-4 sm:px-6 py-2 bg-zinc-100 dark:bg-[#0a0d12] border-t border-zinc-200/80 dark:border-zinc-800/80 font-mono text-[11px] flex flex-wrap items-center justify-between gap-2 text-zinc-500 dark:text-zinc-400">
         <div class="flex items-center gap-2">
           <span class="px-1.5 py-0.5 rounded bg-zinc-900 text-white dark:bg-[#00ffcc] dark:text-black font-bold text-[10px]">
             NORMAL
           </span>
           <span class="text-zinc-400 dark:text-zinc-500">|</span>
-          <span>{post.slug}.md</span>
+          <span class="text-zinc-800 dark:text-zinc-200">{post.slug}.md</span>
           <span class="text-zinc-400 dark:text-zinc-500">|</span>
           <span id="qs-read-pct" class="text-sky-600 dark:text-[#00ffcc] font-bold">0%</span>
         </div>
 
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 text-[11px]">
           <a
             href="https://nsosyal.com/ozanozdil"
             target="_blank"
             rel="noopener noreferrer"
             class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
           >
-            [NSosyal'de Tartış]
+            [nsosyal]
           </a>
           <a
             href="https://github.com/ozdil"
@@ -218,13 +218,13 @@ const lineEstimate = post.body ? post.body.split('\n').length : 0;
             rel="noopener noreferrer"
             class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
           >
-            [GitHub]
+            [github]
           </a>
           <a
             href="#top"
             class="hover:text-sky-600 dark:hover:text-[#00ffcc] transition-colors"
           >
-            [başa dön ↑]
+            [top ↑]
           </a>
         </div>
       </footer>

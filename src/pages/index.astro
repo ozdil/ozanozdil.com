@@ -53,67 +53,32 @@ const featuredProjects = [
 
 <BaseLayout title="Ozan Özdil — QuickShell Desktop" currentPath="/" maxWidthClass="max-w-5xl">
   <div class="space-y-8">
-    <!-- QuickShell Tiling Pane 1: System MOTD / Fastfetch Terminal -->
+    <!-- QuickShell Dashboard Status HUD -->
     <div class="qs-window">
       <div class="qs-titlebar">
         <div class="flex items-center gap-2">
           <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[pane: 01]</span>
           <span class="text-zinc-300 dark:text-zinc-700">/</span>
-          <span class="text-zinc-800 dark:text-zinc-200 font-medium">terminal: ozanozdil.com (overview)</span>
+          <span class="text-zinc-800 dark:text-zinc-200 font-medium">ozanozdil.com // quickshell</span>
         </div>
-        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 dark:text-zinc-500">
-          <span>HOST: 41.3887°N, 33.7827°E</span>
+        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">
+          <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>ONLINE</span>
+          </span>
           <span class="text-zinc-300 dark:text-zinc-700">|</span>
-          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">tile</span>
+          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">hyprland</span>
         </div>
       </div>
 
-      <div class="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed">
-        <div class="flex items-center gap-2 text-emerald-600 dark:text-[#00ffcc] font-semibold mb-4">
-          <span>$</span>
-          <span>fastfetch --system-profile</span>
+      <div class="p-4 sm:p-5 font-mono text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-zinc-600 dark:text-zinc-400">
+        <div class="flex items-center gap-2 text-zinc-800 dark:text-zinc-200">
+          <span class="text-emerald-600 dark:text-[#00ffcc] font-bold">●</span>
+          <span>Açık Kaynak Sistem Mimarisi, Linux Çekirdek Güvenliği & Orta Format Görsel Arşiv</span>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
-          <!-- ASCII / System Emblem -->
-          <div class="md:col-span-4 p-3 rounded-lg bg-zinc-50 dark:bg-[#12161e] border border-zinc-200/80 dark:border-zinc-800/80 text-[11px] font-mono text-zinc-600 dark:text-zinc-400">
-            <div class="flex items-center gap-2 mb-2 pb-1 border-b border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-200 font-bold">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>SİSTEM & PROFİL BİLGİSİ</span>
-            </div>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">KULLANICI:</span> <span class="text-zinc-900 dark:text-zinc-100 font-medium">Ozan Özdil</span></p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">ALAN ADI:</span> ozanozdil.com</p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">SİSTEM:</span> Linux & Açık Kaynak</p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">ARAYÜZ:</span> QuickShell Arayüzü</p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">SİSTEMLER:</span> Fujifilm GFX 100 & 50R</p>
-            <p class="text-emerald-600 dark:text-[#00ffcc] mt-2 pt-1 border-t border-zinc-200 dark:border-zinc-800 text-[10px]">● DURUM: ÇEVRİMİÇİ (200 OK)</p>
-          </div>
-
-          <!-- Profile Description & Mission -->
-          <div class="md:col-span-8 space-y-3 font-sans text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-            <p>
-              <strong class="text-zinc-950 dark:text-zinc-50 font-mono font-medium text-xs">Orman Mühendisi (KTÜ)</strong> • Kamu yönetimi tecrübesi, açık kaynak sistem mimarisi, uçtan uca Linux ağ savunması ve 102 MP Fujifilm GFX orta format fotoğrafçılığı üzerine bağımsız Ar-Ge ve yayınlar.
-            </p>
-            <p class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
-              Masaüstü ortamı olarak Quickshell ve Hyprland tabanlı <a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-[#00ffcc] underline underline-offset-2 hover:opacity-80">Omarchy Linux</a> ekosistemini inşa ediyor; siber savunma bekçileri, donanım güvenlik kalkanları ve yerel yapay zeka araçları geliştiriyorum.
-            </p>
-
-            <!-- Fast Action Commands -->
-            <div class="pt-2 flex flex-wrap items-center gap-2 font-mono text-xs">
-              <a href="/blog" class="qs-btn">
-                <span class="text-zinc-400">$</span> cd ~/blog
-              </a>
-              <a href="/projeler" class="qs-btn">
-                <span class="text-zinc-400">$</span> systemctl list-units
-              </a>
-              <a href="/galeri" class="qs-btn">
-                <span class="text-zinc-400">$</span> view ~/galeri
-              </a>
-              <a href="/hakkimda" class="qs-btn">
-                <span class="text-zinc-400">$</span> cat ~/dossier.md
-              </a>
-            </div>
-          </div>
+        <div class="text-[11px] text-zinc-400 dark:text-zinc-500 flex items-center gap-3">
+          <span>DOKÜMAN: {allPosts.length}</span>
+          <span>SERVİS: {featuredProjects.length}</span>
         </div>
       </div>
     </div>
