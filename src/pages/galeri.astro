@@ -1,97 +1,244 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import galleryData from '../data/gallery.json';
+
+const { albums, years, totalAlbums, totalPhotos } = galleryData;
+
+// Structured Data for Google Images & Search
+const imageGallerySchema = {
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Ozan Özdil — Fotoğraf Galerisi & Mimari Arşiv",
+  "description": "Kastamonu tarihi yapıları, ahşap camileri (Mahmutbey Camii UNESCO), Ağlı Kalesi ve kadim coğrafi rotaları. Orta format Fujifilm GFX sistemiyle çekilmiş fotoğraf koleksiyonu.",
+  "url": "https://ozanozdil.com/galeri",
+  "author": {
+    "@type": "Person",
+    "name": "Ozan Özdil",
+    "jobTitle": "Orman Mühendisi & Sistem Mimarı",
+    "url": "https://ozanozdil.com",
+    "sameAs": [
+      "https://github.com/ozdil",
+      "https://nsosyal.com/ozanozdil"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ozan Özdil"
+  },
+  "image": albums.flatMap((album) =>
+    album.photos.map((photo) => ({
+      "@type": "ImageObject",
+      "name": `${photo.title} - ${album.locationFull}`,
+      "caption": photo.caption,
+      "description": photo.caption,
+      "contentUrl": `https://ozanozdil.com${photo.src}`,
+      "thumbnailUrl": `https://ozanozdil.com${photo.thumb}`,
+      "width": photo.width,
+      "height": photo.height,
+      "dateCreated": photo.dateTaken,
+      "contentLocation": {
+        "@type": "Place",
+        "name": album.locationFull
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Ozan Özdil"
+      },
+      "copyrightNotice": "© 2026 Ozan Özdil. Tüm hakları saklıdır."
+    }))
+  )
+};
 ---
 
 <BaseLayout
-  title="Fotoğraf Galerisi (Flickr) — Ozan Özdil"
-  description="Kastamonu, tarihi yapılar ve doğa fotoğraflarından oluşan dinamik Flickr fotoğraf koleksiyonu."
+  title="Fotoğraf Galerisi — Ozan Özdil"
+  description="Kastamonu tarihi sivil mimarisi, ahşap çivisiz camileri (UNESCO) ve kadim rotaları. Fujifilm GFX orta format sistemiyle çekilmiş bağımsız fotoğraf koleksiyonu."
   currentPath="/galeri"
+  image="/gallery/agli-kalesi/01_55199063062.webp"
 >
+  <!-- Schema.org ImageGallery JSON-LD for Googlebot / Google Images -->
+  <script type="application/ld+json" set:html={JSON.stringify(imageGallerySchema)} />
+
   <!-- Page Header -->
-  <div class="mb-10 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
+  <header class="mb-10 pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
     <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
       <div>
-        <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 mb-2">
+        <h1 class="text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 mb-2 font-mono">
           Galeri
         </h1>
         <p class="text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed font-normal">
-          Kastamonu tarihi mimarisi, sokaklar ve doğa fotoğrafları.
+          Kastamonu tarihi mimarisi, ahşap işçiliği ve coğrafi rotalar. Fujifilm GFX orta format sistemle belgelenmiş bağımsız fotoğraf koleksiyonu.
         </p>
       </div>
 
-      <a
-        href="https://www.flickr.com/photos/204447030@N04/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4 transition-colors flex-shrink-0"
-      >
-        Flickr profili →
-      </a>
-    </div>
-  </div>
-
-  <!-- VIEW 1: ALBUMS GRID (DEFAULT) -->
-  <div id="album-view">
-    <div id="album-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Loading Skeleton -->
-      <div class="p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/40 animate-pulse h-64 flex flex-col justify-end">
-        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-2"></div>
-        <div class="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-1/2"></div>
-      </div>
-      <div class="p-4 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/40 animate-pulse h-64 flex flex-col justify-end">
-        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-2"></div>
-        <div class="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-1/2"></div>
+      <div class="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 px-3.5 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 flex-shrink-0">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>{totalAlbums} Konum • {totalPhotos} Kare</span>
       </div>
     </div>
-  </div>
 
-  <!-- VIEW 2: PHOTOS IN SELECTED ALBUM (HIDDEN INITIALLY) -->
-  <div id="photo-view" class="hidden">
-    <div class="flex items-center justify-between mb-6 pb-3 border-b border-zinc-200/80 dark:border-zinc-800/80">
+    <!-- Year Filters -->
+    <div class="mt-6 flex flex-wrap items-center gap-2 pt-4 border-t border-zinc-100 dark:border-zinc-900">
+      <span class="text-xs font-mono text-zinc-400 dark:text-zinc-500 mr-2">Yıl Filtresi:</span>
       <button
-        id="btn-back-albums"
         type="button"
-        class="inline-flex items-center space-x-2 text-xs font-mono px-3.5 py-1.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        class="filter-year-btn active text-xs font-mono px-3 py-1 rounded-lg border border-zinc-900 dark:border-zinc-100 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-950 transition-all cursor-pointer"
+        data-year="all"
       >
-        <span>← Tüm Albümlere Dön</span>
+        Tümü ({totalAlbums})
       </button>
-      <h2 id="album-active-title" class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 truncate max-w-md font-mono"></h2>
+      {years.map((y) => {
+        const count = albums.filter((a) => a.year === y).length;
+        return (
+          <button
+            type="button"
+            class="filter-year-btn text-xs font-mono px-3 py-1 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 text-zinc-600 dark:text-zinc-400 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-zinc-100 transition-all cursor-pointer"
+            data-year={y}
+          >
+            {y} ({count})
+          </button>
+        );
+      })}
     </div>
+  </header>
 
-    <div id="photos-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      <!-- Photos injected dynamically here -->
+  <!-- VIEW 1: ALBUMS / LOCATIONS GRID (DESCENDING - LATEST FIRST) -->
+  <div id="album-view" class="space-y-10">
+    <div id="albums-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {albums.map((album, idx) => (
+        <article
+          class="album-card group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 hover:-translate-y-1 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-md"
+          data-slug={album.slug}
+          data-year={album.year}
+        >
+          <div class="relative aspect-video w-full overflow-hidden bg-zinc-950">
+            <img
+              src={album.coverPhoto}
+              alt={`${album.title} - ${album.locationFull} fotoğraf serisi - Ozan Özdil`}
+              loading={idx < 2 ? "eager" : "lazy"}
+              decoding="async"
+              width="800"
+              height="600"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            
+            <!-- Top Badges: Location & Year -->
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-black/70 backdrop-blur-md text-zinc-200 border border-white/10 shadow-xs flex items-center gap-1.5">
+                <span class="text-red-400">📍</span>
+                <span>{album.location}</span>
+              </span>
+
+              <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono bg-black/70 backdrop-blur-md text-zinc-300 border border-white/10 shadow-xs font-semibold">
+                {album.year}
+              </span>
+            </div>
+
+            <!-- Bottom Badges: Equipment & Count -->
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-zinc-300">
+              <span class="truncate max-w-[200px] text-zinc-400 bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
+                {album.equipment.split('•')[0]}
+              </span>
+              <span class="px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md text-white border border-white/20 shadow-xs font-semibold">
+                {album.photoCount} Kare
+              </span>
+            </div>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h2 class="text-base font-semibold text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-mono">
+                  {album.title}
+                </h2>
+                <span class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
+                  {album.dateFormatted}
+                </span>
+              </div>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-3 leading-relaxed font-serif">
+                {album.description.split('\n\n')[0]}
+              </p>
+            </div>
+
+            <div class="mt-5 pt-3.5 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-500 dark:text-zinc-400">
+              <span class="truncate max-w-[180px]">{album.equipment}</span>
+              <span class="text-zinc-900 dark:text-zinc-100 font-medium group-hover:translate-x-0.5 transition-transform flex-shrink-0">
+                Koleksiyonu İncele →
+              </span>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 
-  <!-- LIGHTBOX / PHOTO MODAL -->
+  <!-- VIEW 2: ALBUM PHOTOS (ASCENDING CHRONOLOGY & NARRATIVE) -->
+  <div id="photo-view" class="hidden space-y-8">
+    <!-- Back & Header -->
+    <div class="pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80 space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <button
+          id="btn-back-albums"
+          type="button"
+          class="inline-flex items-center gap-2 text-xs font-mono px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/80 dark:bg-zinc-900/80 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+        >
+          <span>← Tüm Konumlara Dön</span>
+        </button>
+
+        <div class="flex items-center gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+          <span id="album-location-badge" class="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300"></span>
+          <span id="album-photo-count-badge" class="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800"></span>
+        </div>
+      </div>
+
+      <div>
+        <h2 id="album-active-title" class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50 font-mono"></h2>
+        <div id="album-equipment-badge" class="mt-1 text-xs font-mono text-zinc-500 dark:text-zinc-400"></div>
+        <div id="album-essay-container" class="mt-4 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl space-y-2 bg-zinc-50 dark:bg-zinc-900/40 p-5 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 font-serif"></div>
+      </div>
+    </div>
+
+    <!-- Photos Grid (Ascending by dateTaken) -->
+    <div id="photos-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Injected dynamically from JSON -->
+    </div>
+  </div>
+
+  <!-- LIGHTBOX / FULL EXIF & CAPTION DARKROOM MODAL -->
   <dialog
     id="photoModal"
-    class="backdrop:bg-black/90 backdrop:backdrop-blur-md bg-zinc-950 text-zinc-100 border border-zinc-800 rounded-2xl max-w-5xl w-full p-0 shadow-2xl overflow-hidden m-auto"
+    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-zinc-950 text-zinc-100 border border-zinc-800 rounded-2xl max-w-6xl w-full p-0 shadow-2xl overflow-hidden m-auto"
   >
-    <div class="flex items-center justify-between px-5 py-3 bg-zinc-900/90 border-b border-zinc-800 text-xs font-mono">
-      <span id="photoModalTitle" class="truncate text-zinc-400">Fotoğraf Detayı</span>
+    <!-- Modal Top Header -->
+    <div class="flex items-center justify-between px-5 py-3.5 bg-zinc-900/90 border-b border-zinc-800 text-xs font-mono">
+      <div class="flex items-center gap-3">
+        <span id="modalPhotoIndex" class="px-2.5 py-0.5 rounded bg-zinc-800 text-zinc-300 text-[11px] font-bold">01 / 09</span>
+        <span id="photoModalTitle" class="truncate text-zinc-200 max-w-md font-semibold"></span>
+      </div>
       <button
         id="btnCloseModal"
         type="button"
-        class="text-zinc-400 hover:text-white p-1 rounded-lg hover:bg-zinc-800 transition-colors"
+        class="text-zinc-400 hover:text-white px-3 py-1 rounded-lg hover:bg-zinc-800 transition-colors cursor-pointer text-xs"
       >
-        ✕ Kapat
+        ✕ Kapat [ESC]
       </button>
     </div>
 
-    <div class="relative bg-black flex items-center justify-center min-h-[300px] max-h-[75vh] overflow-hidden group">
+    <!-- Modal Viewport with Image -->
+    <div class="relative bg-black flex items-center justify-center min-h-[380px] max-h-[68vh] sm:max-h-[72vh] overflow-hidden select-none group">
       <img
         id="photoModalImg"
         src=""
-        alt="Ozan Özdil Fotoğraf"
-        class="max-w-full max-h-[75vh] object-contain transition-opacity duration-200"
+        alt="Fotoğraf"
+        class="max-w-full max-h-[68vh] sm:max-h-[72vh] object-contain transition-opacity duration-200"
       />
 
       <!-- Navigation Arrows -->
       <button
         id="btnPrevPhoto"
         type="button"
-        class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100"
+        class="absolute left-4 top-1/2 -translate-y-1/2 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
         title="Önceki (Sol Ok)"
       >
         ‹
@@ -99,251 +246,281 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <button
         id="btnNextPhoto"
         type="button"
-        class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100"
+        class="absolute right-4 top-1/2 -translate-y-1/2 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
         title="Sonraki (Sağ Ok)"
       >
         ›
       </button>
     </div>
 
-    <!-- EXIF Telemetry Footer -->
-    <div class="p-4 bg-zinc-900/90 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono">
-      <div id="photoModalExif" class="text-zinc-400 truncate">
-        Telemetri taranıyor...
+    <!-- Photo Contextual Caption & Full EXIF Telemetry Drawer -->
+    <div class="p-5 bg-zinc-900/95 border-t border-zinc-800 space-y-4">
+      <!-- Photo Caption -->
+      <div id="photoModalCaption" class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal bg-zinc-950/60 p-3 rounded-xl border border-zinc-800/80">
+        <!-- Caption injected here -->
       </div>
-      <div class="text-[11px] text-zinc-500 flex-shrink-0">
-        Klavye: [← / →] Geçiş • [ESC] Kapat
+
+      <!-- Comprehensive EXIF Table -->
+      <div class="pt-2 border-t border-zinc-800/80">
+        <div class="text-[10px] font-mono uppercase tracking-widest text-zinc-500 mb-2 font-semibold">
+          Optik Telemetri & EXIF Verileri (Fujifilm GFX)
+        </div>
+
+        <div id="photoModalExifGrid" class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-2 text-xs font-mono">
+          <!-- Full EXIF cells injected here -->
+        </div>
       </div>
     </div>
   </dialog>
 </BaseLayout>
 
-<script is:inline>
-  const apiKey = "3954ec9c533459f470080bf24178df16";
-  const userID = "204447030@N04";
-  const exifStore = new Map();
-  let photoList = [];
-  let activePhotoIdx = 0;
+<script define:vars={{ albums }}>
+  let currentAlbum = null;
+  let activeIndex = 0;
 
-  document.addEventListener('DOMContentLoaded', fetchFlickrAlbums);
+  const albumView = document.getElementById('album-view');
+  const photoView = document.getElementById('photo-view');
+  const photosGrid = document.getElementById('photos-grid');
+  const activeTitle = document.getElementById('album-active-title');
+  const activeLocationBadge = document.getElementById('album-location-badge');
+  const activeCountBadge = document.getElementById('album-photo-count-badge');
+  const activeEquipmentBadge = document.getElementById('album-equipment-badge');
+  const essayContainer = document.getElementById('album-essay-container');
+  
+  const modal = document.getElementById('photoModal');
+  const modalImg = document.getElementById('photoModalImg');
+  const modalTitle = document.getElementById('photoModalTitle');
+  const modalIndex = document.getElementById('modalPhotoIndex');
+  const modalCaption = document.getElementById('photoModalCaption');
+  const modalExifGrid = document.getElementById('photoModalExifGrid');
 
-  async function fetchFlickrAlbums() {
-    const grid = document.getElementById('album-grid');
-    if (!grid) return;
+  // Year Filter Click Handlers
+  document.querySelectorAll('.filter-year-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-year-btn').forEach((b) => {
+        b.classList.remove('active', 'border-zinc-900', 'dark:border-zinc-100', 'bg-zinc-900', 'dark:bg-zinc-100', 'text-white', 'dark:text-zinc-950');
+        b.classList.add('border-zinc-200', 'dark:border-zinc-800', 'bg-white/80', 'dark:bg-zinc-900/80', 'text-zinc-600', 'dark:text-zinc-400');
+      });
 
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=${apiKey}&user_id=${userID}&format=json&nojsoncallback=1`;
+      btn.classList.add('active', 'border-zinc-900', 'dark:border-zinc-100', 'bg-zinc-900', 'dark:bg-zinc-100', 'text-white', 'dark:text-zinc-950');
+      btn.classList.remove('border-zinc-200', 'dark:border-zinc-800', 'bg-white/80', 'dark:bg-zinc-900/80', 'text-zinc-600', 'dark:text-zinc-400');
 
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
+      const targetYear = btn.getAttribute('data-year');
+      document.querySelectorAll('.album-card').forEach((card) => {
+        const cardYear = card.getAttribute('data-year');
+        if (targetYear === 'all' || cardYear === targetYear) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
 
-      if (data.photosets && data.photosets.photoset) {
-        let html = '';
-        data.photosets.photoset.forEach((set) => {
-          const thumb = `https://live.staticflickr.com/${set.server}/${set.primary}_${set.secret}_z.jpg`;
-          const title = escapeHtml(set.title._content);
-          const count = set.photos;
+  // Album Card Click Handlers
+  document.querySelectorAll('.album-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const slug = card.getAttribute('data-slug');
+      openAlbum(slug);
+    });
+  });
 
-          html += `
-            <div
-              class="rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 hover:-translate-y-0.5 cursor-pointer group flex flex-col justify-between"
-              onclick="displayAlbumPhotos('${set.id}', '${encodeURIComponent(title)}')"
-            >
-              <div class="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-                <img
-                  loading="lazy"
-                  src="${thumb}"
-                  alt="${title}"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <span class="absolute bottom-2.5 right-2.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-black/75 text-white backdrop-blur-sm border border-white/20">
-                  ${count} Fotoğraf
-                </span>
-              </div>
-              <div class="p-5">
-                <h3 class="text-sm font-semibold text-zinc-950 dark:text-zinc-50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-mono">
-                  ${title}
-                </h3>
-                <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1.5 line-clamp-2 leading-relaxed">
-                  ${escapeHtml(set.description._content || 'Koleksiyon detayları ve yüksek çözünürlüklü fotoğraflar.')}
-                </p>
-              </div>
-            </div>
-          `;
-        });
-        grid.innerHTML = html;
-      } else {
-        grid.innerHTML = '<div class="p-5 text-xs font-mono text-zinc-500 border border-zinc-200 dark:border-zinc-800 rounded-xl">Albümler sunucudan alınamadı.</div>';
-      }
-    } catch {
-      grid.innerHTML = '<div class="p-5 text-xs font-mono text-zinc-500 border border-zinc-200 dark:border-zinc-800 rounded-xl">Flickr bağlantısı kurulamadı.</div>';
-    }
+  // Back to Albums View
+  document.getElementById('btn-back-albums')?.addEventListener('click', () => {
+    showAlbumsView();
+    history.pushState(null, '', '/galeri');
+  });
+
+  function showAlbumsView() {
+    photoView.classList.add('hidden');
+    albumView.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  window.displayAlbumPhotos = async function(setID, encodedTitle) {
-    const albumView = document.getElementById('album-view');
-    const photoView = document.getElementById('photo-view');
-    const container = document.getElementById('photos-container');
-    const titleEl = document.getElementById('album-active-title');
+  function openAlbum(slug) {
+    const found = albums.find((a) => a.slug === slug);
+    if (!found) return;
+
+    currentAlbum = found;
+    history.pushState(null, '', `/galeri#${slug}`);
+
+    activeTitle.textContent = currentAlbum.title;
+    activeLocationBadge.textContent = `📍 ${currentAlbum.locationFull}`;
+    activeCountBadge.textContent = `${currentAlbum.photoCount} Kare (Kronolojik Çekim Sırası)`;
+    activeEquipmentBadge.textContent = `📷 ${currentAlbum.equipment}`;
+
+    // Format essay description
+    const paragraphs = currentAlbum.description.split('\n\n').filter(Boolean);
+    essayContainer.innerHTML = paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join('');
+
+    // Render Photos Grid (Ascending by datetaken)
+    let gridHtml = '';
+    currentAlbum.photos.forEach((photo, idx) => {
+      const e = photo.exif;
+      gridHtml += `
+        <figure
+          class="photo-card group relative rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-md"
+          onclick="window.openLightbox(${idx})"
+        >
+          <div class="relative aspect-video w-full overflow-hidden bg-zinc-950">
+            <img
+              src="${photo.thumb}"
+              alt="${escapeHtml(photo.title)} - ${escapeHtml(currentAlbum.locationFull)} - Ozan Özdil"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md text-white text-xs font-mono border border-white/20 shadow-lg">
+                İncele & EXIF 🔍
+              </span>
+            </div>
+            <div class="absolute top-2.5 left-2.5">
+              <span class="px-2 py-0.5 rounded bg-black/70 backdrop-blur-md text-white text-[10px] font-mono border border-white/10">
+                #${String(idx + 1).padStart(2, '0')}
+              </span>
+            </div>
+          </div>
+
+          <figcaption class="p-3.5 bg-zinc-50/90 dark:bg-zinc-950/90 border-t border-zinc-100 dark:border-zinc-800/80 space-y-1.5">
+            <p class="text-xs font-medium text-zinc-900 dark:text-zinc-100 line-clamp-1">
+              ${escapeHtml(photo.caption.split('.')[0])}
+            </p>
+            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 dark:text-zinc-400">
+              <span class="text-emerald-500 dark:text-emerald-400">${escapeHtml(e.fNumber)} • ${escapeHtml(e.exposureTime)}</span>
+              <span>ISO ${escapeHtml(e.iso)}</span>
+            </div>
+          </figcaption>
+        </figure>
+      `;
+    });
+
+    photosGrid.innerHTML = gridHtml;
 
     albumView.classList.add('hidden');
     photoView.classList.remove('hidden');
-    titleEl.textContent = decodeURIComponent(encodedTitle);
-    container.innerHTML = '<div class="col-span-full p-8 text-center text-xs font-mono text-zinc-500">Fotoğraflar indeksleniyor...</div>';
-
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${apiKey}&photoset_id=${setID}&user_id=${userID}&format=json&nojsoncallback=1`;
-
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-
-      if (data.photoset && data.photoset.photo) {
-        photoList = data.photoset.photo;
-        let html = '';
-        photoList.forEach((photo, idx) => {
-          const thumb = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_z.jpg`;
-          html += `
-            <div
-              class="photo-cell rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 overflow-hidden hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group flex flex-col justify-between"
-              data-photo-id="${photo.id}"
-            >
-              <div
-                class="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800 cursor-pointer"
-                onclick="openPhotoModal(${idx})"
-              >
-                <img
-                  loading="lazy"
-                  src="${thumb}"
-                  alt="${escapeHtml(photo.title || 'Ozan Özdil')}"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div id="exif-${photo.id}" class="p-2.5 bg-zinc-50 dark:bg-zinc-950/80 border-t border-zinc-100 dark:border-zinc-800/80 text-[11px] font-mono text-zinc-500 dark:text-zinc-400 truncate">
-                Telemetri taranıyor...
-              </div>
-            </div>
-          `;
-        });
-        container.innerHTML = html;
-        attachExifObserver();
-      }
-    } catch {
-      container.innerHTML = '<div class="col-span-full p-5 text-xs font-mono text-zinc-500">Fotoğraflar alınamadı.</div>';
-    }
-  };
-
-  document.getElementById('btn-back-albums')?.addEventListener('click', () => {
-    document.getElementById('photo-view').classList.add('hidden');
-    document.getElementById('album-view').classList.remove('hidden');
-  });
-
-  function attachExifObserver() {
-    if (!('IntersectionObserver' in window)) return;
-    const obs = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const pid = entry.target.getAttribute('data-photo-id');
-          if (pid) {
-            getExifTelemetry(pid, `exif-${pid}`);
-            observer.unobserve(entry.target);
-          }
-        }
-      });
-    }, { rootMargin: '100px' });
-
-    document.querySelectorAll('.photo-cell').forEach(cell => obs.observe(cell));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  async function getExifTelemetry(photoID, targetDomId) {
-    const el = targetDomId ? document.getElementById(targetDomId) : null;
+  // Lightbox functions with Full EXIF & Caption
+  window.openLightbox = function(index) {
+    if (!currentAlbum || !currentAlbum.photos[index]) return;
+    activeIndex = index;
+    const photo = currentAlbum.photos[index];
+    const e = photo.exif;
 
-    if (exifStore.has(photoID)) {
-      const val = exifStore.get(photoID);
-      if (el) el.innerHTML = val;
-      return val;
-    }
+    modalImg.src = photo.src;
+    modalTitle.textContent = photo.title || currentAlbum.title;
+    modalIndex.textContent = `${String(index + 1).padStart(2, '0')} / ${String(currentAlbum.photos.length).padStart(2, '0')}`;
 
-    const url = `https://www.flickr.com/services/rest/?method=flickr.photos.getExif&api_key=${apiKey}&photo_id=${photoID}&format=json&nojsoncallback=1`;
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-      if (data.photo && data.photo.exif) {
-        let iso = "-", f = "-", s = "-", camera = "-", lens = "-";
-        data.photo.exif.forEach(e => {
-          if (e.tag === "Model") camera = e.raw._content;
-          if (e.tag === "LensModel") lens = e.raw._content;
-          if (e.tag === "ISO") iso = e.raw._content;
-          if (e.tag === "FNumber") f = "f/" + e.raw._content;
-          if (e.tag === "ExposureTime") s = e.raw._content + "s";
-        });
-        const hud = `<span class="text-zinc-900 dark:text-zinc-100 font-semibold">${camera}</span> • ${f} • ${s} • ISO ${iso}`;
-        exifStore.set(photoID, hud);
-        if (el) el.innerHTML = hud;
-        return hud;
-      }
-    } catch {}
+    // Caption
+    modalCaption.innerHTML = `
+      <div class="font-medium text-zinc-200 mb-1">Kare Notu & Tarihçe:</div>
+      <p class="text-zinc-300 leading-relaxed">${escapeHtml(photo.caption)}</p>
+    `;
 
-    const fallback = 'EXIF bilgisi bulunamadı';
-    exifStore.set(photoID, fallback);
-    if (el) el.textContent = fallback;
-    return fallback;
-  }
+    // Full EXIF Grid
+    modalExifGrid.innerHTML = `
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Kamera</span>
+        <span class="text-zinc-200 font-semibold truncate block">${escapeHtml(e.camera)}</span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Lens</span>
+        <span class="text-zinc-200 truncate block">${escapeHtml(e.lens !== '-' ? e.lens : 'Fujinon GF')}</span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Odak Uzaklığı</span>
+        <span class="text-zinc-200 block">${escapeHtml(e.focalLength)} <span class="text-zinc-500 text-[10px]">(${escapeHtml(e.focalLength35mm || '-')})</span></span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Diyafram / Perde</span>
+        <span class="text-emerald-400 font-semibold block">${escapeHtml(e.fNumber)} • ${escapeHtml(e.exposureTime)}</span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Hassasiyet (ISO)</span>
+        <span class="text-blue-400 font-semibold block">ISO ${escapeHtml(e.iso)}</span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Pozlama / Ölçüm</span>
+        <span class="text-zinc-300 truncate block">${escapeHtml(e.exposureProgram)} • ${escapeHtml(e.meteringMode || 'Multi')}</span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Çekim Zamanı</span>
+        <span class="text-amber-400/90 truncate block">${escapeHtml(photo.dateTaken || e.dateTimeOriginal || '-')}</span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Çözünürlük & Format</span>
+        <span class="text-zinc-300 block">${photo.width} × ${photo.height} (WebP)</span>
+      </div>
+      <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
+        <span class="text-[10px] text-zinc-500 block">Sanatçı & Telif</span>
+        <span class="text-zinc-300 truncate block">© ${escapeHtml(e.artist || 'Ozan Özdil')}</span>
+      </div>
+    `;
 
-  const pModal = document.getElementById('photoModal');
-
-  window.openPhotoModal = async function(index) {
-    if (!photoList[index]) return;
-    activePhotoIdx = index;
-    const p = photoList[index];
-    const fullUrl = `https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_b.jpg`;
-
-    document.getElementById('photoModalImg').src = fullUrl;
-    document.getElementById('photoModalTitle').textContent = p.title || 'Fotoğraf Detayı';
-    const exifArea = document.getElementById('photoModalExif');
-    exifArea.textContent = 'Telemetri okunuyor...';
-
-    if (typeof pModal.showModal === 'function') {
-      pModal.showModal();
+    if (typeof modal.showModal === 'function') {
+      modal.showModal();
     } else {
-      pModal.setAttribute('open', '');
+      modal.setAttribute('open', '');
     }
-
-    const info = await getExifTelemetry(p.id);
-    exifArea.innerHTML = info;
   };
 
   function closeModal() {
-    if (typeof pModal.close === 'function') {
-      pModal.close();
+    if (typeof modal.close === 'function') {
+      modal.close();
     } else {
-      pModal.removeAttribute('open');
+      modal.removeAttribute('open');
     }
-    document.getElementById('photoModalImg').src = '';
+    modalImg.src = '';
   }
 
   document.getElementById('btnCloseModal')?.addEventListener('click', closeModal);
-  document.getElementById('btnPrevPhoto')?.addEventListener('click', () => shiftPhoto(-1));
-  document.getElementById('btnNextPhoto')?.addEventListener('click', () => shiftPhoto(1));
 
-  function shiftPhoto(offset) {
-    let next = activePhotoIdx + offset;
-    if (next < 0) next = photoList.length - 1;
-    if (next >= photoList.length) next = 0;
-    openPhotoModal(next);
+  function stepPhoto(delta) {
+    if (!currentAlbum) return;
+    let next = activeIndex + delta;
+    if (next < 0) next = currentAlbum.photos.length - 1;
+    if (next >= currentAlbum.photos.length) next = 0;
+    window.openLightbox(next);
   }
 
+  document.getElementById('btnPrevPhoto')?.addEventListener('click', () => stepPhoto(-1));
+  document.getElementById('btnNextPhoto')?.addEventListener('click', () => stepPhoto(1));
+
+  // Keyboard Navigation
   window.addEventListener('keydown', (e) => {
-    if (pModal && pModal.open) {
-      if (e.key === 'ArrowLeft') shiftPhoto(-1);
-      if (e.key === 'ArrowRight') shiftPhoto(1);
+    if (modal && modal.open) {
+      if (e.key === 'ArrowLeft') stepPhoto(-1);
+      if (e.key === 'ArrowRight') stepPhoto(1);
       if (e.key === 'Escape') closeModal();
     }
   });
 
-  pModal?.addEventListener('click', (e) => {
-    const r = pModal.getBoundingClientRect();
+  // Click outside modal content to close
+  modal?.addEventListener('click', (e) => {
+    const r = modal.getBoundingClientRect();
     const inside = (r.top <= e.clientY && e.clientY <= r.top + r.height && r.left <= e.clientX && e.clientX <= r.left + r.width);
     if (!inside) closeModal();
+  });
+
+  // URL Hash Deep Linking
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      openAlbum(hash);
+    }
+  });
+
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      openAlbum(hash);
+    } else {
+      showAlbumsView();
+    }
   });
 
   function escapeHtml(str) {
