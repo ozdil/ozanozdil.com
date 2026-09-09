@@ -104,13 +104,14 @@ const repositories = [
     <div class="qs-window">
       <div class="qs-titlebar">
         <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-          <span class="ml-2 text-zinc-700 dark:text-zinc-300">systemctl: unit-files (Sistem Servisleri)</span>
+          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[systemctl]</span>
+          <span class="text-zinc-300 dark:text-zinc-700">/</span>
+          <span class="text-zinc-800 dark:text-zinc-200 font-medium">unit-files.target (Sistem Servisleri)</span>
         </div>
-        <div class="text-[11px] text-zinc-400 dark:text-zinc-500">
+        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 dark:text-zinc-500 font-mono">
           <span>{repositories.length} AKTİF SERVİS</span>
+          <span class="text-zinc-300 dark:text-zinc-700">|</span>
+          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">systemd</span>
         </div>
       </div>
 

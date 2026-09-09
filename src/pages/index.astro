@@ -53,19 +53,18 @@ const featuredProjects = [
 
 <BaseLayout title="Ozan Özdil — QuickShell Desktop" currentPath="/" maxWidthClass="max-w-5xl">
   <div class="space-y-8">
-    <!-- QuickShell Window 1: System MOTD / Fastfetch Terminal -->
+    <!-- QuickShell Tiling Pane 1: System MOTD / Fastfetch Terminal -->
     <div class="qs-window">
       <div class="qs-titlebar">
         <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-          <span class="ml-2 text-zinc-600 dark:text-zinc-400">session: ozdil@omarchy (tty1)</span>
+          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[pane: 01]</span>
+          <span class="text-zinc-300 dark:text-zinc-700">/</span>
+          <span class="text-zinc-800 dark:text-zinc-200 font-medium">terminal: ozanozdil.com (overview)</span>
         </div>
-        <div class="flex items-center gap-2 text-[11px] text-zinc-400 dark:text-zinc-500">
+        <div class="flex items-center gap-2.5 text-[11px] text-zinc-400 dark:text-zinc-500">
           <span>HOST: 41.3887°N, 33.7827°E</span>
           <span class="text-zinc-300 dark:text-zinc-700">|</span>
-          <span class="text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-200 cursor-pointer">─ □ ✕</span>
+          <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-300 uppercase tracking-wider font-mono">tile</span>
         </div>
       </div>
 
@@ -80,14 +79,14 @@ const featuredProjects = [
           <div class="md:col-span-4 p-3 rounded-lg bg-zinc-50 dark:bg-[#12161e] border border-zinc-200/80 dark:border-zinc-800/80 text-[11px] font-mono text-zinc-600 dark:text-zinc-400">
             <div class="flex items-center gap-2 mb-2 pb-1 border-b border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-200 font-bold">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>OMARCHY SYSTEM INFO</span>
+              <span>SİSTEM & PROFİL BİLGİSİ</span>
             </div>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">USER:</span> <span class="text-zinc-900 dark:text-zinc-100 font-medium">ozdil (Ozan Özdil)</span></p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">HOST:</span> ozanozdil.com</p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">KERNEL:</span> Linux 6.x-omarchy</p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">WM / SHELL:</span> Hyprland / Quickshell</p>
-            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">SYSTEMS:</span> Fujifilm GFX 100 & 50R</p>
-            <p class="text-emerald-600 dark:text-[#00ffcc] mt-2 pt-1 border-t border-zinc-200 dark:border-zinc-800 text-[10px]">● STATUS: ONLINE (200 OK)</p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">KULLANICI:</span> <span class="text-zinc-900 dark:text-zinc-100 font-medium">Ozan Özdil</span></p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">ALAN ADI:</span> ozanozdil.com</p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">SİSTEM:</span> Linux & Açık Kaynak</p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">ARAYÜZ:</span> QuickShell Arayüzü</p>
+            <p class="mb-1"><span class="text-zinc-400 dark:text-zinc-500">SİSTEMLER:</span> Fujifilm GFX 100 & 50R</p>
+            <p class="text-emerald-600 dark:text-[#00ffcc] mt-2 pt-1 border-t border-zinc-200 dark:border-zinc-800 text-[10px]">● DURUM: ÇEVRİMİÇİ (200 OK)</p>
           </div>
 
           <!-- Profile Description & Mission -->
@@ -119,12 +118,13 @@ const featuredProjects = [
       </div>
     </div>
 
-    <!-- QuickShell Window 2: ~/blog/recent.log -->
+    <!-- QuickShell Tiling Pane 2: ~/blog/recent.log -->
     <section class="qs-window">
       <div class="qs-titlebar">
         <div class="flex items-center gap-2">
-          <span class="text-zinc-400 dark:text-zinc-500">📄</span>
-          <span class="text-zinc-800 dark:text-zinc-300">~/blog/recent.log</span>
+          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[pane: 02]</span>
+          <span class="text-zinc-300 dark:text-zinc-700">/</span>
+          <span class="text-zinc-800 dark:text-zinc-200 font-medium">~/blog/recent.log</span>
         </div>
         <div class="flex items-center gap-3">
           <span class="text-[11px] text-zinc-400 dark:text-zinc-500">TOPLAM: {allPosts.length} KAYIT</span>
@@ -160,12 +160,13 @@ const featuredProjects = [
       </div>
     </section>
 
-    <!-- QuickShell Window 3: ~/system/daemons.d (Featured Projects) -->
+    <!-- QuickShell Tiling Pane 3: ~/system/daemons.d (Featured Projects) -->
     <section class="qs-window">
       <div class="qs-titlebar">
         <div class="flex items-center gap-2">
-          <span class="text-emerald-500">⚙</span>
-          <span class="text-zinc-800 dark:text-zinc-300">~/system/daemons.d (Aktif Servisler)</span>
+          <span class="text-sky-600 dark:text-[#00ffcc] font-semibold text-[11px] select-none">[pane: 03]</span>
+          <span class="text-zinc-300 dark:text-zinc-700">/</span>
+          <span class="text-zinc-800 dark:text-zinc-200 font-medium">~/system/daemons.d (Aktif Servisler)</span>
         </div>
         <a href="/projeler" class="text-sky-600 dark:text-[#00ffcc] hover:underline text-[11px] font-mono">
           tüm servisler [systemctl] →
