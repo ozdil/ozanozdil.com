@@ -297,10 +297,13 @@
             "copyright": "© Ozan Özdil. Tüm hakları saklıdır."
           }
         }
-      ]
+      ],
+      "slug": "kure-daglari-gece-gokyuzu",
+      "shortTitle": "Küre Dağları Yaylası",
+      "coverPhoto": "/gallery/kure-daglari-gece-gokyuzu/thumbs/01_DSF2276.webp"
     },
     {
-      "id": "72177720333049224",
+      "id": "agli-kalesi",
       "slug": "agli-kalesi",
       "title": "Ağlı Kalesi",
       "shortTitle": "Ağlı Fortress",
@@ -595,7 +598,8 @@
       "locationFull": "Ağlı Kalesi, Ağlı / Kastamonu",
       "year": "2025",
       "dateFormatted": "Eylül 2025",
-      "equipment": "Fujifilm GFX 50R • GF20-35mmF4 R WR"
+      "equipment": "Fujifilm GFX 50R • GF20-35mmF4 R WR",
+      "coverThumb": "/gallery/agli-kalesi/thumbs/01_55199063062.webp"
     },
     {
       "id": "ilgaz-dagi-zirvesi",
@@ -891,7 +895,10 @@
             "copyright": "© Ozan Özdil. Tüm hakları saklıdır."
           }
         }
-      ]
+      ],
+      "slug": "ilgaz-dagi-zirvesi",
+      "shortTitle": "Ilgaz Dağı Zirvesi",
+      "coverPhoto": "/gallery/ilgaz-dagi-zirvesi/thumbs/01_DSF1412.webp"
     },
     {
       "id": "nasrullah-camii-ic-mekan",
@@ -1187,7 +1194,10 @@
             "copyright": "© Ozan Özdil. Tüm hakları saklıdır."
           }
         }
-      ]
+      ],
+      "slug": "nasrullah-camii-ic-mekan",
+      "shortTitle": "Nasrullah Camii Külliyesi",
+      "coverPhoto": "/gallery/nasrullah-camii-ic-mekan/thumbs/01_DSF0149.webp"
     },
     {
       "id": "ismail-bey-kulliyesi",
@@ -1483,7 +1493,10 @@
             "copyright": "© Ozan Özdil. Tüm hakları saklıdır."
           }
         }
-      ]
+      ],
+      "slug": "ismail-bey-kulliyesi",
+      "shortTitle": "İsmail Bey Külliyesi",
+      "coverPhoto": "/gallery/ismail-bey-kulliyesi/thumbs/01_DSF0079.webp"
     },
     {
       "id": "ilica-selalesi",
@@ -1779,7 +1792,10 @@
             "copyright": "© Ozan Özdil. Tüm hakları saklıdır."
           }
         }
-      ]
+      ],
+      "slug": "ilica-selalesi",
+      "shortTitle": "Ilıca Şelalesi",
+      "coverPhoto": "/gallery/ilica-selalesi/thumbs/01_DSF0206.webp"
     },
     {
       "id": "cide-gideros-koyu",
@@ -2107,10 +2123,12 @@
             "dateTimeOriginal": "2020-10-21 13:54:12"
           }
         }
-      ]
+      ],
+      "shortTitle": "Cide",
+      "coverThumb": "/gallery/cide-gideros-koyu/thumbs/01__DSF0025.webp"
     },
     {
-      "id": "72177720333012801",
+      "id": "nasrullah-meydani",
       "slug": "nasrullah-meydani",
       "title": "Nasrullah Meydanı ve Köprüsü",
       "shortTitle": "Nasrullah Square",
@@ -2374,10 +2392,11 @@
       "locationFull": "Nasrullah Meydanı, Kastamonu",
       "year": "2020",
       "dateFormatted": "Ekim 2020",
-      "equipment": "Fujifilm GFX 50R • GF50mmF3.5 R LM WR"
+      "equipment": "Fujifilm GFX 50R • GF50mmF3.5 R LM WR",
+      "coverThumb": "/gallery/nasrullah-meydani/thumbs/01_55197726567.webp"
     },
     {
-      "id": "72177720333007402",
+      "id": "mahmutbey-camii",
       "slug": "mahmutbey-camii",
       "title": "Mahmutbey Camii (Kasaba Köyü)",
       "shortTitle": "Mahmutbey Mosque",
@@ -2796,10 +2815,11 @@
       "locationFull": "Kasaba Köyü Mahmutbey Camii, Kastamonu",
       "year": "2020",
       "dateFormatted": "Ekim 2020",
-      "equipment": "Fujifilm GFX 100 (102MP) • GF23mmF4 R LM WR"
+      "equipment": "Fujifilm GFX 100 (102MP) • GF23mmF4 R LM WR",
+      "coverThumb": "/gallery/mahmutbey-camii/thumbs/01_55197707127.webp"
     },
     {
-      "id": "72177720333006935",
+      "id": "seyh-saban-i-veli",
       "slug": "seyh-saban-i-veli",
       "title": "Şeyh Şaban-ı Veli Külliyesi",
       "shortTitle": "Şeyh Şaban-ı Veli Mosque",
@@ -3280,7 +3300,8 @@
       "locationFull": "Şeyh Şaban-ı Veli Külliyesi, Kastamonu",
       "year": "2020",
       "dateFormatted": "Kasım 2020",
-      "equipment": "Fujifilm GFX 50R • GF50mmF3.5 R LM WR"
+      "equipment": "Fujifilm GFX 50R • GF50mmF3.5 R LM WR",
+      "coverThumb": "/gallery/seyh-saban-i-veli/thumbs/01_55198780363.webp"
     }
   ],
   "years": [
