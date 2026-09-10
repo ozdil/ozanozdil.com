@@ -64,81 +64,18 @@ Bazı oyuncular *"Neden Xbox?"* diye soruyor. Gerçekçi olalım: Kojima Product
 
 Geriye tek bir mantıklı aktör kalıyordu: **Microsoft / Xbox.**
 
-<div class="my-8 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-50/50 dark:bg-[#0c0e12] overflow-hidden not-prose shadow-2xs">
-  <div class="px-4 py-2 bg-zinc-100/80 dark:bg-[#12151d] border-b border-zinc-200/60 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-    <div class="flex items-center gap-2">
-      <span class="flex items-center gap-1.5 opacity-80">
-        <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-        <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-        <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-      </span>
-      <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[11px] ml-1">
-        qs://analysis/kojima_productions_dilemma.qml
-      </span>
-    </div>
-    <span class="text-sky-600 dark:text-[#00ffcc] font-mono text-[10px] uppercase font-semibold">Stratejik Kırılma</span>
-  </div>
+> ### 🧭 Kojima Productions'ın 3 Aylık Kriz Kronolojisi
+> 
+> * **1. Aşama // Haziran 2026 (Sony Kapıyı Kapattı):** PlayStation Studios, beklenmedik bir kararla PHYSINT projesinden çekildiğini stüdyoya bildirdi.
+> * **2. Aşama // Yaz Ayları (Gizli Yayıncı Arayışı):** 150 kişilik bağımsız stüdyonun ve 40 yıllık casusluk hayalinin çöpe gitmemesi için 3 ay boyunca gizli temaslar yürütüldü.
+> * **3. Aşama // 10 Eylül 2026 (Xbox ile Kurtuluş):** Yalnızca oyun konsollarını değil; PC, bulut, televizyon ve sinema evrenlerini de kapsayan küresel yayıncılık anlaşması resmileşti.
 
-  <div class="p-5 sm:p-6 space-y-5 font-sans">
-    <!-- Flow Pipeline -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs text-center">
-      <div class="p-3 rounded-lg border border-rose-200/60 dark:border-rose-950/60 bg-rose-50/40 dark:bg-rose-950/20 text-rose-700 dark:text-rose-400">
-        <span class="block text-[10px] text-zinc-400 uppercase tracking-wider mb-1">1. Aşama // Haziran 2026</span>
-        <strong class="font-semibold">Sony Kapıyı Kapattı</strong>
-        <span class="block text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-sans">Beklenmedik iptal bildirimi</span>
-      </div>
+#### Neden Xbox Tek Mantıklı Sığınaktı?
 
-      <div class="p-3 rounded-lg border border-amber-200/60 dark:border-amber-950/60 bg-amber-50/40 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 flex flex-col justify-center">
-        <span class="block text-[10px] text-zinc-400 uppercase tracking-wider mb-1">2. Aşama // 3 Aylık Kriz</span>
-        <strong class="font-semibold">Gizli Yayıncı Arayışı</strong>
-        <span class="block text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-sans">Projenin ölmemesi için temaslar</span>
-      </div>
-
-      <div class="p-3 rounded-lg border border-emerald-200/60 dark:border-emerald-950/60 bg-emerald-50/40 dark:bg-emerald-950/20 text-emerald-700 dark:text-[#00ffcc] flex flex-col justify-center">
-        <span class="block text-[10px] text-zinc-400 uppercase tracking-wider mb-1">3. Aşama // 10 Eylül 2026</span>
-        <strong class="font-semibold">Xbox ile Tam Anlaşma</strong>
-        <span class="block text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-sans">Oyun, TV ve sinema ortaklığı</span>
-      </div>
-    </div>
-
-    <!-- 4 Reasons Why Xbox Grid -->
-    <div class="pt-2">
-      <h4 class="font-mono text-xs font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3 flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-        Neden Xbox Tek Mantıklı Sığınaktı?
-      </h4>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-xs">
-        <div class="p-3 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#101319]">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-bold block mb-1">01. Hazır Altyapı & OD</span>
-          <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs leading-relaxed">
-            Zaten masada yürüyen OD sözleşmesi, hukuki köprüler ve güven ilişkisi.
-          </p>
-        </div>
-
-        <div class="p-3 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#101319]">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-bold block mb-1">02. Sınırsız Finansman</span>
-          <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs leading-relaxed">
-            Microsoft'un devasa bütçesi ve Game Pass için prestijli birinci sınıf IP açlığı.
-          </p>
-        </div>
-
-        <div class="p-3 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#101319]">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-bold block mb-1">03. Transmedya Özgürlüğü</span>
-          <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs leading-relaxed">
-            Sinema ve dizi uyarlama haklarında Kojima'nın yönetmenlik vizyonuna tam serbesti.
-          </p>
-        </div>
-
-        <div class="p-3 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#101319]">
-          <span class="text-sky-600 dark:text-[#00ffcc] font-bold block mb-1">04. Çoklu Platform Erişimi</span>
-          <p class="text-zinc-600 dark:text-zinc-400 font-sans text-xs leading-relaxed">
-            Day-One PC, Bulut (Cloud) ve yeni nesil konsol dağıtımıyla maksimum erişim.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+1. **Hazır Altyapı & OD Köprüsü:** Masada zaten aktif olan *OD* sözleşmesi, hukuki zemin ve Microsoft yönetimiyle oturmuş karşılıklı güven ilişkisi.
+2. **Sınırsız Finansman & Prestij Açlığı:** Microsoft'un devasa sermayesi ve Game Pass için AAA tek kişilik prestij oyunlarına duyduğu derin ihtiyaç.
+3. **Transmedya & Sinema Özgürlüğü:** Columbia Pictures bürokrasisinin aksine, dizi ve film haklarında Kojima'nın sinemacı kimliğine tanınan tam yaratıcı bağımsızlık.
+4. **Çoklu Platform & PC Day-One:** Yapay konsol duvarları yerine Day-One PC, bulut ve yeni nesil ekosistemle oyunun maksimum oyuncu kitlesine ulaşması.
 
 Xbox, PlayStation'ın elinden ikonik bir *"Kojima başyapıtını"* kapmanın halkla ilişkiler zaferini sonuna kadar kullanacak. Üstelik anlaşmanın sadece oyunu değil, **film ve televizyon haklarını da kapsaması**, Kojima'nın sinemacı kimliğini tatmin eden en büyük koz oldu.
 
