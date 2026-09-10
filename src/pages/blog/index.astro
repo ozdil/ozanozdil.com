@@ -5,12 +5,12 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('blog', ({ data }) => !data.draft);
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
+const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'tr'));
 ---
 
 <BaseLayout
   title="Yazılar — Ozan Özdil"
-  description="Linux, açık kaynak, teknoloji ve kişisel notlar."
+  description="Quickshell, Omarchy ve Wayland masaüstü mimarisi üzerine araştırmalar ve notlar."
   currentPath="/blog"
   maxWidthClass="max-w-3xl"
 >
@@ -21,60 +21,204 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
         Arşiv
       </p>
       <h1 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
-        Yazılar & Notlar
+        Quickshell & Omarchy Notları
       </h1>
       <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
-        Linux, açık kaynak, teknoloji ve kişisel notlar.
+        Wayland masaüstü kabuğu, QML bileşenleri, eklentiler ve performans analizleri.
       </p>
 
-      <!-- Topic Tags Bar -->
+      <!-- Topic Tags Interactive Filter Bar -->
       {allTags.length > 0 && (
-        <div class="flex flex-wrap items-center justify-center gap-1.5 mt-5 font-mono text-xs">
+        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 mt-5 font-mono text-xs">
+          <button
+            type="button"
+            data-filter-tag="all"
+            class="qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold"
+          >
+            Tümü ({sortedPosts.length})
+          </button>
           {allTags.map((tag) => (
-            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700/60 text-[11px]">
+            <button
+              type="button"
+              data-filter-tag={tag.toLowerCase()}
+              class="qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700/60 hover:text-zinc-950 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-600"
+            >
               #{tag}
-            </span>
+            </button>
           ))}
         </div>
       )}
     </header>
 
-    <!-- Articles List: Pure Omarchy.org/news/ style -->
-    <ul class="divide-y divide-zinc-200 dark:divide-zinc-800 border-t border-zinc-200 dark:border-zinc-800">
+    <!-- Empty State for Tag Filter -->
+    <div id="qs-empty-state" class="hidden py-12 text-center font-mono text-xs text-zinc-500 dark:text-zinc-400 border-t border-zinc-200 dark:border-zinc-800">
+      <p>Bu etikete ait yazı bulunamadı.</p>
+      <button
+        id="qs-reset-filter"
+        type="button"
+        class="mt-3 inline-flex items-center gap-1 text-sky-600 dark:text-[#00ffcc] hover:underline cursor-pointer font-medium"
+      >
+        [Tüm yazıları göster]
+      </button>
+    </div>
+
+    <!-- Articles List: Pure Omarchy / QuickShell Style -->
+    <ul id="qs-posts-list" class="divide-y divide-zinc-200 dark:divide-zinc-800 border-t border-zinc-200 dark:border-zinc-800">
       {sortedPosts.map((post) => (
-        <li>
-          <a
-            href={`/blog/${post.slug}`}
-            class="group flex flex-col gap-1.5 py-6 transition-colors"
-          >
+        <li
+          class="qs-post-item transition-opacity duration-150"
+          data-tags={JSON.stringify((post.data.tags || []).map((t) => t.toLowerCase()))}
+        >
+          <div class="py-6 flex flex-col gap-2">
+            <!-- Date & Reading Info -->
             <time datetime={post.data.pubDate.toISOString()} class="font-mono text-xs text-zinc-500 dark:text-zinc-400">
               {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
             </time>
-            <span class="flex items-baseline gap-2 font-sans text-lg sm:text-xl font-medium text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">
+
+            <!-- Title as Primary Link -->
+            <a
+              href={`/blog/${post.slug}`}
+              class="group flex items-baseline gap-2 font-sans text-lg sm:text-xl font-medium text-zinc-950 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-[#00ffcc] transition-colors"
+            >
               <span>{post.data.title}</span>
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4 shrink-0 self-center text-zinc-400 dark:text-zinc-500 transition-transform duration-150 ease-out group-hover:translate-x-1 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc]">
                 <path d="M14 5.75L20.25 12L14 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
                 <path d="M19.5 12H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
               </svg>
-            </span>
+            </a>
+
+            <!-- Description / Preview -->
             {post.data.description && (
-              <span class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {post.data.description}
-              </span>
+              </p>
             )}
+
+            <!-- Clickable Card Tags -->
             {post.data.tags && post.data.tags.length > 0 && (
-              <span class="flex flex-wrap gap-1.5 mt-1 font-mono text-[10px]">
+              <div class="flex flex-wrap gap-1.5 mt-1 font-mono text-[10px]">
                 {post.data.tags.map((tag) => (
-                  <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 border border-zinc-200/80 dark:border-zinc-800">
+                  <button
+                    type="button"
+                    data-tag-button={tag.toLowerCase()}
+                    class="px-1.5 py-0.5 rounded bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/80 dark:hover:bg-zinc-700/80 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] border border-zinc-200/80 dark:border-zinc-800 transition-colors cursor-pointer"
+                  >
                     #{tag}
-                  </span>
+                  </button>
                 ))}
-              </span>
+              </div>
             )}
-          </a>
+          </div>
         </li>
       ))}
     </ul>
   </div>
 </BaseLayout>
 
+<script is:inline>
+  function setupTagFilter() {
+    const filterPills = document.querySelectorAll('[data-filter-tag]');
+    const postItems = document.querySelectorAll('.qs-post-item');
+    const emptyState = document.getElementById('qs-empty-state');
+    const resetBtn = document.getElementById('qs-reset-filter');
+    const cardTagBtns = document.querySelectorAll('[data-tag-button]');
+
+    function getSelectedTag() {
+      const params = new URLSearchParams(window.location.search);
+      return (params.get('tag') || 'all').trim().toLowerCase();
+    }
+
+    function applyFilter(selectedTag, updateUrl = true) {
+      const normTag = (selectedTag || 'all').trim().toLowerCase();
+      let visibleCount = 0;
+
+      postItems.forEach((item) => {
+        const itemTags = JSON.parse(item.getAttribute('data-tags') || '[]');
+        const matches = normTag === 'all' || itemTags.includes(normTag);
+
+        if (matches) {
+          item.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      // Update pills active styling
+      filterPills.forEach((pill) => {
+        const pillTag = pill.getAttribute('data-filter-tag');
+        const isActive = (pillTag === 'all' && normTag === 'all') || (pillTag === normTag);
+
+        if (isActive) {
+          pill.className = 'qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold';
+        } else {
+          pill.className = 'qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700/60 hover:text-zinc-950 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-600';
+        }
+      });
+
+      // Toggle empty state
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+
+      // Update URL query string without page reload
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        if (normTag === 'all') {
+          url.searchParams.delete('tag');
+        } else {
+          url.searchParams.set('tag', normTag);
+        }
+        window.history.pushState({ tag: normTag }, '', url.toString());
+      }
+    }
+
+    // Top filter pills click
+    filterPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const tag = pill.getAttribute('data-filter-tag');
+        applyFilter(tag, true);
+      });
+    });
+
+    // Card tags click
+    cardTagBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const tag = btn.getAttribute('data-tag-button');
+        applyFilter(tag, true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // Reset button
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        applyFilter('all', true);
+      });
+    }
+
+    // Handle back / forward browser navigation
+    window.addEventListener('popstate', () => {
+      applyFilter(getSelectedTag(), false);
+    });
+
+    // Run on initial load if tag param exists
+    const initialTag = getSelectedTag();
+    if (initialTag !== 'all') {
+      applyFilter(initialTag, false);
+    }
+  }
+
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTagFilter);
+  } else {
+    setupTagFilter();
+  }
+</script>

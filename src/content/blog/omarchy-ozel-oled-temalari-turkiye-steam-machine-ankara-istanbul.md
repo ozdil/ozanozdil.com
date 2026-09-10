@@ -1,8 +1,9 @@
 ---
-title: "Omarchy 4.0.2 İçin Özel OLED Temaları: Türkiye, Steam Machine, Ankara ve İstanbul"
-description: "Göz yormayan renk teorisi, gerçek OLED siyahı ve 8K keskin vektörel duvar kağıtlarıyla tasarlanan 4 özgün açık kaynak Omarchy teması."
+title: "Omarchy İçin Özel OLED Temaları: Türkiye, Steam Machine, Ankara ve İstanbul"
+description: "Göz yormayan renk teorisi, gerçek OLED siyahı ve Quickshell için tasarlanan 4 özgün açık kaynak Omarchy teması."
 pubDate: 2026-09-03
-tags: ["omarchy", "tasarım", "oled", "arch-linux", "hyprland", "tema"]
+heroImage: "/images/quickshell/quickshell-oled-themes.svg"
+tags: ["quickshell", "omarchy", "temalar", "oled", "tasarım"]
 ---
 
 Modern ve minimalist Arch Linux masaüstü ortamı **Omarchy 4.0.2** için geliştirdiğimiz ve resmi ekosistem listesine sunulan 4 özel temayı açık kaynak olarak paylaştık. Tüm temalar **OLED panel uyumlu (#000000)** olup, uzun süreli terminal ve kodlama seanslarında göz yorgunluğunu minimize edecek renk teorisi ilkeleriyle tasarlandı.

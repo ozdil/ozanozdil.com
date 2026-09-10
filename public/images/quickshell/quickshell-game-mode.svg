@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090514" />
+      <stop offset="50%" stop-color="#0e1117" />
+      <stop offset="100%" stop-color="#08090b" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGame)" />
+  <rect x="24" y="24" width="1152" height="582" rx="16" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.08" />
+
+  <g transform="translate(80, 70)">
+    <text x="0" y="30" fill="#a855f7" font-family="monospace" font-size="16" font-weight="bold">// LINUX GAMER HUD</text>
+    <text x="0" y="75" fill="#ffffff" font-family="sans-serif" font-size="34" font-weight="bold">Quickshell Game Mode &amp; OSD Telemetri</text>
+    <text x="0" y="110" fill="#94a3b8" font-family="sans-serif" font-size="16">Steam, Proton ve Gamescope ile tam ekran otomatik algılama ve 0-stutter arayüz</text>
+
+    <!-- Game HUD Overlay Mockup -->
+    <g transform="translate(0, 150)">
+      <!-- Virtual Game Screen -->
+      <rect width="700" height="340" rx="12" fill="#05070a" stroke="#27272a" stroke-width="1.5" />
+      <text x="350" y="170" fill="#334155" font-family="monospace" font-size="22" font-weight="bold" text-anchor="middle">[GAME RUNNING FULLSCREEN]</text>
+      
+      <!-- Quickshell OSD Floating HUD (Top Left) -->
+      <rect x="20" y="20" width="260" height="130" rx="8" fill="#08090b" fill-opacity="0.85" stroke="#a855f7" stroke-width="1" />
+      <text x="35" y="45" fill="#22c55e" font-family="monospace" font-size="14" font-weight="bold">FPS: 144.2 <tspan fill="#64748b">(6.9ms)</tspan></text>
+      <text x="35" y="70" fill="#38bdf8" font-family="monospace" font-size="13">GPU: 62°C • 98% 260W</text>
+      <text x="35" y="95" fill="#f59e0b" font-family="monospace" font-size="13">CPU: 54°C • 38% 4.8GHz</text>
+      <text x="35" y="120" fill="#c084fc" font-family="monospace" font-size="13">PROTON 9.0 • VULKAN</text>
+
+      <!-- Side Cards -->
+      <g transform="translate(730, 0)">
+        <rect width="310" height="100" rx="10" fill="#141820" stroke="#27272a" stroke-width="1" />
+        <text x="20" y="35" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="bold">DND (Do Not Disturb)</text>
+        <text x="20" y="60" fill="#94a3b8" font-family="sans-serif" font-size="13">Oyun başladığında bildirimler otomatik bastırılır.</text>
+
+        <rect y="120" width="310" height="100" rx="10" fill="#141820" stroke="#27272a" stroke-width="1" />
+        <text x="20" y="155" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="bold">CPU Governor: Performance</text>
+        <text x="20" y="180" fill="#94a3b8" font-family="sans-serif" font-size="13">Feral GameMode entegrasyonu ile saat frekansları kilitlenir.</text>
+
+        <rect y="240" width="310" height="100" rx="10" fill="#141820" stroke="#00ffcc" stroke-width="1" stroke-opacity="0.4" />
+        <text x="20" y="275" fill="#00ffcc" font-family="sans-serif" font-size="15" font-weight="bold">Wayland Zero Overhead</text>
+        <text x="20" y="300" fill="#94a3b8" font-family="sans-serif" font-size="13">Masaüstü kabuğu arka planda 0 CPU tüketir.</text>
+      </g>
+    </g>
+  </g>
+</svg>

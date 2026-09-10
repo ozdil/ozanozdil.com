@@ -1,9 +1,9 @@
 ---
-title: "Omarchy Linux ve Yapay Zeka Ajanları ile Sistem Mimarisi"
-description: "Omarchy işletim sistemi mimarisi, Hyprland Wayland IPC, klavye odaklı arayüzler ve otonom yapay zeka ajanlarının sistem düzeyinde entegrasyonu."
+title: "Omarchy ve Quickshell: Otonom Ajanlar İçin Sistem Mimarisi"
+description: "Omarchy işletim sistemi ve Quickshell masaüstü kabuğunun deterministik yapay zeka ajanları ile sıfır görsel yük entegrasyonu."
 pubDate: "2026-09-07T14:18:04.237+03:00"
-updatedDate: "2026-09-07T14:18:04.238+03:00"
-tags: ["hyprland", "linux", "omarchy", "sistem mühendisliği", "yapay zeka", "omarchy linux"]
+heroImage: "/images/quickshell/quickshell-architecture.svg"
+tags: ["quickshell", "omarchy", "yapay-zeka", "mimari", "wayland"]
 draft: false
 legacyUrl: "/2026/09/omarchy-linux-ai-ajan-mimarisi.html"
 ---

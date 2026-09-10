@@ -100,10 +100,25 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
       {post.data.tags && post.data.tags.length > 0 && (
         <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-xs">
           {post.data.tags.map((tag) => (
-            <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/70 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700/60 text-[11px]">
+            <a
+              href={`/blog?tag=${encodeURIComponent(tag.toLowerCase())}`}
+              class="px-2 py-0.5 rounded bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/70 dark:hover:bg-zinc-700/80 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 transition-colors text-[11px]"
+              title={`Etiket: #${tag}`}
+            >
               #{tag}
-            </span>
+            </a>
           ))}
+        </div>
+      )}
+
+      {post.data.heroImage && (
+        <div class="mt-6 rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-900/50">
+          <img
+            src={post.data.heroImage}
+            alt={post.data.title}
+            class="w-full h-auto object-cover max-h-96"
+            loading="eager"
+          />
         </div>
       )}
     </header>

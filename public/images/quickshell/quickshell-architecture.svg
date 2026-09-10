@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08090b" />
+      <stop offset="50%" stop-color="#0e1117" />
+      <stop offset="100%" stop-color="#08090b" />
+    </linearGradient>
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ffcc" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.04" />
+    </pattern>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  
+  <!-- Border Accent -->
+  <rect x="24" y="24" width="1152" height="582" rx="16" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.08" />
+  
+  <!-- Window Header -->
+  <g transform="translate(60, 60)">
+    <rect width="1080" height="50" rx="8" fill="#141820" stroke="#27272a" stroke-width="1" />
+    <circle cx="25" cy="25" r="6" fill="#ef4444" />
+    <circle cx="45" cy="25" r="6" fill="#eab308" />
+    <circle cx="65" cy="25" r="6" fill="#22c55e" />
+    <text x="100" y="31" fill="#71717a" font-family="monospace" font-size="14">quickshell :: omarchy-shell :: core.architecture</text>
+    <rect x="940" y="15" width="120" height="22" rx="4" fill="#00ffcc" fill-opacity="0.1" />
+    <text x="1000" y="30" fill="#00ffcc" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">WAYLAND IPC</text>
+  </g>
+  
+  <!-- Diagram / Shell Elements -->
+  <g transform="translate(60, 140)">
+    <!-- Main Shell Process Block -->
+    <rect x="0" y="0" width="520" height="390" rx="12" fill="#101318" stroke="#00ffcc" stroke-width="1.5" stroke-opacity="0.4" />
+    <text x="30" y="45" fill="#00ffcc" font-family="monospace" font-size="18" font-weight="bold">// QUICKSHELL PROCESS</text>
+    <text x="30" y="75" fill="#a1a1aa" font-family="sans-serif" font-size="14">Single long-lived daemon managing entire desktop UI</text>
+    
+    <!-- Code snippet block -->
+    <rect x="30" y="100" width="460" height="260" rx="8" fill="#08090b" stroke="#27272a" stroke-width="1" />
+    <text x="50" y="135" fill="#38bdf8" font-family="monospace" font-size="13">import Quickshell 1.0</text>
+    <text x="50" y="160" fill="#38bdf8" font-family="monospace" font-size="13">import Quickshell.Wayland 1.0</text>
+    <text x="50" y="195" fill="#e4e4e7" font-family="monospace" font-size="13">Scope {</text>
+    <text x="70" y="220" fill="#a1a1aa" font-family="monospace" font-size="13">  PanelWindow {</text>
+    <text x="90" y="245" fill="#00ffcc" font-family="monospace" font-size="13">    anchors { top: true; left: true; right: true }</text>
+    <text x="90" y="270" fill="#a1a1aa" font-family="monospace" font-size="13">    WlrLayershell.layer: WlrLayer.Top</text>
+    <text x="90" y="295" fill="#f43f5e" font-family="monospace" font-size="13">    height: 38</text>
+    <text x="70" y="320" fill="#a1a1aa" font-family="monospace" font-size="13">  }</text>
+    <text x="50" y="345" fill="#e4e4e7" font-family="monospace" font-size="13">}</text>
+    
+    <!-- Right side: Component Modules -->
+    <g transform="translate(560, 0)">
+      <!-- Panel 1 -->
+      <rect x="0" y="0" width="520" height="110" rx="10" fill="#101318" stroke="#27272a" stroke-width="1" />
+      <text x="25" y="35" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">Zero-IPC Overhead Top Bar</text>
+      <text x="25" y="60" fill="#a1a1aa" font-family="sans-serif" font-size="13">Native Wayland protocol layer, no child-process spawning</text>
+      <rect x="25" y="75" width="470" height="18" rx="4" fill="#1e293b" />
+      <circle cx="40" cy="84" r="4" fill="#00ffcc" />
+      <circle cx="55" cy="84" r="4" fill="#38bdf8" />
+      <circle cx="70" cy="84" r="4" fill="#818cf8" />
+      <rect x="380" y="79" width="100" height="10" rx="2" fill="#334155" />
+      
+      <!-- Panel 2 -->
+      <rect x="0" y="130" width="520" height="110" rx="10" fill="#101318" stroke="#27272a" stroke-width="1" />
+      <text x="25" y="165" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">QML Declarative Reactivity</text>
+      <text x="25" y="190" fill="#a1a1aa" font-family="sans-serif" font-size="13">Qt Scene Graph GPU hardware accelerated compositor</text>
+      <text x="25" y="218" fill="#38bdf8" font-family="monospace" font-size="11">60/120/144Hz VSync Fluid Animations</text>
+      
+      <!-- Panel 3 -->
+      <rect x="0" y="260" width="520" height="130" rx="10" fill="#101318" stroke="#27272a" stroke-width="1" />
+      <text x="25" y="295" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">Omarchy Single-Binary Integration</text>
+      <text x="25" y="320" fill="#a1a1aa" font-family="sans-serif" font-size="13">Unified memory footprint (&lt; 35MB RAM) vs. Electron/AGS (300MB+)</text>
+      <rect x="25" y="340" width="120" height="24" rx="4" fill="#00ffcc" fill-opacity="0.1" stroke="#00ffcc" stroke-width="1" />
+      <text x="85" y="356" fill="#00ffcc" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">&lt; 35 MB RAM</text>
+    </g>
+  </g>
+</svg>
