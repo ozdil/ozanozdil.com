@@ -1,9 +1,8 @@
 ---
-title: "Omarchy ve Quickshell Masaüstü Ekosistemi İçin 9 Özgün Güvenlik Eklentisi"
-description: "Arch Linux ve Quickshell ortamı için geliştirilen açık kaynak siber savunma, donanım güvenliği ve geliştirici araçları."
+title: "Omarchy Linux Masaüstü Ekosistemi İçin 9 Özgün Siber Güvenlik ve Geliştirici Eklentisi"
+description: "Arch Linux tabanlı Omarchy ortamı için geliştirilen açık kaynak siber savunma, donanım güvenliği ve geliştirici verimlilik araçlarının mimari dökümü."
 pubDate: 2026-09-01
-heroImage: "/images/quickshell/quickshell-plugins.svg"
-tags: ["quickshell", "omarchy", "eklentiler", "guvenlik", "opsec"]
+tags: ["omarchy", "siber-güvenlik", "linux", "arch-linux", "açık-kaynak", "opsec"]
 ---
 
 Linux ve açık kaynak dünyasında masaüstü deneyimini kurumsal güvenlik standartlarıyla buluşturmak amacıyla; modern Arch Linux masaüstü ortamı olan **Omarchy** ekosistemine özel **9 adet özgün siber güvenlik ve geliştirici eklentisi (plugin)** ile **4 adet resmi masaüstü temasını** geliştirip açık kaynak olarak yayınladık.
