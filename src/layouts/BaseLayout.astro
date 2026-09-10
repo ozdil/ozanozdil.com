@@ -19,7 +19,7 @@ interface Props {
 
 const {
   title = 'Ozan Özdil',
-  description = 'Orman Mühendisi (KTÜ). Açık kaynak sistemler, Linux mimarisi ve dijital güvenlik üzerine araştırmalar ve notlar.',
+  description = 'Orman Mühendisi (KTÜ). Açık kaynak sistemler, Linux mimarisi, QuickShell ve orta format fotoğrafçılık üzerine araştırmalar ve kişisel notlar.',
   image = '/avatar.jpg',
   type = 'website',
   article,
@@ -50,7 +50,11 @@ const jsonLd = type === 'article' && article?.pubDate ? {
   'publisher': {
     '@type': 'Person',
     'name': 'Ozan Özdil',
-    'url': 'https://ozanozdil.com'
+    'url': 'https://ozanozdil.com',
+    'logo': {
+      '@type': 'ImageObject',
+      'url': 'https://ozanozdil.com/icon-512.png'
+    }
   },
   'image': ogImageURL.toString(),
   'mainEntityOfPage': {
@@ -60,16 +64,31 @@ const jsonLd = type === 'article' && article?.pubDate ? {
   'keywords': article.tags?.join(', ')
 } : {
   '@context': 'https://schema.org',
-  '@type': 'Person',
-  'name': 'Ozan Özdil',
-  'url': 'https://ozanozdil.com',
-  'image': 'https://ozanozdil.com/avatar.jpg',
-  'jobTitle': 'Orman Mühendisi & Araştırmacı',
-  'description': description,
-  'sameAs': [
-    'https://github.com/ozdil',
-    'https://steamcommunity.com/id/ozanozdil',
-    'https://nsosyal.com/ozanozdil'
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://ozanozdil.com/#website',
+      'url': 'https://ozanozdil.com',
+      'name': 'Ozan Özdil',
+      'description': description,
+      'publisher': {
+        '@id': 'https://ozanozdil.com/#person'
+      }
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://ozanozdil.com/#person',
+      'name': 'Ozan Özdil',
+      'url': 'https://ozanozdil.com',
+      'image': 'https://ozanozdil.com/avatar.jpg',
+      'jobTitle': 'Orman Mühendisi & Bağımsız Araştırmacı',
+      'description': description,
+      'sameAs': [
+        'https://github.com/ozdil',
+        'https://steamcommunity.com/id/ozanozdil',
+        'https://nsosyal.com/ozanozdil'
+      ]
+    }
   ]
 };
 ---
@@ -79,7 +98,13 @@ const jsonLd = type === 'article' && article?.pubDate ? {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/jpeg" href="/avatar.jpg" />
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#090a0f" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
