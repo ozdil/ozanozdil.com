@@ -73,41 +73,47 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
       </div>
 
       <article class="p-6 sm:p-10 lg:p-12">
-        <!-- Top Navigation / Back -->
-        <div class="flex items-center justify-between gap-2 mb-6">
-          <a
-            href="/blog"
-            class="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-[#00ffcc] transition-colors"
-          >
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
-              <path d="M10 5.75L3.75 12L10 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-              <path d="M4.5 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-            </svg>
-            <span>← Tüm Yazılar Panosu</span>
-          </a>
+        <!-- Top Navigation / Back: QML ActionTrigger -->
+        <div class="flex items-center justify-between gap-2 mb-6 font-mono text-xs">
+          <div class="flex items-center gap-1">
+            <span class="text-purple-600 dark:text-purple-400 font-bold">ActionTrigger</span>
+            <span class="text-zinc-400">&#123;</span>
+            <a
+              href="/blog"
+              class="inline-flex items-center gap-1.5 ml-2 px-3 py-1.5 rounded-lg border border-sky-300/80 dark:border-[#00ffcc]/40 bg-sky-50 dark:bg-[#00ffcc]/10 text-sky-800 dark:text-[#00ffcc] hover:bg-sky-100 dark:hover:bg-[#00ffcc]/20 font-semibold transition-colors shadow-2xs"
+            >
+              <span class="text-zinc-400 text-[10px]">onClicked:</span>
+              <span>qs.backToArchive()</span>
+              <span class="text-xs">↵</span>
+            </a>
+            <span class="text-zinc-400 ml-1">&#125;</span>
+          </div>
         </div>
 
-        <!-- Article Header -->
+        <!-- Article Header & QML ArticleScope -->
         <header class="pb-8 border-b border-zinc-200/80 dark:border-zinc-800/80">
           <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400">
-            <span>By</span>
-            <a href="/" class="text-zinc-800 dark:text-zinc-200 font-medium hover:underline">
-              Ozan Özdil
-            </a>
-            <span>on</span>
-            <time datetime={post.data.pubDate.toISOString()}>
-              {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </time>
-            <span>•</span>
-            <span>~{readingTime} dk okuma</span>
+            <span class="text-purple-600 dark:text-purple-400 font-semibold">ArticleScope</span>
+            <span class="text-zinc-400">&#123;</span>
+            <span class="text-sky-600 dark:text-sky-400">author</span>:
+            <a href="/" class="text-emerald-700 dark:text-emerald-400 font-medium hover:underline">
+              "Ozan Özdil"
+            </a>;
+            <span class="text-sky-600 dark:text-sky-400">pubDate</span>:
+            <time datetime={post.data.pubDate.toISOString()} class="text-emerald-700 dark:text-emerald-400">
+              "{post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}"
+            </time>;
+            <span class="text-sky-600 dark:text-sky-400">readTime</span>:
+            <span class="text-orange-600 dark:text-orange-400 font-medium">"{readingTime}m"</span>
             {post.data.updatedDate && (
               <>
-                <span>•</span>
+                ; <span class="text-sky-600 dark:text-sky-400">updated</span>:
                 <span class="text-zinc-400 dark:text-zinc-500">
-                  Rev: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  "{post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}"
                 </span>
               </>
             )}
+            <span class="text-zinc-400">&#125;</span>
           </div>
 
           <h1 class="mt-4 text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans leading-tight">
@@ -300,19 +306,19 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
             </div>
           </div>
 
-          <!-- Prev / Next Articles -->
+          <!-- Prev / Next Articles: QML Navigation -->
           {(prevPost || nextPost) && (
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-zinc-200/60 dark:border-zinc-800/60">
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-zinc-200/60 dark:border-zinc-800/60 font-mono text-xs">
               {prevPost ? (
                 <a
                   href={`/blog/${prevPost.slug}`}
                   class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-zinc-50/50 dark:bg-[#0e1117] transition-all group flex flex-col justify-between"
                 >
-                  <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
-                    ← Önceki Yazı
+                  <span class="font-mono text-[10px] text-purple-600 dark:text-purple-400 mb-1">
+                    ActionTrigger &#123; qs.prevArticle() &#125;
                   </span>
                   <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
-                    {prevPost.data.title}
+                    ← {prevPost.data.title}
                   </span>
                 </a>
               ) : (
@@ -324,11 +330,11 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
                   href={`/blog/${nextPost.slug}`}
                   class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-zinc-50/50 dark:bg-[#0e1117] transition-all group flex flex-col justify-between sm:text-right"
                 >
-                  <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
-                    Sonraki Yazı →
+                  <span class="font-mono text-[10px] text-purple-600 dark:text-purple-400 mb-1">
+                    ActionTrigger &#123; qs.nextArticle() &#125;
                   </span>
                   <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
-                    {nextPost.data.title}
+                    {nextPost.data.title} →
                   </span>
                 </a>
               ) : (

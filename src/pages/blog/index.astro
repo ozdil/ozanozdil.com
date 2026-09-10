@@ -15,11 +15,11 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
   maxWidthClass="max-w-[1720px]"
 >
   <div class="py-2 sm:py-4">
-    <!-- Header: Omarchy / QuickShell Style -->
-    <header class="pb-8 text-center w-full">
+    <!-- Header: QuickShell Root Scope Header -->
+    <header class="pb-6 text-center w-full">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 dark:bg-zinc-900 border border-sky-200 dark:border-zinc-800 text-sky-700 dark:text-[#00ffcc] font-mono text-[11px] font-semibold mb-3">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>WAYLAND DESKTOP ARCHIVE // PANO GÖRÜNÜMÜ</span>
+        <span>Scope &#123; id: waylandBlogArchive; layout: "BoardGrid4x5" &#125;</span>
       </div>
       <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
         Quickshell & Omarchy Notları
@@ -28,43 +28,49 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         Wayland masaüstü kabuğu, QML bileşenleri, eklentiler ve performans analizleri panosu.
       </p>
 
-      <!-- Topic Tags Interactive Filter Bar: Wide QuickShell Deck -->
+      <!-- Topic Tags Filter Deck: QML FilterModel -->
       {allTags.length > 0 && (
-        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-6 font-mono text-xs w-full">
-          <button
-            type="button"
-            data-filter-tag="all"
-            class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold shadow-xs"
-          >
-            Tümü ({sortedPosts.length})
-          </button>
-          {allTags.map((tag) => (
+        <div class="mt-6 p-3 rounded-xl bg-white dark:bg-[#0c0e12] border border-zinc-200/90 dark:border-zinc-800/90 shadow-2xs max-w-5xl mx-auto">
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-zinc-100 dark:border-zinc-800/60 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
+            <div class="flex items-center gap-1.5">
+              <span class="text-purple-600 dark:text-purple-400 font-bold">FilterModel</span>
+              <span class="text-zinc-400">&#123;</span>
+              <span class="text-sky-600 dark:text-sky-400">id</span>: <span class="text-amber-600 dark:text-amber-400">tagFilter</span>;
+            </div>
+            <span class="text-zinc-400">&#125;</span>
+          </div>
+
+          <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 font-mono text-xs w-full">
             <button
               type="button"
-              data-filter-tag={tag.toLowerCase()}
-              class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700"
+              data-filter-tag="all"
+              class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold shadow-xs"
             >
-              #{tag}
+              [Tümü: {sortedPosts.length}]
             </button>
-          ))}
+            {allTags.map((tag) => (
+              <button
+                type="button"
+                data-filter-tag={tag.toLowerCase()}
+                class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700"
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </header>
 
-    <!-- Pano Telemetry / Status Bar -->
+    <!-- Telemetry Status Bar -->
     <div class="mb-5 px-4 py-2.5 rounded-lg bg-white dark:bg-[#0c0e12] border border-zinc-200/90 dark:border-zinc-800/90 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 shadow-2xs">
       <div class="flex items-center gap-3">
         <span class="flex items-center gap-1.5 font-semibold text-zinc-800 dark:text-zinc-200">
-          <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4 text-sky-500 dark:text-[#00ffcc]" stroke="currentColor" stroke-width="2">
-            <rect width="7" height="7" x="3" y="3" rx="1"/>
-            <rect width="7" height="7" x="14" y="3" rx="1"/>
-            <rect width="7" height="7" x="14" y="14" rx="1"/>
-            <rect width="7" height="7" x="3" y="14" rx="1"/>
-          </svg>
-          Pano Izgarası: <span class="text-sky-600 dark:text-[#00ffcc]">4-5 Sütun</span>
+          <span class="text-purple-600 dark:text-purple-400">GridScope:</span>
+          <span class="text-sky-600 dark:text-[#00ffcc]">4-5 Sütun</span>
         </span>
         <span class="hidden sm:inline text-zinc-300 dark:text-zinc-700">|</span>
-        <span id="qs-stats-counter">Toplam: {sortedPosts.length} yazı</span>
+        <span id="qs-stats-counter" class="text-emerald-700 dark:text-emerald-400 font-medium">Toplam: {sortedPosts.length} yazı</span>
       </div>
 
       <div class="flex items-center gap-2">
@@ -73,18 +79,18 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
           <button
             id="qs-prev-btn"
             type="button"
-            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer border border-zinc-200 dark:border-zinc-700"
             title="Önceki Sayfa"
           >
-            ← Önceki
+            qs.prev()
           </button>
           <button
             id="qs-next-btn"
             type="button"
-            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer border border-zinc-200 dark:border-zinc-700"
             title="Sonraki Sayfa"
           >
-            Sonraki →
+            qs.next()
           </button>
         </div>
       </div>
@@ -98,7 +104,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         type="button"
         class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-sky-50 dark:bg-zinc-800 text-sky-600 dark:text-[#00ffcc] hover:underline cursor-pointer font-medium text-xs border border-sky-200 dark:border-zinc-700"
       >
-        [Tüm yazıları göster]
+        <span>ActionTrigger &#123; onClicked: qs.resetFilter() &#125;</span>
       </button>
     </div>
 
@@ -109,95 +115,120 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     >
       {sortedPosts.map((post) => (
         <article
-          class="qs-post-item group relative rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 bg-white dark:bg-[#0c0e12] overflow-hidden transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between h-full"
+          class="qs-post-item group relative rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 bg-white dark:bg-[#0c0e12] overflow-hidden transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between h-full font-mono text-xs select-none"
           data-tags={JSON.stringify((post.data.tags || []).map((t) => t.toLowerCase()))}
         >
-          <!-- QuickShell QML Header Strip -->
+          <!-- QuickShell QML Item Header -->
           <div class="px-3.5 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
             <div class="flex items-center gap-1.5 min-w-0 pr-2">
-              <span class="flex items-center gap-1 flex-shrink-0 opacity-80">
+              <span class="flex items-center gap-1 flex-shrink-0 opacity-80" aria-hidden="true">
                 <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
                 <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
                 <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
               </span>
-              <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[10.5px] ml-1 truncate" title={`qs://blog/${post.slug}.qml`}>
-                {post.slug}.qml
-              </span>
+              <span class="text-purple-600 dark:text-purple-400 font-bold">ArticleItem</span>
+              <span class="text-zinc-400">&#123;</span>
             </div>
-            <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800/80 text-zinc-600 dark:text-[#00ffcc] text-[9px] border border-zinc-300/40 dark:border-[#00ffcc]/30 font-semibold flex-shrink-0">
-              QML
+            <span class="text-zinc-500 dark:text-zinc-400 text-[10px] font-mono truncate" title={`qs://blog/${post.slug}.qml`}>
+              {post.slug.slice(0, 18)}...qml
             </span>
           </div>
 
-          <!-- Card Body -->
-          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
-            <div>
-              <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 dark:text-zinc-500 mb-1.5">
-                <time datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
-                </time>
-                <span class="text-[10px] text-zinc-400 dark:text-zinc-600">
-                  #{(post.data.tags && post.data.tags[0]) || 'blog'}
-                </span>
+          <!-- Card Body: Structured QML Property Declarations -->
+          <div class="p-3.5 sm:p-4 flex flex-col flex-grow justify-between gap-3">
+            <div class="space-y-2">
+              <!-- ID & Date Properties -->
+              <div class="flex items-center justify-between text-[11px] pb-1 border-b border-zinc-100 dark:border-zinc-800/60">
+                <div>
+                  <span class="text-sky-600 dark:text-sky-400">id</span>:
+                  <span class="text-amber-600 dark:text-amber-400 font-medium">art_{post.slug.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 14)}</span>
+                </div>
+                <div>
+                  <time datetime={post.data.pubDate.toISOString()} class="text-emerald-700 dark:text-emerald-400">
+                    "{post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}"
+                  </time>
+                </div>
               </div>
-              <h2 class="text-sm sm:text-[15px] font-semibold text-zinc-950 dark:text-zinc-100 font-sans group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors leading-snug line-clamp-2 min-h-[2.5rem]">
-                <a href={`/blog/${post.slug}`} class="focus:outline-none">
-                  {post.data.title}
-                </a>
-              </h2>
+
+              <!-- Title Property (Semantic H2 + Link) -->
+              <div>
+                <span class="text-sky-600 dark:text-sky-400 text-[11px]">title</span>:
+                <h2 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors leading-snug line-clamp-2 min-h-[2.5rem] mt-0.5">
+                  <a href={`/blog/${post.slug}`} class="focus:outline-none">
+                    "{post.data.title}"
+                  </a>
+                </h2>
+              </div>
+
+              <!-- Preview Description Property -->
               {post.data.description && (
-                <p class="mt-2 text-xs leading-relaxed text-zinc-600 dark:text-zinc-400 font-sans line-clamp-3">
-                  {post.data.description}
-                </p>
+                <div class="pt-1">
+                  <span class="text-sky-600 dark:text-sky-400 text-[11px]">summary</span>:
+                  <p class="mt-0.5 text-xs leading-relaxed text-zinc-600 dark:text-zinc-400 font-sans line-clamp-3 bg-zinc-50/60 dark:bg-[#101319] p-2 rounded border border-zinc-100 dark:border-zinc-800/60">
+                    "{post.data.description}"
+                  </p>
+                </div>
+              )}
+
+              <!-- Tags Property -->
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div class="pt-1 font-mono text-[10px]">
+                  <span class="text-sky-600 dark:text-sky-400">tags</span>:
+                  <span class="text-zinc-400">[</span>
+                  <div class="inline-flex flex-wrap items-center gap-1 my-1">
+                    {post.data.tags.slice(0, 3).map((tag) => (
+                      <button
+                        type="button"
+                        data-tag-button={tag.toLowerCase()}
+                        class="px-1.5 py-0.5 rounded bg-zinc-100 hover:bg-sky-50 dark:bg-zinc-800/80 dark:hover:bg-[#00ffcc]/10 text-emerald-700 dark:text-emerald-400 hover:text-sky-600 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 hover:border-sky-300 dark:hover:border-[#00ffcc]/40 transition-colors cursor-pointer truncate max-w-[110px]"
+                        title={`#${tag}`}
+                      >
+                        "{tag}"
+                      </button>
+                    ))}
+                    {post.data.tags.length > 3 && (
+                      <span class="text-[9px] text-zinc-400 dark:text-zinc-500 font-mono" title={post.data.tags.slice(3).join(', ')}>
+                        +{post.data.tags.length - 3}
+                      </span>
+                    )}
+                  </div>
+                  <span class="text-zinc-400">]</span>
+                </div>
               )}
             </div>
 
-            <!-- Clickable Card Tags -->
-            {post.data.tags && post.data.tags.length > 0 && (
-              <div class="flex flex-wrap items-center gap-1 pt-1 font-mono text-[10px]">
-                {post.data.tags.slice(0, 3).map((tag) => (
-                  <button
-                    type="button"
-                    data-tag-button={tag.toLowerCase()}
-                    class="px-1.5 py-0.5 rounded bg-zinc-100 hover:bg-sky-50 dark:bg-zinc-800/80 dark:hover:bg-[#00ffcc]/10 text-zinc-600 dark:text-zinc-400 hover:text-sky-600 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 hover:border-sky-300 dark:hover:border-[#00ffcc]/40 transition-colors cursor-pointer truncate max-w-[110px]"
-                    title={`#${tag}`}
-                  >
-                    #{tag}
-                  </button>
-                ))}
-                {post.data.tags.length > 3 && (
-                  <span class="text-[9px] text-zinc-400 dark:text-zinc-500 font-mono" title={post.data.tags.slice(3).join(', ')}>
-                    +{post.data.tags.length - 3}
-                  </span>
-                )}
+            <!-- ActionTrigger Button (QML Action) -->
+            <div class="pt-2 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between font-mono text-[11px]">
+              <div class="flex items-center gap-1">
+                <span class="text-purple-600 dark:text-purple-400 font-semibold">ActionTrigger</span>
+                <span class="text-zinc-400">&#123;</span>
               </div>
-            )}
+              
+              <a
+                href={`/blog/${post.slug}`}
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-50 dark:bg-[#00ffcc]/10 text-sky-700 dark:text-[#00ffcc] hover:bg-sky-100 dark:hover:bg-[#00ffcc]/20 border border-sky-200/60 dark:border-[#00ffcc]/30 font-semibold transition-all group-hover:border-[#00ffcc] shadow-2xs"
+              >
+                <span class="text-zinc-400 text-[10px]">onClicked:</span>
+                <span>qs.readArticle()</span>
+                <span class="text-xs">↵</span>
+              </a>
+            </div>
           </div>
 
-          <!-- Bottom Telemetry Bar -->
-          <div class="px-3.5 py-2 bg-zinc-50/60 dark:bg-[#080a0d]/60 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between font-mono text-[10px] text-zinc-500">
-            <span class="flex items-center gap-1.5 truncate">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
-              <span class="truncate">Wayland Shell</span>
-            </span>
-            <a
-              href={`/blog/${post.slug}`}
-              class="inline-flex items-center gap-1 text-sky-600 dark:text-[#00ffcc] font-semibold hover:underline flex-shrink-0 ml-1"
-            >
-              <span>[Aç]</span>
-              <svg viewBox="0 0 24 24" fill="none" class="w-3 h-3" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
+          <div class="px-3.5 py-1 bg-zinc-50/60 dark:bg-[#080a0d]/60 border-t border-zinc-100 dark:border-zinc-800/60 text-zinc-400 font-mono text-[10px] text-right">
+            &#125;
           </div>
         </article>
       ))}
     </div>
 
-    <!-- Bottom Pagination Bar -->
+    <!-- Bottom Pagination Bar: Styled with QML ActionTriggers -->
     <div id="qs-pagination-container" class="mt-8 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-      <div class="text-zinc-500 dark:text-zinc-400">
-        <span id="qs-page-summary">Sayfa 1 / 1 (36 yazı)</span>
+      <div class="text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+        <span class="text-purple-600 dark:text-purple-400 font-bold">PaginationModel</span>
+        <span class="text-zinc-400">&#123;</span>
+        <span id="qs-page-summary" class="text-emerald-700 dark:text-emerald-400 font-semibold">Sayfa 1 / 1 (36 yazı)</span>
+        <span class="text-zinc-400">&#125;</span>
       </div>
 
       <div id="qs-page-numbers" class="flex items-center gap-1.5">
@@ -209,7 +240,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
 
 <script is:inline>
   function setupPanoBoard() {
-    const PAGE_SIZE = 15; // 3 rows on 5-column screens, 4 rows on 4-column screens
+    const PAGE_SIZE = 15;
     let currentPage = 1;
     let matchingItems = [];
 
@@ -228,191 +259,141 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     const paginationContainer = document.getElementById('qs-pagination-container');
 
     function getSelectedTag() {
-      const params = new URLSearchParams(window.location.search);
-      return (params.get('tag') || 'all').trim().toLowerCase();
+      const activePill = document.querySelector('.qs-filter-pill.border-zinc-900, .qs-filter-pill.dark\\:bg-\\[\\#00ffcc\\]');
+      return activePill ? (activePill.getAttribute('data-filter-tag') || 'all') : 'all';
     }
 
-    function getSelectedPage() {
-      const params = new URLSearchParams(window.location.search);
-      const p = parseInt(params.get('page') || '1', 10);
-      return isNaN(p) || p < 1 ? 1 : p;
+    function filterPosts(tag) {
+      tag = (tag || 'all').toLowerCase();
+      matchingItems = [];
+
+      postItems.forEach((card) => {
+        let cardTags = [];
+        try {
+          cardTags = JSON.parse(card.getAttribute('data-tags') || '[]');
+        } catch (e) {
+          cardTags = [];
+        }
+
+        const match = tag === 'all' || cardTags.includes(tag);
+        if (match) {
+          matchingItems.push(card);
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      const totalMatches = matchingItems.length;
+      if (statsCounter) {
+        statsCounter.textContent = `Toplam: ${totalMatches} yazı`;
+      }
+
+      if (totalMatches === 0) {
+        if (emptyState) emptyState.classList.remove('hidden');
+        if (paginationContainer) paginationContainer.classList.add('hidden');
+      } else {
+        if (emptyState) emptyState.classList.add('hidden');
+        if (paginationContainer) paginationContainer.classList.remove('hidden');
+      }
+
+      currentPage = 1;
+      renderPage();
     }
 
-    function renderPagination(totalPages) {
+    function renderPage() {
+      const totalMatches = matchingItems.length;
+      const totalPages = Math.max(1, Math.ceil(totalMatches / PAGE_SIZE));
+
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * PAGE_SIZE;
+      const endIndex = startIndex + PAGE_SIZE;
+
+      matchingItems.forEach((card, index) => {
+        if (index >= startIndex && index < endIndex) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (pageInfo) pageInfo.textContent = `Sayfa ${currentPage} / ${totalPages}`;
+      if (pageSummary) pageSummary.textContent = `Sayfa ${currentPage} / ${totalPages} (${totalMatches} yazı)`;
+
+      if (prevBtn) prevBtn.disabled = currentPage <= 1;
+      if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+
+      renderPageButtons(totalPages);
+    }
+
+    function renderPageButtons(totalPages) {
       if (!pageNumbersContainer) return;
       pageNumbersContainer.innerHTML = '';
 
-      if (totalPages <= 1) {
-        if (paginationContainer) paginationContainer.classList.add('hidden');
-        if (prevBtn) prevBtn.disabled = true;
-        if (nextBtn) nextBtn.disabled = true;
-        if (pageInfo) pageInfo.textContent = 'Sayfa 1 / 1';
-        return;
-      }
+      if (totalPages <= 1) return;
 
-      if (paginationContainer) paginationContainer.classList.remove('hidden');
-
-      // Prev Button State
-      if (prevBtn) prevBtn.disabled = currentPage <= 1;
-      if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
-      if (pageInfo) pageInfo.textContent = `Sayfa ${currentPage} / ${totalPages}`;
-      if (pageSummary) {
-        const start = (currentPage - 1) * PAGE_SIZE + 1;
-        const end = Math.min(currentPage * PAGE_SIZE, matchingItems.length);
-        pageSummary.textContent = `Gösterilen: ${start}-${end} / ${matchingItems.length} yazı (Sayfa ${currentPage}/${totalPages})`;
-      }
-
-      // Page numbers buttons
       for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.textContent = String(i);
-        const isActive = i === currentPage;
-        btn.className = isActive
-          ? 'px-3 py-1 rounded bg-zinc-900 text-white dark:bg-[#00ffcc] dark:text-zinc-950 font-bold border border-zinc-900 dark:border-[#00ffcc] cursor-default'
-          : 'px-3 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 cursor-pointer transition-colors';
-
+        btn.textContent = `[${i}]`;
+        btn.className = i === currentPage
+          ? 'px-2.5 py-1 rounded bg-zinc-900 dark:bg-[#00ffcc] text-white dark:text-zinc-950 font-bold border border-zinc-900 dark:border-[#00ffcc] cursor-pointer'
+          : 'px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700 cursor-pointer';
+        
         btn.addEventListener('click', () => {
-          if (i !== currentPage) {
-            currentPage = i;
-            updateDisplay(true, true);
-          }
+          currentPage = i;
+          renderPage();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         pageNumbersContainer.appendChild(btn);
       }
     }
 
-    function updateDisplay(updateUrl = true, scrollToTop = false) {
-      const normTag = getSelectedTag();
-      matchingItems = [];
-
-      postItems.forEach((item) => {
-        const itemTags = JSON.parse(item.getAttribute('data-tags') || '[]');
-        const matches = normTag === 'all' || itemTags.includes(normTag);
-
-        if (matches) {
-          matchingItems.push(item);
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-
-      const totalMatches = matchingItems.length;
-      const totalPages = Math.max(1, Math.ceil(totalMatches / PAGE_SIZE));
-
-      if (currentPage > totalPages) {
-        currentPage = totalPages;
-      }
-      if (currentPage < 1) {
-        currentPage = 1;
-      }
-
-      const startIndex = (currentPage - 1) * PAGE_SIZE;
-      const endIndex = startIndex + PAGE_SIZE;
-
-      matchingItems.forEach((item, index) => {
-        if (index >= startIndex && index < endIndex) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
-      });
-
-      // Update counters
-      if (statsCounter) {
-        statsCounter.textContent = normTag === 'all'
-          ? `Toplam: ${totalMatches} yazı`
-          : `#${normTag}: ${totalMatches} yazı`;
-      }
-
-      // Render Pagination
-      renderPagination(totalPages);
-
-      // Update pills styling
-      filterPills.forEach((pill) => {
-        const pillTag = pill.getAttribute('data-filter-tag');
-        const isActive = (pillTag === 'all' && normTag === 'all') || (pillTag === normTag);
-
-        if (isActive) {
-          pill.className = 'qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold';
-        } else {
-          pill.className = 'qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700/60 hover:text-zinc-950 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-600';
-        }
-      });
-
-      // Empty state
-      if (emptyState) {
-        if (totalMatches === 0) {
-          emptyState.classList.remove('hidden');
-        } else {
-          emptyState.classList.add('hidden');
-        }
-      }
-
-      // Update URL
-      if (updateUrl) {
-        const url = new URL(window.location.href);
-        if (normTag === 'all') {
-          url.searchParams.delete('tag');
-        } else {
-          url.searchParams.set('tag', normTag);
-        }
-
-        if (currentPage <= 1) {
-          url.searchParams.delete('page');
-        } else {
-          url.searchParams.set('page', String(currentPage));
-        }
-
-        window.history.pushState({ tag: normTag, page: currentPage }, '', url.toString());
-      }
-
-      if (scrollToTop) {
-        const grid = document.getElementById('qs-posts-grid');
-        if (grid) {
-          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    }
-
-    // Filter pills
     filterPills.forEach((pill) => {
       pill.addEventListener('click', () => {
-        const tag = pill.getAttribute('data-filter-tag');
-        const url = new URL(window.location.href);
-        if (tag === 'all') {
-          url.searchParams.delete('tag');
-        } else {
-          url.searchParams.set('tag', tag);
-        }
-        url.searchParams.delete('page');
-        window.history.pushState({}, '', url.toString());
-        currentPage = 1;
-        updateDisplay(true, false);
+        const tag = pill.getAttribute('data-filter-tag') || 'all';
+
+        filterPills.forEach((p) => {
+          p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700';
+        });
+
+        pill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold shadow-xs';
+
+        filterPosts(tag);
       });
     });
 
-    // Tag buttons on cards
     cardTagBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         const tag = btn.getAttribute('data-tag-button');
-        const url = new URL(window.location.href);
-        url.searchParams.set('tag', tag);
-        url.searchParams.delete('page');
-        window.history.pushState({}, '', url.toString());
-        currentPage = 1;
-        updateDisplay(true, true);
+        if (!tag) return;
+
+        const targetPill = document.querySelector(`[data-filter-tag="${tag}"]`);
+        if (targetPill) {
+          targetPill.click();
+        } else {
+          filterPosts(tag);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
 
-    // Prev / Next button listeners
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        const allPill = document.querySelector('[data-filter-tag="all"]');
+        if (allPill) allPill.click();
+      });
+    }
+
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
         if (currentPage > 1) {
           currentPage--;
-          updateDisplay(true, true);
+          renderPage();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
     }
@@ -422,32 +403,14 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         const totalPages = Math.ceil(matchingItems.length / PAGE_SIZE);
         if (currentPage < totalPages) {
           currentPage++;
-          updateDisplay(true, true);
+          renderPage();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
     }
 
-    // Reset button
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        const url = new URL(window.location.href);
-        url.searchParams.delete('tag');
-        url.searchParams.delete('page');
-        window.history.pushState({}, '', url.toString());
-        currentPage = 1;
-        updateDisplay(true, false);
-      });
-    }
-
-    // Popstate (browser back/forward)
-    window.addEventListener('popstate', () => {
-      currentPage = getSelectedPage();
-      updateDisplay(false, false);
-    });
-
     // Initial run
-    currentPage = getSelectedPage();
-    updateDisplay(false, false);
+    filterPosts('all');
   }
 
   if (document.readyState === 'loading') {

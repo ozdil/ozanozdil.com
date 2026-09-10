@@ -132,73 +132,102 @@ const repositories = [
   maxWidthClass="max-w-[1720px]"
 >
   <div class="py-2 sm:py-4">
-    <!-- Header: Omarchy / QuickShell Style -->
+    <!-- Header: QuickShell Root Scope Header -->
     <header class="pb-8 text-center">
-      <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase sm:text-sm">
-        Projeler
-      </p>
-      <h1 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 dark:bg-zinc-900 border border-sky-200 dark:border-zinc-800 text-sky-700 dark:text-[#00ffcc] font-mono text-[11px] font-semibold mb-3">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Scope &#123; id: repositoryHub; totalRepos: {repositories.length} &#125;</span>
+      </div>
+      <h1 class="mt-2 text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
         Açık Kaynak Projeler
       </h1>
-      <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
-        Linux, sistem araçları ve açık kaynak çalışmalarım.
+      <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
+        Linux, sistem araçları, C++/QML kabuk bileşenleri ve açık kaynak çalışmalarım.
       </p>
     </header>
 
-    <!-- Services Grid -->
+    <!-- Services Grid: QML ProjectItem components -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
       {repositories.map((repo) => (
-        <article class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 transition-all flex flex-col justify-between group overflow-hidden shadow-2xs hover:shadow-md">
+        <article class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 transition-all flex flex-col justify-between group overflow-hidden shadow-2xs hover:shadow-md font-mono text-xs select-none">
           <!-- QuickShell Card Topbar -->
           <div class="px-3.5 py-1.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[10px]">
-            <div class="flex items-center gap-1.5 opacity-80">
+            <div class="flex items-center gap-1.5 opacity-80" aria-hidden="true">
               <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
               <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
               <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-              <span class="text-zinc-500 dark:text-zinc-400 ml-1">qs://pkg/{repo.name}.qml</span>
+              <span class="text-purple-600 dark:text-purple-400 font-bold ml-1">ProjectItem</span>
+              <span class="text-zinc-400">&#123;</span>
             </div>
             <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800/80 text-zinc-600 dark:text-[#00ffcc] font-semibold text-[9px] border border-zinc-300/40 dark:border-[#00ffcc]/20">
               {repo.lang}
             </span>
           </div>
 
-          <div class="p-5 flex-1 flex flex-col justify-between gap-3">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="font-sans font-semibold text-base text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors truncate">
-                  {repo.name}
+          <!-- Card Content with QML Property Bindings -->
+          <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2 text-[11px] pb-1 border-b border-zinc-100 dark:border-zinc-800/60">
+                <div>
+                  <span class="text-sky-600 dark:text-sky-400">id</span>:
+                  <span class="text-amber-600 dark:text-amber-400 font-medium">pkg_{repo.name.replace(/[^a-zA-Z0-9]/g, '_')}</span>
+                </div>
+                <span class="text-emerald-700 dark:text-emerald-400 text-[10px]">
+                  status: "active"
                 </span>
               </div>
-              <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
-                {repo.desc}
-              </p>
-            </div>
 
-            <div class="space-y-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-              <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-                {repo.tags.map((tag) => (
-                  <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-500 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-800">
-                    #{tag}
-                  </span>
-                ))}
+              <div>
+                <span class="text-sky-600 dark:text-sky-400 text-[11px]">name</span>:
+                <h2 class="font-sans font-bold text-base text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors truncate mt-0.5">
+                  "{repo.name}"
+                </h2>
               </div>
 
-              <div class="flex items-center justify-between font-mono text-[11px]">
-                <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-[10px]">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                  <span>active</span>
-                </span>
-                <a
-                  href={repo.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors"
-                >
-                  <span>git repo</span>
-                  <span>→</span>
-                </a>
+              <div>
+                <span class="text-sky-600 dark:text-sky-400 text-[11px]">description</span>:
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans mt-0.5 bg-zinc-50/60 dark:bg-[#101319] p-2 rounded border border-zinc-100 dark:border-zinc-800/60">
+                  "{repo.desc}"
+                </p>
+              </div>
+
+              <!-- Tags Array -->
+              <div class="pt-1 font-mono text-[10px]">
+                <span class="text-sky-600 dark:text-sky-400">tags</span>:
+                <span class="text-zinc-400">[</span>
+                <div class="inline-flex flex-wrap gap-1 my-1">
+                  {repo.tags.map((tag) => (
+                    <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-emerald-700 dark:text-emerald-400 border border-zinc-200/60 dark:border-zinc-800">
+                      "{tag}"
+                    </span>
+                  ))}
+                </div>
+                <span class="text-zinc-400">]</span>
               </div>
             </div>
+
+            <!-- ActionTrigger Button -->
+            <div class="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
+              <div class="flex items-center gap-1">
+                <span class="text-purple-600 dark:text-purple-400 font-semibold">ActionTrigger</span>
+                <span class="text-zinc-400">&#123;</span>
+              </div>
+
+              <a
+                href={repo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-50 dark:bg-[#00ffcc]/10 text-sky-700 dark:text-[#00ffcc] hover:bg-sky-100 dark:hover:bg-[#00ffcc]/20 border border-sky-200/60 dark:border-[#00ffcc]/30 font-semibold transition-all group-hover:border-[#00ffcc] shadow-2xs"
+              >
+                <span class="text-zinc-400 text-[10px]">onClicked:</span>
+                <span>qs.openRepo()</span>
+                <span class="text-xs">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="px-3.5 py-1 bg-zinc-50/60 dark:bg-[#080a0d]/60 border-t border-zinc-100 dark:border-zinc-800/60 text-zinc-400 font-mono text-[10px] text-right">
+            &#125;
           </div>
         </article>
       ))}
