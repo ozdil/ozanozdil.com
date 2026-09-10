@@ -140,47 +140,59 @@ const repositories = [
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {repositories.map((repo) => (
-        <div class="p-5 rounded-lg border border-zinc-200/80 dark:border-zinc-800 bg-white dark:bg-[#0e1117] hover:border-sky-500/50 dark:hover:border-[#00ffcc]/50 transition-all flex flex-col justify-between group">
-          <div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <span class="font-sans font-semibold text-base text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors truncate">
-                {repo.name}
-              </span>
-              <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
-                {repo.lang}
-              </span>
+        <article class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 transition-all flex flex-col justify-between group overflow-hidden shadow-2xs hover:shadow-md">
+          <!-- QuickShell Card Topbar -->
+          <div class="px-3.5 py-1.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[10px]">
+            <div class="flex items-center gap-1.5 opacity-80">
+              <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
+              <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+              <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+              <span class="text-zinc-500 dark:text-zinc-400 ml-1">qs://pkg/{repo.name}.qml</span>
             </div>
-            <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
-              {repo.desc}
-            </p>
+            <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800/80 text-zinc-600 dark:text-[#00ffcc] font-semibold text-[9px] border border-zinc-300/40 dark:border-[#00ffcc]/20">
+              {repo.lang}
+            </span>
           </div>
 
-          <div class="space-y-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
-            <div class="flex flex-wrap gap-1 font-mono text-[10px]">
-              {repo.tags.map((tag) => (
-                <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-500 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-800">
-                  #{tag}
+          <div class="p-5 flex-1 flex flex-col justify-between gap-3">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="font-sans font-semibold text-base text-zinc-950 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors truncate">
+                  {repo.name}
                 </span>
-              ))}
+              </div>
+              <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
+                {repo.desc}
+              </p>
             </div>
 
-            <div class="flex items-center justify-between font-mono text-[11px]">
-              <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-[10px]">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>active</span>
-              </span>
-              <a
-                href={repo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors"
-              >
-                <span>git repo</span>
-                <span>→</span>
-              </a>
+            <div class="space-y-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
+              <div class="flex flex-wrap gap-1 font-mono text-[10px]">
+                {repo.tags.map((tag) => (
+                  <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/60 text-zinc-500 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-800">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+
+              <div class="flex items-center justify-between font-mono text-[11px]">
+                <span class="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 text-[10px]">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>active</span>
+                </span>
+                <a
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-xs text-zinc-600 dark:text-zinc-400 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors"
+                >
+                  <span>git repo</span>
+                  <span>→</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>

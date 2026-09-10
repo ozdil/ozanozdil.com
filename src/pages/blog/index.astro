@@ -63,45 +63,66 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     </div>
 
     <!-- Articles List: Pure Omarchy / QuickShell Style -->
-    <ul id="qs-posts-list" class="divide-y divide-zinc-200 dark:divide-zinc-800 border-t border-zinc-200 dark:border-zinc-800">
+    <div id="qs-posts-list" class="space-y-4 pt-2">
       {sortedPosts.map((post) => (
-        <li
-          class="qs-post-item transition-opacity duration-150"
+        <article
+          class="qs-post-item group relative rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 bg-white dark:bg-[#0c0e12] overflow-hidden transition-all duration-200 shadow-2xs hover:shadow-md"
           data-tags={JSON.stringify((post.data.tags || []).map((t) => t.toLowerCase()))}
         >
-          <div class="py-6 flex flex-col gap-2">
-            <!-- Date & Reading Info -->
-            <time datetime={post.data.pubDate.toISOString()} class="font-mono text-xs text-zinc-500 dark:text-zinc-400">
-              {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </time>
+          <!-- QuickShell QML Header Strip -->
+          <div class="px-4 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
+            <div class="flex items-center gap-2">
+              <span class="flex items-center gap-1.5 opacity-80">
+                <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
+                <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+              </span>
+              <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[11px] ml-1 truncate">
+                qs://blog/{post.slug}.qml
+              </span>
+            </div>
+            <div class="flex items-center gap-2 flex-shrink-0">
+              <time datetime={post.data.pubDate.toISOString()} class="text-zinc-400 dark:text-zinc-500 text-[11px]">
+                {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+              </time>
+              <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800/80 text-zinc-600 dark:text-[#00ffcc] text-[10px] border border-zinc-300/40 dark:border-[#00ffcc]/30 font-semibold">
+                QML
+              </span>
+            </div>
+          </div>
 
-            <!-- Title as Primary Link -->
+          <!-- Card Body -->
+          <div class="p-5 flex flex-col gap-3">
             <a
               href={`/blog/${post.slug}`}
-              class="group flex items-baseline gap-2 font-sans text-lg sm:text-xl font-medium text-zinc-950 dark:text-zinc-100 hover:text-sky-600 dark:hover:text-[#00ffcc] transition-colors"
+              class="flex items-start justify-between gap-3 group/link"
             >
-              <span>{post.data.title}</span>
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4 shrink-0 self-center text-zinc-400 dark:text-zinc-500 transition-transform duration-150 ease-out group-hover:translate-x-1 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc]">
-                <path d="M14 5.75L20.25 12L14 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
-                <path d="M19.5 12H3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" />
-              </svg>
+              <h2 class="text-base sm:text-lg font-semibold text-zinc-950 dark:text-zinc-100 font-sans group-hover/link:text-sky-600 dark:group-hover/link:text-[#00ffcc] transition-colors leading-snug">
+                {post.data.title}
+              </h2>
+              <span class="shrink-0 inline-flex items-center gap-1 font-mono text-xs text-zinc-400 dark:text-zinc-500 group-hover/link:text-sky-600 dark:group-hover/link:text-[#00ffcc] transition-all group-hover/link:translate-x-0.5">
+                <span>[Aç]</span>
+                <svg viewBox="0 0 24 24" fill="none" class="w-3.5 h-3.5" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </a>
 
-            <!-- Description / Preview -->
             {post.data.description && (
-              <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              <p class="text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-sans">
                 {post.data.description}
               </p>
             )}
 
-            <!-- Clickable Card Tags -->
+            <!-- Clickable Card Tags as QML Properties -->
             {post.data.tags && post.data.tags.length > 0 && (
-              <div class="flex flex-wrap gap-1.5 mt-1 font-mono text-[10px]">
+              <div class="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[11px]">
+                <span class="text-zinc-400 dark:text-zinc-600 text-[10px] mr-0.5">tags:</span>
                 {post.data.tags.map((tag) => (
                   <button
                     type="button"
                     data-tag-button={tag.toLowerCase()}
-                    class="px-1.5 py-0.5 rounded bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/80 dark:hover:bg-zinc-700/80 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] border border-zinc-200/80 dark:border-zinc-800 transition-colors cursor-pointer"
+                    class="px-2 py-0.5 rounded bg-zinc-100 hover:bg-sky-50 dark:bg-zinc-800/80 dark:hover:bg-[#00ffcc]/10 text-zinc-600 dark:text-zinc-400 hover:text-sky-600 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 hover:border-sky-300 dark:hover:border-[#00ffcc]/40 transition-colors cursor-pointer"
                   >
                     #{tag}
                   </button>
@@ -109,9 +130,20 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
               </div>
             )}
           </div>
-        </li>
+
+          <!-- Bottom Telemetry Bar -->
+          <div class="px-4 py-1.5 bg-zinc-50/60 dark:bg-[#080a0d]/60 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between font-mono text-[10px] text-zinc-500 dark:text-zinc-500">
+            <span class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span>Scope: Wayland Layer Shell</span>
+            </span>
+            <span class="text-zinc-400 dark:text-zinc-600 font-mono">
+              exec(omarchy.read)
+            </span>
+          </div>
+        </article>
       ))}
-    </ul>
+    </div>
   </div>
 </BaseLayout>
 

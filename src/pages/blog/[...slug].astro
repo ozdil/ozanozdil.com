@@ -40,29 +40,50 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
   <!-- Reading Progress Bar -->
   <div id="qs-read-progress-bar" class="fixed top-14 sm:top-15 left-0 h-[2px] bg-gradient-to-r from-sky-500 via-[#00ffcc] to-emerald-400 z-50 transition-all duration-75 w-0 pointer-events-none"></div>
 
-  <article class="py-2 sm:py-4">
-    <!-- Top Navigation / Back -->
-    <div class="flex items-center justify-between gap-2 mb-6">
-      <a
-        href="/blog"
-        class="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-[#00ffcc] transition-colors"
-      >
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
-          <path d="M10 5.75L3.75 12L10 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-          <path d="M4.5 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-        </svg>
-        <span>Yazılar & Notlar</span>
-      </a>
+  <div class="py-2 sm:py-4">
+    <!-- QuickShell Reader Window Frame -->
+    <div class="rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] overflow-hidden shadow-2xs">
+      <!-- QuickShell Window Titlebar -->
+      <div class="px-4 py-2.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
+        <div class="flex items-center gap-2">
+          <span class="flex items-center gap-1.5 opacity-80">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          </span>
+          <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[11px] ml-1">
+            qs://reader/{post.slug}.qml
+          </span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-zinc-400 dark:text-zinc-500 text-[10px] hidden sm:inline font-mono">
+            Scope: Wayland Layer Shell
+          </span>
+          <button
+            id="qs-copy-btn"
+            type="button"
+            class="inline-flex items-center gap-1 font-mono text-[11px] text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors cursor-pointer"
+            title="Bağlantıyı Kopyala"
+          >
+            <span>[bağlantıyı kopyala]</span>
+          </button>
+        </div>
+      </div>
 
-      <button
-        id="qs-copy-btn"
-        type="button"
-        class="inline-flex items-center gap-1 font-mono text-[11px] text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors cursor-pointer"
-        title="Bağlantıyı Kopyala"
-      >
-        <span>[bağlantıyı kopyala]</span>
-      </button>
-    </div>
+      <article class="p-6 sm:p-8">
+        <!-- Top Navigation / Back -->
+        <div class="flex items-center justify-between gap-2 mb-6">
+          <a
+            href="/blog"
+            class="inline-flex items-center gap-1.5 font-mono text-xs text-zinc-500 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-[#00ffcc] transition-colors"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
+              <path d="M10 5.75L3.75 12L10 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+              <path d="M4.5 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+            <span>← Tüm Yazılar & Notlar</span>
+          </a>
+        </div>
 
     <!-- Article Header -->
     <header class="pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
@@ -204,8 +225,10 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
           )}
         </div>
       )}
-    </footer>
-  </article>
+      </footer>
+    </article>
+  </div>
+</div>
 </BaseLayout>
 
 <script is:inline>
