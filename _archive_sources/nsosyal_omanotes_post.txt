@@ -1,0 +1,22 @@
+📝 Omarchy Linux için geliştirdiğim yerel not ve görev yöneticisi OmaNotes v1.0.0 resmi olarak yayında! 🚀🐧
+
+Google Keep pratikliğini ve renkli kart ergonomisini; Quickshell Wayland masaüstü arayüzü, Rust çekirdeği ve Zero-Knowledge E2EE şifreleme mimarisiyle buluşturduk:
+
+✨ Öne Çıkan Özellikler:
+• 🎨 Google Keep Tarzı Kartlar: Canlı renk kodlaması, tek tıkla üstü çizilen kontrol listeleri (to-do) ve tamamlanan maddeleri anında temizleme.
+• 🖱️ Klavyesiz (Mouse & Touch-First) Ergonomi: Panodaki metni tek tıkla nota dönüştürme (wl-paste), hazır şablonlar (Alışveriş, Günlük Öncelikler, Fikir Karalama) ve renk filtre çipleriyle sıfır yazmayla hızlı gezinme.
+• 🔒 Zero-Knowledge Uçtan Uca Şifreleme: PBKDF2-HMAC-SHA256 (10.000 iterasyon) ve AES-256-GCM AEAD ile notlarınız sadece cihazınızda şifrelenir; buluta sıfır düz metin sızar.
+• ☁️ Google Drive & Git Afet Kurtarma: Google Drive (rclone) veya kendi özel Git deponuza tek tıkla şifreli senkronizasyon ve tek tıkla geri yükleme (--pull).
+• 🛡️ Katı Omarchy Güvenlik Mimarisi: İzole süreç grupları, kilitlenmeyen I/O, atomik 0600 dosya saklama, symlink reddi ve 15/15 otomatik test güvencesi.
+
+Kurulum (Omarchy Linux):
+omarchy plugin add https://github.com/ozdil/omarchy-omanotes.git
+
+🔗 GitHub: https://github.com/ozdil/omarchy-omanotes
+📦 v1.0.0 Sürümü: https://github.com/ozdil/omarchy-omanotes/releases/tag/v1.0.0
+📖 Mimariyi ve Güvenlik Detaylarını Anlatan Blog Yazım:
+👉 https://ozanozdil.com/blog/omarchy-linux-icin-omanotes-google-keep-ve-e2ee-not-yoneticisi
+
+Kullanan ve yıldızlayan ⭐ herkese teşekkürler!
+
+#Omarchy #Linux #OmaNotes #GoogleKeep #AçıkKaynak #Quickshell #Rust #SiberGüvenlik #E2EE #Verimlilik #ArchLinux #NSosyal

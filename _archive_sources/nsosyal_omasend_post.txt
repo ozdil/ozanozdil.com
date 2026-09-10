@@ -1,0 +1,22 @@
+🚀 Omarchy Linux için geliştirdiğim yerel P2P dosya ve pano aktarım köprüsü OmaSend, şimdi resmi Android uygulamasıyla Google Play'de kapalı test aşamasında! 📱💻⚡
+
+Apple AirDrop ve LocalSend mantığında çalışan OmaSend, Omarchy Linux masaüstü ile Android telefonlar arasında ışık hızında yerel ağ bağlantısı kuruyor:
+
+✨ Öne Çıkan Özellikler:
+• 🔒 Sıfır Bulut, Sıfır İzleme: Dosyalarınız üçüncü taraf sunuculara gitmez; doğrudan yerel Wi-Fi soketleri üzerinden aktarılır.
+• 📋 Canlı Wayland & Android Pano Köprüsü: Linux panonuzu tek tıkla telefona, telefondaki metni anında masaüstü panonuza senkronize edin.
+• 📲 Sistem Paylaşım Menüsü: Galeriden, WhatsApp'tan veya Dosyalar uygulamasından "Paylaş -> OmaSend" ile tek tıkla PC'ye aktarın.
+• ⚡ Sıfır Yapılandırma Eş Keşfi: Port 53317 UDP sinyalleriyle cihazları saniyeler içinde otomatik algılar.
+• 🎨 Cyber Dark AMOLED & Jetpack Compose: Omarchy piksel estetiğine sadık, modern ve hafif mobil arayüz.
+
+🛡️ Google Play Kapalı Testine Katılmak İçin (3 Adım):
+1️⃣ Test Grubuna Katılın: https://groups.google.com/g/omasend-testers
+2️⃣ Play Store Testini Onaylayın: https://play.google.com/apps/testing/io.omarchy.omasend
+3️⃣ Google Play'den İndirin: https://play.google.com/store/apps/details?id=io.omarchy.omasend
+
+💻 Linux Eklentisi Deposu: https://github.com/ozdil/omarchy-omasend
+📱 Android Kaynak Kodu: https://github.com/ozdil/omasend-android
+
+Test edip geri bildirim paylaşan ve depolara yıldız ⭐ bırakan herkese şimdiden teşekkürler!
+
+#Omarchy #Linux #Android #AçıkKaynak #P2P #AirDrop #Gizlilik #JetpackCompose #Rust #Hyprland #NSosyal
