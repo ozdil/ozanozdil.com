@@ -58,7 +58,7 @@ const imageGallerySchema = {
   description="Kastamonu tarihi ahşap mimarisi, çivisiz camiler (UNESCO), Ağlı Kalesi ve kadim coğrafi rotalar. Fujifilm GFX orta format sistemiyle çekilmiş fotoğraf koleksiyonu."
   currentPath="/galeri"
   image="/gallery/agli-kalesi/01_55199063062.webp"
-  maxWidthClass="max-w-6xl"
+  maxWidthClass="max-w-[1720px]"
 >
   <!-- Schema.org ImageGallery JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(imageGallerySchema)} />
@@ -166,7 +166,7 @@ const imageGallerySchema = {
 
     <!-- VIEW 1: ALBUMS / LOCATIONS GRID (QuickShell Window Cards) -->
     <div id="album-view" class="space-y-10">
-      <div id="albums-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div id="albums-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
         {albums.map((album, idx) => {
           const albumCameras = Array.from(new Set(album.photos.map((p) => p.exif.camera))).join(', ');
           const albumLenses = Array.from(new Set(album.photos.map((p) => p.exif.lens.trim()))).join(', ');

@@ -22,6 +22,8 @@ const { Content } = await post.render();
 
 const wordCount = post.body ? post.body.split(/\s+/).filter(Boolean).length : 0;
 const readingTime = Math.max(1, Math.ceil(wordCount / 180));
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://ozanozdil.com';
+const postUrl = `${siteUrl}/blog/${post.slug}`;
 ---
 
 <BaseLayout
@@ -30,7 +32,7 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
   image={post.data.heroImage || '/avatar.jpg'}
   currentPath="/blog"
   type="article"
-  maxWidthClass="max-w-3xl"
+  maxWidthClass="max-w-[1720px]"
   article={{
     pubDate: post.data.pubDate,
     updatedDate: post.data.updatedDate,
@@ -41,21 +43,21 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
   <div id="qs-read-progress-bar" class="fixed top-14 sm:top-15 left-0 h-[2px] bg-gradient-to-r from-sky-500 via-[#00ffcc] to-emerald-400 z-50 transition-all duration-75 w-0 pointer-events-none"></div>
 
   <div class="py-2 sm:py-4">
-    <!-- QuickShell Reader Window Frame -->
+    <!-- QuickShell Reader Window Frame: Full Width Matching /blog/ -->
     <div class="rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] overflow-hidden shadow-2xs">
       <!-- QuickShell Window Titlebar -->
       <div class="px-4 py-2.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-        <div class="flex items-center gap-2">
-          <span class="flex items-center gap-1.5 opacity-80">
+        <div class="flex items-center gap-2 min-w-0 pr-2">
+          <span class="flex items-center gap-1.5 opacity-80 flex-shrink-0">
             <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
             <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
           </span>
-          <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[11px] ml-1">
+          <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[11px] ml-1 truncate">
             qs://reader/{post.slug}.qml
           </span>
         </div>
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3 flex-shrink-0">
           <span class="text-zinc-400 dark:text-zinc-500 text-[10px] hidden sm:inline font-mono">
             Scope: Wayland Layer Shell
           </span>
@@ -70,7 +72,7 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
         </div>
       </div>
 
-      <article class="p-6 sm:p-8">
+      <article class="p-6 sm:p-10 lg:p-12">
         <!-- Top Navigation / Back -->
         <div class="flex items-center justify-between gap-2 mb-6">
           <a
@@ -81,154 +83,263 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
               <path d="M10 5.75L3.75 12L10 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
               <path d="M4.5 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
             </svg>
-            <span>← Tüm Yazılar & Notlar</span>
+            <span>← Tüm Yazılar Panosu</span>
           </a>
         </div>
 
-    <!-- Article Header -->
-    <header class="pb-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
-      <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400">
-        <span>By</span>
-        <a href="/" class="text-zinc-800 dark:text-zinc-200 font-medium hover:underline">
-          Ozan Özdil
-        </a>
-        <span>on</span>
-        <time datetime={post.data.pubDate.toISOString()}>
-          {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
-        </time>
-        <span>•</span>
-        <span>~{readingTime} dk okuma</span>
-        {post.data.updatedDate && (
-          <>
+        <!-- Article Header -->
+        <header class="pb-8 border-b border-zinc-200/80 dark:border-zinc-800/80">
+          <div class="flex flex-wrap items-center gap-2 font-mono text-xs text-zinc-500 dark:text-zinc-400">
+            <span>By</span>
+            <a href="/" class="text-zinc-800 dark:text-zinc-200 font-medium hover:underline">
+              Ozan Özdil
+            </a>
+            <span>on</span>
+            <time datetime={post.data.pubDate.toISOString()}>
+              {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </time>
             <span>•</span>
-            <span class="text-zinc-400 dark:text-zinc-500">
-              Rev: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+            <span>~{readingTime} dk okuma</span>
+            {post.data.updatedDate && (
+              <>
+                <span>•</span>
+                <span class="text-zinc-400 dark:text-zinc-500">
+                  Rev: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+                </span>
+              </>
+            )}
+          </div>
+
+          <h1 class="mt-4 text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans leading-tight">
+            {post.data.title}
+          </h1>
+
+          {post.data.description && (
+            <p class="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-5xl">
+              {post.data.description}
+            </p>
+          )}
+
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="mt-5 flex flex-wrap gap-1.5 font-mono text-xs">
+              {post.data.tags.map((tag) => (
+                <a
+                  href={`/blog?tag=${encodeURIComponent(tag.toLowerCase())}`}
+                  class="px-2.5 py-1 rounded bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/70 dark:hover:bg-zinc-700/80 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 transition-colors text-xs"
+                  title={`Etiket: #${tag}`}
+                >
+                  #{tag}
+                </a>
+              ))}
+            </div>
+          )}
+
+          {post.data.heroImage && (
+            <div class="mt-8 rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-900/50 max-h-[500px]">
+              <img
+                src={post.data.heroImage}
+                alt={post.data.title}
+                class="w-full h-auto object-cover max-h-[500px]"
+                loading="eager"
+              />
+            </div>
+          )}
+        </header>
+
+        <!-- Rendered Markdown Body -->
+        <div class="mt-10 markdown-body leading-relaxed max-w-none">
+          <Content />
+        </div>
+
+        <!-- Social Media Share Section (Sosyal Medyada Paylaş) -->
+        <div class="mt-12 p-5 sm:p-6 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-50/80 dark:bg-[#10131a] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-mono text-xs shadow-2xs">
+          <div class="flex items-center gap-2.5">
+            <span class="flex items-center justify-center w-6 h-6 rounded-md bg-sky-100 dark:bg-zinc-800 text-sky-600 dark:text-[#00ffcc]">
+              <svg viewBox="0 0 24 24" fill="none" class="w-3.5 h-3.5" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"/>
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/>
+                <line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+              </svg>
             </span>
-          </>
-        )}
-      </div>
+            <div>
+              <span class="text-zinc-900 dark:text-zinc-100 font-semibold block text-sm sm:text-xs">
+                Bu Yazıyı Paylaş
+              </span>
+              <span class="text-[11px] text-zinc-500 dark:text-zinc-400 hidden sm:inline">
+                Faydalı bulduysanız ağınızla paylaşabilirsiniz.
+              </span>
+            </div>
+          </div>
 
-      <h1 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans leading-tight">
-        {post.data.title}
-      </h1>
-
-      {post.data.description && (
-        <p class="mt-3 text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans">
-          {post.data.description}
-        </p>
-      )}
-
-      {post.data.tags && post.data.tags.length > 0 && (
-        <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-xs">
-          {post.data.tags.map((tag) => (
+          <div class="flex flex-wrap items-center gap-1.5 w-full md:w-auto">
+            <!-- X (Twitter) -->
             <a
-              href={`/blog?tag=${encodeURIComponent(tag.toLowerCase())}`}
-              class="px-2 py-0.5 rounded bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/70 dark:hover:bg-zinc-700/80 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 transition-colors text-[11px]"
-              title={`Etiket: #${tag}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(postUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              title="X'te Paylaş"
             >
-              #{tag}
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span>X</span>
             </a>
-          ))}
-        </div>
-      )}
 
-      {post.data.heroImage && (
-        <div class="mt-6 rounded-xl overflow-hidden border border-zinc-200/80 dark:border-zinc-800 bg-zinc-900/50">
-          <img
-            src={post.data.heroImage}
-            alt={post.data.title}
-            class="w-full h-auto object-cover max-h-96"
-            loading="eager"
-          />
-        </div>
-      )}
-    </header>
+            <!-- LinkedIn -->
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              title="LinkedIn'de Paylaş"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
 
-    <!-- Rendered Markdown Body -->
-    <div class="mt-8 markdown-body leading-relaxed">
-      <Content />
+            <!-- WhatsApp -->
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.data.title + ' — ' + postUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              title="WhatsApp ile Paylaş"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.71 4.3 3.79.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.18-.47-.3z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <!-- Telegram -->
+            <a
+              href={`https://t.me/share/url?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(post.data.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-sky-500 dark:hover:text-sky-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              title="Telegram ile Paylaş"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+              <span>Telegram</span>
+            </a>
+
+            <!-- Reddit -->
+            <a
+              href={`https://reddit.com/submit?url=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(post.data.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-orange-600 dark:hover:text-orange-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              title="Reddit'te Paylaş"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                <path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm5.01 4.74c.6 0 1.09.49 1.09 1.09a1.09 1.09 0 0 1-1.09 1.09c-.4 0-.75-.22-.94-.55l-2.02.43-.72 3.39c1.07.09 2.05.47 2.79 1.05.27-.24.63-.39 1.03-.39.87 0 1.57.7 1.57 1.57 0 .61-.35 1.13-.86 1.39.03.24.05.48.05.73 0 2.4-2.73 4.35-6.1 4.35s-6.1-1.95-6.1-4.35c0-.25.02-.49.05-.73a1.57 1.57 0 0 1-.86-1.39c0-.87.7-1.57 1.57-1.57.4 0 .76.15 1.03.39.74-.58 1.72-.96 2.79-1.05l.83-3.92 2.56-.54c.14.37.5.64.93.64zm-5.01 11.53c1.55 0 2.56-.83 2.65-.92.1-.1.1-.26 0-.36-.1-.1-.26-.1-.36 0-.04.04-.92.74-2.29.74s-2.25-.7-2.29-.74a.256.256 0 0 0-.36 0 .256.256 0 0 0 0 .36c.09.09 1.1 0.92 2.65 0.92zm-2.5-3.32a.96.96 0 1 0 0-1.92.96.96 0 0 0 0 1.92zm5 0a.96.96 0 1 0 0-1.92.96.96 0 0 0 0 1.92z"/>
+              </svg>
+              <span>Reddit</span>
+            </a>
+
+            <!-- Copy Link Button -->
+            <button
+              id="qs-share-copy-btn"
+              type="button"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 text-white dark:bg-[#00ffcc] dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-[#33ffdd] border border-zinc-900 dark:border-[#00ffcc] transition-all font-semibold text-[11px] cursor-pointer ml-auto sm:ml-0"
+              title="Bağlantıyı Kopyala"
+            >
+              <svg viewBox="0 0 24 24" fill="none" class="w-3 h-3" stroke="currentColor" stroke-width="2">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span id="qs-share-copy-text">Kopyala</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Article Navigation & Footer -->
+        <footer class="mt-12 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs">
+            <a
+              href="/blog"
+              class="inline-flex items-center gap-1.5 text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-[#00ffcc] transition-colors"
+            >
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
+                <path d="M10 5.75L3.75 12L10 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+                <path d="M4.5 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+              </svg>
+              <span>← Yazılar Panosuna Dön</span>
+            </a>
+
+            <div class="flex items-center gap-4 text-zinc-400 dark:text-zinc-500">
+              <a
+                href="https://nsosyal.com/ozanozdil"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
+              >
+                [nsosyal]
+              </a>
+              <a
+                href="https://github.com/ozdil"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
+              >
+                [github]
+              </a>
+              <a
+                href="#top"
+                class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
+              >
+                [yukarı ↑]
+              </a>
+            </div>
+          </div>
+
+          <!-- Prev / Next Articles -->
+          {(prevPost || nextPost) && (
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-zinc-200/60 dark:border-zinc-800/60">
+              {prevPost ? (
+                <a
+                  href={`/blog/${prevPost.slug}`}
+                  class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-zinc-50/50 dark:bg-[#0e1117] transition-all group flex flex-col justify-between"
+                >
+                  <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
+                    ← Önceki Yazı
+                  </span>
+                  <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
+                    {prevPost.data.title}
+                  </span>
+                </a>
+              ) : (
+                <div></div>
+              )}
+
+              {nextPost ? (
+                <a
+                  href={`/blog/${nextPost.slug}`}
+                  class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-zinc-50/50 dark:bg-[#0e1117] transition-all group flex flex-col justify-between sm:text-right"
+                >
+                  <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
+                    Sonraki Yazı →
+                  </span>
+                  <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
+                    {nextPost.data.title}
+                  </span>
+                </a>
+              ) : (
+                <div></div>
+              )}
+            </div>
+          )}
+        </footer>
+      </article>
     </div>
-
-    <!-- Article Navigation & Footer -->
-    <footer class="mt-12 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs">
-        <a
-          href="/blog"
-          class="inline-flex items-center gap-1.5 text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-[#00ffcc] transition-colors"
-        >
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="w-4 h-4">
-            <path d="M10 5.75L3.75 12L10 18.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-            <path d="M4.5 12H20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
-          </svg>
-          <span>Tüm Yazılar</span>
-        </a>
-
-        <div class="flex items-center gap-4 text-zinc-400 dark:text-zinc-500">
-          <a
-            href="https://nsosyal.com/ozanozdil"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
-          >
-            [nsosyal]
-          </a>
-          <a
-            href="https://github.com/ozdil"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
-          >
-            [github]
-          </a>
-          <a
-            href="#top"
-            class="hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors"
-          >
-            [yukarı ↑]
-          </a>
-        </div>
-      </div>
-
-      <!-- Prev / Next Articles -->
-      {(prevPost || nextPost) && (
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-zinc-200/60 dark:border-zinc-800/60">
-          {prevPost ? (
-            <a
-              href={`/blog/${prevPost.slug}`}
-              class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-zinc-50/50 dark:bg-[#0e1117] transition-all group flex flex-col justify-between"
-            >
-              <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
-                ← Önceki Yazı
-              </span>
-              <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
-                {prevPost.data.title}
-              </span>
-            </a>
-          ) : (
-            <div></div>
-          )}
-
-          {nextPost ? (
-            <a
-              href={`/blog/${nextPost.slug}`}
-              class="p-4 rounded-lg border border-zinc-200/80 dark:border-zinc-800 hover:border-sky-500 dark:hover:border-[#00ffcc]/60 bg-zinc-50/50 dark:bg-[#0e1117] transition-all group flex flex-col justify-between sm:text-right"
-            >
-              <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
-                Sonraki Yazı →
-              </span>
-              <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
-                {nextPost.data.title}
-              </span>
-            </a>
-          ) : (
-            <div></div>
-          )}
-        </div>
-      )}
-      </footer>
-    </article>
   </div>
-</div>
 </BaseLayout>
 
 <script is:inline>
@@ -246,7 +357,7 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
   window.addEventListener('scroll', updateReadingProgress, { passive: true });
   updateReadingProgress();
 
-  // Copy Link Action
+  // Copy Link Action (Top Bar)
   const copyBtn = document.getElementById('qs-copy-btn');
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {
@@ -258,6 +369,26 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 180));
         setTimeout(() => {
           copyBtn.textContent = orig;
           copyBtn.classList.remove('text-emerald-500');
+        }, 2000);
+      } catch (e) {
+        console.error('Kopyalama hatası:', e);
+      }
+    });
+  }
+
+  // Copy Link Action (Share Widget)
+  const shareCopyBtn = document.getElementById('qs-share-copy-btn');
+  const shareCopyText = document.getElementById('qs-share-copy-text');
+  if (shareCopyBtn && shareCopyText) {
+    shareCopyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const orig = shareCopyText.textContent;
+        shareCopyText.textContent = 'Kopyalandı! ✓';
+        shareCopyBtn.classList.add('bg-emerald-600', 'text-white');
+        setTimeout(() => {
+          shareCopyText.textContent = orig;
+          shareCopyBtn.classList.remove('bg-emerald-600', 'text-white');
         }, 2000);
       } catch (e) {
         console.error('Kopyalama hatası:', e);
