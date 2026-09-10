@@ -39,7 +39,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <!-- Left: Avatar & Identity -->
           <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
             <div class="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-26 lg:h-26 rounded-xl overflow-hidden border border-zinc-300 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 shadow-xs p-0.5">
-              <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover rounded-lg" />
+              <img src="/avatar.webp" alt="Ozan Özdil" width="104" height="104" fetchpriority="high" decoding="async" class="w-full h-full object-cover rounded-lg" />
               <span class="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-[#0c0e12]"></span>
             </div>
             <div class="space-y-1.5">
@@ -108,7 +108,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="px-4 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
             <div class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-              <span class="text-zinc-600 dark:text-zinc-300 font-medium">Biyografi // qs://desktop/biography.qml</span>
+              <h2 class="text-zinc-600 dark:text-zinc-300 font-medium">Biyografi // qs://desktop/biography.qml</h2>
             </div>
             <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono">Scope: user_bio</span>
           </div>
@@ -137,7 +137,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="px-4 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
             <div class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-[#00ffcc]"></span>
-              <span class="text-zinc-600 dark:text-zinc-300 font-medium">İlgi Alanları & Odaklar // qs://desktop/focus.qml</span>
+              <h2 class="text-zinc-600 dark:text-zinc-300 font-medium">İlgi Alanları & Odaklar // qs://desktop/focus.qml</h2>
             </div>
             <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono">5 Modül</span>
           </div>
@@ -208,7 +208,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="px-4 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
             <div class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              <span class="text-zinc-600 dark:text-zinc-300 font-medium">Bağlantılar // Launchers</span>
+              <h2 class="text-zinc-600 dark:text-zinc-300 font-medium">Bağlantılar // Launchers</h2>
             </div>
             <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono">External</span>
           </div>
@@ -282,7 +282,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="px-4 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
             <div class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-              <span class="text-zinc-600 dark:text-zinc-300 font-medium">Deneyim // Timeline</span>
+              <h2 class="text-zinc-600 dark:text-zinc-300 font-medium">Deneyim // Timeline</h2>
             </div>
             <span class="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono">Kronoloji</span>
           </div>
@@ -296,7 +296,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h3 class="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
                     Açık Kaynak & Bağımsız Çalışmalar
                   </h3>
-                  <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 whitespace-nowrap">2022 — Günümüz</span>
+                  <span class="text-[10px] font-mono text-zinc-600 dark:text-zinc-400 whitespace-nowrap">2022 — Günümüz</span>
                 </div>
                 <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
                   Omarchy Linux masaüstü kabuğu, QuickShell bileşenleri ve sistem güvenlik araçları.
@@ -310,7 +310,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h3 class="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
                     Ar-Ge & Bilgi İşlem Yöneticiliği
                   </h3>
-                  <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 whitespace-nowrap">2022</span>
+                  <span class="text-[10px] font-mono text-zinc-600 dark:text-zinc-400 whitespace-nowrap">2022</span>
                 </div>
                 <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
                   Kurumsal bilişim altyapısı, sunucu sistemleri ve dijital dönüşüm süreçleri.
@@ -324,7 +324,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h3 class="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
                     Belediye Başkan Danışmanlığı & Medya
                   </h3>
-                  <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 whitespace-nowrap">2019 — 2022</span>
+                  <span class="text-[10px] font-mono text-zinc-600 dark:text-zinc-400 whitespace-nowrap">2019 — 2022</span>
                 </div>
                 <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
                   Basın-yayın, kurumsal iletişim, halkla ilişkiler ve dijital medya koordinasyonu.
@@ -338,7 +338,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h3 class="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
                     İletişim & Seçim Koordinasyonu
                   </h3>
-                  <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 whitespace-nowrap">2019</span>
+                  <span class="text-[10px] font-mono text-zinc-600 dark:text-zinc-400 whitespace-nowrap">2019</span>
                 </div>
                 <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
                   Saha koordinasyonu, iletişim ve görsel prodüksiyon süreçleri.
@@ -352,7 +352,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <h3 class="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-zinc-100 font-sans">
                     Karadeniz Teknik Üniversitesi
                   </h3>
-                  <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 whitespace-nowrap">Lisans</span>
+                  <span class="text-[10px] font-mono text-zinc-600 dark:text-zinc-400 whitespace-nowrap">Lisans</span>
                 </div>
                 <p class="font-sans text-xs text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">
                   Orman Fakültesi, Orman Mühendisliği Bölümü.
