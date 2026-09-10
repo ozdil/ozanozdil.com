@@ -12,24 +12,25 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
   title="Yazılar — Ozan Özdil"
   description="Quickshell, Omarchy ve Wayland masaüstü mimarisi üzerine araştırmalar ve notlar."
   currentPath="/blog"
-  maxWidthClass="max-w-3xl"
+  maxWidthClass="max-w-[1720px]"
 >
   <div class="py-2 sm:py-4">
     <!-- Header: Omarchy / QuickShell Style -->
-    <header class="pb-8 text-center">
-      <p class="font-mono text-xs font-medium tracking-[0.18em] text-sky-600 dark:text-[#00ffcc] uppercase sm:text-sm">
-        Arşiv
-      </p>
-      <h1 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+    <header class="pb-6 text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 dark:bg-zinc-900 border border-sky-200 dark:border-zinc-800 text-sky-700 dark:text-[#00ffcc] font-mono text-[11px] font-semibold mb-3">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>WAYLAND DESKTOP ARCHIVE // PANO GÖRÜNÜMÜ</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
         Quickshell & Omarchy Notları
       </h1>
-      <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
-        Wayland masaüstü kabuğu, QML bileşenleri, eklentiler ve performans analizleri.
+      <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+        Wayland masaüstü kabuğu, QML bileşenleri, eklentiler ve performans analizleri panosu.
       </p>
 
       <!-- Topic Tags Interactive Filter Bar -->
       {allTags.length > 0 && (
-        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 mt-5 font-mono text-xs">
+        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 mt-5 font-mono text-xs max-w-4xl mx-auto">
           <button
             type="button"
             data-filter-tag="all"
@@ -50,133 +51,284 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
       )}
     </header>
 
+    <!-- Pano Telemetry / Status Bar -->
+    <div class="mb-5 px-4 py-2.5 rounded-lg bg-white dark:bg-[#0c0e12] border border-zinc-200/90 dark:border-zinc-800/90 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 shadow-2xs">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1.5 font-semibold text-zinc-800 dark:text-zinc-200">
+          <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4 text-sky-500 dark:text-[#00ffcc]" stroke="currentColor" stroke-width="2">
+            <rect width="7" height="7" x="3" y="3" rx="1"/>
+            <rect width="7" height="7" x="14" y="3" rx="1"/>
+            <rect width="7" height="7" x="14" y="14" rx="1"/>
+            <rect width="7" height="7" x="3" y="14" rx="1"/>
+          </svg>
+          Pano Izgarası: <span class="text-sky-600 dark:text-[#00ffcc]">4-5 Sütun</span>
+        </span>
+        <span class="hidden sm:inline text-zinc-300 dark:text-zinc-700">|</span>
+        <span id="qs-stats-counter">Toplam: {sortedPosts.length} yazı</span>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span id="qs-page-info" class="text-zinc-600 dark:text-zinc-300 font-medium">Sayfa 1 / 1</span>
+        <div class="flex items-center gap-1 ml-1">
+          <button
+            id="qs-prev-btn"
+            type="button"
+            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+            title="Önceki Sayfa"
+          >
+            ← Önceki
+          </button>
+          <button
+            id="qs-next-btn"
+            type="button"
+            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer"
+            title="Sonraki Sayfa"
+          >
+            Sonraki →
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Empty State for Tag Filter -->
-    <div id="qs-empty-state" class="hidden py-12 text-center font-mono text-xs text-zinc-500 dark:text-zinc-400 border-t border-zinc-200 dark:border-zinc-800">
-      <p>Bu etikete ait yazı bulunamadı.</p>
+    <div id="qs-empty-state" class="hidden py-16 text-center font-mono text-sm text-zinc-500 dark:text-zinc-400 border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl">
+      <p>Seçili filtreye ait yazı bulunamadı.</p>
       <button
         id="qs-reset-filter"
         type="button"
-        class="mt-3 inline-flex items-center gap-1 text-sky-600 dark:text-[#00ffcc] hover:underline cursor-pointer font-medium"
+        class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-sky-50 dark:bg-zinc-800 text-sky-600 dark:text-[#00ffcc] hover:underline cursor-pointer font-medium text-xs border border-sky-200 dark:border-zinc-700"
       >
         [Tüm yazıları göster]
       </button>
     </div>
 
-    <!-- Articles List: Pure Omarchy / QuickShell Style -->
-    <div id="qs-posts-list" class="space-y-4 pt-2">
+    <!-- Articles Board Grid: 4-5 Columns on wide screens -->
+    <div
+      id="qs-posts-grid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-4.5 pt-1"
+    >
       {sortedPosts.map((post) => (
         <article
-          class="qs-post-item group relative rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 bg-white dark:bg-[#0c0e12] overflow-hidden transition-all duration-200 shadow-2xs hover:shadow-md"
+          class="qs-post-item group relative rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 bg-white dark:bg-[#0c0e12] overflow-hidden transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between h-full"
           data-tags={JSON.stringify((post.data.tags || []).map((t) => t.toLowerCase()))}
         >
           <!-- QuickShell QML Header Strip -->
-          <div class="px-4 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-            <div class="flex items-center gap-2">
-              <span class="flex items-center gap-1.5 opacity-80">
+          <div class="px-3.5 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
+            <div class="flex items-center gap-1.5 min-w-0 pr-2">
+              <span class="flex items-center gap-1 flex-shrink-0 opacity-80">
                 <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
                 <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
                 <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
               </span>
-              <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[11px] ml-1 truncate">
-                qs://blog/{post.slug}.qml
+              <span class="text-zinc-500 dark:text-zinc-400 font-mono text-[10.5px] ml-1 truncate" title={`qs://blog/${post.slug}.qml`}>
+                {post.slug}.qml
               </span>
             </div>
-            <div class="flex items-center gap-2 flex-shrink-0">
-              <time datetime={post.data.pubDate.toISOString()} class="text-zinc-400 dark:text-zinc-500 text-[11px]">
-                {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
-              </time>
-              <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800/80 text-zinc-600 dark:text-[#00ffcc] text-[10px] border border-zinc-300/40 dark:border-[#00ffcc]/30 font-semibold">
-                QML
-              </span>
-            </div>
+            <span class="px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800/80 text-zinc-600 dark:text-[#00ffcc] text-[9px] border border-zinc-300/40 dark:border-[#00ffcc]/30 font-semibold flex-shrink-0">
+              QML
+            </span>
           </div>
 
           <!-- Card Body -->
-          <div class="p-5 flex flex-col gap-3">
-            <a
-              href={`/blog/${post.slug}`}
-              class="flex items-start justify-between gap-3 group/link"
-            >
-              <h2 class="text-base sm:text-lg font-semibold text-zinc-950 dark:text-zinc-100 font-sans group-hover/link:text-sky-600 dark:group-hover/link:text-[#00ffcc] transition-colors leading-snug">
-                {post.data.title}
+          <div class="p-4 flex flex-col flex-grow justify-between gap-3">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 dark:text-zinc-500 mb-1.5">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+                </time>
+                <span class="text-[10px] text-zinc-400 dark:text-zinc-600">
+                  #{(post.data.tags && post.data.tags[0]) || 'blog'}
+                </span>
+              </div>
+              <h2 class="text-sm sm:text-[15px] font-semibold text-zinc-950 dark:text-zinc-100 font-sans group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors leading-snug line-clamp-2 min-h-[2.5rem]">
+                <a href={`/blog/${post.slug}`} class="focus:outline-none">
+                  {post.data.title}
+                </a>
               </h2>
-              <span class="shrink-0 inline-flex items-center gap-1 font-mono text-xs text-zinc-400 dark:text-zinc-500 group-hover/link:text-sky-600 dark:group-hover/link:text-[#00ffcc] transition-all group-hover/link:translate-x-0.5">
-                <span>[Aç]</span>
-                <svg viewBox="0 0 24 24" fill="none" class="w-3.5 h-3.5" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </a>
+              {post.data.description && (
+                <p class="mt-2 text-xs leading-relaxed text-zinc-600 dark:text-zinc-400 font-sans line-clamp-3">
+                  {post.data.description}
+                </p>
+              )}
+            </div>
 
-            {post.data.description && (
-              <p class="text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-sans">
-                {post.data.description}
-              </p>
-            )}
-
-            <!-- Clickable Card Tags as QML Properties -->
+            <!-- Clickable Card Tags -->
             {post.data.tags && post.data.tags.length > 0 && (
-              <div class="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[11px]">
-                <span class="text-zinc-400 dark:text-zinc-600 text-[10px] mr-0.5">tags:</span>
-                {post.data.tags.map((tag) => (
+              <div class="flex flex-wrap items-center gap-1 pt-1 font-mono text-[10px]">
+                {post.data.tags.slice(0, 3).map((tag) => (
                   <button
                     type="button"
                     data-tag-button={tag.toLowerCase()}
-                    class="px-2 py-0.5 rounded bg-zinc-100 hover:bg-sky-50 dark:bg-zinc-800/80 dark:hover:bg-[#00ffcc]/10 text-zinc-600 dark:text-zinc-400 hover:text-sky-600 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 hover:border-sky-300 dark:hover:border-[#00ffcc]/40 transition-colors cursor-pointer"
+                    class="px-1.5 py-0.5 rounded bg-zinc-100 hover:bg-sky-50 dark:bg-zinc-800/80 dark:hover:bg-[#00ffcc]/10 text-zinc-600 dark:text-zinc-400 hover:text-sky-600 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 hover:border-sky-300 dark:hover:border-[#00ffcc]/40 transition-colors cursor-pointer truncate max-w-[110px]"
+                    title={`#${tag}`}
                   >
                     #{tag}
                   </button>
                 ))}
+                {post.data.tags.length > 3 && (
+                  <span class="text-[9px] text-zinc-400 dark:text-zinc-500 font-mono" title={post.data.tags.slice(3).join(', ')}>
+                    +{post.data.tags.length - 3}
+                  </span>
+                )}
               </div>
             )}
           </div>
 
           <!-- Bottom Telemetry Bar -->
-          <div class="px-4 py-1.5 bg-zinc-50/60 dark:bg-[#080a0d]/60 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between font-mono text-[10px] text-zinc-500 dark:text-zinc-500">
-            <span class="flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              <span>Scope: Wayland Layer Shell</span>
+          <div class="px-3.5 py-2 bg-zinc-50/60 dark:bg-[#080a0d]/60 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between font-mono text-[10px] text-zinc-500">
+            <span class="flex items-center gap-1.5 truncate">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
+              <span class="truncate">Wayland Shell</span>
             </span>
-            <span class="text-zinc-400 dark:text-zinc-600 font-mono">
-              exec(omarchy.read)
-            </span>
+            <a
+              href={`/blog/${post.slug}`}
+              class="inline-flex items-center gap-1 text-sky-600 dark:text-[#00ffcc] font-semibold hover:underline flex-shrink-0 ml-1"
+            >
+              <span>[Aç]</span>
+              <svg viewBox="0 0 24 24" fill="none" class="w-3 h-3" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
         </article>
       ))}
+    </div>
+
+    <!-- Bottom Pagination Bar -->
+    <div id="qs-pagination-container" class="mt-8 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+      <div class="text-zinc-500 dark:text-zinc-400">
+        <span id="qs-page-summary">Sayfa 1 / 1 (36 yazı)</span>
+      </div>
+
+      <div id="qs-page-numbers" class="flex items-center gap-1.5">
+        <!-- Dynamic page number buttons generated in JS -->
+      </div>
     </div>
   </div>
 </BaseLayout>
 
 <script is:inline>
-  function setupTagFilter() {
+  function setupPanoBoard() {
+    const PAGE_SIZE = 15; // 3 rows on 5-column screens, 4 rows on 4-column screens
+    let currentPage = 1;
+    let matchingItems = [];
+
     const filterPills = document.querySelectorAll('[data-filter-tag]');
-    const postItems = document.querySelectorAll('.qs-post-item');
+    const postItems = Array.from(document.querySelectorAll('.qs-post-item'));
     const emptyState = document.getElementById('qs-empty-state');
     const resetBtn = document.getElementById('qs-reset-filter');
     const cardTagBtns = document.querySelectorAll('[data-tag-button]');
+
+    const statsCounter = document.getElementById('qs-stats-counter');
+    const pageInfo = document.getElementById('qs-page-info');
+    const prevBtn = document.getElementById('qs-prev-btn');
+    const nextBtn = document.getElementById('qs-next-btn');
+    const pageSummary = document.getElementById('qs-page-summary');
+    const pageNumbersContainer = document.getElementById('qs-page-numbers');
+    const paginationContainer = document.getElementById('qs-pagination-container');
 
     function getSelectedTag() {
       const params = new URLSearchParams(window.location.search);
       return (params.get('tag') || 'all').trim().toLowerCase();
     }
 
-    function applyFilter(selectedTag, updateUrl = true) {
-      const normTag = (selectedTag || 'all').trim().toLowerCase();
-      let visibleCount = 0;
+    function getSelectedPage() {
+      const params = new URLSearchParams(window.location.search);
+      const p = parseInt(params.get('page') || '1', 10);
+      return isNaN(p) || p < 1 ? 1 : p;
+    }
+
+    function renderPagination(totalPages) {
+      if (!pageNumbersContainer) return;
+      pageNumbersContainer.innerHTML = '';
+
+      if (totalPages <= 1) {
+        if (paginationContainer) paginationContainer.classList.add('hidden');
+        if (prevBtn) prevBtn.disabled = true;
+        if (nextBtn) nextBtn.disabled = true;
+        if (pageInfo) pageInfo.textContent = 'Sayfa 1 / 1';
+        return;
+      }
+
+      if (paginationContainer) paginationContainer.classList.remove('hidden');
+
+      // Prev Button State
+      if (prevBtn) prevBtn.disabled = currentPage <= 1;
+      if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+      if (pageInfo) pageInfo.textContent = `Sayfa ${currentPage} / ${totalPages}`;
+      if (pageSummary) {
+        const start = (currentPage - 1) * PAGE_SIZE + 1;
+        const end = Math.min(currentPage * PAGE_SIZE, matchingItems.length);
+        pageSummary.textContent = `Gösterilen: ${start}-${end} / ${matchingItems.length} yazı (Sayfa ${currentPage}/${totalPages})`;
+      }
+
+      // Page numbers buttons
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = String(i);
+        const isActive = i === currentPage;
+        btn.className = isActive
+          ? 'px-3 py-1 rounded bg-zinc-900 text-white dark:bg-[#00ffcc] dark:text-zinc-950 font-bold border border-zinc-900 dark:border-[#00ffcc] cursor-default'
+          : 'px-3 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 cursor-pointer transition-colors';
+
+        btn.addEventListener('click', () => {
+          if (i !== currentPage) {
+            currentPage = i;
+            updateDisplay(true, true);
+          }
+        });
+        pageNumbersContainer.appendChild(btn);
+      }
+    }
+
+    function updateDisplay(updateUrl = true, scrollToTop = false) {
+      const normTag = getSelectedTag();
+      matchingItems = [];
 
       postItems.forEach((item) => {
         const itemTags = JSON.parse(item.getAttribute('data-tags') || '[]');
         const matches = normTag === 'all' || itemTags.includes(normTag);
 
         if (matches) {
-          item.classList.remove('hidden');
-          visibleCount++;
+          matchingItems.push(item);
         } else {
           item.classList.add('hidden');
         }
       });
 
-      // Update pills active styling
+      const totalMatches = matchingItems.length;
+      const totalPages = Math.max(1, Math.ceil(totalMatches / PAGE_SIZE));
+
+      if (currentPage > totalPages) {
+        currentPage = totalPages;
+      }
+      if (currentPage < 1) {
+        currentPage = 1;
+      }
+
+      const startIndex = (currentPage - 1) * PAGE_SIZE;
+      const endIndex = startIndex + PAGE_SIZE;
+
+      matchingItems.forEach((item, index) => {
+        if (index >= startIndex && index < endIndex) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      // Update counters
+      if (statsCounter) {
+        statsCounter.textContent = normTag === 'all'
+          ? `Toplam: ${totalMatches} yazı`
+          : `#${normTag}: ${totalMatches} yazı`;
+      }
+
+      // Render Pagination
+      renderPagination(totalPages);
+
+      // Update pills styling
       filterPills.forEach((pill) => {
         const pillTag = pill.getAttribute('data-filter-tag');
         const isActive = (pillTag === 'all' && normTag === 'all') || (pillTag === normTag);
@@ -188,16 +340,16 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         }
       });
 
-      // Toggle empty state
+      // Empty state
       if (emptyState) {
-        if (visibleCount === 0) {
+        if (totalMatches === 0) {
           emptyState.classList.remove('hidden');
         } else {
           emptyState.classList.add('hidden');
         }
       }
 
-      // Update URL query string without page reload
+      // Update URL
       if (updateUrl) {
         const url = new URL(window.location.href);
         if (normTag === 'all') {
@@ -205,52 +357,102 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         } else {
           url.searchParams.set('tag', normTag);
         }
-        window.history.pushState({ tag: normTag }, '', url.toString());
+
+        if (currentPage <= 1) {
+          url.searchParams.delete('page');
+        } else {
+          url.searchParams.set('page', String(currentPage));
+        }
+
+        window.history.pushState({ tag: normTag, page: currentPage }, '', url.toString());
+      }
+
+      if (scrollToTop) {
+        const grid = document.getElementById('qs-posts-grid');
+        if (grid) {
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     }
 
-    // Top filter pills click
+    // Filter pills
     filterPills.forEach((pill) => {
       pill.addEventListener('click', () => {
         const tag = pill.getAttribute('data-filter-tag');
-        applyFilter(tag, true);
+        const url = new URL(window.location.href);
+        if (tag === 'all') {
+          url.searchParams.delete('tag');
+        } else {
+          url.searchParams.set('tag', tag);
+        }
+        url.searchParams.delete('page');
+        window.history.pushState({}, '', url.toString());
+        currentPage = 1;
+        updateDisplay(true, false);
       });
     });
 
-    // Card tags click
+    // Tag buttons on cards
     cardTagBtns.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         const tag = btn.getAttribute('data-tag-button');
-        applyFilter(tag, true);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const url = new URL(window.location.href);
+        url.searchParams.set('tag', tag);
+        url.searchParams.delete('page');
+        window.history.pushState({}, '', url.toString());
+        currentPage = 1;
+        updateDisplay(true, true);
       });
     });
+
+    // Prev / Next button listeners
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          updateDisplay(true, true);
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const totalPages = Math.ceil(matchingItems.length / PAGE_SIZE);
+        if (currentPage < totalPages) {
+          currentPage++;
+          updateDisplay(true, true);
+        }
+      });
+    }
 
     // Reset button
     if (resetBtn) {
       resetBtn.addEventListener('click', () => {
-        applyFilter('all', true);
+        const url = new URL(window.location.href);
+        url.searchParams.delete('tag');
+        url.searchParams.delete('page');
+        window.history.pushState({}, '', url.toString());
+        currentPage = 1;
+        updateDisplay(true, false);
       });
     }
 
-    // Handle back / forward browser navigation
+    // Popstate (browser back/forward)
     window.addEventListener('popstate', () => {
-      applyFilter(getSelectedTag(), false);
+      currentPage = getSelectedPage();
+      updateDisplay(false, false);
     });
 
-    // Run on initial load if tag param exists
-    const initialTag = getSelectedTag();
-    if (initialTag !== 'all') {
-      applyFilter(initialTag, false);
-    }
+    // Initial run
+    currentPage = getSelectedPage();
+    updateDisplay(false, false);
   }
 
-  // Initialize on load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupTagFilter);
+    document.addEventListener('DOMContentLoaded', setupPanoBoard);
   } else {
-    setupTagFilter();
+    setupPanoBoard();
   }
 </script>
