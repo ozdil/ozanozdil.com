@@ -14,63 +14,51 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
   currentPath="/blog"
   maxWidthClass="max-w-[1720px]"
 >
-  <div class="py-2 sm:py-4">
-    <!-- Header: QuickShell Root Scope Header -->
-    <header class="pb-6 text-center w-full">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 dark:bg-zinc-900 border border-sky-200 dark:border-zinc-800 text-sky-700 dark:text-[#00ffcc] font-mono text-[11px] font-semibold mb-3">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Scope &#123; id: waylandBlogArchive; layout: "BoardGrid4x5" &#125;</span>
+  <div class="py-2 sm:py-4 space-y-6">
+    <!-- Header: Omarchy Shell Minimalism -->
+    <header class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-7 text-center">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-sky-600 dark:text-[#00ffcc] uppercase tracking-wider mb-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>omarchy://archive/notes</span>
       </div>
-      <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
         Quickshell & Omarchy Notları
       </h1>
       <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
         Wayland masaüstü kabuğu, QML bileşenleri, eklentiler ve performans analizleri panosu.
       </p>
 
-      <!-- Topic Tags Filter Deck: QML FilterModel -->
+      <!-- Topic Tags Filter Deck: Minimal Shell Pills -->
       {allTags.length > 0 && (
-        <div class="mt-6 p-3 rounded-xl bg-white dark:bg-[#0c0e12] border border-zinc-200/90 dark:border-zinc-800/90 shadow-2xs max-w-5xl mx-auto">
-          <div class="flex items-center justify-between pb-2 mb-2 border-b border-zinc-100 dark:border-zinc-800/60 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
-            <div class="flex items-center gap-1.5">
-              <span class="text-purple-600 dark:text-purple-400 font-bold">FilterModel</span>
-              <span class="text-zinc-400">&#123;</span>
-              <span class="text-sky-600 dark:text-sky-400">id</span>: <span class="text-amber-600 dark:text-amber-400">tagFilter</span>;
-            </div>
-            <span class="text-zinc-400">&#125;</span>
-          </div>
-
-          <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 font-mono text-xs w-full">
+        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-6 font-mono text-xs w-full">
+          <button
+            type="button"
+            data-filter-tag="all"
+            class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold"
+          >
+            Tümü ({sortedPosts.length})
+          </button>
+          {allTags.map((tag) => (
             <button
               type="button"
-              data-filter-tag="all"
-              class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold shadow-xs"
+              data-filter-tag={tag.toLowerCase()}
+              class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700"
             >
-              [Tümü: {sortedPosts.length}]
+              #{tag}
             </button>
-            {allTags.map((tag) => (
-              <button
-                type="button"
-                data-filter-tag={tag.toLowerCase()}
-                class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700"
-              >
-                #{tag}
-              </button>
-            ))}
-          </div>
+          ))}
         </div>
       )}
     </header>
 
     <!-- Telemetry Status Bar -->
-    <div class="mb-5 px-4 py-2.5 rounded-lg bg-white dark:bg-[#0c0e12] border border-zinc-200/90 dark:border-zinc-800/90 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 shadow-2xs">
+    <div class="px-4 py-3 rounded-xl bg-white dark:bg-[#0c0e12] border border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400">
       <div class="flex items-center gap-3">
-        <span class="flex items-center gap-1.5 font-semibold text-zinc-800 dark:text-zinc-200">
-          <span class="text-purple-600 dark:text-purple-400">GridScope:</span>
-          <span class="text-sky-600 dark:text-[#00ffcc]">4-5 Sütun</span>
+        <span class="text-zinc-800 dark:text-zinc-200 font-medium">
+          Izgara: <span class="text-sky-600 dark:text-[#00ffcc]">4-5 Sütun</span>
         </span>
         <span class="hidden sm:inline text-zinc-300 dark:text-zinc-700">|</span>
-        <span id="qs-stats-counter" class="text-emerald-700 dark:text-emerald-400 font-medium">Toplam: {sortedPosts.length} yazı</span>
+        <span id="qs-stats-counter">Toplam: {sortedPosts.length} yazı</span>
       </div>
 
       <div class="flex items-center gap-2">
@@ -82,7 +70,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
             class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer border border-zinc-200 dark:border-zinc-700"
             title="Önceki Sayfa"
           >
-            qs.prev()
+            ← Önceki
           </button>
           <button
             id="qs-next-btn"
@@ -90,7 +78,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
             class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer border border-zinc-200 dark:border-zinc-700"
             title="Sonraki Sayfa"
           >
-            qs.next()
+            Sonraki →
           </button>
         </div>
       </div>
@@ -102,133 +90,79 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
       <button
         id="qs-reset-filter"
         type="button"
-        class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-sky-50 dark:bg-zinc-800 text-sky-600 dark:text-[#00ffcc] hover:underline cursor-pointer font-medium text-xs border border-sky-200 dark:border-zinc-700"
+        class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-[#00ffcc] hover:underline cursor-pointer font-medium text-xs border border-zinc-300 dark:border-zinc-700"
       >
-        <span>ActionTrigger &#123; onClicked: qs.resetFilter() &#125;</span>
+        [Tüm yazıları göster]
       </button>
     </div>
 
-    <!-- Articles Board Grid: 4-5 Columns on wide screens -->
+    <!-- Articles Board Grid: Clean 1px stroke border cards (Omarchy minimalism) -->
     <div
       id="qs-posts-grid"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-4.5 pt-1"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4"
     >
       {sortedPosts.map((post) => (
         <article
-          class="qs-post-item group relative rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 hover:border-sky-500/80 dark:hover:border-[#00ffcc]/70 bg-white dark:bg-[#0c0e12] overflow-hidden transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col justify-between h-full font-mono text-xs select-none"
+          class="qs-post-item group rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-[#00ffcc]/60 bg-white dark:bg-[#0c0e12] p-4 sm:p-5 transition-all duration-200 flex flex-col justify-between h-full"
           data-tags={JSON.stringify((post.data.tags || []).map((t) => t.toLowerCase()))}
         >
-          <!-- QuickShell QML Item Header -->
-          <div class="px-3.5 py-2 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-            <div class="flex items-center gap-1.5 min-w-0 pr-2">
-              <span class="flex items-center gap-1 flex-shrink-0 opacity-80" aria-hidden="true">
-                <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-                <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+          <div class="space-y-2.5">
+            <!-- Top Tag & Date Line -->
+            <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400 dark:text-zinc-500 pb-2 border-b border-zinc-100 dark:border-zinc-800/60">
+              <span class="text-sky-600 dark:text-[#00ffcc] font-medium">
+                #{(post.data.tags && post.data.tags[0]) || 'notlar'}
               </span>
-              <span class="text-purple-600 dark:text-purple-400 font-bold">ArticleItem</span>
-              <span class="text-zinc-400">&#123;</span>
-            </div>
-            <span class="text-zinc-500 dark:text-zinc-400 text-[10px] font-mono truncate" title={`qs://blog/${post.slug}.qml`}>
-              {post.slug.slice(0, 18)}...qml
-            </span>
-          </div>
-
-          <!-- Card Body: Structured QML Property Declarations -->
-          <div class="p-3.5 sm:p-4 flex flex-col flex-grow justify-between gap-3">
-            <div class="space-y-2">
-              <!-- ID & Date Properties -->
-              <div class="flex items-center justify-between text-[11px] pb-1 border-b border-zinc-100 dark:border-zinc-800/60">
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">id</span>:
-                  <span class="text-amber-600 dark:text-amber-400 font-medium">art_{post.slug.replace(/[^a-zA-Z0-9]/g, '_').slice(0, 14)}</span>
-                </div>
-                <div>
-                  <time datetime={post.data.pubDate.toISOString()} class="text-emerald-700 dark:text-emerald-400">
-                    "{post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}"
-                  </time>
-                </div>
-              </div>
-
-              <!-- Title Property (Semantic H2 + Link) -->
-              <div>
-                <span class="text-sky-600 dark:text-sky-400 text-[11px]">title</span>:
-                <h2 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors leading-snug line-clamp-2 min-h-[2.5rem] mt-0.5">
-                  <a href={`/blog/${post.slug}`} class="focus:outline-none">
-                    "{post.data.title}"
-                  </a>
-                </h2>
-              </div>
-
-              <!-- Preview Description Property -->
-              {post.data.description && (
-                <div class="pt-1">
-                  <span class="text-sky-600 dark:text-sky-400 text-[11px]">summary</span>:
-                  <p class="mt-0.5 text-xs leading-relaxed text-zinc-600 dark:text-zinc-400 font-sans line-clamp-3 bg-zinc-50/60 dark:bg-[#101319] p-2 rounded border border-zinc-100 dark:border-zinc-800/60">
-                    "{post.data.description}"
-                  </p>
-                </div>
-              )}
-
-              <!-- Tags Property -->
-              {post.data.tags && post.data.tags.length > 0 && (
-                <div class="pt-1 font-mono text-[10px]">
-                  <span class="text-sky-600 dark:text-sky-400">tags</span>:
-                  <span class="text-zinc-400">[</span>
-                  <div class="inline-flex flex-wrap items-center gap-1 my-1">
-                    {post.data.tags.slice(0, 3).map((tag) => (
-                      <button
-                        type="button"
-                        data-tag-button={tag.toLowerCase()}
-                        class="px-1.5 py-0.5 rounded bg-zinc-100 hover:bg-sky-50 dark:bg-zinc-800/80 dark:hover:bg-[#00ffcc]/10 text-emerald-700 dark:text-emerald-400 hover:text-sky-600 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/60 hover:border-sky-300 dark:hover:border-[#00ffcc]/40 transition-colors cursor-pointer truncate max-w-[110px]"
-                        title={`#${tag}`}
-                      >
-                        "{tag}"
-                      </button>
-                    ))}
-                    {post.data.tags.length > 3 && (
-                      <span class="text-[9px] text-zinc-400 dark:text-zinc-500 font-mono" title={post.data.tags.slice(3).join(', ')}>
-                        +{post.data.tags.length - 3}
-                      </span>
-                    )}
-                  </div>
-                  <span class="text-zinc-400">]</span>
-                </div>
-              )}
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}
+              </time>
             </div>
 
-            <!-- ActionTrigger Button (QML Action) -->
-            <div class="pt-2 border-t border-zinc-100 dark:border-zinc-800/70 flex items-center justify-between font-mono text-[11px]">
-              <div class="flex items-center gap-1">
-                <span class="text-purple-600 dark:text-purple-400 font-semibold">ActionTrigger</span>
-                <span class="text-zinc-400">&#123;</span>
-              </div>
-              
-              <a
-                href={`/blog/${post.slug}`}
-                class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-50 dark:bg-[#00ffcc]/10 text-sky-700 dark:text-[#00ffcc] hover:bg-sky-100 dark:hover:bg-[#00ffcc]/20 border border-sky-200/60 dark:border-[#00ffcc]/30 font-semibold transition-all group-hover:border-[#00ffcc] shadow-2xs"
-              >
-                <span class="text-zinc-400 text-[10px]">onClicked:</span>
-                <span>qs.readArticle()</span>
-                <span class="text-xs">↵</span>
+            <!-- Title -->
+            <h2 class="text-sm sm:text-[15px] font-bold text-zinc-950 dark:text-zinc-100 font-sans group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors leading-snug line-clamp-2 min-h-[2.5rem]">
+              <a href={`/blog/${post.slug}`} class="focus:outline-none">
+                {post.data.title}
               </a>
-            </div>
+            </h2>
+
+            <!-- Preview Description -->
+            {post.data.description && (
+              <p class="text-xs leading-relaxed text-zinc-600 dark:text-zinc-400 font-sans line-clamp-3">
+                {post.data.description}
+              </p>
+            )}
           </div>
 
-          <div class="px-3.5 py-1 bg-zinc-50/60 dark:bg-[#080a0d]/60 border-t border-zinc-100 dark:border-zinc-800/60 text-zinc-400 font-mono text-[10px] text-right">
-            &#125;
+          <!-- Bottom Action & Secondary Tags -->
+          <div class="pt-3 mt-3 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center gap-1">
+              {post.data.tags && post.data.tags.slice(1, 3).map((tag) => (
+                <button
+                  type="button"
+                  data-tag-button={tag.toLowerCase()}
+                  class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] text-[10px] cursor-pointer"
+                  title={`#${tag}`}
+                >
+                  #{tag}
+                </button>
+              ))}
+            </div>
+
+            <a
+              href={`/blog/${post.slug}`}
+              class="inline-flex items-center gap-1 text-zinc-700 dark:text-[#00ffcc] font-medium group-hover:translate-x-0.5 transition-transform"
+            >
+              <span>Oku</span>
+              <span>→</span>
+            </a>
           </div>
         </article>
       ))}
     </div>
 
-    <!-- Bottom Pagination Bar: Styled with QML ActionTriggers -->
-    <div id="qs-pagination-container" class="mt-8 pt-6 border-t border-zinc-200/80 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-      <div class="text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
-        <span class="text-purple-600 dark:text-purple-400 font-bold">PaginationModel</span>
-        <span class="text-zinc-400">&#123;</span>
-        <span id="qs-page-summary" class="text-emerald-700 dark:text-emerald-400 font-semibold">Sayfa 1 / 1 (36 yazı)</span>
-        <span class="text-zinc-400">&#125;</span>
+    <!-- Bottom Pagination Bar -->
+    <div id="qs-pagination-container" class="pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+      <div class="text-zinc-500 dark:text-zinc-400">
+        <span id="qs-page-summary">Sayfa 1 / 1 (36 yazı)</span>
       </div>
 
       <div id="qs-page-numbers" class="flex items-center gap-1.5">
@@ -336,10 +270,10 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
       for (let i = 1; i <= totalPages; i++) {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.textContent = `[${i}]`;
+        btn.textContent = `${i}`;
         btn.className = i === currentPage
           ? 'px-2.5 py-1 rounded bg-zinc-900 dark:bg-[#00ffcc] text-white dark:text-zinc-950 font-bold border border-zinc-900 dark:border-[#00ffcc] cursor-pointer'
-          : 'px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700 cursor-pointer';
+          : 'px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700 cursor-pointer';
         
         btn.addEventListener('click', () => {
           currentPage = i;
@@ -358,7 +292,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
           p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700';
         });
 
-        pill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold shadow-xs';
+        pill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold';
 
         filterPosts(tag);
       });

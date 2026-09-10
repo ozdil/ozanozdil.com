@@ -4,161 +4,127 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Ozan Özdil"
-  description="Ozan Özdil: Orman Mühendisi. Linux, açık kaynak, sistem araçları, QuickShell ve orta format fotoğrafçılık."
+  description="Ozan Özdil: YZ Kodcusu ve Orman Mühendisi. Linux, açık kaynak sistem mimarisi, Omarchy, QuickShell ve orta format fotoğrafçılık."
   currentPath="/"
   maxWidthClass="max-w-[1720px]"
 >
-  <div class="space-y-6 py-2 sm:py-4" id="qs-desktop-root">
+  <div class="space-y-6 py-2 sm:py-4">
     
-    <!-- MASTER QUICKSHELL DESKTOP CORE // ROOT SCOPE -->
-    <section class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] overflow-hidden shadow-2xs" aria-label="QuickShell Oturum Kapsamı">
-      <!-- Titlebar -->
-      <div class="px-4 py-2.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px]">
-        <div class="flex items-center gap-2">
-          <span class="flex items-center gap-1.5 opacity-80" aria-hidden="true">
-            <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-            <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-            <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-          </span>
-          <span class="text-purple-600 dark:text-purple-400 font-bold">Scope</span>
-          <span class="text-zinc-400 dark:text-zinc-600">&#123;</span>
-          <span class="text-sky-600 dark:text-sky-400">id</span>:
-          <span class="text-amber-600 dark:text-amber-400 font-semibold">userSession</span>
-          <span class="text-zinc-400 dark:text-zinc-600">;</span>
-          <span class="text-zinc-500 dark:text-zinc-400 hidden sm:inline text-[10.5px]">qs://desktop/session.qml</span>
+    <!-- HERO / IDENTITY CARD — OMARCHY SHELL MINIMALISM -->
+    <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-7 lg:p-8 transition-colors" aria-label="Profil ve Kimlik">
+      <!-- Minimal Shell Line Header -->
+      <div class="flex items-center justify-between pb-4 mb-6 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-[11px] text-zinc-400 dark:text-zinc-500">
+        <span class="text-zinc-600 dark:text-zinc-400 font-medium">omarchy://session/ozanozdil</span>
+        <span class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>online</span>
+        </span>
+      </div>
+
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <!-- Identity -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 p-0.5">
+            <img
+              src="/avatar.webp"
+              alt="Ozan Özdil"
+              width="96"
+              height="96"
+              fetchpriority="high"
+              decoding="async"
+              class="w-full h-full object-cover rounded-lg"
+            />
+            <span class="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-[#0c0e12]"></span>
+          </div>
+
+          <div class="space-y-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-mono text-xs font-semibold text-sky-600 dark:text-[#00ffcc] uppercase tracking-wider">
+                YZ Kodcusu & Orman Mühendisi
+              </span>
+              <span class="text-zinc-300 dark:text-zinc-700 text-xs hidden sm:inline">•</span>
+              <span class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hidden sm:inline">
+                KTÜ Orman
+              </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+              Ozan Özdil
+            </h1>
+
+            <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-2xl">
+              Linux, Omarchy, QuickShell, Açık Kaynak Sistem Mimarisi ve Orta Format Fotoğrafçılık.
+            </p>
+
+            <!-- Minimal Badges -->
+            <div class="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
+                Kastamonu, TR
+              </span>
+              <span class="px-2 py-0.5 rounded border border-purple-200 dark:border-purple-900/60 text-purple-700 dark:text-purple-300 bg-purple-50/50 dark:bg-purple-950/20">
+                YZ Kodcusu
+              </span>
+              <span class="px-2 py-0.5 rounded border border-emerald-200 dark:border-emerald-900/60 text-emerald-700 dark:text-emerald-300 bg-emerald-50/50 dark:bg-emerald-950/20">
+                KTÜ Orman
+              </span>
+              <span class="px-2 py-0.5 rounded border border-sky-200 dark:border-sky-900/60 text-sky-700 dark:text-[#00ffcc] bg-sky-50/50 dark:bg-sky-950/20">
+                QuickShell & Wayland
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div class="flex items-center gap-2">
-          <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60 text-[10px] font-mono font-semibold">
-            STATUS: ACTIVE_IPC
-          </span>
-          <span class="text-zinc-400 dark:text-zinc-600 font-mono text-xs">&#125;</span>
+        <!-- Telemetry Strip -->
+        <div class="font-mono text-xs rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-[#101319]/80 min-w-[280px] sm:min-w-[300px] space-y-2">
+          <div class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider pb-1.5 border-b border-zinc-200/80 dark:border-zinc-800">
+            Sistem Telemetrisi
+          </div>
+          <div class="space-y-1.5 text-[11px]">
+            <div class="flex justify-between gap-2">
+              <span class="text-zinc-500">İşletim Sistemi:</span>
+              <span class="text-zinc-800 dark:text-zinc-200 font-medium">Arch Linux // Hyprland</span>
+            </div>
+            <div class="flex justify-between gap-2">
+              <span class="text-zinc-500">Masaüstü Kabuğu:</span>
+              <span class="text-sky-600 dark:text-[#00ffcc] font-medium">QuickShell (C++/QML)</span>
+            </div>
+            <div class="flex justify-between gap-2">
+              <span class="text-zinc-500">Optik Gövde:</span>
+              <span class="text-zinc-800 dark:text-zinc-200 font-medium">Fujifilm GFX Orta Format</span>
+            </div>
+            <div class="flex justify-between gap-2">
+              <span class="text-zinc-500">Tema Felsefesi:</span>
+              <span class="text-purple-600 dark:text-purple-400 font-medium">OLED Black #000000</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Scope Header & Identity Bindings -->
-      <div class="p-5 sm:p-7 lg:p-8">
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <!-- Left: Identity & QML Property Bindings -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div class="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-xl overflow-hidden border border-zinc-300 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 shadow-xs p-0.5">
-              <img
-                src="/avatar.webp"
-                alt="Ozan Özdil"
-                width="112"
-                height="112"
-                fetchpriority="high"
-                decoding="async"
-                class="w-full h-full object-cover rounded-lg"
-              />
-              <span class="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-[#0c0e12]" title="Aktif Oturum"></span>
-            </div>
+      <!-- Quick Action Navigation -->
+      <div class="mt-6 pt-5 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-wrap items-center gap-2 font-mono text-xs">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-[#00ffcc] hover:bg-zinc-200 dark:hover:bg-zinc-700 font-medium transition-colors"
+        >
+          <span>Yazılar Panosu</span>
+          <span class="text-xs">→</span>
+        </a>
 
-            <div class="space-y-2">
-              <div class="font-mono text-xs flex flex-wrap items-center gap-2">
-                <span class="text-purple-600 dark:text-purple-400 font-semibold">property string</span>
-                <span class="text-sky-600 dark:text-sky-400">role</span>:
-                <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Orman Mühendisi (KTÜ)"</span>
-              </div>
+        <a
+          href="/galeri"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 font-medium transition-colors"
+        >
+          <span>Fotoğraf Galerisi</span>
+          <span class="text-xs">→</span>
+        </a>
 
-              <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans flex items-center gap-2">
-                <span>Ozan Özdil</span>
-                <span class="text-xs font-mono font-normal text-zinc-500 dark:text-zinc-400 px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700">
-                  id: root
-                </span>
-              </h1>
-
-              <div class="font-mono text-xs sm:text-[13px] text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl">
-                <span class="text-purple-600 dark:text-purple-400 font-semibold">property string</span>
-                <span class="text-sky-600 dark:text-sky-400">focus</span>:
-                <span class="text-emerald-700 dark:text-emerald-400 font-sans">
-                  "Linux, Omarchy, QuickShell, Açık Kaynak Sistem Mimarisi ve Orta Format Fotoğrafçılık."
-                </span>
-              </div>
-
-              <!-- QML Property Badges -->
-              <div class="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[11px]">
-                <span class="px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400 border border-purple-200/60 dark:border-purple-800/60">
-                  <span class="text-sky-600 dark:text-sky-400">role</span>: <span class="text-emerald-700 dark:text-emerald-400">"YZ Kodcusu"</span>
-                </span>
-                <span class="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 border border-zinc-200/80 dark:border-zinc-700/80">
-                  <span class="text-sky-600 dark:text-sky-400">location</span>: <span class="text-emerald-700 dark:text-emerald-400">"Kastamonu, TR"</span>
-                </span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/60">
-                  <span class="text-sky-600 dark:text-sky-400">faculty</span>: <span class="text-emerald-700 dark:text-emerald-400">"KTÜ Orman"</span>
-                </span>
-                <span class="px-2 py-0.5 rounded bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-[#00ffcc] border border-cyan-200/60 dark:border-cyan-800/60">
-                  <span class="text-sky-600 dark:text-sky-400">shellEngine</span>: <span class="text-emerald-700 dark:text-emerald-400">"QuickShell"</span>
-                </span>
-                <span class="px-2 py-0.5 rounded bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-400 border border-rose-200/60 dark:border-rose-800/60">
-                  <span class="text-sky-600 dark:text-sky-400">gamingMode</span>: <span class="text-amber-600 dark:text-amber-400">true</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Telemetry Grid Object -->
-          <div class="font-mono text-xs rounded-xl p-3.5 bg-zinc-50 dark:bg-[#101319] border border-zinc-200/90 dark:border-zinc-800/90 min-w-[320px] space-y-2 shadow-2xs">
-            <div class="flex items-center justify-between pb-1.5 border-b border-zinc-200/80 dark:border-zinc-800/80 text-[11px]">
-              <span class="text-purple-600 dark:text-purple-400 font-bold">TelemetryObject</span>
-              <span class="text-zinc-400">&#123;</span>
-            </div>
-            <div class="pl-2.5 space-y-1.5 text-[11px]">
-              <div>
-                <span class="text-sky-600 dark:text-sky-400">osCompositor</span>:
-                <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Arch Linux // Hyprland"</span>
-              </div>
-              <div>
-                <span class="text-sky-600 dark:text-sky-400">shellFramework</span>:
-                <span class="text-sky-600 dark:text-[#00ffcc] font-semibold">"QuickShell (C++ / QML)"</span>
-              </div>
-              <div>
-                <span class="text-sky-600 dark:text-sky-400">opticsSystem</span>:
-                <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Fujifilm GFX Orta Format"</span>
-              </div>
-              <div>
-                <span class="text-sky-600 dark:text-sky-400">colorProfile</span>:
-                <span class="text-purple-600 dark:text-purple-400 font-semibold">"OLED Black #000000"</span>
-              </div>
-            </div>
-            <div class="pt-1 text-zinc-400 text-right text-[11px]">&#125;</div>
-          </div>
-        </div>
-
-        <!-- Global Action Triggers -->
-        <div class="mt-6 pt-5 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-wrap items-center gap-3 font-mono text-xs">
-          <span class="text-purple-600 dark:text-purple-400 font-bold">ActionTrigger</span>
-          <span class="text-zinc-400">&#123;</span>
-          <div class="flex flex-wrap items-center gap-2">
-            <a
-              href="/blog"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-300/80 dark:border-[#00ffcc]/40 bg-sky-50 dark:bg-[#00ffcc]/10 text-sky-800 dark:text-[#00ffcc] hover:bg-sky-100 dark:hover:bg-[#00ffcc]/20 font-semibold transition-all cursor-pointer shadow-2xs"
-            >
-              <span class="text-sky-600 dark:text-zinc-400 font-normal">onClicked:</span>
-              <span>qs.openArchive("/blog")</span>
-              <span class="text-xs">↵</span>
-            </a>
-
-            <a
-              href="/galeri"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-purple-300/80 dark:border-purple-500/40 bg-purple-50 dark:bg-purple-950/20 text-purple-800 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-950/40 font-semibold transition-all cursor-pointer shadow-2xs"
-            >
-              <span class="text-purple-600 dark:text-zinc-400 font-normal">onClicked:</span>
-              <span>qs.openGallery("/galeri")</span>
-              <span class="text-xs">↵</span>
-            </a>
-
-            <a
-              href="/projeler"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800/70 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-800 font-semibold transition-all cursor-pointer shadow-2xs"
-            >
-              <span class="text-zinc-500 dark:text-zinc-400 font-normal">onClicked:</span>
-              <span>qs.openProjects("/projeler")</span>
-              <span class="text-xs">↵</span>
-            </a>
-          </div>
-          <span class="text-zinc-400">&#125;</span>
-        </div>
+        <a
+          href="/projeler"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800/80 text-zinc-900 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 font-medium transition-colors"
+        >
+          <span>Açık Kaynak Projeler</span>
+          <span class="text-xs">→</span>
+        </a>
       </div>
     </section>
 
@@ -168,306 +134,160 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- LEFT / MAIN CONTENT AREA (8 Cols on Desktop) -->
       <div class="lg:col-span-8 space-y-6">
         
-        <!-- BIOGRAPHY & ACADEMIC/PROFESSIONAL ARCHITECTURE COMPONENT -->
-        <section class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] overflow-hidden shadow-2xs" aria-label="Biyografi ve Mimariler">
-          <!-- Titlebar -->
-          <div class="px-4 py-2.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-sky-500"></span>
-              <span class="text-purple-600 dark:text-purple-400 font-bold">BiographyScope</span>
-              <span class="text-zinc-400 dark:text-zinc-600">&#123;</span>
-              <span class="text-zinc-600 dark:text-zinc-400">id: biographyModel;</span>
-              <span class="text-zinc-500 dark:text-zinc-500 hidden sm:inline">qs://desktop/biography.qml</span>
-            </div>
-            <span class="text-zinc-400 font-mono text-xs">&#125;</span>
+        <!-- BIOGRAPHY & FORMATION -->
+        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-6" aria-label="Biyografi ve Mimariler">
+          <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-xs">
+            <span class="text-zinc-600 dark:text-zinc-300 font-semibold tracking-wider uppercase">
+              // 01_Biyografi_ve_Formasyon
+            </span>
+            <span class="text-zinc-400 text-[11px]">4 Modül</span>
           </div>
 
-          <!-- QML Component Cards List -->
-          <div class="p-5 sm:p-6 space-y-4 font-mono text-xs">
+          <!-- Items Stack -->
+          <div class="space-y-4">
             
             <!-- Item 1: AcademicFormation -->
-            <article class="p-4 sm:p-5 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2">
-              <div class="flex items-center justify-between pb-2 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                <div class="flex items-center gap-2">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">AcademicFormation</span>
-                  <span class="text-zinc-400">&#123;</span>
-                  <span class="text-sky-600 dark:text-sky-400">id</span>: <span class="text-amber-600 dark:text-amber-400">ktuForestFaculty</span>
-                </div>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border border-emerald-200/50 dark:border-emerald-800/50 text-[10px]">
-                  KTÜ ORMAN
-                </span>
+            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
+              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800/60">
+                <span class="text-emerald-700 dark:text-emerald-400 font-semibold">[01] KTÜ Orman Fakültesi</span>
+                <span class="text-zinc-400 text-[11px]">Orman Mühendisliği</span>
               </div>
-              <div class="pl-3 sm:pl-4 space-y-1.5 border-l-2 border-purple-500/30 dark:border-purple-400/30">
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">faculty</span>:
-                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Karadeniz Teknik Üniversitesi (KTÜ) Orman Fakültesi"</span>
-                </div>
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">discipline</span>:
-                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Orman Mühendisliği"</span>
-                </div>
-                <div class="pt-1">
-                  <span class="text-sky-600 dark:text-sky-400">perspective</span>:
-                  <p class="font-sans text-sm sm:text-base text-zinc-800 dark:text-zinc-200 leading-relaxed mt-1 pl-3 py-1 border-l-2 border-emerald-500/50 bg-white/70 dark:bg-[#151922] rounded-r-md">
-                    Karadeniz Teknik Üniversitesi Orman Fakültesi mezunuyum. Orman mühendisliği formasyonunun kazandırdığı ekosistem dinamikleri ve analitik bakış açısı, teknolojiye ve yazılım dünyasına yaklaşımımın da temelini oluşturuyor.
-                  </p>
-                </div>
-              </div>
-              <div class="text-zinc-400 pt-1">&#125;</div>
+              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Karadeniz Teknik Üniversitesi Orman Fakültesi mezunuyum. Orman mühendisliği formasyonunun kazandırdığı ekosistem dinamikleri ve analitik bakış açısı, teknolojiye ve yazılım dünyasına yaklaşımımın da temelini oluşturuyor.
+              </p>
             </article>
 
             <!-- Item 2: ExecutiveExperience -->
-            <article class="p-4 sm:p-5 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2">
-              <div class="flex items-center justify-between pb-2 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                <div class="flex items-center gap-2">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">ExecutiveExperience</span>
-                  <span class="text-zinc-400">&#123;</span>
-                  <span class="text-sky-600 dark:text-sky-400">id</span>: <span class="text-amber-600 dark:text-amber-400">publicSectorAdmin</span>
-                </div>
-                <span class="px-2 py-0.5 rounded bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-400 border border-sky-200/50 dark:border-sky-800/50 text-[10px]">
-                  YÖNETİM & BİLİŞİM
-                </span>
+            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
+              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800/60">
+                <span class="text-sky-700 dark:text-sky-400 font-semibold">[02] Kamu Yönetimi & Bilişim</span>
+                <span class="text-zinc-400 text-[11px]">Yönetim & Koordinasyon</span>
               </div>
-              <div class="pl-3 sm:pl-4 space-y-1.5 border-l-2 border-purple-500/30 dark:border-purple-400/30">
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">domain</span>:
-                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Kamu Yönetimi, Kurumsal İletişim ve Yerel Yönetim"</span>
-                </div>
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">executiveRoles</span>:
-                  <span class="text-zinc-400">[</span>
-                  <span class="text-emerald-700 dark:text-emerald-400">"Belediye Başkan Danışmanlığı"</span>,
-                  <span class="text-emerald-700 dark:text-emerald-400">"Ar-Ge & Bilgi İşlem Yöneticiliği"</span>
-                  <span class="text-zinc-400">]</span>
-                </div>
-                <div class="pt-1">
-                  <span class="text-sky-600 dark:text-sky-400">narrative</span>:
-                  <p class="font-sans text-sm sm:text-base text-zinc-800 dark:text-zinc-200 leading-relaxed mt-1 pl-3 py-1 border-l-2 border-sky-500/50 bg-white/70 dark:bg-[#151922] rounded-r-md">
-                    Kamu yönetimi, kurumsal iletişim ve yerel yönetim süreçlerinde görev aldım. Belediye başkan danışmanlığı ile Ar-Ge ve Bilgi İşlem yöneticiliği görevlerinde bulundum; dijital iletişim süreçleri, kriz yönetimi ve kurumsal bilişim altyapılarını koordine ettim.
-                  </p>
-                </div>
-              </div>
-              <div class="text-zinc-400 pt-1">&#125;</div>
+              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Kamu yönetimi, kurumsal iletişim ve yerel yönetim süreçlerinde görev aldım. Belediye başkan danışmanlığı ile Ar-Ge ve Bilgi İşlem yöneticiliği görevlerinde bulundum; dijital iletişim süreçleri, kriz yönetimi ve kurumsal bilişim altyapılarını koordine ettim.
+              </p>
             </article>
 
             <!-- Item 3: SystemArchitecture (YZ Kodcusu) -->
-            <article class="p-4 sm:p-5 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2">
-              <div class="flex items-center justify-between pb-2 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                <div class="flex items-center gap-2">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">SystemArchitecture</span>
-                  <span class="text-zinc-400">&#123;</span>
-                  <span class="text-sky-600 dark:text-sky-400">id</span>: <span class="text-amber-600 dark:text-amber-400">yzKodcusuOmarchyStack</span>
-                </div>
-                <span class="px-2 py-0.5 rounded bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400 border border-purple-200/50 dark:border-purple-800/50 text-[10px] font-bold">
-                  YZ KODCUSU // OMARCHY
-                </span>
+            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
+              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800/60">
+                <span class="text-purple-700 dark:text-purple-400 font-semibold">[03] YZ Kodcusu // Omarchy & Wayland</span>
+                <span class="text-zinc-400 text-[11px]">Sistem Mimarisi</span>
               </div>
-              <div class="pl-3 sm:pl-4 space-y-1.5 border-l-2 border-purple-500/30 dark:border-purple-400/30">
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">roleModel</span>:
-                  <span class="text-sky-600 dark:text-[#00ffcc] font-semibold">"YZ Kodcusu (Yapay Zeka Destekli Mimari & Kodlama)"</span>
-                </div>
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">operatingSystem</span>:
-                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Arch Linux // Hyprland Wayland Compositor"</span>
-                </div>
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">shellCore</span>:
-                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">"C++ & Reactive QML QuickShell"</span>
-                </div>
-                <div class="pt-1">
-                  <span class="text-sky-600 dark:text-sky-400">narrative</span>:
-                  <p class="font-sans text-sm sm:text-base text-zinc-800 dark:text-zinc-200 leading-relaxed mt-1 pl-3 py-1 border-l-2 border-purple-500/50 bg-white/70 dark:bg-[#151922] rounded-r-md">
-                    Kendimi klasik bir yazılımcıdan ziyade yapay zeka ile kod üreten ve sistem inşa eden bir <strong>YZ Kodcusu</strong> olarak konumlandırıyorum. Açık kaynak ekosisteminde Arch Linux tabanlı kişisel masaüstü yapılandırmam (<a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-[#00ffcc] font-medium underline underline-offset-4 hover:opacity-80">Omarchy</a>), C++/QML tabanlı QuickShell bileşenleri, Wayland katman protokolleri ve güvenlik araçlarını yapay zeka güdümlü modern mühendislik iş akışlarıyla hayata geçiriyorum.
-                  </p>
-                </div>
-                <div class="pt-2">
-                  <span class="text-purple-600 dark:text-purple-400">ActionTrigger</span> <span class="text-zinc-400">&#123;</span>
-                  <a
-                    href="https://github.com/ozdil/omarchy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 ml-2 px-2.5 py-1 rounded bg-zinc-200/70 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-[#00ffcc] font-semibold text-[11px] transition-colors"
-                  >
-                    <span>onTriggered: qs.openRepo("github.com/ozdil/omarchy")</span>
-                    <span>↗</span>
-                  </a>
-                  <span class="text-zinc-400">&#125;</span>
-                </div>
+              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Kendimi klasik bir yazılımcıdan ziyade yapay zeka ile kod üreten ve sistem inşa eden bir <strong>YZ Kodcusu</strong> olarak konumlandırıyorum. Açık kaynak ekosisteminde Arch Linux tabanlı kişisel masaüstü yapılandırmam (<a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-[#00ffcc] font-medium underline underline-offset-4 hover:opacity-80">Omarchy</a>), C++/QML tabanlı QuickShell bileşenleri, Wayland katman protokolleri ve güvenlik araçlarını yapay zeka güdümlü modern mühendislik iş akışlarıyla hayata geçiriyorum.
+              </p>
+              <div class="pt-2 font-mono text-xs">
+                <a
+                  href="https://github.com/ozdil/omarchy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-sky-600 dark:text-[#00ffcc] hover:underline"
+                >
+                  <span>github.com/ozdil/omarchy</span>
+                  <span>↗</span>
+                </a>
               </div>
-              <div class="text-zinc-400 pt-1">&#125;</div>
             </article>
 
             <!-- Item 4: LinuxGamingTelemetry -->
-            <article class="p-4 sm:p-5 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2">
-              <div class="flex items-center justify-between pb-2 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                <div class="flex items-center gap-2">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">LinuxGamingTelemetry</span>
-                  <span class="text-zinc-400">&#123;</span>
-                  <span class="text-sky-600 dark:text-sky-400">id</span>: <span class="text-amber-600 dark:text-amber-400">protonWaylandStack</span>
-                </div>
-                <span class="px-2 py-0.5 rounded bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-400 border border-rose-200/50 dark:border-rose-800/50 text-[10px]">
-                  WAYLAND + PROTON
-                </span>
+            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
+              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800/60">
+                <span class="text-rose-700 dark:text-rose-400 font-semibold">[04] Linux Oyun & Telemetri</span>
+                <span class="text-zinc-400 text-[11px]">Wayland + Proton</span>
               </div>
-              <div class="pl-3 sm:pl-4 space-y-1.5 border-l-2 border-purple-500/30 dark:border-purple-400/30">
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">driverProfile</span>:
-                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">"Vulkan / RADV Low-Latency"</span>
-                </div>
-                <div>
-                  <span class="text-sky-600 dark:text-sky-400">hudMonitoring</span>:
-                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">"MangoHud + QuickShell OSD Telemetry"</span>
-                </div>
-                <div class="pt-1">
-                  <span class="text-sky-600 dark:text-sky-400">narrative</span>:
-                  <p class="font-sans text-sm sm:text-base text-zinc-800 dark:text-zinc-200 leading-relaxed mt-1 pl-3 py-1 border-l-2 border-rose-500/50 bg-white/70 dark:bg-[#151922] rounded-r-md">
-                    Aynı zamanda bir Linux oyuncusu olarak Wayland ve Proton üzerinde düşük gecikmeli oyun deneyimi, simülasyon konfigürasyonları ve kare süresi (frametime) telemetrisi üzerine çalışıyorum.
-                  </p>
-                </div>
-                <div class="pt-2">
-                  <span class="text-purple-600 dark:text-purple-400">ActionTrigger</span> <span class="text-zinc-400">&#123;</span>
-                  <a
-                    href="https://steamcommunity.com/id/ozanozdil"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 ml-2 px-2.5 py-1 rounded bg-zinc-200/70 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-[#00ffcc] font-semibold text-[11px] transition-colors"
-                  >
-                    <span>onTriggered: qs.openProfile("steam://ozanozdil")</span>
-                    <span>↗</span>
-                  </a>
-                  <span class="text-zinc-400">&#125;</span>
-                </div>
+              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                Aynı zamanda bir Linux oyuncusu olarak Wayland ve Proton üzerinde düşük gecikmeli oyun deneyimi, simülasyon konfigürasyonları ve kare süresi (frametime) telemetrisi üzerine çalışıyorum.
+              </p>
+              <div class="pt-2 font-mono text-xs">
+                <a
+                  href="https://steamcommunity.com/id/ozanozdil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 hover:underline"
+                >
+                  <span>steamcommunity.com/id/ozanozdil</span>
+                  <span>↗</span>
+                </a>
               </div>
-              <div class="text-zinc-400 pt-1">&#125;</div>
             </article>
 
           </div>
         </section>
 
-        <!-- CORE FOCUS MODULES (QML APPLET GRID) -->
-        <section class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] overflow-hidden shadow-2xs" aria-label="Odak Alanları">
-          <div class="px-4 py-2.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span class="text-purple-600 dark:text-purple-400 font-bold">AppletGrid</span>
-              <span class="text-zinc-400">&#123;</span>
-              <span class="text-zinc-600 dark:text-zinc-400">columns: 2;</span>
-              <span class="text-zinc-500 dark:text-zinc-500 hidden sm:inline">qs://desktop/applets.qml</span>
-            </div>
-            <span class="text-zinc-400 font-mono text-xs">&#125;</span>
+        <!-- CORE FOCUS MODULES -->
+        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-6" aria-label="Odak Alanları">
+          <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-xs">
+            <span class="text-zinc-600 dark:text-zinc-300 font-semibold tracking-wider uppercase">
+              // 02_Odak_Alanları
+            </span>
+            <span class="text-zinc-400 text-[11px]">4 Alan</span>
           </div>
 
-          <div class="p-5 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
             
-            <!-- Applet 1 -->
-            <article class="p-4 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-1.5 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">Applet</span>
-                  <span class="text-amber-600 dark:text-amber-400">id: appWaylandShell</span>
-                </div>
-                <div class="pt-2 space-y-1">
-                  <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                    Wayland & QuickShell
-                  </h3>
-                  <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                    Wayland protokolleri, katman kabuğu (layer-shell), Qt/QML tabanlı reaktif masaüstü widget'ları ve IPC mimarisi.
-                  </p>
-                </div>
+            <!-- Area 1 -->
+            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
+              <div class="space-y-1.5">
+                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Protokol & Kabuk</span>
+                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
+                  Wayland & QuickShell
+                </h3>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                  Wayland katman kabuğu (layer-shell), Qt/QML tabanlı reaktif masaüstü widget'ları ve IPC mimarisi.
+                </p>
               </div>
-              <div class="pt-2">
-                <a
-                  href="/blog"
-                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-sky-50 dark:bg-[#00ffcc]/10 text-sky-700 dark:text-[#00ffcc] border border-sky-200/60 dark:border-[#00ffcc]/30 hover:bg-sky-100 dark:hover:bg-[#00ffcc]/20 font-semibold text-[11px] transition-colors"
-                >
-                  <span>onTriggered: qs.readDocs()</span>
-                  <span>↵</span>
-                </a>
-              </div>
+              <a href="/blog" class="text-sky-600 dark:text-[#00ffcc] font-medium hover:underline text-[11px] pt-1">
+                Yazıları İncele →
+              </a>
             </article>
 
-            <!-- Applet 2 -->
-            <article class="p-4 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-1.5 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">Applet</span>
-                  <span class="text-amber-600 dark:text-amber-400">id: appSecurity</span>
-                </div>
-                <div class="pt-2 space-y-1">
-                  <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                    Omarchy & Siber Güvenlik
-                  </h3>
-                  <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                    Sistem sertleştirme, ağ anomalisi tespiti, USB yetkilendirme kalkanı ve CVE güvenlik denetleyicileri.
-                  </p>
-                </div>
+            <!-- Area 2 -->
+            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
+              <div class="space-y-1.5">
+                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Güvenlik & Sertleştirme</span>
+                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
+                  Omarchy & Siber Güvenlik
+                </h3>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                  Sistem sertleştirme, ağ anomalisi tespiti, USB kalkanı ve CVE güvenlik denetleyicileri.
+                </p>
               </div>
-              <div class="pt-2">
-                <a
-                  href="/projeler"
-                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-300 border border-purple-200/60 dark:border-purple-800/50 hover:bg-purple-100 dark:hover:bg-purple-950/50 font-semibold text-[11px] transition-colors"
-                >
-                  <span>onTriggered: qs.listTools()</span>
-                  <span>↵</span>
-                </a>
-              </div>
+              <a href="/projeler" class="text-purple-600 dark:text-purple-400 font-medium hover:underline text-[11px] pt-1">
+                Projeleri İncele →
+              </a>
             </article>
 
-            <!-- Applet 3 -->
-            <article class="p-4 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-1.5 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">Applet</span>
-                  <span class="text-amber-600 dark:text-amber-400">id: appMediumFormat</span>
-                </div>
-                <div class="pt-2 space-y-1">
-                  <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                    Fujifilm GFX Fotoğrafçılık
-                  </h3>
-                  <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                    43.8×32.9mm orta format sensör, Kastamonu tarihi ahşap camileri, Ağlı Kalesi ve kadim coğrafi rotalar.
-                  </p>
-                </div>
+            <!-- Area 3 -->
+            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
+              <div class="space-y-1.5">
+                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Görsel Arşiv</span>
+                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
+                  Fujifilm GFX Fotoğrafçılık
+                </h3>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                  43.8×32.9mm orta format sensör, Kastamonu tarihi ahşap mimarisi, Ağlı Kalesi ve kadim coğrafi rotalar.
+                </p>
               </div>
-              <div class="pt-2">
-                <a
-                  href="/galeri"
-                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/50 hover:bg-emerald-100 dark:hover:bg-emerald-950/50 font-semibold text-[11px] transition-colors"
-                >
-                  <span>onTriggered: qs.viewGallery()</span>
-                  <span>↵</span>
-                </a>
-              </div>
+              <a href="/galeri" class="text-emerald-600 dark:text-emerald-400 font-medium hover:underline text-[11px] pt-1">
+                Galeriye Git →
+              </a>
             </article>
 
-            <!-- Applet 4 -->
-            <article class="p-4 rounded-lg bg-zinc-50/80 dark:bg-[#101319] border border-zinc-200/80 dark:border-zinc-800/80 space-y-2 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between pb-1.5 border-b border-zinc-200/60 dark:border-zinc-800/60 text-[11px]">
-                  <span class="text-purple-600 dark:text-purple-400 font-bold">Applet</span>
-                  <span class="text-amber-600 dark:text-amber-400">id: appGamingTelemetry</span>
-                </div>
-                <div class="pt-2 space-y-1">
-                  <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                    Linux Oyun & Proton
-                  </h3>
-                  <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                    Wayland altında düşük gecikmeli render, simülasyon donanımları, MangoHud ve Steam Proton optimizasyonları.
-                  </p>
-                </div>
+            <!-- Area 4 -->
+            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
+              <div class="space-y-1.5">
+                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Oyun & Simülasyon</span>
+                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
+                  Linux Oyun & Proton
+                </h3>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
+                  Wayland altında düşük gecikmeli render, simülasyon donanımları, MangoHud ve Proton optimizasyonları.
+                </p>
               </div>
-              <div class="pt-2">
-                <a
-                  href="https://steamcommunity.com/id/ozanozdil"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 border border-rose-200/60 dark:border-rose-800/50 hover:bg-rose-100 dark:hover:bg-rose-950/50 font-semibold text-[11px] transition-colors"
-                >
-                  <span>onTriggered: qs.steamTelemetry()</span>
-                  <span>↗</span>
-                </a>
-              </div>
+              <a href="https://steamcommunity.com/id/ozanozdil" target="_blank" rel="noopener noreferrer" class="text-rose-600 dark:text-rose-400 font-medium hover:underline text-[11px] pt-1">
+                Steam Profili ↗
+              </a>
             </article>
 
           </div>
@@ -478,42 +298,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <!-- RIGHT / SIDEBAR AREA (4 Cols on Desktop) -->
       <aside class="lg:col-span-4 space-y-6">
         
-        <!-- TIMELINE COMPONENT (FORMATION TRACK) -->
-        <section class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] overflow-hidden shadow-2xs" aria-label="Zaman Çizelgesi">
-          <div class="px-4 py-2.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span class="text-purple-600 dark:text-purple-400 font-bold">TimelineModel</span>
-              <span class="text-zinc-400">&#123;</span>
-              <span class="text-zinc-600 dark:text-zinc-400">id: careerTrack</span>
-            </div>
-            <span class="text-zinc-400 font-mono text-xs">&#125;</span>
+        <!-- TIMELINE COMPONENT -->
+        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5" aria-label="Zaman Çizelgesi">
+          <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-xs">
+            <span class="text-zinc-600 dark:text-zinc-300 font-semibold tracking-wider uppercase">
+              // 03_Kariyer_Çizelgesi
+            </span>
           </div>
 
-          <div class="p-5 space-y-4 font-mono text-xs">
-            
+          <div class="space-y-4 font-mono text-xs">
             <!-- Stage 1 -->
-            <div class="relative pl-6 pb-4 border-l-2 border-emerald-500/50 dark:border-[#00ffcc]/50">
-              <span class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-emerald-500 dark:bg-[#00ffcc] ring-4 ring-white dark:ring-[#0c0e12]"></span>
+            <div class="relative pl-5 pb-4 border-l-2 border-emerald-500/50">
+              <span class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-emerald-500"></span>
               <div class="space-y-1">
-                <div class="flex items-center justify-between text-[11px]">
-                  <span class="text-sky-600 dark:text-sky-400">date</span>: <span class="text-emerald-700 dark:text-[#00ffcc] font-semibold">"2024 - Günümüz"</span>
+                <div class="text-[11px] text-emerald-700 dark:text-emerald-400 font-semibold">
+                  2024 - Günümüz
                 </div>
                 <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
-                  Ar-Ge, Bilgi İşlem & QuickShell
+                  Ar-Ge, Bilgi İşlem & YZ Kodlama
                 </h4>
                 <p class="font-sans text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed">
-                  Kurumsal bilişim altyapıları koordinasyonu, Wayland katman kabuğu ve açık kaynak sistem mimarisi geliştirme.
+                  Kurumsal bilişim altyapıları, Wayland kabuk mimarisi ve açık kaynak sistem geliştirme.
                 </p>
               </div>
             </div>
 
             <!-- Stage 2 -->
-            <div class="relative pl-6 pb-4 border-l-2 border-sky-500/50">
-              <span class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-sky-500 ring-4 ring-white dark:ring-[#0c0e12]"></span>
+            <div class="relative pl-5 pb-4 border-l-2 border-sky-500/50">
+              <span class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-sky-500"></span>
               <div class="space-y-1">
-                <div class="flex items-center justify-between text-[11px]">
-                  <span class="text-sky-600 dark:text-sky-400">date</span>: <span class="text-sky-700 dark:text-sky-300 font-semibold">"2019 - 2024"</span>
+                <div class="text-[11px] text-sky-700 dark:text-sky-400 font-semibold">
+                  2019 - 2024
                 </div>
                 <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
                   Belediye Başkan Danışmanlığı
@@ -525,27 +340,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </div>
 
             <!-- Stage 3 -->
-            <div class="relative pl-6 pb-4 border-l-2 border-purple-500/50">
-              <span class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-purple-500 ring-4 ring-white dark:ring-[#0c0e12]"></span>
+            <div class="relative pl-5 pb-4 border-l-2 border-purple-500/50">
+              <span class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-purple-500"></span>
               <div class="space-y-1">
-                <div class="flex items-center justify-between text-[11px]">
-                  <span class="text-sky-600 dark:text-sky-400">date</span>: <span class="text-purple-700 dark:text-purple-300 font-semibold">"2018 - 2019"</span>
+                <div class="text-[11px] text-purple-700 dark:text-purple-400 font-semibold">
+                  2018 - 2019
                 </div>
                 <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
                   Orman Mühendisliği & CBS
                 </h4>
                 <p class="font-sans text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed">
-                  Orman amenajmanı, Coğrafi Bilgi Sistemleri (CBS), uzaktan algılama ve saha modellemeleri.
+                  Orman amenajmanı, Coğrafi Bilgi Sistemleri (CBS) ve saha modellemeleri.
                 </p>
               </div>
             </div>
 
             <!-- Stage 4 -->
-            <div class="relative pl-6">
-              <span class="absolute -left-[7px] top-0 w-3 h-3 rounded-full bg-zinc-400 dark:bg-zinc-600 ring-4 ring-white dark:ring-[#0c0e12]"></span>
+            <div class="relative pl-5">
+              <span class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-zinc-400"></span>
               <div class="space-y-1">
-                <div class="flex items-center justify-between text-[11px]">
-                  <span class="text-sky-600 dark:text-sky-400">date</span>: <span class="text-zinc-700 dark:text-zinc-300 font-semibold">"2013 - 2018"</span>
+                <div class="text-[11px] text-zinc-500 font-semibold">
+                  2013 - 2018
                 </div>
                 <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
                   KTÜ Orman Fakültesi
@@ -555,72 +370,55 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </p>
               </div>
             </div>
-
           </div>
         </section>
 
         <!-- SYSTEM LAUNCHERS -->
-        <section class="rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-[#0c0e12] overflow-hidden shadow-2xs" aria-label="Hızlı Başlatıcılar">
-          <div class="px-4 py-2.5 bg-zinc-50 dark:bg-[#12151d] border-b border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between font-mono text-[11px]">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-sky-500"></span>
-              <span class="text-purple-600 dark:text-purple-400 font-bold">LauncherScope</span>
-              <span class="text-zinc-400">&#123;</span>
-              <span class="text-zinc-600 dark:text-zinc-400">id: quickLaunch</span>
-            </div>
-            <span class="text-zinc-400 font-mono text-xs">&#125;</span>
+        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5" aria-label="Bağlantılar">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-xs">
+            <span class="text-zinc-600 dark:text-zinc-300 font-semibold tracking-wider uppercase">
+              // 04_Bağlantılar
+            </span>
           </div>
 
-          <div class="p-4 space-y-2 font-mono text-xs">
+          <div class="space-y-2 font-mono text-xs">
             <a
               href="https://github.com/ozdil"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-[#101319] hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors group"
+              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-700 transition-colors group"
             >
-              <span class="flex items-center gap-2">
-                <span class="text-purple-600 dark:text-purple-400 font-bold">Launch</span>
-                <span class="text-zinc-700 dark:text-zinc-300">"GitHub"</span>
-              </span>
-              <span class="text-sky-600 dark:text-[#00ffcc] text-[11px] group-hover:translate-x-0.5 transition-transform">qs.open() ↗</span>
+              <span class="text-zinc-800 dark:text-zinc-200 font-medium">GitHub: @ozdil</span>
+              <span class="text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">↗</span>
             </a>
 
             <a
               href="https://steamcommunity.com/id/ozanozdil"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-[#101319] hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors group"
+              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-700 transition-colors group"
             >
-              <span class="flex items-center gap-2">
-                <span class="text-purple-600 dark:text-purple-400 font-bold">Launch</span>
-                <span class="text-zinc-700 dark:text-zinc-300">"Steam"</span>
-              </span>
-              <span class="text-sky-600 dark:text-[#00ffcc] text-[11px] group-hover:translate-x-0.5 transition-transform">qs.open() ↗</span>
+              <span class="text-zinc-800 dark:text-zinc-200 font-medium">Steam: ozanozdil</span>
+              <span class="text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">↗</span>
             </a>
 
             <a
               href="https://nsosyal.com/ozanozdil"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-[#101319] hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors group"
+              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-700 transition-colors group"
             >
-              <span class="flex items-center gap-2">
-                <span class="text-purple-600 dark:text-purple-400 font-bold">Launch</span>
-                <span class="text-zinc-700 dark:text-zinc-300">"NSosyal"</span>
-              </span>
-              <span class="text-sky-600 dark:text-[#00ffcc] text-[11px] group-hover:translate-x-0.5 transition-transform">qs.open() ↗</span>
+              <span class="text-zinc-800 dark:text-zinc-200 font-medium">NSosyal: @ozanozdil</span>
+              <span class="text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-white transition-colors">↗</span>
             </a>
 
             <a
               href="/rss.xml"
               target="_blank"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-[#101319] hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors group"
+              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-700 transition-colors group"
             >
-              <span class="flex items-center gap-2">
-                <span class="text-purple-600 dark:text-purple-400 font-bold">Feed</span>
-                <span class="text-zinc-700 dark:text-zinc-300">"RSS Feed"</span>
-              </span>
-              <span class="text-amber-600 dark:text-amber-400 text-[11px] group-hover:translate-x-0.5 transition-transform">qs.fetch() ↗</span>
+              <span class="text-zinc-800 dark:text-zinc-200 font-medium">RSS Akışı</span>
+              <span class="text-amber-600 dark:text-amber-400">xml ↗</span>
             </a>
           </div>
         </section>
