@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /gizli/
 Allow: /
 
 Sitemap: https://ozanozdil.com/sitemap-index.xml
