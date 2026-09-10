@@ -353,8 +353,4 @@ p, blockquote, li {
   color: #00ffcc;
 }
 
-/* Subtle glow for telemetry */
-.qs-glow-accent {
-  text-shadow: 0 0 12px rgba(0, 255, 204, 0.45);
-}
 

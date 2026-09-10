@@ -10,92 +10,54 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <div class="space-y-6 py-2 sm:py-4">
     
-    <!-- HERO / IDENTITY CARD — STRICT 2-COLOR SHELL MINIMALISM -->
+    <!-- HERO / IDENTITY CARD -->
     <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-7 lg:p-8 transition-colors" aria-label="Profil ve Kimlik">
-      <!-- Minimal Shell Line Header -->
-      <div class="flex items-center justify-between pb-4 mb-6 border-b border-zinc-100 dark:border-zinc-800 font-mono text-[11px] text-zinc-400 dark:text-zinc-500">
-        <span class="text-zinc-600 dark:text-zinc-400 font-medium">// ozanozdil.com</span>
-        <span class="flex items-center gap-1.5 text-zinc-700 dark:text-[#00ffcc] font-medium">
-          <span class="w-2 h-2 rounded-full bg-zinc-900 dark:bg-[#00ffcc]"></span>
-          <span>online</span>
-        </span>
-      </div>
-
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-        <!-- Identity -->
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 p-0.5">
-            <img
-              src="/avatar.webp"
-              alt="Ozan Özdil"
-              width="96"
-              height="96"
-              fetchpriority="high"
-              decoding="async"
-              class="w-full h-full object-cover rounded-lg"
-            />
-            <span class="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-zinc-900 dark:bg-[#00ffcc] border-2 border-white dark:border-[#0c0e12]"></span>
-          </div>
-
-          <div class="space-y-2">
-            <div class="flex flex-wrap items-center gap-2">
-              <span class="font-mono text-xs font-semibold text-zinc-900 dark:text-[#00ffcc] uppercase tracking-wider">
-                YZ Kodcusu & Orman Mühendisi
-              </span>
-              <span class="text-zinc-300 dark:text-zinc-700 text-xs hidden sm:inline">•</span>
-              <span class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hidden sm:inline">
-                KTÜ Orman
-              </span>
-            </div>
-
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
-              Ozan Özdil
-            </h1>
-
-            <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-2xl">
-              Linux, Omarchy, QuickShell, Açık Kaynak Sistem Mimarisi ve Orta Format Fotoğrafçılık.
-            </p>
-
-            <!-- Minimal Unified Badges (Monochrome + Accent) -->
-            <div class="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[11px]">
-              <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
-                Kastamonu, TR
-              </span>
-              <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-[#00ffcc] bg-zinc-50 dark:bg-zinc-900/40 font-medium">
-                YZ Kodcusu
-              </span>
-              <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
-                KTÜ Orman
-              </span>
-              <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
-                QuickShell & Wayland
-              </span>
-            </div>
-          </div>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+        <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 p-0.5">
+          <img
+            src="/avatar.webp"
+            alt="Ozan Özdil"
+            width="96"
+            height="96"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-full object-cover rounded-lg"
+          />
         </div>
 
-        <!-- Telemetry Strip (Monochrome + Accent) -->
-        <div class="font-mono text-xs rounded-lg p-4 border border-zinc-200 dark:border-zinc-800 bg-zinc-50/60 dark:bg-[#101319]/80 min-w-[280px] sm:min-w-[300px] space-y-2">
-          <div class="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider pb-1.5 border-b border-zinc-200/80 dark:border-zinc-800">
-            Sistem Telemetrisi
+        <div class="space-y-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="font-mono text-xs font-semibold text-zinc-900 dark:text-[#00ffcc] uppercase tracking-wider">
+              YZ Kodcusu & Orman Mühendisi
+            </span>
+            <span class="text-zinc-300 dark:text-zinc-700 text-xs hidden sm:inline">•</span>
+            <span class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hidden sm:inline">
+              KTÜ Orman
+            </span>
           </div>
-          <div class="space-y-1.5 text-[11px]">
-            <div class="flex justify-between gap-2">
-              <span class="text-zinc-500">İşletim Sistemi:</span>
-              <span class="text-zinc-800 dark:text-zinc-200 font-medium">Arch Linux // Hyprland</span>
-            </div>
-            <div class="flex justify-between gap-2">
-              <span class="text-zinc-500">Masaüstü Kabuğu:</span>
-              <span class="text-zinc-900 dark:text-[#00ffcc] font-medium">QuickShell (C++/QML)</span>
-            </div>
-            <div class="flex justify-between gap-2">
-              <span class="text-zinc-500">Optik Gövde:</span>
-              <span class="text-zinc-800 dark:text-zinc-200 font-medium">Fujifilm GFX Orta Format</span>
-            </div>
-            <div class="flex justify-between gap-2">
-              <span class="text-zinc-500">Tema Felsefesi:</span>
-              <span class="text-zinc-800 dark:text-zinc-200 font-medium">OLED Black #000000</span>
-            </div>
+
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+            Ozan Özdil
+          </h1>
+
+          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-2xl">
+            Linux, açık kaynak sistem mimarisi, yapay zekâ destekli kod geliştirme ve orta format fotoğrafçılık.
+          </p>
+
+          <!-- Minimal Unified Badges -->
+          <div class="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
+              Kastamonu, TR
+            </span>
+            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-[#00ffcc] bg-zinc-50 dark:bg-zinc-900/40 font-medium">
+              YZ Kodcusu
+            </span>
+            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
+              KTÜ Orman
+            </span>
+            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
+              QuickShell & Wayland
+            </span>
           </div>
         </div>
       </div>
@@ -135,12 +97,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="lg:col-span-8 space-y-6">
         
         <!-- BIOGRAPHY & FORMATION -->
-        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-6" aria-label="Biyografi ve Mimariler">
+        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-6" aria-label="Biyografi ve Deneyim">
           <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
             <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // 01_Biyografi_ve_Formasyon
+              // Biyografi & Formasyon
             </span>
-            <span class="text-zinc-400 text-[11px]">4 Modül</span>
           </div>
 
           <!-- Items Stack: Unified 2-Color Borders & Surfaces -->
@@ -149,7 +110,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <!-- Item 1: AcademicFormation -->
             <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
               <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">[01] KTÜ Orman Fakültesi</span>
+                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">KTÜ Orman Fakültesi</span>
                 <span class="text-zinc-400 text-[11px]">Orman Mühendisliği</span>
               </div>
               <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
@@ -160,7 +121,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <!-- Item 2: ExecutiveExperience -->
             <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
               <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">[02] Kamu Yönetimi & Bilişim</span>
+                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">Kamu Yönetimi & Bilişim</span>
                 <span class="text-zinc-400 text-[11px]">Yönetim & Koordinasyon</span>
               </div>
               <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
@@ -171,8 +132,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <!-- Item 3: SystemArchitecture (YZ Kodcusu) -->
             <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
               <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">[03] YZ Kodcusu // Omarchy & Wayland</span>
-                <span class="text-zinc-400 text-[11px]">Sistem Mimarisi</span>
+                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">YZ Kodcusu & Sistem Mimarisi</span>
+                <span class="text-zinc-400 text-[11px]">Sistem Geliştirme</span>
               </div>
               <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                 Kendimi klasik bir yazılımcıdan ziyade yapay zeka ile kod üreten ve sistem inşa eden bir <strong>YZ Kodcusu</strong> olarak konumlandırıyorum. Açık kaynak ekosisteminde Arch Linux tabanlı kişisel masaüstü yapılandırmam (<a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-[#00ffcc] font-medium underline underline-offset-4 hover:opacity-80">Omarchy</a>), C++/QML tabanlı QuickShell bileşenleri, Wayland katman protokolleri ve güvenlik araçlarını yapay zeka güdümlü modern mühendislik iş akışlarıyla hayata geçiriyorum.
@@ -190,14 +151,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
             </article>
 
-            <!-- Item 4: LinuxGamingTelemetry -->
+            <!-- Item 4: LinuxGaming -->
             <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
               <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">[04] Linux Oyun & Telemetri</span>
+                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">Linux Oyun & Performans</span>
                 <span class="text-zinc-400 text-[11px]">Wayland + Proton</span>
               </div>
               <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Aynı zamanda bir Linux oyuncusu olarak Wayland ve Proton üzerinde düşük gecikmeli oyun deneyimi, simülasyon konfigürasyonları ve kare süresi (frametime) telemetrisi üzerine çalışıyorum.
+                Aynı zamanda bir Linux oyuncusu olarak Wayland ve Proton üzerinde düşük gecikmeli oyun deneyimi, simülasyon konfigürasyonları ve performans optimizasyonu üzerine çalışıyorum.
               </p>
               <div class="pt-2 font-mono text-xs">
                 <a
@@ -219,9 +180,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-6" aria-label="Odak Alanları">
           <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
             <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // 02_Odak_Alanları
+              // Odak Alanları
             </span>
-            <span class="text-zinc-400 text-[11px]">4 Alan</span>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
@@ -302,7 +262,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5" aria-label="Zaman Çizelgesi">
           <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
             <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // 03_Kariyer_Çizelgesi
+              // Kariyer Çizelgesi
             </span>
           </div>
 
@@ -377,7 +337,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5" aria-label="Bağlantılar">
           <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
             <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // 04_Bağlantılar
+              // Bağlantılar
             </span>
           </div>
 
