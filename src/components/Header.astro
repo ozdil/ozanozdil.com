@@ -8,10 +8,10 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 
 const navItems = [
-  { href: '/blog', id: '01', code: 'yazilar', label: 'Yazılar' },
-  { href: '/projeler', id: '02', code: 'projeler', label: 'Projeler' },
-  { href: '/galeri', id: '03', code: 'galeri', label: 'Galeri' },
-  { href: '/hakkimda', id: '04', code: 'hakkimda', label: 'Hakkımda' },
+  { href: '/', id: '01', code: 'hakkimda', label: 'Hakkımda' },
+  { href: '/blog', id: '02', code: 'yazilar', label: 'Yazılar' },
+  { href: '/projeler', id: '03', code: 'projeler', label: 'Projeler' },
+  { href: '/galeri', id: '04', code: 'galeri', label: 'Galeri' },
 ];
 ---
 
@@ -35,7 +35,7 @@ const navItems = [
         <!-- Desktop Workspace Indicator (Hyprland / QuickShell style) -->
         <div class="hidden lg:flex items-center gap-1 pl-2 border-l border-zinc-200 dark:border-zinc-800 text-[10px] font-mono">
           {navItems.map((item, index) => {
-            const isActive = currentPath.startsWith(item.href) || (item.href === '/' && currentPath === '/');
+            const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
             return (
               <a
                 href={item.href}
@@ -56,7 +56,7 @@ const navItems = [
       <!-- Center: QuickShell Modules (Navigation) -->
       <nav class="flex items-center space-x-1 sm:space-x-1.5 overflow-x-auto no-scrollbar py-1 text-xs font-mono" aria-label="QuickShell Modülleri">
         {navItems.map((item) => {
-          const isActive = currentPath.startsWith(item.href);
+          const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
           return (
             <a
               href={item.href}
