@@ -66,8 +66,8 @@ const imageGallerySchema = {
   <div class="py-2 sm:py-4 space-y-6">
     <!-- Header: Omarchy Shell Minimalism -->
     <header class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-7 text-center">
-      <div class="inline-flex items-center gap-2 font-mono text-xs text-sky-600 dark:text-[#00ffcc] uppercase tracking-wider mb-2">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-zinc-900 dark:text-[#00ffcc] uppercase tracking-wider mb-2">
+        <span class="w-2 h-2 rounded-full bg-zinc-900 dark:bg-[#00ffcc]"></span>
         <span>omarchy://media/gallery</span>
       </div>
       <h1 class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
@@ -213,7 +213,7 @@ const imageGallerySchema = {
               <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-3">
                 <div class="space-y-2">
                   <div class="flex items-center justify-between gap-2">
-                    <h2 class="text-base sm:text-lg font-bold text-zinc-950 dark:text-zinc-50 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors font-sans">
+                    <h2 class="text-base sm:text-lg font-bold text-zinc-950 dark:text-zinc-50 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors font-sans">
                       {album.title}
                     </h2>
                     <span class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
@@ -287,7 +287,7 @@ const imageGallerySchema = {
 
       <div class="flex items-center gap-2 sm:gap-3">
         <span class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-black/60 border border-zinc-800 text-zinc-400 text-[11px]">
-          <span class="text-amber-400">©</span>
+          <span class="text-zinc-400 dark:text-[#00ffcc]">©</span>
           <span>Ozan Özdil • Telif Hakları Saklıdır</span>
         </span>
         <button
@@ -358,9 +358,9 @@ const imageGallerySchema = {
   <!-- Copyright Toast Alert -->
   <div
     id="copyrightToast"
-    class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-zinc-950/95 border border-amber-500/40 text-zinc-200 px-4 py-3 rounded-xl shadow-2xl backdrop-blur-md max-w-sm flex items-start gap-3"
+    class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-zinc-950/95 border border-zinc-800 dark:border-[#00ffcc]/40 text-zinc-200 px-4 py-3 rounded-xl shadow-2xl backdrop-blur-md max-w-sm flex items-start gap-3"
   >
-    <span class="text-amber-400 text-xs font-mono font-bold flex-shrink-0 mt-0.5">[OPSEC]</span>
+    <span class="text-zinc-400 dark:text-[#00ffcc] text-xs font-mono font-bold flex-shrink-0 mt-0.5">[OPSEC]</span>
     <div class="text-xs font-mono">
       <div class="font-semibold text-white">Telif Hakları Korunmaktadır</div>
       <div class="text-zinc-400 mt-0.5 text-[11px] leading-relaxed">
@@ -555,7 +555,7 @@ const imageGallerySchema = {
       </div>
       <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
         <span class="text-[10px] text-zinc-500 block font-mono">Diyafram / Perde</span>
-        <span class="text-emerald-400 font-semibold block">${escapeHtml(e.fNumber)} • ${escapeHtml(e.exposureTime)}</span>
+        <span class="text-zinc-100 dark:text-[#00ffcc] font-semibold block">${escapeHtml(e.fNumber)} • ${escapeHtml(e.exposureTime)}</span>
       </div>
       <div class="bg-zinc-950/80 p-2.5 rounded-lg border border-zinc-800/60">
         <span class="text-[10px] text-zinc-500 block font-mono">Hassasiyet (ISO)</span>

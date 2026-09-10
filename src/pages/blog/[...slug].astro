@@ -40,7 +40,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
   }}
 >
   <!-- Reading Progress Bar -->
-  <div id="qs-read-progress-bar" class="fixed top-14 sm:top-15 left-0 h-[2px] bg-gradient-to-r from-sky-500 via-[#00ffcc] to-emerald-400 z-50 transition-all duration-75 w-0 pointer-events-none"></div>
+  <div id="qs-read-progress-bar" class="fixed top-14 sm:top-15 left-0 h-[2px] bg-zinc-900 dark:bg-[#00ffcc] z-50 transition-all duration-75 w-0 pointer-events-none"></div>
 
   <div class="py-2 sm:py-4">
     <!-- Reader Container: Clean 1px border without faux window titlebars -->
@@ -129,7 +129,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
         <!-- Social Media Share Section (Sosyal Medyada Paylaş) -->
         <div class="mt-12 p-5 sm:p-6 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-50/80 dark:bg-[#10131a] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 font-mono text-xs shadow-2xs">
           <div class="flex items-center gap-2.5">
-            <span class="flex items-center justify-center w-6 h-6 rounded-md bg-sky-100 dark:bg-zinc-800 text-sky-600 dark:text-[#00ffcc]">
+            <span class="flex items-center justify-center w-6 h-6 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-[#00ffcc]">
               <svg viewBox="0 0 24 24" fill="none" class="w-3.5 h-3.5" stroke="currentColor" stroke-width="2">
                 <circle cx="18" cy="5" r="3"/>
                 <circle cx="6" cy="12" r="3"/>
@@ -154,7 +154,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(postUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
               title="X'te Paylaş"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
@@ -168,7 +168,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-sky-600 dark:hover:text-sky-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
               title="LinkedIn'de Paylaş"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
@@ -182,7 +182,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
               href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.data.title + ' — ' + postUrl)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
               title="WhatsApp ile Paylaş"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
@@ -196,7 +196,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
               href={`https://t.me/share/url?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(post.data.title)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-sky-500 dark:hover:text-sky-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
               title="Telegram ile Paylaş"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
@@ -210,7 +210,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
               href={`https://reddit.com/submit?url=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(post.data.title)}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-orange-600 dark:hover:text-orange-400 border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-zinc-800/90 hover:bg-zinc-100 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700/80 transition-all font-medium text-[11px]"
               title="Reddit'te Paylaş"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
@@ -286,7 +286,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
                   <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
                     ← Önceki Yazı
                   </span>
-                  <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
+                  <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
                     {prevPost.data.title}
                   </span>
                 </a>
@@ -302,7 +302,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
                   <span class="font-mono text-[10px] text-zinc-400 dark:text-zinc-500 mb-1">
                     Sonraki Yazı →
                   </span>
-                  <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
+                  <span class="font-sans font-medium text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors line-clamp-1">
                     {nextPost.data.title}
                   </span>
                 </a>
@@ -340,10 +340,10 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
         await navigator.clipboard.writeText(window.location.href);
         const orig = copyBtn.textContent;
         copyBtn.textContent = '[kopyalandı!]';
-        copyBtn.classList.add('text-emerald-500');
+        copyBtn.classList.add('text-zinc-950', 'dark:text-[#00ffcc]');
         setTimeout(() => {
           copyBtn.textContent = orig;
-          copyBtn.classList.remove('text-emerald-500');
+          copyBtn.classList.remove('text-zinc-950', 'dark:text-[#00ffcc]');
         }, 2000);
       } catch (e) {
         console.error('Kopyalama hatası:', e);
@@ -360,10 +360,10 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
         await navigator.clipboard.writeText(window.location.href);
         const orig = shareCopyText.textContent;
         shareCopyText.textContent = 'Kopyalandı! ✓';
-        shareCopyBtn.classList.add('bg-emerald-600', 'text-white');
+        shareCopyBtn.classList.add('bg-[#00ffcc]', 'text-zinc-950');
         setTimeout(() => {
           shareCopyText.textContent = orig;
-          shareCopyBtn.classList.remove('bg-emerald-600', 'text-white');
+          shareCopyBtn.classList.remove('bg-[#00ffcc]', 'text-zinc-950');
         }, 2000);
       } catch (e) {
         console.error('Kopyalama hatası:', e);

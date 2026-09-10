@@ -23,10 +23,10 @@ const navItems = [
         <a href="/" class="flex items-center space-x-2 group" title="QuickShell Home">
           <div class="relative w-7 h-7 rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 flex-shrink-0 p-0.5">
             <img src="/avatar.webp" alt="Ozan Özdil" width="28" height="28" decoding="async" class="w-full h-full object-cover rounded-md" />
-            <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 border border-[#08090b]"></span>
+            <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-zinc-900 dark:bg-[#00ffcc] border border-[#08090b]"></span>
           </div>
           <div class="flex flex-col text-left">
-            <span class="text-xs sm:text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-sky-600 dark:group-hover:text-[#00ffcc] transition-colors">
+            <span class="text-xs sm:text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors">
               Ozan Özdil
             </span>
           </div>
@@ -57,13 +57,13 @@ const navItems = [
       <div class="flex items-center space-x-1 sm:space-x-1.5 flex-shrink-0 font-mono text-xs">
         <!-- Live Digital Clock -->
         <div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-[#101317] border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-[#00ffcc] animate-pulse"></span>
           <span id="qs-live-clock" class="tracking-widest font-mono text-[11px]">--:--:--</span>
         </div>
 
         <!-- Git Branch Badge -->
         <span class="hidden xl:inline-flex items-center gap-1 px-2 py-1 rounded-md bg-zinc-100 dark:bg-[#101317] border border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-500 dark:text-zinc-400">
-          <span class="text-zinc-400">git:</span><span class="text-sky-600 dark:text-sky-400">main</span>
+          <span class="text-zinc-400">git:</span><span class="text-zinc-800 dark:text-[#00ffcc]">main</span>
         </span>
 
         <!-- GitHub Launcher -->
@@ -111,7 +111,7 @@ const navItems = [
         <!-- RSS Feed -->
         <a
           href="/rss.xml"
-          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all hidden sm:inline-flex"
+          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all hidden sm:inline-flex"
           title="RSS Beslemesi"
           aria-label="RSS Feed"
         >
