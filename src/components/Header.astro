@@ -46,7 +46,7 @@ const navItems = [
                   : 'border-transparent text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700/60 hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 hover:text-zinc-900 dark:hover:text-zinc-200'
               }`}
             >
-              <span class="text-zinc-400 dark:text-zinc-500 text-[10px]">[{item.id}]</span>
+              <span class="text-zinc-400 dark:text-zinc-500 text-[10px] hidden sm:inline">[{item.id}]</span>
               <span>{item.label}</span>
             </a>
           );
@@ -54,7 +54,7 @@ const navItems = [
       </nav>
 
       <!-- Right: System Telemetry & Quick Action Launchers -->
-      <div class="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0 font-mono text-xs">
+      <div class="flex items-center space-x-1 sm:space-x-1.5 flex-shrink-0 font-mono text-xs">
         <!-- Live Digital Clock -->
         <div class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-[#101317] border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -85,7 +85,7 @@ const navItems = [
           href="https://steamcommunity.com/id/ozanozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all"
+          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all hidden sm:inline-flex"
           title="Steam: ozanozdil"
           aria-label="Steam"
         >
@@ -99,7 +99,7 @@ const navItems = [
           href="https://nsosyal.com/ozanozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all"
+          class="p-1.5 sm:p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all hidden sm:inline-flex"
           title="NSosyal: @ozanozdil"
           aria-label="NSosyal"
         >

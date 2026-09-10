@@ -303,11 +303,11 @@ const imageGallerySchema = {
   <!-- LIGHTBOX / FULL EXIF TELEMETRY QUICKSELL WINDOW MODAL -->
   <dialog
     id="photoModal"
-    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-zinc-950 text-zinc-100 border border-zinc-800 rounded-2xl max-w-6xl w-full p-0 shadow-2xl overflow-hidden m-auto select-none"
+    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-zinc-950 text-zinc-100 border border-zinc-800 rounded-2xl max-w-6xl w-[95vw] sm:w-full p-0 shadow-2xl overflow-y-auto max-h-[92vh] m-auto select-none"
   >
     <!-- Modal Top Window Titlebar -->
-    <div class="flex items-center justify-between px-5 py-3 bg-[#10131a] border-b border-zinc-800 text-xs font-mono">
-      <div class="flex items-center gap-3">
+    <div class="sticky top-0 z-40 flex items-center justify-between px-3 sm:px-5 py-2.5 sm:py-3 bg-[#10131a] border-b border-zinc-800 text-xs font-mono">
+      <div class="flex items-center gap-2 sm:gap-3">
         <span class="flex items-center gap-1.5 opacity-80">
           <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
           <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
@@ -317,7 +317,7 @@ const imageGallerySchema = {
         <span id="photoModalTitle" class="truncate text-zinc-200 max-w-md font-semibold hidden sm:inline"></span>
       </div>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 sm:gap-3">
         <span class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-black/60 border border-zinc-800 text-zinc-400 text-[11px]">
           <span class="text-amber-400">©</span>
           <span>Ozan Özdil • Telif Hakları Saklıdır</span>
@@ -325,7 +325,7 @@ const imageGallerySchema = {
         <button
           id="btnCloseModal"
           type="button"
-          class="text-zinc-400 hover:text-white px-3 py-1 rounded bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition-colors cursor-pointer text-xs font-mono"
+          class="text-zinc-400 hover:text-white px-2.5 sm:px-3 py-1 rounded bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition-colors cursor-pointer text-xs font-mono"
         >
           [ESC] Kapat
         </button>
@@ -333,21 +333,21 @@ const imageGallerySchema = {
     </div>
 
     <!-- Modal Viewport with Image & Transparent Protection Shield -->
-    <div class="relative bg-black flex items-center justify-center min-h-[360px] max-h-[66vh] sm:max-h-[70vh] overflow-hidden select-none group">
+    <div class="relative bg-black flex items-center justify-center min-h-[220px] sm:min-h-[360px] max-h-[55vh] sm:max-h-[70vh] overflow-hidden select-none group">
       <img
         id="photoModalImg"
         src=""
         alt="Fotoğraf"
         draggable="false"
-        class="max-w-full max-h-[66vh] sm:max-h-[70vh] object-contain transition-opacity duration-200 pointer-events-none"
+        class="max-w-full max-h-[55vh] sm:max-h-[70vh] object-contain transition-opacity duration-200 pointer-events-none"
       />
 
       <!-- Invisible Click / Protection Overlay -->
       <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
 
       <!-- Watermark Badge overlay -->
-      <div class="absolute bottom-4 right-4 z-20 pointer-events-none flex items-center gap-2">
-        <span class="px-2.5 py-1 rounded text-[10px] font-mono bg-black/80 backdrop-blur-md text-zinc-300 border border-white/15 shadow-xl flex items-center gap-1.5">
+      <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20 pointer-events-none flex items-center gap-2">
+        <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[9px] sm:text-[10px] font-mono bg-black/80 backdrop-blur-md text-zinc-300 border border-white/15 shadow-xl flex items-center gap-1.5">
           <span class="text-[#00ffcc]">●</span>
           <span>FUJIFILM GFX MEDIUM FORMAT</span>
         </span>
@@ -357,7 +357,7 @@ const imageGallerySchema = {
       <button
         id="btnPrevPhoto"
         type="button"
-        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
+        class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 bg-zinc-900/80 hover:bg-zinc-800 text-white p-2.5 sm:p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-base sm:text-lg leading-none"
         title="Önceki (Sol Ok)"
       >
         ‹
@@ -365,7 +365,7 @@ const imageGallerySchema = {
       <button
         id="btnNextPhoto"
         type="button"
-        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-zinc-900/80 hover:bg-zinc-800 text-white p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
+        class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 bg-zinc-900/80 hover:bg-zinc-800 text-white p-2.5 sm:p-3.5 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-base sm:text-lg leading-none"
         title="Sonraki (Sağ Ok)"
       >
         ›
@@ -373,7 +373,7 @@ const imageGallerySchema = {
     </div>
 
     <!-- Contextual Caption & Full EXIF Telemetry -->
-    <div class="p-5 bg-zinc-900/95 border-t border-zinc-800 space-y-4">
+    <div class="p-3.5 sm:p-5 bg-zinc-900/95 border-t border-zinc-800 space-y-3 sm:space-y-4">
       <div id="photoModalCaption" class="text-xs sm:text-sm text-zinc-300 leading-relaxed bg-zinc-950/60 p-3 rounded-xl border border-zinc-800/80 font-sans"></div>
 
       <div class="pt-2 border-t border-zinc-800/80">
