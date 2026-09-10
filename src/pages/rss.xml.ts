@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'Ozan Özdil (@ozdil) — Açık Kaynak, Siber Güvenlik & Strateji',
-    description: 'Orman Mühendisi (KTÜ), Stratejist & Dijital İletişim Danışmanı. Açık Kaynak, Siber Güvenlik ve AI Araştırmacısı Ozan Özdil resmi yazıları.',
+    description: 'YZ Kodcusu, Stratejist & Dijital İletişim Danışmanı. Açık Kaynak, Siber Güvenlik ve Linux Araştırmacısı Ozan Özdil resmi yazıları.',
     site: context.site || 'https://ozanozdil.com',
     items: sortedPosts.map((post) => ({
       title: post.data.title,
