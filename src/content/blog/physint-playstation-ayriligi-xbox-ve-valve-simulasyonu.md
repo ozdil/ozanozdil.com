@@ -1,6 +1,6 @@
 ---
 title: "PHYSINT Şoku: PlayStation Neden Bıraktı, Xbox Neden Zorunlu Hamleydi ve Valve Ortaklığı Nasıl Olurdu?"
-description: "Hideo Kojima’nın merakla beklenen casusluk oyunu PHYSINT, Sony tarafından aniden iptal edildi ve Xbox tarafından sahiplenildi. Perde arkasındaki nedenler ve bir Geek'in alternatif Valve simülasyonu."
+description: "Hideo Kojima'nın yeni casusluk oyunu PHYSINT, PlayStation tarafından iptal edilip Xbox'a geçti. Sony'nin çekilme nedenleri ve alternatif Valve simülasyonu."
 pubDate: "2026-09-10T16:30:00.000+03:00"
 heroImage: "/images/physint-xbox-playstation.jpg"
 tags: ["physint", "hideo kojima", "xbox", "playstation", "valve", "steam", "metal gear", "oyun"]
@@ -9,7 +9,7 @@ draft: false
 
 10 Eylül 2026 günü, video oyun endüstrisinin son yıllardaki en sarsıcı manşetlerinden birine uyandık. 
 
-2024 yılının State of Play sahnesinde bizzat PlayStation Studios Başkanı Hermen Hulst ile kol kola girerek *"Metal Gear'ın ruhani mirasçısı"* ve *"sinema ile oyunun sınırlarını yok edecek yeni nesil taktiksel casusluk başyapıtı"* olarak duyurulan **PHYSINT**, resmen PlayStation kanadından koparıldı. 
+2024 yılının State of Play sahnesinde bizzat PlayStation Studios Başkanı Hermen Hulst ile kol kola girerek duyurulan ve daha önce [PHYSINT: Hideo Kojima’nın Yeni Nesil Casusluk Aksiyonuna Dair İncelememizde](/blog/physint-hideo-kojimann-yeni-nesil) heyecanla karşıladığımız **PHYSINT**, resmen PlayStation kanadından koparıldı. 
 
 Önce PlayStation'ın resmi X hesabından gelen soğuk bir veda açıklaması, yalnızca bir dakika sonra yeni Xbox CEO'su Asha Sharma'nın zafer duyurusu ve hemen ardından Hideo Kojima'nın süreci doğrulayan samimi itirafları... 
 
