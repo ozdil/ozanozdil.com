@@ -16,7 +16,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
 >
   <div class="py-2 sm:py-4">
     <!-- Header: Omarchy / QuickShell Style -->
-    <header class="pb-6 text-center max-w-3xl mx-auto">
+    <header class="pb-8 text-center w-full">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 dark:bg-zinc-900 border border-sky-200 dark:border-zinc-800 text-sky-700 dark:text-[#00ffcc] font-mono text-[11px] font-semibold mb-3">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         <span>WAYLAND DESKTOP ARCHIVE // PANO GÖRÜNÜMÜ</span>
@@ -24,17 +24,17 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
       <h1 class="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
         Quickshell & Omarchy Notları
       </h1>
-      <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+      <p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
         Wayland masaüstü kabuğu, QML bileşenleri, eklentiler ve performans analizleri panosu.
       </p>
 
-      <!-- Topic Tags Interactive Filter Bar -->
+      <!-- Topic Tags Interactive Filter Bar: Wide QuickShell Deck -->
       {allTags.length > 0 && (
-        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 mt-5 font-mono text-xs max-w-4xl mx-auto">
+        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-6 font-mono text-xs w-full">
           <button
             type="button"
             data-filter-tag="all"
-            class="qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold"
+            class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold shadow-xs"
           >
             Tümü ({sortedPosts.length})
           </button>
@@ -42,7 +42,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
             <button
               type="button"
               data-filter-tag={tag.toLowerCase()}
-              class="qs-filter-pill px-2.5 py-1 rounded text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700/60 hover:text-zinc-950 dark:hover:text-zinc-200 hover:border-zinc-300 dark:hover:border-zinc-600"
+              class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700"
             >
               #{tag}
             </button>
