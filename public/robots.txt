@@ -4,3 +4,7 @@ Allow: /
 
 Sitemap: https://ozanozdil.com/sitemap-index.xml
 Sitemap: https://ozanozdil.com/sitemap-images.xml
+
+# LLM & AI Agents Context Directory (https://llmstxt.org)
+# llms.txt: https://ozanozdil.com/llms.txt
+# llms-full.txt: https://ozanozdil.com/llms-full.txt
