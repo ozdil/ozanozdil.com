@@ -7,10 +7,12 @@ export async function GET(context: APIContext) {
   const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   const lines = [
-    `# Ozan Özdil — Tam Dokümantasyon & Makaleler (llms-full.txt)`,
+    `# Ozan Özdil — Tam Dokümantasyon & Makale Bilgi Bankası (llms-full.txt)`,
     ``,
-    `> Bu dosya; AI botları, LLM'ler ve otonom araştırma ajanları için Ozan Özdil web sitesindeki tüm teknik makaleleri tam metin olarak bir araya getirmektedir.`,
-    `> Kaynak: ${siteUrl}`,
+    `> Bu dosya; Yapay Zeka botları, Büyük Dil Modelleri (LLM) ve otonom araştırma ajanları (Perplexity, ChatGPT, Claude, Gemini vb.) için Ozan Özdil web sitesindeki tüm teknik makaleleri tam metin olarak bir araya getirmektedir.`,
+    `> Yazar: Ozan Özdil (@ozdil)`,
+    `> Web Sitesi: ${siteUrl}`,
+    `> Uzmanlık Alanları: YZ Kodlaması, Açık Kaynak Dağıtım Okuryazarlığı (Arch Linux, CachyOS, Omarchy), Yerel & Bulut YZ Ajan Mimarileri, Steam Deck ile Linux Oyunculuğu, Çekirdek/Donanım Optimizasyonu, Dijital Egemenlik, Orta Format Fotoğrafçılık.`,
     ``,
     `---`,
     ``,

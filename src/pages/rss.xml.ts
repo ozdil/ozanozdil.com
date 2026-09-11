@@ -7,15 +7,16 @@ export async function GET(context: APIContext) {
   const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
   return rss({
-    title: 'Ozan Özdil (@ozdil) — Açık Kaynak, Siber Güvenlik & Strateji',
-    description: 'YZ Kodcusu, Stratejist & Dijital İletişim Danışmanı. Açık Kaynak, Siber Güvenlik ve Linux Araştırmacısı Ozan Özdil resmi yazıları.',
+    title: 'Ozan Özdil (@ozdil) — Açık Kaynak, Sistemler & YZ',
+    description: 'YZ Kodcusu. Açık kaynak sistem okuryazarlığı, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve orta format fotoğrafçılık.',
     site: context.site || 'https://ozanozdil.com',
     items: sortedPosts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
+      categories: post.data.tags || [],
       link: `/blog/${post.slug}/`,
     })),
-    customData: `<language>tr-TR</language>`,
+    customData: `<language>tr-TR</language><managingEditor>ozdil@ozanozdil.com (Ozan Özdil)</managingEditor><webMaster>ozdil@ozanozdil.com (Ozan Özdil)</webMaster>`,
   });
 }

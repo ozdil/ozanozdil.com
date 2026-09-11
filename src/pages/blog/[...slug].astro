@@ -18,7 +18,8 @@ export async function getStaticPaths() {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
+const tocHeadings = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
 const wordCount = post.body ? post.body.split(/\s+/).filter(Boolean).length : 0;
 const readingTime = Math.max(1, Math.ceil(wordCount / 180));
@@ -47,7 +48,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
     <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] overflow-hidden">
       <article class="p-5 sm:p-8 lg:p-10">
         <!-- Top Navigation / Back -->
-        <div class="flex items-center justify-between pb-4 mb-6 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-xs">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-xs">
           <a
             href="/blog"
             class="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors"
@@ -55,15 +56,35 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
             <span>← Tüm Yazılar</span>
           </a>
 
-          <button
-            id="qs-copy-btn"
-            type="button"
-            class="inline-flex items-center gap-1 text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors cursor-pointer"
-            title="Bağlantıyı Kopyala"
-          >
-            <span>[bağlantıyı kopyala]</span>
-          </button>
+          <div class="flex items-center gap-3">
+            <button
+              id="qs-copy-markdown-btn"
+              type="button"
+              class="inline-flex items-center gap-1 text-zinc-500 hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors cursor-pointer"
+              title="Yazıyı Markdown / AI Prompt olarak panoya kopyala"
+            >
+              <span>[ai için kopyala]</span>
+            </button>
+
+            <button
+              id="qs-copy-btn"
+              type="button"
+              class="inline-flex items-center gap-1 text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors cursor-pointer"
+              title="Bağlantıyı Kopyala"
+            >
+              <span>[bağlantıyı kopyala]</span>
+            </button>
+          </div>
         </div>
+
+        <script type="text/plain" id="qs-raw-markdown" set:html={JSON.stringify(
+`# ${post.data.title}
+Kaynak: ${postUrl}
+Tarih: ${post.data.pubDate.toISOString().split('T')[0]}
+Etiketler: ${(post.data.tags || []).join(', ')}
+
+${post.body}`
+        )} />
 
         <!-- Article Header -->
         <header class="pb-8 border-b border-zinc-100 dark:border-zinc-800/80">
@@ -120,6 +141,36 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
             </div>
           )}
         </header>
+
+        <!-- Table of Contents (TOC) -->
+        {tocHeadings.length >= 3 && (
+          <details class="mt-8 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/60 font-mono text-xs group" open>
+            <summary class="flex items-center justify-between p-3.5 sm:p-4 cursor-pointer select-none font-semibold text-zinc-900 dark:text-zinc-100 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors">
+              <span class="flex items-center gap-2">
+                <span class="text-zinc-900 dark:text-[#00ffcc] font-bold">#</span>
+                <span>İçindekiler</span>
+              </span>
+              <span class="text-[11px] text-zinc-400 font-normal">
+                {tocHeadings.length} Başlık ▾
+              </span>
+            </summary>
+            <nav class="px-4 pb-4 pt-1 border-t border-zinc-100 dark:border-zinc-800/80">
+              <ul class="space-y-2 text-zinc-600 dark:text-zinc-400">
+                {tocHeadings.map((heading) => (
+                  <li class={heading.depth === 3 ? 'pl-4 text-[11px]' : ''}>
+                    <a
+                      href={`#${heading.slug}`}
+                      class="hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:underline transition-colors flex items-center gap-1.5"
+                    >
+                      <span class="text-zinc-400 dark:text-zinc-600">{heading.depth === 2 ? '→' : '↳'}</span>
+                      <span>{heading.text}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </details>
+        )}
 
         <!-- Rendered Markdown Body -->
         <div class="mt-10 markdown-body leading-relaxed max-w-none">
@@ -370,4 +421,52 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
       }
     });
   }
+
+  // Copy Markdown / AI Prompt Action
+  const copyMdBtn = document.getElementById('qs-copy-markdown-btn');
+  const rawMdEl = document.getElementById('qs-raw-markdown');
+  if (copyMdBtn && rawMdEl) {
+    copyMdBtn.addEventListener('click', async () => {
+      try {
+        const text = JSON.parse(rawMdEl.textContent || '""');
+        await navigator.clipboard.writeText(text);
+        const orig = copyMdBtn.textContent;
+        copyMdBtn.textContent = '[ai için kopyalandı! ✓]';
+        copyMdBtn.classList.add('text-zinc-950', 'dark:text-[#00ffcc]');
+        setTimeout(() => {
+          copyMdBtn.textContent = orig;
+          copyMdBtn.classList.remove('text-zinc-950', 'dark:text-[#00ffcc]');
+        }, 2000);
+      } catch (e) {
+        console.error('Markdown kopyalama hatası:', e);
+      }
+    });
+  }
+
+  // Add Copy Button to all code blocks in .markdown-body
+  document.querySelectorAll('.markdown-body pre').forEach((pre) => {
+    pre.classList.add('relative', 'group');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'absolute top-2.5 right-2.5 px-2 py-1 rounded text-[11px] font-mono bg-zinc-800/90 hover:bg-zinc-700 text-zinc-300 hover:text-[#00ffcc] border border-zinc-700/60 opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all cursor-pointer select-none';
+    button.textContent = 'kopyala';
+    button.setAttribute('aria-label', 'Kodu Kopyala');
+
+    button.addEventListener('click', async () => {
+      const code = pre.querySelector('code')?.innerText || pre.innerText;
+      try {
+        await navigator.clipboard.writeText(code.trim());
+        button.textContent = 'kopyalandı! ✓';
+        button.classList.add('text-[#00ffcc]', 'border-[#00ffcc]/60');
+        setTimeout(() => {
+          button.textContent = 'kopyala';
+          button.classList.remove('text-[#00ffcc]', 'border-[#00ffcc]/60');
+        }, 2000);
+      } catch (err) {
+        console.error('Kopyalama hatası:', err);
+      }
+    });
+
+    pre.appendChild(button);
+  });
 </script>

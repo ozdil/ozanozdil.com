@@ -30,66 +30,150 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ozanozdi
 const currentPath = Astro.url.pathname;
 const ogImageURL = new URL(image, canonicalURL);
 
-const jsonLd = type === 'article' && article?.pubDate ? {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  'headline': title,
-  'description': description,
-  'datePublished': article.pubDate.toISOString(),
-  'dateModified': (article.updatedDate || article.pubDate).toISOString(),
-  'author': {
-    '@type': 'Person',
-    'name': 'Ozan Özdil',
-    'url': 'https://ozanozdil.com',
-    'sameAs': [
-      'https://github.com/ozdil',
-      'https://steamcommunity.com/id/ozanozdil',
-      'https://nsosyal.com/ozanozdil'
-    ]
+// Breadcrumb items calculation
+const breadcrumbItems = [
+  {
+    '@type': 'ListItem',
+    'position': 1,
+    'name': 'Ana Sayfa',
+    'item': 'https://ozanozdil.com',
   },
-  'publisher': {
-    '@type': 'Person',
-    'name': 'Ozan Özdil',
-    'url': 'https://ozanozdil.com',
-    'logo': {
-      '@type': 'ImageObject',
-      'url': 'https://ozanozdil.com/icon-512.png'
-    }
-  },
-  'image': ogImageURL.toString(),
-  'mainEntityOfPage': {
-    '@type': 'WebPage',
-    '@id': canonicalURL.toString()
-  },
-  'keywords': article.tags?.join(', ')
-} : {
-  '@context': 'https://schema.org',
-  '@graph': [
+];
+
+if (type === 'article' && article?.pubDate) {
+  breadcrumbItems.push(
     {
-      '@type': 'WebSite',
-      '@id': 'https://ozanozdil.com/#website',
-      'url': 'https://ozanozdil.com',
-      'name': 'Ozan Özdil',
-      'description': description,
-      'publisher': {
-        '@id': 'https://ozanozdil.com/#person'
-      }
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Yazılar',
+      'item': 'https://ozanozdil.com/blog',
     },
     {
-      '@type': 'Person',
-      '@id': 'https://ozanozdil.com/#person',
-      'name': 'Ozan Özdil',
-      'url': 'https://ozanozdil.com',
-      'image': 'https://ozanozdil.com/avatar.jpg',
-      'jobTitle': 'YZ Kodcusu & Bağımsız Araştırmacı',
-      'description': description,
-      'sameAs': [
-        'https://github.com/ozdil',
-        'https://steamcommunity.com/id/ozanozdil',
-        'https://nsosyal.com/ozanozdil'
-      ]
+      '@type': 'ListItem',
+      'position': 3,
+      'name': title.replace(/ — Ozan Özdil$/, ''),
+      'item': canonicalURL.toString(),
     }
+  );
+} else if (currentPath.startsWith('/blog')) {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    'position': 2,
+    'name': 'Yazılar',
+    'item': 'https://ozanozdil.com/blog',
+  });
+} else if (currentPath.startsWith('/projeler')) {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    'position': 2,
+    'name': 'Projeler',
+    'item': 'https://ozanozdil.com/projeler',
+  });
+} else if (currentPath.startsWith('/galeri')) {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    'position': 2,
+    'name': 'Fotoğraf Galerisi',
+    'item': 'https://ozanozdil.com/galeri',
+  });
+} else if (currentPath.startsWith('/hakkimda')) {
+  breadcrumbItems.push({
+    '@type': 'ListItem',
+    'position': 2,
+    'name': 'Hakkımda',
+    'item': 'https://ozanozdil.com/hakkimda',
+  });
+}
+
+const personEntity = {
+  '@type': 'Person',
+  '@id': 'https://ozanozdil.com/#person',
+  'name': 'Ozan Özdil',
+  'alternateName': ['ozdil', 'Ozan Ozdil'],
+  'url': 'https://ozanozdil.com',
+  'image': 'https://ozanozdil.com/avatar.jpg',
+  'jobTitle': 'YZ Kodcusu, Sistem Araştırmacısı & Fotoğrafçı',
+  'description': 'Açık kaynak sistem okuryazarlığı, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve orta format fotoğrafçılık.',
+  'knowsAbout': [
+    'Linux',
+    'Open Source Software',
+    'Artificial Intelligence',
+    'Large Language Models',
+    'AI Agents & Workflows',
+    'Arch Linux',
+    'CachyOS',
+    'Steam Deck',
+    'Wayland Architecture',
+    'Medium Format Photography',
+    'Cybersecurity',
+    'Digital Sovereignty'
+  ],
+  'sameAs': [
+    'https://github.com/ozdil',
+    'https://steamcommunity.com/id/ozanozdil',
+    'https://nsosyal.com/ozanozdil'
   ]
+};
+
+const websiteEntity = {
+  '@type': 'WebSite',
+  '@id': 'https://ozanozdil.com/#website',
+  'url': 'https://ozanozdil.com',
+  'name': 'Ozan Özdil',
+  'description': 'YZ Kodcusu. Açık kaynak sistem okuryazarlığı, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve orta format fotoğrafçılık.',
+  'inLanguage': 'tr-TR',
+  'publisher': {
+    '@id': 'https://ozanozdil.com/#person'
+  },
+  'potentialAction': {
+    '@type': 'SearchAction',
+    'target': {
+      '@type': 'EntryPoint',
+      'urlTemplate': 'https://ozanozdil.com/blog?q={search_term_string}'
+    },
+    'query-input': 'required name=search_term_string'
+  }
+};
+
+const breadcrumbEntity = {
+  '@type': 'BreadcrumbList',
+  '@id': `${canonicalURL.toString()}#breadcrumb`,
+  'itemListElement': breadcrumbItems
+};
+
+const graphElements: any[] = [websiteEntity, personEntity, breadcrumbEntity];
+
+if (type === 'article' && article?.pubDate) {
+  graphElements.push({
+    '@type': 'BlogPosting',
+    '@id': `${canonicalURL.toString()}#article`,
+    'isPartOf': {
+      '@id': 'https://ozanozdil.com/#website'
+    },
+    'headline': title.replace(/ — Ozan Özdil$/, ''),
+    'description': description,
+    'datePublished': article.pubDate.toISOString(),
+    'dateModified': (article.updatedDate || article.pubDate).toISOString(),
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': canonicalURL.toString()
+    },
+    'author': {
+      '@id': 'https://ozanozdil.com/#person'
+    },
+    'publisher': {
+      '@id': 'https://ozanozdil.com/#person'
+    },
+    'image': ogImageURL.toString(),
+    'inLanguage': 'tr-TR',
+    'keywords': article.tags?.join(', '),
+    'articleSection': article.tags?.[0] || 'Teknoloji'
+  });
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': graphElements
 };
 ---
 
@@ -117,11 +201,20 @@ const jsonLd = type === 'article' && article?.pubDate ? {
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap">
     </noscript>
 
+    <!-- Search Engine & AI Crawler Directives -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta http-equiv="content-language" content="tr" />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content="Ozan Özdil" />
+    {article?.tags && article.tags.length > 0 && (
+      <meta name="keywords" content={article.tags.join(', ')} />
+    )}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={type} />
@@ -129,6 +222,8 @@ const jsonLd = type === 'article' && article?.pubDate ? {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="Ozan Özdil" />
+    <meta property="og:locale" content="tr_TR" />
 
     {type === 'article' && article?.pubDate && (
       <>
@@ -149,14 +244,18 @@ const jsonLd = type === 'article' && article?.pubDate ? {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImageURL} />
+    <meta property="twitter:site" content="@ozdil" />
+    <meta property="twitter:creator" content="@ozdil" />
 
-    <!-- JSON-LD Structured Data for Google SEO -->
+    <!-- JSON-LD Structured Data for Google SEO & AI Knowledge Graph -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <!-- RSS, Sitemap & LLM Context -->
+    <!-- RSS, Sitemap & LLM Context Endpoints -->
     <link rel="alternate" type="application/rss+xml" title="Ozan Özdil RSS Feed" href="/rss.xml" />
-    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context (llms.txt)" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Documentation (llms-full.txt)" />
+    <link rel="help" href="/llms.txt" title="AI Agent Guidelines" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
 
     <!-- Inline script to prevent theme flash -->
     <script is:inline>
