@@ -1,0 +1,6 @@
+; DNS-AID (DNS for AI Discovery) Records for ozanozdil.com
+; RFC 9460 & draft-mozleywilliams-dnsop-dnsaid
+
+_index._agents.ozanozdil.com. 3600 IN HTTPS 1 www.ozanozdil.com. alpn="h2,h3" port=443
+_a2a._agents.ozanozdil.com. 3600 IN SVCB 1 www.ozanozdil.com. alpn="a2a" port=443 mandatory=alpn,port
+_mcp._agents.ozanozdil.com. 3600 IN SVCB 1 www.ozanozdil.com. alpn="h2,h3" port=443
