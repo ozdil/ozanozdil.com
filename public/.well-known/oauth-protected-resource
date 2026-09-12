@@ -1,0 +1,16 @@
+{
+  "resource": "https://www.ozanozdil.com/",
+  "resource_name": "Ozan Özdil Web and Agent API",
+  "resource_documentation": "https://www.ozanozdil.com/llms.txt",
+  "authorization_servers": [
+    "https://www.ozanozdil.com"
+  ],
+  "scopes_supported": [
+    "read:articles",
+    "read:projects",
+    "public"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}

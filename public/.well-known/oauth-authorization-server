@@ -1,0 +1,38 @@
+{
+  "issuer": "https://www.ozanozdil.com",
+  "authorization_endpoint": "https://www.ozanozdil.com/oauth/authorize",
+  "token_endpoint": "https://www.ozanozdil.com/oauth/token",
+  "revocation_endpoint": "https://www.ozanozdil.com/oauth/revoke",
+  "jwks_uri": "https://www.ozanozdil.com/.well-known/jwks.json",
+  "scopes_supported": [
+    "read:articles",
+    "read:projects",
+    "public"
+  ],
+  "response_types_supported": [
+    "token"
+  ],
+  "grant_types_supported": [
+    "urn:ietf:params:oauth:grant-type:jwt-bearer",
+    "urn:workos:agent-auth:grant-type:claim"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "agent_auth": {
+    "skill": "https://www.ozanozdil.com/auth.md",
+    "identity_endpoint": "https://www.ozanozdil.com/agent/identity",
+    "claim_endpoint": "https://www.ozanozdil.com/agent/identity/claim",
+    "events_endpoint": "https://www.ozanozdil.com/agent/event/notify",
+    "identity_types_supported": [
+      "anonymous",
+      "identity_assertion",
+      "service_auth"
+    ],
+    "identity_assertion": {
+      "assertion_types_supported": [
+        "urn:ietf:params:oauth:token-type:id-jag"
+      ]
+    }
+  }
+}
