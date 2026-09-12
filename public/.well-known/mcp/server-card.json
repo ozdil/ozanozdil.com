@@ -1,0 +1,24 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/server-card/v1.json",
+  "serverInfo": {
+    "name": "ozanozdil-mcp",
+    "version": "1.0.0",
+    "description": "Ozan Özdil Knowledge Base MCP Server"
+  },
+  "transport": {
+    "type": "sse",
+    "endpoint": "https://ozanozdil.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    },
+    "prompts": {
+      "listChanged": false
+    }
+  }
+}

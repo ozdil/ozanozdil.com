@@ -250,12 +250,54 @@ const jsonLd = {
     <!-- JSON-LD Structured Data for Google SEO & AI Knowledge Graph -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-    <!-- RSS, Sitemap & LLM Context Endpoints -->
+    <!-- RSS, Sitemap, AI Catalogs & LLM Endpoints -->
     <link rel="alternate" type="application/rss+xml" title="Ozan Özdil RSS Feed" href="/rss.xml" />
     <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context (llms.txt)" />
     <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full LLM Documentation (llms-full.txt)" />
     <link rel="help" href="/llms.txt" title="AI Agent Guidelines" />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
+    <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
+    <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" />
+    <link rel="service-desc" type="application/json" href="/.well-known/ai-catalog.json" />
+
+    <!-- WebMCP: W3C Web Machine Learning Context Protocol Tool Registration -->
+    <script is:inline>
+      (function registerWebMCP() {
+        if (typeof navigator !== 'undefined' && 'modelContext' in navigator && navigator.modelContext) {
+          try {
+            const mc = navigator.modelContext;
+            const searchTool = {
+              name: 'search_articles',
+              description: 'Search technical articles, Linux tutorials, and system architecture notes on ozanozdil.com.',
+              inputSchema: {
+                type: 'object',
+                properties: {
+                  query: {
+                    type: 'string',
+                    description: 'Search term or keyword to find relevant articles'
+                  }
+                },
+                required: ['query']
+              },
+              execute: async function({ query }) {
+                window.location.href = '/blog?q=' + encodeURIComponent(query);
+                return { success: true, url: '/blog?q=' + encodeURIComponent(query) };
+              },
+              annotations: { readOnlyHint: true }
+            };
+
+            if (typeof mc.registerTool === 'function') {
+              mc.registerTool(searchTool);
+            }
+            if (typeof mc.provideContext === 'function') {
+              mc.provideContext({ tools: [searchTool] });
+            }
+          } catch (e) {
+            // WebMCP API feature variations
+          }
+        }
+      })();
+    </script>
 
     <!-- Inline script to prevent theme flash -->
     <script is:inline>

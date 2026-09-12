@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "search-articles",
+      "type": "skill-md",
+      "description": "Search across all technical blog articles and notes on ozanozdil.com",
+      "url": "/.well-known/agent-skills/search-articles/SKILL.md",
+      "digest": "sha256:b8fb7ede3bac730f2e2fc98c385b270dfa32561ab604ac1c2236ac85b911f12e"
+    }
+  ]
+}

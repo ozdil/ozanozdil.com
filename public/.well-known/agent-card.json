@@ -1,0 +1,33 @@
+{
+  "$schema": "https://a2a-protocol.org/latest/schemas/agent-card.json",
+  "name": "Ozan Özdil Web Agent",
+  "version": "1.0.0",
+  "description": "AI agent representing Ozan Özdil's personal knowledge base, technical articles, and open source projects.",
+  "supportedInterfaces": [
+    {
+      "url": "https://ozanozdil.com",
+      "transport": "https"
+    },
+    {
+      "url": "https://ozanozdil.com/.well-known/mcp/server-card.json",
+      "transport": "mcp"
+    }
+  ],
+  "capabilities": {
+    "search": true,
+    "readDocumentation": true,
+    "exportMarkdown": true
+  },
+  "skills": [
+    {
+      "id": "search-articles",
+      "name": "Search Articles",
+      "description": "Search across all technical blog articles and notes."
+    },
+    {
+      "id": "read-llms-full",
+      "name": "Read Full Knowledge Base",
+      "description": "Retrieve full text documentation of all published articles via llms-full.txt."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Ozan Özdil",
+    "identifier": "did:web:ozanozdil.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:ozanozdil.com:mcp:knowledge-base",
+      "displayName": "Ozan Özdil Knowledge Base MCP Server",
+      "type": "application/vnd.mcp.server-card+json",
+      "url": "https://ozanozdil.com/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "Ozan Özdil Linux architecture and dotfiles",
+        "Omarchy and Quickshell development guides",
+        "Steam Deck game optimization and performance tuning"
+      ]
+    },
+    {
+      "identifier": "urn:air:ozanozdil.com:a2a:web-agent",
+      "displayName": "Ozan Özdil A2A Agent",
+      "type": "application/vnd.a2a.agent-card+json",
+      "url": "https://ozanozdil.com/.well-known/agent-card.json",
+      "representativeQueries": [
+        "Ask Ozan Özdil agent about Linux gaming",
+        "Get technical article summaries from ozanozdil.com"
+      ]
+    },
+    {
+      "identifier": "urn:air:ozanozdil.com:skills:search",
+      "displayName": "Ozan Özdil Search Articles Skill",
+      "type": "text/markdown",
+      "url": "https://ozanozdil.com/.well-known/agent-skills/search-articles/SKILL.md",
+      "representativeQueries": [
+        "Search articles on ozanozdil.com",
+        "Find Linux tutorials by Ozan Özdil"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://ozanozdil.com/api",
+      "service-doc": [
+        {
+          "href": "https://ozanozdil.com/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "https://ozanozdil.com/.well-known/ai-catalog.json",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

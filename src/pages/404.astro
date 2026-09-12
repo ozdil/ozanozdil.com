@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Sayfa Bulunamadı | Ozan Özdil"
+  description="Aradığınız sayfa bulunamadı veya taşınmış olabilir."
+  currentPath="/404"
+  maxWidthClass="max-w-3xl"
+>
+  <div class="py-16 text-center">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/80 mb-6">
+      <span class="font-mono text-2xl font-bold text-zinc-900 dark:text-[#00ffcc]">404</span>
+    </div>
+
+    <h1 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 font-sans tracking-tight mb-3">
+      Sayfa Bulunamadı
+    </h1>
+
+    <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-md mx-auto mb-8 font-sans leading-relaxed">
+      Aradığınız içerik silinmiş, adı değiştirilmiş veya geçici olarak kullanım dışı kalmış olabilir.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
+      <a
+        href="/"
+        class="px-4 py-2 rounded-lg bg-zinc-900 text-white dark:bg-[#00ffcc] dark:text-zinc-950 font-semibold hover:bg-zinc-800 dark:hover:bg-[#33ffdd] transition-all"
+      >
+        ← Ana Sayfaya Dön
+      </a>
+      <a
+        href="/blog"
+        class="px-4 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700 transition-all"
+      >
+        Yazılar & Notlar
+      </a>
+    </div>
+  </div>
+</BaseLayout>
