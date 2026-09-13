@@ -316,6 +316,53 @@ const jsonLd = {
         document.documentElement.classList.remove('dark');
       }
     </script>
+
+    <!-- Critical Anti-Banner Styles for Seamless Translation -->
+    <style is:inline>
+      html, body {
+        top: 0 !important;
+        position: static !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+      }
+      .goog-te-banner-frame,
+      .goog-te-banner-frame.skiptranslate,
+      iframe.goog-te-banner-frame,
+      iframe[class*="goog-te-banner"],
+      iframe[class*="VIpgJd"],
+      iframe[src*="translate.google"],
+      .VIpgJd-ZVi9od-OR9Mb-OAEtQ,
+      .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+      .VIpgJd-yAWdhb-hSRGPd,
+      .VIpgJd-yAWdhb-m6UDLb,
+      div[class*="VIpgJd-ZVi9od"],
+      body > .skiptranslate,
+      #goog-gt-tt,
+      #goog-gt-vt,
+      [id*="goog-gt-"],
+      .goog-tooltip,
+      .goog-tooltip:hover {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        max-height: 0 !important;
+        max-width: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+      }
+      .goog-text-highlight {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      font[color] {
+        color: inherit !important;
+      }
+    </style>
   </head>
   <body class="min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#08090b] qs-grid-bg text-zinc-900 dark:text-zinc-100 selection:bg-zinc-900 selection:text-white dark:selection:bg-[#00ffcc] dark:selection:text-[#08090b] font-sans antialiased transition-colors duration-200 pt-14">
     <Header currentPath={currentPath} />
@@ -327,7 +374,7 @@ const jsonLd = {
     <Footer />
 
     <!-- Google Translate Mount & Initializer -->
-    <div id="google_translate_element" class="hidden" aria-hidden="true"></div>
+    <div id="google_translate_element" class="hidden" aria-hidden="true" style="display:none;"></div>
     <script is:inline>
       function googleTranslateElementInit() {
         if (window.google && window.google.translate) {
@@ -340,5 +387,38 @@ const jsonLd = {
       }
     </script>
     <script is:inline src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+
+    <!-- Active Real-time Banner Eliminator -->
+    <script is:inline>
+      (function () {
+        function cleanGoogleBanners() {
+          if (document.body && document.body.style.top !== '0px') {
+            document.body.style.top = '0px';
+          }
+          if (document.documentElement && document.documentElement.style.top !== '0px') {
+            document.documentElement.style.top = '0px';
+          }
+          var junk = document.querySelectorAll(
+            'iframe.goog-te-banner-frame, iframe[class*="VIpgJd"], iframe[src*="translate.google"], .VIpgJd-ZVi9od-OR9Mb-OAEtQ, #goog-gt-tt, #goog-gt-vt, [id*="goog-gt-"], body > .skiptranslate'
+          );
+          for (var i = 0; i < junk.length; i++) {
+            var el = junk[i];
+            el.style.setProperty('display', 'none', 'important');
+            el.style.setProperty('visibility', 'hidden', 'important');
+            el.style.setProperty('height', '0', 'important');
+            el.style.setProperty('width', '0', 'important');
+            el.style.setProperty('pointer-events', 'none', 'important');
+          }
+        }
+
+        cleanGoogleBanners();
+        setInterval(cleanGoogleBanners, 150);
+
+        if (window.MutationObserver) {
+          var obs = new MutationObserver(cleanGoogleBanners);
+          obs.observe(document.documentElement, { attributes: true, childList: true, subtree: true });
+        }
+      })();
+    </script>
   </body>
 </html>

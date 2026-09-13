@@ -355,39 +355,73 @@ p, blockquote, li {
 }
 
 /* ==========================================================================
-   Multi-Language Seamless Styling
-   Prevents banner displacement, hides toolbars/iframes, preserves theme
+   Multi-Language (Google Translate) Seamless Styling
+   Completely hides top banner, popups, tooltips, attribution frames,
+   and prevents any body/html displacement or layout shift
    ========================================================================== */
-.goog-te-banner-frame.skiptranslate,
-.goog-te-banner-frame,
-iframe.goog-te-banner-frame,
-.goog-te-balloon-frame {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  width: 0 !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+html {
+  top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 body {
   top: 0px !important;
   position: static !important;
+  transform: none !important;
 }
 
+/* Hide all Google Translate banner iframes, modern VIpgJd containers & toolbars */
+iframe.goog-te-banner-frame,
+iframe[class*="goog-te-banner"],
+iframe[class*="VIpgJd"],
+iframe[src*="translate.google"],
+.goog-te-banner-frame,
+.goog-te-banner,
+.goog-te-balloon-frame,
+.VIpgJd-ZVi9od-OR9Mb-OAEtQ,
+.VIpgJd-ZVi9od-l4eHX-hSRGPd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-yAWdhb-hSRGPd,
+.VIpgJd-yAWdhb-m6UDLb,
+div[class*="VIpgJd-ZVi9od"],
+body > .skiptranslate,
+body > div[style*="position: fixed"][style*="z-index: 2147483647"],
+body > div[style*="z-index: 10000000"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+}
+
+/* Hide tooltips, hover balloons, and text highlight cards */
 #goog-gt-tt,
+#goog-gt-vt,
+[id*="goog-gt-"],
 .goog-tooltip,
 .goog-tooltip:hover {
   display: none !important;
+  visibility: hidden !important;
 }
 
+/* Remove text hover highlights added by Google */
 .goog-text-highlight {
   background-color: transparent !important;
   border-bottom: none !important;
   box-shadow: none !important;
 }
 
-#google_translate_element {
+/* Hide raw gadget container */
+#google_translate_element,
+.goog-te-gadget,
+.goog-te-gadget-simple {
   display: none !important;
 }
 
