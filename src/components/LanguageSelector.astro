@@ -1,0 +1,188 @@
+---
+---
+
+<div class="relative inline-block text-left" id="lang-selector-container">
+  <button
+    id="lang-selector-btn"
+    type="button"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Dil Seçimi / Select Language"
+    class="inline-flex items-center justify-center gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all font-mono text-xs cursor-pointer shadow-2xs"
+    title="Dili Değiştir / Change Language"
+  >
+    <!-- Globe Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+      <path d="M2 12h20"></path>
+    </svg>
+    <span id="current-lang-label" class="font-semibold text-[11px] uppercase tracking-wider">TR</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-zinc-400 dark:text-zinc-500 transition-transform duration-200" id="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <div
+    id="lang-dropdown"
+    class="hidden absolute right-0 mt-1.5 w-44 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-[#0e1116]/95 backdrop-blur-md shadow-xl py-1 z-50 transition-all duration-150 transform origin-top-right text-xs font-sans"
+    role="menu"
+    aria-orientation="vertical"
+    tabindex="-1"
+  >
+    <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-b border-zinc-100 dark:border-zinc-800/80">
+      Dil / Language
+    </div>
+    <div class="py-1">
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="tr">
+        <span class="flex items-center gap-2">
+          <span class="text-sm">🇹🇷</span>
+          <span class="font-medium">Türkçe</span>
+        </span>
+        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">TR</span>
+      </button>
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="en">
+        <span class="flex items-center gap-2">
+          <span class="text-sm">🇬🇧</span>
+          <span class="font-medium">English</span>
+        </span>
+        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">EN</span>
+      </button>
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="de">
+        <span class="flex items-center gap-2">
+          <span class="text-sm">🇩🇪</span>
+          <span class="font-medium">Deutsch</span>
+        </span>
+        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">DE</span>
+      </button>
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="fr">
+        <span class="flex items-center gap-2">
+          <span class="text-sm">🇫🇷</span>
+          <span class="font-medium">Français</span>
+        </span>
+        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">FR</span>
+      </button>
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="es">
+        <span class="flex items-center gap-2">
+          <span class="text-sm">🇪🇸</span>
+          <span class="font-medium">Español</span>
+        </span>
+        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">ES</span>
+      </button>
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="az">
+        <span class="flex items-center gap-2">
+          <span class="text-sm">🇦🇿</span>
+          <span class="font-medium">Azərbaycan</span>
+        </span>
+        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">AZ</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    function getCookie(name) {
+      const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+      return v ? v[2] : null;
+    }
+
+    function setLanguage(lang) {
+      localStorage.setItem('site_lang', lang);
+      const host = window.location.hostname;
+      const isCustomDomain = host.includes('ozanozdil.com');
+
+      if (lang === 'tr') {
+        // Clear cookie to revert cleanly to original Turkish
+        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = 'googtrans=/tr/tr; path=/;';
+        if (isCustomDomain) {
+          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.ozanozdil.com;';
+          document.cookie = 'googtrans=/tr/tr; path=/; domain=.ozanozdil.com;';
+        }
+      } else {
+        document.cookie = 'googtrans=/tr/' + lang + '; path=/;';
+        if (isCustomDomain) {
+          document.cookie = 'googtrans=/tr/' + lang + '; path=/; domain=.ozanozdil.com;';
+        }
+      }
+      window.location.reload();
+    }
+
+    function initLangSelector() {
+      const btn = document.getElementById('lang-selector-btn');
+      const dropdown = document.getElementById('lang-dropdown');
+      const chevron = document.getElementById('lang-chevron');
+      const currentLabel = document.getElementById('current-lang-label');
+      const container = document.getElementById('lang-selector-container');
+
+      if (!btn || !dropdown) return;
+
+      // Detect current language from cookie or localStorage
+      const savedLang = localStorage.getItem('site_lang') || 'tr';
+      const cookieVal = getCookie('googtrans');
+      let activeLang = savedLang;
+      if (cookieVal) {
+        const parts = cookieVal.split('/');
+        if (parts.length >= 3 && parts[2]) {
+          activeLang = parts[2];
+        }
+      }
+
+      if (currentLabel) {
+        currentLabel.textContent = activeLang.toUpperCase();
+      }
+
+      // Mark active in dropdown
+      document.querySelectorAll('.lang-option').forEach(function (opt) {
+        const l = opt.getAttribute('data-lang');
+        if (l === activeLang) {
+          opt.classList.add('bg-zinc-100', 'dark:bg-zinc-800/80', 'font-semibold', 'text-zinc-950', 'dark:text-[#00ffcc]');
+        } else {
+          opt.classList.remove('bg-zinc-100', 'dark:bg-zinc-800/80', 'font-semibold', 'text-zinc-950', 'dark:text-[#00ffcc]');
+        }
+      });
+
+      function toggleDropdown(show) {
+        if (show) {
+          dropdown.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          if (chevron) chevron.classList.add('rotate-180');
+        } else {
+          dropdown.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          if (chevron) chevron.classList.remove('rotate-180');
+        }
+      }
+
+      btn.onclick = function (e) {
+        e.stopPropagation();
+        const isHidden = dropdown.classList.contains('hidden');
+        toggleDropdown(isHidden);
+      };
+
+      document.querySelectorAll('.lang-option').forEach(function (opt) {
+        opt.onclick = function (e) {
+          e.stopPropagation();
+          const target = opt.getAttribute('data-lang');
+          if (target) {
+            setLanguage(target);
+          }
+        };
+      });
+
+      document.addEventListener('click', function (e) {
+        if (container && !container.contains(e.target)) {
+          toggleDropdown(false);
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLangSelector);
+    } else {
+      initLangSelector();
+    }
+  })();
+</script>

@@ -325,5 +325,20 @@ const jsonLd = {
     </main>
 
     <Footer />
+
+    <!-- Google Translate Mount & Initializer -->
+    <div id="google_translate_element" class="hidden" aria-hidden="true"></div>
+    <script is:inline>
+      function googleTranslateElementInit() {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'tr',
+            includedLanguages: 'tr,en,de,fr,es,az',
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+      }
+    </script>
+    <script is:inline src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
   </body>
 </html>
