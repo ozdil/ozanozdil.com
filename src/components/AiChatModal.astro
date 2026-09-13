@@ -1,0 +1,345 @@
+---
+// AiChatModal.astro
+// Floating AI Chat Assistant powered by Cloudflare Workers AI
+---
+
+<div id="ai-chat-root" class="fixed bottom-5 right-5 z-40 font-sans print:hidden">
+  <!-- Trigger Button -->
+  <button
+    id="ai-chat-trigger"
+    type="button"
+    aria-label="Ozan AI Asistanı Aç"
+    class="group flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-white dark:bg-[#0c0e12] border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-[#00ffcc]/80 shadow-lg hover:shadow-xl dark:shadow-[0_0_20px_rgba(0,255,204,0.15)] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00ffcc]/50"
+  >
+    <div class="relative flex items-center justify-center w-7 h-7 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-[#00ffcc] overflow-hidden">
+      <!-- Glow pulse -->
+      <span class="absolute inline-flex h-full w-full rounded-full bg-[#00ffcc] opacity-20 group-hover:animate-ping"></span>
+      <svg class="w-4 h-4 z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+      </svg>
+    </div>
+    <div class="flex flex-col text-left">
+      <span class="text-xs font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 font-mono">
+        Ozan AI
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      </span>
+      <span class="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono hidden sm:inline">
+        Dijital İkiz
+      </span>
+    </div>
+  </button>
+
+  <!-- Chat Window Modal -->
+  <div
+    id="ai-chat-window"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ai-chat-title"
+    class="hidden opacity-0 scale-95 fixed sm:absolute bottom-0 right-0 sm:bottom-14 sm:right-0 w-[calc(100vw-2rem)] sm:w-[400px] h-[540px] max-h-[85vh] bg-white/95 dark:bg-[#0c0e12]/95 backdrop-blur-lg border border-zinc-200 dark:border-zinc-800/90 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-200 origin-bottom-right z-50"
+  >
+    <!-- Modal Header -->
+    <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-100 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-[#12151b]/70">
+      <div class="flex items-center gap-2.5">
+        <div class="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-700 bg-zinc-200 dark:bg-zinc-800">
+          <img src="/avatar.jpg" alt="Ozan Özdil" class="w-full h-full object-cover" />
+          <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-[#0c0e12]"></span>
+        </div>
+        <div>
+          <h2 id="ai-chat-title" class="text-xs font-semibold text-zinc-950 dark:text-zinc-100 font-mono flex items-center gap-1.5">
+            Ozan Özdil (AI)
+            <span class="text-[9px] px-1.5 py-0.2 rounded bg-zinc-200/70 dark:bg-zinc-800 text-zinc-600 dark:text-[#00ffcc] font-mono border border-zinc-300/40 dark:border-zinc-700">
+              Llama 3.1
+            </span>
+          </h2>
+          <p class="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono">
+            Açık Kaynak & Sistem Asistanı
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button
+          id="ai-chat-clear"
+          type="button"
+          title="Sohbeti Temizle"
+          class="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+        </button>
+        <button
+          id="ai-chat-close"
+          type="button"
+          aria-label="Kapat"
+          class="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="ai-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3.5 text-xs">
+      <!-- Default Welcome Message -->
+      <div class="flex gap-2.5 items-start">
+        <div class="w-6 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-[#00ffcc] flex-shrink-0 flex items-center justify-center font-mono text-[10px] font-bold mt-0.5">
+          AI
+        </div>
+        <div class="flex-1 space-y-2">
+          <div class="p-3 rounded-2xl rounded-tl-sm bg-zinc-100 dark:bg-[#141820] text-zinc-800 dark:text-zinc-200 border border-zinc-200/60 dark:border-zinc-800/80 leading-relaxed shadow-sm">
+            Merhaba! Ben Ozan Özdil'in web sitesindeki yapay zeka dijital asistanıyım.
+            <br/><br/>
+            Geliştirdiğim açık kaynak projeler, Arch/CachyOS sistem deneyimleri, Steam Deck optimizasyonları veya makalelerim hakkında merak ettiğin her şeyi sorabilirsin.
+          </div>
+
+          <!-- Suggested Chips -->
+          <div class="pt-1 flex flex-wrap gap-1.5" id="ai-suggested-chips">
+            <button type="button" class="chip-btn px-2.5 py-1 rounded-full text-[11px] font-mono bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-[#00ffcc]/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-all">
+              🛡️ Omarchy eklentilerin neler?
+            </button>
+            <button type="button" class="chip-btn px-2.5 py-1 rounded-full text-[11px] font-mono bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-[#00ffcc]/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-all">
+              📝 OmaNotes nedir?
+            </button>
+            <button type="button" class="chip-btn px-2.5 py-1 rounded-full text-[11px] font-mono bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-[#00ffcc]/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-all">
+              🎮 Steam Deck optimizasyonları
+            </button>
+            <button type="button" class="chip-btn px-2.5 py-1 rounded-full text-[11px] font-mono bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-[#00ffcc]/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-all">
+              📬 Ozan ile nasıl iletişime geçerim?
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typing indicator (hidden by default) -->
+    <div id="ai-chat-typing" class="hidden px-4 py-2 flex items-center gap-2 text-zinc-400 text-[11px] font-mono">
+      <div class="w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-[9px] font-bold text-zinc-600 dark:text-[#00ffcc]">
+        AI
+      </div>
+      <div class="flex items-center gap-1 py-1 px-2.5 rounded-full bg-zinc-100 dark:bg-zinc-800/80">
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-[#00ffcc] animate-bounce"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-[#00ffcc] animate-bounce [animation-delay:0.2s]"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-[#00ffcc] animate-bounce [animation-delay:0.4s]"></span>
+      </div>
+      <span>düşünüyor...</span>
+    </div>
+
+    <!-- Input Form -->
+    <form id="ai-chat-form" class="p-3 border-t border-zinc-100 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-[#0e1117]/50 flex items-center gap-2">
+      <input
+        id="ai-chat-input"
+        type="text"
+        placeholder="Ozan hakkında bir soru sor..."
+        autocomplete="off"
+        maxlength="500"
+        class="flex-1 bg-white dark:bg-[#12151c] text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 text-xs px-3.5 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:outline-none focus:border-[#00ffcc] transition-colors"
+      />
+      <button
+        id="ai-chat-send"
+        type="submit"
+        aria-label="Gönder"
+        class="p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 dark:bg-[#00ffcc] dark:hover:bg-[#00e6b8] text-white dark:text-[#090a0f] transition-colors flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <svg class="w-3.5 h-3.5 transform rotate-90" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script is:inline>
+  (function initAiChat() {
+    const trigger = document.getElementById('ai-chat-trigger');
+    const windowEl = document.getElementById('ai-chat-window');
+    const closeBtn = document.getElementById('ai-chat-close');
+    const clearBtn = document.getElementById('ai-chat-clear');
+    const form = document.getElementById('ai-chat-form');
+    const input = document.getElementById('ai-chat-input');
+    const sendBtn = document.getElementById('ai-chat-send');
+    const messagesContainer = document.getElementById('ai-chat-messages');
+    const typingIndicator = document.getElementById('ai-chat-typing');
+
+    if (!trigger || !windowEl || !form || !input) return;
+
+    let isOpen = false;
+    let isLoading = false;
+    let chatHistory = [];
+
+    function openChat() {
+      isOpen = true;
+      windowEl.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        windowEl.classList.remove('opacity-0', 'scale-95');
+        windowEl.classList.add('opacity-100', 'scale-100');
+        input.focus();
+      });
+    }
+
+    function closeChat() {
+      isOpen = false;
+      windowEl.classList.remove('opacity-100', 'scale-100');
+      windowEl.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => {
+        if (!isOpen) {
+          windowEl.classList.add('hidden');
+        }
+      }, 200);
+    }
+
+    trigger.addEventListener('click', () => {
+      if (isOpen) {
+        closeChat();
+      } else {
+        openChat();
+      }
+    });
+
+    closeBtn?.addEventListener('click', closeChat);
+
+    // Format safe markdown into HTML
+    function formatMarkdown(rawText) {
+      if (!rawText) return '';
+      let text = rawText
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      // Bold **text**
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-zinc-950 dark:text-white">$1</strong>');
+      // Italic *text*
+      text = text.replace(/\*(.*?)\*/g, '<em class="italic">$1</em>');
+      // Inline code `code`
+      text = text.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-zinc-200 dark:bg-zinc-800 text-[11px] font-mono text-zinc-900 dark:text-[#00ffcc]">$1</code>');
+      // Markdown links [label](url)
+      text = text.replace(
+        /\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-[#00ffcc] font-medium underline underline-offset-2 hover:opacity-80 transition-opacity">$1 ↗</a>'
+      );
+      // Newlines
+      text = text.replace(/\n\n/g, '<br/><br/>').replace(/\n/g, '<br/>');
+
+      return text;
+    }
+
+    function scrollToBottom() {
+      if (messagesContainer) {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+    }
+
+    function appendUserMessage(msg) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'flex justify-end';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'max-w-[85%] p-3 rounded-2xl rounded-tr-sm bg-zinc-900 dark:bg-[#00ffcc] text-white dark:text-[#0c0e12] font-medium leading-relaxed shadow-sm break-words';
+      bubble.textContent = msg;
+
+      wrapper.appendChild(bubble);
+      messagesContainer.appendChild(wrapper);
+      scrollToBottom();
+    }
+
+    function appendAssistantMessage(htmlContent) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'flex gap-2.5 items-start';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'w-6 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-[#00ffcc] flex-shrink-0 flex items-center justify-center font-mono text-[10px] font-bold mt-0.5';
+      avatar.textContent = 'AI';
+
+      const contentDiv = document.createElement('div');
+      contentDiv.className = 'flex-1 space-y-1';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'p-3 rounded-2xl rounded-tl-sm bg-zinc-100 dark:bg-[#141820] text-zinc-800 dark:text-zinc-200 border border-zinc-200/60 dark:border-zinc-800/80 leading-relaxed shadow-sm break-words';
+      bubble.innerHTML = htmlContent;
+
+      contentDiv.appendChild(bubble);
+      wrapper.appendChild(avatar);
+      wrapper.appendChild(contentDiv);
+
+      messagesContainer.appendChild(wrapper);
+      scrollToBottom();
+    }
+
+    async function handleSend(query) {
+      const text = (query || input.value || '').trim();
+      if (!text || isLoading) return;
+
+      input.value = '';
+      appendUserMessage(text);
+      chatHistory.push({ role: 'user', content: text });
+
+      isLoading = true;
+      input.disabled = true;
+      if (sendBtn) sendBtn.disabled = true;
+      if (typingIndicator) typingIndicator.classList.remove('hidden');
+      scrollToBottom();
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: text,
+            history: chatHistory.slice(-6),
+          }),
+        });
+
+        const data = await response.json();
+        const answer = data.answer || 'Üzgünüm, şu anda yanıt üretemedim.';
+        chatHistory.push({ role: 'assistant', content: answer });
+
+        appendAssistantMessage(formatMarkdown(answer));
+      } catch (err) {
+        console.error('Chat error:', err);
+        appendAssistantMessage(
+          'Bağlantı hatası oluştu. Lütfen tekrar deneyin veya doğrudan <a href="/projeler" class="underline text-[#00ffcc]">Projeler</a> sayfamızı inceleyin.'
+        );
+      } finally {
+        isLoading = false;
+        input.disabled = false;
+        if (sendBtn) sendBtn.disabled = false;
+        if (typingIndicator) typingIndicator.classList.add('hidden');
+        input.focus();
+        scrollToBottom();
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleSend();
+    });
+
+    // Chip buttons click handler
+    document.querySelectorAll('.chip-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const query = btn.textContent?.trim() || '';
+        handleSend(query);
+      });
+    });
+
+    // Clear chat
+    clearBtn?.addEventListener('click', () => {
+      chatHistory = [];
+      messagesContainer.innerHTML = `
+        <div class="flex gap-2.5 items-start">
+          <div class="w-6 h-6 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-[#00ffcc] flex-shrink-0 flex items-center justify-center font-mono text-[10px] font-bold mt-0.5">
+            AI
+          </div>
+          <div class="flex-1 space-y-2">
+            <div class="p-3 rounded-2xl rounded-tl-sm bg-zinc-100 dark:bg-[#141820] text-zinc-800 dark:text-zinc-200 border border-zinc-200/60 dark:border-zinc-800/80 leading-relaxed shadow-sm">
+              Sohbet geçmişi temizlendi. Ozan Özdil'in çalışmaları hakkında yeni bir soru sorabilirsin.
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  })();
+</script>

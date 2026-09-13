@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AiChatModal from '../components/AiChatModal.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -372,6 +373,7 @@ const jsonLd = {
     </main>
 
     <Footer />
+    <AiChatModal />
 
     <!-- Google Translate Mount & Initializer -->
     <div id="google_translate_element" class="hidden" aria-hidden="true" style="display:none;"></div>
