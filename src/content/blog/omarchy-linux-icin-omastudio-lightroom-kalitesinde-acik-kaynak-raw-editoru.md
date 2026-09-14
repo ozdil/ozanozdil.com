@@ -42,7 +42,16 @@ Fotoğraf makineniz ne olursa olsun OmaStudio hazır:
 * **Canon:** Modern ISOBMFF yapılı `.CR3` ve klasik `.CR2`.
 * **Leica, Hasselblad & DNG:** Akıllı telefonlar, DJI dronelar ve orta format makineler (`.DNG`, `.RWL`, `.3FR`).
 
-### 2. Kademeli Keşif (Simple Mode & Pro Studio)
+### 2. Mac Kalitesinde Touchpad & Mouse Ergonomisi (1:1 Apple Trackpad Hissi)
+Linux masaüstüne geçen yaratıcıların en çok dert yandığı konu, trackpad ve fare etkileşimlerinin macOS kadar ipeksi ve tahmin edilebilir olmamasıdır. OmaStudio bu sorunu kökünden çözdü. Arayüz etkileşimleri **Apple Magic Trackpad ve MacBook tuval ergonomisiyle 1:1 aynı tepkiyi verir**:
+
+* **Pinch-to-Zoom:** İki parmağınızı açıp kapattığınızda, imlecin tam altındaki piksel merkezine sıçramasız, pürüzsüz ve logaritmik olarak yakınlaşır.
+* **Akıllı Rotasyon & 3.5° Ölü Bölge (Deadzone):** Yakınlaştırma yaparken parmakların hafifçe kayıp fotoğrafı kazara eğmesini engelleyen özel bir filtreleme mekanizması devrededir; bilinçli çevirmelerde ise tuval 360° parmağınızın açısını takip eder.
+* **Kinetik Pan:** İki parmakla kaydırma, fotoğrafta tıpkı bir kağıt üzerinde gezinir gibi sürtünmeli (`0.75` sönümleme) ve akıcı bir süzülüş sağlar.
+* **Double-Tap (Çift Dokunma / Tıklama):** Tıpkı macOS Preview veya Lightroom'daki gibi, ekrana tam sığdırma (%100 Fit) ile %200 detay odaklama arasında anında geçiş yapar.
+* **Alt + Wheel:** Fareyle çalışanlar için fare tekerleği odaklı zum yaparken, `Alt + Wheel` kombinasyonu 1.5° hassasiyetle mikro kadraj düzeltmesi sunar. Resmin tuval dışına fırlayıp kaybolmasını engelleyen akıllı sınırlandırma çıpaları (`clampPan`) ile kontrol daima sizdedir.
+
+### 3. Kademeli Keşif (Simple Mode & Pro Studio)
 Fotoğraf düzenleme deneyimi iki ayrı ihtiyaç profiline göre kurgulandı:
 
 * **✨ Basit & Hızlı Mod:** Günlük çekimler için tek tıkla **YZ Sihirbazı (AI Magic Auto)** ve sadece 4 temel ayar sürgüsü (Işık, Sıcaklık, Canlılık, Kontrast).
@@ -53,7 +62,7 @@ Fotoğraf düzenleme deneyimi iki ayrı ihtiyaç profiline göre kurgulandı:
   * **8-Band HSL Renk Mikseri:** 8 ayrı spektrum renginde bağımsız Hue, Saturation ve Luminance kontrolü.
   * **Detay & Optik:** Çift kademeli kumlanma temizleme (Luma NR), keskinleştirme, vinyet, mor/yeşil saçaklanma önleyici **Defringe** ve fıçı/yastık bozulmalarını düzelten **Lens Distortion** telafisi.
 
-### 3. Hollywood Standardı: DaVinci Resolve 3-Way Renk Tekerlekleri
+### 4. Hollywood Standardı: DaVinci Resolve 3-Way Renk Tekerlekleri
 Fotoğraf dünyasında nadir görülen, ancak sinema sektörünün vazgeçilmezi olan **Lift, Gamma, Gain ve Offset** renk tekerlekleri doğrudan arayüze entegre edildi:
 
 * **Lift:** Gölgelerin renk yönü ve bağımsız taban luma halkası.
@@ -61,7 +70,7 @@ Fotoğraf dünyasında nadir görülen, ancak sinema sektörünün vazgeçilmezi
 * **Gain:** Gökyüzü ve ışık parlamalarını renklendiren tepe vurgu diski.
 * **Offset:** Sahnenin genel renk dengesini kaydırmadan tüm dinamik aralığa dengeli tonlama.
 
-### 4. Yapay Zeka Destekli Sosyal Medya Optimizatörü
+### 5. Yapay Zeka Destekli Sosyal Medya Optimizatörü
 Bir fotoğrafı düzenlemek işin yarısıysa, doğru mecrada doğru formatla sunmak diğer yarısıdır. OmaStudio, tek tıkla platforma özel akıllı kadraj ve sıkıştırma kayıplarını telafi eden mikrokontrast algoritmalarını çalıştırır:
 
 | Platform | En-Boy Oranı | Çözünürlük | Optimizasyon Odağı |
