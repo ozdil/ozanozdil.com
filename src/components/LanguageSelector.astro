@@ -159,6 +159,16 @@
       btn.onclick = function (e) {
         e.stopPropagation();
         const isHidden = dropdown.classList.contains('hidden');
+        if (isHidden) {
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            mobileBtn?.setAttribute('aria-expanded', 'false');
+            document.getElementById('menu-icon-bars')?.classList.remove('hidden');
+            document.getElementById('menu-icon-close')?.classList.add('hidden');
+          }
+        }
         toggleDropdown(isHidden);
       };
 
