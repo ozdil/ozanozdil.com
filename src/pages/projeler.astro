@@ -3,12 +3,76 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const repositories = [
   {
+    name: 'omarchy-omastudio',
+    desc: 'Omarchy Linux için Lightroom kalitesinde, Quickshell GPU ivmeli, çok çekirdekli Rust motorlu, 1:1 macOS trackpad ergonomili ve DaVinci 3-Way renk tekerlekli açık kaynak RAW fotoğraf stüdyosu.',
+    lang: 'Rust / QML',
+    langColor: '#dea584',
+    tags: ['quickshell', 'rust', 'raw', 'photography', 'davinci-resolve'],
+    url: 'https://github.com/ozdil/omarchy-omastudio'
+  },
+  {
+    name: 'omarchy-security-sentinel',
+    desc: 'Omarchy Linux için birleşik siber savunma kalkanı, donanım güvenlik nöbetçisi, BadUSB koruması, CVE ve DNS/ağ sızıntı denetim merkezi.',
+    lang: 'Rust / QML',
+    langColor: '#dea584',
+    tags: ['quickshell', 'rust', 'security', 'sentinel', 'privacy'],
+    url: 'https://github.com/ozdil/omarchy-security-sentinel'
+  },
+  {
     name: 'omarchy-omanotes',
     desc: 'Omarchy Linux için Google Keep tarzında, Zero-Knowledge AES-256-GCM uçtan uca şifreli (E2EE) ve Google Drive/Git bulut senkronizasyonlu not yöneticisi.',
     lang: 'Rust / QML',
     langColor: '#dea584',
     tags: ['quickshell', 'rust', 'e2ee', 'google-keep', 'cloud-sync'],
     url: 'https://github.com/ozdil/omarchy-omanotes'
+  },
+  {
+    name: 'omarchy-omasend',
+    desc: 'Omarchy Linux için AirDrop benzeri yerel P2P dosya aktarımı ve Wayland pano köprüsü.',
+    lang: 'Rust / QML',
+    langColor: '#dea584',
+    tags: ['p2p', 'file-transfer', 'rust', 'quickshell'],
+    url: 'https://github.com/ozdil/omarchy-omasend'
+  },
+  {
+    name: 'omasend-android',
+    desc: 'OmaSend için yerel Android P2P dosya paylaşım, sistem paylaşım menüsü ve pano eşitleme uygulaması.',
+    lang: 'Kotlin / Compose',
+    langColor: '#A97BFF',
+    tags: ['android', 'kotlin', 'p2p', 'google-play'],
+    url: 'https://github.com/ozdil/omasend-android'
+  },
+  {
+    name: 'omarchy-omarss',
+    desc: 'Omarchy Linux için ultra hızlı, yerel ve Rust çekirdekli RSS & Atom besleme okuyucusu ve bildirim merkezi.',
+    lang: 'Rust / QML',
+    langColor: '#dea584',
+    tags: ['quickshell', 'rust', 'rss', 'atom', 'news'],
+    url: 'https://github.com/ozdil/omarchy-omarss'
+  },
+  {
+    name: 'omarchy-git-radar',
+    desc: 'Omarchy Linux için çoklu depo izleme, dirty state dedektörü ve geliştirici durum monitörü.',
+    lang: 'Rust / QML',
+    langColor: '#dea584',
+    tags: ['quickshell', 'rust', 'git', 'developer-tools'],
+    url: 'https://github.com/ozdil/omarchy-git-radar'
+  },
+  {
+    name: 'omarchy-omablock',
+    desc: 'Omarchy Linux için sıfır gecikmeli reklam engelleyici ve gizlilik kalkanı.',
+    lang: 'Rust / QML',
+    langColor: '#dea584',
+    tags: ['adblock', 'privacy', 'rust', 'omarchy'],
+    url: 'https://github.com/ozdil/omarchy-omablock'
+  },
+  {
+    name: 'omarchy-omarank',
+    desc: 'Linux donanım ve çekirdek performans kıyaslama aracı ve OmaStat anketi.',
+    lang: 'Rust / C',
+    langColor: '#dea584',
+    tags: ['benchmark', 'performance', 'rust', 'quickshell'],
+    url: 'https://github.com/ozdil/omarchy-omarank'
   },
   {
     name: 'omarchy-shell',
@@ -41,86 +105,6 @@ const repositories = [
     langColor: '#89e051',
     tags: ['arch-linux', 'hyprland', 'dotfiles'],
     url: 'https://github.com/ozdil/omarchy'
-  },
-  {
-    name: 'omarchy-cyber-sentinel',
-    desc: 'Ağ trafiği izleme ve anormallik tespit aracı.',
-    lang: 'Python / Bash',
-    langColor: '#3572A5',
-    tags: ['security', 'network', 'sentinel'],
-    url: 'https://github.com/ozdil/omarchy-cyber-sentinel'
-  },
-  {
-    name: 'omarchy-badusb-shield',
-    desc: 'USB aygıt yetkilendirme ve bağlantı güvenliği aracı.',
-    lang: 'Shell',
-    langColor: '#89e051',
-    tags: ['badusb', 'hardware-sec', 'linux'],
-    url: 'https://github.com/ozdil/omarchy-badusb-shield'
-  },
-  {
-    name: 'omarchy-cve-radar',
-    desc: 'Linux sistem paketleri için güvenlik açığı (CVE) denetleyici.',
-    lang: 'Python',
-    langColor: '#3572A5',
-    tags: ['cve', 'vulnerability-scanner'],
-    url: 'https://github.com/ozdil/omarchy-cve-radar'
-  },
-  {
-    name: 'omarchy-omarank',
-    desc: 'Linux donanım ve çekirdek performans kıyaslama aracı.',
-    lang: 'Rust / C',
-    langColor: '#dea584',
-    tags: ['benchmark', 'performance'],
-    url: 'https://github.com/ozdil/omarchy-omarank'
-  },
-  {
-    name: 'omarchy-omasend',
-    desc: 'Omarchy Linux için AirDrop benzeri yerel P2P dosya aktarımı ve Wayland pano köprüsü.',
-    lang: 'Rust / QML',
-    langColor: '#dea584',
-    tags: ['p2p', 'file-transfer', 'rust', 'quickshell'],
-    url: 'https://github.com/ozdil/omarchy-omasend'
-  },
-  {
-    name: 'omasend-android',
-    desc: 'OmaSend için yerel Android P2P dosya paylaşım, sistem paylaşım menüsü ve pano eşitleme uygulaması.',
-    lang: 'Kotlin / Compose',
-    langColor: '#A97BFF',
-    tags: ['android', 'kotlin', 'p2p', 'google-play'],
-    url: 'https://github.com/ozdil/omasend-android'
-  },
-  {
-    name: 'omarchy-auth-watch',
-    desc: 'Yetkisiz oturum açma ve SSH denemelerini izleme aracı.',
-    lang: 'Shell',
-    langColor: '#89e051',
-    tags: ['security', 'auth', 'audit'],
-    url: 'https://github.com/ozdil/omarchy-auth-watch'
-  },
-  {
-    name: 'omarchy-ghost-mac',
-    desc: 'Kablosuz ağ MAC adreslerini dinamik olarak anonimleştiren gizlilik aracı.',
-    lang: 'Shell',
-    langColor: '#89e051',
-    tags: ['privacy', 'wifi', 'opsec'],
-    url: 'https://github.com/ozdil/omarchy-ghost-mac'
-  },
-  {
-    name: 'omarchy-dns-leak-guard',
-    desc: 'DNS sızıntılarını denetleyen ve şifreli DNS tünellemesini doğrulayan araç.',
-    lang: 'Shell',
-    langColor: '#89e051',
-    tags: ['dns', 'privacy', 'network'],
-    url: 'https://github.com/ozdil/omarchy-dns-leak-guard'
-  },
-  {
-    name: 'omarchy-tripwire-vault',
-    desc: 'Dosya sistemi üzerinde yetkisiz erişim tespit aracı.',
-    lang: 'Shell',
-    langColor: '#89e051',
-    tags: ['honeypot', 'security'],
-    url: 'https://github.com/ozdil/omarchy-tripwire-vault'
   },
   {
     name: 'omarchy-turkiye-theme',
