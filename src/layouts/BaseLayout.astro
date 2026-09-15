@@ -364,6 +364,12 @@ const jsonLd = {
         color: inherit !important;
       }
     </style>
+
+    <!-- KaTeX Mathematical Typography -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+      onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false });"></script>
   </head>
   <body class="min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#08090b] qs-grid-bg text-zinc-900 dark:text-zinc-100 selection:bg-zinc-900 selection:text-white dark:selection:bg-[#00ffcc] dark:selection:text-[#08090b] font-sans antialiased transition-colors duration-200 pt-14">
     <Header currentPath={currentPath} />
