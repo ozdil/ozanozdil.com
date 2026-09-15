@@ -2,7 +2,7 @@
 title: "Kastamonu İnci Yurt: Bir Öğrenci Rezidansının Modern Web Platformu ve Yönetim Portalı Mimarisi"
 description: "20 yıllık köklü bir kurumun dijital dönüşümü: Cloudflare Edge mimarisi, LLM/AI discovery (llms.txt), çok dilli uluslararası öğrenci masası ve operasyonel yönetim portalının perde arkası."
 pubDate: 2026-09-15
-heroImage: "/avatar.webp"
+heroImage: "/images/kastamonuinciyurt-preview.webp"
 tags: ["kastamonu", "web-gelistirme", "cloudflare", "typescript", "yonetim-portali", "dijital-donusum", "llms-txt", "edge-computing"]
 ---
 
