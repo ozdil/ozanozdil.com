@@ -1,378 +1,256 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Fetch published blog posts and get the latest 4
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const latestPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+
+const featuredProjects = [
+  {
+    name: 'omarchy-omastudio',
+    title: 'OmaStudio RAW Editor',
+    desc: 'Lightroom kalitesinde, GPU ivmeli ve açık kaynak RAW fotoğraf stüdyosu.',
+    lang: 'Rust / QML',
+    url: 'https://github.com/ozdil/omarchy-omastudio'
+  },
+  {
+    name: 'omarchy-security-sentinel',
+    title: 'Cyber Sentinel',
+    desc: 'Omarchy Linux için 9 modüllü yerel ağ ve aygıt savunma kalkanı.',
+    lang: 'Rust / QML',
+    url: 'https://github.com/ozdil/omarchy-security-sentinel'
+  },
+  {
+    name: 'omarchy-omanotes',
+    title: 'OmaNotes E2EE',
+    desc: 'Google Keep tarzında, sıfır bilgi AES-256 şifreli güvenli not yöneticisi.',
+    lang: 'Rust / QML',
+    url: 'https://github.com/ozdil/omarchy-omanotes'
+  },
+  {
+    name: 'omarchy-omasend',
+    title: 'OmaSend P2P',
+    desc: 'Linux ve Android arasında AirDrop benzeri yerel P2P dosya ve pano aktarımı.',
+    lang: 'Rust / Android',
+    url: 'https://github.com/ozdil/omarchy-omasend'
+  }
+];
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('tr-TR', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  }).format(date);
+};
 ---
 
 <BaseLayout
-  title="Ozan Özdil"
-  description="Ozan Özdil: YZ Kodcusu. Açık kaynak sistem okuryazarlığı, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve orta format fotoğrafçılık."
+  title="Ozan Özdil — YZ Kodcusu & Açık Kaynak Geliştirici"
+  description="Ozan Özdil: YZ Kodcusu. Açık kaynak sistem mimarileri, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve fotoğrafçılık."
   currentPath="/"
-  maxWidthClass="max-w-[1720px]"
+  maxWidthClass="max-w-3xl"
 >
-  <div class="space-y-6 py-2 sm:py-4">
+  <div class="py-6 sm:py-10 space-y-12 sm:space-y-14">
     
-    <!-- HERO / IDENTITY CARD -->
-    <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-7 lg:p-8 transition-colors" aria-label="Profil ve Kimlik">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-        <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700 flex-shrink-0 bg-zinc-100 dark:bg-zinc-800 p-0.5">
+    <!-- BIO / HERO HEADER -->
+    <section class="space-y-4" aria-label="Profil ve Tanıtım">
+      <div class="flex items-center gap-4">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800 flex-shrink-0 p-0.5 shadow-sm">
           <img
             src="/avatar.webp"
             alt="Ozan Özdil"
-            width="96"
-            height="96"
+            width="80"
+            height="80"
             fetchpriority="high"
             decoding="async"
-            class="w-full h-full object-cover rounded-lg"
+            class="w-full h-full object-cover rounded-xl"
           />
         </div>
-
-        <div class="space-y-2">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="font-mono text-xs font-semibold text-zinc-900 dark:text-[#00ffcc] uppercase tracking-wider">
-              YZ Kodcusu
-            </span>
-            <span class="text-zinc-300 dark:text-zinc-700 text-xs hidden sm:inline">•</span>
-            <span class="font-mono text-xs text-zinc-500 dark:text-zinc-400 hidden sm:inline">
-              Açık Kaynak & Sistem Okuryazarlığı
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
+              Ozan Özdil
+            </h1>
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              açık kaynak
             </span>
           </div>
-
-          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
-            Ozan Özdil
-          </h1>
-
-          <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-2xl">
-            Açık kaynak sistem mimarileri ve dağıtım okuryazarlığı; lokal ve bulut yapay zekâ modelleriyle modern kod üretimi; Steam Deck ve CachyOS/Omarchy odaklı tutkulu bir Linux oyuncusu.
+          <p class="text-xs sm:text-sm font-mono text-zinc-800 dark:text-[#00ffcc] font-medium mt-0.5">
+            YZ Kodcusu • Açık Kaynak Geliştirici
           </p>
-
-          <!-- Minimal Unified Badges -->
-          <div class="flex flex-wrap items-center gap-1.5 pt-1 font-mono text-[11px]">
-            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
-              Kastamonu, TR
-            </span>
-            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-[#00ffcc] bg-zinc-50 dark:bg-zinc-900/40 font-medium">
-              YZ Kodcusu
-            </span>
-            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
-              Açık Kaynak & Linux
-            </span>
-            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
-              Steam Deck & Proton
-            </span>
-            <span class="px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 bg-zinc-50 dark:bg-zinc-900/40">
-              Lokal & Bulut YZ
-            </span>
-          </div>
         </div>
+      </div>
+
+      <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-2xl">
+        Linux sistem mimarileri, CachyOS ve Omarchy ekosisteminde açık kaynak yazılımlar üretiyorum. Yerel ve bulut yapay zekâ modelleriyle kodlama süreçlerini yönetiyor; taşınabilir donanımlarda (Steam Deck) düşük gecikmeli oyun deneyimi üzerine optimizasyonlar yapıyorum.
+      </p>
+
+      <!-- Minimal Quick Links -->
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1 font-mono text-xs text-zinc-500 dark:text-zinc-400">
+        <a
+          href="https://github.com/ozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-800 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors flex items-center gap-1"
+        >
+          github ↗
+        </a>
+        <span class="text-zinc-300 dark:text-zinc-700">•</span>
+        <a
+          href="https://steamcommunity.com/id/ozanozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-800 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors flex items-center gap-1"
+        >
+          steam ↗
+        </a>
+        <span class="text-zinc-300 dark:text-zinc-700">•</span>
+        <a
+          href="https://nsosyal.com/ozanozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-800 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors flex items-center gap-1"
+        >
+          nsosyal ↗
+        </a>
+        <span class="text-zinc-300 dark:text-zinc-700">•</span>
+        <a
+          href="https://buymeacoffee.com/ozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1 font-medium"
+        >
+          kahve ısmarla ☕
+        </a>
+        <span class="text-zinc-300 dark:text-zinc-700">•</span>
+        <a
+          href="/rss.xml"
+          target="_blank"
+          class="text-zinc-500 hover:text-zinc-800 dark:hover:text-[#00ffcc] transition-colors"
+        >
+          rss ↗
+        </a>
       </div>
     </section>
 
-    <!-- 12-COLUMN DASHBOARD GRID -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-      
-      <!-- LEFT / MAIN CONTENT AREA (8 Cols on Desktop) -->
-      <div class="lg:col-span-8 space-y-6">
-        
-        <!-- BIOGRAPHY & FORMATION -->
-        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-6" aria-label="Biyografi ve Deneyim">
-          <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
-            <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // Biyografi & Formasyon
-            </span>
-          </div>
-
-          <!-- Items Stack: Unified 2-Color Borders & Surfaces -->
-          <div class="space-y-4">
-            
-            <!-- Item 1: SystemArchitecture (YZ Kodcusu) -->
-            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
-              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">YZ Kodculuğu & Yapay Zekâ Modelleri</span>
-                <span class="text-zinc-400 text-[11px]">Lokal & Bulut YZ</span>
-              </div>
-              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Kendimi klasik bir yazılımcıdan ziyade, yapay zekâ teknolojilerini merkezine alarak çalışan bir <strong>YZ Kodcusu</strong> olarak konumluyorum. Hem yerel iş istasyonumda koşan açık ağırlıklı modellerle (lokal LLM'ler) hem de bulut tabanlı modern yapay zekâ platformlarıyla aktif olarak çalışıyorum. İhtiyaca göre en verimli modeli konumlandırarak sistem mimarileri kurguluyor, kod üretiyor ve açık kaynak araçları yapay zekâ destekli mühendislik akışlarıyla hayata geçiriyorum.
-              </p>
-            </article>
-
-            <!-- Item 2: OpenSourceLiteracy (Omarchy & CachyOS) -->
-            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
-              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">Açık Kaynak & Sistem Okuryazarlığı</span>
-                <span class="text-zinc-400 text-[11px]">Omarchy, CachyOS & Arch</span>
-              </div>
-              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Açık kaynaklı yazılımlara, bağımsız işletim sistemlerine ve Linux dağıtım mimarilerine derin bir ilgi duyuyorum. <strong>Omarchy</strong> ve <strong>CachyOS</strong> başta olmak üzere Arch Linux tabanlı modern dağıtımları, Wayland protokollerini ve QuickShell bileşenlerini yakından takip ediyor; bu sistemlerin derinlemesine teknik okuryazarlığını yaparak sistem yapılandırmaları ve optimizasyonları üzerine araştırmalar yürütüyorum.
-              </p>
-              <div class="pt-2 font-mono text-xs">
-                <a
-                  href="https://github.com/ozdil"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 text-zinc-800 dark:text-[#00ffcc] hover:underline"
-                >
-                  <span>github.com/ozdil</span>
-                  <span>↗</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Item 3: LinuxGaming & SteamDeck -->
-            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
-              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">Linux Oyunculuğu & Steam Deck</span>
-                <span class="text-zinc-400 text-[11px]">SteamOS + Proton</span>
-              </div>
-              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Sıkı ve tutkulu bir Linux oyuncusuyum. Yanımdan hiç ayırmadığım <strong>Steam Deck</strong>'im ve masaüstümdeki Linux ortamı üzerinden Valve ekosistemini, SteamOS gelişmelerini ve Proton uyumluluk katmanını sürekli takip ediyorum. Düşük gecikmeli oyun deneyimi, simülasyon konfigürasyonları ve Linux altında taşınabilir donanım performans optimizasyonu en büyük tutkularımdan biridir.
-              </p>
-              <div class="pt-2 font-mono text-xs">
-                <a
-                  href="https://steamcommunity.com/id/ozanozdil"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 text-zinc-800 dark:text-[#00ffcc] hover:underline"
-                >
-                  <span>steamcommunity.com/id/ozanozdil</span>
-                  <span>↗</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Item 4: ExecutiveExperience -->
-            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
-              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">Kamu Yönetimi & Bilişim</span>
-                <span class="text-zinc-400 text-[11px]">Yönetim & Koordinasyon</span>
-              </div>
-              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Kamu yönetimi, kurumsal iletişim ve yerel yönetim süreçlerinde görev aldım. Belediye başkan danışmanlığı ile Ar-Ge ve Bilgi İşlem yöneticiliği görevlerinde bulundum; dijital iletişim süreçleri, kriz yönetimi ve kurumsal bilişim altyapılarını koordine ettim.
-              </p>
-            </article>
-
-            <!-- Item 5: EducationBackground -->
-            <article class="p-4 sm:p-5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 space-y-2">
-              <div class="flex items-center justify-between font-mono text-xs pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                <span class="text-zinc-900 dark:text-[#00ffcc] font-semibold">Eğitim & Arka Plan</span>
-                <span class="text-zinc-400 text-[11px]">KTÜ • Lisans</span>
-              </div>
-              <p class="font-sans text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                Karadeniz Teknik Üniversitesi mezunuyum. Üniversite sürecinin ardından profesyonel ve kişisel odağımı bütünüyle bilgisayar sistemleri, Linux mimarisi, açık kaynak ekosistemi ve yapay zekâ destekli kod geliştirmeye yönelttim.
-              </p>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- CORE FOCUS MODULES -->
-        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5 sm:p-6" aria-label="Odak Alanları">
-          <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
-            <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // Odak Alanları
-            </span>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
-            
-            <!-- Area 1 -->
-            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
-              <div class="space-y-1.5">
-                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Yapay Zekâ & Kodlama</span>
-                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                  Lokal & Bulut YZ Modelleri
-                </h3>
-                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                  Yerel açık kaynak LLM'ler ve bulut yapay zekâ platformlarıyla kod üretimi, prompt mühendisliği ve sistem orkestrasyonu.
-                </p>
-              </div>
-              <a href="/blog" class="text-zinc-900 dark:text-[#00ffcc] font-medium hover:underline text-[11px] pt-1">
-                Yazıları İncele →
-              </a>
-            </article>
-
-            <!-- Area 2 -->
-            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
-              <div class="space-y-1.5">
-                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Sistem Okuryazarlığı</span>
-                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                  Omarchy & CachyOS Ekosistemi
-                </h3>
-                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                  Açık kaynak sistem takibi, Wayland katman protokolleri, QuickShell masaüstü bileşenleri ve çekirdek seviyesinde optimizasyon.
-                </p>
-              </div>
-              <a href="/projeler" class="text-zinc-900 dark:text-[#00ffcc] font-medium hover:underline text-[11px] pt-1">
-                Projeleri İncele →
-              </a>
-            </article>
-
-            <!-- Area 3 -->
-            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
-              <div class="space-y-1.5">
-                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Taşınabilir & Masaüstü Oyun</span>
-                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                  Steam Deck & Linux Oyunculuğu
-                </h3>
-                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                  Yanımdan ayırmadığım Steam Deck el konsolu, SteamOS, Proton uyumluluk katmanı, MangoHud ve düşük gecikmeli oyun deneyimi.
-                </p>
-              </div>
-              <a href="https://steamcommunity.com/id/ozanozdil" target="_blank" rel="noopener noreferrer" class="text-zinc-900 dark:text-[#00ffcc] font-medium hover:underline text-[11px] pt-1">
-                Steam Profili ↗
-              </a>
-            </article>
-
-            <!-- Area 4 -->
-            <article class="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 flex flex-col justify-between gap-3">
-              <div class="space-y-1.5">
-                <span class="text-[10px] text-zinc-400 uppercase tracking-wider block">Görsel Arşiv</span>
-                <h3 class="text-sm font-bold text-zinc-950 dark:text-zinc-100 font-sans">
-                  Fujifilm GFX Fotoğrafçılık
-                </h3>
-                <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed">
-                  43.8×32.9mm orta format sensör, Kastamonu tarihi ahşap mimarisi, Ağlı Kalesi ve kadim coğrafi rotalar.
-                </p>
-              </div>
-              <a href="/galeri" class="text-zinc-900 dark:text-[#00ffcc] font-medium hover:underline text-[11px] pt-1">
-                Galeriye Git →
-              </a>
-            </article>
-
-          </div>
-        </section>
-
+    <!-- FEATURED PROJECTS (Editorial Minimalist List) -->
+    <section class="space-y-4" aria-label="Öne Çıkan Projeler">
+      <div class="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
+        <h2 class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+          // Öne Çıkan Çalışmalar
+        </h2>
+        <a href="/projeler" class="text-xs font-mono text-zinc-700 dark:text-[#00ffcc] hover:underline font-medium">
+          tümünü gör (12) →
+        </a>
       </div>
 
-      <!-- RIGHT / SIDEBAR AREA (4 Cols on Desktop) -->
-      <aside class="lg:col-span-4 space-y-6">
-        
-        <!-- TIMELINE COMPONENT (2-Color Track) -->
-        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5" aria-label="Zaman Çizelgesi">
-          <div class="flex items-center justify-between pb-3 mb-5 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
-            <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // Kariyer Çizelgesi
+      <div class="divide-y divide-zinc-200 dark:divide-zinc-800/70">
+        {featuredProjects.map((p) => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="py-3.5 px-2 -mx-2 rounded-lg flex items-center justify-between gap-4 group hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 transition-colors"
+          >
+            <div class="space-y-1 min-w-0">
+              <div class="flex items-center gap-2 font-mono text-xs">
+                <span class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors">
+                  {p.name}
+                </span>
+                <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-400">
+                  {p.lang}
+                </span>
+              </div>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed truncate sm:whitespace-normal">
+                {p.desc}
+              </p>
+            </div>
+            <span class="text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-transform group-hover:translate-x-1 font-mono text-xs flex-shrink-0">
+              ↗
             </span>
-          </div>
+          </a>
+        ))}
+      </div>
+    </section>
 
-          <div class="space-y-4 font-mono text-xs">
-            <!-- Stage 1 -->
-            <div class="relative pl-5 pb-4 border-l border-zinc-300 dark:border-zinc-700">
-              <span class="absolute -left-[4px] top-0 w-2 h-2 rounded-full bg-zinc-900 dark:bg-[#00ffcc]"></span>
-              <div class="space-y-1">
-                <div class="text-[11px] text-zinc-900 dark:text-[#00ffcc] font-semibold">
-                  2024 - Günümüz
-                </div>
-                <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
-                  Ar-Ge, Bilgi İşlem & YZ Kodlama
-                </h4>
-                <p class="font-sans text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed">
-                  Kurumsal bilişim altyapıları, Wayland kabuk mimarisi ve açık kaynak sistem geliştirme.
-                </p>
-              </div>
-            </div>
+    <!-- LATEST POSTS (Editorial Writing List) -->
+    <section class="space-y-4" aria-label="Son Blog Yazıları">
+      <div class="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
+        <h2 class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+          // Son Yazılar
+        </h2>
+        <a href="/blog" class="text-xs font-mono text-zinc-700 dark:text-[#00ffcc] hover:underline font-medium">
+          tüm yazılar ({allPosts.length}) →
+        </a>
+      </div>
 
-            <!-- Stage 2 -->
-            <div class="relative pl-5 pb-4 border-l border-zinc-300 dark:border-zinc-700">
-              <span class="absolute -left-[4px] top-0 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600"></span>
-              <div class="space-y-1">
-                <div class="text-[11px] text-zinc-700 dark:text-zinc-300 font-semibold">
-                  2019 - 2024
-                </div>
-                <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
-                  Belediye Başkan Danışmanlığı
-                </h4>
-                <p class="font-sans text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed">
-                  Kamu yönetimi, kurumsal iletişim, kriz yönetimi ve dijital dönüşüm süreçleri koordinasyonu.
-                </p>
-              </div>
-            </div>
-
-            <!-- Stage 3 -->
-            <div class="relative pl-5 pb-4 border-l border-zinc-300 dark:border-zinc-700">
-              <span class="absolute -left-[4px] top-0 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600"></span>
-              <div class="space-y-1">
-                <div class="text-[11px] text-zinc-700 dark:text-zinc-300 font-semibold">
-                  2018 - 2019
-                </div>
-                <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
-                  Saha & CBS Analitiği
-                </h4>
-                <p class="font-sans text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed">
-                  Saha çalışmaları, Coğrafi Bilgi Sistemleri (CBS) ve veri modellemeleri.
-                </p>
-              </div>
-            </div>
-
-            <!-- Stage 4 -->
-            <div class="relative pl-5">
-              <span class="absolute -left-[4px] top-0 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600"></span>
-              <div class="space-y-1">
-                <div class="text-[11px] text-zinc-500 font-semibold">
-                  2013 - 2018
-                </div>
-                <h4 class="font-sans font-bold text-zinc-900 dark:text-zinc-100 text-xs">
-                  Lisans Eğitimi
-                </h4>
-                <p class="font-sans text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed">
-                  Karadeniz Teknik Üniversitesi Lisans Derecesi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SYSTEM LAUNCHERS -->
-        <section class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] p-5" aria-label="Bağlantılar">
-          <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-100 dark:border-zinc-800 font-mono text-xs">
-            <span class="text-zinc-700 dark:text-zinc-300 font-semibold tracking-wider uppercase">
-              // Bağlantılar
+      <div class="divide-y divide-zinc-200 dark:divide-zinc-800/70">
+        {latestPosts.map((post) => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="py-3 px-2 -mx-2 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 group hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 transition-colors"
+          >
+            <span class="font-sans text-sm text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors font-medium">
+              {post.data.title}
             </span>
-          </div>
+            <span class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
+              {formatDate(post.data.pubDate)}
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
 
-          <div class="space-y-2 font-mono text-xs">
-            <a
-              href="https://github.com/ozdil"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group"
-            >
-              <span class="text-zinc-800 dark:text-zinc-200 font-medium">GitHub: @ozdil</span>
-              <span class="text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors">↗</span>
-            </a>
+    <!-- EXPERIENCE & FORMATION -->
+    <section class="space-y-4" aria-label="Deneyim ve Formasyon">
+      <div class="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
+        <h2 class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+          // Kısa Özgeçmiş & Deneyim
+        </h2>
+        <a href="/hakkimda" class="text-xs font-mono text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200">
+          detaylar →
+        </a>
+      </div>
 
-            <a
-              href="https://steamcommunity.com/id/ozanozdil"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group"
-            >
-              <span class="text-zinc-800 dark:text-zinc-200 font-medium">Steam: ozanozdil</span>
-              <span class="text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors">↗</span>
-            </a>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 font-mono text-xs">
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
+          <div class="text-[10px] text-zinc-900 dark:text-[#00ffcc] font-semibold">2024 - Günümüz</div>
+          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Ar-Ge, Bilgi İşlem & YZ</div>
+          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
+            Açık kaynak sistem mimarileri, Wayland masaüstü optimizasyonu ve yapay zekâ destekli kodlama.
+          </p>
+        </div>
 
-            <a
-              href="https://nsosyal.com/ozanozdil"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group"
-            >
-              <span class="text-zinc-800 dark:text-zinc-200 font-medium">NSosyal: @ozanozdil</span>
-              <span class="text-zinc-400 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors">↗</span>
-            </a>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
+          <div class="text-[10px] text-zinc-500 font-semibold">2019 - 2024</div>
+          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Belediye Başkan Danışmanlığı</div>
+          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
+            Kamu yönetimi, kurumsal iletişim stratejileri, kriz yönetimi ve dijital koordinasyon.
+          </p>
+        </div>
 
-            <a
-              href="/rss.xml"
-              target="_blank"
-              class="flex items-center justify-between p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#101319]/50 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors group"
-            >
-              <span class="text-zinc-800 dark:text-zinc-200 font-medium">RSS Akışı</span>
-              <span class="text-zinc-500 dark:text-[#00ffcc] text-[11px]">xml ↗</span>
-            </a>
-          </div>
-        </section>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
+          <div class="text-[10px] text-zinc-500 font-semibold">Sistem & Donanım</div>
+          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Steam Deck & Linux Gaming</div>
+          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
+            SteamOS, Proton uyumluluk katmanı, MangoHud ve taşınabilir donanımlarda kare süresi optimizasyonu.
+          </p>
+        </div>
 
-      </aside>
-
-    </div>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
+          <div class="text-[10px] text-zinc-500 font-semibold">Görsel Kültür</div>
+          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Fujifilm GFX Orta Format</div>
+          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
+            43.8×32.9mm sensör, kadim Karadeniz ahşap mimarisi ve belgesel odaklı görsel arşiv. <a href="/galeri" class="text-zinc-800 dark:text-[#00ffcc] hover:underline">Galeri ↗</a>
+          </p>
+        </div>
+      </div>
+    </section>
 
   </div>
 </BaseLayout>
