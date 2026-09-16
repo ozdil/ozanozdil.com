@@ -266,11 +266,13 @@ const jsonLd = {
 
     <!-- WebMCP: W3C Web Machine Learning Context Protocol Tool Registration -->
     <script is:inline>
-      (function registerWebMCP() {
-        if (typeof navigator !== 'undefined' && 'modelContext' in navigator && navigator.modelContext) {
+      (function initWebMCP() {
+        let isRegistered = false;
+
+        function registerOn(ctx) {
+          if (!ctx || typeof ctx.registerTool !== 'function' || isRegistered) return false;
           try {
-            const mc = navigator.modelContext;
-            const searchTool = {
+            ctx.registerTool({
               name: 'search_articles',
               description: 'Search technical articles, Linux tutorials, and system architecture notes on ozanozdil.com.',
               inputSchema: {
@@ -284,21 +286,79 @@ const jsonLd = {
                 required: ['query']
               },
               execute: async function({ query }) {
-                window.location.href = '/blog?q=' + encodeURIComponent(query);
-                return { success: true, url: '/blog?q=' + encodeURIComponent(query) };
-              },
-              annotations: { readOnlyHint: true }
-            };
+                return {
+                  content: [{
+                    type: 'text',
+                    text: 'Search results for "' + (query || '') + '": https://www.ozanozdil.com/blog?q=' + encodeURIComponent(query || '')
+                  }]
+                };
+              }
+            });
 
-            if (typeof mc.registerTool === 'function') {
-              mc.registerTool(searchTool);
+            ctx.registerTool({
+              name: 'get_author_info',
+              description: 'Get background, open source projects, and contact info for Ozan Özdil.',
+              inputSchema: { type: 'object', properties: {} },
+              execute: async function() {
+                return {
+                  content: [{
+                    type: 'text',
+                    text: JSON.stringify({
+                      name: 'Ozan Özdil',
+                      role: 'YZ Kodcusu, Sistem Araştırmacısı & Fotoğrafçı',
+                      website: 'https://www.ozanozdil.com',
+                      projects: 'https://www.ozanozdil.com/projeler',
+                      llms: 'https://www.ozanozdil.com/llms.txt'
+                    })
+                  }]
+                };
+              }
+            });
+
+            if (typeof ctx.provideContext === 'function') {
+              ctx.provideContext({
+                tools: [
+                  {
+                    name: 'search_articles',
+                    description: 'Search technical articles, Linux tutorials, and system architecture notes on ozanozdil.com.'
+                  },
+                  {
+                    name: 'get_author_info',
+                    description: 'Get background, open source projects, and contact info for Ozan Özdil.'
+                  }
+                ]
+              });
             }
-            if (typeof mc.provideContext === 'function') {
-              mc.provideContext({ tools: [searchTool] });
-            }
+
+            isRegistered = true;
+            return true;
           } catch (e) {
-            // WebMCP API feature variations
+            return false;
           }
+        }
+
+        function checkAndRegister() {
+          if (isRegistered) return true;
+          if (typeof document !== 'undefined' && document.modelContext && registerOn(document.modelContext)) return true;
+          if (typeof navigator !== 'undefined' && navigator.modelContext && registerOn(navigator.modelContext)) return true;
+          if (typeof window !== 'undefined' && window.modelContext && registerOn(window.modelContext)) return true;
+          return false;
+        }
+
+        if (!checkAndRegister()) {
+          if (typeof document !== 'undefined') {
+            document.addEventListener('DOMContentLoaded', checkAndRegister);
+          }
+          if (typeof window !== 'undefined') {
+            window.addEventListener('load', checkAndRegister);
+          }
+          let elapsed = 0;
+          const pollTimer = setInterval(() => {
+            elapsed += 50;
+            if (checkAndRegister() || elapsed >= 3000) {
+              clearInterval(pollTimer);
+            }
+          }, 50);
         }
       })();
     </script>
@@ -365,11 +425,6 @@ const jsonLd = {
       }
     </style>
 
-    <!-- KaTeX Mathematical Typography (Non-blocking async load) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" />
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
-      onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false });"></script>
   </head>
   <body class="min-h-screen flex flex-col bg-[#fef9ed] dark:bg-[#000000] text-[#5D524B] dark:text-[#fef9ed] selection:bg-[#FBD3BE] selection:text-[#4D2A33] dark:selection:bg-[#3a261c] dark:selection:text-[#fef9ed] font-sans antialiased transition-colors duration-200 pt-14">
     <Header currentPath={currentPath} />

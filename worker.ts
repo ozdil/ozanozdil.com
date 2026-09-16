@@ -298,6 +298,33 @@ export default {
       });
     }
 
+    // OAuth Protected Resource RFC 9704 Metadata
+    if (url.pathname === '/.well-known/oauth-protected-resource') {
+      const origin = url.origin;
+      return new Response(
+        JSON.stringify(
+          {
+            resource: `${origin}/`,
+            resource_name: 'Ozan Özdil Web and Agent API',
+            resource_documentation: `${origin}/llms.txt`,
+            authorization_servers: [origin],
+            scopes_supported: ['read:articles', 'read:projects', 'public'],
+            bearer_methods_supported: ['header'],
+          },
+          null,
+          2
+        ),
+        {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Access-Control-Allow-Origin': '*',
+            'Cache-Control': 'public, max-age=3600',
+          },
+        }
+      );
+    }
+
     // All HTML responses: attach Agent Discovery Link headers & security headers
     if (response.headers.get('content-type')?.includes('text/html')) {
       const newHeaders = new Headers(response.headers);
