@@ -48,19 +48,19 @@ const formatDate = (date: Date) => {
       <!-- Metadata Tags -->
       <div class="flex flex-wrap items-center justify-center gap-2 pt-2 font-mono text-xs text-[#8C7E74] dark:text-[#a89f91]">
         <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-          📍 Kastamonu, TR
+          [Kastamonu, TR]
         </span>
         <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-          🏛️ Kastamonu Belediyesi (2019–2024)
+          [Kastamonu Belediyesi (2019-2024)]
         </span>
         <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-          🌲 KTÜ Orman Müh.
+          [KTU Orman Muh.]
         </span>
         <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-          ⚡ Omarchy & CachyOS
+          [Omarchy & CachyOS]
         </span>
         <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-          📸 16-Bit Orta Format
+          [16-Bit Orta Format]
         </span>
       </div>
 
@@ -69,6 +69,8 @@ const formatDate = (date: Date) => {
         <div class="relative rounded-[26px] sm:rounded-[32px] overflow-hidden border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] aspect-[16/8] sm:aspect-[21/9] shadow-sm group">
           <img
             src="/images/xiaomi-18-ultra-hero.webp"
+            srcset="/images/xiaomi-18-ultra-hero-sm.webp 768w, /images/xiaomi-18-ultra-hero.webp 1920w"
+            sizes="(max-width: 768px) 100vw, 1024px"
             alt="Ozan Özdil Mühendislik ve Teknoloji Çalışmaları"
             width="1920"
             height="820"

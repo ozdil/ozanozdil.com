@@ -318,6 +318,30 @@ export default {
       });
     }
 
+    // Static assets: images, fonts, hashed scripts/styles -> 1-year immutable cache
+    if (
+      url.pathname.startsWith('/_astro/') ||
+      url.pathname.startsWith('/fonts/') ||
+      url.pathname.startsWith('/images/') ||
+      url.pathname.endsWith('.woff2') ||
+      url.pathname.endsWith('.webp') ||
+      url.pathname.endsWith('.png') ||
+      url.pathname.endsWith('.jpg') ||
+      url.pathname.endsWith('.svg') ||
+      url.pathname.endsWith('.ico') ||
+      url.pathname.endsWith('.css') ||
+      url.pathname.endsWith('.js')
+    ) {
+      const newHeaders = new Headers(response.headers);
+      newHeaders.set('Cache-Control', 'public, max-age=31536000, immutable');
+      newHeaders.set('Access-Control-Allow-Origin', '*');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: newHeaders,
+      });
+    }
+
     return response;
   },
 };

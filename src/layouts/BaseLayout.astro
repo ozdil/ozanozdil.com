@@ -197,13 +197,12 @@ const jsonLd = {
     <link rel="preload" href="/fonts/BradfordLL-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/BradfordLL-Italic.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Google Fonts: Newsreader, Red Hat Mono & Inter -->
+    <!-- Typography: JetBrains Mono & Newsreader (Non-blocking async load) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Red+Hat+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Red+Hat+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" media="print" onload="this.media='all'">
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Red+Hat+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
     </noscript>
 
     <!-- Search Engine & AI Crawler Directives -->
@@ -366,8 +365,8 @@ const jsonLd = {
       }
     </style>
 
-    <!-- KaTeX Mathematical Typography -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+    <!-- KaTeX Mathematical Typography (Non-blocking async load) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" />
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"
       onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false });"></script>
@@ -381,53 +380,5 @@ const jsonLd = {
 
     <Footer />
     <AiChatModal />
-
-    <!-- Google Translate Mount & Initializer -->
-    <div id="google_translate_element" class="hidden" aria-hidden="true" style="display:none;"></div>
-    <script is:inline>
-      function googleTranslateElementInit() {
-        if (window.google && window.google.translate) {
-          new window.google.translate.TranslateElement({
-            pageLanguage: 'tr',
-            includedLanguages: 'tr,en,de,fr,es,az',
-            autoDisplay: false
-          }, 'google_translate_element');
-        }
-      }
-    </script>
-    <script is:inline src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
-
-    <!-- Active Real-time Banner Eliminator -->
-    <script is:inline>
-      (function () {
-        function cleanGoogleBanners() {
-          if (document.body && document.body.style.top !== '0px') {
-            document.body.style.top = '0px';
-          }
-          if (document.documentElement && document.documentElement.style.top !== '0px') {
-            document.documentElement.style.top = '0px';
-          }
-          var junk = document.querySelectorAll(
-            'iframe.goog-te-banner-frame, iframe[class*="VIpgJd"], iframe[src*="translate.google"], .VIpgJd-ZVi9od-OR9Mb-OAEtQ, #goog-gt-tt, #goog-gt-vt, [id*="goog-gt-"], body > .skiptranslate'
-          );
-          for (var i = 0; i < junk.length; i++) {
-            var el = junk[i];
-            el.style.setProperty('display', 'none', 'important');
-            el.style.setProperty('visibility', 'hidden', 'important');
-            el.style.setProperty('height', '0', 'important');
-            el.style.setProperty('width', '0', 'important');
-            el.style.setProperty('pointer-events', 'none', 'important');
-          }
-        }
-
-        cleanGoogleBanners();
-        setInterval(cleanGoogleBanners, 150);
-
-        if (window.MutationObserver) {
-          var obs = new MutationObserver(cleanGoogleBanners);
-          obs.observe(document.documentElement, { attributes: true, childList: true, subtree: true });
-        }
-      })();
-    </script>
   </body>
 </html>
