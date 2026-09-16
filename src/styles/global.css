@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Bradford LL Typeface (as used in Microsoft AI Editorial Design) */
+@font-face {
+  font-family: 'Bradford LL';
+  src: url('/fonts/BradfordLL-Regular.woff2') format('woff2');
+  font-weight: 400 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bradford LL';
+  src: url('/fonts/BradfordLL-Italic.woff2') format('woff2');
+  font-weight: 400 450;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bradford LL';
+  src: url('/fonts/BradfordLL-Bold.woff2') format('woff2');
+  font-weight: 600 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bradford LL';
+  src: url('/fonts/BradfordLL-BoldItalic.woff2') format('woff2');
+  font-weight: 600 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --canvas-bg: #fef9ed;
   --surface-bg: #f5f0e4;
@@ -76,10 +109,16 @@ body {
   max-width: 100vw;
 }
 
-/* Modern Typography Legibility */
+/* Modern Typography Legibility - Editorial Breathing Room */
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.005em;
+  line-height: 1.3;
+}
+
+.font-serif {
+  font-family: 'Bradford LL', 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  letter-spacing: normal;
 }
 
 p, blockquote, li {
@@ -94,61 +133,63 @@ p, blockquote, li {
   }
 }
 
-/* QuickShell / Omarchy Editorial Prose & Typography */
+/* Editorial Prose & Typography (Bradford LL Humanist Editorial Style) */
 .markdown-body {
-  font-size: 15px;
-  line-height: 1.7;
+  font-family: 'Bradford LL', 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.8;
   color: var(--text-main);
+  letter-spacing: normal;
 }
 
 @media (min-width: 640px) {
   .markdown-body {
-    font-size: 16px;
-    line-height: 1.72;
+    font-size: 18px;
+    line-height: 1.85;
   }
 }
 
 .markdown-body h1 {
-  font-size: 1.875rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  font-weight: 450;
+  letter-spacing: 0.005em;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
   line-height: 1.25;
   color: var(--text-main);
-  font-family: var(--font-sans, inherit);
+  font-family: 'Bradford LL', 'Newsreader', serif;
 }
 
 .markdown-body h2 {
+  font-size: 1.75rem;
+  font-weight: 450;
+  letter-spacing: 0.005em;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  color: var(--text-main);
+  font-family: 'Bradford LL', 'Newsreader', serif;
+}
+
+.markdown-body h3 {
   font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 450;
+  letter-spacing: 0.005em;
   margin-top: 2.25rem;
   margin-bottom: 0.75rem;
   line-height: 1.35;
   color: var(--text-main);
-  font-family: var(--font-sans, inherit);
+  font-family: 'Bradford LL', 'Newsreader', serif;
 }
 
-.markdown-body h3 {
+.markdown-body h4 {
   font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 500;
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
   color: var(--text-main);
-  font-family: var(--font-sans, inherit);
-}
-
-.markdown-body h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-  color: var(--text-main);
-  font-family: var(--font-sans, inherit);
+  font-family: 'Bradford LL', 'Newsreader', serif;
 }
 
 .markdown-body p {
@@ -464,12 +505,12 @@ body > div[style*="z-index: 10000000"] {
   background: linear-gradient(to bottom, rgba(20, 18, 16, 0) 0%, #26201c 50%, rgba(20, 18, 16, 0) 100%);
 }
 
-/* MAI Benchmark Table (.mai-bench) */
-.mai-bench {
+/* System Architecture Benchmark Table (.matrix-bench) */
+.matrix-bench {
   --ink: #3b230e;
   --linen: #f5eee0;
   --mint: #eaefe1;
-  --mai-ink: #2e4d4d;
+  --accent-ink: #2e4d4d;
   --rule-olive: #e1dbc6;
   --rule-soft: #f2ebe3;
   --oat: #fef9ed;
@@ -477,52 +518,42 @@ body > div[style*="z-index: 10000000"] {
   border-collapse: collapse;
 }
 
-.dark .mai-bench {
+.dark .matrix-bench {
   --ink: #fef9ed;
   --linen: #1f1a17;
   --mint: #1c2b23;
-  --mai-ink: #82b09a;
+  --accent-ink: #82b09a;
   --rule-olive: #3d352e;
   --rule-soft: #2d2521;
   --oat: #141210;
 }
 
-.mai-bench th, .mai-bench td {
+.matrix-bench th, .matrix-bench td {
   padding: 12px 14px;
   vertical-align: middle;
 }
 
-.mai-bench thead tr {
+.matrix-bench thead tr {
   border-bottom: 1.5px solid var(--ink);
 }
 
-.mai-bench tbody tr {
+.matrix-bench tbody tr {
   border-bottom: 1px solid var(--rule-soft);
 }
 
-.mai-bench th.c-cat,
-.mai-bench td.c-cat {
+.matrix-bench th.c-cat,
+.matrix-bench td.c-cat {
   background: var(--linen);
   text-align: left;
   font-weight: 500;
   border-right: 1px solid var(--rule-olive);
 }
 
-.mai-bench th.c-mai,
-.mai-bench td.c-mai {
+.matrix-bench th.c-highlight,
+.matrix-bench td.c-highlight {
   background: var(--mint);
-  color: var(--mai-ink);
+  color: var(--accent-ink);
   font-weight: 600;
-}
-
-/* MAI Card Styling */
-.mai-card {
-  background-color: var(--mai-linen);
-  border-radius: 18px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.dark .mai-card {
-  background-color: var(--mai-linen);
 }
 
 

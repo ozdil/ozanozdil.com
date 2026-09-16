@@ -193,7 +193,11 @@ const jsonLd = {
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Google Fonts: Newsreader (Editorial Serif), Red Hat Mono & Inter (Non-render-blocking) -->
+    <!-- Bradford LL Local Font Preloads (As used in Microsoft AI design) -->
+    <link rel="preload" href="/fonts/BradfordLL-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/BradfordLL-Italic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Google Fonts: Newsreader, Red Hat Mono & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Red+Hat+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
@@ -300,14 +304,11 @@ const jsonLd = {
       })();
     </script>
 
-    <!-- Inline script to prevent theme flash -->
+    <!-- Inline script to prevent theme flash - Default light theme -->
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
-        }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
         }
         return 'light';
       })();

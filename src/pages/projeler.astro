@@ -129,30 +129,30 @@ const repositories = [
   title="Projeler — Ozan Özdil"
   description="Ozan Özdil tarafından geliştirilen açık kaynak projeler ve araçlar."
   currentPath="/projeler"
-  maxWidthClass="max-w-[1720px]"
+  maxWidthClass="max-w-5xl"
 >
-  <div class="py-2 sm:py-4 space-y-6">
+  <div class="py-4 sm:py-8 space-y-10">
     <!-- Header -->
-    <header class="rounded-2xl border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] p-6 sm:p-8 text-center shadow-2xs">
-      <div class="inline-flex items-center gap-2 font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase tracking-wider mb-2 font-semibold">
+    <header class="rounded-[24px] border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1f1a17]/60 p-8 sm:p-12 text-center shadow-2xs">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase tracking-wider mb-3 font-semibold">
         <span class="w-2 h-2 rounded-full bg-[#e1734b] dark:bg-[#e59a7a]"></span>
         <span>// AÇIK KAYNAK REPOLAR & SİSTEMLER</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold tracking-tight text-[#2d2724] dark:text-[#fef9ed]">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-[#2d2724] dark:text-[#fef9ed] leading-[1.18]">
         Açık Kaynak Projeler
       </h1>
-      <p class="mt-2 text-sm sm:text-base text-[#5D524B] dark:text-[#a89f91] max-w-lg mx-auto font-sans">
+      <p class="mt-4 text-base sm:text-lg text-[#5D524B] dark:text-[#a89f91] max-w-lg mx-auto font-serif leading-relaxed">
         Linux, sistem mimarileri, Rust/QML kabuk bileşenleri ve açık kaynak çalışmalarım.
       </p>
     </header>
 
-    <!-- Repositories Grid: Clean MAI cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+    <!-- Repositories Grid: Clean and spacious cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {repositories.map((repo) => (
-        <article class="rounded-[18px] border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1f1a17]/80 hover:border-[#5D524B]/30 dark:hover:border-[#ead9d2]/40 transition-all p-5 flex flex-col justify-between group shadow-2xs">
-          <div class="space-y-3">
+        <article class="rounded-[22px] border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1f1a17]/80 hover:border-[#5D524B]/30 dark:hover:border-[#ead9d2]/40 transition-all p-6 flex flex-col justify-between group shadow-2xs">
+          <div class="space-y-4">
             <!-- Top Language & Status Line -->
-            <div class="flex items-center justify-between text-[11px] font-mono pb-2 border-b border-[#ead9d2]/60 dark:border-[#2d2521]">
+            <div class="flex items-center justify-between text-[11px] font-mono pb-2.5 border-b border-[#ead9d2]/60 dark:border-[#2d2521]">
               <span class="text-[#e1734b] dark:text-[#e59a7a] font-medium">
                 {repo.lang}
               </span>
@@ -162,7 +162,7 @@ const repositories = [
             </div>
 
             <!-- Title -->
-            <h2 class="text-base sm:text-lg font-semibold text-[#2d2724] dark:text-[#fef9ed] font-serif group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] transition-colors">
+            <h2 class="text-xl font-normal text-[#2d2724] dark:text-[#fef9ed] font-serif group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] transition-colors leading-[1.3]">
               <a href={repo.url} target="_blank" rel="noopener noreferrer" class="focus:outline-none flex items-center justify-between">
                 <span>{repo.name}</span>
                 <span class="text-xs text-[#a67c52] transition-transform group-hover:translate-x-0.5 font-mono">↗</span>
@@ -170,7 +170,7 @@ const repositories = [
             </h2>
 
             <!-- Description -->
-            <p class="text-xs text-[#5D524B] dark:text-[#a89f91] leading-relaxed font-sans line-clamp-3">
+            <p class="text-sm text-[#5D524B] dark:text-[#a89f91] leading-relaxed font-serif line-clamp-3">
               {repo.desc}
             </p>
           </div>
