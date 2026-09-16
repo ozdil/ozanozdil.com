@@ -16,19 +16,22 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-md bg-white/90 dark:bg-[#08090b]/90 border-b border-zinc-200/80 dark:border-white/10 transition-colors">
+<header class="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-md bg-[#fef9ed]/90 dark:bg-[#141210]/90 border-b border-[#ead9d2]/70 dark:border-[#2d2521] transition-colors">
   <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14 gap-2 sm:gap-4">
       <!-- Left: Branding & Desktop Navigation -->
       <div class="flex items-center space-x-3 sm:space-x-6 min-w-0">
         <!-- Branding -->
-        <a href="/" class="flex items-center space-x-2 group flex-shrink-0" title="Ozan Özdil">
-          <div class="relative w-7 h-7 rounded-lg overflow-hidden border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 flex-shrink-0 p-0.5">
+        <a href="/" class="flex items-center space-x-2.5 group flex-shrink-0" title="Ozan Özdil">
+          <div class="relative w-7 h-7 rounded-lg overflow-hidden border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] flex-shrink-0 p-0.5 shadow-2xs">
             <img src="/avatar.webp" alt="Ozan Özdil" width="28" height="28" decoding="async" class="w-full h-full object-cover rounded-md" />
           </div>
-          <div class="flex flex-col text-left">
-            <span class="text-xs sm:text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors whitespace-nowrap">
+          <div class="flex items-center gap-2">
+            <span class="font-serif text-sm sm:text-base font-semibold tracking-tight text-[#2d2724] dark:text-[#fef9ed] group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] transition-colors whitespace-nowrap">
               Ozan Özdil
+            </span>
+            <span class="hidden md:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#EAEFE1] dark:bg-[#1c2b23] text-[#2E4D4D] dark:text-[#82b09a] border border-[#D7E6D6] dark:border-[#233129]">
+              MAI
             </span>
           </div>
         </a>
@@ -40,10 +43,10 @@ const navItems = [
             return (
               <a
                 href={item.href}
-                class={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md transition-all whitespace-nowrap flex items-center gap-1 border ${
+                class={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg transition-all whitespace-nowrap flex items-center gap-1 border ${
                   isActive
-                    ? 'border-zinc-900 dark:border-[#00ffcc]/60 bg-zinc-100 dark:bg-[#141820] text-zinc-950 dark:text-[#00ffcc] font-medium shadow-2xs'
-                    : 'border-transparent text-zinc-600 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700/60 hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 hover:text-zinc-900 dark:hover:text-zinc-200'
+                    ? 'border-[#5D524B]/20 dark:border-[#ead9d2]/30 bg-[#F5F0E4] dark:bg-[#26201c] text-[#2d2724] dark:text-[#fef9ed] font-medium shadow-2xs'
+                    : 'border-transparent text-[#8C7E74] dark:text-[#a89f91] hover:border-[#ead9d2] dark:hover:border-[#2d2521] hover:bg-[#F5F0E4]/60 dark:hover:bg-[#1f1a17] hover:text-[#2d2724] dark:hover:text-[#fef9ed]'
                 }`}
               >
                 <span>{item.label}</span>
@@ -137,7 +140,7 @@ const navItems = [
           aria-expanded="false"
           aria-controls="mobile-menu"
           aria-label="Menüyü Aç/Kapat"
-          class="sm:hidden p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all focus:outline-none flex items-center justify-center cursor-pointer shadow-2xs"
+          class="sm:hidden p-2 rounded-lg text-[#8C7E74] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] hover:bg-[#F5F0E4] dark:hover:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521] transition-all focus:outline-none flex items-center justify-center cursor-pointer shadow-2xs"
         >
           <!-- Hamburger Bars Icon -->
           <svg id="menu-icon-bars" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -155,11 +158,11 @@ const navItems = [
   <!-- Mobile Navigation Drawer -->
   <div
     id="mobile-menu"
-    class="hidden sm:hidden border-t border-zinc-200/80 dark:border-zinc-800/80 bg-white/95 dark:bg-[#0c0e12]/95 backdrop-blur-xl px-4 py-4 space-y-4 shadow-2xl transition-all"
+    class="hidden sm:hidden border-t border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#fef9ed]/98 dark:bg-[#141210]/98 backdrop-blur-xl px-4 py-4 space-y-4 shadow-2xl transition-all"
   >
     <!-- Navigation Links -->
     <div class="space-y-1">
-      <div class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-wider px-2 py-0.5">
+      <div class="text-[10px] font-mono text-[#8C7E74] dark:text-[#a89f91] uppercase tracking-wider px-2 py-0.5">
         // Menü
       </div>
       {navItems.map((item) => {
@@ -169,8 +172,8 @@ const navItems = [
             href={item.href}
             class={`flex items-center justify-between px-3.5 py-2.5 rounded-lg font-mono text-xs transition-all border ${
               isActive
-                ? 'border-zinc-900 dark:border-[#00ffcc]/60 bg-zinc-100 dark:bg-[#141820] text-zinc-950 dark:text-[#00ffcc] font-semibold shadow-2xs'
-                : 'border-transparent text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-950 dark:hover:text-white'
+                ? 'border-[#5D524B]/30 dark:border-[#ead9d2]/40 bg-[#F5F0E4] dark:bg-[#26201c] text-[#2d2724] dark:text-[#fef9ed] font-semibold shadow-2xs'
+                : 'border-transparent text-[#8C7E74] dark:text-[#a89f91] hover:bg-[#F5F0E4]/60 dark:hover:bg-[#1f1a17] hover:text-[#2d2724] dark:hover:text-[#fef9ed]'
             }`}
           >
             <span class="flex items-center gap-2.5">

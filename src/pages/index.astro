@@ -8,44 +8,6 @@ const latestPosts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 4);
 
-const featuredProjects = [
-  {
-    name: 'omarchy-omastudio',
-    title: 'OmaStudio RAW Editor',
-    desc: '16-Bit Medium Format (Orta Format) destekli, kalıcı Rust motorlu açık kaynak RAW stüdyosu.',
-    lang: 'Rust / QML',
-    url: 'https://github.com/ozdil/omarchy-omastudio'
-  },
-  {
-    name: 'kastamonuinciyurt-portal',
-    title: 'Kastamonu İnci Yurt & Portal',
-    desc: 'Özel yurt işletmesi için Cloudflare Edge tabanlı web platformu, ön kayıt ve yönetim portalı.',
-    lang: 'Cloudflare / Edge',
-    url: 'https://www.kastamonuinciyurt.com'
-  },
-  {
-    name: 'omarchy-security-sentinel',
-    title: 'Cyber Sentinel',
-    desc: 'Omarchy Linux için 9 modüllü yerel ağ ve aygıt savunma kalkanı.',
-    lang: 'Rust / QML',
-    url: 'https://github.com/ozdil/omarchy-security-sentinel'
-  },
-  {
-    name: 'omarchy-omanotes',
-    title: 'OmaNotes E2EE',
-    desc: 'Google Keep tarzında, sıfır bilgi AES-256 şifreli güvenli not yöneticisi.',
-    lang: 'Rust / QML',
-    url: 'https://github.com/ozdil/omarchy-omanotes'
-  },
-  {
-    name: 'omarchy-omasend',
-    title: 'OmaSend P2P',
-    desc: 'Linux ve Android arasında AirDrop benzeri yerel P2P dosya ve pano aktarımı.',
-    lang: 'Rust / Android',
-    url: 'https://github.com/ozdil/omarchy-omasend'
-  }
-];
-
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('tr-TR', {
     day: '2-digit',
@@ -57,205 +19,417 @@ const formatDate = (date: Date) => {
 
 <BaseLayout
   title="Ozan Özdil — YZ Kodcusu & Açık Kaynak Geliştirici"
-  description="Ozan Özdil: YZ Kodcusu. Açık kaynak sistem mimarileri, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve fotoğrafçılık."
+  description="Ozan Özdil: YZ Kodcusu. Açık kaynak sistem mimarileri, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve orta format fotoğrafçılık."
   currentPath="/"
-  maxWidthClass="max-w-3xl"
+  maxWidthClass="max-w-5xl"
 >
-  <div class="py-6 sm:py-10 space-y-12 sm:space-y-14">
-    
-    <!-- BIO / HERO HEADER -->
-    <section class="space-y-4" aria-label="Profil ve Tanıtım">
-      <div class="flex items-center gap-4">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800 flex-shrink-0 p-0.5 shadow-sm">
+  <div class="space-y-16 sm:space-y-24 py-4 sm:py-8">
+
+    <!-- ================================================================= -->
+    <!-- BLOCK 1: MODEL HEADER (HERO)                                     -->
+    <!-- ================================================================= -->
+    <section class="text-center space-y-6 sm:space-y-8" aria-label="Giriş ve Kimlik">
+      <!-- Minimal Identity Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[#F5F0E4] dark:bg-[#1f1a17] text-[#5D524B] dark:text-[#a89f91] border border-[#ead9d2] dark:border-[#2d2521]">
+        <span class="w-2 h-2 rounded-full bg-[#e1734b] dark:bg-[#e59a7a] animate-pulse"></span>
+        <span>AÇIK KAYNAK • YZ KODCUSU • SİSTEM MİMARİSİ</span>
+      </div>
+
+      <!-- Main Headline (Editorial Serif Display) -->
+      <div class="space-y-4 max-w-3xl mx-auto">
+        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight text-[#2d2724] dark:text-[#fef9ed] leading-[1.12]">
+          Ozan Özdil
+        </h1>
+        <p class="font-serif text-lg sm:text-2xl text-[#5D524B] dark:text-[#fef9ed]/90 leading-relaxed font-normal">
+          Yapay zekâ destekli kodlama süreçleri, açık kaynak sistem mimarileri ve dijital egemenlik üzerine çalışan bağımsız bir geliştirici ve araştırmacı.
+        </p>
+      </div>
+
+      <!-- Model Metadata Tags -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-1 font-mono text-[11px] sm:text-xs text-[#8C7E74] dark:text-[#a89f91]">
+        <span class="px-2.5 py-1 rounded-md bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          [ AR-GE & YZ KODCULUĞU ]
+        </span>
+        <span class="px-2.5 py-1 rounded-md bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          [ OMARCHY & CACHYOS ]
+        </span>
+        <span class="px-2.5 py-1 rounded-md bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          [ STEAM DECK OPTİMİZASYONU ]
+        </span>
+        <span class="px-2.5 py-1 rounded-md bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          [ 16-BIT ORTA FORMAT ]
+        </span>
+      </div>
+
+      <!-- Hero Visual Frame (Editorial Collage / Visual) -->
+      <div class="pt-4 max-w-4xl mx-auto">
+        <div class="relative rounded-[22px] overflow-hidden border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] aspect-[16/8] sm:aspect-[21/9] shadow-sm group">
           <img
-            src="/avatar.webp"
-            alt="Ozan Özdil"
-            width="80"
-            height="80"
+            src="/images/xiaomi-18-ultra-hero.webp"
+            alt="Ozan Özdil Mühendislik ve Teknoloji Çalışmaları"
+            width="1920"
+            height="820"
             fetchpriority="high"
             decoding="async"
-            class="w-full h-full object-cover rounded-xl"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           />
-        </div>
-        <div>
-          <div class="flex flex-wrap items-center gap-2">
-            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans">
-              Ozan Özdil
-            </h1>
-            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              açık kaynak
-            </span>
-          </div>
-          <p class="text-xs sm:text-sm font-mono text-zinc-800 dark:text-[#00ffcc] font-medium mt-0.5">
-            YZ Kodcusu • Açık Kaynak Geliştirici
-          </p>
-        </div>
-      </div>
-
-      <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-2xl">
-        Linux sistem mimarileri, CachyOS ve Omarchy ekosisteminde açık kaynak yazılımlar üretiyorum. Yerel ve bulut yapay zekâ modelleriyle kodlama süreçlerini yönetiyor; taşınabilir donanımlarda (Steam Deck) düşük gecikmeli oyun deneyimi üzerine optimizasyonlar yapıyorum.
-      </p>
-
-      <!-- Minimal Quick Links -->
-      <div class="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 pt-1 font-mono text-xs text-zinc-500 dark:text-zinc-400">
-        <a
-          href="https://github.com/ozdil"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-zinc-800 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors flex items-center gap-1"
-        >
-          github ↗
-        </a>
-        <span class="text-zinc-300 dark:text-zinc-700 hidden xs:inline">•</span>
-        <a
-          href="https://steamcommunity.com/id/ozanozdil"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-zinc-800 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors flex items-center gap-1"
-        >
-          steam ↗
-        </a>
-        <span class="text-zinc-300 dark:text-zinc-700 hidden xs:inline">•</span>
-        <a
-          href="https://nsosyal.com/ozanozdil"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-zinc-800 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors flex items-center gap-1"
-        >
-          nsosyal ↗
-        </a>
-        <span class="text-zinc-300 dark:text-zinc-700 hidden xs:inline">•</span>
-        <a
-          href="https://buymeacoffee.com/ozdil"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1 font-medium"
-        >
-          kahve ısmarla ☕
-        </a>
-        <span class="text-zinc-300 dark:text-zinc-700 hidden xs:inline">•</span>
-        <a
-          href="/rss.xml"
-          target="_blank"
-          class="text-zinc-500 hover:text-zinc-800 dark:hover:text-[#00ffcc] transition-colors"
-        >
-          rss ↗
-        </a>
-      </div>
-    </section>
-
-    <!-- FEATURED PROJECTS (Editorial Minimalist List) -->
-    <section class="space-y-4" aria-label="Öne Çıkan Projeler">
-      <div class="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
-        <h2 class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-          // Öne Çıkan Çalışmalar
-        </h2>
-        <a href="/projeler" class="text-xs font-mono text-zinc-700 dark:text-[#00ffcc] hover:underline font-medium">
-          tümünü gör (13) →
-        </a>
-      </div>
-
-      <div class="divide-y divide-zinc-200 dark:divide-zinc-800/70">
-        {featuredProjects.map((p) => (
-          <a
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="py-3.5 px-2 -mx-2 rounded-lg flex items-center justify-between gap-4 group hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 transition-colors"
-          >
-            <div class="space-y-1 min-w-0">
-              <div class="flex items-center gap-2 font-mono text-xs">
-                <span class="font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors">
-                  {p.name}
-                </span>
-                <span class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-[10px] text-zinc-600 dark:text-zinc-400">
-                  {p.lang}
-                </span>
-              </div>
-              <p class="text-xs text-zinc-600 dark:text-zinc-400 font-sans leading-relaxed line-clamp-2 sm:line-clamp-none">
-                {p.desc}
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2d2724]/60 via-transparent to-transparent flex items-end p-4 sm:p-6 text-left">
+            <div class="space-y-1">
+              <span class="font-mono text-[10px] sm:text-xs text-[#fef9ed]/80 uppercase tracking-widest">
+                // Donanım & Fotonik Analizleri
+              </span>
+              <p class="font-serif text-sm sm:text-lg text-[#fef9ed] font-medium">
+                Pazarlama illüzyonlarını yıkan saf donanım ve katı hal elektroniği araştırmaları.
               </p>
             </div>
-            <span class="text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-transform group-hover:translate-x-1 font-mono text-xs flex-shrink-0">
-              ↗
-            </span>
-          </a>
-        ))}
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- LATEST POSTS (Editorial Writing List) -->
-    <section class="space-y-4" aria-label="Son Blog Yazıları">
-      <div class="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
-        <h2 class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-          // Son Yazılar
-        </h2>
-        <a href="/blog" class="text-xs font-mono text-zinc-700 dark:text-[#00ffcc] hover:underline font-medium">
-          tüm yazılar ({allPosts.length}) →
-        </a>
+    <!-- ================================================================= -->
+    <!-- BLOCK 2: ALTERNATING SPLIT FEATURE ROWS                          -->
+    <!-- ================================================================= -->
+    <section class="space-y-12 sm:space-y-20" aria-label="Öne Çıkan Mimariler">
+      
+      <!-- Feature 1: Omarchy Linux Araçları (Image Left, Text Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7">
+          <div class="relative rounded-[20px] overflow-hidden border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] p-2 sm:p-3 shadow-xs">
+            <img
+              src="/images/quickshell/omastudio-preview.png"
+              alt="Omarchy Linux ve OmaStudio RAW Editor"
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto rounded-[14px] object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4 text-left">
+          <div class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase tracking-wider font-semibold">
+            // Açık Kaynak Ekosistemi
+          </div>
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-[#2d2724] dark:text-[#fef9ed] leading-snug">
+            Hızlı, Bağımsız ve Açık Kaynak: Omarchy Linux
+          </h2>
+          <p class="font-sans text-sm sm:text-base text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
+            Wayland tabanlı modern masaüstü için geliştirdiğim açık kaynak araç takımı: <strong>OmaStudio</strong> (16-bit orta format RAW motoru), <strong>Cyber Sentinel</strong> (cihaz savunma kalkanı), <strong>OmaNotes</strong> (E2EE not yöneticisi) ve <strong>OmaSend</strong> (P2P aktarım).
+          </p>
+          <div class="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
+            <a
+              href="https://github.com/ozdil/omarchy-omastudio"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1.5 rounded-lg bg-[#FBF4E5] dark:bg-[#26201c] text-[#2d2724] dark:text-[#fef9ed] border border-[#ead9d2] dark:border-[#2d2521] hover:border-[#5D524B]/30 flex items-center gap-1.5 transition-colors"
+            >
+              <span>GitHub Kod Deposu</span>
+              <span class="text-[#a67c52]">↗</span>
+            </a>
+            <a
+              href="/blog/omastudio-16-bit-orta-format-ve-rust-daemon-mimarisi"
+              class="px-3 py-1.5 rounded-lg text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors"
+            >
+              Mimari İnceleme →
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="divide-y divide-zinc-200 dark:divide-zinc-800/70">
-        {latestPosts.map((post) => (
+      <!-- Feature 2: Kastamonu İnci Yurt Web Platformu (Text Left, Image Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center flex-col-reverse lg:flex-row">
+        <div class="lg:col-span-5 space-y-4 text-left order-2 lg:order-1">
+          <div class="font-mono text-xs text-[#6e8f7c] dark:text-[#82b09a] uppercase tracking-wider font-semibold">
+            // Kurumsal Dijital Dönüşüm
+          </div>
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-[#2d2724] dark:text-[#fef9ed] leading-snug">
+            Kastamonu İnci Yurt Platformu & Yönetim Portalı
+          </h2>
+          <p class="font-sans text-sm sm:text-base text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
+            Cloudflare Edge mimarisi üzerinde sıfır sunucu maliyetiyle koşan modern web platformu. Yapay zekâ tarayıcıları için <code class="px-1.5 py-0.5 rounded bg-[#F5F0E4] dark:bg-[#26201c] font-mono text-xs">llms.txt</code> bağlam haritası, interaktif ev vs. yurt tasarruf simülatörü ve çok dilli öğrenci kayıt portalı.
+          </p>
+          <div class="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
+            <a
+              href="https://www.kastamonuinciyurt.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1.5 rounded-lg bg-[#FBF4E5] dark:bg-[#26201c] text-[#2d2724] dark:text-[#fef9ed] border border-[#ead9d2] dark:border-[#2d2521] hover:border-[#5D524B]/30 flex items-center gap-1.5 transition-colors"
+            >
+              <span>Canlı Platformu İncele</span>
+              <span class="text-[#a67c52]">↗</span>
+            </a>
+            <a
+              href="/blog/kastamonu-inci-yurt-web-platformu-ve-yonetim-portali-dijital-donusum"
+              class="px-3 py-1.5 rounded-lg text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors"
+            >
+              Dönüşüm Raporu →
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 order-1 lg:order-2">
+          <div class="relative rounded-[20px] overflow-hidden border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] p-2 sm:p-3 shadow-xs">
+            <img
+              src="/images/kastamonuinciyurt-preview.webp"
+              alt="Kastamonu İnci Yurt Web Platformu"
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
+              class="w-full h-auto rounded-[14px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- BLOCK 3: THE STATEMENT WASH (FULL-WIDTH MANIFESTO)                -->
+    <!-- ================================================================= -->
+    <section class="relative -mx-4 sm:-mx-6 lg:-mx-8 py-16 sm:py-24 statement-wash overflow-hidden" aria-label="Manifesto">
+      <div class="max-w-3xl mx-auto px-6 text-center space-y-4">
+        <div class="font-mono text-xs uppercase tracking-widest text-[#8C7E74] dark:text-[#a89f91]">
+          // DİJİTAL EGEMENLİK & İNSAN MERKEZLİ YZ
+        </div>
+        <blockquote class="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#2d2724] dark:text-[#fef9ed] font-medium leading-[1.3] text-balance">
+          “Teknoloji kapalı bahçelerin ve gözetim kapitalizminin tekelinde olmak zorunda değil; açık kaynak kod ve yerel yapay zekâ, insan aklının ve kişisel egemenliğin en güçlü kaldıraçlarıdır.”
+        </blockquote>
+        <div class="font-mono text-xs text-[#8C7E74] dark:text-[#a89f91] pt-2">
+          — Ozan Özdil
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- BLOCK 4: MAI-BENCH (MİMARİ VE YETKİNLİK MATRİSİ)                  -->
+    <!-- ================================================================= -->
+    <section class="space-y-6" aria-label="Mimari ve Yetkinlik Kıyaslaması">
+      <div class="text-center space-y-2 max-w-2xl mx-auto">
+        <div class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase tracking-wider font-semibold">
+          // MAI Benchmark Standardı
+        </div>
+        <h2 class="font-serif text-2xl sm:text-4xl font-semibold text-[#2d2724] dark:text-[#fef9ed]">
+          Sistem ve Donanım Yetkinlik Matrisi
+        </h2>
+        <p class="font-sans text-sm text-[#5D524B] dark:text-[#a89f91]">
+          Geleneksel hantal yaklaşımlar ile geliştirdiğim açık kaynak ve uç bilişim çözümlerinin karşılaştırmalı analizi.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto rounded-[18px] border border-[#ead9d2] dark:border-[#2d2521] bg-[#fef9ed] dark:bg-[#141210] shadow-2xs">
+        <table class="mai-bench font-mono text-xs">
+          <thead>
+            <tr>
+              <th scope="col" class="c-cat w-32 sm:w-44">Kategori</th>
+              <th scope="col" class="w-36 sm:w-48 text-left">Metrik / Alan</th>
+              <th scope="col" class="c-mai text-left">Ozan Özdil Mimarisi (MAI)</th>
+              <th scope="col" class="text-left text-[#8C7E74]">Geleneksel Yaklaşım</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="c-cat font-semibold">Yapay Zekâ</td>
+              <td>Kodlama & Ajan Otonomisi</td>
+              <td class="c-mai font-medium">Antigravity CLI + Claude Code + Çoklu Ajan</td>
+              <td class="text-[#8C7E74]">Manuel iskele & tekil web istemcileri</td>
+            </tr>
+            <tr>
+              <td class="c-cat font-semibold">İşletim Sistemi</td>
+              <td>Çekirdek Gecikmesi</td>
+              <td class="c-mai font-medium">Omarchy Linux (BORE/EEVDF &lt; 1.2ms)</td>
+              <td class="text-[#8C7E74]">Standart genel amaçlı şişkin masaüstü</td>
+            </tr>
+            <tr>
+              <td class="c-cat font-semibold">Görsel İşleme</td>
+              <td>16-Bit RAW / Hafıza</td>
+              <td class="c-mai font-medium">OmaStudio (Rust Motoru + Sıfır Kilitlenme)</td>
+              <td class="text-[#8C7E74]">Kapalı lisanslı ağır masaüstü yazılımları</td>
+            </tr>
+            <tr>
+              <td class="c-cat font-semibold">Mobil Donanım</td>
+              <td>Kare Süresi Kararlılığı</td>
+              <td class="c-mai font-medium">Steam Deck + MangoHud Düşük Gecikme</td>
+              <td class="text-[#8C7E74]">Müdahale edilemeyen varsayılan konsollar</td>
+            </tr>
+            <tr>
+              <td class="c-cat font-semibold">Web Altyapısı</td>
+              <td>Uç Dağıtım & LLM</td>
+              <td class="c-mai font-medium">Cloudflare Edge + llms.txt + Workers AI</td>
+              <td class="text-[#8C7E74]">Ağır monolit sanal sunucular</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- BLOCK 5: DIG DEEPER & ACTION CARDS                               -->
+    <!-- ================================================================= -->
+    <section class="space-y-6" aria-label="Derinlemesine İncele ve Aksiyonlar">
+      <!-- Signature MAI Dig Deeper Bar -->
+      <div class="rounded-[18px] bg-[#FBF4E5] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xs">
+        <div class="space-y-1">
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-[#2d2724] dark:text-[#fef9ed]">
+            Derinlemesine İnceleyin
+          </h3>
+          <p class="font-sans text-xs text-[#8C7E74] dark:text-[#a89f91]">
+            Teknik dokümantasyon, yapay zekâ bağlam şemaları ve kaynak kodlar.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs">
           <a
-            href={`/blog/${post.slug}`}
-            class="py-3 px-2 -mx-2 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 group hover:bg-zinc-100/70 dark:hover:bg-zinc-900/40 transition-colors"
+            href="/hakkimda"
+            class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline"
           >
-            <span class="font-sans text-sm text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-[#00ffcc] transition-colors font-medium">
-              {post.data.title}
-            </span>
-            <span class="text-[11px] font-mono text-zinc-400 dark:text-zinc-500 flex-shrink-0">
-              {formatDate(post.data.pubDate)}
-            </span>
+            <span>Teknik Özgeçmiş</span>
+            <span class="text-[#a67c52]">↗</span>
           </a>
-        ))}
+          <a
+            href="https://github.com/ozdil"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline"
+          >
+            <span>GitHub Kodları</span>
+            <span class="text-[#a67c52]">↗</span>
+          </a>
+          <a
+            href="/llms.txt"
+            target="_blank"
+            class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline"
+          >
+            <span>LLM Context (llms.txt)</span>
+            <span class="text-[#a67c52]">↗</span>
+          </a>
+          <a
+            href="/rss.xml"
+            target="_blank"
+            class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline"
+          >
+            <span>RSS Akışı</span>
+            <span class="text-[#a67c52]">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Action Cards (Side-by-side) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Ozan AI Assistant -->
+        <div class="rounded-[18px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2] dark:border-[#2d2521] p-6 sm:p-7 flex flex-col justify-between space-y-5 shadow-2xs">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase font-semibold">
+                // Etkileşimli Ajan
+              </span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-[#EAEFE1] dark:bg-[#1c2b23] text-[#2E4D4D] dark:text-[#82b09a]">
+                Llama 3.1 8B Edge
+              </span>
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-[#2d2724] dark:text-[#fef9ed]">
+              Ozan AI (Dijital İkiz)
+            </h3>
+            <p class="font-sans text-xs sm:text-sm text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
+              Bu sitedeki tüm teknik makaleler, açık kaynak mimarileri ve donanım rehberleri hakkında merak ettiklerinizi yapay zekâ asistanına doğrudan sorun.
+            </p>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              id="hero-chat-trigger"
+              onclick="document.getElementById('ai-chat-btn')?.click()"
+              class="w-full sm:w-auto px-4 py-2 rounded-xl bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-mono text-xs font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+            >
+              <span>🤖 Ozan AI ile Sohbeti Başlat</span>
+              <span>↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Gallery / Visual Archive -->
+        <div class="rounded-[18px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2] dark:border-[#2d2521] p-6 sm:p-7 flex flex-col justify-between space-y-5 shadow-2xs">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-[#6e8f7c] dark:text-[#82b09a] uppercase font-semibold">
+                // Görsel Kültür & Belgesel
+              </span>
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-[#FBD3BE]/60 dark:bg-[#3a261c] text-[#4D2A33] dark:text-[#fef9ed]">
+                Fujifilm GFX 50R
+              </span>
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-[#2d2724] dark:text-[#fef9ed]">
+              Kadim Ahşap Mimarisi Galerisi
+            </h3>
+            <p class="font-sans text-xs sm:text-sm text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
+              Kastamonu ve Karadeniz havzasındaki çivisiz çantı camileri, yaşayan ahşap konaklar ve kaybolan somut kültürel mirasın orta format dijital arşivi.
+            </p>
+          </div>
+
+          <div>
+            <a
+              href="/galeri"
+              class="inline-flex items-center justify-center w-full sm:w-auto px-4 py-2 rounded-xl bg-[#FBF4E5] dark:bg-[#26201c] text-[#2d2724] dark:text-[#fef9ed] border border-[#ead9d2] dark:border-[#2d2521] font-mono text-xs font-medium hover:border-[#5D524B]/30 transition-colors gap-2"
+            >
+              <span>Fotoğraf Galerisini Gez</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE & FORMATION -->
-    <section class="space-y-4" aria-label="Deneyim ve Formasyon">
-      <div class="flex items-center justify-between pb-2 border-b border-zinc-200 dark:border-zinc-800">
-        <h2 class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-          // Kısa Özgeçmiş & Deneyim
-        </h2>
-        <a href="/hakkimda" class="text-xs font-mono text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200">
-          detaylar →
+    <!-- ================================================================= -->
+    <!-- BLOCK 6: FEATURED STORIES (SON BLOG YAZILARI)                     -->
+    <!-- ================================================================= -->
+    <section class="space-y-6" aria-label="Son Makaleler">
+      <div class="flex items-center justify-between pb-3 border-b border-[#ead9d2] dark:border-[#2d2521]">
+        <div>
+          <div class="font-mono text-xs text-[#8C7E74] dark:text-[#a89f91] uppercase tracking-wider font-semibold">
+            // Editoryal İncelemeler & Araştırmalar
+          </div>
+          <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-[#2d2724] dark:text-[#fef9ed]">
+            Son Yazılar
+          </h2>
+        </div>
+        <a
+          href="/blog"
+          class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] hover:underline font-medium flex items-center gap-1"
+        >
+          <span>tüm yazılar ({allPosts.length})</span>
+          <span>→</span>
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 font-mono text-xs">
-        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
-          <div class="text-[10px] text-zinc-900 dark:text-[#00ffcc] font-semibold">2024 - Günümüz</div>
-          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Ar-Ge, Bilgi İşlem & YZ</div>
-          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
-            Açık kaynak sistem mimarileri, Wayland masaüstü optimizasyonu ve yapay zekâ destekli kodlama.
-          </p>
-        </div>
+      <div class="divide-y divide-[#ead9d2]/70 dark:divide-[#2d2521]">
+        {latestPosts.map((post) => (
+          <article class="py-5 -mx-3 px-3 rounded-xl hover:bg-[#F5F0E4]/60 dark:hover:bg-[#1c1815]/60 transition-colors group">
+            <a href={`/blog/${post.slug}`} class="block space-y-2">
+              <div class="flex items-center gap-3 font-mono text-[11px] text-[#8C7E74] dark:text-[#a89f91]">
+                <span class="px-2 py-0.5 rounded bg-[#F5F0E4] dark:bg-[#26201c] text-[#5D524B] dark:text-[#a89f91] border border-[#ead9d2]/60 dark:border-[#2d2521]">
+                  {post.data.tags?.[0] || 'Teknoloji'}
+                </span>
+                <span>•</span>
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {formatDate(post.data.pubDate)}
+                </time>
+              </div>
 
-        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
-          <div class="text-[10px] text-zinc-500 font-semibold">2019 - 2024</div>
-          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Belediye Başkan Danışmanlığı</div>
-          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
-            Kamu yönetimi, kurumsal iletişim stratejileri, kriz yönetimi ve dijital koordinasyon.
-          </p>
-        </div>
+              <h3 class="font-serif text-lg sm:text-xl font-semibold text-[#2d2724] dark:text-[#fef9ed] group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] transition-colors leading-snug">
+                {post.data.title}
+              </h3>
 
-        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
-          <div class="text-[10px] text-zinc-500 font-semibold">Sistem & Donanım</div>
-          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Steam Deck & Linux Gaming</div>
-          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
-            SteamOS, Proton uyumluluk katmanı, MangoHud ve taşınabilir donanımlarda kare süresi optimizasyonu.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 space-y-1">
-          <div class="text-[10px] text-zinc-500 font-semibold">Görsel Kültür</div>
-          <div class="text-sm font-sans font-bold text-zinc-900 dark:text-zinc-100">Fujifilm GFX Orta Format</div>
-          <p class="text-[11px] font-sans text-zinc-600 dark:text-zinc-400 leading-relaxed pt-0.5">
-            43.8×32.9mm sensör, kadim Karadeniz ahşap mimarisi ve belgesel odaklı görsel arşiv. <a href="/galeri" class="text-zinc-800 dark:text-[#00ffcc] hover:underline">Galeri ↗</a>
-          </p>
-        </div>
+              {post.data.description && (
+                <p class="font-sans text-xs sm:text-sm text-[#5D524B] dark:text-[#a89f91] line-clamp-2 leading-relaxed">
+                  {post.data.description}
+                </p>
+              )}
+            </a>
+          </article>
+        ))}
       </div>
     </section>
 

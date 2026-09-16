@@ -28,11 +28,35 @@ export default {
           cyan: '#06b6d4',
           amber: '#f59e0b',
           rose: '#f43f5e',
+        },
+        mai: {
+          oat: '#fef9ed',
+          linen: '#F5F0E4',
+          sand: '#FBF4E5',
+          cocoa: '#5D524B',
+          'cocoa-soft': '#8C7E74',
+          peach: '#FBD3BE',
+          terracotta: '#E1734B',
+          sage: '#D7E6D6',
+          mint: '#EAEFE1',
+          'mint-ink': '#2E4D4D',
+          plum: '#4D2A33',
+          taupe: '#D1CABB',
+          bronze: '#A67C52',
+          dark: {
+            bg: '#141210',
+            surface: '#1f1a17',
+            card: '#26201c',
+            border: '#2d2521',
+            text: '#fef9ed',
+            muted: '#a89f91',
+          }
         }
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', '"Noto Sans"', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        serif: ['"Newsreader"', '"Cormorant Garamond"', '"Iowan Old Style"', 'Palatino', 'Georgia', 'serif'],
+        mono: ['"Red Hat Mono"', '"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       }
     },
   },

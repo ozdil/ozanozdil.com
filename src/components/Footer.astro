@@ -2,35 +2,51 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-zinc-200/80 dark:border-white/10 mt-20 py-6 text-xs font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-50/50 dark:bg-[#0b0e12]/60 transition-colors">
-  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
-    <!-- Left: Location -->
-    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 text-[11px] text-zinc-500 dark:text-zinc-400">
-      <span>Kastamonu, TR</span>
+<footer class="border-t border-[#ead9d2] dark:border-[#2d2521] mt-24 py-12 text-xs font-mono text-[#8C7E74] dark:text-[#a89f91] bg-[#F5F0E4]/40 dark:bg-[#191512]/60 transition-colors">
+  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-[#ead9d2]/60 dark:border-[#2d2521]">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="font-serif text-base font-semibold text-[#2d2724] dark:text-[#fef9ed]">Ozan Özdil</span>
+          <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#EAEFE1] dark:bg-[#1c2b23] text-[#2E4D4D] dark:text-[#82b09a] border border-[#D7E6D6] dark:border-[#233129]">
+            MAI Edition
+          </span>
+        </div>
+        <p class="font-sans text-xs text-[#8C7E74] dark:text-[#a89f91] max-w-md">
+          Yapay zekâ destekli kodlama, açık kaynak sistem mimarileri ve dijital egemenlik.
+        </p>
+      </div>
+
+      <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono" aria-label="Footer Nav">
+        <a href="/" class="hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors">Hakkımda</a>
+        <a href="/blog" class="hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors">Yazılar</a>
+        <a href="/projeler" class="hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors">Projeler</a>
+        <a href="/galeri" class="hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors">Galeri</a>
+        <a href="/llms.txt" target="_blank" class="hover:text-[#e1734b] dark:hover:text-[#e59a7a] transition-colors flex items-center gap-0.5">llms.txt ↗</a>
+      </nav>
     </div>
 
-    <!-- Center: Signature -->
-    <div class="text-[11px] text-zinc-600 dark:text-zinc-400">
-      <span>© {currentYear} Ozan Özdil • YZ Kodcusu</span>
-    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-[11px]">
+      <div class="flex items-center gap-3 text-[#8C7E74] dark:text-[#a89f91]">
+        <span>Kastamonu, TR</span>
+        <span>•</span>
+        <span>© {currentYear} Ozan Özdil</span>
+      </div>
 
-    <!-- Right: Quick Shell Links -->
-    <div class="flex flex-wrap items-center justify-center gap-2 text-[11px]">
-      <a href="https://buymeacoffee.com/ozdil" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded text-amber-600 dark:text-amber-400 hover:bg-amber-100/50 dark:hover:bg-amber-950/40 transition-colors border border-amber-300/40 dark:border-amber-700/40">
-        [coffee ☕]
-      </a>
-      <a href="https://github.com/ozdil/ozanozdil.com" target="_blank" rel="noopener noreferrer" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
-        [repo]
-      </a>
-      <a href="/rss.xml" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
-        [rss]
-      </a>
-      <a href="/sitemap-index.xml" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
-        [sitemap]
-      </a>
-      <a href="#top" class="px-2 py-0.5 rounded hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-[#00ffcc] transition-colors border border-transparent hover:border-zinc-300 dark:hover:border-zinc-700">
-        [top ↑]
-      </a>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="https://buymeacoffee.com/ozdil" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg text-amber-700 dark:text-amber-400 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 transition-colors">
+          kahve ısmarla ☕
+        </a>
+        <a href="https://github.com/ozdil/ozanozdil.com" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-[#F5F0E4] dark:bg-[#26201c] hover:text-[#2d2724] dark:hover:text-[#fef9ed] border border-[#ead9d2] dark:border-[#2d2521] transition-colors">
+          repo ↗
+        </a>
+        <a href="/rss.xml" class="px-2.5 py-1 rounded-lg bg-[#F5F0E4] dark:bg-[#26201c] hover:text-[#2d2724] dark:hover:text-[#fef9ed] border border-[#ead9d2] dark:border-[#2d2521] transition-colors">
+          rss ↗
+        </a>
+        <a href="#top" class="px-2.5 py-1 rounded-lg bg-[#F5F0E4] dark:bg-[#26201c] hover:text-[#e1734b] dark:hover:text-[#e59a7a] border border-[#ead9d2] dark:border-[#2d2521] transition-colors">
+          başa dön ↑
+        </a>
+      </div>
     </div>
   </div>
 </footer>

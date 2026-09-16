@@ -44,8 +44,8 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
   <div id="qs-read-progress-bar" class="fixed top-14 left-0 h-[2px] bg-zinc-900 dark:bg-[#00ffcc] z-[51] transition-all duration-75 w-0 pointer-events-none"></div>
 
   <div class="py-2 sm:py-4">
-    <!-- Reader Container: Clean 1px border without faux window titlebars -->
-    <div class="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#0c0e12] overflow-hidden">
+    <!-- Reader Container: MAI warm editorial styling -->
+    <div class="rounded-[22px] border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4]/40 dark:bg-[#191512]/70 overflow-hidden shadow-sm">
       <article class="p-5 sm:p-8 lg:p-10">
         <!-- Top Navigation / Back -->
         <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b border-zinc-100 dark:border-zinc-800/80 font-mono text-xs">
@@ -106,12 +106,12 @@ ${post.body}`
             )}
           </div>
 
-          <h1 class="mt-4 text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-sans leading-tight">
+          <h1 class="mt-4 text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#2d2724] dark:text-[#fef9ed] font-serif leading-[1.2]">
             {post.data.title}
           </h1>
 
           {post.data.description && (
-            <p class="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-sans max-w-5xl">
+            <p class="mt-4 text-base sm:text-lg text-[#5D524B] dark:text-[#a89f91] leading-relaxed font-sans max-w-5xl">
               {post.data.description}
             </p>
           )}
