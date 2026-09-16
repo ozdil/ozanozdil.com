@@ -64,10 +64,10 @@
 }
 
 .dark {
-  --canvas-bg: #141210;
-  --surface-bg: #1f1a17;
-  --surface-subtle: #26201c;
-  --border-color: #2d2521;
+  --canvas-bg: #000000;
+  --surface-bg: #0c0a09;
+  --surface-subtle: #161311;
+  --border-color: #241d19;
   --border-muted: rgba(254, 249, 237, 0.08);
   --text-main: #fef9ed;
   --text-muted: #a89f91;
@@ -75,18 +75,18 @@
   --accent-link: #e59a7a;
   --qs-accent: #e59a7a;
   --qs-green: #82b09a;
-  --mai-oat: #141210;
-  --mai-linen: #1f1a17;
-  --mai-sand: #26201c;
+  --mai-oat: #000000;
+  --mai-linen: #0c0a09;
+  --mai-sand: #161311;
   --mai-cocoa: #fef9ed;
   --mai-cocoa-soft: #a89f91;
-  --mai-peach: #3a261c;
+  --mai-peach: #2a1b14;
   --mai-terracotta: #e59a7a;
-  --mai-sage: #233129;
-  --mai-mint: #1c2b23;
+  --mai-sage: #141f19;
+  --mai-mint: #101a15;
   --mai-mint-ink: #82b09a;
-  --mai-plum: #331f24;
-  --mai-taupe: #3d352e;
+  --mai-plum: #241418;
+  --mai-taupe: #29231e;
   --mai-bronze: #c49970;
 }
 
