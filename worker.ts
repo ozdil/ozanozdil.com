@@ -235,11 +235,23 @@ export default {
       const newHeaders = new Headers(response.headers);
       newHeaders.set(
         'Link',
-        '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="service-desc", </llms.txt>; rel="describedby"'
+        '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/http-message-signatures-directory>; rel="http-message-signatures-directory"'
       );
       newHeaders.set('Access-Control-Allow-Origin', '*');
       newHeaders.set('Vary', 'Accept');
       newHeaders.set('Cache-Control', 'public, max-age=0, must-revalidate');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: newHeaders,
+      });
+    }
+
+    if (url.pathname === '/.well-known/http-message-signatures-directory') {
+      const newHeaders = new Headers(response.headers);
+      newHeaders.set('Content-Type', 'application/http-message-signatures-directory+json; charset=utf-8');
+      newHeaders.set('Access-Control-Allow-Origin', '*');
+      newHeaders.set('Cache-Control', 'public, max-age=3600');
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
