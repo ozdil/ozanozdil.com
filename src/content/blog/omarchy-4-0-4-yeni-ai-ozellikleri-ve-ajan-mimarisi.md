@@ -48,7 +48,7 @@ Omarchy 4.0.4'ün en çarpıcı yeniliği, masaüstü düzeyinde standartlaştı
   <div class="text-[#8b3a2b] dark:text-[#d48372] text-xs font-bold font-mono">| (Ajan Seçimi)</div>
   </div>
   <!-- Agent Engines Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 font-mono text-xs mb-6">
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs mb-6">
   <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/50 dark:bg-[#1c1917]/50 flex flex-col justify-between">
   <div>
   <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] text-sm">Hermes</div>

@@ -30,7 +30,7 @@ OmaStudio sıradan bir Electron sarmalayıcısı veya hantal bir GTK arayüzü d
   <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">16-Bit Lineer Renk Hattı</span>
   </div>
   <!-- 5-Step Pipeline Grid -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 font-mono text-xs mb-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 font-mono text-xs mb-4">
   <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
   <div>
   <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 1</span>
