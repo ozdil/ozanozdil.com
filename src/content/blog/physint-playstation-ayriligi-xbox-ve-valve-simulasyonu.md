@@ -64,11 +64,52 @@ Bazı oyuncular *"Neden Xbox?"* diye soruyor. Gerçekçi olalım: Kojima Product
 
 Geriye tek bir mantıklı aktör kalıyordu: **Microsoft / Xbox.**
 
-> ### 🧭 Kojima Productions'ın 3 Aylık Kriz Kronolojisi
-> 
-> * **1. Aşama // Haziran 2026 (Sony Kapıyı Kapattı):** PlayStation Studios, beklenmedik bir kararla PHYSINT projesinden çekildiğini stüdyoya bildirdi.
-> * **2. Aşama // Yaz Ayları (Gizli Yayıncı Arayışı):** 150 kişilik bağımsız stüdyonun ve 40 yıllık casusluk hayalinin çöpe gitmemesi için 3 ay boyunca gizli temaslar yürütüldü.
-> * **3. Aşama // 10 Eylül 2026 (Xbox ile Kurtuluş):** Yalnızca oyun konsollarını değil; PC, bulut, televizyon ve sinema evrenlerini de kapsayan küresel yayıncılık anlaşması resmileşti.
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      Kojima Productions 3 Aylık Kriz Kronolojisi
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">Haziran - Eylül 2026</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+    <div class="p-4 rounded-xl border border-red-200/80 dark:border-red-900/40 bg-red-50/40 dark:bg-red-950/20 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/60 text-red-800 dark:text-red-300 font-bold text-[10px]">1. AŞAMA</span>
+          <span class="text-[10px] text-red-600 dark:text-red-400 font-bold">Haziran 2026</span>
+        </div>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Sony Kapıyı Kapattı</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">PlayStation Studios, beklenmedik bir kararla PHYSINT projesinden çekildiğini stüdyoya bildirdi.</p>
+      </div>
+      <div class="mt-3 text-[10px] text-red-700 dark:text-red-400 font-semibold">Proje İptal Riski</div>
+    </div>
+
+    <div class="p-4 rounded-xl border border-amber-200/80 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-950/20 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-bold text-[10px]">2. AŞAMA</span>
+          <span class="text-[10px] text-amber-600 dark:text-amber-400 font-bold">Yaz Ayları</span>
+        </div>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Gizli Yayıncı Arayışı</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">150 kişilik bağımsız stüdyonun ve 40 yıllık casusluk hayalinin çöpe gitmemesi için 3 ay gizli temaslar yürütüldü.</p>
+      </div>
+      <div class="mt-3 text-[10px] text-amber-700 dark:text-amber-400 font-semibold">Stratejik Müzakereler</div>
+    </div>
+
+    <div class="p-4 rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-bold text-[10px]">3. AŞAMA</span>
+          <span class="text-[10px] text-emerald-700 dark:text-emerald-400 font-bold">10 Eylül 2026</span>
+        </div>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Xbox ile Kurtuluş</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Yalnızca konsolları değil; PC, bulut, televizyon ve sinema evrenlerini de kapsayan küresel yayıncılık anlaşması resmileşti.</p>
+      </div>
+      <div class="mt-3 text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">Resmi İş Ortaklığı</div>
+    </div>
+  </div>
+</div>
 
 #### Neden Xbox Tek Mantıklı Sığınaktı?
 

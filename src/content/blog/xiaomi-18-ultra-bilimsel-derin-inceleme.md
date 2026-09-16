@@ -24,20 +24,68 @@ Silikon pikselleri minik birer su bardağı gibi düşünün. Gelen fotonlar bar
 
 Apple ve Samsung bunu çözmek için ne yapar? Deklanşöre bastığınız anda arka planda 5 ila 9 kareyi (biri karanlık, biri aydınlık, biri orta) çeker ve üst üste yapıştırır. Ama sahnede hareket eden bir şey varsa (koşan çocuk, araba farı, dans eden biri) kareler birbirini tutmaz ve ortaya o meşhur **"ghosting / hayalet"** çamuru çıkar.
 
-```
-+---------------------------------------------------------------------------------------------------+
-|               GELENEKSEL PİKSEL VS XIAOMI 18 ULTRA LOFIC 3.0 MİMARİSİ                             |
-+---------------------------------------------------------------------------------------------------+
-| GELENEKSEL BSI CMOS:                                                                              |
-| [ Fotodiyot + Transistörler Aynı Katmanda ] -> Bardak Hacmi: ~15.000 e⁻ (Çabucak Taşar!)          |
-|                                                                                                   |
-| XIAOMI 18 ULTRA (2-Layer Stacked + LOFIC 3.0):                                                    |
-| KATMAN 1 (Saf Işık): [ Fotodiyot: 35.000 e⁻ ] ──Taşma Kapısı──> [ LOFIC Havuzu: +120.000 e⁻ ]     |
-|                      ==================== Cu-Cu Hibrit Bağlantı ====================              |
-| KATMAN 2 (Devreler): [ Çift Kazançlı HGC/LGC Devreleri + Bağımsız Surge C5 DMA Veriyolu ]         |
-|                      Toplam Piksel Kapasitesi: 155.000 e⁻ (~19 Stop Tek Pozlama Dinamik Aralık!) |
-+---------------------------------------------------------------------------------------------------+
-```
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      Sensör Piksel Mimarisi Kıyaslaması
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">19 Stop Dinamik Aralık</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Traditional BSI CMOS -->
+    <div class="rounded-xl border border-red-200 dark:border-red-950/60 bg-red-50/40 dark:bg-red-950/20 p-5">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-700 dark:text-red-400">Geleneksel BSI CMOS</span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 font-semibold">1 Katman</span>
+      </div>
+      <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">Fotodiyot ve Transistörler Birlikte</div>
+      <p class="text-xs text-[#5c4033] dark:text-[#a8a29e] mb-4">
+        Transistörler ve sıfırlama devreleri fotodiyot ile aynı yüzeyi paylaşır. Silikon alanı daralır.
+      </p>
+      <div class="space-y-2 text-xs font-mono">
+        <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40">
+          <span class="text-[#78716c]">Kuyu Hacmi (FWC):</span>
+          <span class="font-bold text-red-600 dark:text-red-400">~15.000 e-</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40">
+          <span class="text-[#78716c]">Taşma Sonucu:</span>
+          <span class="text-red-600 dark:text-red-400">Blooming / Beyaz Patlama</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40">
+          <span class="text-[#78716c]">HDR Yaklaşımı:</span>
+          <span class="text-[#5c4033] dark:text-[#d6d3d1]">5-9 Kare (Ghosting Riski)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Xiaomi 18 Ultra LOFIC 3.0 -->
+    <div class="rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20 p-5">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Xiaomi 18 Ultra LOFIC 3.0</span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 font-semibold">2 Katmanlı Yığın</span>
+      </div>
+      <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">Ayrık Foton Havuzu ve Taşıma Kapısı</div>
+      <p class="text-xs text-[#5c4033] dark:text-[#a8a29e] mb-4">
+        Transistörler alt kata taşınmış, fotodiyot yanına atomik dielektrikli lateral overflow havuzu eklenmiştir.
+      </p>
+      <div class="space-y-2 text-xs font-mono">
+        <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40">
+          <span class="text-[#78716c]">Katman 1 (Saf Işık):</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">35.000 e- + 120.000 e- LOFIC</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40">
+          <span class="text-[#78716c]">Katman 2 (Cu-Cu Hibrit):</span>
+          <span class="text-emerald-600 dark:text-emerald-400">HGC/LGC Devresi + Surge C5 DMA</span>
+        </div>
+        <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40">
+          <span class="text-[#78716c]">Toplam Kapasite:</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">155.000 e- (19 Stop / Sıfır Ghosting)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Xiaomi Ne Yapmış?
 1. **Transistörleri İkinci Kata Taşımışlar (2-Layer Transistor):** Piksellerin sıfırlama ve voltaj transistörlerini fotodiyotun yanından söküp alt kattaki ayrı bir silikon plakaya koymuşlar. Üst katman tamamen ışığa kalmış; ana bardağın hacmi tek başına **35.000 elektrona** çıkmış.
@@ -53,18 +101,70 @@ Hollywood prodüksiyonlarında kullanılan 80.000 dolarlık **ARRI Alexa 35 sine
 
 Ekran tarafında da "panel parlaklığını yazılımla pompalayıp 30 saniye sonra aşırı ısınmadan karartan" ucuz numaralara yer verilmemiş. Panel üreticisi TCL CSOT ile birlikte geliştirilen **C9 Çift Katmanlı Tandem OLED** kullanılıyor.
 
-```
-+---------------------------------------------------------------------------------------------------+
-|               TCL CSOT C9 ÇİFT KATMANLI TANDEM OLED FOTONİK DİZİLİMİ                              |
-+---------------------------------------------------------------------------------------------------+
-| [Dragon Crystal Glass 3.0] -> 10 Kat Darbe Emici Seramik Cam                                      |
-| [Pol-less CoE Filtresi]    -> Polarizörsüz Katman (%33 Daha Yüksek Işık Geçirgenliği)             |
-| [IŞIMA TABAKASI 2 (EML 2)] -> Üst Foton Katmanı (Düşük Akım, Yüksek Akı)                          |
-| [Kuantum Tünelleme (CGL)]  -> İki Katmanı Seri Bağlayan Yük Üretim Arayüzü                        |
-| [IŞIMA TABAKASI 1 (EML 1)] -> Alt Foton Katmanı (Düşük Isı, Sıfır Yanma Stresi)                   |
-| [LTPO 4.0 IGZO Matrisi]    -> 1Hz - 144Hz Değişken Yenileme                                       |
-+---------------------------------------------------------------------------------------------------+
-```
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      TCL CSOT C9 Çift Katmanlı Tandem OLED Fotonik Dizilimi
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">5.500 Nit / 4.320 Hz PWM</span>
+  </div>
+
+  <div class="space-y-3 font-mono text-xs">
+    <!-- Layer 6 -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-sky-200/80 dark:border-sky-900/40 bg-sky-50/40 dark:bg-sky-950/20">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-bold">KATMAN 6</span>
+        <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Dragon Crystal Glass 3.0</span>
+      </div>
+      <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">10 Kat Darbe Emici Seramik Kristal Yüzey</span>
+    </div>
+
+    <!-- Layer 5 -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-blue-200/80 dark:border-blue-900/40 bg-blue-50/40 dark:bg-blue-950/20">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 text-blue-800 dark:text-blue-300 font-bold">KATMAN 5</span>
+        <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Pol-less CoE Renk Filtresi</span>
+      </div>
+      <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">Polarizörsüz Yapı (+%33 Işık Geçirgenliği)</span>
+    </div>
+
+    <!-- Layer 4 -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-amber-200/80 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-950/20">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-bold">KATMAN 4</span>
+        <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Işıma Tabakası 2 (EML 2)</span>
+      </div>
+      <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">Üst Foton Katmanı (Düşük Akım, Yüksek Işık Akısı)</span>
+    </div>
+
+    <!-- Layer 3 (Tunneling) -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-purple-300 dark:border-purple-900/60 bg-purple-50/60 dark:bg-purple-950/30">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 rounded bg-purple-200 dark:bg-purple-900/80 text-purple-900 dark:text-purple-200 font-bold">ARAYÜZ</span>
+        <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Kuantum Tünelleme (CGL)</span>
+      </div>
+      <span class="text-purple-800 dark:text-purple-300 mt-1 sm:mt-0">İki Katmanı Seri Bağlayan Yük Üretim Köprüsü</span>
+    </div>
+
+    <!-- Layer 2 -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-amber-200/80 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-950/20">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-bold">KATMAN 2</span>
+        <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Işıma Tabakası 1 (EML 1)</span>
+      </div>
+      <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">Alt Foton Katmanı (Termal Denge, Sıfır Burn-in)</span>
+    </div>
+
+    <!-- Layer 1 -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-emerald-200/80 dark:border-emerald-900/40 bg-emerald-50/40 dark:bg-emerald-950/20">
+      <div class="flex items-center gap-3">
+        <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-bold">KATMAN 1</span>
+        <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">LTPO 4.0 IGZO Matrisi</span>
+      </div>
+      <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">1 Hz - 144 Hz Değişken Yenileme Sürücüsü</span>
+    </div>
+  </div>
+</div>
 
 ### Neden Tandem (Çift Katman)?
 Klasik bir OLED ekranda parlaklığı 3.000-4.000 nite zorlarsanız piksellere deli gibi elektrik akımı pompalamanız gerekir. Yüksek akım kontrolsüz ısı demektir; aşırı ısı da organik molekülleri haşlayarak tüketir ve panel 6 ay içinde amiyane tabirle "yanar" (*burn-in*).
@@ -97,8 +197,8 @@ Xiaomi bu seride iki farklı işlemci varyantı sunarak donanım geek'lerini tat
 | **Termal Stabilite** | **%94 (Buz gibi serin)** | %88 |
 
 ### Hangisini Seçmelisiniz?
-* **Fotoğrafçı / Videograf / İçerik Üreticisiyseniz ➔ XRING O3:** Xiaomi'nin kendi tasarımı olan Surge C5 ISP'si, LOFIC sensörünün ürettiği devasa 16-bit ikili veri akışını doğrudan bellek erişimiyle (DMA) saniyede 6.8 Gigapiksel hızında çeker. 60 dakikalık stres testinde %94 stabilite sergiler; telefon asla alev almaz.
-* **Hardcore Oyuncu / Benchmark Meraklısıysanız ➔ Snapdragon 8 Elite Gen 6:** 4.6 GHz'e vuran Oryon V4 çekirdekleri saf işlem gücünde masaüstü çiplerine kafa tutar. Adreno 9 GPU'su ışın izlemeli oyunlarda (Solar Bay) 76 FPS üretir.
+* **Fotoğrafçı / Videograf / İçerik Üreticisiyseniz -> XRING O3:** Xiaomi'nin kendi tasarımı olan Surge C5 ISP'si, LOFIC sensörünün ürettiği devasa 16-bit ikili veri akışını doğrudan bellek erişimiyle (DMA) saniyede 6.8 Gigapiksel hızında çeker. 60 dakikalık stres testinde %94 stabilite sergiler; telefon asla alev almaz.
+* **Hardcore Oyuncu / Benchmark Meraklısıysanız -> Snapdragon 8 Elite Gen 6:** 4.6 GHz'e vuran Oryon V4 çekirdekleri saf işlem gücünde masaüstü çiplerine kafa tutar. Adreno 9 GPU'su ışın izlemeli oyunlarda (Solar Bay) 76 FPS üretir.
 
 ---
 
@@ -121,22 +221,64 @@ Telefonun dahili UFS 4.1 hafızası saniyede 4 GB okusa da, profesyonel video ç
 
 Kamera arayüzü harici sürücüyü anında tanıyor ve doğrudan SSD'ye yazma moduna geçiyor!
 
-```
-[ Xiaomi 18 Ultra ] ──USB 3.2 Gen 2 (10 Gbps)──> [ Harici Samsung T9 SSD ]
-                                                  ├── 8K @ 60 FPS ProRes 422 HQ (300 MB/s)
-                                                  ├── 12-Bit ACES 1.3 MasterColor LOG
-                                                  └── Çekim bitti -> Kabloyu MacBook/Linux PC'ye tak -> DaVinci'de Kurgula!
-```
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      Doğrudan Harici Depolama ve Kurgu İş Akışı
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">10 Gbps USB 3.2 Gen 2</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs mb-4">
+    <!-- Source -->
+    <div class="rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 p-4">
+      <div class="text-[11px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider mb-1">Kaynak Cihaz</div>
+      <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-2">Xiaomi 18 Ultra</div>
+      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-3">Tüm lenslerde kesintisiz 8K 60 FPS canlı yakalama ve donanımsal renk kodlama.</p>
+      <div class="px-2.5 py-1 rounded bg-[#ead9d2]/50 dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] font-semibold text-[11px]">
+        Surge C5 ISP Entegrasyonu
+      </div>
+    </div>
+
+    <!-- Bridge / Bus -->
+    <div class="rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 p-4">
+      <div class="text-[11px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider mb-1">Veri Yolu</div>
+      <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-2">USB 3.2 Gen 2 (10 Gbps)</div>
+      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-3">300 MB/s sürekli yazma bant genişliği ile dahili hafızayı bypass eder.</p>
+      <div class="px-2.5 py-1 rounded bg-amber-100/70 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-semibold text-[11px]">
+        Sıfır Termal Sıkışma
+      </div>
+    </div>
+
+    <!-- Target Storage -->
+    <div class="rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 p-4">
+      <div class="text-[11px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider mb-1">Hedef Medya</div>
+      <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-2">Harici SSD (Samsung T9)</div>
+      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-3">Apple ProRes 422 HQ & ACES 1.3 MasterColor LOG doğrudan diske yazılır.</p>
+      <div class="px-2.5 py-1 rounded bg-emerald-100/70 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 font-semibold text-[11px]">
+        DaVinci Timeline Hazır
+      </div>
+    </div>
+  </div>
+
+  <div class="p-3 rounded-xl bg-[#faf6f0] dark:bg-[#1c1917] border border-[#ead9d2] dark:border-[#2a2421] text-xs text-[#5c4033] dark:text-[#a8a29e] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+    <div class="flex items-center gap-2">
+      <span class="font-mono font-bold text-[#8b3a2b] dark:text-[#d48372]">POST-PRODÜKSİYON:</span>
+      <span>Çekim bittiğinde aktarım beklemeden kabloyu Linux veya macOS kurgu istasyonuna bağlayın.</span>
+    </div>
+    <span class="font-mono text-[11px] text-[#8b3a2b] dark:text-[#d48372] font-semibold whitespace-nowrap">ACES 1.3 / RAW Renk</span>
+  </div>
+</div>
 
 ### Video Formatları ve Gerçek Canavar Tablosu
 
 | Video Formatı & Kare Hızı | Codec Türü | Veri Akış Hızı | 30 Dakikalık Dosya Boyutu | Nereye Yazar? |
 | :--- | :--- | :--- | :--- | :--- |
-| **8K @ 60 FPS** | **Apple ProRes 422 HQ** | **2.400 Mbps (300 MB/s)** | **527.3 GB** | ⚡ **Harici SSD Şart** |
-| **8K @ 60 FPS** | Avid DNxHR HQX | 2.200 Mbps (275 MB/s) | 483.4 GB | ⚡ **Harici SSD Şart** |
-| **4K @ 120 FPS** | Apple ProRes 422 HQ | 1.800 Mbps (225 MB/s) | 395.5 GB | ⚡ **Harici SSD Şart** |
-| **4K @ 60 FPS** | 12-Bit Master LOG (ACES 1.3) | 130 Mbps (16.2 MB/s) | 28.6 GB | ✅ Dahili UFS 4.1 Yeterli |
-| **4K @ 60 FPS** | Dolby Vision 10-Bit HDR | 95 Mbps (11.8 MB/s) | 20.8 GB | ✅ Dahili UFS 4.1 Yeterli |
+| **8K @ 60 FPS** | **Apple ProRes 422 HQ** | **2.400 Mbps (300 MB/s)** | **527.3 GB** | **Harici SSD Zorunlu** |
+| **8K @ 60 FPS** | Avid DNxHR HQX | 2.200 Mbps (275 MB/s) | 483.4 GB | **Harici SSD Zorunlu** |
+| **4K @ 120 FPS** | Apple ProRes 422 HQ | 1.800 Mbps (225 MB/s) | 395.5 GB | **Harici SSD Zorunlu** |
+| **4K @ 60 FPS** | 12-Bit Master LOG (ACES 1.3) | 130 Mbps (16.2 MB/s) | 28.6 GB | Dahili UFS 4.1 Yeterli |
+| **4K @ 60 FPS** | Dolby Vision 10-Bit HDR | 95 Mbps (11.8 MB/s) | 20.8 GB | Dahili UFS 4.1 Yeterli |
 
 Saniyede 300 Megabayt veri yazmaktan bahsediyoruz. Çekim bittiğinde dosyaları bilgisayara aktarmak için saatlerce AirDrop veya kablo beklemiyorsunuz. SSD'yi telefondan çıkarıp kurgu istasyonunuza takıyorsunuz; DaVinci Resolve'da timeline'a atıp **ACES 1.3 renk uzayında** anında renklendirmeye başlıyorsunuz. Bütün lenslerde (Ana, Ultra Geniş, 200MP Periskop) kesintisiz 8K 60fps çekebilmesi ise piyasadaki hiçbir rakibinde yok.
 

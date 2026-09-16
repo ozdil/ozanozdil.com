@@ -16,7 +16,7 @@ Kullandığım komutların ve sistemin bana verdiği detaylı analiz raporunun t
 
 
 ```bash
-~ ❯ agy
+~ $ agy
 
       ▄▀▀▄        Antigravity CLI 1.1.22
      ▀▀▀▀▀▀        ozicoke@gmail.com (Google AI Pro)

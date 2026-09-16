@@ -12,7 +12,7 @@ Aylık abonelik zincirlerinden, kapalı kutu telemetrilerden ve hantal arayüzle
 
 ---
 
-## 🏛️ Mimari: GPU İvmeli Quickshell ve Çok Çekirdekli Rust
+## Mimari: GPU İvmeli Quickshell ve Çok Çekirdekli Rust
 
 OmaStudio sıradan bir Electron sarmalayıcısı veya hantal bir GTK arayüzü değildir. Sistem mimarisi iki güçlü temel üzerine kuruludur:
 
@@ -22,17 +22,84 @@ OmaStudio sıradan bir Electron sarmalayıcısı veya hantal bir GTK arayüzü d
 2. **İşleme Motoru (Rust + Rayon + LibRaw):**
    Bellek güvenliğinden ve sıfır maliyetli soyutlamalardan taviz vermeyen bağımsız Rust arka plan motoru (`omastudio-engine`). LibRaw FFI üzerinden doğrudan piksellere erişir; çok çekirdekli paralel matris hesaplamalarıyla (Rayon) 50+ megapiksellik RAW fotoğrafları dahi donma ve bellek darboğazı yaşamadan anlık işler.
 
-```
-[ RAW Dosyası ] ➔ [ LibRaw Demosaic ] ➔ [ 16-Bit Lineer Pipeline ] ➔ [ Rayon Çok Çekirdek ] ➔ [ Quickshell GPU Viewport ]
-                                                    │
-                                         [ DaVinci 3-Way Wheels ]
-                                         [ 8-Band HSL Renk Mikseri ]
-                                         [ Optik Düzeltme & ICC ]
-```
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      OmaStudio RAW İşleme ve Görselleştirme Boru Hattı
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">16-Bit Lineer Renk Hattı</span>
+  </div>
+
+  <!-- 5-Step Pipeline Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 font-mono text-xs mb-4">
+    <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 1</span>
+        <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">RAW Dosyası</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Bayer, X-Trans, DNG, RAF ham sensör verisi.</p>
+      </div>
+      <div class="mt-2 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">Ham Sensör Verisi</div>
+    </div>
+
+    <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 2</span>
+        <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">LibRaw Demosaic</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">AHD / DHT yüksek kaliteli enterpolasyon.</p>
+      </div>
+      <div class="mt-2 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">16-Bit ADC Okuma</div>
+    </div>
+
+    <div class="p-3 rounded-xl border border-[#8b3a2b]/30 bg-[#8b3a2b]/10 dark:bg-[#8b3a2b]/20 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 3 (ÇEKİRDEK)</span>
+        <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">16-Bit Lineer Pipeline</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#d6d3d1]">Geniş renk gamı matematiksel dönüşümleri.</p>
+      </div>
+      <div class="mt-2 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-bold">Float Matrisler</div>
+    </div>
+
+    <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 4</span>
+        <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">Rayon Çok Çekirdek</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Tüm CPU çekirdeklerine paralel dağıtım.</p>
+      </div>
+      <div class="mt-2 text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">Paralel Hesaplama</div>
+    </div>
+
+    <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 5</span>
+        <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">Quickshell Viewport</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">GPU dokusu, akıcı pan ve pinch-to-zoom.</p>
+      </div>
+      <div class="mt-2 text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">60+ FPS Wayland</div>
+    </div>
+  </div>
+
+  <!-- Grading Submodules -->
+  <div class="p-3.5 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/80 dark:bg-[#1c1917]/80 font-mono text-xs">
+    <div class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372] mb-2">
+      16-Bit Matematiksel Renk Modülleri:
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
+      <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+        <strong>DaVinci 3-Way Wheels:</strong> Lift, Gamma, Gain, Offset
+      </div>
+      <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+        <strong>8-Band HSL Mikseri:</strong> Renk başına Hue, Sat, Lum
+      </div>
+      <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+        <strong>Optik ve Profil:</strong> Lens Distortion, Defringe, ICC
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
-## 🌟 Öne Çıkan Özellikler
+## Öne Çıkan Özellikler
 
 ### 1. Kapsamlı Sensör ve RAW Desteği
 Fotoğraf makineniz ne olursa olsun OmaStudio hazır:
@@ -54,8 +121,8 @@ Linux masaüstüne geçen yaratıcıların en çok dert yandığı konu, trackpa
 ### 3. Kademeli Keşif (Simple Mode & Pro Studio)
 Fotoğraf düzenleme deneyimi iki ayrı ihtiyaç profiline göre kurgulandı:
 
-* **✨ Basit & Hızlı Mod:** Günlük çekimler için tek tıkla **YZ Sihirbazı (AI Magic Auto)** ve sadece 4 temel ayar sürgüsü (Işık, Sıcaklık, Canlılık, Kontrast).
-* **🎛️ Pro Studio Modu:** Her modül başlığında bağımsız **RESET** butonu bulunan stüdyo seviyesi parametrik denetim:
+* **Basit ve Hızlı Mod:** Günlük çekimler için tek tıkla **YZ Sihirbazı (AI Magic Auto)** ve sadece 4 temel ayar sürgüsü (Işık, Sıcaklık, Canlılık, Kontrast).
+* **Pro Studio Modu:** Her modül başlığında bağımsız **RESET** butonu bulunan stüdyo seviyesi parametrik denetim:
   * **White Balance:** 2,000K – 12,000K Kelvin spektrumu ve $\pm 100$ Tint ayarı.
   * **Light & Dynamic Range:** $-5.00\,\text{EV} \dots +5.00\,\text{EV}$ logaritmik pozlama, S-Curve kontrast, Highlight kurtarma, derin gölge açma, Whites & Blacks çıpaları.
   * **Presence & Texture:** Doku, Netlik (Clarity), Sis giderme (Dehaze), Akıllı canlılık (Vibrance) ve Doygunluk.
@@ -83,7 +150,7 @@ Bir fotoğrafı düzenlemek işin yarısıysa, doğru mecrada doğru formatla su
 
 ---
 
-## 🔒 Güvenlik ve Gizlilik: AGENTS.md Standartları
+## Güvenlik ve Gizlilik: AGENTS.md Standartları
 
 Omarchy Linux ekosisteminin tüm yerel uygulamalarında olduğu gibi, OmaStudio da sıkı güvenlik yönergelerine (`AGENTS.md`) sadık kalır:
 
@@ -93,7 +160,7 @@ Omarchy Linux ekosisteminin tüm yerel uygulamalarında olduğu gibi, OmaStudio 
 
 ---
 
-## 🚀 Kurulum ve İlk Adım
+## Kurulum ve İlk Adım
 
 Omarchy veya Arch Linux üzerinde kaynak koddan derlemek ve çalıştırmak son derece kolaydır:
 
@@ -111,7 +178,7 @@ omastudio
 
 ---
 
-## 🎯 Sonuç: Yaratıcı Özgürlük
+## Sonuç: Yaratıcı Özgürlük
 
 OmaStudio; açık kaynak dünyasında fotoğraf düzenlemenin yalnızca "mümkün" değil, aynı zamanda son derece hızlı, estetik ve profesyonel standartlarda yapılabileceğinin somut bir kanıtıdır. 
 

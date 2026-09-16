@@ -16,45 +16,79 @@ Bu yazıda, Arch Linux tabanlı modern işletim sistemimiz **Omarchy 4.0.2 (Hypr
 
 ---
 
-##
-🧠 NVIDIA PAIR Nedir ve Nasıl Çalışır?
+## NVIDIA PAIR Nedir ve Nasıl Çalışır?
 
 NVIDIA PAIR, donanımsal bir cihaz değil; yerel ağınızda çalışan hafif, akıllı bir **çıkarım yönlendiricisidir (Virtual Inference Router)**.
 
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      Kişisel Yapay Zekâ Kümesi (AI Cluster) Topolojisi
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">Sıfır Bulut Bağımlılığı</span>
+  </div>
 
-```text
-┌─────────────────────────────────────┐
-                  │      Omarchy Linux (İstemci/Ana PC)   │
-                  │   Agentic AI / IDE / Web Arayüzü    │
-                  └──────────────────┬──────────────────┘
-                                     │ (localhost:PORT)
-                  ┌──────────────────▼──────────────────┐
-                  │       NVIDIA PAIR (AI Router)       │
-                  │     Yük Dağıtım & Akıllı Yönlendirme │
-                  └───────────┬───────────────┬─────────┘
-                              │               │
-        ┌─────────────────────▼───┐       ┌───▼─────────────────────┐
-        │ Node 1: Game Garaj      │       │ Node 2: Homelab Server  │
-        │ RTX 4060 Laptop (8GB)   │       │ RTX 3090 / M4 Mac / PC  │
-        │ [Ollama: Qwen / Llama]  │       │ [LM Studio: DeepSeek]   │
-        └─────────────────────────┘       └─────────────────────────┘
-```
+  <!-- Client Node -->
+  <div class="max-w-md mx-auto p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/80 dark:bg-[#1c1917]/80 text-center font-mono text-xs mb-3">
+    <span class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">İstemci ve Ana İstasyon</span>
+    <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1">Omarchy Linux (İstemci / Ana PC)</div>
+    <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mt-1">Agentic AI / IDE / Geliştirme Ortamı</p>
+  </div>
 
+  <!-- Router Arrow & Box -->
+  <div class="text-center font-mono text-xs text-[#8b3a2b] dark:text-[#d48372] font-bold mb-2">| (localhost:8080/v1)</div>
+
+  <div class="max-w-lg mx-auto p-4 rounded-xl border border-[#8b3a2b]/30 bg-[#8b3a2b]/10 dark:bg-[#8b3a2b]/20 text-center font-mono text-xs mb-6">
+    <span class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">Merkezi Sanal Yönlendirici</span>
+    <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1">NVIDIA PAIR (Personal AI Router)</div>
+    <p class="text-[11px] text-[#5c4033] dark:text-[#d6d3d1] mt-1">Dinamik Yük Dağıtımı, Otomatik Boş GPU Algılama ve Akıllı Yönlendirme</p>
+  </div>
+
+  <!-- Worker Nodes Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
+    <div class="p-4 rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-bold text-[10px]">DÜĞÜM 1</span>
+          <span class="text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">Mobil Çıkarım</span>
+        </div>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Game Garaj (RTX 4060)</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-2">8GB GDDR6 VRAM, düşük gecikmeli yerel modeller.</p>
+      </div>
+      <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40 text-[11px]">
+        <strong>Ollama:</strong> Qwen 2.5 Coder / Llama 3.2
+      </div>
+    </div>
+
+    <div class="p-4 rounded-xl border border-sky-200/80 dark:border-sky-900/40 bg-sky-50/40 dark:bg-sky-950/20 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-bold text-[10px]">DÜĞÜM 2</span>
+          <span class="text-[10px] text-sky-700 dark:text-sky-400 font-semibold">Sunucu Çıkarım</span>
+        </div>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Homelab Server / Mac</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-2">RTX 3090 (24GB VRAM) / Apple M-Serisi Birleşik Bellek.</p>
+      </div>
+      <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-sky-200/60 dark:border-sky-900/40 text-[11px]">
+        <strong>LM Studio:</strong> DeepSeek V3 / Ağır Mantık Modelleri
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Öne Çıkan Özellikleri:
 
 - **Dinamik Yük Dağıtımı:** Bir ajan ana modele sorgu atarken, alt görevleri (kod analizi, web araması özetleme vb.) ağdaki boşta duran diğer GPU'lara yönlendirir.
 
-- **Esnek & Kesintisiz:** Ağdaki bir bilgisayarda oyun oynanmaya veya render alınmaya başlandığında, PAIR o cihazı meşgul olarak algılar ve yükü anında ana makineye veya diğer boş düğümlere aktarır.
+- **Esnek ve Kesintisiz:** Ağdaki bir bilgisayarda oyun oynanmaya veya render alınmaya başlandığında, PAIR o cihazı meşgul olarak algılar ve yükü anında ana makineye veya diğer boş düğümlere aktarır.
 
-- **Sıfır Bulut Bağımlılığı (Zero-Trust & Gizlilik):** Tüm promptlar, kodlar ve model ağırlıkları yalnızca evinizin yerel ağında (LAN) dolaşır.
+- **Sıfır Bulut Bağımlılığı (Zero-Trust ve Gizlilik):** Tüm promptlar, kodlar ve model ağırlıkları yalnızca evinizin yerel ağında (LAN) dolaşır.
 
 - **Platformlar Arası:** Linux, Windows 11 ve macOS arasında sorunsuz kümeleme desteği sunar.
 
 ---
 
-##
-📥 1. Omarchy Linux Üzerine Kurulum
+## 1. Omarchy Linux Üzerine Kurulum
 
 Omarchy (Arch Linux) sistemimizde NVIDIA PAIR'ı kurmanın en temiz ve pratik yolu, resmi `.deb` paketini yerel dosya ağacımıza entegre etmektir.
 
@@ -87,8 +121,7 @@ Kurulum tamamlandıktan sonra terminalden `nvpair` yazarak veya Omarchy menünü
 
 ---
 
-##
-🔗 2. Cihazları Eşleme (Cluster Pairing)
+## 2. Cihazları Eşleme (Cluster Pairing)
 
 Yapay zeka kümenizin gücünden tam olarak yararlanabilmek için ağınızdaki ikinci bilgisayara (örneğin evdeki masaüstü PC veya homelab sunucusu) da PAIR uygulamasını yükleyin:
 
@@ -96,14 +129,13 @@ Yapay zeka kümenizin gücünden tam olarak yararlanabilmek için ağınızdaki 
 
 1. **Otomatik Keşif:** PAIR, yerel ağdaki diğer PAIR çalıştıran cihazları mDNS üzerinden otomatik olarak listeleyecektir.
 
-1. **Eşleme Kodu:**Karşı cihazın üzerine tıklayıp**"Pair"** deyin ve ekranda çıkan onay kodunu doğrulayın.
+1. **Eşleme Kodu:** Karşı cihazın üzerine tıklayıp **"Pair"** deyin ve ekranda çıkan onay kodunu doğrulayın.
 
 1. Artık her iki cihaz tek bir sanal yapay zeka havuzu (Inference Pool) olarak senkronize oldu!
 
 ---
 
-##
-⚡ 3. Ollama ve LM Studio Entegrasyonu
+## 3. Ollama ve LM Studio Entegrasyonu
 
 NVIDIA PAIR, yapay zeka istemcileriniz için standart bir **OpenAI Uyumlu API Proxy** (`http://localhost:8080/v1`) sunar.
 
@@ -123,8 +155,7 @@ PAIR, bu isteği ağdaki GPU bellek durumunu analiz ederek en uygun düğüme il
 
 ---
 
-##
-💡 Omarchy İçin Tavsiye Edilen Hyprland Pencere Kuralı
+## Omarchy İçin Tavsiye Edilen Hyprland Pencere Kuralı
 
 Omarchy'nin dinamik döşeme (tiling) yöneticisi Hyprland üzerinde PAIR'in şık ve sabit bir floating pencere olarak açılmasını isterseniz, pencere kurallarınıza (`~/.config/hypr/hyprland.conf`) şu satırı ekleyebilirsiniz:
 
@@ -138,7 +169,7 @@ windowrulev2 = center, class:^(nvpair|Personal-AI-Router)$
 
 ---
 
-## 🎯 Sonuç: Kendi Donanımınızla Özgür Yapay Zeka
+## Sonuç: Kendi Donanımınızla Özgür Yapay Zeka
 
 Bulut API'lerine servet ödemeden ve kişisel verilerinizi üçüncü taraf sunuculara göndermeden, evdeki tüm boşta duran GPU'ları tek bir devasa yapay zeka beynine dönüştürmek NVIDIA PAIR ile artık çocuk oyuncağı.
 

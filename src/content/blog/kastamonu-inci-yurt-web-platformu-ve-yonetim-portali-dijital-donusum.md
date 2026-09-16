@@ -12,7 +12,7 @@ Kastamonu merkezde, Eğitim Fakültesi ve Kuzeykent Merkez Kampüsü'ne sadece *
 
 ---
 
-## 🎯 Projenin Amacı ve Temel Problemler
+## Projenin Amacı ve Temel Problemler
 
 Geleneksel yurt web siteleri genellikle iki temel çıkmazla maluldür:
 1. **Ziyaretçi Tarafında Güvensizlik & Bilgi Kirliliği:** Statik, yıllar öncesinden kalma fotoğraflar, güncellenmeyen fiyatlar ve muğlak konum bilgileri velilerde güvensizlik yaratır. Şehir dışından gelen bir aile; yurdun kampüse olan gerçek yürüme mesafesini, yemeklerin niteliğini ve odaların güncel durumunu şeffafça görmek ister.
@@ -22,7 +22,7 @@ Bu projede hedefimiz; yalnızca estetik bir vitrin sitesi kurmak değil, **ziyar
 
 ---
 
-## 🏛️ Teknik Mimari ve Altyapı Kararları
+## Teknik Mimari ve Altyapı Kararları
 
 ### 1. Cloudflare Edge-First Dağıtım & Sıfır Sunucu Maliyeti
 Sitenin altyapısını geleneksel cPanel/paylaşımlı sunucular yerine doğrudan **Cloudflare Edge** ağı üzerine kurguladık.
@@ -39,7 +39,7 @@ Yurt yöneticilerinin ve kayıt görevlilerinin arka planda kullandığı yönet
 
 ---
 
-## 🤖 Yapay Zekâ ve LLM Keşif Altyapısı (`llms.txt` ve Schema.org)
+## Yapay Zekâ ve LLM Keşif Altyapısı (`llms.txt` ve Schema.org)
 
 Modern web artık yalnızca insanların gözleriyle gezdiği bir mecra değil; yapay zekâ asistanlarının (Perplexity, ChatGPT Search, Claude, Google Gemini) kullanıcı adına bilgi derlediği bir dönüşüm sürecinde.
 
@@ -51,7 +51,7 @@ Bu optimizasyon sayesinde, bir veli yapay zekâya *"Kastamonu Eğitim Fakültesi
 
 ---
 
-## 💡 Kullanıcı Deneyimini Zenginleştiren Özel Modüller
+## Kullanıcı Deneyimini Zenginleştiren Özel Modüller
 
 1. **Ev vs. Yurt Tasarruf Analiz Hesaplayıcısı:**
    Kastamonu'da kiralık ev tutmak ile yurt konaklaması arasındaki gizli maliyetleri (kira, doğalgaz/ısınma, elektrik, su, internet, sabah kahvaltısı, akşam yemeği, kampüs dolmuş ücreti, depozito ve eşya masrafları) karşılaştıran interaktif bir hesaplama tablosu hazırladık. Aileler, yurtta kaldıklarında yıllık ne kadar tasarruf ettiklerini somut rakamlarla görebiliyor.
@@ -64,11 +64,11 @@ Bu optimizasyon sayesinde, bir veli yapay zekâya *"Kastamonu Eğitim Fakültesi
 
 ---
 
-## 📊 Sonuçlar ve Katkılar
+## Sonuçlar ve Katkılar
 
 - **Sıfır Çağrı Karmaşası:** Kayıt döneminde rutin soruların (%80'i) web sayfası, sıkça sorulan sorular alanı ve interaktif modüller üzerinden yanıtlanmasıyla telefon trafiğinde ciddi bir optimizasyon sağlandı.
 - **Hızlı Dönüşüm:** Şeffaf oda fotoğrafları, 150m yürüyüş avantajının net vurgulanması ve tek tıkla WhatsApp erişimi sayesinde ön kayıt dönüşüm oranları kayda değer ölçüde yükseldi.
 - **Kastamonu'nun Dijital Yüzü:** Kastamonu öğrenci konaklama sektöründe modern web teknolojilerini ve yapay zekâ okuryazarlığını en üst düzeyde uygulayan referans bir proje ortaya çıktı.
 
 Projeyi canlı olarak incelemek için:
-👉 **[kastamonuinciyurt.com](https://www.kastamonuinciyurt.com)**
+**[kastamonuinciyurt.com](https://www.kastamonuinciyurt.com)**

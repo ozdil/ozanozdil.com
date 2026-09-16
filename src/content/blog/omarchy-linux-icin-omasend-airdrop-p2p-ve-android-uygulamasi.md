@@ -14,7 +14,7 @@ Bu eksikliği kökünden çözmek amacıyla geliştirdiğimiz **OmaSend**, Omarc
 
 ---
 
-## ⚡ Temel Mimari: Sıfır Bulut, Tam Gizlilik ve Saf Yerel Hız
+## Temel Mimari: Sıfır Bulut, Tam Gizlilik ve Saf Yerel Hız
 
 OmaSend, Apple AirDrop ve LocalSend mantığında çalışır; ancak Omarchy'nin güvenlik mimarisi ve minimalist masaüstü felsefesiyle birleşir.
 
@@ -24,7 +24,7 @@ OmaSend, Apple AirDrop ve LocalSend mantığında çalışır; ancak Omarchy'nin
 
 ---
 
-## 📱 OmaSend for Android: Modern Jetpack Compose ve Sistem Entegrasyonu
+## OmaSend for Android: Modern Jetpack Compose ve Sistem Entegrasyonu
 
 Mobil tarafta WebWrapper veya hantal hibrit çatılar yerine, tamamen modern **Kotlin, Jetpack Compose ve Material 3** ile sıfırdan yerel bir Android uygulaması inşa ettik:
 
@@ -34,7 +34,7 @@ Mobil tarafta WebWrapper veya hantal hibrit çatılar yerine, tamamen modern **K
 
 ---
 
-## 🛡️ Gatekeeper İzni & Siber Güvenlik Standartları (`AGENTS.md`)
+## Gatekeeper İzni ve Siber Güvenlik Standartları (`AGENTS.md`)
 
 OmaSend sadece hızlı değil, aynı zamanda son derece güvenli olacak şekilde katı güvenlik kurallarıyla tasarlandı:
 
@@ -47,28 +47,28 @@ OmaSend sadece hızlı değil, aynı zamanda son derece güvenli olacak şekilde
 
 ---
 
-## 🚀 Google Play Resmi Kapalı Testine Katılın (3 Adım)
+## Google Play Resmi Kapalı Testine Katılın (3 Adım)
 
 OmaSend for Android, Google Play Store'da **Play Protect** güvenlik taramalarından geçmiş ve resmi uygulama imzasıyla doğrulanmış olarak dağıtılmaktadır. 
 
 Google Play kapalı test programına dahil olup uygulamayı telefonunuza hemen kurmak için aşağıdaki 3 adımı takip edebilirsiniz:
 
 1. **Test Topluluğu Grubuna Katılın:**  
-   👉 **[OmaSend Testers Google Grubu](https://groups.google.com/g/omasend-testers)** sayfasına gidip telefonunuzda kullandığınız Google hesabınızla *"Gruba katıl"* butonuna tıklayın.
+   **[OmaSend Testers Google Grubu](https://groups.google.com/g/omasend-testers)** sayfasına gidip telefonunuzda kullandığınız Google hesabınızla *"Gruba katıl"* butonuna tıklayın.
 2. **Play Store Test Programını Onaylayın:**  
-   👉 **[Google Play Test Kayıt Bağlantısı](https://play.google.com/apps/testing/io.omarchy.omasend)** üzerinden *"Test kullanıcısı ol"* butonuna basın.
+   **[Google Play Test Kayıt Bağlantısı](https://play.google.com/apps/testing/io.omarchy.omasend)** üzerinden *"Test kullanıcısı ol"* butonuna basın.
 3. **Uygulamayı İndirin:**  
-   👉 **[OmaSend Google Play İndirme Bağlantısı](https://play.google.com/store/apps/details?id=io.omarchy.omasend)** üzerinden doğrudan Play Store'dan resmi sürümü yükleyin.
+   **[OmaSend Google Play İndirme Bağlantısı](https://play.google.com/store/apps/details?id=io.omarchy.omasend)** üzerinden doğrudan Play Store'dan resmi sürümü yükleyin.
 
-> 💡 **İpucu:** Eğer Play Store'da *"Öğe bulunamadı"* uyarısı alırsanız, Google Grubu'na katıldığınız Google hesabıyla telefonunuzdaki Google Play hesabının aynı olduğundan emin olun.
+> **İpucu:** Eğer Play Store'da *"Öğe bulunamadı"* uyarısı alırsanız, Google Grubu'na katıldığınız Google hesabıyla telefonunuzdaki Google Play hesabının aynı olduğundan emin olun.
 
 ---
 
-## 🌐 Açık Kaynak Depoları
+## Açık Kaynak Depoları
 
 Proje tamamen özgür, bağımsız ve açık kaynak kodludur. Katkı vermek, kaynak kodu incelemek veya yıldızlayarak destek olmak isterseniz:
 
-* 💻 **Omarchy Linux Masaüstü Eklentisi:** [github.com/ozdil/omarchy-omasend](https://github.com/ozdil/omarchy-omasend)
-* 📱 **OmaSend Android Mobil Uygulaması:** [github.com/ozdil/omasend-android](https://github.com/ozdil/omasend-android)
+* **Omarchy Linux Masaüstü Eklentisi:** [github.com/ozdil/omarchy-omasend](https://github.com/ozdil/omarchy-omasend)
+* **OmaSend Android Mobil Uygulaması:** [github.com/ozdil/omasend-android](https://github.com/ozdil/omasend-android)
 
 Deneyimlerinizi, test geri bildirimlerinizi ve önerilerinizi heyecanla bekliyoruz!

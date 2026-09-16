@@ -29,23 +29,70 @@ Peki bu teknik düzenek nasıl çalıştı? Operasyona neden doğrudan MİT müd
 
 Bir siber tehdit aktörünün hedef kurumlara sızmak için en çok tercih ettiği yöntemlerden biri **Tedarik Zinciri Saldırısıdır (Supply Chain Attack)**. Güvenlik duvarları güçlü olan bir kamu kurumunu veya sivil toplum örgütünü doğrudan hacklemek zordur; ancak o kurumun her gün kullandığı, iç ağlarına erişebilen güvenilir bir üçüncü parti yazılım şirketinin kod tabanına müdahale etmek çok daha sessiz ve yıkıcıdır.
 
-```
- [ İnternete Saçılmış Geçmiş Sızıntı Veri Tabanları ]
-                       │
-                       ▼
-    [ Kurumsal Yazılım Şirketi Altyapısı ]
-                       │
-                       ▼
-  [ Truva Atı Entegrasyonu: Gizli Sorgu Arayüzü / API ]
-                       │
-                       ▼
- ┌─────────────────────────────────────────────────────────┐
- │   Sendika / Kurum Yetkilisi veya Yetkisiz Kullanıcı     │
- │   - T.C. Kimlik No girer                                │
- │   - Sorgu etiketi: "NVİ" (Sahte Resmî API Algısı)       │
- │   - Sonuç: Soybağı, Adres, Telefon, Aile Kayıtları      │
- └─────────────────────────────────────────────────────────┘
-```
+<div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
+  <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
+    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+      Tedarik Zinciri Truva Atı Mimarisi
+    </span>
+    <span class="text-[11px] font-mono text-[#8c7e74]">Veri Akış Şeması</span>
+  </div>
+
+  <div class="space-y-3">
+    <!-- Aşama 1 -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex items-center justify-between shadow-xs">
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded-lg bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] flex items-center justify-center font-mono font-bold text-xs">01</span>
+        <div>
+          <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed]">İnternete Saçılmış Geçmiş Sızıntı Veri Tabanları</h5>
+          <p class="text-xs text-[#5d524b] dark:text-[#a89f91]">Yıllar boyunca sızdırılan genel nüfus kütüğü, GSM ve adres veri harmanları.</p>
+        </div>
+      </div>
+      <span class="font-mono text-xs text-[#8c7e74] hidden sm:inline">Ham Kaynak</span>
+    </div>
+
+    <div class="flex justify-center text-[#e1734b] dark:text-[#e59a7a] text-xs font-mono">↓ Enjeksiyon & İndeksleme</div>
+
+    <!-- Aşama 2 -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex items-center justify-between shadow-xs">
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded-lg bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] flex items-center justify-center font-mono font-bold text-xs">02</span>
+        <div>
+          <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed]">Kurumsal Yazılım Şirketi Altyapısı</h5>
+          <p class="text-xs text-[#5d524b] dark:text-[#a89f91]">Kamu kurumlarına ve sendikalara hizmet veren güvenilir üçüncü parti sunucular.</p>
+        </div>
+      </div>
+      <span class="font-mono text-xs text-[#8c7e74] hidden sm:inline">Tedarikçi Ağ</span>
+    </div>
+
+    <div class="flex justify-center text-[#e1734b] dark:text-[#e59a7a] text-xs font-mono">↓ Truva Atı Entegrasyonu</div>
+
+    <!-- Aşama 3 -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex items-center justify-between shadow-xs">
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded-lg bg-[#eaefe1] dark:bg-[#101a15] text-[#5d524b] dark:text-[#a89f91] flex items-center justify-center font-mono font-bold text-xs">03</span>
+        <div>
+          <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed]">Gömülü Gizli Sorgu Arayüzü / Arka Kapı API</h5>
+          <p class="text-xs text-[#5d524b] dark:text-[#a89f91]">Yalnızca özel parametrelerle tetiklenen yetkisiz nüfus tarama modülü.</p>
+        </div>
+      </div>
+      <span class="font-mono text-xs text-[#8c7e74] hidden sm:inline">Arka Kapı</span>
+    </div>
+
+    <div class="flex justify-center text-[#e1734b] dark:text-[#e59a7a] text-xs font-mono">↓ Sahte API Etiketi</div>
+
+    <!-- Aşama 4 -->
+    <div class="p-4 rounded-xl border-2 border-[#e1734b] dark:border-[#e59a7a] bg-[#fef9ed] dark:bg-[#1f1612] flex items-center justify-between shadow-sm">
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded-lg bg-[#e1734b] text-white flex items-center justify-center font-mono font-bold text-xs">04</span>
+        <div>
+          <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed]">Son Kullanıcı Ekranı ("NVİ" İllüzyonu)</h5>
+          <p class="text-xs text-[#5d524b] dark:text-[#a89f91]">T.C. Kimlik No ile soybağı, adres, telefon ve 18 yaş altı aile kütüğüne yasa dışı erişim.</p>
+        </div>
+      </div>
+      <span class="px-2 py-0.5 rounded font-mono text-[11px] bg-[#e1734b] text-white font-semibold">Risk: Kritik</span>
+    </div>
+  </div>
+</div>
 
 Soruşturma dosyasından kamuoyuna yansıyan teknik detaylar üç kritik mekanizmayı ortaya koymaktadır:
 

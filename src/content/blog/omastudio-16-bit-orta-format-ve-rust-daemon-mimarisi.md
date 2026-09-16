@@ -14,16 +14,66 @@ Bugün yayımlanan **OmaStudio 0.2.0** güncellemesiyle, Linux masaüstünde ort
 
 ---
 
-## 🔬 Neden 16-Bit? 8-Bit ile 16-Bit Arasındaki Uçurum
+## Neden 16-Bit? 8-Bit ile 16-Bit Arasındaki Uçurum
 
 Bir pikselin parlaklık ve renk derinliği, sahip olduğu bit sayısıyla üssel olarak belirlenir:
 * **8-Bit:** Kanal başına $2^8 = 256$ seviye (Toplamda 16.7 milyon renk).
 * **16-Bit:** Kanal başına $2^{16} = 65,536$ seviye (Toplamda 281 trilyon renk).
 
-```
-[ 8-Bit Gölge Kurtarma  ] ➔ [1] ─── Basamak / Banding ─── [2] ─── Yırtılma ─── [3]
-[ 16-Bit Gölge Kurtarma ] ➔ [256] ─ [257] ─ [258] ─ ... ─ [768] (Kusursuz İpeksi Geçiş)
-```
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      Gölge Kurtarma ve Ton Kuantizasyonu Kıyaslaması
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">256x Ton Hassasiyeti</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
+    <!-- 8-Bit Card -->
+    <div class="rounded-xl border border-red-200 dark:border-red-950/60 bg-red-50/40 dark:bg-red-950/20 p-5">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-red-700 dark:text-red-400">8-Bit İşleme Hattı</span>
+        <span class="px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 font-semibold text-[10px]">256 Seviye</span>
+      </div>
+      <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">Basamaklanma ve Posterizasyon</div>
+      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-4">
+        Derin gölgeler açıldığında (+4 EV) ara tonlar tükenir; pürüzsüz geçiş yerine sert renk basamakları oluşur.
+      </p>
+      <div class="space-y-2 text-[11px]">
+        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40 flex justify-between">
+          <span class="text-[#78716c]">Ton Dağılımı:</span>
+          <span class="font-bold text-red-600 dark:text-red-400">[1] ... [2] ... [3] (Kaba Adım)</span>
+        </div>
+        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40 flex justify-between">
+          <span class="text-[#78716c]">Renk Yırtılması:</span>
+          <span class="text-red-600 dark:text-red-400">Belirgin Banding Çizgileri</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16-Bit Card -->
+    <div class="rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20 p-5">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">16-Bit Lineer Pipeline</span>
+        <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 font-semibold text-[10px]">65.536 Seviye</span>
+      </div>
+      <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">İpeksi Pürüzsüz Geçiş (Zero Banding)</div>
+      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-4">
+        Her bir renk kanalı 65.536 hassasiyetle hesaplanır; gölgelerdeki en ufak mikro detay dahi organik film dokusuyla korunur.
+      </p>
+      <div class="space-y-2 text-[11px]">
+        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40 flex justify-between">
+          <span class="text-[#78716c]">Ton Dağılımı:</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">[256] -> [257] -> [258]...</span>
+        </div>
+        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40 flex justify-between">
+          <span class="text-[#78716c]">Geçiş Kalitesi:</span>
+          <span class="font-bold text-emerald-600 dark:text-emerald-400">Kusursuz Analog Hassasiyet</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 Özellikle Fujifilm GFX serisinin `.RAF` dosyalarında ve Hasselblad `.3FR` / `.DNG` formatlarında, gölgelerde saklı olan bilgiler inanılmaz derecede zengindir. 16-bit işleme motoru sayesinde:
 1. **Sıfır Basamaklanma (Zero Banding):** Derin gölgelerden çıkarılan detaylar, ara ton basamakları pürüzsüzce enterpole edildiği için doğal ve organik bir film dokusunda görünür.
@@ -32,7 +82,7 @@ Bir pikselin parlaklık ve renk derinliği, sahip olduğu bit sayısıyla üssel
 
 ---
 
-## ⚡ Yeni Mimari: Kalıcı Rust Engine Daemon
+## Yeni Mimari: Kalıcı Rust Engine Daemon
 
 Eski mimaride her kaydırıcı (slider) hareketinde ayrı bir alt süreç (`omastudio-engine render`) tetikleniyor, 112 MB'lık RAW dosyasının diskten tekrar okunması gerekiyordu. 16-bit verinin devasa boyutu düşünüldüğünde bu yöntem sürdürülemezdi.
 
@@ -50,17 +100,63 @@ Arayüz (Quickshell / QML) ile Rust motoru, Linux çekirdeğinin doğrudan RAM t
 ### 3. Satır Tabanlı JSON-RPC Protokolü
 Masaüstü paneli kapandığında arkada zombi süreç bırakmamak için `AGENTS.md` standartlarına uygun, stdin üzerinden satır tabanlı JSON-RPC protokolü kuruldu (`load`, `adjust`, `ai_auto`, `ai_social`, `save_recipe`, `exit`).
 
-```
-Quickshell UI (QML) ──[ stdin: JSON RPC ]──► omastudio-engine (Persistent Daemon)
-       ▲                                                    │
-       │                                             [ 16-bit RAM Cache ]
-       │                                             [ Rayon Multi-Core ]
-       └──────[ /dev/shm ping-pong PPM ]────────────┘
-```
+<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
+    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+      OmaStudio Kalıcı Süreç ve Paylaşımlı Bellek Mimarisi
+    </div>
+    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">60 FPS /dev/shm IPC</span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+    <!-- UI Node -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">Arayüz Katmanı</span>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">Quickshell UI (Qt 6 QML)</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">GPU ivmeli Wayland penceresi, dokunmatik tuval kontrolleri ve renk tekerlekleri.</p>
+      </div>
+      <div class="mt-3 px-2 py-1 rounded bg-[#ead9d2]/40 dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] text-[10px] font-semibold">
+        Zero Flicker Dokusu
+      </div>
+    </div>
+
+    <!-- Communication Bridge -->
+    <div class="p-4 rounded-xl border border-[#8b3a2b]/30 bg-[#8b3a2b]/5 dark:bg-[#8b3a2b]/15 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">İki Yönlü IPC Köprüsü</span>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">stdin RPC + /dev/shm</div>
+        <div class="space-y-1.5 text-[11px] text-[#5c4033] dark:text-[#d6d3d1] mt-2">
+          <div class="p-1.5 rounded bg-white/80 dark:bg-black/40 border border-[#8b3a2b]/20">
+            <strong>İstek:</strong> stdin JSON-RPC
+          </div>
+          <div class="p-1.5 rounded bg-white/80 dark:bg-black/40 border border-[#8b3a2b]/20">
+            <strong>Piksel:</strong> /dev/shm Ping-Pong PPM
+          </div>
+        </div>
+      </div>
+      <div class="mt-3 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">
+        Sıfır Disk G/Ç Gecikmesi
+      </div>
+    </div>
+
+    <!-- Engine Daemon -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+      <div>
+        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">Motor Katmanı</span>
+        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">omastudio-engine (Rust)</div>
+        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Kalıcı arka plan daemon'ı. Tek seferlik LibRaw demosaic, 16-bit sıcak RAM önbelleği.</p>
+      </div>
+      <div class="mt-3 px-2 py-1 rounded bg-emerald-100/70 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-semibold">
+        Rayon Çok Çekirdekli
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
-## 🖨️ Stüdyo Standardı: Gerçek 16-Bit Master Export
+## Stüdyo Standardı: Gerçek 16-Bit Master Export
 
 Bir fotoğrafı ekranda 16-bit düzenlemek kadar, laboratuvar baskısına veya müşteriye 16-bit teslim edebilmek de kritiktir. OmaStudio'nun dışa aktarma motoru baştan aşağı güncellendi:
 
@@ -71,13 +167,13 @@ Bir fotoğrafı ekranda 16-bit düzenlemek kadar, laboratuvar baskısına veya m
 
 ---
 
-## 🎛️ Film Looks & Styles: Reaktif RESET Butonu
+## Film Looks & Styles: Reaktif RESET Butonu
 
 Kullanıcılarımızdan gelen geri bildirimler doğrultusunda, **Film Looks & Styles** panelinin başlığına akıllı ve reaktif bir **RESET** butonu entegre edildi. Bir film simülasyonu (Fuji Classic Chrome, Velvia 50, Kodak Portra vb.) seçildiğinde beliren bu buton, tek bir tıklamayla tüm ton eğrilerini ve renk kaymalarını sıfırlayarak fotoğrafı sensörün orijinal nötr profiline döndürür.
 
 ---
 
-## 📊 Performans Kıyaslaması (112 MB Fujifilm RAF Dosyası)
+## Performans Kıyaslaması (112 MB Fujifilm RAF Dosyası)
 
 | İşlem / Metrik | Eski Sürüm (0.1) | Yeni Sürüm (0.2 - 16-Bit Daemon) | Kazanç / Fark |
 | :--- | :---: | :---: | :---: |
@@ -89,7 +185,7 @@ Kullanıcılarımızdan gelen geri bildirimler doğrultusunda, **Film Looks & St
 
 ---
 
-## 🚀 Güncelleme ve Kurulum
+## Güncelleme ve Kurulum
 
 Mevcut OmaStudio kurulumunuzu güncellemek için depoyu çekip derlemeniz yeterlidir:
 

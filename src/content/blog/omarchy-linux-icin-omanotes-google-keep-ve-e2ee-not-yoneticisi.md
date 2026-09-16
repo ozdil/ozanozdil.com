@@ -14,21 +14,21 @@ OmaNotes; **Google Keep tarzında renkli kartlar ve to-do listesi ergonomisini**
 
 ---
 
-## 🎯 Klavyesiz (Mouse & Touch-First) Ergonomi
+## Klavyesiz (Mouse & Touch-First) Ergonomi
 
 OmaNotes, günlük kullanımda klavyeye hiç dokunmadan masaüstünün sağ üst barından tek tıkla yönetilebilecek şekilde kurgulandı:
 
-1. **📋 Panodan Tek Tıkla Not Oluşturma:** Panoya kopyaladığınız herhangi bir metin, link veya görev listesini yazma zahmetine girmeden tek tıkla karta dönüştüren `Paste from Clipboard` butonu (`wl-paste` entegrasyonu).
-2. **➕ Hazır Hızlı Şablonlar:**
-   * `🛒 Groceries` (Örnek maddelerle hazır alışveriş listesi)
-   * `📅 Priorities` (Günlük öncelikler ve odak görevleri)
-   * `💡 Idea` (Fikir karalama şablonu)
-3. **🎨 Canlı Filtre Çipleri (Zero Typing):** Not aramak için arama çubuğuna yazmak yerine; `All`, `📌 Pinned`, `󰄲 Checklist` ve pastel renk noktalarına (`🟡`, `🟢`, `🔵`, `🟣`, `🔴`, `🪨`) tıklayarak kartları anında filtreleme.
-4. **🖱️ Kart Üzeri Hızlı Aksiyonlar:** Tek tıkla onay kutusu işaretleme (üstü çizilir), alt paletten tek tıkla kart rengini değiştirme, sabitleme (`󰤱`), çoğaltma/kopya (`󰆏`) ve güvenli silme (`󰅖`).
+1. **Panodan Tek Tıkla Not Oluşturma:** Panoya kopyaladığınız herhangi bir metin, link veya görev listesini yazma zahmetine girmeden tek tıkla karta dönüştüren `Paste from Clipboard` butonu (`wl-paste` entegrasyonu).
+2. **Hazır Hızlı Şablonlar:**
+   * `Groceries` (Örnek maddelerle hazır alışveriş listesi)
+   * `Priorities` (Günlük öncelikler ve odak görevleri)
+   * `Idea` (Fikir karalama şablonu)
+3. **Canlı Filtre Çipleri (Zero Typing):** Not aramak için arama çubuğuna yazmak yerine; `All`, `Pinned`, `Checklist` ve renk noktalarına (sarı, yeşil, mavi, mor, kırmızı, taş rengi) tıklayarak kartları anında filtreleme.
+4. **Kart Üzeri Hızlı Aksiyonlar:** Tek tıkla onay kutusu işaretleme (üstü çizilir), alt paletten tek tıkla kart rengini değiştirme, sabitleme, çoğaltma ve güvenli silme eylemleri.
 
 ---
 
-## 🔒 Sıfır Bilgi Uçtan Uca Şifreleme (Zero-Knowledge E2EE)
+## Sıfır Bilgi Uçtan Uca Şifreleme (Zero-Knowledge E2EE)
 
 OmaNotes'un kalbinde, verilerinize sizden başka kimsenin (bulut sağlayıcısı dahil) erişemeyeceğini garanti eden matematiksel bir şifreleme katmanı bulunur:
 
@@ -38,7 +38,7 @@ OmaNotes'un kalbinde, verilerinize sizden başka kimsenin (bulut sağlayıcısı
 
 ---
 
-## ☁️ Çoklu Bulut Yedekleme & Disaster Recovery
+## Çoklu Bulut Yedekleme ve Afet Kurtarma (Disaster Recovery)
 
 Notlarınızı ister Google Drive'da, ister kendi özel Git deponuzda tutun:
 
@@ -48,7 +48,7 @@ Notlarınızı ister Google Drive'da, ister kendi özel Git deponuzda tutun:
 
 ---
 
-## 🛡️ Güvenlik Mimarisi & Omarcom Standartları (`AGENTS.md`)
+## Güvenlik Mimarisi ve Omarcom Standartları (`AGENTS.md`)
 
 OmaNotes, Omarchy Linux ekosisteminin resmi güvenlik yönergelerine (`AGENTS.md`) istisnasız tam uyum sağlayacak biçimde inşa edildi:
 
@@ -63,7 +63,7 @@ OmaNotes, Omarchy Linux ekosisteminin resmi güvenlik yönergelerine (`AGENTS.md
 
 ---
 
-## 🧪 15/15 Otomatik Test Paketi
+## 15/15 Otomatik Test Paketi
 
 OmaNotes, Rust test altyapısı altında **15 farklı birim, güvenlik, stres ve kaos testinin tamamından** tam not almıştır:
 
@@ -79,7 +79,7 @@ OmaNotes, Rust test altyapısı altında **15 farklı birim, güvenlik, stres ve
 
 ---
 
-## 🚀 Kurulum ve Kullanım
+## Kurulum ve Kullanım
 
 Omarchy Linux kurulu sisteminizde tek bir komutla depoyu ekleyip kullanmaya başlayabilirsiniz:
 
@@ -106,7 +106,7 @@ Terminalden hızlı durum kontrolü için:
 
 ---
 
-### 🔗 Bağlantılar ve Kaynak Kod
+### Bağlantılar ve Kaynak Kod
 * **GitHub Deposu:** [ozdil/omarchy-omanotes](https://github.com/ozdil/omarchy-omanotes)
 * **Lisans:** MIT Lisansı
 * **Küratör & Standart:** Omarchy Linux (`AGENTS.md`) & HANCORE Plugin Marketplace Baseline

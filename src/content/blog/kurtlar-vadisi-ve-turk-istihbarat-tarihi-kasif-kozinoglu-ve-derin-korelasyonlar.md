@@ -36,18 +36,64 @@ Kaşif Kozinoğlu, Türk Silahlı Kuvvetleri Özel Harp Dairesi kökenli, ardın
 
 Ancak Kaşif Kozinoğlu, duruşmasına yalnızca 10 gün kala, **12 Kasım 2011** tarihinde Silivri Cezaevi'ndeki koğuşunda spor yaptıktan sonra aniden fenalaşarak hayatını kaybetti. Resmî ölüm raporuna "kalp krizi" yazılsa da; hastaneye geç sevk edilmesi, cezaevi ambulansındaki ihmaller ve daha sonra gündeme gelen "şırıngayla hava enjeksiyonu / zehirleme" iddiaları, bu vefatı Türk istihbarat tarihinin en karanlık sayfalarından biri haline getirdi.
 
-```
-                  [ Kaşif Kozinoğlu Soruşturması ve Dizi Zaman Çizelgesi ]
+<div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
+  <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
+    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+      Kronolojik Analiz: Kaşif Kozinoğlu Vakası ve Dizi Zamanlaması
+    </span>
+    <span class="text-[11px] font-mono text-[#8c7e74]">48 Saatlik İlliyet Bağı</span>
+  </div>
 
-    10 Mart 2011              10 Kasım 2011         12 Kasım 2011         08 Aralık 2011
-         │                          │                     │                     │
-         ▼                          ▼                     ▼                     ▼
-  Kozinoğlu Silivri        KVP 136. Bölüm:       Kozinoğlu Cezaevinde   KVP 139. Bölüm:
-  Cezaevi'ne konuldu.      "Kazım Kaşifoğlu"     şüpheli şekilde        "Kazım Kaşifoğlu"
-                           hücrede hapsedildi    vefat etti.            şırıngayla hava
-                           ve tehdit edildi.                            enjekte edilerek
-                                                                        infaz edildi.
-```
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+    <!-- 1. Adım -->
+    <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+      <div class="flex items-center justify-between mb-2 font-mono text-xs">
+        <span class="px-2 py-0.5 rounded-full bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] font-medium">10 Mart 2011</span>
+        <span class="text-[10px] text-[#8c7e74]">Adli Süreç</span>
+      </div>
+      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Silivri'ye Sevk</h4>
+      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+        Afganistan sahasından çağrılan MİT Başmüşaviri Kaşif Kozinoğlu tutuklanarak Silivri L Tipi Cezaevi'ne konuldu.
+      </p>
+    </div>
+
+    <!-- 2. Adım -->
+    <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+      <div class="flex items-center justify-between mb-2 font-mono text-xs">
+        <span class="px-2 py-0.5 rounded-full bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-medium">10 Kasım 2011</span>
+        <span class="text-[10px] text-[#8c7e74]">KVP 136. Bölüm</span>
+      </div>
+      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Hücrede Tehdit</h4>
+      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+        Dizide Kazım Kaşifoğlu karakteri karanlık bir hücreye kapatıldı ve infazla doğrudan tehdit edildi.
+      </p>
+    </div>
+
+    <!-- 3. Adım -->
+    <div class="flex flex-col p-4 rounded-xl border-2 border-[#e1734b] dark:border-[#e59a7a] bg-[#fef9ed] dark:bg-[#1f1612] shadow-sm">
+      <div class="flex items-center justify-between mb-2 font-mono text-xs">
+        <span class="px-2 py-0.5 rounded-full bg-[#e1734b] text-white font-semibold">12 Kasım 2011</span>
+        <span class="text-[10px] font-bold text-[#e1734b] dark:text-[#e59a7a]">+48 Saat</span>
+      </div>
+      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Şüpheli Vefat</h4>
+      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed font-medium">
+        Kozinoğlu, cezaevinde ilk duruşmasına 10 gün kala spor sonrası şüpheli şekilde hayatını kaybetti.
+      </p>
+    </div>
+
+    <!-- 4. Adım -->
+    <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+      <div class="flex items-center justify-between mb-2 font-mono text-xs">
+        <span class="px-2 py-0.5 rounded-full bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-medium">08 Aralık 2011</span>
+        <span class="text-[10px] text-[#8c7e74]">KVP 139. Bölüm</span>
+      </div>
+      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Şırıngayla İnfaz</h4>
+      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+        Dizideki Kaşifoğlu karakteri cezaevi hücresinde koluna şırıngayla hava enjekte edilerek öldürüldü.
+      </p>
+    </div>
+  </div>
+</div>
 
 ### 15 Yıl Sonra Yeniden Açılan Dosya ve Eylül 2026 Dalgaları
 
@@ -81,17 +127,46 @@ Senarist Raci Şaşmaz, savcılıktaki ifadesinde yöneltilen iddiaları kesin b
 
 Kurtlar Vadisi'nin 2003 yılında yakaladığı benzersiz gerçeklik hissi ve derin devlet dilinin kaynağını anlamak için dizinin mutfağındaki üç kilit entelektüel figürü incelemek gerekir:
 
-```
-                      [ Kurtlar Vadisi Konsept Mimarisi ]
+<div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
+  <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
+    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+      Kurtlar Vadisi Konsept Mimarisi ve İstihbari Kaynak Havuzu
+    </span>
+    <span class="text-[11px] font-mono text-[#8c7e74]">Üç Temel Taşıyıcı Kolon</span>
+  </div>
 
-       ┌───────────────────────────────┼───────────────────────────────┐
-       │                               │                               │
-       ▼                               ▼                               ▼
- [ Ömer Lütfi Mete ]           [ Soner Yalçın ]                [ Osman Sınav ]
- Milli Devlet Aklı,            İstihbarat Arşivi,              Dramatik Dil,
- Jeopolitik Vizyon ve          Susurluk / Gladio Belgeleri,    Racon Kültürü ve
- Avrasyacı Konsept             Saha Karakterleri               Görsel Yönetim
-```
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <!-- Kolon 1 -->
+    <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+      <div class="w-8 h-8 rounded-lg bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] flex items-center justify-center font-mono font-bold text-xs mb-3">01</div>
+      <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Ömer Lütfi Mete</h4>
+      <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">Milli Devlet Aklı & Felsefe</p>
+      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+        Teşkilat felsefesi, Avrasyacı jeopolitik vizyon, derin çete analizi ve Doğu Eşrefoğlu aforizmalarının düşünsel kaynağı.
+      </p>
+    </div>
+
+    <!-- Kolon 2 -->
+    <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+      <div class="w-8 h-8 rounded-lg bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] flex items-center justify-center font-mono font-bold text-xs mb-3">02</div>
+      <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Soner Yalçın</h4>
+      <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">İstihbarat Arşivi & Saha</p>
+      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+        <em>Bay Pipo</em>, <em>Reis</em>, <em>Binbaşı Ersever'in İtirafları</em> ve Susurluk/MİT raporlarının kurguya aktarımı; Aslan Akbey ve Pala karakterlerinin omurgası.
+      </p>
+    </div>
+
+    <!-- Kolon 3 -->
+    <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+      <div class="w-8 h-8 rounded-lg bg-[#eaefe1] dark:bg-[#101a15] text-[#5d524b] dark:text-[#a89f91] flex items-center justify-center font-mono font-bold text-xs mb-3">03</div>
+      <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Osman Sınav</h4>
+      <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">Dramatik Racon & Görsel Dil</p>
+      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+        <em>Deli Yürek</em> ekolünden gelen popüler anlatım gücü, kabadayılık estetiği ve 55 bölüm süren yönetmenlik vizyonu.
+      </p>
+    </div>
+  </div>
+</div>
 
 ### Ömer Lütfi Mete: Milli Devlet Felsefesi ve "Derin Çete"
 
@@ -115,24 +190,22 @@ Dizideki karakter isimlerinin fonetiğinden işlenen uyuşturucu gemisi baskınl
 
 Dizi boyunca ekranlara taşınan olaylar kronolojik olarak incelendiğinde, Türkiye'nin yakın tarihini sarsan kritik hadiselerin birebir senaryoya yedirildiği görülmektedir:
 
-```
-  Yıl     Gerçek Tarihsel Olay                      Dizideki Kurgusal Karşılığı
- ═══════════════════════════════════════════════════════════════════════════════════════════
-  1990    Hiram Abas'ın çapraz ateşte suikastı      Aslan Akbey'in belediye işçilerince infazı
-  1992    Kısmetim-1 gemisinin batırılması          Nasibim-1 gemisinin batırılması
-  1993    Lucky-S uyuşturucu gemisi operasyonu      Şanslı-S gemisine yapılan baskın
-  1993    Ahmet Cem Ersever'in infaz edilmesi       Pala'nın öldürülüp betona gömülmesi
-  1993    Org. Eşref Bitlis'in şüpheli uçak kazası  Doğu Eşrefoğlu'nun helikopterinin düşmesi
-  1995    Nesim Malki'nin Bursa'da öldürülmesi      İplikçi Nedim'in parasal tasfiyesi ve ölümü
-  1996    Ömer Lütfü Topal suikastı                 Tombalacı Mehmet ve kumarhane tasfiyeleri
-  1996    Sabancı Center 25. kat cinayeti           Çağrı Toros'un Toros Center'da infazı
-  1996    Susurluk Mercedes kazası                  Dizinin çıkış noktası ve Konsey dengesi
-  2003    Süleymaniye'de Başa Çuval Geçirilmesi     Kurtlar Vadisi Irak filminin omurgası
-  2006    Danıştay Saldırısı ve kaos eylemleri      Kurtlar Vadisi Pusu ve İskender Büyük
-  2011    Kaşif Kozinoğlu'nun Silivri'de ölümü      Kazım Kaşifoğlu'nun şırıngayla infazı
-  2012    7 Şubat MİT Krizi (Müsteşarın ifadesi)    İhtiyarlar Heyeti ve Polat'ın savcılık krizi
-  2016    "Kurtlar Vadisi Darbe" Patent Başvurusu   15 Temmuz öncesi başlatılan terör soruşturması
-```
+| Yıl | Gerçek Tarihsel Olay | Dizideki Kurgusal Karşılığı |
+| :--- | :--- | :--- |
+| **1990** | Hiram Abas'ın Kadıköy'de çapraz ateşte suikastı | Aslan Akbey'in belediye işçisi kılığındaki Pala tarafından infazı |
+| **1992** | Kısmetim-1 uyuşturucu gemisinin Akdeniz'de batırılması | Nasibim-1 gemisinin operasyonla batırılması |
+| **1993** | Lucky-S uyuşturucu gemisi operasyonu | Şanslı-S gemisine yapılan baskın ve uyuşturucu tasfiyesi |
+| **1993** | JİTEM kurucusu Ahmet Cem Ersever'in infaz edilmesi | Pala'nın öldürülüp ayaklarına beton dökülerek gömülmesi |
+| **1993** | Org. Eşref Bitlis'in şüpheli uçak kazasında şehit olması | Doğu Eşrefoğlu'nun helikopterinin füze ile düşürülmesi |
+| **1995** | Nesim Malki'nin Bursa'da pusuya düşürülerek öldürülmesi | İplikçi Nedim'in parasal tasfiyesi ve öldürülmesi |
+| **1996** | Kumarhaneler kralı Ömer Lütfü Topal suikastı | Tombalacı Mehmet ve kumarhaneler bölgesindeki infazlar |
+| **1996** | Sabancı Center 25. katında Özdemir Sabancı suikastı | Çağrı Toros'un Toros Center'da terörist Feraye eliyle infazı |
+| **1996** | Susurluk 06 AC 600 plakalı Mercedes kazası | Dizinin çıkış noktası, Polat Alemdar'ın operasyonu ve Konsey |
+| **2003** | Süleymaniye'de Türk Özel Kuvvetleri'nin başına çuval geçirilmesi | *Kurtlar Vadisi Irak* filminin ana başlangıç motifi |
+| **2006** | Danıştay Saldırısı ve Cumhuriyet gazetesine bomba atılması | *Kurtlar Vadisi Pusu* ve İskender Büyük'ün provokasyonları |
+| **2011** | Kaşif Kozinoğlu'nun Silivri Cezaevi'ndeki şüpheli vefatı | Kazım Kaşifoğlu'nun cezaevinde şırıngayla hava enjekte edilerek öldürülmesi |
+| **2012** | 7 Şubat MİT Müsteşarı'nın ifadeye çağrılması krizi | İhtiyarlar Heyeti ve Polat Alemdar'ın savcılık kuşatması sahneleri |
+| **2016** | 15 Temmuz öncesi "Kurtlar Vadisi Darbe" marka tescil başvurusu | Darbe girişiminden 2 ay önce yapılan başvuru ve açılan terör soruşturması |
 
 ### Susurluk Kazası (1996) ve Kurtlar Konseyi Mimarisi
 
@@ -218,21 +291,64 @@ Kurtlar Vadisi ekibi, 20 yılı aşkın serüveninde yalnızca ekran önünde de
 
 2007'de başlayan *Kurtlar Vadisi Pusu*, Türkiye'deki Ergenekon operasyonlarıyla eş zamanlı olarak yayına girdi. Dizide "İskender Büyük" karakterinin Cumhuriyet gazetesini bombalatması, Danıştay suikastı organizasyonu, faili meçhul kuyuları ve darbe günlükleri kurgusu; İstanbul Emniyeti Terörle Mücadele Şubesi'nin operasyon dalgalarından haftalar önce veya tam o günlerde ekrana geldi. Bu durum, dizinin FETÖ'cü polis şefleri (Ali Fuat Yılmazer, Mutlu Ekizoğlu vb.) ve Zekeriya Öz gibi kumpas savcıları tarafından kamuoyunu hazırlamak ve psikolojik harekât yürütmek amacıyla sufleyle beslendiği iddialarını doğurdu.
 
-```
-      [ Kumpas Dönemi Kamuoyu Mühendisliği Modeli ]
+<div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
+  <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
+    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+      Kumpas Dönemi Kamuoyu Mühendisliği Döngüsü
+    </span>
+    <span class="text-[11px] font-mono text-[#8c7e74]">İstihbari Sızıntı & Algı Yönetimi</span>
+  </div>
 
- ┌────────────────────────┐      Sızdırma / İddianame      ┌────────────────────────┐
- │   FETÖ Emniyet &       │ ─────────────────────────────> │  Kurtlar Vadisi Pusu   │
- │   Yargı Ağı (Z. Öz vb.)│                                │  Senaryo Grubu         │
- └────────────────────────┘                                └────────────────────────┘
-             │                                                          │
-             │ Operasyon Dalgaları                                      │ Primetime Yayın
-             ▼                                                          ▼
- ┌────────────────────────┐                                ┌────────────────────────┐
- │  Ergenekon / Balyoz    │ <───────────────────────────── │  Milyonlarca İzleyici  │
- │  Gözaltı & Tutuklama   │      Psikolojik Meşruiyet      │  (Toplumsal Algı)      │
- └────────────────────────┘                                └────────────────────────┘
-```
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- Adım 1 -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="text-[11px] font-mono text-[#e1734b] dark:text-[#e59a7a] font-semibold mb-1">01 / KAYNAK</div>
+        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Emniyet & Yargı Ağı</h5>
+        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Zekeriya Öz ve kumpas şubelerince hazırlanan operasyonel dosyalar ve sızıntı taslakları.</p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
+        -> Operasyonel Sufle
+      </div>
+    </div>
+
+    <!-- Adım 2 -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="text-[11px] font-mono text-[#2e4d4d] dark:text-[#82b09a] font-semibold mb-1">02 / DRAMATİZASYON</div>
+        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Dizi Senaryosu</h5>
+        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">İskender Büyük ve derin yapı sahneleriyle kumpas iddialarının primetime ekranda işlenmesi.</p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
+        -> Milyonlarca İzleyici
+      </div>
+    </div>
+
+    <!-- Adım 3 -->
+    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
+      <div>
+        <div class="text-[11px] font-mono text-[#a67c52] dark:text-[#c49970] font-semibold mb-1">03 / TOPLUMSAL ETKİ</div>
+        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Zihinsel Meşruiyet</h5>
+        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Kamuoyunun yaklaşan gözaltı ve tasfiye dalgalarına psikolojik olarak hazırlanması.</p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
+        -> Toplumsal Kabul
+      </div>
+    </div>
+
+    <!-- Adım 4 -->
+    <div class="p-4 rounded-xl border-2 border-[#e1734b] dark:border-[#e59a7a] bg-[#fef9ed] dark:bg-[#1f1612] flex flex-col justify-between shadow-sm">
+      <div>
+        <div class="text-[11px] font-mono text-[#e1734b] dark:text-[#e59a7a] font-bold mb-1">04 / SONUÇ</div>
+        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Yargı Dalgaları</h5>
+        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Ergenekon, Balyoz ve OdaTV tutuklamalarının hayata geçirilmesi ve kadro tasfiyeleri.</p>
+      </div>
+      <div class="mt-3 text-[10px] font-mono text-[#e1734b] dark:text-[#e59a7a] bg-white/60 dark:bg-[#141210] p-2 rounded font-semibold">
+        Operasyonel Hedef
+      </div>
+    </div>
+  </div>
+</div>
 
 ### Mayıs 2016: "Kurtlar Vadisi Darbe" Marka Tescil Skandalı
 
