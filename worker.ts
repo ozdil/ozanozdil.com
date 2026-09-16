@@ -239,6 +239,17 @@ export default {
       );
       newHeaders.set('Access-Control-Allow-Origin', '*');
       newHeaders.set('Vary', 'Accept');
+      newHeaders.set('Cache-Control', 'public, max-age=0, must-revalidate');
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: newHeaders,
+      });
+    }
+
+    if (response.headers.get('content-type')?.includes('text/html')) {
+      const newHeaders = new Headers(response.headers);
+      newHeaders.set('Cache-Control', 'public, max-age=0, must-revalidate');
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
