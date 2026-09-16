@@ -208,14 +208,24 @@ export default {
       !url.pathname.endsWith('.jpg') &&
       !url.pathname.endsWith('.webp')
     ) {
-      // 1. Homepage / root -> llms.txt
-      if (url.pathname === '/' || url.pathname === '' || url.pathname === '/index.html') {
+      // 1. Homepage / root / blog list -> llms.txt
+      if (
+        url.pathname === '/' ||
+        url.pathname === '' ||
+        url.pathname === '/index.html' ||
+        url.pathname === '/blog' ||
+        url.pathname === '/blog/' ||
+        url.pathname === '/projeler' ||
+        url.pathname === '/projeler/' ||
+        url.pathname === '/hakkimda' ||
+        url.pathname === '/hakkimda/'
+      ) {
         const llmsUrl = new URL('/llms.txt', request.url);
-        const res = await env.ASSETS.fetch(new Request(llmsUrl.toString()));
+        const res = await env.ASSETS.fetch(new Request(llmsUrl.toString(), { method: 'GET' }));
         if (res.ok) {
           const text = await res.text();
           const tokens = Math.ceil(text.length / 4);
-          return new Response(text, {
+          return new Response(request.method === 'HEAD' ? null : text, {
             status: 200,
             headers: {
               'Content-Type': 'text/markdown; charset=utf-8',
@@ -230,7 +240,7 @@ export default {
 
       // 2. Individual Blog Posts -> Extract raw markdown from embedded script
       if (url.pathname.startsWith('/blog/') && url.pathname !== '/blog/' && url.pathname !== '/blog') {
-        const pageRes = await env.ASSETS.fetch(request);
+        const pageRes = await env.ASSETS.fetch(new Request(request.url, { method: 'GET' }));
         if (pageRes.ok) {
           const html = await pageRes.text();
           const match = html.match(/<script type="text\/plain" id="qs-raw-markdown"[^>]*>([\s\S]*?)<\/script>/);
@@ -238,7 +248,7 @@ export default {
             try {
               const markdown = JSON.parse(match[1]);
               const tokens = Math.ceil(markdown.length / 4);
-              return new Response(markdown, {
+              return new Response(request.method === 'HEAD' ? null : markdown, {
                 status: 200,
                 headers: {
                   'Content-Type': 'text/markdown; charset=utf-8',
