@@ -22,56 +22,54 @@ Bir pikselin parlaklık ve renk derinliği, sahip olduğu bit sayısıyla üssel
 
 <div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
   <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
-      Gölge Kurtarma ve Ton Kuantizasyonu Kıyaslaması
-    </div>
-    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">256x Ton Hassasiyeti</span>
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+  Gölge Kurtarma ve Ton Kuantizasyonu Kıyaslaması
   </div>
-
+  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">256x Ton Hassasiyeti</span>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
-    <!-- 8-Bit Card -->
-    <div class="rounded-xl border border-red-200 dark:border-red-950/60 bg-red-50/40 dark:bg-red-950/20 p-5">
-      <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-bold uppercase tracking-wider text-red-700 dark:text-red-400">8-Bit İşleme Hattı</span>
-        <span class="px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 font-semibold text-[10px]">256 Seviye</span>
-      </div>
-      <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">Basamaklanma ve Posterizasyon</div>
-      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-4">
-        Derin gölgeler açıldığında (+4 EV) ara tonlar tükenir; pürüzsüz geçiş yerine sert renk basamakları oluşur.
-      </p>
-      <div class="space-y-2 text-[11px]">
-        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40 flex justify-between">
-          <span class="text-[#78716c]">Ton Dağılımı:</span>
-          <span class="font-bold text-red-600 dark:text-red-400">[1] ... [2] ... [3] (Kaba Adım)</span>
-        </div>
-        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40 flex justify-between">
-          <span class="text-[#78716c]">Renk Yırtılması:</span>
-          <span class="text-red-600 dark:text-red-400">Belirgin Banding Çizgileri</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 16-Bit Card -->
-    <div class="rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20 p-5">
-      <div class="flex items-center justify-between mb-3">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">16-Bit Lineer Pipeline</span>
-        <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 font-semibold text-[10px]">65.536 Seviye</span>
-      </div>
-      <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">İpeksi Pürüzsüz Geçiş (Zero Banding)</div>
-      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-4">
-        Her bir renk kanalı 65.536 hassasiyetle hesaplanır; gölgelerdeki en ufak mikro detay dahi organik film dokusuyla korunur.
-      </p>
-      <div class="space-y-2 text-[11px]">
-        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40 flex justify-between">
-          <span class="text-[#78716c]">Ton Dağılımı:</span>
-          <span class="font-bold text-emerald-600 dark:text-emerald-400">[256] -> [257] -> [258]...</span>
-        </div>
-        <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40 flex justify-between">
-          <span class="text-[#78716c]">Geçiş Kalitesi:</span>
-          <span class="font-bold text-emerald-600 dark:text-emerald-400">Kusursuz Analog Hassasiyet</span>
-        </div>
-      </div>
-    </div>
+  <!-- 8-Bit Card -->
+  <div class="rounded-xl border border-red-200 dark:border-red-950/60 bg-red-50/40 dark:bg-red-950/20 p-5">
+  <div class="flex items-center justify-between mb-3">
+  <span class="text-xs font-bold uppercase tracking-wider text-red-700 dark:text-red-400">8-Bit İşleme Hattı</span>
+  <span class="px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 font-semibold text-[10px]">256 Seviye</span>
+  </div>
+  <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">Basamaklanma ve Posterizasyon</div>
+  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-4">
+  Derin gölgeler açıldığında (+4 EV) ara tonlar tükenir; pürüzsüz geçiş yerine sert renk basamakları oluşur.
+  </p>
+  <div class="space-y-2 text-[11px]">
+  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40 flex justify-between">
+  <span class="text-[#78716c]">Ton Dağılımı:</span>
+  <span class="font-bold text-red-600 dark:text-red-400">[1] ... [2] ... [3] (Kaba Adım)</span>
+  </div>
+  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40 flex justify-between">
+  <span class="text-[#78716c]">Renk Yırtılması:</span>
+  <span class="text-red-600 dark:text-red-400">Belirgin Banding Çizgileri</span>
+  </div>
+  </div>
+  </div>
+  <!-- 16-Bit Card -->
+  <div class="rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20 p-5">
+  <div class="flex items-center justify-between mb-3">
+  <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">16-Bit Lineer Pipeline</span>
+  <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 font-semibold text-[10px]">65.536 Seviye</span>
+  </div>
+  <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">İpeksi Pürüzsüz Geçiş (Zero Banding)</div>
+  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-4">
+  Her bir renk kanalı 65.536 hassasiyetle hesaplanır; gölgelerdeki en ufak mikro detay dahi organik film dokusuyla korunur.
+  </p>
+  <div class="space-y-2 text-[11px]">
+  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40 flex justify-between">
+  <span class="text-[#78716c]">Ton Dağılımı:</span>
+  <span class="font-bold text-emerald-600 dark:text-emerald-400">[256] -> [257] -> [258]...</span>
+  </div>
+  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40 flex justify-between">
+  <span class="text-[#78716c]">Geçiş Kalitesi:</span>
+  <span class="font-bold text-emerald-600 dark:text-emerald-400">Kusursuz Analog Hassasiyet</span>
+  </div>
+  </div>
+  </div>
   </div>
 </div>
 
@@ -102,55 +100,52 @@ Masaüstü paneli kapandığında arkada zombi süreç bırakmamak için `AGENTS
 
 <div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
   <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
-      OmaStudio Kalıcı Süreç ve Paylaşımlı Bellek Mimarisi
-    </div>
-    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">60 FPS /dev/shm IPC</span>
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+  OmaStudio Kalıcı Süreç ve Paylaşımlı Bellek Mimarisi
   </div>
-
+  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">60 FPS /dev/shm IPC</span>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
-    <!-- UI Node -->
-    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
-      <div>
-        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">Arayüz Katmanı</span>
-        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">Quickshell UI (Qt 6 QML)</div>
-        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">GPU ivmeli Wayland penceresi, dokunmatik tuval kontrolleri ve renk tekerlekleri.</p>
-      </div>
-      <div class="mt-3 px-2 py-1 rounded bg-[#ead9d2]/40 dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] text-[10px] font-semibold">
-        Zero Flicker Dokusu
-      </div>
-    </div>
-
-    <!-- Communication Bridge -->
-    <div class="p-4 rounded-xl border border-[#8b3a2b]/30 bg-[#8b3a2b]/5 dark:bg-[#8b3a2b]/15 flex flex-col justify-between">
-      <div>
-        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">İki Yönlü IPC Köprüsü</span>
-        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">stdin RPC + /dev/shm</div>
-        <div class="space-y-1.5 text-[11px] text-[#5c4033] dark:text-[#d6d3d1] mt-2">
-          <div class="p-1.5 rounded bg-white/80 dark:bg-black/40 border border-[#8b3a2b]/20">
-            <strong>İstek:</strong> stdin JSON-RPC
-          </div>
-          <div class="p-1.5 rounded bg-white/80 dark:bg-black/40 border border-[#8b3a2b]/20">
-            <strong>Piksel:</strong> /dev/shm Ping-Pong PPM
-          </div>
-        </div>
-      </div>
-      <div class="mt-3 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">
-        Sıfır Disk G/Ç Gecikmesi
-      </div>
-    </div>
-
-    <!-- Engine Daemon -->
-    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
-      <div>
-        <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">Motor Katmanı</span>
-        <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">omastudio-engine (Rust)</div>
-        <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Kalıcı arka plan daemon'ı. Tek seferlik LibRaw demosaic, 16-bit sıcak RAM önbelleği.</p>
-      </div>
-      <div class="mt-3 px-2 py-1 rounded bg-emerald-100/70 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-semibold">
-        Rayon Çok Çekirdekli
-      </div>
-    </div>
+  <!-- UI Node -->
+  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div>
+  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">Arayüz Katmanı</span>
+  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">Quickshell UI (Qt 6 QML)</div>
+  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">GPU ivmeli Wayland penceresi, dokunmatik tuval kontrolleri ve renk tekerlekleri.</p>
+  </div>
+  <div class="mt-3 px-2 py-1 rounded bg-[#ead9d2]/40 dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] text-[10px] font-semibold">
+  Zero Flicker Dokusu
+  </div>
+  </div>
+  <!-- Communication Bridge -->
+  <div class="p-4 rounded-xl border border-[#8b3a2b]/30 bg-[#8b3a2b]/5 dark:bg-[#8b3a2b]/15 flex flex-col justify-between">
+  <div>
+  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">İki Yönlü IPC Köprüsü</span>
+  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">stdin RPC + /dev/shm</div>
+  <div class="space-y-1.5 text-[11px] text-[#5c4033] dark:text-[#d6d3d1] mt-2">
+  <div class="p-1.5 rounded bg-white/80 dark:bg-black/40 border border-[#8b3a2b]/20">
+  <strong>İstek:</strong> stdin JSON-RPC
+  </div>
+  <div class="p-1.5 rounded bg-white/80 dark:bg-black/40 border border-[#8b3a2b]/20">
+  <strong>Piksel:</strong> /dev/shm Ping-Pong PPM
+  </div>
+  </div>
+  </div>
+  <div class="mt-3 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">
+  Sıfır Disk G/Ç Gecikmesi
+  </div>
+  </div>
+  <!-- Engine Daemon -->
+  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div>
+  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider">Motor Katmanı</span>
+  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">omastudio-engine (Rust)</div>
+  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Kalıcı arka plan daemon'ı. Tek seferlik LibRaw demosaic, 16-bit sıcak RAM önbelleği.</p>
+  </div>
+  <div class="mt-3 px-2 py-1 rounded bg-emerald-100/70 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-semibold">
+  Rayon Çok Çekirdekli
+  </div>
+  </div>
   </div>
 </div>
 

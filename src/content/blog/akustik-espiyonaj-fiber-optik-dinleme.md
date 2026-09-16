@@ -52,42 +52,39 @@ Bu tespit edilebilir SoP değişimleri, sesin fiber içinde yol açtığı çift
 
 <div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
   <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-    <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
-      COAES (Covert Acoustic Eavesdropping Attack) Parametreleri
-    </div>
-    <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">NDSS 2026 Sempozyumu</span>
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+  COAES (Covert Acoustic Eavesdropping Attack) Parametreleri
   </div>
-
+  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">NDSS 2026 Sempozyumu</span>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs mb-4">
-    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50">
-      <span class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">Fiziksel Dönüşüm Hattı</span>
-      <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">Akustik Yan-Kanal</div>
-      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Akustik Dalga -> Micro-bending -> Refraktif İndeks Değişimi -> Rayleigh Saçılımı -> Sinyal Çatımı</p>
-    </div>
-
-    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50">
-      <span class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">Duyusal Reseptör (Bobinleme)</span>
-      <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">PET Silindir (65mm)</div>
-      <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">15 metre fiber kablo silindir üzerine sarılarak akustik basınç yoğunlaştırılır ve mekanik-optik verim zirveye çıkarılır.</p>
-    </div>
+  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50">
+  <span class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">Fiziksel Dönüşüm Hattı</span>
+  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">Akustik Yan-Kanal</div>
+  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Akustik Dalga -> Micro-bending -> Refraktif İndeks Değişimi -> Rayleigh Saçılımı -> Sinyal Çatımı</p>
   </div>
-
+  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50">
+  <span class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">Duyusal Reseptör (Bobinleme)</span>
+  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-2">PET Silindir (65mm)</div>
+  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">15 metre fiber kablo silindir üzerine sarılarak akustik basınç yoğunlaştırılır ve mekanik-optik verim zirveye çıkarılır.</p>
+  </div>
+  </div>
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
-    <div class="p-3 rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20">
-      <div class="text-[#78716c] text-[10px]">TESPİT EDİLEBİLİRLİK</div>
-      <div class="font-bold text-emerald-700 dark:text-emerald-400 mt-0.5">Sıfır RF Emisyonu</div>
-      <div class="text-[10px] text-[#5c4033] dark:text-[#a8a29e] mt-1">Jammer'lara tam bağışıklık</div>
-    </div>
-    <div class="p-3 rounded-xl border border-sky-200 dark:border-sky-900/40 bg-sky-50/40 dark:bg-sky-950/20">
-      <div class="text-[#78716c] text-[10px]">DİNLEME MENZİLİ</div>
-      <div class="font-bold text-sky-700 dark:text-sky-400 mt-0.5">50 Metre Hat</div>
-      <div class="text-[10px] text-[#5c4033] dark:text-[#a8a29e] mt-1">77 cm konum hassasiyeti</div>
-    </div>
-    <div class="p-3 rounded-xl border border-amber-200 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-950/20">
-      <div class="text-[#78716c] text-[10px]">DOĞRULUK ORANI</div>
-      <div class="font-bold text-amber-800 dark:text-amber-400 mt-0.5">%91 Transkripsiyon</div>
-      <div class="text-[10px] text-[#5c4033] dark:text-[#a8a29e] mt-1">WER sadece %9</div>
-    </div>
+  <div class="p-3 rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/40 dark:bg-emerald-950/20">
+  <div class="text-[#78716c] text-[10px]">TESPİT EDİLEBİLİRLİK</div>
+  <div class="font-bold text-emerald-700 dark:text-emerald-400 mt-0.5">Sıfır RF Emisyonu</div>
+  <div class="text-[10px] text-[#5c4033] dark:text-[#a8a29e] mt-1">Jammer'lara tam bağışıklık</div>
+  </div>
+  <div class="p-3 rounded-xl border border-sky-200 dark:border-sky-900/40 bg-sky-50/40 dark:bg-sky-950/20">
+  <div class="text-[#78716c] text-[10px]">DİNLEME MENZİLİ</div>
+  <div class="font-bold text-sky-700 dark:text-sky-400 mt-0.5">50 Metre Hat</div>
+  <div class="text-[10px] text-[#5c4033] dark:text-[#a8a29e] mt-1">77 cm konum hassasiyeti</div>
+  </div>
+  <div class="p-3 rounded-xl border border-amber-200 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-950/20">
+  <div class="text-[#78716c] text-[10px]">DOĞRULUK ORANI</div>
+  <div class="font-bold text-amber-800 dark:text-amber-400 mt-0.5">%91 Transkripsiyon</div>
+  <div class="text-[10px] text-[#5c4033] dark:text-[#a8a29e] mt-1">WER sadece %9</div>
+  </div>
   </div>
 </div>
 

@@ -38,60 +38,56 @@ Ancak Kaşif Kozinoğlu, duruşmasına yalnızca 10 gün kala, **12 Kasım 2011*
 
 <div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
   <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
-    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
-      Kronolojik Analiz: Kaşif Kozinoğlu Vakası ve Dizi Zamanlaması
-    </span>
-    <span class="text-[11px] font-mono text-[#8c7e74]">48 Saatlik İlliyet Bağı</span>
+  <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+  Kronolojik Analiz: Kaşif Kozinoğlu Vakası ve Dizi Zamanlaması
+  </span>
+  <span class="text-[11px] font-mono text-[#8c7e74]">48 Saatlik İlliyet Bağı</span>
   </div>
-
   <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
-    <!-- 1. Adım -->
-    <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
-      <div class="flex items-center justify-between mb-2 font-mono text-xs">
-        <span class="px-2 py-0.5 rounded-full bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] font-medium">10 Mart 2011</span>
-        <span class="text-[10px] text-[#8c7e74]">Adli Süreç</span>
-      </div>
-      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Silivri'ye Sevk</h4>
-      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
-        Afganistan sahasından çağrılan MİT Başmüşaviri Kaşif Kozinoğlu tutuklanarak Silivri L Tipi Cezaevi'ne konuldu.
-      </p>
-    </div>
-
-    <!-- 2. Adım -->
-    <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
-      <div class="flex items-center justify-between mb-2 font-mono text-xs">
-        <span class="px-2 py-0.5 rounded-full bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-medium">10 Kasım 2011</span>
-        <span class="text-[10px] text-[#8c7e74]">KVP 136. Bölüm</span>
-      </div>
-      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Hücrede Tehdit</h4>
-      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
-        Dizide Kazım Kaşifoğlu karakteri karanlık bir hücreye kapatıldı ve infazla doğrudan tehdit edildi.
-      </p>
-    </div>
-
-    <!-- 3. Adım -->
-    <div class="flex flex-col p-4 rounded-xl border-2 border-[#e1734b] dark:border-[#e59a7a] bg-[#fef9ed] dark:bg-[#1f1612] shadow-sm">
-      <div class="flex items-center justify-between mb-2 font-mono text-xs">
-        <span class="px-2 py-0.5 rounded-full bg-[#e1734b] text-white font-semibold">12 Kasım 2011</span>
-        <span class="text-[10px] font-bold text-[#e1734b] dark:text-[#e59a7a]">+48 Saat</span>
-      </div>
-      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Şüpheli Vefat</h4>
-      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed font-medium">
-        Kozinoğlu, cezaevinde ilk duruşmasına 10 gün kala spor sonrası şüpheli şekilde hayatını kaybetti.
-      </p>
-    </div>
-
-    <!-- 4. Adım -->
-    <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
-      <div class="flex items-center justify-between mb-2 font-mono text-xs">
-        <span class="px-2 py-0.5 rounded-full bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-medium">08 Aralık 2011</span>
-        <span class="text-[10px] text-[#8c7e74]">KVP 139. Bölüm</span>
-      </div>
-      <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Şırıngayla İnfaz</h4>
-      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
-        Dizideki Kaşifoğlu karakteri cezaevi hücresinde koluna şırıngayla hava enjekte edilerek öldürüldü.
-      </p>
-    </div>
+  <!-- 1. Adım -->
+  <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+  <div class="flex items-center justify-between mb-2 font-mono text-xs">
+  <span class="px-2 py-0.5 rounded-full bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] font-medium">10 Mart 2011</span>
+  <span class="text-[10px] text-[#8c7e74]">Adli Süreç</span>
+  </div>
+  <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Silivri'ye Sevk</h4>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+  Afganistan sahasından çağrılan MİT Başmüşaviri Kaşif Kozinoğlu tutuklanarak Silivri L Tipi Cezaevi'ne konuldu.
+  </p>
+  </div>
+  <!-- 2. Adım -->
+  <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+  <div class="flex items-center justify-between mb-2 font-mono text-xs">
+  <span class="px-2 py-0.5 rounded-full bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-medium">10 Kasım 2011</span>
+  <span class="text-[10px] text-[#8c7e74]">KVP 136. Bölüm</span>
+  </div>
+  <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Hücrede Tehdit</h4>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+  Dizide Kazım Kaşifoğlu karakteri karanlık bir hücreye kapatıldı ve infazla doğrudan tehdit edildi.
+  </p>
+  </div>
+  <!-- 3. Adım -->
+  <div class="flex flex-col p-4 rounded-xl border-2 border-[#e1734b] dark:border-[#e59a7a] bg-[#fef9ed] dark:bg-[#1f1612] shadow-sm">
+  <div class="flex items-center justify-between mb-2 font-mono text-xs">
+  <span class="px-2 py-0.5 rounded-full bg-[#e1734b] text-white font-semibold">12 Kasım 2011</span>
+  <span class="text-[10px] font-bold text-[#e1734b] dark:text-[#e59a7a]">+48 Saat</span>
+  </div>
+  <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Şüpheli Vefat</h4>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed font-medium">
+  Kozinoğlu, cezaevinde ilk duruşmasına 10 gün kala spor sonrası şüpheli şekilde hayatını kaybetti.
+  </p>
+  </div>
+  <!-- 4. Adım -->
+  <div class="flex flex-col p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+  <div class="flex items-center justify-between mb-2 font-mono text-xs">
+  <span class="px-2 py-0.5 rounded-full bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-medium">08 Aralık 2011</span>
+  <span class="text-[10px] text-[#8c7e74]">KVP 139. Bölüm</span>
+  </div>
+  <h4 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Şırıngayla İnfaz</h4>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+  Dizideki Kaşifoğlu karakteri cezaevi hücresinde koluna şırıngayla hava enjekte edilerek öldürüldü.
+  </p>
+  </div>
   </div>
 </div>
 
@@ -129,42 +125,39 @@ Kurtlar Vadisi'nin 2003 yılında yakaladığı benzersiz gerçeklik hissi ve de
 
 <div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
   <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
-    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
-      Kurtlar Vadisi Konsept Mimarisi ve İstihbari Kaynak Havuzu
-    </span>
-    <span class="text-[11px] font-mono text-[#8c7e74]">Üç Temel Taşıyıcı Kolon</span>
+  <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+  Kurtlar Vadisi Konsept Mimarisi ve İstihbari Kaynak Havuzu
+  </span>
+  <span class="text-[11px] font-mono text-[#8c7e74]">Üç Temel Taşıyıcı Kolon</span>
   </div>
-
   <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-    <!-- Kolon 1 -->
-    <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
-      <div class="w-8 h-8 rounded-lg bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] flex items-center justify-center font-mono font-bold text-xs mb-3">01</div>
-      <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Ömer Lütfi Mete</h4>
-      <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">Milli Devlet Aklı & Felsefe</p>
-      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
-        Teşkilat felsefesi, Avrasyacı jeopolitik vizyon, derin çete analizi ve Doğu Eşrefoğlu aforizmalarının düşünsel kaynağı.
-      </p>
-    </div>
-
-    <!-- Kolon 2 -->
-    <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
-      <div class="w-8 h-8 rounded-lg bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] flex items-center justify-center font-mono font-bold text-xs mb-3">02</div>
-      <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Soner Yalçın</h4>
-      <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">İstihbarat Arşivi & Saha</p>
-      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
-        <em>Bay Pipo</em>, <em>Reis</em>, <em>Binbaşı Ersever'in İtirafları</em> ve Susurluk/MİT raporlarının kurguya aktarımı; Aslan Akbey ve Pala karakterlerinin omurgası.
-      </p>
-    </div>
-
-    <!-- Kolon 3 -->
-    <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
-      <div class="w-8 h-8 rounded-lg bg-[#eaefe1] dark:bg-[#101a15] text-[#5d524b] dark:text-[#a89f91] flex items-center justify-center font-mono font-bold text-xs mb-3">03</div>
-      <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Osman Sınav</h4>
-      <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">Dramatik Racon & Görsel Dil</p>
-      <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
-        <em>Deli Yürek</em> ekolünden gelen popüler anlatım gücü, kabadayılık estetiği ve 55 bölüm süren yönetmenlik vizyonu.
-      </p>
-    </div>
+  <!-- Kolon 1 -->
+  <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+  <div class="w-8 h-8 rounded-lg bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] flex items-center justify-center font-mono font-bold text-xs mb-3">01</div>
+  <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Ömer Lütfi Mete</h4>
+  <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">Milli Devlet Aklı & Felsefe</p>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+  Teşkilat felsefesi, Avrasyacı jeopolitik vizyon, derin çete analizi ve Doğu Eşrefoğlu aforizmalarının düşünsel kaynağı.
+  </p>
+  </div>
+  <!-- Kolon 2 -->
+  <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+  <div class="w-8 h-8 rounded-lg bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] flex items-center justify-center font-mono font-bold text-xs mb-3">02</div>
+  <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Soner Yalçın</h4>
+  <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">İstihbarat Arşivi & Saha</p>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+  <em>Bay Pipo</em>, <em>Reis</em>, <em>Binbaşı Ersever'in İtirafları</em> ve Susurluk/MİT raporlarının kurguya aktarımı; Aslan Akbey ve Pala karakterlerinin omurgası.
+  </p>
+  </div>
+  <!-- Kolon 3 -->
+  <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs">
+  <div class="w-8 h-8 rounded-lg bg-[#eaefe1] dark:bg-[#101a15] text-[#5d524b] dark:text-[#a89f91] flex items-center justify-center font-mono font-bold text-xs mb-3">03</div>
+  <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-1">Osman Sınav</h4>
+  <p class="text-xs font-mono text-[#a67c52] dark:text-[#c49970] mb-3">Dramatik Racon & Görsel Dil</p>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">
+  <em>Deli Yürek</em> ekolünden gelen popüler anlatım gücü, kabadayılık estetiği ve 55 bölüm süren yönetmenlik vizyonu.
+  </p>
+  </div>
   </div>
 </div>
 
@@ -293,60 +286,56 @@ Kurtlar Vadisi ekibi, 20 yılı aşkın serüveninde yalnızca ekran önünde de
 
 <div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
   <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
-    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
-      Kumpas Dönemi Kamuoyu Mühendisliği Döngüsü
-    </span>
-    <span class="text-[11px] font-mono text-[#8c7e74]">İstihbari Sızıntı & Algı Yönetimi</span>
+  <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+  Kumpas Dönemi Kamuoyu Mühendisliği Döngüsü
+  </span>
+  <span class="text-[11px] font-mono text-[#8c7e74]">İstihbari Sızıntı & Algı Yönetimi</span>
   </div>
-
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-    <!-- Adım 1 -->
-    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
-      <div>
-        <div class="text-[11px] font-mono text-[#e1734b] dark:text-[#e59a7a] font-semibold mb-1">01 / KAYNAK</div>
-        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Emniyet & Yargı Ağı</h5>
-        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Zekeriya Öz ve kumpas şubelerince hazırlanan operasyonel dosyalar ve sızıntı taslakları.</p>
-      </div>
-      <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
-        -> Operasyonel Sufle
-      </div>
-    </div>
-
-    <!-- Adım 2 -->
-    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
-      <div>
-        <div class="text-[11px] font-mono text-[#2e4d4d] dark:text-[#82b09a] font-semibold mb-1">02 / DRAMATİZASYON</div>
-        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Dizi Senaryosu</h5>
-        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">İskender Büyük ve derin yapı sahneleriyle kumpas iddialarının primetime ekranda işlenmesi.</p>
-      </div>
-      <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
-        -> Milyonlarca İzleyici
-      </div>
-    </div>
-
-    <!-- Adım 3 -->
-    <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
-      <div>
-        <div class="text-[11px] font-mono text-[#a67c52] dark:text-[#c49970] font-semibold mb-1">03 / TOPLUMSAL ETKİ</div>
-        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Zihinsel Meşruiyet</h5>
-        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Kamuoyunun yaklaşan gözaltı ve tasfiye dalgalarına psikolojik olarak hazırlanması.</p>
-      </div>
-      <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
-        -> Toplumsal Kabul
-      </div>
-    </div>
-
-    <!-- Adım 4 -->
-    <div class="p-4 rounded-xl border-2 border-[#e1734b] dark:border-[#e59a7a] bg-[#fef9ed] dark:bg-[#1f1612] flex flex-col justify-between shadow-sm">
-      <div>
-        <div class="text-[11px] font-mono text-[#e1734b] dark:text-[#e59a7a] font-bold mb-1">04 / SONUÇ</div>
-        <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Yargı Dalgaları</h5>
-        <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Ergenekon, Balyoz ve OdaTV tutuklamalarının hayata geçirilmesi ve kadro tasfiyeleri.</p>
-      </div>
-      <div class="mt-3 text-[10px] font-mono text-[#e1734b] dark:text-[#e59a7a] bg-white/60 dark:bg-[#141210] p-2 rounded font-semibold">
-        Operasyonel Hedef
-      </div>
-    </div>
+  <!-- Adım 1 -->
+  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
+  <div>
+  <div class="text-[11px] font-mono text-[#e1734b] dark:text-[#e59a7a] font-semibold mb-1">01 / KAYNAK</div>
+  <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Emniyet & Yargı Ağı</h5>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Zekeriya Öz ve kumpas şubelerince hazırlanan operasyonel dosyalar ve sızıntı taslakları.</p>
+  </div>
+  <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
+  -> Operasyonel Sufle
+  </div>
+  </div>
+  <!-- Adım 2 -->
+  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
+  <div>
+  <div class="text-[11px] font-mono text-[#2e4d4d] dark:text-[#82b09a] font-semibold mb-1">02 / DRAMATİZASYON</div>
+  <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Dizi Senaryosu</h5>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">İskender Büyük ve derin yapı sahneleriyle kumpas iddialarının primetime ekranda işlenmesi.</p>
+  </div>
+  <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
+  -> Milyonlarca İzleyici
+  </div>
+  </div>
+  <!-- Adım 3 -->
+  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 flex flex-col justify-between shadow-xs">
+  <div>
+  <div class="text-[11px] font-mono text-[#a67c52] dark:text-[#c49970] font-semibold mb-1">03 / TOPLUMSAL ETKİ</div>
+  <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Zihinsel Meşruiyet</h5>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Kamuoyunun yaklaşan gözaltı ve tasfiye dalgalarına psikolojik olarak hazırlanması.</p>
+  </div>
+  <div class="mt-3 text-[10px] font-mono text-[#8c7e74] bg-[#F5F0E4] dark:bg-[#1c1815] p-2 rounded">
+  -> Toplumsal Kabul
+  </div>
+  </div>
+  <!-- Adım 4 -->
+  <div class="p-4 rounded-xl border-2 border-[#e1734b] dark:border-[#e59a7a] bg-[#fef9ed] dark:bg-[#1f1612] flex flex-col justify-between shadow-sm">
+  <div>
+  <div class="text-[11px] font-mono text-[#e1734b] dark:text-[#e59a7a] font-bold mb-1">04 / SONUÇ</div>
+  <h5 class="font-bold text-sm text-[#2d2724] dark:text-[#fef9ed] mb-1">Yargı Dalgaları</h5>
+  <p class="text-xs text-[#5d524b] dark:text-[#a89f91] leading-relaxed">Ergenekon, Balyoz ve OdaTV tutuklamalarının hayata geçirilmesi ve kadro tasfiyeleri.</p>
+  </div>
+  <div class="mt-3 text-[10px] font-mono text-[#e1734b] dark:text-[#e59a7a] bg-white/60 dark:bg-[#141210] p-2 rounded font-semibold">
+  Operasyonel Hedef
+  </div>
+  </div>
   </div>
 </div>
 
