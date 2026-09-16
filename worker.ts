@@ -208,6 +208,7 @@ export default {
       !url.pathname.endsWith('.jpg') &&
       !url.pathname.endsWith('.webp')
     ) {
+      // 1. Homepage / root -> llms.txt
       if (url.pathname === '/' || url.pathname === '' || url.pathname === '/index.html') {
         const llmsUrl = new URL('/llms.txt', request.url);
         const res = await env.ASSETS.fetch(new Request(llmsUrl.toString()));
@@ -221,32 +222,60 @@ export default {
               'x-markdown-tokens': tokens.toString(),
               'Vary': 'Accept',
               'Access-Control-Allow-Origin': '*',
-              'Cache-Control': 'public, max-age=60',
+              'Cache-Control': 'public, max-age=300',
             },
           });
+        }
+      }
+
+      // 2. Individual Blog Posts -> Extract raw markdown from embedded script
+      if (url.pathname.startsWith('/blog/') && url.pathname !== '/blog/' && url.pathname !== '/blog') {
+        const pageRes = await env.ASSETS.fetch(request);
+        if (pageRes.ok) {
+          const html = await pageRes.text();
+          const match = html.match(/<script type="text\/plain" id="qs-raw-markdown"[^>]*>([\s\S]*?)<\/script>/);
+          if (match) {
+            try {
+              const markdown = JSON.parse(match[1]);
+              const tokens = Math.ceil(markdown.length / 4);
+              return new Response(markdown, {
+                status: 200,
+                headers: {
+                  'Content-Type': 'text/markdown; charset=utf-8',
+                  'x-markdown-tokens': tokens.toString(),
+                  'Vary': 'Accept',
+                  'Access-Control-Allow-Origin': '*',
+                  'Cache-Control': 'public, max-age=300',
+                },
+              });
+            } catch {
+              // fallback to normal HTML if parsing fails
+            }
+          }
         }
       }
     }
 
     const response = await env.ASSETS.fetch(request);
 
-    // Ensure Link headers on homepage
-    if (url.pathname === '/' || url.pathname === '' || url.pathname === '/index.html') {
+    // LLM Context Files: add tokens and CORS
+    if (url.pathname === '/llms.txt' || url.pathname === '/llms-full.txt') {
+      const text = await response.text();
+      const tokens = Math.ceil(text.length / 4);
       const newHeaders = new Headers(response.headers);
-      newHeaders.set(
-        'Link',
-        '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/http-message-signatures-directory>; rel="http-message-signatures-directory"'
-      );
+      newHeaders.set('Content-Type', 'text/plain; charset=utf-8');
+      newHeaders.set('x-markdown-tokens', tokens.toString());
       newHeaders.set('Access-Control-Allow-Origin', '*');
       newHeaders.set('Vary', 'Accept');
-      newHeaders.set('Cache-Control', 'public, max-age=0, must-revalidate');
-      return new Response(response.body, {
+      newHeaders.set('Cache-Control', 'public, max-age=3600');
+      return new Response(text, {
         status: response.status,
         statusText: response.statusText,
         headers: newHeaders,
       });
     }
 
+    // Web Bot Auth RFC 9421 Directory
     if (url.pathname === '/.well-known/http-message-signatures-directory') {
       const newHeaders = new Headers(response.headers);
       newHeaders.set('Content-Type', 'application/http-message-signatures-directory+json; charset=utf-8');
@@ -259,9 +288,19 @@ export default {
       });
     }
 
+    // All HTML responses: attach Agent Discovery Link headers & security headers
     if (response.headers.get('content-type')?.includes('text/html')) {
       const newHeaders = new Headers(response.headers);
       newHeaders.set('Cache-Control', 'public, max-age=0, must-revalidate');
+      newHeaders.set(
+        'Link',
+        '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/http-message-signatures-directory>; rel="http-message-signatures-directory", </auth.md>; rel="author-authorization"'
+      );
+      newHeaders.set('X-Content-Type-Options', 'nosniff');
+      newHeaders.set('X-Frame-Options', 'SAMEORIGIN');
+      newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+      newHeaders.set('Access-Control-Allow-Origin', '*');
+      newHeaders.set('Vary', 'Accept');
       return new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
