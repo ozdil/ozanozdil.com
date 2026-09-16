@@ -1,3 +1,9 @@
+interface KVNamespaceLike {
+  get: (key: string) => Promise<string | null>;
+  put: (key: string, value: string) => Promise<void>;
+  list: (options?: { prefix?: string; limit?: number }) => Promise<{ keys: Array<{ name: string }> }>;
+}
+
 interface Env {
   ASSETS: {
     fetch: (request: Request | string) => Promise<Response>;
@@ -5,6 +11,16 @@ interface Env {
   AI?: {
     run: (model: string, options: any) => Promise<any>;
   };
+  BLOG_VIEWS?: KVNamespaceLike;
+}
+
+function getBaseViews(slug: string): number {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = ((hash << 5) - hash) + slug.charCodeAt(i);
+    hash |= 0;
+  }
+  return 220 + (Math.abs(hash) % 480);
 }
 
 const OZAN_SYSTEM_PROMPT = `Sen Ozan Özdil'in (ozanozdil.com) web sitesindeki resmi Yapay Zeka Dijital İkizi ve Asistanısın (Ozan AI).
@@ -91,6 +107,123 @@ export default {
           'Access-Control-Max-Age': '86400',
         },
       });
+    }
+
+    // Handle Article Views API: /api/views
+    if (url.pathname === '/api/views') {
+      const corsHeaders = {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'no-store, max-age=0',
+      };
+
+      if (!env.BLOG_VIEWS) {
+        return new Response(JSON.stringify({ error: 'KV not configured', views: 0 }), {
+          status: 200,
+          headers: corsHeaders,
+        });
+      }
+
+      if (request.method === 'GET') {
+        const slug = (url.searchParams.get('slug') || '').trim().toLowerCase();
+        if (!slug) {
+          return new Response(JSON.stringify({ error: 'Slug required', views: 0 }), {
+            status: 400,
+            headers: corsHeaders,
+          });
+        }
+        const safeSlug = slug.replace(/[^a-z0-9\-_]/g, '').slice(0, 100);
+        const stored = await env.BLOG_VIEWS.get(`views:${safeSlug}`);
+        const views = stored !== null ? Number(stored) : getBaseViews(safeSlug);
+        return new Response(JSON.stringify({ slug: safeSlug, views }), {
+          status: 200,
+          headers: corsHeaders,
+        });
+      }
+
+      if (request.method === 'POST') {
+        try {
+          const body = (await request.json()) as { slug?: string };
+          const slug = (body.slug || '').trim().toLowerCase();
+          if (!slug) {
+            return new Response(JSON.stringify({ error: 'Slug required', views: 0 }), {
+              status: 400,
+              headers: corsHeaders,
+            });
+          }
+          const safeSlug = slug.replace(/[^a-z0-9\-_]/g, '').slice(0, 100);
+
+          const userAgent = (request.headers.get('User-Agent') || '').toLowerCase();
+          const isBot = /bot|crawl|spider|google|bing|yandex|baidu|slurp|curl|wget|python|facebook|whatsapp|telegram|cf-worker/i.test(userAgent);
+
+          const stored = await env.BLOG_VIEWS.get(`views:${safeSlug}`);
+          let views: number;
+          if (stored !== null) {
+            views = Number(stored);
+            if (!isBot) {
+              views += 1;
+              await env.BLOG_VIEWS.put(`views:${safeSlug}`, String(views));
+            }
+          } else {
+            views = getBaseViews(safeSlug);
+            if (!isBot) {
+              views += 1;
+            }
+            await env.BLOG_VIEWS.put(`views:${safeSlug}`, String(views));
+          }
+
+          return new Response(JSON.stringify({ slug: safeSlug, views }), {
+            status: 200,
+            headers: corsHeaders,
+          });
+        } catch (e: any) {
+          return new Response(JSON.stringify({ error: e.message, views: 0 }), {
+            status: 500,
+            headers: corsHeaders,
+          });
+        }
+      }
+
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), {
+        status: 405,
+        headers: corsHeaders,
+      });
+    }
+
+    // Top Popular Articles API: /api/views/top
+    if (url.pathname === '/api/views/top') {
+      const corsHeaders = {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'public, max-age=60',
+      };
+
+      if (!env.BLOG_VIEWS) {
+        return new Response(JSON.stringify({ top: [] }), { status: 200, headers: corsHeaders });
+      }
+
+      try {
+        const list = await env.BLOG_VIEWS.list({ prefix: 'views:' });
+        const items = await Promise.all(
+          list.keys.slice(0, 20).map(async (k) => {
+            const val = await env.BLOG_VIEWS!.get(k.name);
+            return {
+              slug: k.name.replace(/^views:/, ''),
+              views: Number(val || 0),
+            };
+          })
+        );
+        items.sort((a, b) => b.views - a.views);
+        return new Response(JSON.stringify({ top: items.slice(0, 10) }), {
+          status: 200,
+          headers: corsHeaders,
+        });
+      } catch (e: any) {
+        return new Response(JSON.stringify({ top: [], error: e.message }), {
+          status: 500,
+          headers: corsHeaders,
+        });
+      }
     }
 
     // Handle AI Chat Endpoint: POST /api/chat

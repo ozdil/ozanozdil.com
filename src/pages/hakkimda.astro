@@ -4,9 +4,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const timeline = [
   {
     period: '2024 — Günümüz',
+    role: 'Kurumsal Bilgi Yönetimi & Arşiv Araştırmacılığı',
+    org: 'Kastamonu Belediyesi',
+    badge: 'Kamu Görevi & Kurumsal Hafıza',
+    badgeColor: 'bg-[#f5f0e4] text-[#5d524b] dark:bg-[#26201c] dark:text-[#a89f91]',
+    description:
+      'Kastamonu Belediyesi bünyesinde kurumsal hafızanın korunması, resmi evrak sistemleri, kentsel dokümantasyon ve kamu arşivinin tasnif, muhafaza ve araştırma süreçlerinin yürütülmesi. Yılların getirdiği belediyecilik, bilgi işlem ve başkan danışmanlığı birikiminin kurumsal arşiv disipliniyle buluşturulması.',
+    highlights: [
+      'Kurumsal hafızanın korunması, kentsel bellek ve resmi dokümantasyon yönetimi',
+      'Kamu mevzuatı, idari süreçler ve evrak akış güvenliği',
+      'Belediye hizmet süreçlerinde devamlılık ve kamu ciddiyetiyle kurumsal katkı'
+    ]
+  },
+  {
+    period: '2024 — Günümüz',
     role: 'Bağımsız YZ Kodcusu & Açık Kaynak Sistem Mimarı',
     org: 'Omarchy Linux Ekosistemi & Ar-Ge',
-    badge: 'Aktif Ar-Ge',
+    badge: 'Bağımsız Ar-Ge',
     badgeColor: 'bg-[#eaefe1] text-[#2e4d4d] dark:bg-[#1c2b23] dark:text-[#82b09a]',
     description:
       'Arch Linux tabanlı Omarchy dağıtım mimarisi, Wayland/Hyprland masaüstü entegrasyonu, OmaStudio 16-bit orta format RAW işleme motoru, Cyber Sentinel donanım savunması ve Antigravity CLI / Claude Code otonom yapay zekâ kodlama ajanları ile bağımsız Ar-Ge üretimi.',
@@ -17,7 +31,7 @@ const timeline = [
     ]
   },
   {
-    period: '2022 — 2023',
+    period: '2022 — 2024',
     role: 'Ar-Ge & Bilgi İşlem Yöneticiliği',
     org: 'Kastamonu Belediyesi',
     badge: 'Kurumsal Teknoloji',
@@ -75,9 +89,10 @@ const timeline = [
 
 const competencies = [
   {
-    category: 'Kamu Stratejisi & İletişim',
+    category: 'Kamu Stratejisi & Kurumsal Yönetim',
     items: [
       'Belediye Başkan Danışmanlığı',
+      'Kurumsal Arşiv & Bilgi Yönetimi',
       'Basın-Yayın & Halkla İlişkiler',
       'Kriz Yönetimi & Kitle İletişimi',
       'Siyasal Kampanya Koordinasyonu',
@@ -118,7 +133,7 @@ const competencies = [
 
 <BaseLayout
   title="Hakkımda & Teknik Özgeçmiş — Ozan Özdil"
-  description="Ozan Özdil: KTÜ Orman Mühendisliği kökeni, Kastamonu Belediyesi Başkan Danışmanlığı, Ar-Ge & Bilgi İşlem Yöneticiliği, 2019 seçim stratejisi, Omarchy Linux ve YZ kodculuğu."
+  description="Ozan Özdil: KTÜ Orman Mühendisliği formasyonu, Kastamonu Belediyesi kurumsal tecrübesi (Başkan Danışmanlığı, Bilgi İşlem, Kurumsal Hafıza & Arşiv), Omarchy Linux ve bağımsız YZ sistem mimarisi."
   currentPath="/hakkimda"
   maxWidthClass="max-w-4xl"
 >
@@ -154,22 +169,22 @@ const competencies = [
           </h1>
 
           <p class="font-serif text-lg sm:text-xl text-[#5D524B] dark:text-[#a89f91] font-normal leading-relaxed">
-            Orman Mühendisi • Eski Başkan Danışmanı & Bilgi İşlem Yöneticisi • Açık Kaynak Sistem Mimarı
+            Orman Mühendisi • Kastamonu Belediyesi • Açık Kaynak Sistem Mimarı
           </p>
 
           <!-- Quick Metadata Chips -->
           <div class="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-[#8C7E74] dark:text-[#a89f91]">
             <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-              📍 Kastamonu, TR
+              Kastamonu, TR
             </span>
             <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-              🌲 KTÜ Orman Fakültesi
+              KTÜ Orman Fakültesi
             </span>
             <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-              🏛️ Kastamonu Belediyesi (2019–2024)
+              Kastamonu Belediyesi (2019 — Günümüz)
             </span>
             <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
-              ⚡ Omarchy & Arch Linux
+              Omarchy & Arch Linux
             </span>
           </div>
         </div>
@@ -192,10 +207,13 @@ const competencies = [
           Karadeniz Teknik Üniversitesi (KTÜ) Orman Fakültesi'nden aldığım mühendislik formasyonu; yalnızca ağaçları ve ormanları değil, birbiriyle sürekli iletişim hâlindeki karmaşık ekosistemleri, döngüsel dengeleri ve kök bilincini okumayı öğretti. Canlı bir ormanın bütünselliği neyse, modern bilişim mimarileri ve toplumların kitle iletişimi de benim için aynı kökten beslenen birer dinamik sistemdir.
         </p>
         <p>
-          Kariyerimin dönüm noktalarından birini kamu yönetimi, yerel siyaset stratejisi ve kitle iletişimi teşkil etti. 2019 yerel seçim sürecinde Kastamonu'da zaferle sonuçlanan kampanya stratejisini, saha veri analitiğini ve iletişim liderliğini yürüttüm. Akabinde <strong>Kastamonu Belediyesi Başkan Danışmanlığı</strong> ile <strong>Ar-Ge ve Bilgi İşlem Yöneticiliği</strong> görevlerinde bulundum. Bu süreçte basın-yayın ve halkla ilişkiler mekanizmalarını baştan yapılandırarak 3 ayda <strong>25 milyondan fazla organik erişim</strong> sağlayan bir kitle iletişimi rekoru kırdık; kriz yönetiminden belediye sunucu ve bilişim altyapısının modernizasyonuna kadar çok yönlü kurumsal sorumluluklar üstlendik.
+          Kariyerimin önemli bir eksenini kamu yönetimi, yerel siyaset stratejisi ve kurumsal iletişim teşkil etti. 2019 yerel seçim sürecinde Kastamonu'da zaferle sonuçlanan kampanya stratejisini, saha veri analitiğini ve iletişim liderliğini yürüttüm. Akabinde <strong>Kastamonu Belediyesi Başkan Danışmanlığı</strong> ile <strong>Ar-Ge ve Bilgi İşlem Yöneticiliği</strong> görevlerinde bulundum. Bu süreçte basın-yayın ve halkla ilişkiler mekanizmalarını baştan yapılandırarak 3 ayda <strong>25 milyondan fazla organik erişim</strong> sağlayan bir kitle iletişimi rekoru kırdık; kriz yönetiminden belediye sunucu ve bilişim altyapısının modernizasyonuna kadar kurumsal sorumluluklar üstlendik.
         </p>
         <p>
-          Bugün arşivin sükûnetinde; edindiğimiz kamu disiplinini ve sistem analitiğini açık kaynak dünyasıyla birleştiriyorum. <a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-[#2d2724] dark:text-[#fef9ed] underline decoration-[#e1734b] underline-offset-4 font-medium hover:text-[#e1734b]">Omarchy Linux</a> çatısı altında Arch Linux çekirdek optimizasyonları, <strong>OmaStudio</strong> ile 16-bit orta format RAW motorları, <strong>Cyber Sentinel</strong> ile donanımsal güvenlik kalkanları ve otonom yapay zekâ kodlama ajanları (Antigravity CLI / Claude Code) geliştirerek bağımsız teknoloji üretimine devam ediyorum.
+          Halen Kastamonu Belediyesi bünyesinde kurumsal hafızanın korunması, kentsel bellek araştırmaları ve resmi evrak arşiv sistematiği alanındaki kamu görevimi sürdürüyorum. Yılların getirdiği kamu yönetimi, bilgi işlem ve saha tecrübesini; kurumsal arşivin gerektirdiği titizlik, resmiyet ve devlet disipliniyle birleştirerek kentin idari hafızasına katkı sunmaya devam ediyorum.
+        </p>
+        <p>
+          Mesai dışındaki bağımsız Ar-Ge çalışmalarımda ise sistem analitiğini modern yazılım dünyasıyla buluşturuyorum. <a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-[#2d2724] dark:text-[#fef9ed] underline decoration-[#e1734b] underline-offset-4 font-medium hover:text-[#e1734b]">Omarchy Linux</a> çatısı altında Arch Linux çekirdek optimizasyonları, <strong>OmaStudio</strong> ile 16-bit orta format RAW işleme motoru, <strong>Cyber Sentinel</strong> ile donanımsal güvenlik kalkanları ve otonom yapay zekâ kodlama ajanları (Antigravity CLI / Claude Code) geliştirerek dijital egemenlik odaklı bağımsız teknoloji üretiyorum.
         </p>
         <p>
           Aynı zamanda Fujifilm GFX orta format sistemleriyle Karadeniz'in çivisiz ahşap çantı camilerini, kündekari sanatını ve kaybolan somut kültürel mirasını yüksek çözünürlüklü bir görsel arşive dönüştürüyorum.
@@ -401,8 +419,8 @@ const competencies = [
           rel="noopener noreferrer"
           class="p-4 rounded-[18px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2] dark:border-[#2d2521] hover:border-[#2d2724] dark:hover:border-[#fef9ed] transition-colors text-center group"
         >
-          <span class="text-[11px] text-amber-600 dark:text-amber-400 block mb-1">Destek Ol</span>
-          <span class="text-sm font-semibold text-amber-700 dark:text-amber-300 group-hover:underline transition-colors">Kahve Ismarla ☕</span>
+          <span class="text-[11px] text-[#8C7E74] dark:text-[#a89f91] block mb-1">Açık Kaynak Katkı</span>
+          <span class="text-sm font-semibold text-[#2d2724] dark:text-[#fef9ed] group-hover:text-[#e1734b] transition-colors">Destek Ol ↗</span>
         </a>
       </div>
     </section>
