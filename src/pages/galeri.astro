@@ -65,38 +65,38 @@ const imageGallerySchema = {
 
   <div class="pt-10 sm:pt-16 pb-16 space-y-12 sm:space-y-16">
     <!-- Header: Editorial & Airy -->
-    <header class="rounded-[28px] border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1f1a17]/60 p-8 sm:p-14 text-center shadow-2xs space-y-4">
-      <div class="inline-flex items-center gap-2 font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase tracking-wider font-semibold">
-        <span class="w-2 h-2 rounded-full bg-[#e1734b] dark:bg-[#e59a7a]"></span>
+    <header class="rounded-[28px] border border-[#e5c158]/25 bg-[#280205] p-8 sm:p-14 text-center shadow-xl space-y-4">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-[#e5c158] uppercase tracking-wider font-semibold">
+        <span class="w-2 h-2 rounded-full bg-[#e5c158] animate-pulse"></span>
         <span>// GÖRSEL KÜLTÜR & BELGESEL ARŞİV</span>
       </div>
-      <h1 class="text-4xl sm:text-6xl font-serif font-normal text-[#2d2724] dark:text-[#fef9ed] leading-[1.32] pb-1">
+      <h1 class="text-4xl sm:text-6xl font-serif font-normal text-[#e5c158] leading-[1.32] pb-1">
         Orta Format Mimari & Doğa Galerisi
       </h1>
-      <p class="text-base sm:text-xl text-[#5D524B] dark:text-[#a89f91] max-w-2xl mx-auto font-serif leading-relaxed font-normal">
+      <p class="text-base sm:text-xl text-[#c5cbd3] max-w-2xl mx-auto font-serif leading-relaxed font-normal">
         Kastamonu tarihi ahşap mimarisi, çivisiz camiler (UNESCO), Ağlı Kalesi ve kadim coğrafi rotalar. Fujifilm GFX 100 & 50R sistemiyle 16-bit fotonik kayıtlar.
       </p>
-      <div class="inline-flex flex-wrap items-center justify-center gap-2 pt-2 font-mono text-xs text-[#8C7E74] dark:text-[#a89f91]">
-        <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 pt-2 font-mono text-xs text-[#c5cbd3]">
+        <span class="px-3 py-1 rounded-full bg-[#190102] border border-[#c5cbd3]/20">
           {totalAlbums} Konum
         </span>
-        <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+        <span class="px-3 py-1 rounded-full bg-[#190102] border border-[#c5cbd3]/20">
           {totalPhotos} Kare
         </span>
-        <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+        <span class="px-3 py-1 rounded-full bg-[#190102] border border-[#e5c158]/30 text-[#e5c158]">
           Sensör: 43.8×32.9mm Orta Format
         </span>
       </div>
     </header>
 
     <!-- Filter Deck: Sleek Museum Pills -->
-    <div class="p-6 sm:p-8 rounded-[24px] border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1f1a17]/60 text-xs font-mono space-y-4 shadow-2xs">
+    <div class="p-6 sm:p-8 rounded-[24px] border border-[#e5c158]/25 bg-[#280205] text-xs font-mono space-y-4 shadow-xl">
       <!-- Year Filter Row -->
       <div class="flex flex-wrap items-center gap-2">
-        <span class="text-[#8C7E74] dark:text-[#a89f91] w-20 flex-shrink-0 text-[11px] uppercase tracking-wider font-semibold">Yıllar:</span>
+        <span class="text-[#e5c158] w-20 flex-shrink-0 text-[11px] uppercase tracking-wider font-semibold">Yıllar:</span>
         <button
           type="button"
-          class="filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#2d2724] dark:border-[#fef9ed] bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-medium cursor-pointer transition-all"
+          class="filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#e5c158] bg-[#e5c158] text-[#190102] font-semibold cursor-pointer transition-all"
           data-type="year"
           data-val="all"
         >
@@ -105,7 +105,7 @@ const imageGallerySchema = {
         {years.map((y) => (
           <button
             type="button"
-            class="filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#ead9d2] dark:border-[#2d2521] bg-[#fef9ed] dark:bg-[#141210] text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] hover:border-[#5D524B]/30 cursor-pointer transition-all"
+            class="filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#c5cbd3]/20 bg-[#190102] text-[#c5cbd3] hover:text-[#e5c158] hover:border-[#e5c158]/40 cursor-pointer transition-all"
             data-type="year"
             data-val={y}
           >
@@ -115,11 +115,11 @@ const imageGallerySchema = {
       </div>
 
       <!-- Camera Filter Row -->
-      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#ead9d2]/40 dark:border-[#2d2521]/60">
-        <span class="text-[#8C7E74] dark:text-[#a89f91] w-20 flex-shrink-0 text-[11px] uppercase tracking-wider font-semibold">Gövdeler:</span>
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#e5c158]/20">
+        <span class="text-[#e5c158] w-20 flex-shrink-0 text-[11px] uppercase tracking-wider font-semibold">Gövdeler:</span>
         <button
           type="button"
-          class="filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#2d2724] dark:border-[#fef9ed] bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-medium cursor-pointer transition-all"
+          class="filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#e5c158] bg-[#e5c158] text-[#190102] font-semibold cursor-pointer transition-all"
           data-type="camera"
           data-val="all"
         >
@@ -128,7 +128,7 @@ const imageGallerySchema = {
         {cameras.map((c) => (
           <button
             type="button"
-            class="filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#ead9d2] dark:border-[#2d2521] bg-[#fef9ed] dark:bg-[#141210] text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] hover:border-[#5D524B]/30 cursor-pointer transition-all"
+            class="filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#c5cbd3]/20 bg-[#190102] text-[#c5cbd3] hover:text-[#e5c158] hover:border-[#e5c158]/40 cursor-pointer transition-all"
             data-type="camera"
             data-val={c}
           >
@@ -138,11 +138,11 @@ const imageGallerySchema = {
       </div>
 
       <!-- Lens Filter Row -->
-      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#ead9d2]/40 dark:border-[#2d2521]/60">
-        <span class="text-[#8C7E74] dark:text-[#a89f91] w-20 flex-shrink-0 text-[11px] uppercase tracking-wider font-semibold">Lensler:</span>
+      <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#e5c158]/20">
+        <span class="text-[#e5c158] w-20 flex-shrink-0 text-[11px] uppercase tracking-wider font-semibold">Lensler:</span>
         <button
           type="button"
-          class="filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#2d2724] dark:border-[#fef9ed] bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-medium cursor-pointer transition-all"
+          class="filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#e5c158] bg-[#e5c158] text-[#190102] font-semibold cursor-pointer transition-all"
           data-type="lens"
           data-val="all"
         >
@@ -153,7 +153,7 @@ const imageGallerySchema = {
           return (
             <button
               type="button"
-              class="filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#ead9d2] dark:border-[#2d2521] bg-[#fef9ed] dark:bg-[#141210] text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] hover:border-[#5D524B]/30 cursor-pointer transition-all"
+              class="filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#c5cbd3]/20 bg-[#190102] text-[#c5cbd3] hover:text-[#e5c158] hover:border-[#e5c158]/40 cursor-pointer transition-all"
               data-type="lens"
               data-val={l}
             >
@@ -172,14 +172,14 @@ const imageGallerySchema = {
           const albumLenses = Array.from(new Set(album.photos.map((p) => p.exif.lens.trim()))).join(', ');
           return (
             <article
-              class="album-card group rounded-[26px] sm:rounded-[32px] border border-[#ead9d2]/80 dark:border-[#2d2521] hover:border-[#5D524B]/35 dark:hover:border-[#ead9d2]/40 bg-[#F5F0E4]/60 dark:bg-[#1c1815]/70 overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-2xs hover:shadow-md select-none"
+              class="album-card group rounded-[26px] sm:rounded-[32px] border border-[#e5c158]/25 hover:border-[#e5c158]/60 bg-[#280205] overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xl select-none"
               data-slug={album.slug || album.id}
               data-year={album.year}
               data-camera={albumCameras}
               data-lens={albumLenses}
             >
               <!-- Media Preview Area (Large & Cinematic Aspect) -->
-              <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#1f1a17]">
+              <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#190102]">
                 <img
                   src={album.coverPhoto || album.coverThumb || album.cover || album.photos[0]?.thumb || album.photos[0]?.src}
                   alt={`${album.title} - ${album.locationFull} fotoğraf serisi - Ozan Özdil`}
@@ -197,21 +197,21 @@ const imageGallerySchema = {
 
                 <!-- Top Badges: Clean Glass Pills -->
                 <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-20 pointer-events-none font-mono text-xs">
-                  <span class="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md text-white/95 border border-white/15 flex items-center gap-1.5">
+                  <span class="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] border border-white/20 flex items-center gap-1.5">
                     <span>{album.location}</span>
                   </span>
 
-                  <span class="px-3 py-1 rounded-full bg-black/65 backdrop-blur-md text-white/95 border border-white/15 font-medium">
+                  <span class="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] border border-white/20 font-medium">
                     {album.year}
                   </span>
                 </div>
 
                 <!-- Bottom Badges -->
-                <div class="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between text-xs font-mono text-white/90 z-20 pointer-events-none">
-                  <span class="bg-black/65 px-3 py-1 rounded-full backdrop-blur-md border border-white/15">
+                <div class="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between text-xs font-mono text-[#ffffff] z-20 pointer-events-none">
+                  <span class="bg-black/75 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">
                     {album.photoCount} Kare
                   </span>
-                  <span class="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#fbd3be] border border-[#fbd3be]/30 font-medium">
+                  <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[#e5c158] border border-[#e5c158]/40 font-medium">
                     Fujifilm GFX
                   </span>
                 </div>
@@ -221,29 +221,29 @@ const imageGallerySchema = {
               <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between gap-4">
                 <div class="space-y-3">
                   <div class="flex items-baseline justify-between gap-2">
-                    <span class="text-xs font-mono text-[#8C7E74] dark:text-[#a89f91]">
+                    <span class="text-xs font-mono text-[#c5cbd3]">
                       {album.dateFormatted}
                     </span>
-                    <span class="text-[11px] font-mono text-[#a67c52]">
+                    <span class="text-[11px] font-mono text-[#e5c158]">
                       16-Bit RAW
                     </span>
                   </div>
 
-                  <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#2d2724] dark:text-[#fef9ed] group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] transition-colors leading-[1.25]">
+                  <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] group-hover:text-[#e5c158] transition-colors leading-[1.25]">
                     {album.title}
                   </h2>
 
-                  <p class="font-serif text-sm sm:text-base text-[#5D524B] dark:text-[#a89f91] line-clamp-3 leading-relaxed">
+                  <p class="font-serif text-sm sm:text-base text-[#c5cbd3] line-clamp-3 leading-relaxed">
                     {album.description.split('\n\n')[0]}
                   </p>
                 </div>
 
                 <!-- Bottom Equipment & CTA Row -->
-                <div class="pt-4 border-t border-[#ead9d2]/60 dark:border-[#2d2521] flex items-center justify-between text-xs font-mono">
-                  <span class="text-[#8C7E74] dark:text-[#a89f91] truncate max-w-[200px]" title={album.equipment}>
+                <div class="pt-4 border-t border-[#e5c158]/20 flex items-center justify-between text-xs font-mono">
+                  <span class="text-[#c5cbd3] truncate max-w-[200px]" title={album.equipment}>
                     {album.equipment}
                   </span>
-                  <span class="text-[#2d2724] dark:text-[#fef9ed] group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] font-medium flex items-center gap-1.5 whitespace-nowrap transition-transform group-hover:translate-x-1">
+                  <span class="text-[#e5c158] group-hover:text-[#f3e5ab] font-medium flex items-center gap-1.5 whitespace-nowrap transition-transform group-hover:translate-x-1">
                     <span>Albümü İncele</span>
                     <span>→</span>
                   </span>
@@ -258,26 +258,26 @@ const imageGallerySchema = {
     <!-- VIEW 2: ALBUM PHOTOS (Opened Collection View) -->
     <div id="photo-view" class="hidden space-y-8">
       <!-- Back & Navigation Ribbon -->
-      <div class="p-6 sm:p-10 rounded-[28px] border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1c1815]/70 space-y-6">
+      <div class="p-6 sm:p-10 rounded-[28px] border border-[#e5c158]/25 bg-[#280205] space-y-6 shadow-xl">
         <div class="flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
           <button
             id="btn-back-albums"
             type="button"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ead9d2] dark:border-[#2d2521] bg-[#fef9ed] dark:bg-[#141210] text-[#2d2724] dark:text-[#fef9ed] hover:border-[#5D524B]/40 transition-colors cursor-pointer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#e5c158]/30 bg-[#190102] text-[#ffffff] hover:text-[#e5c158] hover:border-[#e5c158] transition-colors cursor-pointer"
           >
             <span>← Tüm Koleksiyonlara Dön</span>
           </button>
 
           <div class="flex flex-wrap items-center gap-2">
-            <span id="album-location-badge" class="px-3 py-1 rounded-full bg-[#fef9ed] dark:bg-[#141210] border border-[#ead9d2] dark:border-[#2d2521] text-[#5D524B] dark:text-[#a89f91]"></span>
-            <span id="album-photo-count-badge" class="px-3 py-1 rounded-full bg-[#fef9ed] dark:bg-[#141210] border border-[#ead9d2] dark:border-[#2d2521] text-[#e1734b] dark:text-[#e59a7a] font-medium"></span>
+            <span id="album-location-badge" class="px-3 py-1 rounded-full bg-[#190102] border border-[#e5c158]/25 text-[#c5cbd3]"></span>
+            <span id="album-photo-count-badge" class="px-3 py-1 rounded-full bg-[#190102] border border-[#e5c158]/25 text-[#e5c158] font-medium"></span>
           </div>
         </div>
 
-        <div class="space-y-3 pt-4 border-t border-[#ead9d2]/60 dark:border-[#2d2521]">
-          <div id="album-equipment-badge" class="font-mono text-xs text-[#8C7E74] dark:text-[#a89f91]"></div>
-          <h2 id="album-active-title" class="text-3xl sm:text-5xl font-serif font-normal text-[#2d2724] dark:text-[#fef9ed] leading-tight"></h2>
-          <div id="album-essay-container" class="mt-4 text-base sm:text-lg text-[#5D524B] dark:text-[#a89f91] leading-relaxed w-full space-y-4 font-serif"></div>
+        <div class="space-y-3 pt-4 border-t border-[#e5c158]/20">
+          <div id="album-equipment-badge" class="font-mono text-xs text-[#e5c158]"></div>
+          <h2 id="album-active-title" class="text-3xl sm:text-5xl font-serif font-normal text-[#ffffff] leading-tight"></h2>
+          <div id="album-essay-container" class="mt-4 text-base sm:text-lg text-[#f8fafc] leading-relaxed w-full space-y-4 font-serif"></div>
         </div>
       </div>
 
@@ -291,23 +291,23 @@ const imageGallerySchema = {
   <!-- LIGHTBOX / FOTOĞRAF VE EXIF MODAL -->
   <dialog
     id="photoModal"
-    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-[#141210] text-[#fef9ed] border border-[#2d2521] rounded-[28px] max-w-6xl w-[95vw] sm:w-full p-0 shadow-2xl overflow-y-auto max-h-[92vh] m-auto select-none"
+    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-[#190102] text-[#f8fafc] border border-[#e5c158]/35 rounded-[28px] max-w-6xl w-[95vw] sm:w-full p-0 shadow-2xl overflow-y-auto max-h-[92vh] m-auto select-none"
   >
     <!-- Modal Top Window Titlebar -->
-    <div class="sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#191512] border-b border-[#2d2521] text-xs font-mono">
+    <div class="sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#280205] border-b border-[#e5c158]/20 text-xs font-mono">
       <div class="flex items-center gap-3">
-        <span id="modalPhotoIndex" class="px-2.5 py-0.5 rounded-full bg-[#26201c] text-[#e59a7a] text-[11px] font-medium">01 / 09</span>
-        <span id="photoModalTitle" class="truncate text-[#fef9ed] max-w-md font-serif text-sm hidden sm:inline"></span>
+        <span id="modalPhotoIndex" class="px-2.5 py-0.5 rounded-full bg-[#190102] text-[#e5c158] border border-[#e5c158]/30 text-[11px] font-medium">01 / 09</span>
+        <span id="photoModalTitle" class="truncate text-[#ffffff] max-w-md font-serif text-sm hidden sm:inline"></span>
       </div>
 
       <div class="flex items-center gap-3">
-        <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#26201c] border border-[#2d2521] text-[#a89f91] text-[11px]">
+        <span class="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#190102] border border-[#c5cbd3]/20 text-[#c5cbd3] text-[11px]">
           <span>© Ozan Özdil • Telif Hakları Saklıdır</span>
         </span>
         <button
           id="btnCloseModal"
           type="button"
-          class="text-[#a89f91] hover:text-[#fef9ed] px-3 py-1 rounded-full bg-[#26201c] hover:bg-[#332a24] border border-[#2d2521] transition-colors cursor-pointer text-xs font-mono"
+          class="text-[#c5cbd3] hover:text-[#e5c158] px-3 py-1 rounded-full bg-[#190102] hover:bg-[#380407] border border-[#c5cbd3]/20 transition-colors cursor-pointer text-xs font-mono"
         >
           [ESC] Kapat
         </button>
@@ -330,7 +330,7 @@ const imageGallerySchema = {
       <!-- Watermark Badge overlay -->
       <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20 pointer-events-none flex items-center gap-2">
         <span class="px-3 py-1 rounded-full text-[10px] font-mono bg-black/80 backdrop-blur-md text-white/90 border border-white/15 shadow-xl flex items-center gap-1.5">
-          <span class="text-[#e59a7a]">●</span>
+          <span class="text-[#e5c158]">●</span>
           <span>FUJIFILM GFX 16-BIT MEDIUM FORMAT</span>
         </span>
       </div>
@@ -348,20 +348,20 @@ const imageGallerySchema = {
         id="btnNextPhoto"
         type="button"
         class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/60 hover:bg-black/80 text-white p-3 sm:p-4 rounded-full border border-white/20 transition-all opacity-80 hover:opacity-100 cursor-pointer shadow-xl text-lg leading-none"
-        title="Sonraki (Sağ Ok)"
+        title="Sonraki Sağ Ok"
       >
         ›
       </button>
     </div>
 
     <!-- Contextual Caption & EXIF Details -->
-    <div class="p-5 sm:p-6 bg-[#141210] border-t border-[#2d2521] space-y-4 font-mono text-xs">
-      <div id="photoModalCaption" class="text-sm text-[#fef9ed]/90 leading-relaxed bg-[#1c1815] p-4 rounded-2xl border border-[#2d2521] font-serif"></div>
+    <div class="p-5 sm:p-6 bg-[#190102] border-t border-[#e5c158]/20 space-y-4 font-mono text-xs">
+      <div id="photoModalCaption" class="text-sm text-[#f8fafc] leading-relaxed bg-[#280205] p-4 rounded-2xl border border-[#e5c158]/20 font-serif"></div>
 
-      <div class="pt-2 border-t border-[#2d2521]">
-        <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-[#a89f91] mb-3 font-semibold">
+      <div class="pt-2 border-t border-[#e5c158]/20">
+        <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-[#c5cbd3] mb-3 font-semibold">
           <span>Kamera & EXIF Bilgileri (Fujifilm GFX)</span>
-          <span class="text-[#e59a7a]">© OZAN ÖZDİL</span>
+          <span class="text-[#e5c158]">© OZAN ÖZDİL</span>
         </div>
 
         <div id="photoModalExifGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 text-xs font-mono"></div>
@@ -374,8 +374,8 @@ const imageGallerySchema = {
     id="copyrightToast"
     class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none"
   >
-    <div class="px-4 py-3 rounded-2xl bg-[#2d2724] text-[#fef9ed] border border-[#ead9d2]/40 shadow-2xl font-mono text-xs flex items-center gap-2.5">
-      <svg class="w-4 h-4 text-[#e1734b] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <div class="px-4 py-3 rounded-2xl bg-[#280205] text-[#ffffff] border border-[#e5c158]/40 shadow-2xl font-mono text-xs flex items-center gap-2.5">
+      <svg class="w-4 h-4 text-[#e5c158] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
       <span>Fotoğraflar telif hakları ile korunmaktadır. İzinsiz kopyalanamaz.</span>
@@ -410,8 +410,8 @@ const imageGallerySchema = {
   const modalExifGrid = document.getElementById('photoModalExifGrid');
   const copyrightToast = document.getElementById('copyrightToast');
 
-  const inactiveBtnClass = 'filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#ead9d2] dark:border-[#2d2521] bg-[#fef9ed] dark:bg-[#141210] text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] hover:border-[#5D524B]/30 cursor-pointer transition-all';
-  const activeBtnClass = 'filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#2d2724] dark:border-[#fef9ed] bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-medium cursor-pointer transition-all';
+  const inactiveBtnClass = 'filter-tag-btn px-3 py-1 rounded-full text-xs font-mono border border-[#c5cbd3]/20 bg-[#190102] text-[#c5cbd3] hover:text-[#e5c158] hover:border-[#e5c158]/40 cursor-pointer transition-all';
+  const activeBtnClass = 'filter-tag-btn active-tag px-3 py-1 rounded-full text-xs font-mono border border-[#e5c158] bg-[#e5c158] text-[#190102] font-semibold cursor-pointer transition-all';
 
   // Filter Tag Click Handlers
   document.querySelectorAll('.filter-tag-btn').forEach((btn) => {
@@ -490,10 +490,10 @@ const imageGallerySchema = {
       const e = photo.exif;
       gridHtml += `
         <figure
-          class="photo-card group rounded-[22px] border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1c1815]/70 overflow-hidden hover:border-[#5D524B]/35 dark:hover:border-[#ead9d2]/40 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-2xs hover:shadow-md select-none"
+          class="photo-card group rounded-[22px] border border-[#e5c158]/25 bg-[#280205] overflow-hidden hover:border-[#e5c158]/60 transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xl select-none"
           onclick="window.openLightbox(${idx})"
         >
-          <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#1f1a17]">
+          <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#190102]">
             <img
               src="${photo.thumb}"
               alt="${escapeHtml(photo.title)} - ${escapeHtml(currentAlbum.locationFull)} - Ozan Özdil"
@@ -508,25 +508,25 @@ const imageGallerySchema = {
             <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
 
             <div class="absolute top-3 left-3 z-20 pointer-events-none">
-              <span class="px-2.5 py-0.5 rounded-full bg-black/65 backdrop-blur-md text-[#fbd3be] text-[10px] font-mono border border-white/15">
+              <span class="px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[#e5c158] text-[10px] font-mono border border-white/15">
                 #${String(idx + 1).padStart(2, '0')}
               </span>
             </div>
 
             <div class="absolute bottom-3 left-3 right-3 z-20 pointer-events-none flex items-center justify-between text-[10px] font-mono text-white/90">
-              <span class="px-2.5 py-0.5 rounded-full bg-black/65 backdrop-blur-md border border-white/15">
+              <span class="px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/15">
                 ${escapeHtml(e.fNumber)} • ${escapeHtml(e.exposureTime)} • ISO ${escapeHtml(e.iso)}
               </span>
             </div>
           </div>
 
-          <figcaption class="p-4 bg-[#F5F0E4]/80 dark:bg-[#1c1815]/80 border-t border-[#ead9d2]/60 dark:border-[#2d2521] space-y-2">
-            <p class="text-sm font-serif font-normal text-[#2d2724] dark:text-[#fef9ed] line-clamp-1">
+          <figcaption class="p-4 bg-[#280205] border-t border-[#e5c158]/20 space-y-2">
+            <p class="text-sm font-serif font-normal text-[#ffffff] line-clamp-1">
               ${escapeHtml(photo.caption.split('.')[0])}
             </p>
-            <div class="flex items-center justify-between text-[11px] font-mono text-[#8C7E74] dark:text-[#a89f91] pt-1 border-t border-[#ead9d2]/40 dark:border-[#2d2521]/60">
+            <div class="flex items-center justify-between text-[11px] font-mono text-[#c5cbd3] pt-1 border-t border-[#e5c158]/20">
               <span>${escapeHtml(photo.dateTaken ? photo.dateTaken.split(' ')[0] : '')}</span>
-              <span class="text-[#2d2724] dark:text-[#fef9ed] group-hover:text-[#e1734b] font-medium flex items-center gap-1">
+              <span class="text-[#e5c158] group-hover:text-[#f3e5ab] font-medium flex items-center gap-1">
                 <span>Büyüt</span>
                 <span>↗</span>
               </span>

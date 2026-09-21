@@ -36,58 +36,62 @@
 }
 
 :root {
-  --canvas-bg: #fef9ed;
-  --surface-bg: #f5f0e4;
-  --surface-subtle: #fbf4e5;
-  --border-color: #ead9d2;
-  --border-muted: rgba(93, 82, 75, 0.12);
-  --text-main: #5d524b;
-  --text-muted: #8c7e74;
-  --accent-color: #2d2724;
-  --accent-link: #e1734b;
-  --qs-accent: #e1734b;
-  --qs-green: #6e8f7c;
-  --mai-oat: #fef9ed;
-  --mai-linen: #f5f0e4;
-  --mai-sand: #fbf4e5;
-  --mai-cocoa: #5d524b;
-  --mai-cocoa-soft: #8c7e74;
-  --mai-peach: #fbd3be;
-  --mai-terracotta: #e1734b;
-  --mai-sage: #d7e6d6;
-  --mai-mint: #eaefe1;
-  --mai-mint-ink: #2e4d4d;
-  --mai-plum: #4d2a33;
-  --mai-taupe: #d1cabb;
-  --mai-bronze: #a67c52;
-  color-scheme: light dark;
+  --canvas-bg: #380407;
+  --surface-bg: #2a0306;
+  --surface-subtle: #45060b;
+  --border-color: rgba(229, 193, 88, 0.25);
+  --border-muted: rgba(197, 203, 211, 0.16);
+  --text-main: #ffffff;
+  --text-muted: #c5cbd3;
+  --text-gold: #e5c158;
+  --text-silver: #c5cbd3;
+  --accent-color: #e5c158;
+  --accent-link: #e5c158;
+  --qs-accent: #e5c158;
+  --qs-green: #e5c158;
+  --mai-oat: #380407;
+  --mai-linen: #2a0306;
+  --mai-sand: #45060b;
+  --mai-cocoa: #ffffff;
+  --mai-cocoa-soft: #c5cbd3;
+  --mai-peach: #52080d;
+  --mai-terracotta: #e5c158;
+  --mai-sage: #300407;
+  --mai-mint: #250305;
+  --mai-mint-ink: #f3e5ab;
+  --mai-plum: #420509;
+  --mai-taupe: #380407;
+  --mai-bronze: #d4af37;
+  color-scheme: dark;
 }
 
 .dark {
-  --canvas-bg: #000000;
-  --surface-bg: #0c0a09;
-  --surface-subtle: #161311;
-  --border-color: #241d19;
-  --border-muted: rgba(254, 249, 237, 0.08);
-  --text-main: #fef9ed;
-  --text-muted: #a89f91;
-  --accent-color: #fef9ed;
-  --accent-link: #e59a7a;
-  --qs-accent: #e59a7a;
-  --qs-green: #82b09a;
-  --mai-oat: #000000;
-  --mai-linen: #0c0a09;
-  --mai-sand: #161311;
-  --mai-cocoa: #fef9ed;
-  --mai-cocoa-soft: #a89f91;
-  --mai-peach: #2a1b14;
-  --mai-terracotta: #e59a7a;
-  --mai-sage: #141f19;
-  --mai-mint: #101a15;
-  --mai-mint-ink: #82b09a;
-  --mai-plum: #241418;
-  --mai-taupe: #29231e;
-  --mai-bronze: #c49970;
+  --canvas-bg: #240204;
+  --surface-bg: #1a0102;
+  --surface-subtle: #300306;
+  --border-color: rgba(229, 193, 88, 0.28);
+  --border-muted: rgba(197, 203, 211, 0.18);
+  --text-main: #ffffff;
+  --text-muted: #c5cbd3;
+  --text-gold: #e5c158;
+  --text-silver: #c5cbd3;
+  --accent-color: #e5c158;
+  --accent-link: #e5c158;
+  --qs-accent: #e5c158;
+  --qs-green: #e5c158;
+  --mai-oat: #240204;
+  --mai-linen: #1a0102;
+  --mai-sand: #300306;
+  --mai-cocoa: #ffffff;
+  --mai-cocoa-soft: #c5cbd3;
+  --mai-peach: #3a0408;
+  --mai-terracotta: #e5c158;
+  --mai-sage: #200204;
+  --mai-mint: #170102;
+  --mai-mint-ink: #f3e5ab;
+  --mai-plum: #2d0306;
+  --mai-taupe: #220204;
+  --mai-bronze: #d4af37;
 }
 
 html {
@@ -100,6 +104,14 @@ html {
 
 body {
   background-color: var(--canvas-bg);
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(175, 20, 35, 0.42) 0%, transparent 65%),
+    radial-gradient(circle at 85% 15%, rgba(229, 193, 88, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 15% 75%, rgba(229, 193, 88, 0.035) 0%, transparent 40%),
+    linear-gradient(rgba(229, 193, 88, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(229, 193, 88, 0.028) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+  background-attachment: fixed;
   color: var(--text-main);
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   text-rendering: optimizeLegibility;
@@ -129,16 +141,16 @@ p, blockquote, li {
 @supports (scrollbar-color: auto) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(150, 150, 150, 0.25) transparent;
+    scrollbar-color: rgba(229, 193, 88, 0.35) rgba(42, 3, 6, 0.6);
   }
 }
 
-/* Editorial Prose & Typography (Bradford LL Humanist Editorial Style) */
+/* Editorial Prose & Typography (PCB Red, Gold, Silver & White Palette) */
 .markdown-body {
   font-family: 'Bradford LL', 'Newsreader', 'Iowan Old Style', Palatino, Georgia, serif;
   font-size: 17px;
   line-height: 1.8;
-  color: var(--text-main);
+  color: #f8fafc;
   letter-spacing: normal;
 }
 
@@ -156,7 +168,7 @@ p, blockquote, li {
   margin-top: 2.5rem;
   margin-bottom: 1.25rem;
   line-height: 1.38;
-  color: var(--text-main);
+  color: #e5c158;
   font-family: 'Bradford LL', 'Newsreader', serif;
 }
 
@@ -167,7 +179,7 @@ p, blockquote, li {
   margin-top: 2.75rem;
   margin-bottom: 1rem;
   line-height: 1.38;
-  color: var(--text-main);
+  color: #e5c158;
   font-family: 'Bradford LL', 'Newsreader', serif;
 }
 
@@ -178,7 +190,7 @@ p, blockquote, li {
   margin-top: 2.25rem;
   margin-bottom: 0.75rem;
   line-height: 1.4;
-  color: var(--text-main);
+  color: #f3e5ab;
   font-family: 'Bradford LL', 'Newsreader', serif;
 }
 
@@ -188,14 +200,14 @@ p, blockquote, li {
   margin-top: 1.75rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
-  color: var(--text-main);
+  color: #ffffff;
   font-family: 'Bradford LL', 'Newsreader', serif;
 }
 
 .markdown-body p {
   margin-bottom: 1.2em;
-  color: var(--text-main);
-  opacity: 0.95;
+  color: #f8fafc;
+  opacity: 0.96;
 }
 
 .markdown-body ul {
@@ -205,7 +217,7 @@ p, blockquote, li {
 }
 
 .markdown-body ul > li::marker {
-  color: var(--qs-accent);
+  color: #e5c158;
 }
 
 .markdown-body ol {
@@ -216,43 +228,45 @@ p, blockquote, li {
 
 .markdown-body ol > li::marker {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  color: var(--text-muted);
+  color: #c5cbd3;
   font-size: 0.85em;
 }
 
 .markdown-body li {
   margin-bottom: 0.35rem;
   line-height: 1.68;
+  color: #f8fafc;
 }
 
 .markdown-body blockquote {
   margin: 1.5rem 0;
   padding: 0.35rem 0 0.35rem 1.25rem;
-  border-left: 2px solid var(--qs-accent);
-  background: transparent;
-  color: var(--text-muted);
+  border-left: 2px solid #e5c158;
+  background: rgba(229, 193, 88, 0.04);
+  color: #c5cbd3;
   font-style: italic;
   font-size: 0.95rem;
   line-height: 1.65;
 }
 
 .dark .markdown-body blockquote {
-  border-left-color: #00ffcc;
-  color: #9ca3af;
+  border-left-color: #e5c158;
+  color: #c5cbd3;
+  background: rgba(229, 193, 88, 0.04);
 }
 
 .markdown-body hr {
   margin: 2.5rem 0;
   border: 0;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid rgba(229, 193, 88, 0.25);
 }
 
 .markdown-body pre {
   padding: 1.15rem 1.25rem;
-  border-radius: 0.5rem;
-  background-color: var(--surface-bg) !important;
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  background-color: #170102 !important;
+  color: #f8fafc;
+  border: 1px solid rgba(229, 193, 88, 0.25);
   overflow-x: auto;
   white-space: pre !important;
   word-break: normal !important;
@@ -264,9 +278,9 @@ p, blockquote, li {
 }
 
 .dark .markdown-body pre {
-  background-color: #0c0e12 !important;
-  border-color: rgba(255, 255, 255, 0.09);
-  color: #fef9ed;
+  background-color: #140102 !important;
+  border-color: rgba(229, 193, 88, 0.28);
+  color: #f8fafc;
 }
 
 .markdown-body pre code {
@@ -282,16 +296,17 @@ p, blockquote, li {
   padding: 0.15em 0.4em;
   margin: 0;
   font-size: 0.85em;
-  background-color: var(--surface-subtle);
-  border: 1px solid var(--border-color);
+  background-color: #220204;
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  color: #e5c158;
   border-radius: 0.25rem;
   font-family: var(--font-mono, "JetBrains Mono", monospace);
 }
 
 .dark .markdown-body code:not(pre code) {
-  background-color: #10141d;
-  border-color: rgba(0, 255, 204, 0.25);
-  color: #00ffcc;
+  background-color: #1c0103;
+  border-color: rgba(229, 193, 88, 0.35);
+  color: #e5c158;
 }
 
 .markdown-body table {
@@ -304,45 +319,48 @@ p, blockquote, li {
   margin: 1.75rem 0;
   font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-size: 0.8125rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(229, 193, 88, 0.25);
   border-radius: 0.5rem;
 }
 
 .markdown-body th {
-  background-color: var(--surface-subtle);
+  background-color: #2a0306;
   padding: 0.625rem 0.875rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(229, 193, 88, 0.25);
   text-align: left;
   font-weight: 600;
+  color: #e5c158;
 }
 
 .dark .markdown-body th {
-  background-color: #141820;
-  color: #00ffcc;
+  background-color: #220204;
+  color: #e5c158;
 }
 
 .markdown-body td {
   padding: 0.5rem 0.875rem;
-  border-bottom: 1px solid var(--border-muted);
+  border-bottom: 1px solid rgba(197, 203, 211, 0.12);
+  color: #f8fafc;
 }
 
 .markdown-body tr:hover td {
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(229, 193, 88, 0.05);
 }
 
 .dark .markdown-body tr:hover td {
-  background-color: rgba(0, 255, 204, 0.04);
+  background-color: rgba(229, 193, 88, 0.05);
 }
 
 .markdown-body a {
-  color: var(--accent-link);
+  color: #e5c158;
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: opacity 0.15s ease;
+  transition: color 0.15s ease, opacity 0.15s ease;
 }
 
 .markdown-body a:hover {
-  opacity: 0.8;
+  color: #f3e5ab;
+  opacity: 0.95;
 }
 
 .markdown-body img {
@@ -516,12 +534,16 @@ body > div[style*="z-index: 10000000"] {
    MICROSOFT AI (MAI) EDITORIAL DESIGN SYSTEM UTILITIES
    ========================================================================== */
 
-/* Statement Gradient Wash */
+/* Statement Gradient Wash (PCB Red & Gold Core) */
 .statement-wash {
-  background: linear-gradient(to bottom, rgba(254, 249, 237, 0) 0%, #ead9d2 50%, rgba(254, 249, 237, 0) 100%);
+  background: linear-gradient(to bottom, rgba(56, 4, 7, 0) 0%, rgba(82, 8, 13, 0.75) 50%, rgba(56, 4, 7, 0) 100%);
+  border-top: 1px solid rgba(229, 193, 88, 0.2);
+  border-bottom: 1px solid rgba(229, 193, 88, 0.2);
 }
 .dark .statement-wash {
-  background: linear-gradient(to bottom, rgba(20, 18, 16, 0) 0%, #26201c 50%, rgba(20, 18, 16, 0) 100%);
+  background: linear-gradient(to bottom, rgba(36, 2, 4, 0) 0%, rgba(56, 4, 7, 0.85) 50%, rgba(36, 2, 4, 0) 100%);
+  border-top: 1px solid rgba(229, 193, 88, 0.25);
+  border-bottom: 1px solid rgba(229, 193, 88, 0.25);
 }
 
 /* System Architecture Benchmark Table (.matrix-bench) */

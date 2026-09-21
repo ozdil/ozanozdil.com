@@ -8,17 +8,17 @@
     aria-expanded="false"
     aria-haspopup="true"
     aria-label="Dil Seçimi / Select Language"
-    class="inline-flex items-center justify-center gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:bg-zinc-100 dark:hover:bg-[#141820] border border-zinc-200 dark:border-zinc-800 transition-all font-mono text-xs cursor-pointer shadow-2xs"
+    class="inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-full text-[#c5cbd3] hover:text-[#e5c158] bg-[#280205] hover:bg-[#380407] border border-[#e5c158]/30 hover:border-[#e5c158] transition-all font-mono text-xs cursor-pointer shadow-md"
     title="Dili Değiştir / Change Language"
   >
     <!-- Globe Icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-[#e5c158]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <circle cx="12" cy="12" r="10"></circle>
       <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
       <path d="M2 12h20"></path>
     </svg>
-    <span id="current-lang-label" class="font-semibold text-[11px] uppercase tracking-wider">TR</span>
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-zinc-400 dark:text-zinc-500 transition-transform duration-200" id="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <span id="current-lang-label" class="font-semibold text-[11px] uppercase tracking-wider text-[#e5c158]">TR</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-[#c5cbd3] transition-transform duration-200" id="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="m6 9 6 6 6-6"/>
     </svg>
   </button>
@@ -26,56 +26,50 @@
   <!-- Dropdown Menu -->
   <div
     id="lang-dropdown"
-    class="hidden absolute right-0 mt-1.5 w-44 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-[#0e1116]/95 backdrop-blur-md shadow-xl py-1 z-50 transition-all duration-150 transform origin-top-right text-xs font-sans"
+    class="hidden absolute right-0 mt-1.5 w-44 rounded-xl border border-[#e5c158]/35 bg-[#280205] backdrop-blur-xl shadow-2xl py-1 z-50 transition-all duration-150 transform origin-top-right text-xs font-mono"
     role="menu"
     aria-orientation="vertical"
     tabindex="-1"
   >
-    <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 border-b border-zinc-100 dark:border-zinc-800/80">
-      Dil / Language
+    <div class="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-[#e5c158] border-b border-[#e5c158]/20">
+      // DİL / LANGUAGE
     </div>
     <div class="py-1">
-      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="tr">
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-[#380407] text-[#ffffff] hover:text-[#e5c158] transition-colors cursor-pointer" data-lang="tr">
         <span class="flex items-center gap-2">
-          <span class="text-sm">🇹🇷</span>
+          <span class="text-[10px] font-mono px-1 py-0.5 rounded bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">TR</span>
           <span class="font-medium">Türkçe</span>
         </span>
-        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">TR</span>
       </button>
-      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="en">
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-[#380407] text-[#ffffff] hover:text-[#e5c158] transition-colors cursor-pointer" data-lang="en">
         <span class="flex items-center gap-2">
-          <span class="text-sm">🇬🇧</span>
+          <span class="text-[10px] font-mono px-1 py-0.5 rounded bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">EN</span>
           <span class="font-medium">English</span>
         </span>
-        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">EN</span>
       </button>
-      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="de">
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-[#380407] text-[#ffffff] hover:text-[#e5c158] transition-colors cursor-pointer" data-lang="de">
         <span class="flex items-center gap-2">
-          <span class="text-sm">🇩🇪</span>
+          <span class="text-[10px] font-mono px-1 py-0.5 rounded bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">DE</span>
           <span class="font-medium">Deutsch</span>
         </span>
-        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">DE</span>
       </button>
-      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="fr">
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-[#380407] text-[#ffffff] hover:text-[#e5c158] transition-colors cursor-pointer" data-lang="fr">
         <span class="flex items-center gap-2">
-          <span class="text-sm">🇫🇷</span>
+          <span class="text-[10px] font-mono px-1 py-0.5 rounded bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">FR</span>
           <span class="font-medium">Français</span>
         </span>
-        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">FR</span>
       </button>
-      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="es">
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-[#380407] text-[#ffffff] hover:text-[#e5c158] transition-colors cursor-pointer" data-lang="es">
         <span class="flex items-center gap-2">
-          <span class="text-sm">🇪🇸</span>
+          <span class="text-[10px] font-mono px-1 py-0.5 rounded bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">ES</span>
           <span class="font-medium">Español</span>
         </span>
-        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">ES</span>
       </button>
-      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-zinc-100 dark:hover:bg-zinc-800/60 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] transition-colors cursor-pointer" data-lang="az">
+      <button type="button" class="lang-option w-full text-left px-3 py-2 flex items-center justify-between hover:bg-[#380407] text-[#ffffff] hover:text-[#e5c158] transition-colors cursor-pointer" data-lang="az">
         <span class="flex items-center gap-2">
-          <span class="text-sm">🇦🇿</span>
+          <span class="text-[10px] font-mono px-1 py-0.5 rounded bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">AZ</span>
           <span class="font-medium">Azərbaycan</span>
         </span>
-        <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-500">AZ</span>
       </button>
     </div>
   </div>
@@ -138,9 +132,9 @@
       document.querySelectorAll('.lang-option').forEach(function (opt) {
         const l = opt.getAttribute('data-lang');
         if (l === activeLang) {
-          opt.classList.add('bg-zinc-100', 'dark:bg-zinc-800/80', 'font-semibold', 'text-zinc-950', 'dark:text-[#00ffcc]');
+          opt.classList.add('bg-[#190102]', 'font-semibold', 'text-[#e5c158]');
         } else {
-          opt.classList.remove('bg-zinc-100', 'dark:bg-zinc-800/80', 'font-semibold', 'text-zinc-950', 'dark:text-[#00ffcc]');
+          opt.classList.remove('bg-[#190102]', 'font-semibold', 'text-[#e5c158]');
         }
       });
 

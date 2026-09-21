@@ -30,37 +30,37 @@ const formatDate = (date: Date) => {
     <!-- ================================================================= -->
     <section class="space-y-8 pt-4 sm:pt-8" aria-label="Giriş ve Vizyon">
       <div class="flex flex-col items-start gap-4">
-        <!-- Live Status Pill -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono bg-[#F5F0E4] dark:bg-[#1f1a17] text-[#5D524B] dark:text-[#a89f91] border border-[#ead9d2]/80 dark:border-[#2d2521]">
-          <span class="w-2 h-2 rounded-full bg-[#e1734b] dark:bg-[#e59a7a] animate-pulse"></span>
+        <!-- Live Status Pill (Gold & PCB Silkscreen) -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono bg-[#2a0306] text-[#e5c158] border border-[#e5c158]/35 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-[#e5c158] animate-pulse"></span>
           <span class="tracking-widest">// OTONOM SİSTEMLER • YZ KODCUSU • SİSTEM MİMARİSİ</span>
         </div>
 
-        <!-- Main Display Headline -->
+        <!-- Main Display Headline (Gold & Silver) -->
         <div class="space-y-4 max-w-4xl">
-          <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#2d2724] dark:text-[#fef9ed] leading-[1.1] tracking-tight">
+          <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#e5c158] leading-[1.1] tracking-tight">
             Ozan Özdil
           </h1>
-          <p class="font-serif text-xl sm:text-2xl lg:text-3xl text-[#5D524B] dark:text-[#a89f91] font-normal leading-relaxed text-balance">
+          <p class="font-serif text-xl sm:text-2xl lg:text-3xl text-[#c5cbd3] font-normal leading-relaxed text-balance">
             Yapay zekâ destekli otonom kodlama süreçleri, açık kaynak sistem mimarileri ve kurumsal hafıza üzerine çalışan bağımsız sistem araştırmacısı.
           </p>
         </div>
 
-        <!-- Quick Metadata Badges (Emoji-Free) -->
-        <div class="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-[#8C7E74] dark:text-[#a89f91]">
-          <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+        <!-- Quick Metadata Badges (Silver Silkscreen) -->
+        <div class="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-[#c5cbd3]">
+          <span class="px-3 py-1 rounded-full bg-[#2a0306] border border-[#c5cbd3]/20">
             Kastamonu, TR
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          <span class="px-3 py-1 rounded-full bg-[#2a0306] border border-[#c5cbd3]/20">
             Kastamonu Belediyesi (2019 — Günümüz)
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          <span class="px-3 py-1 rounded-full bg-[#2a0306] border border-[#c5cbd3]/20">
             KTÜ Orman Fakültesi
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          <span class="px-3 py-1 rounded-full bg-[#2a0306] border border-[#c5cbd3]/20 text-[#e5c158]">
             Omarchy Linux
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] border border-[#ead9d2] dark:border-[#2d2521]">
+          <span class="px-3 py-1 rounded-full bg-[#2a0306] border border-[#c5cbd3]/20">
             Cloudflare Edge & Workers KV
           </span>
         </div>
@@ -70,14 +70,14 @@ const formatDate = (date: Date) => {
           <button
             type="button"
             onclick="document.getElementById('ai-chat-btn')?.click()"
-            class="px-5 py-2.5 rounded-full bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-medium hover:opacity-90 transition-opacity flex items-center gap-2 shadow-xs cursor-pointer"
+            class="px-5 py-2.5 rounded-full bg-[#e5c158] text-[#190102] font-semibold hover:bg-[#f3e5ab] transition-all flex items-center gap-2 shadow-md cursor-pointer"
           >
             <span>Ozan AI ile Konuş</span>
             <span>↗</span>
           </button>
           <a
             href="/hakkimda"
-            class="px-5 py-2.5 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] text-[#2d2724] dark:text-[#fef9ed] border border-[#ead9d2] dark:border-[#2d2521] hover:border-[#2d2724] dark:hover:border-[#fef9ed] transition-colors"
+            class="px-5 py-2.5 rounded-full bg-[#2a0306] text-[#ffffff] border border-[#e5c158]/30 hover:border-[#e5c158] hover:text-[#e5c158] transition-colors"
           >
             Teknik Özgeçmiş →
           </a>
@@ -85,54 +85,54 @@ const formatDate = (date: Date) => {
             href="https://github.com/ozdil"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-5 py-2.5 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] text-[#5D524B] dark:text-[#a89f91] border border-[#ead9d2] dark:border-[#2d2521] hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors flex items-center gap-1.5"
+            class="px-5 py-2.5 rounded-full bg-[#2a0306] text-[#c5cbd3] border border-[#c5cbd3]/20 hover:text-[#e5c158] hover:border-[#e5c158]/40 transition-colors flex items-center gap-1.5"
           >
             <span>GitHub</span>
-            <span>↗</span>
+            <span class="text-[#e5c158]">↗</span>
           </a>
           <a
             href="/llms.txt"
             target="_blank"
-            class="px-5 py-2.5 rounded-full bg-[#F5F0E4] dark:bg-[#1f1a17] text-[#5D524B] dark:text-[#a89f91] border border-[#ead9d2] dark:border-[#2d2521] hover:text-[#2d2724] dark:hover:text-[#fef9ed] transition-colors flex items-center gap-1.5"
+            class="px-5 py-2.5 rounded-full bg-[#2a0306] text-[#c5cbd3] border border-[#c5cbd3]/20 hover:text-[#e5c158] hover:border-[#e5c158]/40 transition-colors flex items-center gap-1.5"
           >
             <span>llms.txt</span>
-            <span>↗</span>
+            <span class="text-[#e5c158]">↗</span>
           </a>
         </div>
       </div>
 
-      <!-- Interactive AI Agent Console (Terminal Showcase) -->
-      <div class="rounded-[24px] border border-[#ead9d2]/90 dark:border-[#2d2521] bg-[#1a1614] text-[#fef9ed] p-5 sm:p-7 shadow-lg space-y-4 font-mono text-xs overflow-hidden">
-        <div class="flex items-center justify-between border-b border-[#352c26] pb-3">
+      <!-- Interactive AI Agent Console (PCB Terminal Showcase) -->
+      <div class="rounded-[24px] border border-[#e5c158]/35 bg-[#190102] text-[#f8fafc] p-5 sm:p-7 shadow-2xl space-y-4 font-mono text-xs overflow-hidden">
+        <div class="flex items-center justify-between border-b border-[#e5c158]/20 pb-3">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-[#ff5f56]/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-[#27c93f]/80 inline-block"></span>
-            <span class="text-[#a89f91] text-[11px] ml-2">antigravity@ozanozdil: ~/cluster</span>
+            <span class="w-3 h-3 rounded-full bg-[#e5c158]/90 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-[#c5cbd3]/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-[#f8fafc]/70 inline-block"></span>
+            <span class="text-[#c5cbd3] text-[11px] ml-2">antigravity@ozanozdil: ~/cluster</span>
           </div>
-          <div class="flex items-center gap-2 text-[11px] text-[#e59a7a]">
-            <span class="w-2 h-2 rounded-full bg-[#e59a7a] animate-ping"></span>
-            <span>SYSTEM ACTIVE</span>
+          <div class="flex items-center gap-2 text-[11px] text-[#e5c158]">
+            <span class="w-2 h-2 rounded-full bg-[#e5c158] animate-ping"></span>
+            <span>SYSTEM ACTIVE // REV B</span>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1 text-[12px] leading-relaxed">
-          <div class="space-y-1.5 p-3 rounded-xl bg-[#241e1a] border border-[#352c26]/60">
-            <div class="text-[#e59a7a] font-semibold">// YZ & KODLAMA AJANLARI</div>
-            <div class="text-[#d8cfc4]">Antigravity CLI + Claude Code</div>
-            <div class="text-[#8c7e74] text-[11px]">Çoklu ajan orkestrasyonu, Llama 3.1 8B Edge ve yerel LLM iş akışları.</div>
+          <div class="space-y-1.5 p-3 rounded-xl bg-[#280205] border border-[#e5c158]/20">
+            <div class="text-[#e5c158] font-semibold">// YZ & KODLAMA AJANLARI</div>
+            <div class="text-[#ffffff]">Antigravity CLI + Claude Code</div>
+            <div class="text-[#c5cbd3] text-[11px]">Çoklu ajan orkestrasyonu, Llama 3.1 8B Edge ve yerel LLM iş akışları.</div>
           </div>
 
-          <div class="space-y-1.5 p-3 rounded-xl bg-[#241e1a] border border-[#352c26]/60">
-            <div class="text-[#82b09a] font-semibold">// AÇIK KAYNAK ÇEKİRDEK</div>
-            <div class="text-[#d8cfc4]">Omarchy Linux & BORE/EEVDF</div>
-            <div class="text-[#8c7e74] text-[11px]">Düşük gecikmeli çekirdek zamanlayıcısı, Rust IPC ve OmaStudio RAW motoru.</div>
+          <div class="space-y-1.5 p-3 rounded-xl bg-[#280205] border border-[#e5c158]/20">
+            <div class="text-[#e5c158] font-semibold">// AÇIK KAYNAK ÇEKİRDEK</div>
+            <div class="text-[#ffffff]">Omarchy Linux & BORE/EEVDF</div>
+            <div class="text-[#c5cbd3] text-[11px]">Düşük gecikmeli çekirdek zamanlayıcısı, Rust IPC ve OmaStudio RAW motoru.</div>
           </div>
 
-          <div class="space-y-1.5 p-3 rounded-xl bg-[#241e1a] border border-[#352c26]/60">
-            <div class="text-[#a89f91] font-semibold">// UÇ DAĞITIM & GÜVENLİK</div>
-            <div class="text-[#d8cfc4]">Cloudflare Edge + Workers KV</div>
-            <div class="text-[#8c7e74] text-[11px]">Canlı popülarite ölçümü, RFC 9421 Bot Auth ve sıfır sunucu maliyeti.</div>
+          <div class="space-y-1.5 p-3 rounded-xl bg-[#280205] border border-[#e5c158]/20">
+            <div class="text-[#e5c158] font-semibold">// UÇ DAĞITIM & GÜVENLİK</div>
+            <div class="text-[#ffffff]">Cloudflare Edge + Workers KV</div>
+            <div class="text-[#c5cbd3] text-[11px]">Canlı popülarite ölçümü, RFC 9421 Bot Auth ve sıfır sunucu maliyeti.</div>
           </div>
         </div>
       </div>
@@ -142,16 +142,16 @@ const formatDate = (date: Date) => {
     <!-- 2. MICROSOFT AI STYLE FEATURED INTELLIGENCE & MODELS (BENTO SHOWCASE) -->
     <!-- ================================================================= -->
     <section class="space-y-10" aria-label="Öne Çıkan Mimariler ve Sistemler">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-[#ead9d2]/80 dark:border-[#2d2521]">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-[#e5c158]/20">
         <div>
-          <div class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase tracking-wider font-semibold">
+          <div class="font-mono text-xs text-[#e5c158] uppercase tracking-wider font-semibold">
             // MİMARİ VİTRİN
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#2d2724] dark:text-[#fef9ed]">
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#e5c158]">
             Öne Çıkan Sistemler & Projeler
           </h2>
         </div>
-        <p class="font-serif text-sm sm:text-base text-[#8C7E74] dark:text-[#a89f91] max-w-md">
+        <p class="font-serif text-sm sm:text-base text-[#c5cbd3] max-w-md">
           Yüksek performanslı masaüstü ekosistemleri, yapay zekâ entegrasyonları ve kurumsal dijital altyapılar.
         </p>
       </div>
@@ -160,25 +160,25 @@ const formatDate = (date: Date) => {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
         <!-- Card 1: Omarchy Linux & OmaStudio (Large - 7 cols) -->
-        <div class="lg:col-span-7 rounded-[26px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2]/80 dark:border-[#2d2521] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xs group">
+        <div class="lg:col-span-7 rounded-[26px] bg-[#280205] border border-[#e5c158]/25 hover:border-[#e5c158]/60 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group transition-colors">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase font-semibold">
+              <span class="font-mono text-xs text-[#e5c158] uppercase font-semibold">
                 // Açık Kaynak İşletim Sistemi
               </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#FBF4E5] dark:bg-[#26201c] text-[#5D524B] dark:text-[#a89f91] border border-[#ead9d2]/60 dark:border-[#2d2521]">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">
                 Rust + Slint + Wayland
               </span>
             </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#2d2724] dark:text-[#fef9ed] leading-snug group-hover:text-[#e1734b] transition-colors">
+            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug group-hover:text-[#e5c158] transition-colors">
               Omarchy Linux & OmaStudio RAW Motoru
             </h3>
-            <p class="font-serif text-sm sm:text-base text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
+            <p class="font-serif text-sm sm:text-base text-[#c5cbd3] leading-relaxed">
               Arch Linux çekirdek optimizasyonları (BORE/EEVDF düşük gecikme) üzerine kurulu dağıtım mimarisi. 16-bit orta format RAW görüntüleri sıfır kilitlenmeyle işleyen Rust tabanlı kalıcı daemon motoru ve Quickshell Wayland masaüstü araç seti.
             </p>
           </div>
 
-          <div class="rounded-[18px] overflow-hidden border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#FBF4E5] dark:bg-[#141210] aspect-[16/9]">
+          <div class="rounded-[18px] overflow-hidden border border-[#e5c158]/25 bg-[#190102] aspect-[16/9]">
             <img
               src="/images/quickshell/omastudio-preview.png"
               alt="OmaStudio RAW Motoru Arayüzü"
@@ -195,14 +195,14 @@ const formatDate = (date: Date) => {
               href="https://github.com/ozdil/omarchy"
               target="_blank"
               rel="noopener noreferrer"
-              class="px-4 py-2 rounded-full bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-medium hover:opacity-90 transition-opacity flex items-center gap-1.5"
+              class="px-4 py-2 rounded-full bg-[#e5c158] text-[#190102] font-semibold hover:bg-[#f3e5ab] transition-all flex items-center gap-1.5"
             >
               <span>GitHub Kod Deposu</span>
               <span>↗</span>
             </a>
             <a
               href="/blog/omastudio-16-bit-orta-format-ve-rust-daemon-mimarisi"
-              class="text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] font-medium transition-colors"
+              class="text-[#c5cbd3] hover:text-[#e5c158] font-medium transition-colors"
             >
               Mimari Raporu →
             </a>
@@ -210,25 +210,25 @@ const formatDate = (date: Date) => {
         </div>
 
         <!-- Card 2: Kastamonu İnci Yurt Platformu (Medium - 5 cols) -->
-        <div class="lg:col-span-5 rounded-[26px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2]/80 dark:border-[#2d2521] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xs group">
+        <div class="lg:col-span-5 rounded-[26px] bg-[#280205] border border-[#e5c158]/25 hover:border-[#e5c158]/60 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group transition-colors">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#6e8f7c] dark:text-[#82b09a] uppercase font-semibold">
+              <span class="font-mono text-xs text-[#e5c158] uppercase font-semibold">
                 // Uç Bilişim & AI Entegrasyonu
               </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#EAEFE1] dark:bg-[#1c2b23] text-[#2E4D4D] dark:text-[#82b09a]">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#190102] text-[#c5cbd3] border border-[#c5cbd3]/30">
                 Cloudflare Edge
               </span>
             </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#2d2724] dark:text-[#fef9ed] leading-snug group-hover:text-[#6e8f7c] transition-colors">
+            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug group-hover:text-[#e5c158] transition-colors">
               Kastamonu İnci Yurt Web Platformu
             </h3>
-            <p class="font-serif text-sm text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
-              Cloudflare Edge mimarisi üzerinde sıfır sunucu maliyetiyle koşan kurumsal platform. Yapay zekâ tarayıcıları için <code class="px-1.5 py-0.5 rounded bg-[#FBF4E5] dark:bg-[#26201c] font-mono text-[11px]">llms.txt</code> bağlam haritası, interaktif simülatör ve dinamik API mimarisi.
+            <p class="font-serif text-sm text-[#c5cbd3] leading-relaxed">
+              Cloudflare Edge mimarisi üzerinde sıfır sunucu maliyetiyle koşan kurumsal platform. Yapay zekâ tarayıcıları için <code class="px-1.5 py-0.5 rounded bg-[#190102] text-[#e5c158] font-mono text-[11px] border border-[#e5c158]/25">llms.txt</code> bağlam haritası, interaktif simülatör ve dinamik API mimarisi.
             </p>
           </div>
 
-          <div class="rounded-[18px] overflow-hidden border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#FBF4E5] dark:bg-[#141210] aspect-[16/9]">
+          <div class="rounded-[18px] overflow-hidden border border-[#e5c158]/25 bg-[#190102] aspect-[16/9]">
             <img
               src="/images/kastamonuinciyurt-preview.webp"
               alt="Kastamonu İnci Yurt Platformu Önizlemesi"
@@ -245,14 +245,14 @@ const formatDate = (date: Date) => {
               href="https://www.kastamonuinciyurt.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="px-4 py-2 rounded-full bg-[#2d2724] dark:bg-[#fef9ed] text-[#fef9ed] dark:text-[#2d2724] font-medium hover:opacity-90 transition-opacity flex items-center gap-1.5"
+              class="px-4 py-2 rounded-full bg-[#e5c158] text-[#190102] font-semibold hover:bg-[#f3e5ab] transition-all flex items-center gap-1.5"
             >
               <span>Canlı Platformu Gez</span>
               <span>↗</span>
             </a>
             <a
               href="/blog/kastamonu-inci-yurt-web-platformu-ve-yonetim-portali-dijital-donusum"
-              class="text-[#5D524B] dark:text-[#a89f91] hover:text-[#2d2724] dark:hover:text-[#fef9ed] font-medium transition-colors"
+              class="text-[#c5cbd3] hover:text-[#e5c158] font-medium transition-colors"
             >
               Dönüşüm Yazısı →
             </a>
@@ -260,29 +260,29 @@ const formatDate = (date: Date) => {
         </div>
 
         <!-- Card 3: Kurumsal Hafıza & Kamu Deneyimi (Medium - 6 cols) -->
-        <div class="lg:col-span-6 rounded-[26px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2]/80 dark:border-[#2d2521] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xs">
+        <div class="lg:col-span-6 rounded-[26px] bg-[#280205] border border-[#e5c158]/25 hover:border-[#e5c158]/60 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group transition-colors">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#8C7E74] dark:text-[#a89f91] uppercase font-semibold">
+              <span class="font-mono text-xs text-[#e5c158] uppercase font-semibold">
                 // Kamu Yönetimi & Kurumsal Hafıza
               </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#FBF4E5] dark:bg-[#26201c] text-[#5D524B] dark:text-[#a89f91]">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#190102] text-[#c5cbd3] border border-[#c5cbd3]/30">
                 2019 — Günümüz
               </span>
             </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#2d2724] dark:text-[#fef9ed] leading-snug">
+            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] group-hover:text-[#e5c158] transition-colors leading-snug">
               Kastamonu Belediyesi Deneyimi
             </h3>
-            <p class="font-serif text-sm sm:text-base text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
+            <p class="font-serif text-sm sm:text-base text-[#c5cbd3] leading-relaxed">
               2019 yerel seçim stratejisinden Başkan Danışmanlığı'na, Ar-Ge ve Bilgi İşlem yöneticiliğinden (3 ayda 25M+ organik kitle erişimi, sunucu altyapı modernizasyonu) günümüz kurumsal hafıza ve arşiv araştırmacılığına uzanan kamu disiplini.
             </p>
-            <ul class="space-y-2 font-mono text-xs text-[#5D524B] dark:text-[#a89f91]">
+            <ul class="space-y-2 font-mono text-xs text-[#c5cbd3]">
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#e1734b] dark:bg-[#e59a7a]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#e5c158]"></span>
                 <span>Resmi dokümantasyon, kentsel bellek ve kamu arşiv araştırmacılığı</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#e1734b] dark:bg-[#e59a7a]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#e5c158]"></span>
                 <span>Kriz yönetimi, kitle iletişimi ve veri analitiği liderliği</span>
               </li>
             </ul>
@@ -291,7 +291,7 @@ const formatDate = (date: Date) => {
           <div class="pt-2 font-mono text-xs">
             <a
               href="/hakkimda"
-              class="inline-flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:text-[#e1734b] font-medium transition-colors"
+              class="inline-flex items-center gap-1.5 text-[#ffffff] hover:text-[#e5c158] font-medium transition-colors"
             >
               <span>Kariyer Zaman Çizelgesini İnceleyin</span>
               <span>→</span>
@@ -300,29 +300,29 @@ const formatDate = (date: Date) => {
         </div>
 
         <!-- Card 4: Fotonik & Kadim Ahşap Arşivi (Medium - 6 cols) -->
-        <div class="lg:col-span-6 rounded-[26px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2]/80 dark:border-[#2d2521] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xs">
+        <div class="lg:col-span-6 rounded-[26px] bg-[#280205] border border-[#e5c158]/25 hover:border-[#e5c158]/60 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group transition-colors">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#8C7E74] dark:text-[#a89f91] uppercase font-semibold">
+              <span class="font-mono text-xs text-[#e5c158] uppercase font-semibold">
                 // Fotonik & Kültürel Miras
               </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#FBD3BE]/60 dark:bg-[#3a261c] text-[#4D2A33] dark:text-[#fef9ed]">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">
                 Fujifilm GFX Orta Format
               </span>
             </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#2d2724] dark:text-[#fef9ed] leading-snug">
+            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] group-hover:text-[#e5c158] transition-colors leading-snug">
               Kadim Ahşap Mimarisi Belgesel Arşivi
             </h3>
-            <p class="font-serif text-sm sm:text-base text-[#5D524B] dark:text-[#a89f91] leading-relaxed">
+            <p class="font-serif text-sm sm:text-base text-[#c5cbd3] leading-relaxed">
               Kastamonu ve Karadeniz havzasındaki çivisiz ahşap çantı camileri, kündekari kapıları ve kaybolan somut mirasın 16-bit sıkıştırmasız RAW dinamikleriyle yüksek çözünürlüklü fotonik belgelenmesi.
             </p>
-            <ul class="space-y-2 font-mono text-xs text-[#5D524B] dark:text-[#a89f91]">
+            <ul class="space-y-2 font-mono text-xs text-[#c5cbd3]">
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#e1734b] dark:bg-[#e59a7a]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#e5c158]"></span>
                 <span>43.8×32.9mm geniş sensör alanı ve GF optik analizleri</span>
               </li>
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#e1734b] dark:bg-[#e59a7a]"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#e5c158]"></span>
                 <span>Kültürel hafızanın yüksek sadakatli dijital korunumu</span>
               </li>
             </ul>
@@ -331,7 +331,7 @@ const formatDate = (date: Date) => {
           <div class="pt-2 font-mono text-xs">
             <a
               href="/galeri"
-              class="inline-flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:text-[#e1734b] font-medium transition-colors"
+              class="inline-flex items-center gap-1.5 text-[#ffffff] hover:text-[#e5c158] font-medium transition-colors"
             >
               <span>Fotoğraf Galerisini Gezin</span>
               <span>→</span>
@@ -345,15 +345,15 @@ const formatDate = (date: Date) => {
     <!-- ================================================================= -->
     <!-- 3. MICROSOFT AI STYLE STATEMENT WASH (EDITORIAL QUOTE)            -->
     <!-- ================================================================= -->
-    <section class="relative -mx-4 sm:-mx-6 lg:-mx-8 py-16 sm:py-24 statement-wash overflow-hidden" aria-label="Manifesto">
+    <section class="relative -mx-4 sm:-mx-6 lg:-mx-8 py-16 sm:py-24 statement-wash overflow-hidden border-y border-[#e5c158]/20" aria-label="Manifesto">
       <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
-        <div class="font-mono text-xs uppercase tracking-widest text-[#8C7E74] dark:text-[#a89f91]">
+        <div class="font-mono text-xs uppercase tracking-widest text-[#e5c158]">
           // DİJİTAL EGEMENLİK VE AÇIK KAYNAK
         </div>
-        <blockquote class="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#2d2724] dark:text-[#fef9ed] font-normal leading-[1.3] text-balance">
+        <blockquote class="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#ffffff] font-normal leading-[1.3] text-balance">
           “Teknoloji kapalı bahçelerin ve gözetim kapitalizminin tekelinde olmak zorunda değil; açık kaynak kod ve yerel yapay zekâ, insan aklının ve kişisel egemenliğin en güçlü kaldıraçlarıdır.”
         </blockquote>
-        <div class="font-mono text-xs text-[#8C7E74] dark:text-[#a89f91] pt-1">
+        <div class="font-mono text-xs text-[#c5cbd3] pt-1">
           — Ozan Özdil
         </div>
       </div>
@@ -363,18 +363,18 @@ const formatDate = (date: Date) => {
     <!-- 4. MICROSOFT AI STYLE PERSPECTIVES & UPDATES (LATEST POSTS)       -->
     <!-- ================================================================= -->
     <section class="space-y-8" aria-label="Son Araştırmalar ve Makaleler">
-      <div class="flex items-center justify-between pb-4 border-b border-[#ead9d2]/80 dark:border-[#2d2521]">
+      <div class="flex items-center justify-between pb-4 border-b border-[#e5c158]/20">
         <div>
-          <div class="font-mono text-xs text-[#8C7E74] dark:text-[#a89f91] uppercase tracking-wider font-semibold">
+          <div class="font-mono text-xs text-[#e5c158] uppercase tracking-wider font-semibold">
             // EDİTORYAL İNCELEMELER & ANALİZLER
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#2d2724] dark:text-[#fef9ed]">
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#e5c158]">
             Son Yazılar & Araştırmalar
           </h2>
         </div>
         <a
           href="/blog"
-          class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] hover:underline font-medium flex items-center gap-1"
+          class="font-mono text-xs text-[#e5c158] hover:text-[#f3e5ab] hover:underline font-medium flex items-center gap-1"
         >
           <span>tüm yazılar ({allPosts.length})</span>
           <span>→</span>
@@ -383,10 +383,10 @@ const formatDate = (date: Date) => {
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         {latestPosts.map((post) => (
-          <article class="p-6 rounded-[22px] bg-[#F5F0E4] dark:bg-[#1c1815] border border-[#ead9d2]/80 dark:border-[#2d2521] hover:border-[#2d2724] dark:hover:border-[#fef9ed] transition-colors group flex flex-col justify-between space-y-4 shadow-2xs">
+          <article class="p-6 rounded-[22px] bg-[#280205] border border-[#e5c158]/25 hover:border-[#e5c158]/60 transition-colors group flex flex-col justify-between space-y-4 shadow-xl">
             <a href={`/blog/${post.slug}`} class="block space-y-3">
-              <div class="flex items-center justify-between font-mono text-[11px] text-[#8C7E74] dark:text-[#a89f91]">
-                <span class="px-2.5 py-0.5 rounded-full bg-[#FBF4E5] dark:bg-[#26201c] text-[#5D524B] dark:text-[#a89f91] border border-[#ead9d2]/60 dark:border-[#2d2521]">
+              <div class="flex items-center justify-between font-mono text-[11px] text-[#c5cbd3]">
+                <span class="px-2.5 py-0.5 rounded-full bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">
                   {post.data.tags?.[0] || 'Teknoloji'}
                 </span>
                 <time datetime={post.data.pubDate.toISOString()}>
@@ -394,18 +394,18 @@ const formatDate = (date: Date) => {
                 </time>
               </div>
 
-              <h3 class="font-serif text-xl sm:text-2xl font-normal text-[#2d2724] dark:text-[#fef9ed] group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] transition-colors leading-[1.3]">
+              <h3 class="font-serif text-xl sm:text-2xl font-normal text-[#ffffff] group-hover:text-[#e5c158] transition-colors leading-[1.3]">
                 {post.data.title}
               </h3>
 
               {post.data.description && (
-                <p class="font-serif text-sm text-[#5D524B] dark:text-[#a89f91] line-clamp-2 leading-relaxed">
+                <p class="font-serif text-sm text-[#c5cbd3] line-clamp-2 leading-relaxed">
                   {post.data.description}
                 </p>
               )}
             </a>
 
-            <div class="pt-2 font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] flex items-center gap-1">
+            <div class="pt-2 font-mono text-xs text-[#e5c158] group-hover:text-[#f3e5ab] flex items-center gap-1">
               <span>Makaleyi Oku</span>
               <span>→</span>
             </div>
@@ -417,15 +417,15 @@ const formatDate = (date: Date) => {
     <!-- ================================================================= -->
     <!-- 5. SIGNATURE EXPLORE & CONNECT BAR (FAST ACCESS)                  -->
     <!-- ================================================================= -->
-    <section class="rounded-[24px] bg-[#FBF4E5] dark:bg-[#1f1a17] border border-[#ead9d2]/80 dark:border-[#2d2521] p-7 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xs" aria-label="Derinlemesine İnceleme ve Bağlantılar">
+    <section class="rounded-[24px] bg-[#280205] border border-[#e5c158]/30 p-7 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl" aria-label="Derinlemesine İnceleme ve Bağlantılar">
       <div class="space-y-2">
-        <span class="font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase font-semibold block">
+        <span class="font-mono text-xs text-[#e5c158] uppercase font-semibold block">
           // AÇIK DOKÜMANTASYON & ARŞİV
         </span>
-        <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#2d2724] dark:text-[#fef9ed]">
+        <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff]">
           Sistemi Derinlemesine İnceleyin
         </h3>
-        <p class="font-serif text-sm text-[#8C7E74] dark:text-[#a89f91] max-w-xl">
+        <p class="font-serif text-sm text-[#c5cbd3] max-w-xl">
           Tüm kaynak kodlar, YZ modelleri için bağlam şemaları ve mimari dokümantasyon herkese açık şekilde sunulmaktadır.
         </p>
       </div>
@@ -433,35 +433,35 @@ const formatDate = (date: Date) => {
       <div class="flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs">
         <a
           href="/hakkimda"
-          class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline font-medium"
+          class="flex items-center gap-1.5 text-[#ffffff] hover:text-[#e5c158] hover:underline font-medium"
         >
           <span>Özgeçmiş</span>
-          <span class="text-[#a67c52]">↗</span>
+          <span class="text-[#e5c158]">↗</span>
         </a>
         <a
           href="https://github.com/ozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline font-medium"
+          class="flex items-center gap-1.5 text-[#ffffff] hover:text-[#e5c158] hover:underline font-medium"
         >
           <span>GitHub</span>
-          <span class="text-[#a67c52]">↗</span>
+          <span class="text-[#e5c158]">↗</span>
         </a>
         <a
           href="/llms.txt"
           target="_blank"
-          class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline font-medium"
+          class="flex items-center gap-1.5 text-[#ffffff] hover:text-[#e5c158] hover:underline font-medium"
         >
           <span>llms.txt</span>
-          <span class="text-[#a67c52]">↗</span>
+          <span class="text-[#e5c158]">↗</span>
         </a>
         <a
           href="/rss.xml"
           target="_blank"
-          class="flex items-center gap-1.5 text-[#2d2724] dark:text-[#fef9ed] hover:underline font-medium"
+          class="flex items-center gap-1.5 text-[#ffffff] hover:text-[#e5c158] hover:underline font-medium"
         >
           <span>RSS Akışı</span>
-          <span class="text-[#a67c52]">↗</span>
+          <span class="text-[#e5c158]">↗</span>
         </a>
       </div>
     </section>

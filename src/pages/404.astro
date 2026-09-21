@@ -8,31 +8,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   currentPath="/404"
   maxWidthClass="max-w-3xl"
 >
-  <div class="py-16 text-center">
-    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/80 mb-6">
-      <span class="font-mono text-2xl font-bold text-zinc-900 dark:text-[#00ffcc]">404</span>
+  <div class="py-16 text-center space-y-4">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#280205] border border-[#e5c158]/35 mb-2 shadow-xl">
+      <span class="font-mono text-2xl font-bold text-[#e5c158]">404</span>
     </div>
 
-    <h1 class="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 font-sans tracking-tight mb-3">
+    <h1 class="text-2xl sm:text-3xl font-serif font-normal text-[#e5c158] tracking-tight">
       Sayfa Bulunamadı
     </h1>
 
-    <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-md mx-auto mb-8 font-sans leading-relaxed">
+    <p class="text-sm sm:text-base text-[#c5cbd3] max-w-md mx-auto font-serif leading-relaxed">
       Aradığınız içerik silinmiş, adı değiştirilmiş veya geçici olarak kullanım dışı kalmış olabilir.
     </p>
 
-    <div class="flex flex-wrap items-center justify-center gap-3 font-mono text-xs">
+    <div class="flex flex-wrap items-center justify-center gap-3 font-mono text-xs pt-4">
       <a
         href="/"
-        class="px-4 py-2 rounded-lg bg-zinc-900 text-white dark:bg-[#00ffcc] dark:text-zinc-950 font-semibold hover:bg-zinc-800 dark:hover:bg-[#33ffdd] transition-all"
+        class="px-5 py-2.5 rounded-full bg-[#e5c158] text-[#190102] font-semibold hover:bg-[#f3e5ab] transition-all shadow-md"
       >
         ← Ana Sayfaya Dön
       </a>
       <a
         href="/blog"
-        class="px-4 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700 transition-all"
+        class="px-5 py-2.5 rounded-full bg-[#190102] text-[#ffffff] hover:text-[#e5c158] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 transition-all"
       >
-        Yazılar & Notlar
+        Yazılar & Notlar →
       </a>
     </div>
   </div>

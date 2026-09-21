@@ -16,15 +16,15 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
 >
   <div class="py-4 sm:py-8 space-y-10">
     <!-- Header -->
-    <header class="rounded-[24px] border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#1f1a17]/60 p-8 sm:p-12 text-center shadow-2xs">
-      <div class="inline-flex items-center gap-2 font-mono text-xs text-[#e1734b] dark:text-[#e59a7a] uppercase tracking-wider mb-3 font-semibold">
-        <span class="w-2 h-2 rounded-full bg-[#e1734b] dark:bg-[#e59a7a]"></span>
+    <header class="rounded-[24px] border border-[#e5c158]/25 bg-[#280205] p-8 sm:p-12 text-center shadow-xl">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-[#e5c158] uppercase tracking-wider mb-3 font-semibold">
+        <span class="w-2 h-2 rounded-full bg-[#e5c158] animate-pulse"></span>
         <span>// EDİTORYAL ARŞİV & ARAŞTIRMALAR</span>
       </div>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-[#2d2724] dark:text-[#fef9ed] leading-[1.32] pb-1">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-[#e5c158] leading-[1.32] pb-1">
         Yazılar & Notlar
       </h1>
-      <p class="mt-4 text-base sm:text-lg text-[#5D524B] dark:text-[#a89f91] max-w-2xl mx-auto font-serif leading-relaxed">
+      <p class="mt-4 text-base sm:text-lg text-[#c5cbd3] max-w-2xl mx-auto font-serif leading-relaxed">
         Teknoloji, açık kaynak, siber güvenlik, dijital egemenlik, yapay zekâ, Linux ve sistem mimarisi üzerine araştırmalar ve notlar.
       </p>
 
@@ -34,13 +34,13 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
           id="qs-search-input"
           type="search"
           placeholder="Yazılarda anlık ara... [/]"
-          class="w-full px-4 py-2.5 pl-10 pr-9 rounded-xl border border-[#ead9d2] dark:border-[#2d2521] bg-[#fef9ed] dark:bg-[#141210] text-[#2d2724] dark:text-[#fef9ed] placeholder-[#8C7E74] dark:placeholder-[#a89f91] font-mono text-xs focus:outline-none focus:border-[#5D524B] dark:focus:border-[#ead9d2] transition-colors"
+          class="w-full px-4 py-2.5 pl-10 pr-9 rounded-xl border border-[#e5c158]/30 bg-[#190102] text-[#ffffff] placeholder-[#c5cbd3]/60 font-mono text-xs focus:outline-none focus:border-[#e5c158] transition-colors"
           autocomplete="off"
         />
-        <svg class="absolute left-3.5 top-3 w-4 h-4 text-[#8C7E74] dark:text-[#a89f91] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="absolute left-3.5 top-3 w-4 h-4 text-[#c5cbd3] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
         </svg>
-        <span class="absolute right-3.5 top-2.5 px-1.5 py-0.5 rounded border border-[#ead9d2] dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] text-[10px] font-mono text-[#8C7E74] dark:text-[#a89f91] pointer-events-none hidden sm:inline-block">/</span>
+        <span class="absolute right-3.5 top-2.5 px-1.5 py-0.5 rounded border border-[#e5c158]/30 bg-[#280205] text-[10px] font-mono text-[#c5cbd3] pointer-events-none hidden sm:inline-block">/</span>
       </div>
 
       <!-- Topic Tags Filter Deck: Minimal Shell Pills -->
@@ -49,7 +49,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
           <button
             type="button"
             data-filter-tag="all"
-            class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold"
+            class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#e5c158] text-[#190102] border-[#e5c158] font-semibold"
           >
             Tümü ({sortedPosts.length})
           </button>
@@ -57,7 +57,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
             <button
               type="button"
               data-filter-tag={tag.toLowerCase()}
-              class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700"
+              class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#190102] text-[#c5cbd3] border-[#c5cbd3]/20 hover:text-[#e5c158] hover:border-[#e5c158]/40"
             >
               #{tag}
             </button>
@@ -67,18 +67,18 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     </header>
 
     <!-- Filter & Status Bar -->
-    <div class="px-4 py-3 rounded-xl bg-white dark:bg-[#0c0e12] border border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+    <div class="px-4 py-3 rounded-xl bg-[#280205] border border-[#e5c158]/20 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#c5cbd3]">
       <div class="flex items-center gap-3">
-        <span id="qs-stats-counter" class="text-zinc-800 dark:text-zinc-200 font-medium">Toplam {sortedPosts.length} yazı</span>
+        <span id="qs-stats-counter" class="text-[#ffffff] font-medium">Toplam {sortedPosts.length} yazı</span>
       </div>
 
       <div class="flex items-center gap-2">
-        <span id="qs-page-info" class="text-zinc-600 dark:text-zinc-300 font-medium">Sayfa 1 / 1</span>
+        <span id="qs-page-info" class="text-[#c5cbd3] font-medium">Sayfa 1 / 1</span>
         <div class="flex items-center gap-1 ml-1">
           <button
             id="qs-prev-btn"
             type="button"
-            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer border border-zinc-200 dark:border-zinc-700"
+            class="px-2.5 py-1 rounded bg-[#190102] hover:bg-[#380407] text-[#ffffff] disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer border border-[#e5c158]/30"
             title="Önceki Sayfa"
           >
             ← Önceki
@@ -86,7 +86,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
           <button
             id="qs-next-btn"
             type="button"
-            class="px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 disabled:opacity-40 disabled:cursor-not-allowed transition-colors cursor-pointer border border-zinc-200 dark:border-zinc-700"
+            class="px-2.5 py-1 rounded bg-[#190102] hover:bg-[#380407] text-[#ffffff] disabled:opacity-30 disabled:cursor-not-allowed transition-colors cursor-pointer border border-[#e5c158]/30"
             title="Sonraki Sayfa"
           >
             Sonraki →
@@ -96,12 +96,12 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     </div>
 
     <!-- Empty State for Tag Filter -->
-    <div id="qs-empty-state" class="hidden py-16 text-center font-mono text-sm text-zinc-500 dark:text-zinc-400 border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl">
+    <div id="qs-empty-state" class="hidden py-16 text-center font-mono text-sm text-[#c5cbd3] border border-dashed border-[#e5c158]/30 rounded-xl bg-[#280205]">
       <p>Arama kriterinize veya seçili filtreye ait yazı bulunamadı.</p>
       <button
         id="qs-reset-filter"
         type="button"
-        class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-[#00ffcc] hover:underline cursor-pointer font-medium text-xs border border-zinc-300 dark:border-zinc-700"
+        class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#190102] text-[#e5c158] hover:text-[#f3e5ab] hover:underline cursor-pointer font-medium text-xs border border-[#e5c158]/30"
       >
         [Filtreleri ve aramayı sıfırla]
       </button>
@@ -114,15 +114,15 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     >
       {sortedPosts.map((post) => (
         <article
-          class="qs-post-item group rounded-[22px] border border-[#ead9d2]/80 dark:border-[#2d2521] hover:border-[#5D524B]/30 dark:hover:border-[#ead9d2]/40 bg-[#F5F0E4]/60 dark:bg-[#1f1a17]/80 p-6 transition-all duration-200 flex flex-col justify-between h-full shadow-2xs"
+          class="qs-post-item group rounded-[22px] border border-[#e5c158]/25 hover:border-[#e5c158]/60 bg-[#280205] p-6 transition-all duration-200 flex flex-col justify-between h-full shadow-xl"
           data-title={post.data.title.toLowerCase()}
           data-desc={(post.data.description || '').toLowerCase()}
           data-tags={JSON.stringify((post.data.tags || []).map((t) => t.toLowerCase()))}
         >
           <div class="space-y-4">
             <!-- Top Tag & Date Line -->
-            <div class="flex items-center justify-between text-[11px] font-mono text-[#8C7E74] dark:text-[#a89f91] pb-2.5 border-b border-[#ead9d2]/60 dark:border-[#2d2521]">
-              <span class="text-[#e1734b] dark:text-[#e59a7a] font-medium">
+            <div class="flex items-center justify-between text-[11px] font-mono text-[#c5cbd3] pb-2.5 border-b border-[#e5c158]/20">
+              <span class="text-[#e5c158] font-medium">
                 #{(post.data.tags && post.data.tags[0]) || 'notlar'}
               </span>
               <time datetime={post.data.pubDate.toISOString()}>
@@ -131,7 +131,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
             </div>
 
             <!-- Title -->
-            <h2 class="text-xl font-normal text-[#2d2724] dark:text-[#fef9ed] font-serif group-hover:text-[#e1734b] dark:group-hover:text-[#e59a7a] transition-colors leading-[1.3] line-clamp-2">
+            <h2 class="text-xl font-normal text-[#ffffff] font-serif group-hover:text-[#e5c158] transition-colors leading-[1.3] line-clamp-2">
               <a href={`/blog/${post.slug}`} class="focus:outline-none">
                 {post.data.title}
               </a>
@@ -139,20 +139,20 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
 
             <!-- Preview Description -->
             {post.data.description && (
-              <p class="text-sm leading-relaxed text-[#5D524B] dark:text-[#a89f91] font-serif line-clamp-3">
+              <p class="text-sm leading-relaxed text-[#c5cbd3] font-serif line-clamp-3">
                 {post.data.description}
               </p>
             )}
           </div>
 
           <!-- Bottom Action & Secondary Tags -->
-          <div class="pt-3 mt-3 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+          <div class="pt-3 mt-3 border-t border-[#e5c158]/20 flex items-center justify-between text-xs font-mono">
             <div class="flex items-center gap-1">
               {post.data.tags && post.data.tags.slice(1, 3).map((tag) => (
                 <button
                   type="button"
                   data-tag-button={tag.toLowerCase()}
-                  class="px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-[#00ffcc] text-[10px] cursor-pointer"
+                  class="px-1.5 py-0.5 rounded bg-[#190102] text-[#c5cbd3] hover:text-[#e5c158] text-[10px] cursor-pointer border border-[#c5cbd3]/15"
                   title={`#${tag}`}
                 >
                   #{tag}
@@ -162,7 +162,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
 
             <a
               href={`/blog/${post.slug}`}
-              class="inline-flex items-center gap-1 text-zinc-700 dark:text-[#00ffcc] font-medium group-hover:translate-x-0.5 transition-transform"
+              class="inline-flex items-center gap-1 text-[#e5c158] hover:text-[#f3e5ab] font-medium group-hover:translate-x-0.5 transition-all"
             >
               <span>Oku</span>
               <span>→</span>
@@ -173,8 +173,8 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     </div>
 
     <!-- Bottom Pagination Bar -->
-    <div id="qs-pagination-container" class="pt-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-      <div class="text-zinc-500 dark:text-zinc-400">
+    <div id="qs-pagination-container" class="pt-6 border-t border-[#e5c158]/20 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+      <div class="text-[#c5cbd3]">
         <span id="qs-page-summary">Sayfa 1 / 1 (36 yazı)</span>
       </div>
 
@@ -292,8 +292,8 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         btn.type = 'button';
         btn.textContent = `${i}`;
         btn.className = i === currentPage
-          ? 'px-2.5 py-1 rounded bg-zinc-900 dark:bg-[#00ffcc] text-white dark:text-zinc-950 font-bold border border-zinc-900 dark:border-[#00ffcc] cursor-pointer'
-          : 'px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-[#00ffcc] border border-zinc-200 dark:border-zinc-700 cursor-pointer';
+          ? 'px-2.5 py-1 rounded bg-[#e5c158] text-[#190102] font-bold border border-[#e5c158] cursor-pointer'
+          : 'px-2.5 py-1 rounded bg-[#190102] text-[#c5cbd3] hover:text-[#e5c158] border border-[#c5cbd3]/20 cursor-pointer';
         
         btn.addEventListener('click', () => {
           currentPage = i;
@@ -309,10 +309,10 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         const tag = pill.getAttribute('data-filter-tag') || 'all';
 
         filterPills.forEach((p) => {
-          p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700';
+          p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#190102] text-[#c5cbd3] border-[#c5cbd3]/20 hover:text-[#e5c158] hover:border-[#e5c158]/40';
         });
 
-        pill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold';
+        pill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#e5c158] text-[#190102] border-[#e5c158] font-semibold';
 
         filterPosts(tag, undefined);
       });
@@ -396,9 +396,9 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
       const targetPill = document.querySelector(`[data-filter-tag="${initialTag.toLowerCase()}"]`);
       if (targetPill) {
         filterPills.forEach((p) => {
-          p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-100 dark:bg-[#12151d] text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:text-zinc-950 dark:hover:text-[#00ffcc] hover:border-zinc-300 dark:hover:border-zinc-700';
+          p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#190102] text-[#c5cbd3] border-[#c5cbd3]/20 hover:text-[#e5c158] hover:border-[#e5c158]/40';
         });
-        targetPill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-zinc-900 text-white border-zinc-900 dark:bg-[#00ffcc] dark:text-zinc-950 dark:border-[#00ffcc] font-semibold';
+        targetPill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#e5c158] text-[#190102] border-[#e5c158] font-semibold';
       }
       filterPosts(initialTag.toLowerCase(), initialQuery);
     } else {
