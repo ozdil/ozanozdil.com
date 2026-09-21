@@ -35,63 +35,35 @@
   font-display: swap;
 }
 
-:root {
+/* Dark theme variables (Default / Koyu - şu andaki) */
+:root,
+html.dark {
   --canvas-bg: #09090b;
   --surface-bg: #121215;
   --surface-subtle: #18181b;
+  --surface-hover: #1f1f24;
   --border-color: #27272a;
-  --border-muted: #1f1f23;
+  --border-hover: #3f3f46;
   --text-main: #f4f4f5;
+  --text-title: #ffffff;
   --text-muted: #a1a1aa;
-  --text-gold: #ffffff;
-  --text-silver: #a1a1aa;
-  --accent-color: #ffffff;
-  --accent-link: #ffffff;
-  --qs-accent: #ffffff;
-  --qs-green: #ffffff;
-  --mai-oat: #09090b;
-  --mai-linen: #121215;
-  --mai-sand: #18181b;
-  --mai-cocoa: #ffffff;
-  --mai-cocoa-soft: #a1a1aa;
-  --mai-peach: #27272a;
-  --mai-terracotta: #ffffff;
-  --mai-sage: #18181b;
-  --mai-mint: #121215;
-  --mai-mint-ink: #ffffff;
-  --mai-plum: #18181b;
-  --mai-taupe: #09090b;
-  --mai-bronze: #e4e4e7;
+  --text-subtle: #71717a;
   color-scheme: dark;
 }
 
-.dark {
-  --canvas-bg: #09090b;
-  --surface-bg: #121215;
-  --surface-subtle: #18181b;
-  --border-color: #27272a;
-  --border-muted: #1f1f23;
+/* Light theme variables (Açık - 1-2 ton üstü) */
+html:not(.dark) {
+  --canvas-bg: #202024;
+  --surface-bg: #2a2a30;
+  --surface-subtle: #36363e;
+  --surface-hover: #40404a;
+  --border-color: #464652;
+  --border-hover: #5c5c6b;
   --text-main: #f4f4f5;
-  --text-muted: #a1a1aa;
-  --text-gold: #ffffff;
-  --text-silver: #a1a1aa;
-  --accent-color: #ffffff;
-  --accent-link: #ffffff;
-  --qs-accent: #ffffff;
-  --qs-green: #ffffff;
-  --mai-oat: #09090b;
-  --mai-linen: #121215;
-  --mai-sand: #18181b;
-  --mai-cocoa: #ffffff;
-  --mai-cocoa-soft: #a1a1aa;
-  --mai-peach: #27272a;
-  --mai-terracotta: #ffffff;
-  --mai-sage: #18181b;
-  --mai-mint: #121215;
-  --mai-mint-ink: #ffffff;
-  --mai-plum: #18181b;
-  --mai-taupe: #09090b;
-  --mai-bronze: #e4e4e7;
+  --text-title: #ffffff;
+  --text-muted: #d4d4d8;
+  --text-subtle: #a1a1aa;
+  color-scheme: dark;
 }
 
 html {
@@ -103,7 +75,7 @@ html {
 }
 
 body {
-  background-color: var(--canvas-bg);
+  background-color: var(--canvas-bg) !important;
   background-image: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.035) 0%, transparent 60%);
   background-attachment: fixed;
   color: var(--text-main);
@@ -113,20 +85,67 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
   max-width: 100vw;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Normalized Minimalist Cards */
 .pcb-card, .clean-card {
   position: relative;
-  background-color: #121215;
-  border: 1px solid #27272a;
+  background-color: var(--surface-bg) !important;
+  border: 1px solid var(--border-color) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .pcb-card:hover, .clean-card:hover {
-  border-color: #3f3f46;
-  background-color: #16161a;
+  border-color: var(--border-hover) !important;
+  background-color: var(--surface-hover) !important;
+}
+
+/* Dynamic theme overrides for light mode (1-2 ton üstü) */
+html:not(.dark) [class*="bg-[#09090b]"] {
+  background-color: var(--canvas-bg) !important;
+}
+
+html:not(.dark) [class*="bg-[#121215]"] {
+  background-color: var(--surface-bg) !important;
+}
+
+html:not(.dark) [class*="bg-[#18181b]"] {
+  background-color: var(--surface-subtle) !important;
+}
+
+html:not(.dark) [class*="bg-[#27272a]"] {
+  background-color: var(--surface-hover) !important;
+}
+
+html:not(.dark) [class*="hover:bg-[#18181b]"]:hover {
+  background-color: var(--surface-subtle) !important;
+}
+
+html:not(.dark) [class*="hover:bg-[#27272a]"]:hover {
+  background-color: var(--surface-hover) !important;
+}
+
+html:not(.dark) [class*="border-[#27272a]"] {
+  border-color: var(--border-color) !important;
+}
+
+html:not(.dark) [class*="border-[#3f3f46]"] {
+  border-color: var(--border-hover) !important;
+}
+
+html:not(.dark) [class*="hover:border-[#3f3f46]"]:hover,
+html:not(.dark) [class*="hover:border-[#52525b]"]:hover {
+  border-color: var(--border-hover) !important;
+}
+
+html:not(.dark) [class*="text-[#a1a1aa]"] {
+  color: var(--text-muted) !important;
+}
+
+html:not(.dark) [class*="text-[#71717a]"] {
+  color: var(--text-subtle) !important;
 }
 
 /* Legacy PCB decor elements hidden for clean normalization */
