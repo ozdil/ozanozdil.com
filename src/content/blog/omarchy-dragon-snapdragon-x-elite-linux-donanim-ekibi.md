@@ -27,37 +27,37 @@ Bir işletim sisteminin ARM tabanlı bir dizüstü bilgisayarda yalnızca açıl
 
 Omarchy Dragon, sadece teorik tartışmalar yürüten bir topluluk grubu değil; bizzat gerçek donanımlar üzerinde çekirdek (kernel) derleyen, Arch Linux ARM (ALARM) depolarına paket sağlayan ve üreticilerle doğrudan iletişim kuran 5 kıdemli sistem mühendisinden oluşuyor:
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between pb-3 border-b border-[#ead9d2]/60 dark:border-[#2a2421]">
-    <div class="font-mono text-xs font-semibold text-[#e1734b] uppercase tracking-wider">// OMARCHY DRAGON SAHA DAĞILIMI</div>
-    <span class="text-[11px] font-mono text-[#8C7E74] dark:text-[#a89f91]">5 Mühendis • 6 Kritik Cihaz</span>
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-xl">
+  <div class="flex items-center justify-between pb-3 border-b border-[#27272a]">
+    <div class="font-mono text-xs font-semibold text-[#ffffff] uppercase tracking-wider">// OMARCHY DRAGON SAHA DAĞILIMI</div>
+    <span class="text-[11px] font-mono text-[#71717a]">5 Mühendis • 6 Kritik Cihaz</span>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 text-xs font-sans">
-    <div class="p-3.5 rounded-xl bg-[#F5F0E4]/60 dark:bg-[#1c1815] border border-[#ead9d2]/40 dark:border-[#2a2421]">
-      <div class="font-mono font-semibold text-[#2d2724] dark:text-[#fef9ed]">Jim Martin — Surface Laptop 8</div>
-      <div class="text-[#e1734b] font-mono text-[11px] mt-0.5">Snapdragon X2 Elite</div>
-      <p class="text-[#5D524B] dark:text-[#a89f91] mt-2 leading-relaxed">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 text-xs font-mono">
+    <div class="p-3.5 rounded-xl bg-[#18181b] border border-[#27272a]">
+      <div class="font-mono font-semibold text-[#ffffff]">Jim Martin — Surface Laptop 8</div>
+      <div class="text-[#d4d4d8] font-mono text-[11px] mt-0.5">Snapdragon X2 Elite</div>
+      <p class="text-[#a1a1aa] mt-2 leading-relaxed">
         ARM kurulum aracında grafiksel disk şifre çözme (graphical disk-unlock) katmanını tamamladı. Surface ürün ailesinde kurtarma, başlatma zinciri ve DGX Spark uyumluluğu üzerinde çalışıyor.
       </p>
     </div>
-    <div class="p-3.5 rounded-xl bg-[#F5F0E4]/60 dark:bg-[#1c1815] border border-[#ead9d2]/40 dark:border-[#2a2421]">
-      <div class="font-mono font-semibold text-[#2d2724] dark:text-[#fef9ed]">Birk Skyum — Lenovo Yoga Slim 7x</div>
-      <div class="text-[#e1734b] font-mono text-[11px] mt-0.5">Snapdragon X Elite</div>
-      <p class="text-[#5D524B] dark:text-[#a89f91] mt-2 leading-relaxed">
+    <div class="p-3.5 rounded-xl bg-[#18181b] border border-[#27272a]">
+      <div class="font-mono font-semibold text-[#ffffff]">Birk Skyum — Lenovo Yoga Slim 7x</div>
+      <div class="text-[#d4d4d8] font-mono text-[11px] mt-0.5">Snapdragon X Elite</div>
+      <p class="text-[#a1a1aa] mt-2 leading-relaxed">
         MapLibre kurucu ortağı. Arch Linux ARM upstream yamaları, libcamera, PipeWire, termal/fan çekirdek yamaları, KVM sanallaştırma, USB4 ve Lenovo doğrudan firmware desteği.
       </p>
     </div>
-    <div class="p-3.5 rounded-xl bg-[#F5F0E4]/60 dark:bg-[#1c1815] border border-[#ead9d2]/40 dark:border-[#2a2421]">
-      <div class="font-mono font-semibold text-[#2d2724] dark:text-[#fef9ed]">Matt Gilg — OmniBook X16 & DGX Spark</div>
-      <div class="text-[#e1734b] font-mono text-[11px] mt-0.5">Snapdragon X2 Elite & Yoga</div>
-      <p class="text-[#5D524B] dark:text-[#a89f91] mt-2 leading-relaxed">
+    <div class="p-3.5 rounded-xl bg-[#18181b] border border-[#27272a]">
+      <div class="font-mono font-semibold text-[#ffffff]">Matt Gilg — OmniBook X16 & DGX Spark</div>
+      <div class="text-[#d4d4d8] font-mono text-[11px] mt-0.5">Snapdragon X2 Elite & Yoga</div>
+      <p class="text-[#a1a1aa] mt-2 leading-relaxed">
         SignalRGB kurucusu. Hyprland masaüstünü aarch64 paketleriyle Snapdragon X Yoga üzerinde tam kararlı hale getirdi. ARM Linux oyunculuğu ve Windows esaretinden çıkış yolları odağında.
       </p>
     </div>
-    <div class="p-3.5 rounded-xl bg-[#F5F0E4]/60 dark:bg-[#1c1815] border border-[#ead9d2]/40 dark:border-[#2a2421]">
-      <div class="font-mono font-semibold text-[#2d2724] dark:text-[#fef9ed]">Bob Prendergast & Miguel Cruz</div>
-      <div class="text-[#e1734b] font-mono text-[11px] mt-0.5">ThinkPad T14s & ASUS Zenbook A16</div>
-      <p class="text-[#5D524B] dark:text-[#a89f91] mt-2 leading-relaxed">
+    <div class="p-3.5 rounded-xl bg-[#18181b] border border-[#27272a]">
+      <div class="font-mono font-semibold text-[#ffffff]">Bob Prendergast & Miguel Cruz</div>
+      <div class="text-[#d4d4d8] font-mono text-[11px] mt-0.5">ThinkPad T14s & ASUS Zenbook A16</div>
+      <p class="text-[#a1a1aa] mt-2 leading-relaxed">
         HP EliteBook 14 G1q, ThinkPad T14s Gen 6 ve Zenbook A16 (X2 Elite Extreme). Apple Silicon (Omarchy M) tecrübesinin Qualcomm Adreno GPU sürücülerine ve bootloader aşamasına aktarılması.
       </p>
     </div>

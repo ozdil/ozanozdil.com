@@ -22,69 +22,69 @@ OmaStudio sıradan bir Electron sarmalayıcısı veya hantal bir GTK arayüzü d
 2. **İşleme Motoru (Rust + Rayon + LibRaw):**
    Bellek güvenliğinden ve sıfır maliyetli soyutlamalardan taviz vermeyen bağımsız Rust arka plan motoru (`omastudio-engine`). LibRaw FFI üzerinden doğrudan piksellere erişir; çok çekirdekli paralel matris hesaplamalarıyla (Rayon) 50+ megapiksellik RAW fotoğrafları dahi donma ve bellek darboğazı yaşamadan anlık işler.
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#ffffff]">
   OmaStudio RAW İşleme ve Görselleştirme Boru Hattı
   </div>
-  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">16-Bit Lineer Renk Hattı</span>
+  <span class="text-xs font-mono text-[#71717a]">16-Bit Lineer Renk Hattı</span>
   </div>
   <!-- 5-Step Pipeline Grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 font-mono text-xs mb-4">
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 1</span>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">RAW Dosyası</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Bayer, X-Trans, DNG, RAF ham sensör verisi.</p>
+  <span class="text-[10px] font-bold text-[#ffffff]">ADIM 1</span>
+  <div class="font-bold text-[#ffffff] mt-1 mb-1">RAW Dosyası</div>
+  <p class="text-[11px] text-[#a1a1aa]">Bayer, X-Trans, DNG, RAF ham sensör verisi.</p>
   </div>
-  <div class="mt-2 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">Ham Sensör Verisi</div>
+  <div class="mt-2 text-[10px] text-[#ffffff] font-semibold">Ham Sensör Verisi</div>
   </div>
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 2</span>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">LibRaw Demosaic</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">AHD / DHT yüksek kaliteli enterpolasyon.</p>
+  <span class="text-[10px] font-bold text-[#ffffff]">ADIM 2</span>
+  <div class="font-bold text-[#ffffff] mt-1 mb-1">LibRaw Demosaic</div>
+  <p class="text-[11px] text-[#a1a1aa]">AHD / DHT yüksek kaliteli enterpolasyon.</p>
   </div>
-  <div class="mt-2 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">16-Bit ADC Okuma</div>
+  <div class="mt-2 text-[10px] text-[#ffffff] font-semibold">16-Bit ADC Okuma</div>
   </div>
   <div class="p-3 rounded-xl border border-[#8b3a2b]/30 bg-[#8b3a2b]/10 dark:bg-[#8b3a2b]/20 flex flex-col justify-between">
   <div>
-  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 3 (ÇEKİRDEK)</span>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">16-Bit Lineer Pipeline</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#d6d3d1]">Geniş renk gamı matematiksel dönüşümleri.</p>
+  <span class="text-[10px] font-bold text-[#ffffff]">ADIM 3 (ÇEKİRDEK)</span>
+  <div class="font-bold text-[#ffffff] mt-1 mb-1">16-Bit Lineer Pipeline</div>
+  <p class="text-[11px] text-[#a1a1aa] dark:text-[#d6d3d1]">Geniş renk gamı matematiksel dönüşümleri.</p>
   </div>
-  <div class="mt-2 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-bold">Float Matrisler</div>
+  <div class="mt-2 text-[10px] text-[#ffffff] font-bold">Float Matrisler</div>
   </div>
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 4</span>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">Rayon Çok Çekirdek</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Tüm CPU çekirdeklerine paralel dağıtım.</p>
+  <span class="text-[10px] font-bold text-[#ffffff]">ADIM 4</span>
+  <div class="font-bold text-[#ffffff] mt-1 mb-1">Rayon Çok Çekirdek</div>
+  <p class="text-[11px] text-[#a1a1aa]">Tüm CPU çekirdeklerine paralel dağıtım.</p>
   </div>
   <div class="mt-2 text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">Paralel Hesaplama</div>
   </div>
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <span class="text-[10px] font-bold text-[#8b3a2b] dark:text-[#d48372]">ADIM 5</span>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] mt-1 mb-1">Quickshell Viewport</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">GPU dokusu, akıcı pan ve pinch-to-zoom.</p>
+  <span class="text-[10px] font-bold text-[#ffffff]">ADIM 5</span>
+  <div class="font-bold text-[#ffffff] mt-1 mb-1">Quickshell Viewport</div>
+  <p class="text-[11px] text-[#a1a1aa]">GPU dokusu, akıcı pan ve pinch-to-zoom.</p>
   </div>
   <div class="mt-2 text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">60+ FPS Wayland</div>
   </div>
   </div>
   <!-- Grading Submodules -->
-  <div class="p-3.5 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/80 dark:bg-[#1c1917]/80 font-mono text-xs">
-  <div class="text-[10px] font-bold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372] mb-2">
+  <div class="p-3.5 rounded-xl border border-[#27272a] bg-[#18181b] font-mono text-xs">
+  <div class="text-[10px] font-bold uppercase tracking-wider text-[#ffffff] mb-2">
   16-Bit Matematiksel Renk Modülleri:
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
-  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+  <div class="p-2 rounded bg-[#18181b] border border-[#27272a]">
   <strong>DaVinci 3-Way Wheels:</strong> Lift, Gamma, Gain, Offset
   </div>
-  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+  <div class="p-2 rounded bg-[#18181b] border border-[#27272a]">
   <strong>8-Band HSL Mikseri:</strong> Renk başına Hue, Sat, Lum
   </div>
-  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+  <div class="p-2 rounded bg-[#18181b] border border-[#27272a]">
   <strong>Optik ve Profil:</strong> Lens Distortion, Defringe, ICC
   </div>
   </div>

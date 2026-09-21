@@ -148,6 +148,29 @@ html:not(.dark) [class*="text-[#71717a]"] {
   color: var(--text-subtle) !important;
 }
 
+html:not(.dark) [class*="border-[#52525b]"] {
+  border-color: var(--text-subtle) !important;
+}
+
+/* Dynamic theme handling for all article infographics and cards */
+.markdown-body .rounded-2xl {
+  background-color: var(--surface-bg) !important;
+  border-color: var(--border-color) !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.markdown-body .rounded-xl {
+  background-color: var(--surface-subtle) !important;
+  border-color: var(--border-color) !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Timeline tracks and vertical lines in articles */
+.markdown-body [class*="before:w-[2px]"]::before,
+.markdown-body .space-y-4::before {
+  background-color: var(--border-color) !important;
+}
+
 /* Legacy PCB decor elements hidden for clean normalization */
 .pcb-via, .pcb-bracket-tl, .pcb-bracket-tr, .pcb-bracket-bl, .pcb-bracket-br {
   display: none !important;
@@ -266,33 +289,30 @@ p, blockquote, li {
 }
 
 .markdown-body blockquote {
-  margin: 1.5rem 0;
-  padding: 0.5rem 0 0.5rem 1.25rem;
-  border-left: 2px solid #52525b;
-  background: #141417;
-  color: #a1a1aa;
+  margin: 1.75rem 0;
+  padding: 0.875rem 1.25rem;
+  border-left: 3px solid var(--border-hover) !important;
+  background-color: var(--surface-subtle) !important;
+  color: var(--text-muted) !important;
   font-size: 0.95rem;
   line-height: 1.65;
-}
-
-.dark .markdown-body blockquote {
-  border-left-color: #52525b;
-  color: #a1a1aa;
-  background: #141417;
+  border-radius: 0 0.5rem 0.5rem 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .markdown-body hr {
   margin: 2.5rem 0;
   border: 0;
-  border-top: 1px solid #27272a;
+  border-top: 1px solid var(--border-color);
+  transition: border-color 0.2s ease;
 }
 
 .markdown-body pre {
   padding: 1.15rem 1.25rem;
   border-radius: 0.75rem;
-  background-color: #121215 !important;
+  background-color: var(--surface-bg) !important;
   color: #f8fafc;
-  border: 1px solid #27272a;
+  border: 1px solid var(--border-color) !important;
   overflow-x: auto;
   white-space: pre !important;
   word-break: normal !important;
@@ -300,13 +320,8 @@ p, blockquote, li {
   margin: 1.75rem 0;
   font-size: 0.8125rem;
   line-height: 1.65;
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-}
-
-.dark .markdown-body pre {
-  background-color: #121215 !important;
-  border-color: #27272a;
-  color: #f8fafc;
+  font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .markdown-body pre code {
@@ -319,62 +334,61 @@ p, blockquote, li {
 }
 
 .markdown-body code:not(pre code) {
-  padding: 0.15em 0.4em;
+  padding: 0.15em 0.45em;
   margin: 0;
   font-size: 0.85em;
-  background-color: #18181b;
-  border: 1px solid #27272a;
-  color: #f4f4f5;
+  background-color: var(--surface-subtle) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
   border-radius: 0.25rem;
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
-}
-
-.dark .markdown-body code:not(pre code) {
-  background-color: #18181b;
-  border-color: #27272a;
-  color: #f4f4f5;
+  font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .markdown-body table {
-  display: block;
+  display: table !important;
   width: 100%;
   max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-collapse: collapse;
-  margin: 1.75rem 0;
-  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  border-collapse: separate !important;
+  border-spacing: 0;
+  margin: 2rem 0;
+  font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace;
   font-size: 0.8125rem;
-  border: 1px solid #27272a;
-  border-radius: 0.5rem;
+  background-color: var(--surface-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.markdown-body thead {
+  background-color: var(--surface-subtle) !important;
 }
 
 .markdown-body th {
-  background-color: #18181b;
-  padding: 0.625rem 0.875rem;
-  border-bottom: 1px solid #27272a;
+  background-color: var(--surface-subtle) !important;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color) !important;
   text-align: left;
   font-weight: 600;
-  color: #ffffff;
-}
-
-.dark .markdown-body th {
-  background-color: #18181b;
-  color: #ffffff;
+  color: var(--text-title) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .markdown-body td {
-  padding: 0.5rem 0.875rem;
-  border-bottom: 1px solid #1f1f23;
-  color: #d4d4d8;
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.markdown-body tbody tr:last-child td {
+  border-bottom: none !important;
 }
 
 .markdown-body tr:hover td {
-  background-color: #18181b;
-}
-
-.dark .markdown-body tr:hover td {
-  background-color: #18181b;
+  background-color: var(--surface-hover) !important;
 }
 
 .markdown-body a {

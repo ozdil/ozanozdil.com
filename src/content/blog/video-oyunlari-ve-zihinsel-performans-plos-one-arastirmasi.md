@@ -35,62 +35,62 @@ Başlangıçta sisteme kaydolan 2.627 katılımcı arasından; yaş sınırları
 * **Bilişsel Test Bataryası:** 12 bağımsız nöropsikolojik testten oluşan Creyos platformu (uzamsal hafıza, gramatik akıl yürütme, dikkat matrisi, mental rotasyon, Stroop/Double Trouble inhibisyonu vb.).
 * **Ruh Sağlığı Ölçekleri:** Klinik geçerliliği kanıtlanmış PHQ-2 (depresyon) ve GAD-2 (yaygın anksiyete).
 
-<div class="my-8 rounded-2xl border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4]/60 dark:bg-[#161311] p-6 not-prose font-sans">
-  <div class="flex items-center justify-between border-b border-[#ead9d2]/80 dark:border-[#2d2521] pb-3 mb-6">
-  <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#e1734b] dark:text-[#e59a7a]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 not-prose font-mono">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#ffffff]">
   PLOS ONE Çalışmasının Merkezi Difüzyon Bulgusu
   </span>
-  <span class="text-[11px] font-mono text-[#8c7e74]">Nöropsikolojik Ayrışma</span>
+  <span class="text-[11px] font-mono text-[#71717a]">Nöropsikolojik Ayrışma</span>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
   <!-- Faktör 1 -->
-  <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs flex flex-col justify-between">
+  <div class="p-5 rounded-xl border border-[#27272a] bg-[#18181b] shadow-xs flex flex-col justify-between">
   <div>
   <div class="flex items-center justify-between font-mono text-xs mb-2">
   <span class="px-2 py-0.5 rounded-full bg-[#d7e6d6]/80 dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-medium">Faktör A</span>
-  <span class="text-[11px] text-[#8c7e74]">WHO >= 150 dk/hafta</span>
+  <span class="text-[11px] text-[#71717a]">WHO >= 150 dk/hafta</span>
   </div>
-  <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-3">Düzenli Fiziksel Aktivite</h4>
+  <h4 class="font-bold text-base text-[#ffffff] mb-3">Düzenli Fiziksel Aktivite</h4>
   <div class="space-y-3">
-  <div class="p-3 rounded-lg bg-[#F5F0E4]/50 dark:bg-[#1c1815]/50 border border-[#ead9d2]/50 dark:border-[#2d2521]">
+  <div class="p-3 rounded-lg bg-[#18181b] border border-[#27272a]">
   <div class="flex items-center justify-between text-xs mb-1">
-  <span class="font-medium text-[#5d524b] dark:text-[#a89f91]">Bilişsel Performans (Zeka, Mantık)</span>
+  <span class="font-medium text-[#a1a1aa]">Bilişsel Performans (Zeka, Mantık)</span>
   <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Etkisiz (p > 0.05)</span>
   </div>
-  <p class="text-[11px] text-[#8c7e74]">Egzersiz süresinin zihinsel işlem hızı üzerinde doğrudan bir sıçrama etkisi saptanmadı.</p>
+  <p class="text-[11px] text-[#71717a]">Egzersiz süresinin zihinsel işlem hızı üzerinde doğrudan bir sıçrama etkisi saptanmadı.</p>
   </div>
-  <div class="p-3 rounded-lg bg-[#d7e6d6]/30 dark:bg-[#141f19]/50 border border-[#d7e6d6] dark:border-[#141f19]">
+  <div class="p-3 rounded-lg bg-[#d7e6d6]/30 dark:bg-[#141f19]/50 border border-[#d7e6d6] border-[#27272a]">
   <div class="flex items-center justify-between text-xs mb-1">
-  <span class="font-medium text-[#2d2724] dark:text-[#fef9ed]">Ruh Sağlığı (Depresyon / Anksiyete)</span>
+  <span class="font-medium text-[#ffffff]">Ruh Sağlığı (Depresyon / Anksiyete)</span>
   <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-[#d7e6d6] dark:bg-[#141f19] text-[#2e4d4d] dark:text-[#82b09a] font-bold">Güçlü İyileşme (z = -3.53)</span>
   </div>
-  <p class="text-[11px] text-[#5d524b] dark:text-[#a89f91]">Klinik anksiyete ve depresyon semptomlarında belirgin düşüş sağlandı.</p>
+  <p class="text-[11px] text-[#a1a1aa]">Klinik anksiyete ve depresyon semptomlarında belirgin düşüş sağlandı.</p>
   </div>
   </div>
   </div>
   </div>
   <!-- Faktör 2 -->
-  <div class="p-5 rounded-xl border border-[#ead9d2] dark:border-[#26201c] bg-white/70 dark:bg-[#0c0a09]/80 shadow-xs flex flex-col justify-between">
+  <div class="p-5 rounded-xl border border-[#27272a] bg-[#18181b] shadow-xs flex flex-col justify-between">
   <div>
   <div class="flex items-center justify-between font-mono text-xs mb-2">
-  <span class="px-2 py-0.5 rounded-full bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#e1734b] dark:text-[#e59a7a] font-medium">Faktör B</span>
-  <span class="text-[11px] text-[#8c7e74]">Haftada >= 3 saat</span>
+  <span class="px-2 py-0.5 rounded-full bg-[#fbd3be]/60 dark:bg-[#2a1b14] text-[#ffffff] font-medium">Faktör B</span>
+  <span class="text-[11px] text-[#71717a]">Haftada >= 3 saat</span>
   </div>
-  <h4 class="font-bold text-base text-[#2d2724] dark:text-[#fef9ed] mb-3">Video Oyunları Oynamak</h4>
+  <h4 class="font-bold text-base text-[#ffffff] mb-3">Video Oyunları Oynamak</h4>
   <div class="space-y-3">
-  <div class="p-3 rounded-lg bg-[#fbd3be]/30 dark:bg-[#2a1b14]/50 border border-[#fbd3be] dark:border-[#2a1b14]">
+  <div class="p-3 rounded-lg bg-[#fbd3be]/30 dark:bg-[#2a1b14]/50 border border-[#fbd3be] border-[#27272a]">
   <div class="flex items-center justify-between text-xs mb-1">
-  <span class="font-medium text-[#2d2724] dark:text-[#fef9ed]">Bilişsel Performans (Global Biliş)</span>
+  <span class="font-medium text-[#ffffff]">Bilişsel Performans (Global Biliş)</span>
   <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-[#e1734b] text-white font-bold">Devasa Artış (t = 6.49)</span>
   </div>
-  <p class="text-[11px] text-[#5d524b] dark:text-[#a89f91]">Çalışma belleği, akıl yürütme ve işlem hızında istatistiksel zirve görüldü.</p>
+  <p class="text-[11px] text-[#a1a1aa]">Çalışma belleği, akıl yürütme ve işlem hızında istatistiksel zirve görüldü.</p>
   </div>
-  <div class="p-3 rounded-lg bg-[#F5F0E4]/50 dark:bg-[#1c1815]/50 border border-[#ead9d2]/50 dark:border-[#2d2521]">
+  <div class="p-3 rounded-lg bg-[#18181b] border border-[#27272a]">
   <div class="flex items-center justify-between text-xs mb-1">
-  <span class="font-medium text-[#5d524b] dark:text-[#a89f91]">Ruh Sağlığı (Depresyon / Anksiyete)</span>
+  <span class="font-medium text-[#a1a1aa]">Ruh Sağlığı (Depresyon / Anksiyete)</span>
   <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">Nötr / Zararsız (p > 0.05)</span>
   </div>
-  <p class="text-[11px] text-[#8c7e74]">Oyun oynamanın ruh sağlığı skorları üzerinde herhangi bir negatif etkisi bulunmadı.</p>
+  <p class="text-[11px] text-[#71717a]">Oyun oynamanın ruh sağlığı skorları üzerinde herhangi bir negatif etkisi bulunmadı.</p>
   </div>
   </div>
   </div>

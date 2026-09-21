@@ -27,70 +27,70 @@ Omarchy 4.0.4; klavye odaklı Hyprland Wayland kompozitörü, reaktif Quickshell
 
 Omarchy 4.0.4'ün en çarpıcı yeniliği, masaüstü düzeyinde standartlaştırılmış ve soyutlanmış **kodlama ajanı altyapısıdır**. İşletim sistemi artık tek bir şirketin veya modelin tekeline bağlı kalmak yerine, piyasadaki en yetkin 13 farklı yapay zekâ ajanını tek bir çatı altında toplar:
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#ffffff]">
   Omarchy 4.0.4 Çoklu Ajan Dağıtım Mimarisi
   </div>
-  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">UWSM İzolasyonu</span>
+  <span class="text-xs font-mono text-[#71717a]">UWSM İzolasyonu</span>
   </div>
   <!-- Trigger & Dispatcher -->
   <div class="max-w-md mx-auto space-y-3 mb-6 font-mono text-center">
   <div class="p-3 rounded-xl border border-[#8b3a2b]/30 bg-[#8b3a2b]/10 dark:bg-[#8b3a2b]/20">
-  <div class="text-[11px] uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372] font-semibold">Global Masaüstü Kısayolu</div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mt-0.5">SUPER + SHIFT + CTRL + A</div>
-  <div class="text-xs text-[#5c4033] dark:text-[#a8a29e] mt-1">omarchy agent --pick</div>
+  <div class="text-[11px] uppercase tracking-wider text-[#ffffff] font-semibold">Global Masaüstü Kısayolu</div>
+  <div class="font-bold text-sm text-[#ffffff] mt-0.5">SUPER + SHIFT + CTRL + A</div>
+  <div class="text-xs text-[#a1a1aa] mt-1">omarchy agent --pick</div>
   </div>
-  <div class="text-[#8b3a2b] dark:text-[#d48372] text-xs font-bold font-mono">| (Yönlendirme)</div>
-  <div class="p-2.5 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/80 dark:bg-[#1c1917]/80 text-xs font-bold text-[#1c1917] dark:text-[#f5f5f4]">
+  <div class="text-[#ffffff] text-xs font-bold font-mono">| (Yönlendirme)</div>
+  <div class="p-2.5 rounded-xl border border-[#27272a] bg-[#18181b] text-xs font-bold text-[#ffffff]">
   omarchy default agent (Akıllı Dağıtıcı)
   </div>
-  <div class="text-[#8b3a2b] dark:text-[#d48372] text-xs font-bold font-mono">| (Ajan Seçimi)</div>
+  <div class="text-[#ffffff] text-xs font-bold font-mono">| (Ajan Seçimi)</div>
   </div>
   <!-- Agent Engines Grid -->
   <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs mb-6">
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/50 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] text-sm">Hermes</div>
-  <div class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mt-1">Yerel TUI</div>
+  <div class="font-bold text-[#ffffff] text-sm">Hermes</div>
+  <div class="text-[11px] text-[#a1a1aa] mt-1">Yerel TUI</div>
   </div>
-  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#8b3a2b] dark:text-[#d48372] text-[10px] font-semibold break-all">
+  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#ffffff] text-[10px] font-semibold break-all">
   --yolo --tui
   </div>
   </div>
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/50 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] text-sm">Claude Code</div>
-  <div class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mt-1">Anthropic Native</div>
+  <div class="font-bold text-[#ffffff] text-sm">Claude Code</div>
+  <div class="text-[11px] text-[#a1a1aa] mt-1">Anthropic Native</div>
   </div>
-  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#8b3a2b] dark:text-[#d48372] text-[10px] font-semibold break-all">
+  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#ffffff] text-[10px] font-semibold break-all">
   --permission auto
   </div>
   </div>
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/50 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] text-sm">Gemini</div>
-  <div class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mt-1">Google CLI</div>
+  <div class="font-bold text-[#ffffff] text-sm">Gemini</div>
+  <div class="text-[11px] text-[#a1a1aa] mt-1">Google CLI</div>
   </div>
-  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#8b3a2b] dark:text-[#d48372] text-[10px] font-semibold break-all">
+  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#ffffff] text-[10px] font-semibold break-all">
   --yolo --interactive
   </div>
   </div>
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/50 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] text-sm">Codex</div>
-  <div class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mt-1">OpenAI CLI</div>
+  <div class="font-bold text-[#ffffff] text-sm">Codex</div>
+  <div class="text-[11px] text-[#a1a1aa] mt-1">OpenAI CLI</div>
   </div>
-  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#8b3a2b] dark:text-[#d48372] text-[10px] font-semibold break-all">
+  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#ffffff] text-[10px] font-semibold break-all">
   --approve-for-me
   </div>
   </div>
-  <div class="p-3 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/50 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-3 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4] text-sm">OpenClaw</div>
-  <div class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mt-1">Gateway Hub</div>
+  <div class="font-bold text-[#ffffff] text-sm">OpenClaw</div>
+  <div class="text-[11px] text-[#a1a1aa] mt-1">Gateway Hub</div>
   </div>
-  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#8b3a2b] dark:text-[#d48372] text-[10px] font-semibold break-all">
+  <div class="mt-3 px-2 py-1 rounded bg-stone-100 dark:bg-stone-900 text-[#ffffff] text-[10px] font-semibold break-all">
   --gateway --tui
   </div>
   </div>
@@ -99,7 +99,7 @@ Omarchy 4.0.4'ün en çarpıcı yeniliği, masaüstü düzeyinde standartlaştı
   <div class="p-3.5 rounded-xl border border-emerald-300 dark:border-emerald-900/60 bg-emerald-50/50 dark:bg-emerald-950/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 font-mono text-xs">
   <div class="flex items-center gap-2">
   <span class="px-2 py-0.5 rounded bg-emerald-200 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-bold text-[10px]">ÇALIŞTIRMA KATMANI</span>
-  <span class="text-[#1c1917] dark:text-[#f5f5f4] font-semibold">UWSM Session Scope</span>
+  <span class="text-[#ffffff] font-semibold">UWSM Session Scope</span>
   </div>
   <span class="text-emerald-700 dark:text-emerald-400 text-[11px]">app-id: org.omarchy.agent (İzole Wayland Oturumu)</span>
   </div>
@@ -154,12 +154,12 @@ Bir C++, Rust veya Python uygulaması segfault (SIGSEGV) ya da abort (SIGABRT) a
 
 Omarchy 4.0.4 bunu tamamen değiştirdi.
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#ffffff]">
   Otonom Sistem Çökme Teşhis Boru Hattı
   </div>
-  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">systemd-coredump + GDB</span>
+  <span class="text-xs font-mono text-[#71717a]">systemd-coredump + GDB</span>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-xs">
   <!-- Step 1 -->
@@ -169,44 +169,44 @@ Omarchy 4.0.4 bunu tamamen değiştirdi.
   <span class="px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/60 text-red-800 dark:text-red-300 font-bold text-[10px]">ADIM 01</span>
   <span class="text-[10px] text-red-600 dark:text-red-400 font-bold">SIGSEGV / SIGABRT</span>
   </div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Çöken Süreç</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Uygulama bellek hatası alır ve işletim sistemi tarafından sonlandırılır.</p>
+  <div class="font-bold text-sm text-[#ffffff] mb-1">Çöken Süreç</div>
+  <p class="text-[11px] text-[#a1a1aa]">Uygulama bellek hatası alır ve işletim sistemi tarafından sonlandırılır.</p>
   </div>
   <div class="mt-3 text-[10px] text-red-700 dark:text-red-400 font-semibold">Core dump oluşumu tetiklenir</div>
   </div>
   <!-- Step 2 -->
-  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
   <div class="flex items-center justify-between mb-2">
   <span class="px-2 py-0.5 rounded bg-[#ead9d2] dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] font-bold text-[10px]">ADIM 02</span>
-  <span class="text-[10px] text-[#5c4033] dark:text-[#c4a482]">Journal Olayı</span>
+  <span class="text-[10px] text-[#71717a]">Journal Olayı</span>
   </div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">systemd-coredump</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">MESSAGE_ID=fc2e22bc... olayı üretilerek bellek dökümü journal'a kaydedilir.</p>
+  <div class="font-bold text-sm text-[#ffffff] mb-1">systemd-coredump</div>
+  <p class="text-[11px] text-[#a1a1aa]">MESSAGE_ID=fc2e22bc... olayı üretilerek bellek dökümü journal'a kaydedilir.</p>
   </div>
-  <div class="mt-3 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">mktemp izole depolama</div>
+  <div class="mt-3 text-[10px] text-[#ffffff] font-semibold">mktemp izole depolama</div>
   </div>
   <!-- Step 3 -->
-  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
   <div class="flex items-center justify-between mb-2">
   <span class="px-2 py-0.5 rounded bg-[#ead9d2] dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] font-bold text-[10px]">ADIM 03</span>
-  <span class="text-[10px] text-[#5c4033] dark:text-[#c4a482]">Daemon Filtre</span>
+  <span class="text-[10px] text-[#71717a]">Daemon Filtre</span>
   </div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">omarchy-crash-watch</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Deduplication ve UID denetimi ile gereksiz tekrarlar elenir.</p>
+  <div class="font-bold text-sm text-[#ffffff] mb-1">omarchy-crash-watch</div>
+  <p class="text-[11px] text-[#a1a1aa]">Deduplication ve UID denetimi ile gereksiz tekrarlar elenir.</p>
   </div>
-  <div class="mt-3 text-[10px] text-[#8b3a2b] dark:text-[#d48372] font-semibold">Aktif kullanıcı eşleştirme</div>
+  <div class="mt-3 text-[10px] text-[#ffffff] font-semibold">Aktif kullanıcı eşleştirme</div>
   </div>
   <!-- Step 4 -->
-  <div class="p-4 rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 flex flex-col justify-between">
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex flex-col justify-between">
   <div>
   <div class="flex items-center justify-between mb-2">
   <span class="px-2 py-0.5 rounded bg-[#ead9d2] dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] font-bold text-[10px]">ADIM 04</span>
   <span class="text-[10px] text-amber-600 dark:text-amber-400 font-bold">Masaüstü Aksiyonu</span>
   </div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Quickshell Bildirimi</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">"Process crashed: &lt;app&gt;. Click to diagnose" interaktif bildirimi görüntülenir.</p>
+  <div class="font-bold text-sm text-[#ffffff] mb-1">Quickshell Bildirimi</div>
+  <p class="text-[11px] text-[#a1a1aa]">"Process crashed: &lt;app&gt;. Click to diagnose" interaktif bildirimi görüntülenir.</p>
   </div>
   <div class="mt-3 text-[10px] text-amber-700 dark:text-amber-400 font-semibold">Tek tıkla tetikleme</div>
   </div>
@@ -217,8 +217,8 @@ Omarchy 4.0.4 bunu tamamen değiştirdi.
   <span class="px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-bold text-[10px]">ADIM 05</span>
   <span class="text-[10px] text-sky-600 dark:text-sky-400 font-bold">Ajan Analizi</span>
   </div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">diagnose-crash Skill</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">debuginfod.archlinux.org sembolleri çekilir ve GDB yığın analizi başlatılır.</p>
+  <div class="font-bold text-sm text-[#ffffff] mb-1">diagnose-crash Skill</div>
+  <p class="text-[11px] text-[#a1a1aa]">debuginfod.archlinux.org sembolleri çekilir ve GDB yığın analizi başlatılır.</p>
   </div>
   <div class="mt-3 text-[10px] text-sky-700 dark:text-sky-400 font-semibold">omarchy agent crash &lt;pid&gt;</div>
   </div>
@@ -229,8 +229,8 @@ Omarchy 4.0.4 bunu tamamen değiştirdi.
   <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-bold text-[10px]">ADIM 06</span>
   <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">Çözüm Raporu</span>
   </div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-1">Kök Neden ve Yama</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">Bellek durumu, son sistem güncellemeleri ve somut düzeltme önerisi sunulur.</p>
+  <div class="font-bold text-sm text-[#ffffff] mb-1">Kök Neden ve Yama</div>
+  <p class="text-[11px] text-[#a1a1aa]">Bellek durumu, son sistem güncellemeleri ve somut düzeltme önerisi sunulur.</p>
   </div>
   <div class="mt-3 text-[10px] text-emerald-700 dark:text-emerald-400 font-semibold">Otonom hata çözümü</div>
   </div>
@@ -314,32 +314,32 @@ Geliştiricilerin en büyük kabuslarından biri, kod yazarken kullandıkları C
 
 Omarchy 4.0.4, Quickshell durum çubuğuna (bar) doğrudan entegre edilen **`omarchy.agents`** bileşeniyle bu sorunu çözüme kavuşturuyor.
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#ffffff]">
   Quickshell Bar Telemetri Modülü: omarchy.agents
   </div>
   <div class="flex items-center gap-2">
   <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">Canlı IPC Yayını</span>
+  <span class="text-xs font-mono text-[#71717a]">Canlı IPC Yayını</span>
   </div>
   </div>
-  <div class="rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/70 dark:bg-[#1c1917]/70 p-5 font-mono text-xs">
+  <div class="rounded-xl border border-[#27272a] bg-[#18181b] p-5 font-mono text-xs">
   <!-- Header -->
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-4">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-4">
   <div class="flex items-center gap-2">
   <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-  <span class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4]">CLAUDE CODE</span>
+  <span class="font-bold text-sm text-[#ffffff]">CLAUDE CODE</span>
   <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 font-semibold">Max 20x Aktif</span>
   </div>
-  <span class="text-[11px] text-[#5c4033] dark:text-[#a8a29e]">IPC: socket://omarchy.agents</span>
+  <span class="text-[11px] text-[#a1a1aa]">IPC: socket://omarchy.agents</span>
   </div>
   <!-- Limit Bars -->
   <div class="space-y-4 mb-5">
   <div>
   <div class="flex justify-between mb-1.5 text-[11px]">
-  <span class="text-[#5c4033] dark:text-[#d6d3d1] font-semibold">5-Saatlik Oturum Limiti:</span>
-  <span class="text-[#8b3a2b] dark:text-[#d48372] font-bold">%64 (1s 24dk içinde sıfırlanır)</span>
+  <span class="text-[#a1a1aa] dark:text-[#d6d3d1] font-semibold">5-Saatlik Oturum Limiti:</span>
+  <span class="text-[#ffffff] font-bold">%64 (1s 24dk içinde sıfırlanır)</span>
   </div>
   <div class="w-full h-2.5 rounded-full bg-[#ead9d2]/60 dark:bg-[#2a2421] overflow-hidden">
   <div class="h-full bg-gradient-to-r from-amber-500 to-[#8b3a2b] rounded-full" style="width: 64%"></div>
@@ -347,7 +347,7 @@ Omarchy 4.0.4, Quickshell durum çubuğuna (bar) doğrudan entegre edilen **`oma
   </div>
   <div>
   <div class="flex justify-between mb-1.5 text-[11px]">
-  <span class="text-[#5c4033] dark:text-[#d6d3d1] font-semibold">Haftalık Kota Kullanımı:</span>
+  <span class="text-[#a1a1aa] dark:text-[#d6d3d1] font-semibold">Haftalık Kota Kullanımı:</span>
   <span class="text-emerald-700 dark:text-emerald-400 font-bold">%38 (Pazartesi yenilenir)</span>
   </div>
   <div class="w-full h-2.5 rounded-full bg-[#ead9d2]/60 dark:bg-[#2a2421] overflow-hidden">
@@ -356,34 +356,34 @@ Omarchy 4.0.4, Quickshell durum çubuğuna (bar) doğrudan entegre edilen **`oma
   </div>
   </div>
   <!-- Daily Token Histogram -->
-  <div class="border-t border-[#ead9d2] dark:border-[#2a2421] pt-4">
-  <div class="text-[11px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider mb-3">
+  <div class="border-t border-[#27272a] pt-4">
+  <div class="text-[11px] font-bold text-[#ffffff] uppercase tracking-wider mb-3">
   Günlük Token Tüketimi (Son 7 Gün):
   </div>
   <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px]">
-  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+  <div class="p-2 rounded bg-[#18181b] border border-[#27272a]">
   <div class="text-[#78716c]">Perşembe</div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">142k tokens</div>
+  <div class="font-bold text-[#ffffff]">142k tokens</div>
   </div>
-  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+  <div class="p-2 rounded bg-[#18181b] border border-[#27272a]">
   <div class="text-[#78716c]">Cuma</div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">210k tokens</div>
+  <div class="font-bold text-[#ffffff]">210k tokens</div>
   </div>
-  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+  <div class="p-2 rounded bg-[#18181b] border border-[#27272a]">
   <div class="text-[#78716c]">Cumartesi</div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">85k tokens</div>
+  <div class="font-bold text-[#ffffff]">85k tokens</div>
   </div>
-  <div class="p-2 rounded bg-white/80 dark:bg-black/40 border border-[#ead9d2]/60 dark:border-[#2a2421]">
+  <div class="p-2 rounded bg-[#18181b] border border-[#27272a]">
   <div class="text-[#78716c]">Pazar</div>
-  <div class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">190k tokens</div>
+  <div class="font-bold text-[#ffffff]">190k tokens</div>
   </div>
   <div class="p-2 rounded bg-amber-50 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-900/50">
   <div class="text-amber-800 dark:text-amber-400 font-semibold">Pazartesi (Tepe)</div>
-  <div class="font-bold text-[#8b3a2b] dark:text-[#d48372]">320k tokens</div>
+  <div class="font-bold text-[#ffffff]">320k tokens</div>
   </div>
   </div>
-  <div class="mt-3 text-[11px] text-[#5c4033] dark:text-[#a8a29e]">
-  Bugün: <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">178k tokens</span> (42 oturum, 128 istem)
+  <div class="mt-3 text-[11px] text-[#a1a1aa]">
+  Bugün: <span class="font-bold text-[#ffffff]">178k tokens</span> (42 oturum, 128 istem)
   </div>
   </div>
   </div>

@@ -24,12 +24,12 @@ Silikon pikselleri minik birer su bardağı gibi düşünün. Gelen fotonlar bar
 
 Apple ve Samsung bunu çözmek için ne yapar? Deklanşöre bastığınız anda arka planda 5 ila 9 kareyi (biri karanlık, biri aydınlık, biri orta) çeker ve üst üste yapıştırır. Ama sahnede hareket eden bir şey varsa (koşan çocuk, araba farı, dans eden biri) kareler birbirini tutmaz ve ortaya o meşhur **"ghosting / hayalet"** çamuru çıkar.
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#ffffff]">
   Sensör Piksel Mimarisi Kıyaslaması
   </div>
-  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">19 Stop Dinamik Aralık</span>
+  <span class="text-xs font-mono text-[#71717a]">19 Stop Dinamik Aralık</span>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
   <!-- Traditional BSI CMOS -->
@@ -38,22 +38,22 @@ Apple ve Samsung bunu çözmek için ne yapar? Deklanşöre bastığınız anda 
   <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-700 dark:text-red-400">Geleneksel BSI CMOS</span>
   <span class="text-xs font-mono px-2 py-0.5 rounded bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 font-semibold">1 Katman</span>
   </div>
-  <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">Fotodiyot ve Transistörler Birlikte</div>
-  <p class="text-xs text-[#5c4033] dark:text-[#a8a29e] mb-4">
+  <div class="text-sm font-semibold text-[#ffffff] mb-2">Fotodiyot ve Transistörler Birlikte</div>
+  <p class="text-xs text-[#a1a1aa] mb-4">
   Transistörler ve sıfırlama devreleri fotodiyot ile aynı yüzeyi paylaşır. Silikon alanı daralır.
   </p>
   <div class="space-y-2 text-xs font-mono">
-  <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40">
+  <div class="flex justify-between p-2 rounded bg-[#18181b] border border-[#27272a]">
   <span class="text-[#78716c]">Kuyu Hacmi (FWC):</span>
   <span class="font-bold text-red-600 dark:text-red-400">~15.000 e-</span>
   </div>
-  <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40">
+  <div class="flex justify-between p-2 rounded bg-[#18181b] border border-[#27272a]">
   <span class="text-[#78716c]">Taşma Sonucu:</span>
   <span class="text-red-600 dark:text-red-400">Blooming / Beyaz Patlama</span>
   </div>
-  <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-red-200/60 dark:border-red-900/40">
+  <div class="flex justify-between p-2 rounded bg-[#18181b] border border-[#27272a]">
   <span class="text-[#78716c]">HDR Yaklaşımı:</span>
-  <span class="text-[#5c4033] dark:text-[#d6d3d1]">5-9 Kare (Ghosting Riski)</span>
+  <span class="text-[#a1a1aa] dark:text-[#d6d3d1]">5-9 Kare (Ghosting Riski)</span>
   </div>
   </div>
   </div>
@@ -63,20 +63,20 @@ Apple ve Samsung bunu çözmek için ne yapar? Deklanşöre bastığınız anda 
   <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Xiaomi 18 Ultra LOFIC 3.0</span>
   <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 font-semibold">2 Katmanlı Yığın</span>
   </div>
-  <div class="text-sm font-semibold text-[#1c1917] dark:text-[#f5f5f4] mb-2">Ayrık Foton Havuzu ve Taşıma Kapısı</div>
-  <p class="text-xs text-[#5c4033] dark:text-[#a8a29e] mb-4">
+  <div class="text-sm font-semibold text-[#ffffff] mb-2">Ayrık Foton Havuzu ve Taşıma Kapısı</div>
+  <p class="text-xs text-[#a1a1aa] mb-4">
   Transistörler alt kata taşınmış, fotodiyot yanına atomik dielektrikli lateral overflow havuzu eklenmiştir.
   </p>
   <div class="space-y-2 text-xs font-mono">
-  <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40">
+  <div class="flex justify-between p-2 rounded bg-[#18181b] border border-[#27272a]">
   <span class="text-[#78716c]">Katman 1 (Saf Işık):</span>
   <span class="font-bold text-emerald-600 dark:text-emerald-400">35.000 e- + 120.000 e- LOFIC</span>
   </div>
-  <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40">
+  <div class="flex justify-between p-2 rounded bg-[#18181b] border border-[#27272a]">
   <span class="text-[#78716c]">Katman 2 (Cu-Cu Hibrit):</span>
   <span class="text-emerald-600 dark:text-emerald-400">HGC/LGC Devresi + Surge C5 DMA</span>
   </div>
-  <div class="flex justify-between p-2 rounded bg-white/80 dark:bg-black/40 border border-emerald-200/60 dark:border-emerald-900/40">
+  <div class="flex justify-between p-2 rounded bg-[#18181b] border border-[#27272a]">
   <span class="text-[#78716c]">Toplam Kapasite:</span>
   <span class="font-bold text-emerald-600 dark:text-emerald-400">155.000 e- (19 Stop / Sıfır Ghosting)</span>
   </div>
@@ -99,43 +99,43 @@ Hollywood prodüksiyonlarında kullanılan 80.000 dolarlık **ARRI Alexa 35 sine
 
 Ekran tarafında da "panel parlaklığını yazılımla pompalayıp 30 saniye sonra aşırı ısınmadan karartan" ucuz numaralara yer verilmemiş. Panel üreticisi TCL CSOT ile birlikte geliştirilen **C9 Çift Katmanlı Tandem OLED** kullanılıyor.
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#ffffff]">
   TCL CSOT C9 Çift Katmanlı Tandem OLED Fotonik Dizilimi
   </div>
-  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">5.500 Nit / 4.320 Hz PWM</span>
+  <span class="text-xs font-mono text-[#71717a]">5.500 Nit / 4.320 Hz PWM</span>
   </div>
   <div class="space-y-3 font-mono text-xs">
   <!-- Layer 6 -->
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-sky-200/80 dark:border-sky-900/40 bg-sky-50/40 dark:bg-sky-950/20">
   <div class="flex items-center gap-3">
   <span class="px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-900/60 text-sky-800 dark:text-sky-300 font-bold">KATMAN 6</span>
-  <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Dragon Crystal Glass 3.0</span>
+  <span class="font-bold text-[#ffffff]">Dragon Crystal Glass 3.0</span>
   </div>
-  <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">10 Kat Darbe Emici Seramik Kristal Yüzey</span>
+  <span class="text-[#a1a1aa] mt-1 sm:mt-0">10 Kat Darbe Emici Seramik Kristal Yüzey</span>
   </div>
   <!-- Layer 5 -->
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-blue-200/80 dark:border-blue-900/40 bg-blue-50/40 dark:bg-blue-950/20">
   <div class="flex items-center gap-3">
   <span class="px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/60 text-blue-800 dark:text-blue-300 font-bold">KATMAN 5</span>
-  <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Pol-less CoE Renk Filtresi</span>
+  <span class="font-bold text-[#ffffff]">Pol-less CoE Renk Filtresi</span>
   </div>
-  <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">Polarizörsüz Yapı (+%33 Işık Geçirgenliği)</span>
+  <span class="text-[#a1a1aa] mt-1 sm:mt-0">Polarizörsüz Yapı (+%33 Işık Geçirgenliği)</span>
   </div>
   <!-- Layer 4 -->
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-amber-200/80 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-950/20">
   <div class="flex items-center gap-3">
   <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-bold">KATMAN 4</span>
-  <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Işıma Tabakası 2 (EML 2)</span>
+  <span class="font-bold text-[#ffffff]">Işıma Tabakası 2 (EML 2)</span>
   </div>
-  <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">Üst Foton Katmanı (Düşük Akım, Yüksek Işık Akısı)</span>
+  <span class="text-[#a1a1aa] mt-1 sm:mt-0">Üst Foton Katmanı (Düşük Akım, Yüksek Işık Akısı)</span>
   </div>
   <!-- Layer 3 (Tunneling) -->
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-purple-300 dark:border-purple-900/60 bg-purple-50/60 dark:bg-purple-950/30">
   <div class="flex items-center gap-3">
   <span class="px-2 py-0.5 rounded bg-purple-200 dark:bg-purple-900/80 text-purple-900 dark:text-purple-200 font-bold">ARAYÜZ</span>
-  <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Kuantum Tünelleme (CGL)</span>
+  <span class="font-bold text-[#ffffff]">Kuantum Tünelleme (CGL)</span>
   </div>
   <span class="text-purple-800 dark:text-purple-300 mt-1 sm:mt-0">İki Katmanı Seri Bağlayan Yük Üretim Köprüsü</span>
   </div>
@@ -143,17 +143,17 @@ Ekran tarafında da "panel parlaklığını yazılımla pompalayıp 30 saniye so
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-amber-200/80 dark:border-amber-900/40 bg-amber-50/40 dark:bg-amber-950/20">
   <div class="flex items-center gap-3">
   <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-300 font-bold">KATMAN 2</span>
-  <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">Işıma Tabakası 1 (EML 1)</span>
+  <span class="font-bold text-[#ffffff]">Işıma Tabakası 1 (EML 1)</span>
   </div>
-  <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">Alt Foton Katmanı (Termal Denge, Sıfır Burn-in)</span>
+  <span class="text-[#a1a1aa] mt-1 sm:mt-0">Alt Foton Katmanı (Termal Denge, Sıfır Burn-in)</span>
   </div>
   <!-- Layer 1 -->
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl border border-emerald-200/80 dark:border-emerald-900/40 bg-emerald-50/40 dark:bg-emerald-950/20">
   <div class="flex items-center gap-3">
   <span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 font-bold">KATMAN 1</span>
-  <span class="font-bold text-[#1c1917] dark:text-[#f5f5f4]">LTPO 4.0 IGZO Matrisi</span>
+  <span class="font-bold text-[#ffffff]">LTPO 4.0 IGZO Matrisi</span>
   </div>
-  <span class="text-[#5c4033] dark:text-[#a8a29e] mt-1 sm:mt-0">1 Hz - 144 Hz Değişken Yenileme Sürücüsü</span>
+  <span class="text-[#a1a1aa] mt-1 sm:mt-0">1 Hz - 144 Hz Değişken Yenileme Sürücüsü</span>
   </div>
   </div>
 </div>
@@ -213,48 +213,48 @@ Telefonun dahili UFS 4.1 hafızası saniyede 4 GB okusa da, profesyonel video ç
 
 Kamera arayüzü harici sürücüyü anında tanıyor ve doğrudan SSD'ye yazma moduna geçiyor!
 
-<div class="my-8 rounded-2xl border border-[#ead9d2] dark:border-[#2a2421] bg-white/80 dark:bg-[#141211] p-6 shadow-sm">
-  <div class="flex items-center justify-between border-b border-[#ead9d2] dark:border-[#2a2421] pb-3 mb-6">
-  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#8b3a2b] dark:text-[#d48372]">
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 shadow-sm">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+  <div class="text-xs font-mono font-semibold uppercase tracking-wider text-[#ffffff]">
   Doğrudan Harici Depolama ve Kurgu İş Akışı
   </div>
-  <span class="text-xs font-mono text-[#5c4033] dark:text-[#c4a482]">10 Gbps USB 3.2 Gen 2</span>
+  <span class="text-xs font-mono text-[#71717a]">10 Gbps USB 3.2 Gen 2</span>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs mb-4">
   <!-- Source -->
-  <div class="rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 p-4">
-  <div class="text-[11px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider mb-1">Kaynak Cihaz</div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-2">Xiaomi 18 Ultra</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-3">Tüm lenslerde kesintisiz 8K 60 FPS canlı yakalama ve donanımsal renk kodlama.</p>
+  <div class="rounded-xl border border-[#27272a] bg-[#18181b] p-4">
+  <div class="text-[11px] font-bold text-[#ffffff] uppercase tracking-wider mb-1">Kaynak Cihaz</div>
+  <div class="font-bold text-sm text-[#ffffff] mb-2">Xiaomi 18 Ultra</div>
+  <p class="text-[11px] text-[#a1a1aa] mb-3">Tüm lenslerde kesintisiz 8K 60 FPS canlı yakalama ve donanımsal renk kodlama.</p>
   <div class="px-2.5 py-1 rounded bg-[#ead9d2]/50 dark:bg-[#2a2421] text-[#3c2a21] dark:text-[#e7e5e4] font-semibold text-[11px]">
   Surge C5 ISP Entegrasyonu
   </div>
   </div>
   <!-- Bridge / Bus -->
-  <div class="rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 p-4">
-  <div class="text-[11px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider mb-1">Veri Yolu</div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-2">USB 3.2 Gen 2 (10 Gbps)</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-3">300 MB/s sürekli yazma bant genişliği ile dahili hafızayı bypass eder.</p>
+  <div class="rounded-xl border border-[#27272a] bg-[#18181b] p-4">
+  <div class="text-[11px] font-bold text-[#ffffff] uppercase tracking-wider mb-1">Veri Yolu</div>
+  <div class="font-bold text-sm text-[#ffffff] mb-2">USB 3.2 Gen 2 (10 Gbps)</div>
+  <p class="text-[11px] text-[#a1a1aa] mb-3">300 MB/s sürekli yazma bant genişliği ile dahili hafızayı bypass eder.</p>
   <div class="px-2.5 py-1 rounded bg-amber-100/70 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 font-semibold text-[11px]">
   Sıfır Termal Sıkışma
   </div>
   </div>
   <!-- Target Storage -->
-  <div class="rounded-xl border border-[#ead9d2] dark:border-[#2a2421] bg-[#faf6f0]/60 dark:bg-[#1c1917]/50 p-4">
-  <div class="text-[11px] font-bold text-[#8b3a2b] dark:text-[#d48372] uppercase tracking-wider mb-1">Hedef Medya</div>
-  <div class="font-bold text-sm text-[#1c1917] dark:text-[#f5f5f4] mb-2">Harici SSD (Samsung T9)</div>
-  <p class="text-[11px] text-[#5c4033] dark:text-[#a8a29e] mb-3">Apple ProRes 422 HQ & ACES 1.3 MasterColor LOG doğrudan diske yazılır.</p>
+  <div class="rounded-xl border border-[#27272a] bg-[#18181b] p-4">
+  <div class="text-[11px] font-bold text-[#ffffff] uppercase tracking-wider mb-1">Hedef Medya</div>
+  <div class="font-bold text-sm text-[#ffffff] mb-2">Harici SSD (Samsung T9)</div>
+  <p class="text-[11px] text-[#a1a1aa] mb-3">Apple ProRes 422 HQ & ACES 1.3 MasterColor LOG doğrudan diske yazılır.</p>
   <div class="px-2.5 py-1 rounded bg-emerald-100/70 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 font-semibold text-[11px]">
   DaVinci Timeline Hazır
   </div>
   </div>
   </div>
-  <div class="p-3 rounded-xl bg-[#faf6f0] dark:bg-[#1c1917] border border-[#ead9d2] dark:border-[#2a2421] text-xs text-[#5c4033] dark:text-[#a8a29e] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+  <div class="p-3 rounded-xl bg-[#18181b] border border-[#27272a] text-xs text-[#a1a1aa] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
   <div class="flex items-center gap-2">
-  <span class="font-mono font-bold text-[#8b3a2b] dark:text-[#d48372]">POST-PRODÜKSİYON:</span>
+  <span class="font-mono font-bold text-[#ffffff]">POST-PRODÜKSİYON:</span>
   <span>Çekim bittiğinde aktarım beklemeden kabloyu Linux veya macOS kurgu istasyonuna bağlayın.</span>
   </div>
-  <span class="font-mono text-[11px] text-[#8b3a2b] dark:text-[#d48372] font-semibold whitespace-nowrap">ACES 1.3 / RAW Renk</span>
+  <span class="font-mono text-[11px] text-[#ffffff] font-semibold whitespace-nowrap">ACES 1.3 / RAW Renk</span>
   </div>
 </div>
 
