@@ -468,7 +468,19 @@ export default {
       }
     }
 
-    const response = await env.ASSETS.fetch(request);
+    let response = await env.ASSETS.fetch(request);
+
+    // If Cloudflare Assets responds with 307/308 redirect to trailing slash, resolve it internally to avoid an extra network round-trip
+    if ((response.status === 307 || response.status === 308) && !pathname.includes('.')) {
+      const location = response.headers.get('Location');
+      if (location) {
+        const resolvedUrl = new URL(location, request.url);
+        const internalRes = await env.ASSETS.fetch(new Request(resolvedUrl.toString(), request));
+        if (internalRes.status === 200) {
+          response = internalRes;
+        }
+      }
+    }
 
     // LLM Context Files: add tokens and CORS
     if (url.pathname === '/llms.txt' || url.pathname === '/llms-full.txt') {
@@ -535,6 +547,7 @@ export default {
         'Link',
         '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/http-message-signatures-directory>; rel="http-message-signatures-directory", </auth.md>; rel="author-authorization"'
       );
+      newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
       newHeaders.set('X-Content-Type-Options', 'nosniff');
       newHeaders.set('X-Frame-Options', 'SAMEORIGIN');
       newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -564,6 +577,7 @@ export default {
       url.pathname.endsWith('.js')
     ) {
       const newHeaders = new Headers(response.headers);
+      newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
       newHeaders.set('Cache-Control', 'public, max-age=31536000, immutable');
       newHeaders.set('Access-Control-Allow-Origin', '*');
       return new Response(response.body, {
