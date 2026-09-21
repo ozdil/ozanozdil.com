@@ -114,16 +114,22 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     >
       {sortedPosts.map((post) => (
         <article
-          class="qs-post-item group rounded-[22px] border border-[#e5c158]/25 hover:border-[#e5c158]/60 bg-[#280205] p-6 transition-all duration-200 flex flex-col justify-between h-full shadow-xl"
+          class="qs-post-item relative group rounded-[22px] pcb-card p-6 transition-all duration-200 flex flex-col justify-between h-full shadow-xl overflow-hidden"
           data-title={post.data.title.toLowerCase()}
           data-desc={(post.data.description || '').toLowerCase()}
           data-tags={JSON.stringify((post.data.tags || []).map((t) => t.toLowerCase()))}
         >
+          <div class="pcb-via pcb-via-tl"></div>
+          <div class="pcb-via pcb-via-tr"></div>
+          <div class="pcb-bracket-tl"></div>
+          <div class="pcb-bracket-tr"></div>
+
           <div class="space-y-4">
             <!-- Top Tag & Date Line -->
             <div class="flex items-center justify-between text-[11px] font-mono text-[#c5cbd3] pb-2.5 border-b border-[#e5c158]/20">
-              <span class="text-[#e5c158] font-medium">
-                #{(post.data.tags && post.data.tags[0]) || 'notlar'}
+              <span class="text-[#e5c158] font-medium flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#fde047]"></span>
+                <span>#{(post.data.tags && post.data.tags[0]) || 'notlar'}</span>
               </span>
               <time datetime={post.data.pubDate.toISOString()}>
                 {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short', year: 'numeric' })}

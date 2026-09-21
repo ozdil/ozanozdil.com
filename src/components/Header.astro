@@ -18,11 +18,16 @@ const navItems = [
 ---
 
 <header class="fixed top-3 left-0 right-0 z-50 px-3 sm:px-6 max-w-5xl mx-auto transition-all">
-  <div class="flex items-center justify-between h-12 sm:h-13 px-3.5 sm:px-6 rounded-full bg-[#2a0306]/90 backdrop-blur-md border border-[#e5c158]/25 shadow-lg">
+  <div class="relative flex items-center justify-between h-12 sm:h-13 px-3.5 sm:px-6 rounded-full bg-[#260306]/95 backdrop-blur-md border border-[#e5c158]/40 shadow-[0_8px_30px_rgba(0,0,0,0.65),0_0_12px_rgba(229,193,88,0.15)]">
+    <!-- Left PCB Via -->
+    <div class="absolute left-3 w-1.5 h-1.5 rounded-full bg-[#fde047] border border-[#a16207] hidden sm:block"></div>
+    <!-- Right PCB Via -->
+    <div class="absolute right-3 w-1.5 h-1.5 rounded-full bg-[#fde047] border border-[#a16207] hidden sm:block"></div>
+
     <!-- Left: Branding -->
     <div class="flex items-center space-x-3 sm:space-x-6 min-w-0">
       <a href="/" class="flex items-center space-x-2.5 group flex-shrink-0" title="Ozan Özdil">
-        <div class="relative w-7 h-7 rounded-full overflow-hidden border border-[#e5c158]/40 bg-[#1c0103] flex-shrink-0 p-0.5 shadow-2xs">
+        <div class="relative w-7 h-7 rounded-full overflow-hidden border-2 border-[#e5c158]/70 bg-[#1c0103] flex-shrink-0 p-0.5 shadow-sm">
           <img src="/avatar.webp" alt="Ozan Özdil" width="28" height="28" decoding="async" class="w-full h-full object-cover rounded-full" />
         </div>
         <span class="font-serif text-sm sm:text-base font-normal text-[#e5c158] group-hover:text-[#f3e5ab] transition-colors whitespace-nowrap">

@@ -172,12 +172,14 @@ const imageGallerySchema = {
           const albumLenses = Array.from(new Set(album.photos.map((p) => p.exif.lens.trim()))).join(', ');
           return (
             <article
-              class="album-card group rounded-[26px] sm:rounded-[32px] border border-[#e5c158]/25 hover:border-[#e5c158]/60 bg-[#280205] overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xl select-none"
+              class="album-card pcb-card group rounded-[26px] sm:rounded-[32px] overflow-hidden transition-all duration-300 cursor-pointer flex flex-col justify-between shadow-xl select-none relative"
               data-slug={album.slug || album.id}
               data-year={album.year}
               data-camera={albumCameras}
               data-lens={albumLenses}
             >
+              <div class="pcb-via pcb-via-tl"></div>
+              <div class="pcb-via pcb-via-tr"></div>
               <!-- Media Preview Area (Large & Cinematic Aspect) -->
               <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#190102]">
                 <img

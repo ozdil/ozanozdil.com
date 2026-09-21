@@ -36,61 +36,61 @@
 }
 
 :root {
-  --canvas-bg: #380407;
-  --surface-bg: #2a0306;
-  --surface-subtle: #45060b;
-  --border-color: rgba(229, 193, 88, 0.25);
-  --border-muted: rgba(197, 203, 211, 0.16);
+  --canvas-bg: #40060a;
+  --surface-bg: #2d0407;
+  --surface-subtle: #4f080e;
+  --border-color: rgba(229, 193, 88, 0.38);
+  --border-muted: rgba(229, 193, 88, 0.20);
   --text-main: #ffffff;
-  --text-muted: #c5cbd3;
-  --text-gold: #e5c158;
-  --text-silver: #c5cbd3;
+  --text-muted: #d1d5db;
+  --text-gold: #fde047;
+  --text-silver: #e2e8f0;
   --accent-color: #e5c158;
-  --accent-link: #e5c158;
+  --accent-link: #fde047;
   --qs-accent: #e5c158;
   --qs-green: #e5c158;
-  --mai-oat: #380407;
-  --mai-linen: #2a0306;
-  --mai-sand: #45060b;
+  --mai-oat: #40060a;
+  --mai-linen: #2d0407;
+  --mai-sand: #4f080e;
   --mai-cocoa: #ffffff;
-  --mai-cocoa-soft: #c5cbd3;
-  --mai-peach: #52080d;
+  --mai-cocoa-soft: #d1d5db;
+  --mai-peach: #610b12;
   --mai-terracotta: #e5c158;
-  --mai-sage: #300407;
-  --mai-mint: #250305;
-  --mai-mint-ink: #f3e5ab;
-  --mai-plum: #420509;
-  --mai-taupe: #380407;
+  --mai-sage: #360509;
+  --mai-mint: #260306;
+  --mai-mint-ink: #fef08a;
+  --mai-plum: #4a070c;
+  --mai-taupe: #40060a;
   --mai-bronze: #d4af37;
   color-scheme: dark;
 }
 
 .dark {
-  --canvas-bg: #240204;
-  --surface-bg: #1a0102;
-  --surface-subtle: #300306;
-  --border-color: rgba(229, 193, 88, 0.28);
-  --border-muted: rgba(197, 203, 211, 0.18);
+  --canvas-bg: #320407;
+  --surface-bg: #220204;
+  --surface-subtle: #3d0509;
+  --border-color: rgba(229, 193, 88, 0.42);
+  --border-muted: rgba(229, 193, 88, 0.24);
   --text-main: #ffffff;
-  --text-muted: #c5cbd3;
-  --text-gold: #e5c158;
-  --text-silver: #c5cbd3;
+  --text-muted: #d1d5db;
+  --text-gold: #fde047;
+  --text-silver: #e2e8f0;
   --accent-color: #e5c158;
-  --accent-link: #e5c158;
+  --accent-link: #fde047;
   --qs-accent: #e5c158;
   --qs-green: #e5c158;
-  --mai-oat: #240204;
-  --mai-linen: #1a0102;
-  --mai-sand: #300306;
+  --mai-oat: #320407;
+  --mai-linen: #220204;
+  --mai-sand: #3d0509;
   --mai-cocoa: #ffffff;
-  --mai-cocoa-soft: #c5cbd3;
-  --mai-peach: #3a0408;
+  --mai-cocoa-soft: #d1d5db;
+  --mai-peach: #4a070c;
   --mai-terracotta: #e5c158;
-  --mai-sage: #200204;
-  --mai-mint: #170102;
-  --mai-mint-ink: #f3e5ab;
-  --mai-plum: #2d0306;
-  --mai-taupe: #220204;
+  --mai-sage: #280305;
+  --mai-mint: #1c0204;
+  --mai-mint-ink: #fef08a;
+  --mai-plum: #350408;
+  --mai-taupe: #2c0305;
   --mai-bronze: #d4af37;
 }
 
@@ -105,12 +105,12 @@ html {
 body {
   background-color: var(--canvas-bg);
   background-image: 
-    radial-gradient(ellipse at 50% 0%, rgba(175, 20, 35, 0.42) 0%, transparent 65%),
-    radial-gradient(circle at 85% 15%, rgba(229, 193, 88, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 15% 75%, rgba(229, 193, 88, 0.035) 0%, transparent 40%),
-    linear-gradient(rgba(229, 193, 88, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(229, 193, 88, 0.028) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    radial-gradient(ellipse at 50% 0%, rgba(225, 29, 72, 0.42) 0%, transparent 65%),
+    radial-gradient(circle at 90% 20%, rgba(229, 193, 88, 0.12) 0%, transparent 35%),
+    radial-gradient(circle at 10% 80%, rgba(229, 193, 88, 0.10) 0%, transparent 35%),
+    url('/images/pcb-board-pattern.svg');
+  background-size: 100% 100%, 100% 100%, 100% 100%, 800px 800px;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
   background-attachment: fixed;
   color: var(--text-main);
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
@@ -119,6 +119,79 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
   max-width: 100vw;
+}
+
+/* PCB Hardware Module Components */
+.pcb-card {
+  position: relative;
+  background-color: rgba(45, 4, 8, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(229, 193, 88, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), inset 0 0 16px rgba(229, 193, 88, 0.05);
+}
+
+.pcb-card:hover {
+  border-color: rgba(229, 193, 88, 0.6);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65), inset 0 0 24px rgba(229, 193, 88, 0.1);
+}
+
+/* PCB Mounting Vias (Holes at corners) */
+.pcb-via {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #200204 40%, #fef08a 45%, #e5c158 80%, #a16207 100%);
+  border: 1px solid #e5c158;
+  box-shadow: 0 0 6px rgba(229, 193, 88, 0.5);
+  pointer-events: none;
+  z-index: 10;
+}
+.pcb-via-tl { top: 8px; left: 8px; }
+.pcb-via-tr { top: 8px; right: 8px; }
+.pcb-via-bl { bottom: 8px; left: 8px; }
+.pcb-via-br { bottom: 8px; right: 8px; }
+
+/* PCB Silkscreen Corner Markings */
+.pcb-bracket-tl {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+.pcb-bracket-tr {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+.pcb-bracket-bl {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+.pcb-bracket-br {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.45);
+  pointer-events: none;
 }
 
 /* Modern Typography Legibility - Editorial Breathing Room */
