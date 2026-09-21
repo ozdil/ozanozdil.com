@@ -189,7 +189,7 @@ const jsonLd = {
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#380407" />
+    <meta name="theme-color" content="#09090b" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -375,36 +375,7 @@ const jsonLd = {
     </script>
 
   </head>
-  <body class="min-h-screen flex flex-col bg-[#40060a] text-[#ffffff] selection:bg-[#e5c158]/30 selection:text-[#ffffff] font-sans antialiased transition-colors duration-200 pt-14 relative overflow-x-clip">
-    <!-- Ambient PCB Motherboard Circuit Overlay Layer -->
-    <div 
-      class="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none opacity-60 mix-blend-screen" 
-      aria-hidden="true" 
-      style="background-image: url('/images/pcb-board-pattern.svg'); background-size: 800px 800px; background-repeat: repeat;"
-    ></div>
-
-    <!-- Motherboard Left Bus Rail (Gold traces & edge pins) -->
-    <div class="fixed top-0 bottom-0 left-0 w-3 sm:w-5 pointer-events-none z-20 hidden lg:flex flex-col justify-between py-12 items-center opacity-50" aria-hidden="true">
-      <div class="w-0.5 h-full bg-gradient-to-b from-[#e5c158]/60 via-[#e5c158]/40 to-[#e5c158]/60 relative">
-        <div class="absolute -left-1 top-10 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -left-1 top-40 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -left-1 top-72 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -left-1 bottom-40 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -left-1 bottom-10 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-      </div>
-    </div>
-
-    <!-- Motherboard Right Bus Rail (Gold traces & test points) -->
-    <div class="fixed top-0 bottom-0 right-0 w-3 sm:w-5 pointer-events-none z-20 hidden lg:flex flex-col justify-between py-12 items-center opacity-50" aria-hidden="true">
-      <div class="w-0.5 h-full bg-gradient-to-b from-[#e5c158]/60 via-[#e5c158]/40 to-[#e5c158]/60 relative">
-        <div class="absolute -right-1 top-16 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -right-1 top-48 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -right-1 top-80 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -right-1 bottom-48 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-        <div class="absolute -right-1 bottom-16 w-2.5 h-2.5 rounded-full bg-[#fde047] border border-[#a16207]"></div>
-      </div>
-    </div>
-
+  <body class="min-h-screen flex flex-col bg-[#09090b] text-[#f4f4f5] selection:bg-[#3f3f46] selection:text-[#ffffff] font-sans antialiased transition-colors duration-200 pt-14 relative overflow-x-clip">
     <Header currentPath={currentPath} />
 
     <main class={`flex-grow w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10 ${maxWidthClass}`}>

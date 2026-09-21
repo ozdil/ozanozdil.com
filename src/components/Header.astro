@@ -17,20 +17,12 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-3 left-0 right-0 z-50 px-3 sm:px-6 max-w-5xl mx-auto transition-all">
-  <div class="relative flex items-center justify-between h-12 sm:h-13 px-3.5 sm:px-6 rounded-full bg-[#260306]/95 backdrop-blur-md border border-[#e5c158]/40 shadow-[0_8px_30px_rgba(0,0,0,0.65),0_0_12px_rgba(229,193,88,0.15)]">
-    <!-- Left PCB Via -->
-    <div class="absolute left-3 w-1.5 h-1.5 rounded-full bg-[#fde047] border border-[#a16207] hidden sm:block"></div>
-    <!-- Right PCB Via -->
-    <div class="absolute right-3 w-1.5 h-1.5 rounded-full bg-[#fde047] border border-[#a16207] hidden sm:block"></div>
-
-    <!-- Left: Branding -->
+<header class="fixed top-3 left-0 right-0 z-50 px-3 sm:px-6 max-w-5xl mx-auto transition-all font-mono">
+  <div class="flex items-center justify-between h-12 sm:h-13 px-4 sm:px-6 rounded-full bg-[#121215]/90 backdrop-blur-md border border-[#27272a] shadow-lg">
+    <!-- Left: Branding (Text-only minimalist logo, no avatar) -->
     <div class="flex items-center space-x-3 sm:space-x-6 min-w-0">
-      <a href="/" class="flex items-center space-x-2.5 group flex-shrink-0" title="Ozan Özdil">
-        <div class="relative w-7 h-7 rounded-full overflow-hidden border-2 border-[#e5c158]/70 bg-[#1c0103] flex-shrink-0 p-0.5 shadow-sm">
-          <img src="/avatar.webp" alt="Ozan Özdil" width="28" height="28" decoding="async" class="w-full h-full object-cover rounded-full" />
-        </div>
-        <span class="font-serif text-sm sm:text-base font-normal text-[#e5c158] group-hover:text-[#f3e5ab] transition-colors whitespace-nowrap">
+      <a href="/" class="flex items-center space-x-2 group flex-shrink-0" title="Ozan Özdil">
+        <span class="text-sm sm:text-base font-semibold text-[#ffffff] group-hover:text-[#a1a1aa] transition-colors whitespace-nowrap">
           Ozan Özdil
         </span>
       </a>
@@ -42,10 +34,10 @@ const navItems = [
           return (
             <a
               href={item.href}
-              class={`px-2.5 py-1 rounded-full transition-all whitespace-nowrap ${
+              class={`px-3 py-1 rounded-full transition-all whitespace-nowrap ${
                 isActive
-                  ? 'bg-[#e5c158]/15 text-[#e5c158] font-medium border border-[#e5c158]/40 shadow-xs'
-                  : 'text-[#c5cbd3] hover:text-[#ffffff]'
+                  ? 'bg-[#27272a] text-[#ffffff] font-medium border border-[#3f3f46]'
+                  : 'text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#18181b]'
               }`}
             >
               <span>{item.label}</span>
@@ -63,7 +55,7 @@ const navItems = [
           href="https://buymeacoffee.com/ozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 sm:p-2 rounded-md text-[#e5c158] hover:text-[#f3e5ab] hover:bg-[#e5c158]/10 border border-[#e5c158]/30 transition-all hidden sm:flex items-center justify-center"
+          class="p-1.5 sm:p-2 rounded-md text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#27272a] border border-[#27272a] transition-all hidden sm:flex items-center justify-center"
           title="Buy Me a Coffee: ozdil"
           aria-label="Buy Me a Coffee"
         >
@@ -77,7 +69,7 @@ const navItems = [
           href="https://github.com/ozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 sm:p-2 rounded-md text-[#c5cbd3] hover:text-[#ffffff] hover:bg-[#e5c158]/10 border border-[#c5cbd3]/20 hover:border-[#e5c158]/30 transition-all hidden sm:inline-flex"
+          class="p-1.5 sm:p-2 rounded-md text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#27272a] border border-[#27272a] transition-all hidden sm:inline-flex"
           title="GitHub: @ozdil"
           aria-label="GitHub"
         >
@@ -91,7 +83,7 @@ const navItems = [
           href="https://steamcommunity.com/id/ozanozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 sm:p-2 rounded-md text-[#c5cbd3] hover:text-[#ffffff] hover:bg-[#e5c158]/10 border border-[#c5cbd3]/20 hover:border-[#e5c158]/30 transition-all hidden sm:inline-flex"
+          class="p-1.5 sm:p-2 rounded-md text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#27272a] border border-[#27272a] transition-all hidden sm:inline-flex"
           title="Steam: ozanozdil"
           aria-label="Steam"
         >
@@ -105,7 +97,7 @@ const navItems = [
           href="https://nsosyal.com/ozanozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-1.5 sm:p-2 rounded-md text-[#c5cbd3] hover:text-[#ffffff] hover:bg-[#e5c158]/10 border border-[#c5cbd3]/20 hover:border-[#e5c158]/30 transition-all hidden sm:inline-flex"
+          class="p-1.5 sm:p-2 rounded-md text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#27272a] border border-[#27272a] transition-all hidden sm:inline-flex"
           title="NSosyal: @ozanozdil"
           aria-label="NSosyal"
         >
@@ -117,7 +109,7 @@ const navItems = [
         <!-- RSS Feed (Desktop Only) -->
         <a
           href="/rss.xml"
-          class="p-1.5 sm:p-2 rounded-md text-[#c5cbd3] hover:text-[#e5c158] hover:bg-[#e5c158]/10 border border-[#c5cbd3]/20 hover:border-[#e5c158]/30 transition-all hidden sm:inline-flex"
+          class="p-1.5 sm:p-2 rounded-md text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#27272a] border border-[#27272a] transition-all hidden sm:inline-flex"
           title="RSS Beslemesi"
           aria-label="RSS Feed"
         >
@@ -132,100 +124,84 @@ const navItems = [
         <!-- Theme Toggle -->
         <ThemeToggle />
 
-        <!-- Mobile Menu Toggle Button -->
+        <!-- Mobile Menu Toggle Button (Hamburger) -->
         <button
-          id="mobile-menu-btn"
           type="button"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
+          id="mobile-menu-btn"
+          class="p-1.5 sm:p-2 rounded-md text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#27272a] border border-[#27272a] transition-colors md:hidden focus:outline-none"
           aria-label="Menüyü Aç/Kapat"
-          class="md:hidden p-2 rounded-full text-[#c5cbd3] hover:text-[#e5c158] hover:bg-[#3b0508] border border-[#e5c158]/30 transition-all focus:outline-none flex items-center justify-center cursor-pointer shadow-2xs"
+          aria-expanded="false"
         >
-          <!-- Hamburger Bars Icon -->
-          <svg id="menu-icon-bars" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <svg id="menu-icon-bars" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-          <!-- Close Cross Icon -->
-          <svg id="menu-icon-close" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg id="menu-icon-close" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-    </div>
   </div>
 
-  <!-- Mobile Navigation Drawer (Floating Card below pill) -->
+  <!-- Mobile Dropdown Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden mt-2 rounded-2xl border border-[#e5c158]/30 bg-[#240204]/98 backdrop-blur-xl px-4 py-4 space-y-4 shadow-2xl transition-all"
+    class="hidden md:hidden mt-2 p-4 rounded-2xl bg-[#121215] border border-[#27272a] shadow-2xl space-y-3 transition-all font-mono text-xs"
   >
     <!-- Navigation Links -->
     <div class="space-y-1">
-      <div class="text-[10px] font-mono text-[#c5cbd3] uppercase tracking-wider px-2 py-0.5">
-        // Menü
-      </div>
       {navItems.map((item) => {
         const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
         return (
           <a
             href={item.href}
-            class={`flex items-center justify-between px-3.5 py-2.5 rounded-lg font-mono text-xs transition-all border ${
+            class={`block px-3 py-2 rounded-lg transition-colors ${
               isActive
-                ? 'border-[#e5c158]/50 bg-[#3b0508] text-[#e5c158] font-semibold shadow-2xs'
-                : 'border-transparent text-[#c5cbd3] hover:bg-[#3b0508]/60 hover:text-[#ffffff]'
+                ? 'bg-[#27272a] text-[#ffffff] font-medium border border-[#3f3f46]'
+                : 'text-[#a1a1aa] hover:text-[#ffffff] hover:bg-[#18181b]'
             }`}
           >
-            <span class="flex items-center gap-2.5">
-              <span class="text-[10px] text-[#8c7e74]">{item.id}</span>
-              <span class="text-sm font-sans">{item.label}</span>
-            </span>
-            {isActive ? (
-              <span class="text-[10px] font-mono text-[#e5c158] flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#e5c158] animate-pulse"></span>
-                aktif
-              </span>
-            ) : (
-              <span class="text-[#8c7e74] text-xs">→</span>
-            )}
+            {item.label}
           </a>
         );
       })}
     </div>
 
-    <!-- Quick Action / Social Links -->
-    <div class="pt-2 border-t border-[#e5c158]/20 space-y-2">
-      <div class="text-[10px] font-mono text-[#c5cbd3] uppercase tracking-wider px-2 py-0.5">
-        // Hızlı Bağlantılar & Destek
+    <!-- Mobile Social Links -->
+    <div class="pt-3 border-t border-[#27272a] space-y-1.5">
+      <div class="text-[10px] uppercase font-semibold text-[#71717a] px-3">
+        Bağlantılar
       </div>
-      <div class="grid grid-cols-2 gap-2 font-mono text-xs">
-        <!-- Buy Me a Coffee -->
-        <a
-          href="https://buymeacoffee.com/ozdil"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-[#e5c158] bg-[#e5c158]/10 border border-[#e5c158]/30 hover:bg-[#e5c158]/20 transition-colors col-span-2 justify-center font-medium"
-        >
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 5h-2V5h2v3zM2 19h18v2H2v-2z" />
-          </svg>
-          <span>Kahve Ismarla (Buy Me a Coffee)</span>
-          <span>↗</span>
-        </a>
-
+      <div class="grid grid-cols-2 gap-2 text-[11px]">
         <!-- GitHub -->
         <a
           href="https://github.com/ozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#c5cbd3] bg-[#2d0306] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 hover:text-[#ffffff] transition-colors"
+          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#a1a1aa] bg-[#18181b] border border-[#27272a] hover:text-[#ffffff] transition-colors"
         >
           <span class="flex items-center gap-2">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 16 16">
-              <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+              <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/>
             </svg>
             <span>GitHub</span>
           </span>
-          <span class="text-[#8c7e74]">↗</span>
+          <span class="text-[#71717a]">↗</span>
+        </a>
+
+        <!-- Buy Me a Coffee -->
+        <a
+          href="https://buymeacoffee.com/ozdil"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#a1a1aa] bg-[#18181b] border border-[#27272a] hover:text-[#ffffff] transition-colors"
+        >
+          <span class="flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 5h-2V5h2v3zM2 19h18v2H2v-2z" />
+            </svg>
+            <span>Destek</span>
+          </span>
+          <span class="text-[#71717a]">↗</span>
         </a>
 
         <!-- Steam -->
@@ -233,7 +209,7 @@ const navItems = [
           href="https://steamcommunity.com/id/ozanozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#c5cbd3] bg-[#2d0306] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 hover:text-[#ffffff] transition-colors"
+          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#a1a1aa] bg-[#18181b] border border-[#27272a] hover:text-[#ffffff] transition-colors"
         >
           <span class="flex items-center gap-2">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -241,7 +217,7 @@ const navItems = [
             </svg>
             <span>Steam</span>
           </span>
-          <span class="text-[#8c7e74]">↗</span>
+          <span class="text-[#71717a]">↗</span>
         </a>
 
         <!-- nSosyal -->
@@ -249,7 +225,7 @@ const navItems = [
           href="https://nsosyal.com/ozanozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#c5cbd3] bg-[#2d0306] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 hover:text-[#ffffff] transition-colors"
+          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#a1a1aa] bg-[#18181b] border border-[#27272a] hover:text-[#ffffff] transition-colors"
         >
           <span class="flex items-center gap-2">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -257,21 +233,21 @@ const navItems = [
             </svg>
             <span>nSosyal</span>
           </span>
-          <span class="text-[#8c7e74]">↗</span>
+          <span class="text-[#71717a]">↗</span>
         </a>
 
         <!-- RSS -->
         <a
           href="/rss.xml"
-          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#c5cbd3] bg-[#2d0306] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 hover:text-[#ffffff] transition-colors"
+          class="flex items-center justify-between px-3 py-2 rounded-lg text-[#a1a1aa] bg-[#18181b] border border-[#27272a] hover:text-[#ffffff] transition-colors"
         >
           <span class="flex items-center gap-2">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
               <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1Z"/>
             </svg>
-            <span>RSS Akışı</span>
+            <span>RSS</span>
           </span>
-          <span class="text-[#8c7e74]">↗</span>
+          <span class="text-[#71717a]">↗</span>
         </a>
       </div>
     </div>

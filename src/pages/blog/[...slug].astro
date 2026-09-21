@@ -30,7 +30,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
 <BaseLayout
   title={`${post.data.title} — Ozan Özdil`}
   description={post.data.description}
-  image={post.data.heroImage || '/avatar.jpg'}
+  image={post.data.heroImage || '/og-image.png'}
   currentPath="/blog"
   type="article"
   maxWidthClass="max-w-4xl"
@@ -41,14 +41,14 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
   }}
 >
   <!-- Reading Progress Bar -->
-  <div id="qs-read-progress-bar" class="fixed top-0 left-0 h-[2px] bg-[#e5c158] z-[51] transition-all duration-75 w-0 pointer-events-none"></div>
+  <div id="qs-read-progress-bar" class="fixed top-0 left-0 h-[2px] bg-[#ffffff] z-[51] transition-all duration-75 w-0 pointer-events-none"></div>
 
   <article class="py-6 sm:py-12 space-y-10 sm:space-y-14">
     <!-- Top Bar: Back & AI Raw Actions -->
-    <div class="flex items-center justify-between font-mono text-xs text-[#c5cbd3] pb-4 border-b border-[#e5c158]/20">
+    <div class="flex items-center justify-between font-mono text-xs text-[#71717a] pb-4 border-b border-[#27272a]">
       <a
         href="/blog"
-        class="inline-flex items-center gap-1.5 hover:text-[#e5c158] transition-colors"
+        class="inline-flex items-center gap-1.5 hover:text-[#ffffff] transition-colors"
       >
         <span>← Tüm Yazılar</span>
       </a>
@@ -57,7 +57,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
         <button
           id="qs-copy-markdown-btn"
           type="button"
-          class="hover:text-[#e5c158] transition-colors cursor-pointer"
+          class="hover:text-[#ffffff] transition-colors cursor-pointer"
           title="Yazıyı Markdown / AI Prompt olarak panoya kopyala"
         >
           <span>[ai için kopyala]</span>
@@ -66,7 +66,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
         <button
           id="qs-copy-btn"
           type="button"
-          class="hover:text-[#e5c158] transition-colors cursor-pointer"
+          class="hover:text-[#ffffff] transition-colors cursor-pointer"
           title="Bağlantıyı Kopyala"
         >
           <span>[bağlantıyı kopyala]</span>
@@ -83,26 +83,26 @@ Etiketler: ${(post.data.tags || []).join(', ')}
 ${post.body}`
     )} />
 
-    <!-- Article Header (Airy & Centered - As in Microsoft AI Editorial Design) -->
+    <!-- Article Header -->
     <header class="text-center space-y-6 pt-4 sm:pt-8">
-      <h1 class="text-2xl sm:text-4xl lg:text-[46px] font-serif font-normal text-[#e5c158] leading-[1.38] sm:leading-[1.36] lg:leading-[1.35] max-w-3xl mx-auto text-balance">
+      <h1 class="text-2xl sm:text-4xl lg:text-[46px] font-serif font-normal text-[#ffffff] leading-[1.38] sm:leading-[1.36] lg:leading-[1.35] max-w-3xl mx-auto text-balance">
         {post.data.title}
       </h1>
 
       {post.data.description && (
-        <p class="text-lg sm:text-xl text-[#c5cbd3] font-serif leading-relaxed max-w-2xl mx-auto font-normal">
+        <p class="text-lg sm:text-xl text-[#a1a1aa] font-serif leading-relaxed max-w-2xl mx-auto font-normal">
           {post.data.description}
         </p>
       )}
 
       <!-- Metadata Line -->
-      <div class="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#c5cbd3] pt-6 pb-6 border-y border-[#e5c158]/20 max-w-3xl mx-auto">
+      <div class="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#71717a] pt-6 pb-6 border-y border-[#27272a] max-w-3xl mx-auto">
         <div>
           <time datetime={post.data.pubDate.toISOString()}>
             {post.data.pubDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })}
           </time>
           {post.data.updatedDate && (
-            <span class="ml-2 text-[11px] text-[#e5c158]/80">
+            <span class="ml-2 text-[11px] text-[#a1a1aa]">
               (güncelleme: {post.data.updatedDate.toLocaleDateString('tr-TR', { day: 'numeric', month: 'short' })})
             </span>
           )}
@@ -110,7 +110,7 @@ ${post.body}`
 
         <div class="flex items-center gap-2">
           {post.data.tags && post.data.tags.length > 0 && (
-            <span class="px-2.5 py-0.5 rounded-full bg-[#190102] text-[#e5c158] border border-[#e5c158]/30">
+            <span class="px-2.5 py-0.5 rounded-full bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
               {post.data.tags[0]}
             </span>
           )}
@@ -118,8 +118,8 @@ ${post.body}`
 
         <div class="flex items-center gap-2">
           <span>~{readingTime} dk okuma</span>
-          <span class="text-[#e5c158]/30">•</span>
-          <span id="qs-views-badge" class="inline-flex items-center gap-1 text-[#e5c158]" data-slug={post.slug}>
+          <span class="text-[#3f3f46]">•</span>
+          <span id="qs-views-badge" class="inline-flex items-center gap-1 text-[#d4d4d8]" data-slug={post.slug}>
             <svg class="w-3.5 h-3.5 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -133,7 +133,7 @@ ${post.body}`
       <!-- Hero Visual Frame (if available) -->
       {post.data.heroImage && (
         <div class="pt-4 max-w-4xl mx-auto">
-          <div class="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#e5c158]/25 bg-[#190102] shadow-xl aspect-[16/9] sm:aspect-[21/9]">
+          <div class="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#27272a] bg-[#18181b] shadow-xl aspect-[16/9] sm:aspect-[21/9]">
             <img
               src={post.data.heroImage}
               alt={post.data.title}
@@ -151,25 +151,25 @@ ${post.body}`
 
     <!-- Table of Contents (TOC) -->
     {tocHeadings.length >= 3 && (
-      <details class="max-w-2xl mx-auto rounded-2xl border border-[#e5c158]/25 bg-[#280205] font-mono text-xs group" open>
-        <summary class="flex items-center justify-between p-4 cursor-pointer select-none font-medium text-[#ffffff] hover:text-[#e5c158] transition-colors">
+      <details class="max-w-2xl mx-auto rounded-2xl border border-[#27272a] bg-[#121215] font-mono text-xs group" open>
+        <summary class="flex items-center justify-between p-4 cursor-pointer select-none font-medium text-[#ffffff] hover:text-[#d4d4d8] transition-colors">
           <span class="flex items-center gap-2">
-            <span class="text-[#e5c158]">#</span>
+            <span class="text-[#71717a]">#</span>
             <span>İçindekiler</span>
           </span>
-          <span class="text-[11px] text-[#c5cbd3]">
+          <span class="text-[11px] text-[#71717a]">
             {tocHeadings.length} Başlık ▾
           </span>
         </summary>
-        <nav class="px-5 pb-5 pt-1 border-t border-[#e5c158]/20">
-          <ul class="space-y-2 text-[#c5cbd3]">
+        <nav class="px-5 pb-5 pt-1 border-t border-[#27272a]">
+          <ul class="space-y-2 text-[#a1a1aa]">
             {tocHeadings.map((heading) => (
               <li class={heading.depth === 3 ? 'pl-4 text-[11px]' : ''}>
                 <a
                   href={`#${heading.slug}`}
-                  class="hover:text-[#e5c158] hover:underline transition-colors flex items-center gap-1.5"
+                  class="hover:text-[#ffffff] hover:underline transition-colors flex items-center gap-1.5"
                 >
-                  <span class="text-[#e5c158]">{heading.depth === 2 ? '→' : '↳'}</span>
+                  <span class="text-[#71717a]">{heading.depth === 2 ? '→' : '↳'}</span>
                   <span>{heading.text}</span>
                 </a>
               </li>
@@ -179,19 +179,19 @@ ${post.body}`
       </details>
     )}
 
-    <!-- Rendered Markdown Body (Max Width Reading Column with Spacious Typography) -->
-    <div class="markdown-body max-w-3xl mx-auto font-serif text-lg sm:text-[19px] leading-[1.8] text-[#f8fafc]">
+    <!-- Rendered Markdown Body -->
+    <div class="markdown-body max-w-3xl mx-auto font-serif text-lg sm:text-[19px] leading-[1.8] text-[#f4f4f5]">
       <Content />
     </div>
 
     <!-- Tags Deck -->
     {post.data.tags && post.data.tags.length > 0 && (
-      <div class="max-w-3xl mx-auto pt-8 border-t border-[#e5c158]/20 flex flex-wrap items-center gap-2 font-mono text-xs">
-        <span class="text-[#c5cbd3]">Etiketler:</span>
+      <div class="max-w-3xl mx-auto pt-8 border-t border-[#27272a] flex flex-wrap items-center gap-2 font-mono text-xs">
+        <span class="text-[#71717a]">Etiketler:</span>
         {post.data.tags.map((tag) => (
           <a
             href={`/blog?tag=${encodeURIComponent(tag.toLowerCase())}`}
-            class="px-3 py-1 rounded-full bg-[#190102] hover:bg-[#280205] text-[#c5cbd3] hover:text-[#e5c158] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 transition-colors"
+            class="px-3 py-1 rounded-full bg-[#18181b] hover:bg-[#27272a] text-[#a1a1aa] hover:text-[#ffffff] border border-[#27272a] hover:border-[#3f3f46] transition-colors"
           >
             #{tag}
           </a>
@@ -200,12 +200,12 @@ ${post.body}`
     )}
 
     <!-- Social Media Share Section -->
-    <div class="max-w-3xl mx-auto p-6 rounded-2xl border border-[#e5c158]/25 bg-[#280205] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs shadow-xl">
+    <div class="max-w-3xl mx-auto p-6 rounded-2xl border border-[#27272a] bg-[#121215] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-xs shadow-xl">
       <div class="space-y-1">
         <span class="text-[#ffffff] font-medium block">
           Bu Yazıyı Paylaş
         </span>
-        <span class="text-[11px] text-[#c5cbd3]">
+        <span class="text-[11px] text-[#71717a]">
           Açık kaynak ve bağımsız teknolojiyi yaygınlaştırmaya destek olun.
         </span>
       </div>
@@ -216,7 +216,7 @@ ${post.body}`
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(postUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="px-3 py-1.5 rounded-full bg-[#190102] hover:bg-[#280205] text-[#c5cbd3] hover:text-[#e5c158] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 transition-colors"
+          class="px-3 py-1.5 rounded-full bg-[#18181b] hover:bg-[#27272a] text-[#a1a1aa] hover:text-[#ffffff] border border-[#27272a] hover:border-[#3f3f46] transition-colors"
         >
           X
         </a>
@@ -226,7 +226,7 @@ ${post.body}`
           href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="px-3 py-1.5 rounded-full bg-[#190102] hover:bg-[#280205] text-[#c5cbd3] hover:text-[#e5c158] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 transition-colors"
+          class="px-3 py-1.5 rounded-full bg-[#18181b] hover:bg-[#27272a] text-[#a1a1aa] hover:text-[#ffffff] border border-[#27272a] hover:border-[#3f3f46] transition-colors"
         >
           LinkedIn
         </a>
@@ -236,7 +236,7 @@ ${post.body}`
           href={`https://t.me/share/url?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(post.data.title)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="px-3 py-1.5 rounded-full bg-[#190102] hover:bg-[#280205] text-[#c5cbd3] hover:text-[#e5c158] border border-[#c5cbd3]/20 hover:border-[#e5c158]/40 transition-colors"
+          class="px-3 py-1.5 rounded-full bg-[#18181b] hover:bg-[#27272a] text-[#a1a1aa] hover:text-[#ffffff] border border-[#27272a] hover:border-[#3f3f46] transition-colors"
         >
           Telegram
         </a>
@@ -245,7 +245,7 @@ ${post.body}`
         <button
           id="qs-share-copy-btn"
           type="button"
-          class="px-3 py-1.5 rounded-full bg-[#e5c158] text-[#190102] font-semibold hover:bg-[#f3e5ab] transition-all cursor-pointer"
+          class="px-3 py-1.5 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all cursor-pointer"
         >
           <span id="qs-share-copy-text">Kopyala</span>
         </button>
@@ -253,20 +253,20 @@ ${post.body}`
     </div>
 
     <!-- Article Navigation & Footer -->
-    <footer class="max-w-3xl mx-auto pt-8 border-t border-[#e5c158]/20 space-y-8 font-mono text-xs">
+    <footer class="max-w-3xl mx-auto pt-8 border-t border-[#27272a] space-y-8 font-mono text-xs">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <a
           href="/blog"
-          class="text-[#c5cbd3] hover:text-[#e5c158] transition-colors flex items-center gap-1.5"
+          class="text-[#71717a] hover:text-[#ffffff] transition-colors flex items-center gap-1.5"
         >
           <span>← Yazılar Arşivine Dön</span>
         </a>
 
-        <div class="flex items-center gap-4 text-[#c5cbd3]">
-          <a href="https://github.com/ozdil" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[#e5c158]">
+        <div class="flex items-center gap-4 text-[#71717a]">
+          <a href="https://github.com/ozdil" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-[#ffffff]">
             github ↗
           </a>
-          <a href="#top" class="hover:underline text-[#e5c158] hover:text-[#f3e5ab]">
+          <a href="#top" class="hover:underline text-[#d4d4d8] hover:text-[#ffffff]">
             başa dön ↑
           </a>
         </div>
@@ -274,13 +274,13 @@ ${post.body}`
 
       <!-- Prev / Next Articles -->
       {(prevPost || nextPost) && (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#e5c158]/20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#27272a]">
           {prevPost ? (
             <a
               href={`/blog/${prevPost.slug}`}
-              class="p-5 rounded-2xl border border-[#e5c158]/25 hover:border-[#e5c158]/60 bg-[#280205] transition-all flex flex-col justify-between"
+              class="p-5 rounded-2xl border border-[#27272a] hover:border-[#3f3f46] bg-[#121215] transition-all flex flex-col justify-between"
             >
-              <span class="text-[10px] text-[#e5c158] mb-1">
+              <span class="text-[10px] text-[#71717a] mb-1">
                 ← Önceki Yazı
               </span>
               <span class="font-serif text-sm text-[#ffffff] line-clamp-1">
@@ -294,9 +294,9 @@ ${post.body}`
           {nextPost ? (
             <a
               href={`/blog/${nextPost.slug}`}
-              class="p-5 rounded-2xl border border-[#e5c158]/25 hover:border-[#e5c158]/60 bg-[#280205] transition-all flex flex-col justify-between sm:text-right"
+              class="p-5 rounded-2xl border border-[#27272a] hover:border-[#3f3f46] bg-[#121215] transition-all flex flex-col justify-between sm:text-right"
             >
-              <span class="text-[10px] text-[#e5c158] mb-1">
+              <span class="text-[10px] text-[#71717a] mb-1">
                 Sonraki Yazı →
               </span>
               <span class="font-serif text-sm text-[#ffffff] line-clamp-1">
@@ -314,7 +314,7 @@ ${post.body}`
 
 <script is:inline>
   (function initArticleInteractions() {
-    // 1. Reading Progress Bar (Throttled with requestAnimationFrame for 60/120fps smoothness)
+    // 1. Reading Progress Bar
     const progressBar = document.getElementById('qs-read-progress-bar');
     if (progressBar) {
       let ticking = false;
@@ -341,7 +341,7 @@ ${post.body}`
           const rawText = JSON.parse(rawMdScript.textContent || '""');
           await navigator.clipboard.writeText(rawText);
           const orig = copyMdBtn.textContent;
-          copyMdBtn.textContent = '✓ Kopyalandı!';
+          copyMdBtn.textContent = 'Kopyalandı!';
           setTimeout(() => {
             copyMdBtn.textContent = orig;
           }, 2000);
@@ -363,13 +363,13 @@ ${post.body}`
           await navigator.clipboard.writeText(window.location.href);
           if (textElement) {
             const orig = textElement.textContent;
-            textElement.textContent = '✓ Alındı!';
+            textElement.textContent = 'Alındı!';
             setTimeout(() => {
               textElement.textContent = orig;
             }, 2000);
           } else {
             const orig = btn.textContent;
-            btn.textContent = '✓ Kopyalandı!';
+            btn.textContent = 'Kopyalandı!';
             setTimeout(() => {
               btn.textContent = orig;
             }, 2000);

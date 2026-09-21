@@ -5,32 +5,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        pcb: {
-          base: '#3b0508',
-          dark: '#260204',
-          deep: '#190102',
-          surface: '#2e0306',
-          card: '#44060a',
-          cardHover: '#52080d',
-          border: 'rgba(229, 193, 88, 0.25)',
-          trace: 'rgba(229, 193, 88, 0.12)',
-        },
-        gold: {
-          DEFAULT: '#e5c158',
-          light: '#f3e5ab',
-          dark: '#c5a059',
-          muted: '#a88a38',
-        },
-        silver: {
-          DEFAULT: '#c5cbd3',
-          light: '#f1f5f9',
-          dark: '#94a3b8',
-          muted: '#64748b',
+        canvas: '#09090b',
+        surface: {
+          DEFAULT: '#121215',
+          subtle: '#18181b',
+          card: '#121215',
+          cardHover: '#18181b',
+          border: '#27272a',
+          borderSubtle: '#1f1f23',
+          borderHover: '#3f3f46',
         }
       },
       fontFamily: {
         sans: ['"JetBrainsMono Nerd Font"', '"JetBrains Mono"', 'monospace'],
-        serif: ['"Bradford LL"', '"Newsreader"', '"Iowan Old Style"', 'Palatino', 'Georgia', 'serif'],
+        serif: ['"JetBrainsMono Nerd Font"', '"JetBrains Mono"', 'monospace'],
         mono: ['"JetBrainsMono Nerd Font"', '"JetBrains Mono"', 'monospace'],
       }
     },
