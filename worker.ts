@@ -101,8 +101,39 @@ function getFallbackAnswer(query: string): string {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const url = new URL(request.url);
-    const accept = request.headers.get('Accept') || '';
+    try {
+      const url = new URL(request.url);
+      const accept = request.headers.get('Accept') || '';
+      const pathname = url.pathname;
+
+    // 1. Fast Security Filter for Malicious Bot Probes (Drop early without CPU/Asset cost)
+    const pLower = pathname.toLowerCase();
+    if (
+      pLower.startsWith('/wp-') ||
+      pLower.includes('.php') ||
+      pLower.startsWith('/.env') ||
+      pLower.startsWith('/.git') ||
+      pLower.includes('xmlrpc') ||
+      pLower.includes('phpmyadmin') ||
+      pLower.startsWith('/cgi-bin/')
+    ) {
+      return new Response('Not Found', {
+        status: 404,
+        headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'public, max-age=86400' },
+      });
+    }
+
+    // 2. Legacy Blogger URL Redirects: /YYYY/MM/slug.html -> /blog/slug (Fixes 404 errors)
+    const bloggerMatch = pathname.match(/^\/\d{4}\/\d{2}\/([a-zA-Z0-9\-_]+)(?:\.html)?$/);
+    if (bloggerMatch) {
+      const slug = bloggerMatch[1];
+      return Response.redirect(new URL(`/blog/${slug}`, request.url), 301);
+    }
+
+    // 3. Sitemap Canonical Redirect: /sitemap.xml -> /sitemap-index.xml
+    if (pathname === '/sitemap.xml') {
+      return Response.redirect(new URL('/sitemap-index.xml', request.url), 301);
+    }
 
     // Handle CORS preflight for API routes
     if (request.method === 'OPTIONS' && url.pathname.startsWith('/api/')) {
@@ -185,8 +216,9 @@ export default {
             headers: corsHeaders,
           });
         } catch (e: any) {
-          return new Response(JSON.stringify({ error: e.message, views: 0 }), {
-            status: 500,
+          console.warn('KV views POST error, using fallback:', e);
+          return new Response(JSON.stringify({ slug: safeSlug, views: getBaseViews(safeSlug) }), {
+            status: 200,
             headers: corsHeaders,
           });
         }
@@ -227,8 +259,9 @@ export default {
           headers: corsHeaders,
         });
       } catch (e: any) {
-        return new Response(JSON.stringify({ top: [], error: e.message }), {
-          status: 500,
+        console.warn('KV top views error, returning empty list:', e);
+        return new Response(JSON.stringify({ top: [] }), {
+          status: 200,
           headers: corsHeaders,
         });
       }
@@ -540,6 +573,13 @@ export default {
       });
     }
 
-    return response;
+      return response;
+    } catch (globalErr: any) {
+      console.error('Unhandled Worker error:', globalErr);
+      return new Response('Geçici bir sistem hatası oluştu.', {
+        status: 200,
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      });
+    }
   },
 };

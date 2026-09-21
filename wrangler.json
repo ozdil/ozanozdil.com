@@ -3,6 +3,10 @@
 	"name": "ozanozdil-com",
 	"main": "worker.ts",
 	"compatibility_date": "2026-09-01",
+	"routes": [
+		{ "pattern": "ozanozdil.com/*", "zone_name": "ozanozdil.com" },
+		{ "pattern": "www.ozanozdil.com/*", "zone_name": "ozanozdil.com" }
+	],
 	"assets": {
 		"directory": "./dist",
 		"binding": "ASSETS",
