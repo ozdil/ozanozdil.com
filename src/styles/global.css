@@ -51,19 +51,19 @@ html.dark {
   color-scheme: dark;
 }
 
-/* Light theme variables (Açık - 1-2 ton üstü zemin ve koyulaştırılmış koyu gri fontlar) */
+/* Light theme variables (Açık - Koyunun tam tersi: Saf, ferah, yüksek kontrastlı) */
 html:not(.dark) {
-  --canvas-bg: #202024;
-  --surface-bg: #2a2a30;
-  --surface-subtle: #36363e;
-  --surface-hover: #40404a;
-  --border-color: #464652;
-  --border-hover: #5c5c6b;
-  --text-title: #c4c4cc;
-  --text-main: #a4a4af;
-  --text-muted: #84848f;
-  --text-subtle: #6c6c76;
-  color-scheme: dark;
+  --canvas-bg: #fafafa;
+  --surface-bg: #ffffff;
+  --surface-subtle: #f4f4f5;
+  --surface-hover: #e4e4e7;
+  --border-color: #e4e4e7;
+  --border-hover: #a1a1aa;
+  --text-title: #09090b;
+  --text-main: #18181b;
+  --text-muted: #52525b;
+  --text-subtle: #71717a;
+  color-scheme: light;
 }
 
 html {
@@ -88,6 +88,10 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+html:not(.dark) body {
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(0, 0, 0, 0.03) 0%, transparent 60%) !important;
+}
+
 /* Normalized Minimalist Cards */
 .pcb-card, .clean-card {
   position: relative;
@@ -97,12 +101,17 @@ body {
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
+html:not(.dark) .pcb-card,
+html:not(.dark) .clean-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
 .pcb-card:hover, .clean-card:hover {
   border-color: var(--border-hover) !important;
   background-color: var(--surface-hover) !important;
 }
 
-/* Dynamic theme overrides for light mode (1-2 ton üstü) */
+/* Dynamic theme overrides for light mode (Koyunun tam tersi) */
 html:not(.dark) [class*="bg-[#09090b]"] {
   background-color: var(--canvas-bg) !important;
 }
@@ -140,6 +149,10 @@ html:not(.dark) [class*="hover:border-[#52525b]"]:hover {
   border-color: var(--border-hover) !important;
 }
 
+html:not(.dark) [class*="border-[#52525b]"] {
+  border-color: var(--border-hover) !important;
+}
+
 html:not(.dark) [class*="text-[#ffffff]"] {
   color: var(--text-title) !important;
 }
@@ -164,17 +177,22 @@ html:not(.dark) [class*="hover:text-[#ffffff]"]:hover {
   color: var(--text-title) !important;
 }
 
+/* Pill buttons in light mode: inverse of dark mode (black background, white text) */
 html:not(.dark) [class*="bg-[#ffffff]"] {
-  background-color: var(--text-title) !important;
-  color: #121215 !important;
+  background-color: #09090b !important;
+  color: #ffffff !important;
 }
 
 html:not(.dark) [class*="hover:bg-[#e4e4e7]"]:hover {
-  background-color: #b0b0b8 !important;
+  background-color: #27272a !important;
+  color: #ffffff !important;
 }
 
-html:not(.dark) [class*="border-[#52525b]"] {
-  border-color: var(--text-subtle) !important;
+/* Keep code blocks dark and crisp in light mode for readability */
+html:not(.dark) .markdown-body pre {
+  background-color: #18181b !important;
+  color: #f4f4f5 !important;
+  border-color: #27272a !important;
 }
 
 /* Dynamic theme handling for all article infographics and cards */
@@ -225,6 +243,9 @@ p, blockquote, li {
   * {
     scrollbar-width: thin;
     scrollbar-color: #3f3f46 #09090b;
+  }
+  html:not(.dark) * {
+    scrollbar-color: #cbd5e1 #fafafa;
   }
 }
 
