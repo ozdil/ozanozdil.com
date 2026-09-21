@@ -197,12 +197,14 @@ const jsonLd = {
     <link rel="preload" href="/fonts/BradfordLL-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/BradfordLL-Italic.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Typography: JetBrains Mono & Newsreader (Non-blocking async load) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" media="print" onload="this.media='all'">
+    <!-- Typography: JetBrains Mono & Newsreader (Non-blocking async load with DNS prefetch) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" />
     </noscript>
 
     <!-- Search Engine & AI Crawler Directives -->
@@ -347,18 +349,12 @@ const jsonLd = {
 
         if (!checkAndRegister()) {
           if (typeof document !== 'undefined') {
-            document.addEventListener('DOMContentLoaded', checkAndRegister);
+            document.addEventListener('DOMContentLoaded', checkAndRegister, { once: true });
           }
           if (typeof window !== 'undefined') {
-            window.addEventListener('load', checkAndRegister);
+            window.addEventListener('load', checkAndRegister, { once: true });
+            setTimeout(checkAndRegister, 1000);
           }
-          let elapsed = 0;
-          const pollTimer = setInterval(() => {
-            elapsed += 50;
-            if (checkAndRegister() || elapsed >= 3000) {
-              clearInterval(pollTimer);
-            }
-          }, 50);
         }
       })();
     </script>
@@ -377,53 +373,6 @@ const jsonLd = {
         document.documentElement.classList.remove('dark');
       }
     </script>
-
-    <!-- Critical Anti-Banner Styles for Seamless Translation -->
-    <style is:inline>
-      html, body {
-        top: 0 !important;
-        position: static !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-      }
-      .goog-te-banner-frame,
-      .goog-te-banner-frame.skiptranslate,
-      iframe.goog-te-banner-frame,
-      iframe[class*="goog-te-banner"],
-      iframe[class*="VIpgJd"],
-      iframe[src*="translate.google"],
-      .VIpgJd-ZVi9od-OR9Mb-OAEtQ,
-      .VIpgJd-ZVi9od-l4eHX-hSRGPd,
-      .VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
-      .VIpgJd-yAWdhb-hSRGPd,
-      .VIpgJd-yAWdhb-m6UDLb,
-      div[class*="VIpgJd-ZVi9od"],
-      body > .skiptranslate,
-      #goog-gt-tt,
-      #goog-gt-vt,
-      [id*="goog-gt-"],
-      .goog-tooltip,
-      .goog-tooltip:hover {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        width: 0 !important;
-        max-height: 0 !important;
-        max-width: 0 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        position: absolute !important;
-        left: -9999px !important;
-        top: -9999px !important;
-      }
-      .goog-text-highlight {
-        background: transparent !important;
-        box-shadow: none !important;
-      }
-      font[color] {
-        color: inherit !important;
-      }
-    </style>
 
   </head>
   <body class="min-h-screen flex flex-col bg-[#fef9ed] dark:bg-[#000000] text-[#5D524B] dark:text-[#fef9ed] selection:bg-[#FBD3BE] selection:text-[#4D2A33] dark:selection:bg-[#3a261c] dark:selection:text-[#fef9ed] font-sans antialiased transition-colors duration-200 pt-14">

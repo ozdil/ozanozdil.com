@@ -461,7 +461,7 @@ export default {
     // All HTML responses: attach Agent Discovery Link headers & security headers
     if (response.headers.get('content-type')?.includes('text/html')) {
       const newHeaders = new Headers(response.headers);
-      newHeaders.set('Cache-Control', 'public, max-age=0, must-revalidate');
+      newHeaders.set('Cache-Control', 'public, max-age=0, must-revalidate, stale-while-revalidate=86400');
       newHeaders.set(
         'Link',
         '</.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="service-desc", </llms.txt>; rel="describedby", </.well-known/http-message-signatures-directory>; rel="http-message-signatures-directory", </auth.md>; rel="author-authorization"'
@@ -483,10 +483,12 @@ export default {
       url.pathname.startsWith('/_astro/') ||
       url.pathname.startsWith('/fonts/') ||
       url.pathname.startsWith('/images/') ||
+      url.pathname.startsWith('/gallery/') ||
       url.pathname.endsWith('.woff2') ||
       url.pathname.endsWith('.webp') ||
       url.pathname.endsWith('.png') ||
       url.pathname.endsWith('.jpg') ||
+      url.pathname.endsWith('.jpeg') ||
       url.pathname.endsWith('.svg') ||
       url.pathname.endsWith('.ico') ||
       url.pathname.endsWith('.css') ||

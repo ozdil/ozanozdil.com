@@ -124,7 +124,7 @@ ${post.body}`
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
             </svg>
-            <span id="qs-views-count">...</span>
+            <span id="qs-views-count" class="inline-block min-w-[2.5ch] text-center">...</span>
             <span class="hidden sm:inline">okunma</span>
           </span>
         </div>
@@ -133,12 +133,16 @@ ${post.body}`
       <!-- Hero Visual Frame (if available) -->
       {post.data.heroImage && (
         <div class="pt-4 max-w-4xl mx-auto">
-          <div class="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] shadow-xs">
+          <div class="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-[#ead9d2]/80 dark:border-[#2d2521] bg-[#F5F0E4] dark:bg-[#1f1a17] shadow-xs aspect-[16/9] sm:aspect-[21/9]">
             <img
               src={post.data.heroImage}
               alt={post.data.title}
-              class="w-full h-auto max-h-[550px] object-cover"
+              class="w-full h-full object-cover"
               loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="1200"
+              height="630"
             />
           </div>
         </div>
@@ -310,14 +314,21 @@ ${post.body}`
 
 <script is:inline>
   (function initArticleInteractions() {
-    // 1. Reading Progress Bar
+    // 1. Reading Progress Bar (Throttled with requestAnimationFrame for 60/120fps smoothness)
     const progressBar = document.getElementById('qs-read-progress-bar');
     if (progressBar) {
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
       }, { passive: true });
     }
 

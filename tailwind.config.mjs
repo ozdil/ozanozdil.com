@@ -54,9 +54,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', '"Noto Sans"', 'sans-serif'],
+        sans: ['"JetBrainsMono Nerd Font"', '"JetBrains Mono"', 'monospace'],
         serif: ['"Bradford LL"', '"Newsreader"', '"Iowan Old Style"', 'Palatino', 'Georgia', 'serif'],
-        mono: ['"Red Hat Mono"', '"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        mono: ['"JetBrainsMono Nerd Font"', '"JetBrains Mono"', 'monospace'],
       }
     },
   },
