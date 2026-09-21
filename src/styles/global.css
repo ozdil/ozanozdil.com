@@ -51,7 +51,7 @@ html.dark {
   color-scheme: dark;
 }
 
-/* Light theme variables (Açık - 1-2 ton üstü) */
+/* Light theme variables (Açık - 1-2 ton üstü zemin ve koyulaştırılmış koyu gri fontlar) */
 html:not(.dark) {
   --canvas-bg: #202024;
   --surface-bg: #2a2a30;
@@ -59,10 +59,10 @@ html:not(.dark) {
   --surface-hover: #40404a;
   --border-color: #464652;
   --border-hover: #5c5c6b;
-  --text-main: #f4f4f5;
-  --text-title: #ffffff;
-  --text-muted: #d4d4d8;
-  --text-subtle: #a1a1aa;
+  --text-title: #c4c4cc;
+  --text-main: #a4a4af;
+  --text-muted: #84848f;
+  --text-subtle: #6c6c76;
   color-scheme: dark;
 }
 
@@ -140,12 +140,37 @@ html:not(.dark) [class*="hover:border-[#52525b]"]:hover {
   border-color: var(--border-hover) !important;
 }
 
+html:not(.dark) [class*="text-[#ffffff]"] {
+  color: var(--text-title) !important;
+}
+
+html:not(.dark) [class*="text-[#f4f4f5]"] {
+  color: var(--text-main) !important;
+}
+
+html:not(.dark) [class*="text-[#d4d4d8]"] {
+  color: var(--text-main) !important;
+}
+
 html:not(.dark) [class*="text-[#a1a1aa]"] {
   color: var(--text-muted) !important;
 }
 
 html:not(.dark) [class*="text-[#71717a]"] {
   color: var(--text-subtle) !important;
+}
+
+html:not(.dark) [class*="hover:text-[#ffffff]"]:hover {
+  color: var(--text-title) !important;
+}
+
+html:not(.dark) [class*="bg-[#ffffff]"] {
+  background-color: var(--text-title) !important;
+  color: #121215 !important;
+}
+
+html:not(.dark) [class*="hover:bg-[#e4e4e7]"]:hover {
+  background-color: #b0b0b8 !important;
 }
 
 html:not(.dark) [class*="border-[#52525b]"] {
@@ -182,7 +207,7 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   letter-spacing: -0.01em;
   line-height: 1.35;
-  color: #ffffff;
+  color: var(--text-title);
 }
 
 .font-serif {
@@ -208,7 +233,7 @@ p, blockquote, li {
   font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace;
   font-size: 15px;
   line-height: 1.8;
-  color: #e4e4e7;
+  color: var(--text-main);
   letter-spacing: -0.005em;
 }
 
@@ -225,7 +250,7 @@ p, blockquote, li {
   margin-top: 2.5rem;
   margin-bottom: 1.25rem;
   line-height: 1.3;
-  color: #ffffff;
+  color: var(--text-title);
 }
 
 .markdown-body h2 {
@@ -234,8 +259,8 @@ p, blockquote, li {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   line-height: 1.35;
-  color: #ffffff;
-  border-bottom: 1px solid #27272a;
+  color: var(--text-title);
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 0.5rem;
 }
 
@@ -245,7 +270,7 @@ p, blockquote, li {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
   line-height: 1.4;
-  color: #f4f4f5;
+  color: var(--text-title);
 }
 
 .markdown-body h4 {
@@ -254,12 +279,12 @@ p, blockquote, li {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   line-height: 1.4;
-  color: #e4e4e7;
+  color: var(--text-title);
 }
 
 .markdown-body p {
   margin-bottom: 1.2em;
-  color: #d4d4d8;
+  color: var(--text-main);
 }
 
 .markdown-body ul {
@@ -269,7 +294,7 @@ p, blockquote, li {
 }
 
 .markdown-body ul > li::marker {
-  color: #71717a;
+  color: var(--text-subtle);
 }
 
 .markdown-body ol {
@@ -279,13 +304,13 @@ p, blockquote, li {
 }
 
 .markdown-body ol > li::marker {
-  color: #a1a1aa;
+  color: var(--text-muted);
 }
 
 .markdown-body li {
   margin-bottom: 0.35rem;
   line-height: 1.7;
-  color: #d4d4d8;
+  color: var(--text-main);
 }
 
 .markdown-body blockquote {
@@ -392,7 +417,7 @@ p, blockquote, li {
 }
 
 .markdown-body a {
-  color: #ffffff;
+  color: var(--text-title);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: opacity 0.15s ease;

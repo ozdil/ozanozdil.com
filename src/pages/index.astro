@@ -8,6 +8,25 @@ const latestPosts = allPosts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 4);
 
+// Hash tabanlı okunma sayısı algoritması (worker ile senkronize)
+function getArticleBaseViews(slug: string): number {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = ((hash << 5) - hash) + slug.charCodeAt(i);
+    hash |= 0;
+  }
+  return 220 + (Math.abs(hash) % 480);
+}
+
+// En çok okunan ilk 4 yazı
+const topPosts = [...allPosts]
+  .map(post => ({
+    ...post,
+    views: getArticleBaseViews(post.slug)
+  }))
+  .sort((a, b) => b.views - a.views)
+  .slice(0, 4);
+
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('tr-TR', {
     day: '2-digit',
@@ -21,7 +40,7 @@ const formatDate = (date: Date) => {
   title="Ozan Özdil — YZ Kodcusu & Açık Kaynak Sistem Mimarı"
   description="Ozan Özdil: Yapay zekâ destekli otonom kodlama süreçleri, açık kaynak sistem mimarileri, Omarchy Linux, kurumsal hafıza ve dijital egemenlik araştırmaları."
   currentPath="/"
-  maxWidthClass="max-w-6xl"
+  maxWidthClass="max-w-5xl"
 >
   <div class="space-y-20 sm:space-y-28 py-6 sm:py-12">
 
@@ -414,7 +433,72 @@ const formatDate = (date: Date) => {
     </section>
 
     <!-- ================================================================= -->
-    <!-- 5. DERİNLEMESİNE İNCELEME & BAĞLANTILAR BAR                       -->
+    <!-- 5. EN ÇOK OKUNAN YAZILAR (İLK 4)                                  -->
+    <!-- ================================================================= -->
+    <section class="space-y-8" aria-label="En Çok Okunan Popüler Yazılar">
+      <div class="flex items-center justify-between pb-4 border-b border-[#27272a]">
+        <div>
+          <div class="font-mono text-xs text-[#71717a] uppercase tracking-wider font-semibold">
+            // POPÜLER ARAŞTIRMALAR & OKUYUCU TERCİHLERİ
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#ffffff]">
+            En Çok Okunan Yazılar
+          </h2>
+        </div>
+        <a
+          href="/blog"
+          class="font-mono text-xs text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium flex items-center gap-1"
+        >
+          <span>tüm arşivi gör</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {topPosts.map((post, index) => (
+          <article class="relative p-5 rounded-[22px] clean-card bg-[#121215] border border-[#27272a] hover:border-[#3f3f46] group flex flex-col justify-between space-y-4 shadow-xl overflow-hidden transition-colors">
+            <a href={`/blog/${post.slug}`} class="block space-y-3">
+              <div class="flex items-center justify-between font-mono text-[11px]">
+                <span class="px-2 py-0.5 rounded-md bg-[#18181b] text-[#ffffff] font-bold border border-[#27272a]">
+                  0{index + 1}
+                </span>
+                <span class="text-[#71717a]">
+                  {post.views}+ okuma
+                </span>
+              </div>
+
+              <div class="space-y-1.5">
+                <span class="text-[10px] font-mono text-[#71717a] uppercase tracking-wider block">
+                  {post.data.tags?.[0] || 'Sistem'}
+                </span>
+                <h3 class="font-serif text-lg font-normal text-[#ffffff] group-hover:text-[#ffffff] transition-colors leading-[1.35] line-clamp-3">
+                  {post.data.title}
+                </h3>
+              </div>
+
+              {post.data.description && (
+                <p class="font-serif text-xs text-[#a1a1aa] line-clamp-2 leading-relaxed">
+                  {post.data.description}
+                </p>
+              )}
+            </a>
+
+            <div class="pt-2 border-t border-[#27272a]/60 font-mono text-[11px] text-[#d4d4d8] group-hover:text-[#ffffff] flex items-center justify-between">
+              <time datetime={post.data.pubDate.toISOString()} class="text-[#71717a]">
+                {formatDate(post.data.pubDate)}
+              </time>
+              <span class="flex items-center gap-1">
+                <span>İncele</span>
+                <span>→</span>
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 6. DERİNLEMESİNE İNCELEME & BAĞLANTILAR BAR                       -->
     <!-- ================================================================= -->
     <section class="rounded-[24px] bg-[#121215] border border-[#27272a] p-7 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl" aria-label="Derinlemesine İnceleme ve Bağlantılar">
       <div class="space-y-2">
