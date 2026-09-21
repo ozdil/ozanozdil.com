@@ -17,8 +17,8 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-3 left-0 right-0 z-50 px-3 sm:px-6 max-w-5xl mx-auto transition-all font-mono">
-  <div class="flex items-center justify-between h-12 sm:h-13 px-4 sm:px-6 rounded-full bg-[#121215]/90 backdrop-blur-md border border-[#27272a] shadow-lg">
+<header class="sticky top-0 left-0 right-0 z-50 w-full bg-[#121215]/95 backdrop-blur-md border-b border-[#27272a] transition-all font-mono">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-15">
     <!-- Left: Branding (Text-only minimalist logo, no avatar) -->
     <div class="flex items-center space-x-3 sm:space-x-6 min-w-0">
       <a href="/" class="flex items-center space-x-2 group flex-shrink-0" title="Ozan Özdil">
@@ -145,7 +145,7 @@ const navItems = [
   <!-- Mobile Dropdown Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden mt-2 p-4 rounded-2xl bg-[#121215] border border-[#27272a] shadow-2xl space-y-3 transition-all font-mono text-xs"
+    class="hidden md:hidden border-t border-[#27272a] bg-[#121215] px-4 py-4 transition-all font-mono text-xs shadow-2xl"
   >
     <!-- Navigation Links -->
     <div class="space-y-1">
