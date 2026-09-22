@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
-  const sorted = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  const sorted = posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
   return sorted.map((post, index) => ({
     params: { slug: post.slug },
     props: {
