@@ -4,6 +4,7 @@ description: "Büyük teknoloji firmalarının sunucu tarafında açık kaynağ�
 pubDate: "2026-09-22T13:45:00.000+03:00"
 updatedDate: "2026-09-22T13:45:00.000+03:00"
 tags: ["acik-kaynak", "linux", "omarchy", "sistem-mimarisi", "valve-steam", "kodek-teknolojileri", "dijital-egemenlik", "bilimsel-analiz"]
+heroImage: "/images/og/kapali-kaynak-paradoksu-ve-linux-masaustu-ekosistemi.png"
 draft: false
 ---
 

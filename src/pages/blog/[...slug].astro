@@ -30,7 +30,7 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
 <BaseLayout
   title={`${post.data.title} — Ozan Özdil`}
   description={post.data.description}
-  image={post.data.heroImage || '/og-image.png'}
+  image={post.data.heroImage || `/images/og/${post.slug}.png`}
   currentPath="/blog"
   type="article"
   maxWidthClass="max-w-4xl"
