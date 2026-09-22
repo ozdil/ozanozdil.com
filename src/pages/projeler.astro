@@ -3,6 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const repositories = [
   {
+    name: 'polycodex',
+    desc: 'Universal 1:1 layout-preserving PDF translator supporting up to 5000 pages with AI and single-instance lock. Cerrahi içerik akışı manipülasyonu, Tz mikrotipografi ve yerel Ollama motoru.',
+    lang: 'Rust / QML',
+    tags: ['rust', 'quickshell', 'pdf', 'translation', 'ai', 'ollama', 'privacy'],
+    url: 'https://github.com/ozdil/polycodex'
+  },
+  {
     name: 'quicknews',
     desc: 'Omarchy Linux ve modern masaüstü için açık kaynak, %100 reklamsız, resimsiz, saf metin odaklı, güncel RSS/Atom XML doğrulama kalkanına sahip ve yerel yapay zeka özetlemeli minimalist haber okuyucusu.',
     lang: 'Rust / QML',
@@ -15,6 +22,20 @@ const repositories = [
     lang: 'Rust / QML',
     tags: ['quickshell', 'rust', '16-bit-raw', 'medium-format', 'photography', 'davinci-resolve'],
     url: 'https://github.com/ozdil/omarchy-omastudio'
+  },
+  {
+    name: 'omarchy-omabeats',
+    desc: 'Omarchy Linux ve modern masaüstü için donanım seviyesinde Bluetooth kulaklık ekolayzır, Spatial Audio / DSP profilleme ve gecikmesiz PipeWire ses yönetim paneli.',
+    lang: 'Rust / QML',
+    tags: ['rust', 'audio', 'dsp', 'pipewire', 'quickshell', 'bluetooth'],
+    url: 'https://github.com/ozdil/omarchy-omabeats'
+  },
+  {
+    name: 'omarchy-monotone-theme',
+    desc: 'Resmi Omarchy Monotone teması ve CRT / retro arcade estetiğine sahip 60 FPS çoklu ekran koruyucu motoru.',
+    lang: 'Python / Shell',
+    tags: ['theme', 'screensaver', 'retro', 'arcade', 'omarchy'],
+    url: 'https://github.com/ozdil/omarchy-monotone-theme'
   },
   {
     name: 'kastamonuinciyurt-portal',
@@ -59,6 +80,48 @@ const repositories = [
     url: 'https://github.com/ozdil/omasend-android'
   },
   {
+    name: 'omarchy-omacom-news',
+    desc: 'Omacom Foundation resmi bildiri, haber bülteni ve masaüstü bildirim dağıtım motoru.',
+    lang: 'Rust / QML',
+    tags: ['rust', 'notifications', 'news', 'omacom'],
+    url: 'https://github.com/ozdil/omarchy-omacom-news'
+  },
+  {
+    name: 'omarchy-menu-craft',
+    desc: 'Donanım OEM marka tespiti, özel uygulama kısayolu oluşturucu ve akıllı başlatıcı menü stüdyosu.',
+    lang: 'QML / Shell',
+    tags: ['quickshell', 'qml', 'launcher', 'desktop'],
+    url: 'https://github.com/ozdil/omarchy-menu-craft'
+  },
+  {
+    name: 'omarchy-plugin-craft',
+    desc: 'Omarchy Linux için birleşik eklenti yöneticisi ve merkezi Quickshell bileşen başlatıcı merkezi.',
+    lang: 'QML',
+    tags: ['quickshell', 'plugins', 'manager', 'hub'],
+    url: 'https://github.com/ozdil/omarchy-plugin-craft'
+  },
+  {
+    name: 'omarchy-monitor-craft',
+    desc: 'Çoklu monitör ekran yöneticisi, VRR (Değişken Yenileme Hızı), çözünürlük, yenileme hızı ve panel konumlandırma stüdyosu.',
+    lang: 'QML / Hyprland',
+    tags: ['quickshell', 'vrr', 'display-manager', 'hyprland'],
+    url: 'https://github.com/ozdil/omarchy-monitor-craft'
+  },
+  {
+    name: 'omarchy-spotify-craft',
+    desc: 'Omarchy Linux için hafif, modern ve MPRIS2 destekli Spotify kontrol ve şarkı sözü widget\'ı.',
+    lang: 'Rust / QML',
+    tags: ['spotify', 'rust', 'mpris2', 'quickshell'],
+    url: 'https://github.com/ozdil/omarchy-spotify-craft'
+  },
+  {
+    name: 'omarchy-omaplayer',
+    desc: 'Omarchy Linux için yerel, yüksek çözünürlüklü ve kayıpsız ses/müzik çalar motoru.',
+    lang: 'Rust / QML',
+    tags: ['music-player', 'flac', 'audio', 'rust'],
+    url: 'https://github.com/ozdil/omarchy-omaplayer'
+  },
+  {
     name: 'omarchy-omarss',
     desc: 'Omarchy Linux için ultra hızlı, yerel ve Rust çekirdekli RSS & Atom besleme okuyucusu ve bildirim merkezi.',
     lang: 'Rust / QML',
@@ -87,18 +150,46 @@ const repositories = [
     url: 'https://github.com/ozdil/omarchy-omarank'
   },
   {
+    name: 'omarchy-neuramancer-theme',
+    desc: 'P1 CRT fosfor yeşili ve 20 adet 8K dot-to-dot duvar kağıdıyla zenginleştirilmiş cyberpunk arayüz teması.',
+    lang: 'Shell',
+    tags: ['theme', 'cyberpunk', 'oled', 'hyprland'],
+    url: 'https://github.com/ozdil/omarchy-neuramancer-theme'
+  },
+  {
+    name: 'omarchy-steammachine-theme',
+    desc: 'Valve, Steam Deck, Half-Life ve Aperture Science vektör sanatıyla donatılmış özel Steam Machine sürüm teması.',
+    lang: 'Shell',
+    tags: ['theme', 'steam', 'gaming', 'valve'],
+    url: 'https://github.com/ozdil/omarchy-steammachine-theme'
+  },
+  {
+    name: 'omarchy-ankara-theme',
+    desc: 'Hitit Güneşi, Kuğulu Park ve modern Ankara vektör sanatı içeren, göz dostu OLED optimize karanlık tema.',
+    lang: 'Shell',
+    tags: ['theme', 'ankara', 'oled', 'vector-art'],
+    url: 'https://github.com/ozdil/omarchy-ankara-theme'
+  },
+  {
+    name: 'omarchy-istanbul-theme',
+    desc: 'Türk motifleri, İznik çinileri ve Boğaziçi geceleri esintisi taşıyan OLED optimize karanlık tema.',
+    lang: 'Shell',
+    tags: ['theme', 'istanbul', 'oled', 'vector-art'],
+    url: 'https://github.com/ozdil/omarchy-istanbul-theme'
+  },
+  {
+    name: 'omarchy-turkiye-theme',
+    desc: 'Türkiye\'nin 21 simge yapısını keskin vektör sanatıyla kutlayan, OLED uyumlu karanlık tema serisi.',
+    lang: 'CSS / Shell',
+    tags: ['theme', 'hyprland', 'oled', 'turkiye'],
+    url: 'https://github.com/ozdil/omarchy-turkiye-theme'
+  },
+  {
     name: 'omarchy-shell',
     desc: 'Quickshell tabanlı, Qt/QML çekirdekli modern Wayland masaüstü kabuğu.',
     lang: 'QML / C++',
     tags: ['quickshell', 'qml', 'wayland', 'omarchy'],
     url: 'https://github.com/ozdil/omarchy'
-  },
-  {
-    name: 'quickshell-oled-themes',
-    desc: 'Omarchy ve Quickshell için 4K OLED optimize tema motoru ve renk paletleri.',
-    lang: 'QML',
-    tags: ['quickshell', 'oled', 'themes', 'catppuccin'],
-    url: 'https://github.com/ozdil/omarchy-turkiye-theme'
   },
   {
     name: 'quickshell-game-hud',
@@ -113,13 +204,6 @@ const repositories = [
     lang: 'Shell',
     tags: ['arch-linux', 'hyprland', 'dotfiles'],
     url: 'https://github.com/ozdil/omarchy'
-  },
-  {
-    name: 'omarchy-turkiye-theme',
-    desc: 'OLED uyumlu, ergonomik sistem arayüz teması.',
-    lang: 'CSS / Shell',
-    tags: ['theme', 'hyprland', 'oled'],
-    url: 'https://github.com/ozdil/omarchy-turkiye-theme'
   }
 ];
 ---
