@@ -1,7 +1,7 @@
 ---
 ---
 
-<div class="relative inline-block text-left" id="lang-selector-container">
+<div class="relative inline-block text-left notranslate" id="lang-selector-container">
   <button
     id="lang-selector-btn"
     type="button"
@@ -87,21 +87,36 @@
       const host = window.location.hostname;
       const isCustomDomain = host.includes('ozanozdil.com');
 
+      const domainSuffixes = [
+        '',
+        '; domain=' + host,
+        isCustomDomain ? '; domain=.ozanozdil.com' : '',
+        isCustomDomain ? '; domain=ozanozdil.com' : ''
+      ];
+
       if (lang === 'tr') {
         // Clear cookie to revert cleanly to original Turkish
-        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        document.cookie = 'googtrans=/tr/tr; path=/;';
-        if (isCustomDomain) {
-          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.ozanozdil.com;';
-          document.cookie = 'googtrans=/tr/tr; path=/; domain=.ozanozdil.com;';
-        }
+        domainSuffixes.forEach(function (d) {
+          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/' + d;
+          document.cookie = 'googtrans=/tr/tr; path=/' + d;
+        });
       } else {
-        document.cookie = 'googtrans=/tr/' + lang + '; path=/;';
-        if (isCustomDomain) {
-          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.ozanozdil.com;';
-        }
+        domainSuffixes.forEach(function (d) {
+          document.cookie = 'googtrans=/tr/' + lang + '; path=/' + d;
+        });
       }
-      window.location.reload();
+
+      // If Google Translate select box is present, trigger it immediately
+      const select = document.querySelector('.goog-te-combo');
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+        setTimeout(function () {
+          window.location.reload();
+        }, 150);
+      } else {
+        window.location.reload();
+      }
     }
 
     function initLangSelector() {

@@ -561,34 +561,21 @@ body {
   transform: none !important;
 }
 
-/* Hide all Google Translate banner iframes, modern VIpgJd containers & toolbars */
+/* Hide Google Translate top banner frame and prevent layout shift */
 iframe.goog-te-banner-frame,
-iframe[class*="goog-te-banner"],
-iframe[class*="VIpgJd"],
-iframe[src*="translate.google"],
 .goog-te-banner-frame,
 .goog-te-banner,
-.goog-te-balloon-frame,
-.VIpgJd-ZVi9od-OR9Mb-OAEtQ,
-.VIpgJd-ZVi9od-l4eHX-hSRGPd,
-.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
-.VIpgJd-yAWdhb-hSRGPd,
-.VIpgJd-yAWdhb-m6UDLb,
-div[class*="VIpgJd-ZVi9od"],
-body > .skiptranslate,
-body > div[style*="position: fixed"][style*="z-index: 2147483647"],
-body > div[style*="z-index: 10000000"] {
+.goog-te-balloon-frame {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
   width: 0 !important;
-  max-height: 0 !important;
-  max-width: 0 !important;
   opacity: 0 !important;
-  pointer-events: none !important;
-  position: absolute !important;
-  left: -9999px !important;
-  top: -9999px !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
 }
 
 /* Hide tooltips, hover balloons, and text highlight cards */
@@ -608,11 +595,18 @@ body > div[style*="z-index: 10000000"] {
   box-shadow: none !important;
 }
 
-/* Hide raw gadget container */
+/* Invisible mount for gadget without blocking engine execution */
 #google_translate_element,
 .goog-te-gadget,
 .goog-te-gadget-simple {
-  display: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 /* ==========================================================================
