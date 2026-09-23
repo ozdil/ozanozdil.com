@@ -1,0 +1,4 @@
+arXiv API Kullanım Bildirimi ve Koşulları:
+Lütfen https://info.arxiv.org/help/api/index.html adresindeki arXiv API kullanım şartlarını inceleyiniz ve bu yetenek (literature-search-arxiv) aracılığıyla çekilen makalelerin özel lisans ve kısıtlamalarını her zaman kontrol ediniz.
+
+Tarih / Zaman Damgası: 2026-09-24T00:14:10+03:00
