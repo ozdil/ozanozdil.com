@@ -9,9 +9,10 @@ const timeline = [
     badge: 'Kamu Görevi & Kurumsal Hafıza',
     badgeColor: 'bg-[#18181b] text-[#d4d4d8] border-[#27272a]',
     description:
-      'Kastamonu Belediyesi bünyesinde kurumsal hafızanın korunması, resmi evrak sistemleri, kentsel dokümantasyon ve kamu arşivinin tasnif, muhafaza ve araştırma süreçlerinin yürütülmesi. Yılların getirdiği belediyecilik, bilgi işlem ve başkan danışmanlığı birikiminin kurumsal arşiv disipliniyle buluşturulması.',
+      'Kastamonu Belediyesi bünyesinde kurumsal hafızanın korunması, resmi evrak sistemleri, kentsel dokümantasyon ve kamu arşivinin tasnif, muhafaza ve araştırma süreçlerinin yürütülmesi. Yılların getirdiği belediyecilik, bilgi işlem ve başkan danışmanlığı birikiminin kurumsal arşiv disipliniyle buluşturulması; resmi GitHub açık kaynak organizasyonunun ve birimlerinin koordinasyonu.',
     highlights: [
       'Kurumsal hafızanın korunması, kentsel bellek ve resmi dokümantasyon yönetimi',
+      'Resmi GitHub organizasyonu (Kastamonu-Belediye-Baskanligi) ve açık kaynak birim altyapıları (A&G, BİM)',
       'Kamu mevzuatı, idari süreçler ve evrak akış güvenliği',
       'Belediye hizmet süreçlerinde devamlılık ve kamu ciddiyetiyle kurumsal katkı'
     ]
@@ -180,6 +181,14 @@ const competencies = [
           <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
             Kastamonu Belediyesi (2019 — Günümüz)
           </span>
+          <a
+            href="https://github.com/Kastamonu-Belediye-Baskanligi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a] hover:border-[#52525b] hover:text-[#ffffff] transition-colors"
+          >
+            Kastamonu Belediyesi GitHub (A&G // BİM) ↗
+          </a>
           <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff]">
             Omarchy & Arch Linux
           </span>
@@ -206,7 +215,7 @@ const competencies = [
           Kariyerimin önemli bir eksenini kamu yönetimi, yerel siyaset stratejisi ve kurumsal iletişim teşkil etti. 2019 yerel seçim sürecinde Kastamonu'da zaferle sonuçlanan kampanya stratejisini, saha veri analitiğini ve iletişim liderliğini yürüttüm. Akabinde <strong class="text-[#ffffff]">Kastamonu Belediyesi Başkan Danışmanlığı</strong> ile <strong class="text-[#ffffff]">Ar-Ge ve Bilgi İşlem Yöneticiliği</strong> görevlerinde bulundum. Bu süreçte basın-yayın ve halkla ilişkiler mekanizmalarını baştan yapılandırarak 3 ayda <strong class="text-[#ffffff]">25 milyondan fazla organik erişim</strong> sağlayan bir kitle iletişimi rekoru kırdık; kriz yönetiminden belediye sunucu ve bilişim altyapısının modernizasyonuna kadar kurumsal sorumluluklar üstlendik.
         </p>
         <p>
-          Halen Kastamonu Belediyesi bünyesinde kurumsal hafızanın korunması, kentsel bellek araştırmaları ve resmi evrak arşiv sistematiği alanındaki kamu görevimi sürdürüyorum. Yılların getirdiği kamu yönetimi, bilgi işlem ve saha tecrübesini; kurumsal arşivin gerektirdiği titizlik, resmiyet ve devlet disipliniyle birleştirerek kentin idari hafızasına katkı sunmaya devam ediyorum.
+          Halen Kastamonu Belediyesi bünyesinde kurumsal hafızanın korunması, kentsel bellek araştırmaları ve resmi evrak arşiv sistematiği alanındaki kamu görevimi sürdürüyorum. Yılların getirdiği kamu yönetimi, bilgi işlem ve saha tecrübesini; kurumsal arşivin gerektirdiği titizlik, resmiyet ve devlet disipliniyle birleştirerek kentin idari hafızasına katkı sunmaya devam ediyorum. Aynı zamanda belediyenin açık kaynak vizyonu doğrultusunda resmi <a href="https://github.com/Kastamonu-Belediye-Baskanligi" target="_blank" rel="noopener noreferrer" class="text-[#ffffff] underline decoration-[#52525b] underline-offset-4 font-medium hover:text-[#a1a1aa]">GitHub organizasyonu (Kastamonu-Belediye-Baskanligi)</a> altyapısını, <strong class="text-[#ffffff]">Araştırma ve Geliştirme Müdürlüğü (A&G)</strong> ile <strong class="text-[#ffffff]">Bilgi İşlem Müdürlüğü (BİM)</strong> teknik yapılanmasını koordine ediyorum.
         </p>
         <p>
           Mesai dışındaki bağımsız Ar-Ge çalışmalarımda ise sistem analitiğini modern yazılım dünyasıyla buluşturuyorum. <a href="https://github.com/ozdil/omarchy" target="_blank" rel="noopener noreferrer" class="text-[#ffffff] underline decoration-[#52525b] underline-offset-4 font-medium hover:text-[#a1a1aa]">Omarchy Linux</a> çatısı altında Arch Linux çekirdek optimizasyonları, <strong class="text-[#ffffff]">OmaStudio</strong> ile 16-bit orta format RAW işleme motoru, <strong class="text-[#ffffff]">Cyber Sentinel</strong> ile donanımsal güvenlik kalkanları ve otonom yapay zekâ kodlama ajanları (Antigravity CLI / Claude Code) geliştirerek dijital egemenlik odaklı bağımsız teknoloji üretiyorum.
@@ -378,15 +387,25 @@ const competencies = [
         </h2>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 font-mono text-xs">
         <a
           href="https://github.com/ozdil"
           target="_blank"
           rel="noopener noreferrer"
           class="p-4 rounded-[18px] bg-[#121215] border border-[#27272a] hover:border-[#52525b] hover:bg-[#18181b] transition-colors text-center group shadow-md"
         >
-          <span class="text-[11px] text-[#71717a] block mb-1">Kod Deposu</span>
+          <span class="text-[11px] text-[#71717a] block mb-1">Kişisel Kod Deposu</span>
           <span class="text-sm font-semibold text-[#ffffff] group-hover:text-[#e4e4e7] transition-colors">GitHub ↗</span>
+        </a>
+
+        <a
+          href="https://github.com/Kastamonu-Belediye-Baskanligi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-4 rounded-[18px] bg-[#121215] border border-[#27272a] hover:border-[#52525b] hover:bg-[#18181b] transition-colors text-center group shadow-md"
+        >
+          <span class="text-[11px] text-[#71717a] block mb-1">Kamu & Ar-Ge</span>
+          <span class="text-sm font-semibold text-[#ffffff] group-hover:text-[#e4e4e7] transition-colors">Kastamonu Bel. ↗</span>
         </a>
 
         <a
