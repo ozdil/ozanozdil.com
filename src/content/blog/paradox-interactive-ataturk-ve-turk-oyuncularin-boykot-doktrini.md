@@ -5,6 +5,7 @@ pubDate: "2026-09-24T11:00:00.000+03:00"
 updatedDate: "2026-09-24T11:00:00.000+03:00"
 tags: ["paradox-interactive", "hoi4", "ataturk", "dijital-direnis", "oyun-dunyasi", "boykot", "tarihsel-revizyonizm", "dijital-egemenlik"]
 heroImage: "/images/og/paradox-interactive-ataturk-ve-turk-oyuncularin-boykot-doktrini.png"
+ogTheme: "red"
 draft: false
 ---
 

@@ -49,25 +49,59 @@ def format_date_tr(iso_str):
         return f"{d} {mo_name} {y}"
     return cleaned
 
-def create_og_card(title, description, tag="// SİSTEM ARAŞTIRMALARI", date_text="2026", output_path=""):
+def create_og_card(title, description, tag="// SİSTEM ARAŞTIRMALARI", date_text="2026", output_path="", theme="default"):
     W, H = 1200, 630
-    img = Image.new("RGB", (W, H), "#09090b")
+
+    is_red = theme in ["red", "crimson", "turkiye"]
+
+    bg_outer = "#080304" if is_red else "#09090b"
+    card_border = "#991b1b" if is_red else "#27272a"
+    divider_color = "#3f1216" if is_red else "#27272a"
+    badge_fill = "#2a0a0e" if is_red else "#18181b"
+    badge_border = "#b91c1c" if is_red else "#27272a"
+    badge_text_color = "#fca5a5" if is_red else "#a1a1aa"
+    domain_color = "#ef4444" if is_red else "#71717a"
+    date_color = "#ef4444" if is_red else "#a1a1aa"
+    role_color = "#fca5a5" if is_red else "#71717a"
+    avatar_border = "#ef4444" if is_red else "#3f3f46"
+    desc_color = "#cbd5e1" if is_red else "#a1a1aa"
+
+    img = Image.new("RGB", (W, H), bg_outer)
     draw = ImageDraw.Draw(img)
 
     # Main Card Box with clean borders
-    draw.rounded_rectangle([32, 32, W - 32, H - 32], radius=24, fill="#121215", outline="#27272a", width=2)
+    if is_red:
+        # Subtle dark crimson vertical gradient
+        for y in range(32, H - 32):
+            ratio = (y - 32) / (H - 64)
+            r = int(24 * (1 - ratio * 0.7) + 12 * (ratio * 0.7))
+            g = int(8 * (1 - ratio * 0.7) + 6 * (ratio * 0.7))
+            b = int(10 * (1 - ratio * 0.7) + 8 * (ratio * 0.7))
+            draw.line([32, y, W - 32, y], fill=(r, g, b))
+        draw.rounded_rectangle([32, 32, W - 32, H - 32], radius=24, outline=card_border, width=2)
+        # Top accent inner highlight line
+        draw.line([56, 33, W - 56, 33], fill="#ef4444", width=3)
+    else:
+        draw.rounded_rectangle([32, 32, W - 32, H - 32], radius=24, fill="#121215", outline=card_border, width=2)
 
     # Top Bar Badge
     badge_label = tag if tag.startswith("//") else f"// #{tag.upper()}"
     badge_bbox = draw.textbbox((0, 0), badge_label, font=font_tag)
-    badge_w = badge_bbox[2] - badge_bbox[0] + 32
-    draw.rounded_rectangle([64, 64, 64 + badge_w, 102], radius=8, fill="#18181b", outline="#27272a", width=1)
-    draw.text((80, 75), badge_label, font=font_tag, fill="#a1a1aa")
+    extra_pad = 44 if is_red else 32
+    badge_w = badge_bbox[2] - badge_bbox[0] + extra_pad
+    draw.rounded_rectangle([64, 64, 64 + badge_w, 102], radius=8, fill=badge_fill, outline=badge_border, width=2 if is_red else 1)
+    
+    if is_red:
+        # Red pulsing indicator dot
+        draw.ellipse([76, 80, 84, 88], fill="#ef4444")
+        draw.text((94, 75), badge_label, font=font_tag, fill=badge_text_color)
+    else:
+        draw.text((80, 75), badge_label, font=font_tag, fill=badge_text_color)
 
     domain_text = "ozanozdil.com"
-    draw.text((W - 64 - 150, 75), domain_text, font=font_meta, fill="#71717a")
+    draw.text((W - 64 - 150, 75), domain_text, font=font_meta, fill=domain_color)
 
-    draw.line([64, 122, W - 64, 122], fill="#27272a", width=1)
+    draw.line([64, 122, W - 64, 122], fill=divider_color, width=1)
 
     # Title Wrap
     words = title.split()
@@ -112,11 +146,11 @@ def create_og_card(title, description, tag="// SİSTEM ARAŞTIRMALARI", date_tex
 
     y_text += 16
     for line in desc_lines[:2]:
-        draw.text((64, y_text), line, font=font_desc, fill="#a1a1aa")
+        draw.text((64, y_text), line, font=font_desc, fill=desc_color)
         y_text += 32
 
     # Bottom Divider
-    draw.line([64, H - 120, W - 64, H - 120], fill="#27272a", width=1)
+    draw.line([64, H - 120, W - 64, H - 120], fill=divider_color, width=1)
 
     # Avatar
     if os.path.exists(AVATAR_PATH):
@@ -127,16 +161,16 @@ def create_og_card(title, description, tag="// SİSTEM ARAŞTIRMALARI", date_tex
             draw_mask = ImageDraw.Draw(mask)
             draw_mask.ellipse((0, 0, 60, 60), fill=255)
             img.paste(avatar, (64, H - 100), mask)
-            draw.ellipse([64, H - 100, 124, H - 40], outline="#3f3f46", width=2)
+            draw.ellipse([64, H - 100, 124, H - 40], outline=avatar_border, width=2)
         except Exception as e:
             pass
 
     draw.text((140, H - 98), "Ozan Özdil", font=font_author_name, fill="#ffffff")
-    draw.text((140, H - 72), "YZ Kodcusu & Açık Kaynak Sistem Mimarı", font=font_author_role, fill="#71717a")
+    draw.text((140, H - 72), "YZ Kodcusu & Açık Kaynak Sistem Mimarı", font=font_author_role, fill=role_color)
 
     date_bbox = draw.textbbox((0, 0), date_text, font=font_meta)
     date_w = date_bbox[2] - date_bbox[0]
-    draw.text((W - 64 - date_w, H - 85), date_text, font=font_meta, fill="#a1a1aa")
+    draw.text((W - 64 - date_w, H - 85), date_text, font=font_meta, fill=date_color)
 
     img.save(output_path, "PNG", optimize=True)
 
@@ -190,17 +224,23 @@ def generate_blog_og():
         tags = fm.get("tags", [])
         primary_tag = tags[0] if tags else "ARAŞTIRMA"
 
+        theme = (fm.get("ogTheme") or fm.get("theme") or "").lower()
+        if not theme:
+            tag_list = [t.lower() for t in tags]
+            if any(t in tag_list for t in ["ataturk", "boykot", "turkiye"]):
+                theme = "red"
+
         out_path = os.path.join(OG_DIR, f"{slug}.png")
-        # Regenerate if not exists or markdown newer than image
+        # Regenerate if not exists or markdown newer than image or force
         should_generate = False
         if not os.path.exists(out_path):
             should_generate = True
         else:
-            if os.path.getmtime(filepath) > os.path.getmtime(out_path):
+            if os.path.getmtime(filepath) > os.path.getmtime(out_path) or "--force" in sys.argv:
                 should_generate = True
 
         if should_generate:
-            create_og_card(title, desc, primary_tag, pub_date, out_path)
+            create_og_card(title, desc, primary_tag, pub_date, out_path, theme=theme)
             generated_count += 1
 
     print(f"{generated_count} adet blog OG kartı güncellendi / oluşturuldu.")
