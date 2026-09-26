@@ -11,7 +11,7 @@ legacyUrl: "/2026/05/ack-kaynakl-palantir-alternatifi.html"
 
 Veri analitiği ve büyük veri yönetimi dendiğinde akla gelen ilk devlerden biri şüphesiz **Palantir**. Özellikle Foundry platformuyla sundukları veri ontolojisi ve operasyonel karar destek mekanizmaları, bugüne kadar yalnızca dev bütçeli şirketlerin ve devlet kurumlarının erişebildiği bir lükstü. Ancak açık kaynak dünyasından bu tekeli sarsacak bir hamle geldi: **OpenFoundry**.
 
-Bu yazıda, GitHub'da [DioCrafts/OpenFoundry](https://github.com/DioCrafts/OpenFoundry) adresiyle hayatımıza giren bu yeni nesil veri işletim sistemini ve veri mühendisliği ekosistemine neler kattığını inceleyeceğiz.
+Bu yazıda, GitHub'da [opensourcepalantir/openfoundry](https://github.com/opensourcepalantir/openfoundry) adresiyle hayatımıza giren bu yeni nesil veri işletim sistemini ve veri mühendisliği ekosistemine neler kattığını inceleyeceğiz.
 
 ## Palantir Foundry Neyi Başardı, OpenFoundry Neyi Hedefliyor?
 
