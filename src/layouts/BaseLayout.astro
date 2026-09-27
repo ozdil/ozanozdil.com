@@ -193,18 +193,14 @@ const jsonLd = {
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Bradford LL Local Font Preloads (As used in Microsoft AI design) -->
-    <link rel="preload" href="/fonts/BradfordLL-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/BradfordLL-Italic.woff2" as="font" type="font/woff2" crossorigin />
-
-    <!-- Typography: JetBrains Mono & Newsreader (Non-blocking async load with DNS prefetch) -->
+    <!-- Typography: JetBrains Mono (Non-blocking async load with DNS prefetch) -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" media="print" onload="this.media='all'" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
     </noscript>
 
     <!-- Search Engine & AI Crawler Directives -->

@@ -181,16 +181,26 @@ export default {
       }
 
       if (request.method === 'POST') {
+        let safeSlug = '';
         try {
+          // Reject payloads larger than 4 KiB to prevent DoS
+          const contentLength = Number(request.headers.get('content-length') || 0);
+          if (contentLength > 4096) {
+            return new Response(JSON.stringify({ error: 'Payload too large', views: 0 }), {
+              status: 413,
+              headers: corsHeaders,
+            });
+          }
+
           const body = (await request.json()) as { slug?: string };
-          const slug = (body.slug || '').trim().toLowerCase();
+          const slug = (body?.slug || '').trim().toLowerCase();
           if (!slug) {
             return new Response(JSON.stringify({ error: 'Slug required', views: 0 }), {
               status: 400,
               headers: corsHeaders,
             });
           }
-          const safeSlug = slug.replace(/[^a-z0-9\-_]/g, '').slice(0, 100);
+          safeSlug = slug.replace(/[^a-z0-9\-_]/g, '').slice(0, 100);
 
           const userAgent = (request.headers.get('User-Agent') || '').toLowerCase();
           const isBot = /bot|crawl|spider|google|bing|yandex|baidu|slurp|curl|wget|python|facebook|whatsapp|telegram|cf-worker/i.test(userAgent);
@@ -217,7 +227,8 @@ export default {
           });
         } catch (e: any) {
           console.warn('KV views POST error, using fallback:', e);
-          return new Response(JSON.stringify({ slug: safeSlug, views: getBaseViews(safeSlug) }), {
+          const fallbackSlug = safeSlug || 'unknown';
+          return new Response(JSON.stringify({ slug: fallbackSlug, views: safeSlug ? getBaseViews(safeSlug) : 0 }), {
             status: 200,
             headers: corsHeaders,
           });
@@ -272,6 +283,18 @@ export default {
       if (request.method !== 'POST') {
         return new Response(JSON.stringify({ error: 'Method not allowed' }), {
           status: 405,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
+        });
+      }
+
+      // Enforce max payload limit (16 KiB) to protect Worker memory and prevent DoS
+      const chatContentLength = Number(request.headers.get('content-length') || 0);
+      if (chatContentLength > 16384) {
+        return new Response(JSON.stringify({ error: 'İstek boyutu çok büyük (maksimum 16 KiB)' }), {
+          status: 413,
           headers: {
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
@@ -551,7 +574,11 @@ export default {
       newHeaders.set('X-Content-Type-Options', 'nosniff');
       newHeaders.set('X-Frame-Options', 'SAMEORIGIN');
       newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-      newHeaders.set('Access-Control-Allow-Origin', '*');
+      newHeaders.set(
+        'Content-Security-Policy',
+        "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com; frame-src 'self' https://translate.google.com; base-uri 'self'; form-action 'self';"
+      );
+      newHeaders.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), browsing-topics=()');
       newHeaders.set('Vary', 'Accept');
       return new Response(response.body, {
         status: response.status,
@@ -591,7 +618,7 @@ export default {
     } catch (globalErr: any) {
       console.error('Unhandled Worker error:', globalErr);
       return new Response('Geçici bir sistem hatası oluştu.', {
-        status: 200,
+        status: 500,
         headers: { 'Content-Type': 'text/plain; charset=utf-8' },
       });
     }

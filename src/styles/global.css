@@ -2,38 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Bradford LL Typeface (as used in Microsoft AI Editorial Design) */
-@font-face {
-  font-family: 'Bradford LL';
-  src: url('/fonts/BradfordLL-Regular.woff2') format('woff2');
-  font-weight: 400 450;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Bradford LL';
-  src: url('/fonts/BradfordLL-Italic.woff2') format('woff2');
-  font-weight: 400 450;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Bradford LL';
-  src: url('/fonts/BradfordLL-Bold.woff2') format('woff2');
-  font-weight: 600 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Bradford LL';
-  src: url('/fonts/BradfordLL-BoldItalic.woff2') format('woff2');
-  font-weight: 600 700;
-  font-style: italic;
-  font-display: swap;
-}
 
 /* Dark theme variables (Default / Koyu - şu andaki) */
 :root,
