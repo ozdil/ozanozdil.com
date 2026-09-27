@@ -1,16 +1,16 @@
-# 🐺 ozanozdil.com
+# ozanozdil.com
 
-> **Ozan Özdil (@ozdil)** — Kişisel Marka, Blog ve Dijital Karargâh Altyapısı.  
+> **Ozan Özdil (@ozdil)** -- Kişisel Marka, Blog ve Dijital Karargah Altyapısı.  
 > GitHub arayüzünden ilham alan, minimalist, ultra hızlı ve modern Astro + Tailwind CSS mimarisi.
 
-🌐 **Canlı Site:** [ozanozdil.com](https://ozanozdil.com)  
-⚡ **Barındırma & CDN:** Cloudflare Pages  
-🛠️ **Teknoloji:** Astro v5 + Tailwind CSS + TypeScript + Markdown  
-📈 **SEO & Performans:** 100/100 Google PageSpeed, Dahili RSS ve Sitemap  
+**Canlı Site:** [ozanozdil.com](https://ozanozdil.com)  
+**Barındırma & CDN:** Cloudflare Pages  
+**Teknoloji:** Astro v5 + Tailwind CSS + TypeScript + Markdown  
+**SEO & Performans:** 100/100 Google PageSpeed, Dahili RSS ve Sitemap  
 
 ---
 
-## 📂 Proje Yapısı
+## Proje Yapısı
 
 ```text
 ├── public/
@@ -39,7 +39,7 @@
 
 ---
 
-## ✍️ Yeni Blog Yazısı Nasıl Eklenir?
+## Yeni Blog Yazısı Nasıl Eklenir?
 
 Yeni bir yazı yayınlamak için tek yapmanız gereken `src/content/blog/` klasörünün altına yeni bir Markdown (`.md`) dosyası oluşturmaktır:
 
@@ -58,7 +58,7 @@ Dosyayı ekleyip depoya push ettiğinizde, Cloudflare Pages **10-15 saniye için
 
 ---
 
-## 💻 Yerel Geliştirme (Local Development)
+## Yerel Geliştirme (Local Development)
 
 ```bash
 # Bağımlılıkları yükleyin
@@ -76,7 +76,7 @@ npm run preview
 
 ---
 
-## ☁️ Cloudflare Pages Bağlantısı
+## Cloudflare Pages Bağlantısı
 
 1. Cloudflare Dashboard'da **Compute (Workers & Pages)** > **Create application** > **Pages** > **Connect to Git** seçin.
 2. `ozdil/ozanozdil.com` deposunu seçin.

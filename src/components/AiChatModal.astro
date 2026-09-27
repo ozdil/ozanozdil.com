@@ -216,10 +216,14 @@
       // Inline code `code`
       text = text.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 rounded bg-[#18181b] text-[11px] font-mono text-[#ffffff] border border-[#27272a]">$1</code>');
 
-      // Markdown links: only match if URL strictly starts with http://, https://, or /
-      // and does not contain whitespace, quotes, or HTML entity delimiters
-      text = text.replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/)[^\s\)"'<>]+)\)/g, (match, label, cleanUrl) => {
+      // Markdown links: only match if URL strictly starts with http://, https://, or a single /
+      // Prevent protocol-relative bypasses (e.g. //evil.com) and javascript: payloads
+      text = text.replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/[^\/])[^\s\)"'<>]*)\)/g, (match, label, cleanUrl) => {
         const safeUrl = cleanUrl.replace(/["'<>]/g, '').replace(/&quot;|&amp;|&#039;/g, '');
+        // Additional defense-in-depth verification
+        if (!safeUrl.startsWith('http://') && !safeUrl.startsWith('https://') && !(safeUrl.startsWith('/') && !safeUrl.startsWith('//'))) {
+          return label; // Disarm suspicious link
+        }
         const isExternal = /^https?:\/\//i.test(safeUrl);
         if (isExternal) {
           return `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer" class="text-[#ffffff] font-medium underline underline-offset-2 hover:text-[#a1a1aa] transition-colors">${label} ↗</a>`;

@@ -100,7 +100,8 @@ function getFallbackAnswer(query: string): string {
 }
 
 function isAllowedOrigin(origin: string | null): boolean {
-  if (!origin) return true;
+  // Reject requests with no Origin header (curl, bot, Postman) — Zero Trust principle
+  if (!origin) return false;
   try {
     const parsed = new URL(origin);
     const host = parsed.hostname.toLowerCase();
@@ -161,15 +162,51 @@ export default {
       const pathname = url.pathname;
 
     // 1. Fast Security Filter for Malicious Bot Probes (Drop early without CPU/Asset cost)
-    const pLower = pathname.toLowerCase();
+    // Normalize path: decode URL-encoded characters and collapse double slashes to prevent bypass
+    let normalizedPath = pathname;
+    try {
+      normalizedPath = decodeURIComponent(pathname);
+    } catch {
+      // Malformed URI encoding — treat as attack vector, drop immediately
+      return new Response('Not Found', {
+        status: 404,
+        headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'public, max-age=86400' },
+      });
+    }
+    // Collapse consecutive slashes (e.g., //gizli -> /gizli)
+    normalizedPath = normalizedPath.replace(/\/{2,}/g, '/');
+    const pLower = normalizedPath.toLowerCase();
+
+    // Block path traversal attempts
+    if (pLower.includes('..') || pLower.includes('%2e') || pLower.includes('%00')) {
+      return new Response('Not Found', {
+        status: 404,
+        headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'public, max-age=86400' },
+      });
+    }
+
+    // Drop known exploit probes, CMS scanners, and sensitive paths
     if (
       pLower.startsWith('/wp-') ||
       pLower.includes('.php') ||
       pLower.startsWith('/.env') ||
       pLower.startsWith('/.git') ||
+      pLower.startsWith('/.aws') ||
+      pLower.startsWith('/.ssh') ||
+      pLower.startsWith('/.docker') ||
+      pLower.startsWith('/.kube') ||
+      pLower.startsWith('/gizli') ||
+      pLower.startsWith('/proc') ||
+      pLower.startsWith('/etc') ||
+      pLower.startsWith('/admin') ||
+      pLower.startsWith('/debug') ||
       pLower.includes('xmlrpc') ||
       pLower.includes('phpmyadmin') ||
-      pLower.startsWith('/cgi-bin/')
+      pLower.startsWith('/cgi-bin/') ||
+      pLower.includes('shell') && pLower.includes('.php') ||
+      pLower.includes('eval-stdin') ||
+      pLower.includes('telescope') ||
+      pLower.includes('actuator')
     ) {
       return new Response('Not Found', {
         status: 404,
@@ -247,24 +284,38 @@ export default {
       if (request.method === 'POST') {
         let safeSlug = '';
         try {
-          // Reject payloads larger than 4 KiB to prevent DoS
+          // Reject payloads larger than 1 KiB to prevent DoS (Hardened)
           const contentLength = Number(request.headers.get('content-length') || 0);
-          if (contentLength > 4096) {
+          if (contentLength > 1024) {
             return new Response(JSON.stringify({ error: 'Payload too large', views: 0 }), {
               status: 413,
               headers: corsHeaders,
             });
           }
+          
+          // IP-based Rate Limiting (max 30 requests per minute)
+          const clientIp = request.headers.get('cf-connecting-ip') || 'unknown';
+          if (clientIp !== 'unknown') {
+            const rlResult = checkChatRateLimit(`views:${clientIp}`);
+            if (!rlResult.allowed) {
+               return new Response(JSON.stringify({ error: 'Too many requests', views: 0 }), {
+                 status: 429,
+                 headers: corsHeaders,
+               });
+            }
+          }
 
           const body = (await request.json()) as { slug?: string };
           const slug = (body?.slug || '').trim().toLowerCase();
-          if (!slug) {
-            return new Response(JSON.stringify({ error: 'Slug required', views: 0 }), {
+          
+          // Strict slug validation (only lowercase alphanumeric and hyphens)
+          if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || slug.length > 100) {
+            return new Response(JSON.stringify({ error: 'Invalid slug', views: 0 }), {
               status: 400,
               headers: corsHeaders,
             });
           }
-          safeSlug = slug.replace(/[^a-z0-9\-_]/g, '').slice(0, 100);
+          safeSlug = slug;
 
           const userAgent = (request.headers.get('User-Agent') || '').toLowerCase();
           const isBot = /bot|crawl|spider|google|bing|yandex|baidu|slurp|curl|wget|python|facebook|whatsapp|telegram|cf-worker/i.test(userAgent);
@@ -369,7 +420,9 @@ export default {
       }
 
       // Enforce Rate Limiting (max 15 req/min per IP)
-      const clientIp = request.headers.get('cf-connecting-ip') || request.headers.get('x-forwarded-for') || 'unknown';
+      // SECURITY: Only trust cf-connecting-ip (set by Cloudflare Edge, cannot be spoofed by client)
+      // x-forwarded-for is client-controllable and MUST NOT be used for security decisions
+      const clientIp = request.headers.get('cf-connecting-ip') || 'unknown';
       const rateLimitResult = checkChatRateLimit(clientIp);
       if (!rateLimitResult.allowed) {
         return new Response(
@@ -404,7 +457,18 @@ export default {
           }
           await env.BLOG_VIEWS.put(rateLimitKey, String(currentCount + 1), { expirationTtl: 60 });
         } catch (kvErr) {
-          console.warn('Rate limit KV error:', kvErr);
+          // SECURITY: Fail-closed — if KV is unreachable, deny the request to prevent abuse
+          console.warn('Rate limit KV error (fail-closed):', kvErr);
+          return new Response(
+            JSON.stringify({ error: 'Geçici bir sorun oluştu. Lütfen tekrar deneyin.' }),
+            {
+              status: 503,
+              headers: {
+                ...chatCorsHeaders,
+                'Retry-After': '30',
+              },
+            }
+          );
         }
       }
 
@@ -430,6 +494,29 @@ export default {
             headers: chatCorsHeaders,
           });
         }
+        
+        // SECURITY: Prompt Injection & Jailbreak Pre-flight Shield
+        const userMessageLower = userMessage.toLowerCase();
+        if (
+          userMessageLower.includes('ignore previous') ||
+          userMessageLower.includes('system prompt') ||
+          userMessageLower.includes('forget all') ||
+          userMessageLower.includes('dan mode') ||
+          userMessageLower.includes('jailbreak') ||
+          userMessageLower.includes('override') ||
+          userMessageLower.includes('sen artık') ||
+          userMessageLower.includes('talimatları unut') ||
+          userMessageLower.includes('promptu')
+        ) {
+           return new Response(JSON.stringify({ 
+             answer: 'Ozan Özdil hakkında sorularınıza yanıt vermekten memnuniyet duyarım, ancak bu sistem talimatını işleyemiyorum. Başka bir sorunuz var mı?' 
+           }), {
+             status: 200,
+             headers: chatCorsHeaders,
+           });
+        }
+        // Strict input length validation
+        const safeUserMessage = userMessage.slice(0, 500).replace(/[\u0000-\u0008\u000B-\u000C\u000E-\u001F]/g, '');
 
         let answer = '';
         let debugInfo: any = null;
@@ -446,7 +533,7 @@ export default {
             const messages = [
               { role: 'system', content: OZAN_SYSTEM_PROMPT },
               ...sanitizedHistory,
-              { role: 'user', content: userMessage.slice(0, 1000) },
+              { role: 'user', content: safeUserMessage },
             ];
 
             let aiResponse: any = null;
@@ -677,13 +764,15 @@ export default {
       );
       newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
       newHeaders.set('X-Content-Type-Options', 'nosniff');
-      newHeaders.set('X-Frame-Options', 'SAMEORIGIN');
+      newHeaders.set('X-Frame-Options', 'DENY');
       newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+      newHeaders.set('Cross-Origin-Opener-Policy', 'same-origin');
+      newHeaders.set('Cross-Origin-Resource-Policy', 'same-origin');
       newHeaders.set(
         'Content-Security-Policy',
-        "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://translate.google.com https://translate.googleapis.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com https://cloudflareinsights.com; frame-src 'self' https://translate.google.com https://www.youtube-nocookie.com https://www.youtube.com; media-src 'self' data: https:; base-uri 'self'; form-action 'self';"
+        "default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com https://cloudflareinsights.com; frame-src 'self' https://translate.google.com https://www.youtube-nocookie.com https://www.youtube.com; media-src 'self' data: https:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests; base-uri 'self'; form-action 'self';"
       );
-      newHeaders.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), browsing-topics=()');
+      newHeaders.set('Permissions-Policy', 'accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), xr-spatial-tracking=(), browsing-topics=()');
       newHeaders.set('Vary', 'Accept');
       return new Response(response.body, {
         status: response.status,

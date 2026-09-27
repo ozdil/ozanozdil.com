@@ -6,7 +6,6 @@
 # Default rule for all web crawlers
 User-agent: *
 Allow: /
-Disallow: /gizli/
 
 # ------------------------------------------------------------------------------
 # Major Search Engine Crawlers
@@ -23,7 +22,6 @@ User-agent: Applebot
 User-agent: Sogou
 User-agent: Exabot
 Allow: /
-Disallow: /gizli/
 
 # ------------------------------------------------------------------------------
 # AI Search, Retrieval & LLM Agents (OpenAI, Anthropic, Perplexity, Google, Meta, etc.)
@@ -47,7 +45,6 @@ User-agent: CCBot
 User-agent: YouBot
 User-agent: Amazonbot
 Allow: /
-Disallow: /gizli/
 
 # ------------------------------------------------------------------------------
 # Content Signals (https://contentsignals.org)
