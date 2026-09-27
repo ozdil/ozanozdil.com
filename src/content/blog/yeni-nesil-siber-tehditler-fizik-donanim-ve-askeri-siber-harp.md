@@ -1,7 +1,7 @@
 ---
 title: "Yeni Nesil Siber Tehditler: Fiber Kablodan Akustik Dinleme, Donanım Saldırıları ve Askeri Siber Harp (2021–2026)"
 description: "Fiber optik kablolardan ses dinleme, Apple Silicon açıkları, RAM'den radyo sinyali yayma, uydu silicileri ve denizaltı hat sabotajı: Son beş yılda laboratuvar ortamında kanıtlanmış veya fiilen kullanılmış en şaşırtıcı yeni nesil siber tehditler, birincil akademik kaynaklardan doğrulanmış analiziyle."
-pubDate: "2026-09-27T19:55:00.000+03:00"
+pubDate: "2026-09-27T21:45:00.000+03:00"
 updatedDate: "2026-09-27T19:55:00.000+03:00"
 heroImage: "/images/yeni-nesil-siber-tehditler-hero.jpg"
 tags: ["siber güvenlik", "istihbarat", "donanım güvenliği", "yan kanal saldırıları", "askeri", "tempest", "fiber optik"]
