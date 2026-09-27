@@ -384,6 +384,30 @@ export default {
         );
       }
 
+      // Distributed KV-backed Rate Limiting (max 15 req/min per IP across all edge nodes)
+      if (env.BLOG_VIEWS && clientIp !== 'unknown') {
+        const rateLimitKey = `rl:chat:${clientIp}`;
+        try {
+          const countStr = await env.BLOG_VIEWS.get(rateLimitKey);
+          const currentCount = countStr ? Number(countStr) : 0;
+          if (currentCount >= 15) {
+            return new Response(
+              JSON.stringify({ error: 'Çok fazla istek gönderildi. Lütfen bir dakika bekleyin.' }),
+              {
+                status: 429,
+                headers: {
+                  ...chatCorsHeaders,
+                  'Retry-After': '60',
+                },
+              }
+            );
+          }
+          await env.BLOG_VIEWS.put(rateLimitKey, String(currentCount + 1), { expirationTtl: 60 });
+        } catch (kvErr) {
+          console.warn('Rate limit KV error:', kvErr);
+        }
+      }
+
       // Enforce max payload limit (16 KiB) to protect Worker memory and prevent DoS
       const chatContentLength = Number(request.headers.get('content-length') || 0);
       if (chatContentLength > 16384) {
