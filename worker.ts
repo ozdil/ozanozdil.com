@@ -99,6 +99,60 @@ function getFallbackAnswer(query: string): string {
   return "Merhabalar! Ben Ozan Özdil'in Yapay Zeka Asistanıyım. Ozan'ın geliştirdiği açık kaynak projeler (OmaStudio RAW motoru, OmaNotes, OmaSend, güvenlik araçları), belediye kariyeri, Linux/CachyOS sistem yapılandırmaları veya blog makaleleri hakkında dilediğinizi sorabilirsiniz. Daha fazla keşif için [Projeler](https://ozanozdil.com/projeler) ve [Yazılar](https://ozanozdil.com/blog) sayfalarımıza da göz atabilirsiniz.";
 }
 
+function isAllowedOrigin(origin: string | null): boolean {
+  if (!origin) return true;
+  try {
+    const parsed = new URL(origin);
+    const host = parsed.hostname.toLowerCase();
+    return (
+      host === 'ozanozdil.com' ||
+      host === 'www.ozanozdil.com' ||
+      host === 'localhost' ||
+      host === '127.0.0.1'
+    );
+  } catch {
+    return false;
+  }
+}
+
+interface ChatRateLimitRecord {
+  count: number;
+  resetAt: number;
+}
+
+const chatRateLimitMap = new Map<string, ChatRateLimitRecord>();
+
+function checkChatRateLimit(clientIp: string): { allowed: boolean; retryAfter?: number } {
+  const now = Date.now();
+  const windowMs = 60 * 1000;
+  const maxRequests = 15;
+
+  if (chatRateLimitMap.size > 2000) {
+    for (const [ip, record] of chatRateLimitMap.entries()) {
+      if (now > record.resetAt) {
+        chatRateLimitMap.delete(ip);
+      }
+    }
+  }
+
+  const existing = chatRateLimitMap.get(clientIp);
+  if (!existing || now > existing.resetAt) {
+    chatRateLimitMap.set(clientIp, {
+      count: 1,
+      resetAt: now + windowMs,
+    });
+    return { allowed: true };
+  }
+
+  if (existing.count >= maxRequests) {
+    const retryAfter = Math.max(1, Math.ceil((existing.resetAt - now) / 1000));
+    return { allowed: false, retryAfter };
+  }
+
+  existing.count++;
+  return { allowed: true };
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     try {
@@ -137,13 +191,23 @@ export default {
 
     // Handle CORS preflight for API routes
     if (request.method === 'OPTIONS' && url.pathname.startsWith('/api/')) {
+      const origin = request.headers.get('Origin');
+      const isAllowed = isAllowedOrigin(origin);
+
+      if (!isAllowed) {
+        return new Response(null, { status: 403 });
+      }
+
+      const allowOrigin = origin && isAllowed ? origin : 'https://ozanozdil.com';
+
       return new Response(null, {
         status: 204,
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': url.pathname === '/api/chat' ? allowOrigin : '*',
           'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type',
           'Access-Control-Max-Age': '86400',
+          'Vary': 'Origin',
         },
       });
     }
@@ -280,14 +344,44 @@ export default {
 
     // Handle AI Chat Endpoint: POST /api/chat
     if (url.pathname === '/api/chat') {
+      const origin = request.headers.get('Origin');
+      if (!isAllowedOrigin(origin)) {
+        return new Response(JSON.stringify({ error: 'Erişim engellendi: Yetkisiz köken.' }), {
+          status: 403,
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+        });
+      }
+
+      const chatCorsHeaders = {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': origin && isAllowedOrigin(origin) ? origin : 'https://ozanozdil.com',
+        'Vary': 'Origin',
+        'Cache-Control': 'no-store',
+      };
+
       if (request.method !== 'POST') {
         return new Response(JSON.stringify({ error: 'Method not allowed' }), {
           status: 405,
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          },
+          headers: chatCorsHeaders,
         });
+      }
+
+      // Enforce Rate Limiting (max 15 req/min per IP)
+      const clientIp = request.headers.get('cf-connecting-ip') || request.headers.get('x-forwarded-for') || 'unknown';
+      const rateLimitResult = checkChatRateLimit(clientIp);
+      if (!rateLimitResult.allowed) {
+        return new Response(
+          JSON.stringify({ error: 'Çok fazla istek gönderildi. Lütfen bir dakika bekleyin.' }),
+          {
+            status: 429,
+            headers: {
+              ...chatCorsHeaders,
+              'Retry-After': String(rateLimitResult.retryAfter || 60),
+            },
+          }
+        );
       }
 
       // Enforce max payload limit (16 KiB) to protect Worker memory and prevent DoS
@@ -295,10 +389,7 @@ export default {
       if (chatContentLength > 16384) {
         return new Response(JSON.stringify({ error: 'İstek boyutu çok büyük (maksimum 16 KiB)' }), {
           status: 413,
-          headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-          },
+          headers: chatCorsHeaders,
         });
       }
 
@@ -312,10 +403,7 @@ export default {
         if (!userMessage) {
           return new Response(JSON.stringify({ error: 'Mesaj boş olamaz' }), {
             status: 400,
-            headers: {
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*',
-            },
+            headers: chatCorsHeaders,
           });
         }
 
@@ -400,11 +488,7 @@ export default {
 
         return new Response(JSON.stringify({ answer }), {
           status: 200,
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            'Access-Control-Allow-Origin': '*',
-            'Cache-Control': 'no-store',
-          },
+          headers: chatCorsHeaders,
         });
       } catch (err: any) {
         return new Response(
@@ -414,10 +498,7 @@ export default {
           }),
           {
             status: 200,
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8',
-              'Access-Control-Allow-Origin': '*',
-            },
+            headers: chatCorsHeaders,
           }
         );
       }
@@ -576,7 +657,7 @@ export default {
       newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
       newHeaders.set(
         'Content-Security-Policy',
-        "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com; frame-src 'self' https://translate.google.com; base-uri 'self'; form-action 'self';"
+        "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://translate.google.com https://translate.googleapis.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com https://cloudflareinsights.com; frame-src 'self' https://translate.google.com https://www.youtube-nocookie.com https://www.youtube.com; media-src 'self' data: https:; base-uri 'self'; form-action 'self';"
       );
       newHeaders.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), browsing-topics=()');
       newHeaders.set('Vary', 'Accept');

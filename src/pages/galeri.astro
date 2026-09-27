@@ -495,7 +495,7 @@ const imageGallerySchema = {
         >
           <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#18181b]">
             <img
-              src="${photo.thumb}"
+              src="${escapeHtml(photo.thumb)}"
               alt="${escapeHtml(photo.title)} - ${escapeHtml(currentAlbum.locationFull)} - Ozan Özdil"
               loading="lazy"
               decoding="async"
