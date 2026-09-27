@@ -359,21 +359,49 @@ p, blockquote, li {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.markdown-body table {
-  display: table !important;
+.markdown-body .table-wrapper {
+  display: block;
   width: 100%;
   max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.75rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  background-color: var(--surface-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.markdown-body .table-wrapper table {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  min-width: 600px;
+}
+
+.markdown-body table {
+  display: block !important;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
   border-collapse: separate !important;
   border-spacing: 0;
-  margin: 2rem 0;
+  margin: 1.75rem 0;
   font-family: 'JetBrainsMono Nerd Font', 'JetBrains Mono', monospace;
   font-size: 0.8125rem;
   background-color: var(--surface-bg) !important;
   border: 1px solid var(--border-color) !important;
   border-radius: 0.75rem;
-  overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+@media (max-width: 640px) {
+  .markdown-body table {
+    min-width: 540px;
+  }
 }
 
 .markdown-body thead {

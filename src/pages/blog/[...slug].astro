@@ -180,7 +180,7 @@ ${post.body}`
     )}
 
     <!-- Rendered Markdown Body -->
-    <div class="markdown-body max-w-3xl mx-auto font-serif text-lg sm:text-[19px] leading-[1.8] text-[#f4f4f5]">
+    <div class="markdown-body max-w-3xl mx-auto font-serif text-lg sm:text-[19px] leading-[1.8] text-[#f4f4f5] break-words overflow-x-clip">
       <Content />
     </div>
 
@@ -416,5 +416,15 @@ ${post.body}`
           });
       }
     }
+
+    // 5. Automatic Responsive Table Wrapper
+    document.querySelectorAll('.markdown-body table').forEach((table) => {
+      if (!table.parentElement.classList.contains('table-wrapper')) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      }
+    });
   })();
 </script>

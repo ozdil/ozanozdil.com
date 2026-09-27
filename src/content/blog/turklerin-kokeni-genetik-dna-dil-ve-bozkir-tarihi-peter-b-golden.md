@@ -35,6 +35,160 @@ Prof. Dr. Peter B. Golden, klasik filoloji ve Ortaçağ İslam/Çin metin tenkid
 
 ## 2. Hızlı Doğruluk Matrisi (Ne Kadar Doğru, Ne Kadar Yanlış?)
 
+<div class="space-y-4 md:hidden my-6 not-prose">
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">1. Genetik ve Millet Tanımı</span>
+      <span class="px-2 py-0.5 rounded bg-emerald-950/70 text-emerald-400 border border-emerald-800/60 text-[10px] font-semibold whitespace-nowrap">TAMAMEN DOĞRU (%100)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">DNA tek başına etnisite belirleyemez, saf ırk yoktur.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Biyolojik soy ile dilsel/kültürel kimlik özdeş değildir. 19. yüzyıl "saf ırk" teorisi biyolojik olarak çökmüştür.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">2. Erken Türklerin Genetik Profili</span>
+      <span class="px-2 py-0.5 rounded bg-amber-950/70 text-amber-400 border border-amber-800/60 text-[10px] font-semibold whitespace-nowrap">DOĞRU AMA EKSİK (%70)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Türkler Doğu ve Batı Avrasya karışımıdır.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Karışım tespiti doğrudur; ancak 2020 Cell (Jeong et al.) çalışması erken Türk elitlerinde Doğu Avrasya (Ulaanzuukh/Slab Grave) oranını %60-%70, Batı Avrasya (Saka/Sarmat) oranını %30-%40 olarak netleştirmiştir. Golden bu somut verilere değinmez.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">3. Altay Dil Ailesi</span>
+      <span class="px-2 py-0.5 rounded bg-sky-950/70 text-sky-400 border border-sky-800/60 text-[10px] font-semibold whitespace-nowrap">HAKİM GÖRÜŞ (%85)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Ortak ata dil kanıtlanmamıştır; benzerlikler Sprachbund (ödünçleme) ürünüdür.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Modern dilbilimde (Clauson, Doerfer, Vovin) en kabul gören modeldir. Temel organ ve sayı adlarının uyuşmaması bunu doğrular. Ancak Trans-Avrasya tarımcı tezi (Robbeets) tartışmayı sürdürmektedir.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">4. Bugut Yazıtı'nın Dili</span>
+      <span class="px-2 py-0.5 rounded bg-amber-950/70 text-amber-400 border border-amber-800/60 text-[10px] font-semibold whitespace-nowrap">DOĞRU AMA YANILTICI (%70)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">İlk Göktürk anıtı Soğdca ve Erken Moğolca yazılmıştır.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">582 tarihli yazıtın Soğdca ve Brahmi Moğolcası olduğu doğrudur. Ancak bu Türkçenin yazılmadığını değil, Soğdcanın İpek Yolu diplomasisindeki lingua franca rolünü gösterir.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">5. Aşina Adının Kökeni</span>
+      <span class="px-2 py-0.5 rounded bg-purple-950/70 text-purple-400 border border-purple-800/60 text-[10px] font-semibold whitespace-nowrap">GÜÇLÜ HİPOTEZ (%75)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Aşina kelimesi Saka-İrani dillerinde "mavi" demektir.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Filolojik olarak güçlüdür (Klyaştornıy tezi); fakat bu hanedanın İrani soydan geldiğini göstermez. Kazılan Aşina kurganlarındaki Y-DNA (Q1a / C2), hanedanın genetik olarak Doğu Avrasyalı olduğunu kanıtlar.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">6. Hiung-nu (Hun) ve Mete Han</span>
+      <span class="px-2 py-0.5 rounded bg-rose-950/70 text-rose-400 border border-rose-800/60 text-[10px] font-semibold whitespace-nowrap">KISMEN DOĞRU (%50)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Hunların Türkçe konuştuğuna ve Mete'nin Türk olduğuna dair yazılı kanıt yoktur.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Mete Han'ın şahsi diline ait yazılı vesika olmadığı filolojik bir gerçektir. Ancak tebaadaki Dingling/Töleslerin Türkçe konuştuğu kesindir. Ordu onluk sistemi, ikili devlet teşkilatı ve kurgan kültürü kesintisiz Göktürklere aktarılmıştır.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">7. 'Türk' Adını Arapların Yayması</span>
+      <span class="px-2 py-0.5 rounded bg-amber-950/70 text-amber-400 border border-amber-800/60 text-[10px] font-semibold whitespace-nowrap">KISMEN DOĞRU (%60)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Bu adı evrensel şemsiye kimlik yapan Arap coğrafyacılarıdır (el-Etrâk).</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Araplar idari tasnifte adı tüm bozkır için genelleştirmiştir; ancak bu adı icat etmemişlerdir. Göktürk Kağanlığı 552–744 arasında bu adı zaten küresel bir imparatorluk markası haline getirmişti.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">8. Eski Türkçeye En Yakın Dil</span>
+      <span class="px-2 py-0.5 rounded bg-emerald-950/70 text-emerald-400 border border-emerald-800/60 text-[10px] font-semibold whitespace-nowrap">TAMAMEN DOĞRU (%100)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Tuvaca, Hakasça gibi Sibirya dilleri ve Sarı Uygurcadır.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Bu diller coğrafi izolasyon sayesinde Arapça/Farsça etkisinden uzak kalarak Orhun Türkçesinin arkaik yapısını ve söz varlığını en saf haliyle korumuştur.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">9. Bozkır Göçebeliği Doktrini</span>
+      <span class="px-2 py-0.5 rounded bg-emerald-950/70 text-emerald-400 border border-emerald-800/60 text-[10px] font-semibold whitespace-nowrap">TAMAMEN DOĞRU (%95)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Şehirlere yerleşen ve tarıma geçen Türk devletleri hızla çökmüştür.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Tonyukuk'un uyarısı ve Uygurların 840'ta şehirleşip Maniheizm'e geçtikten sonra Kırgızlar karşısında yıkılması bu askeri-jeopolitik tespiti doğrular.</p>
+    </div>
+  </div>
+
+  <div class="p-4 rounded-xl border border-[#27272a] bg-[#121215] space-y-2.5 font-mono text-xs shadow-md">
+    <div class="flex items-start justify-between gap-2 border-b border-[#27272a] pb-2">
+      <span class="font-bold text-sm text-[#ffffff] font-serif">10. Pantürkizm Değerlendirmesi</span>
+      <span class="px-2 py-0.5 rounded bg-cyan-950/70 text-cyan-400 border border-cyan-800/60 text-[10px] font-semibold whitespace-nowrap">TARİHSEL DOĞRU (%90)</span>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Golden'ın İddiası</span>
+      <p class="text-[#d4d4d8] font-sans text-xs sm:text-sm mt-0.5">Tarihte tek bir Turan devleti hiç olmamıştır; bu modern bir ideolojidir.</p>
+    </div>
+    <div>
+      <span class="text-[10px] text-[#71717a] uppercase tracking-wider block">Bilimsel Hakikat ve Düzeltme</span>
+      <p class="text-[#a1a1aa] font-sans text-xs sm:text-sm mt-0.5 leading-relaxed">Tarih boyunca Türk boyları çoğu zaman birbiriyle savaşmıştır (Göktürk-Oğuz, Kırgız-Uygur, Timur-Osmanlı). Ancak bu durum modern çağda Türk Devletleri Teşkilatı gibi kurumsal ve stratejik entegrasyonların kurulamayacağı anlamına gelmez.</p>
+    </div>
+  </div>
+</div>
+
+<div class="hidden md:block">
+
 | İddia Edilen Konu | Golden'ın İddiası | Hüküm ve Doğruluk | Bilimsel Hakikat ve Düzeltme |
 |---|---|---|---|
 | **Genetik ve Millet Tanımı** | DNA tek başına etnisite belirleyemez, saf ırk yoktur. | **TAMAMEN DOĞRU (%100)** | Biyolojik soy ile dilsel/kültürel kimlik özdeş değildir. 19. yüzyıl "saf ırk" teorisi biyolojik olarak çökmüştür. |
@@ -47,6 +201,8 @@ Prof. Dr. Peter B. Golden, klasik filoloji ve Ortaçağ İslam/Çin metin tenkid
 | **Eski Türkçeye En Yakın Dil** | Tuvaca, Hakasça gibi Sibirya dilleri ve Sarı Uygurcadır. | **TAMAMEN DOĞRU (%100)** | Bu diller coğrafi izolasyon sayesinde Arapça/Farsça etkisinden uzak kalarak Orhun Türkçesinin arkaik yapısını ve söz varlığını en saf haliyle korumuştur. |
 | **Bozkır Göçebeliği Doktrini** | Şehirlere yerleşen ve tarıma geçen Türk devletleri hızla çökmüştür. | **TAMAMEN DOĞRU (%95)** | Tonyukuk'un uyarısı ve Uygurların 840'ta şehirleşip Maniheizm'e geçtikten sonra Kırgızlar karşısında yıkılması bu askeri-jeopolitik tespiti doğrular. |
 | **Pantürkizm Değerlendirmesi** | Tarihte tek bir Turan devleti hiç olmamıştır; bu modern bir ideolojidir. | **TARİHSEL OLARAK DOĞRU (%90)** | Tarih boyunca Türk boyları çoğu zaman birbiriyle savaşmıştır (Göktürk-Oğuz, Kırgız-Uygur, Timur-Osmanlı). Ancak bu durum modern çağda Türk Devletleri Teşkilatı gibi kurumsal ve stratejik entegrasyonların kurulamayacağı anlamına gelmez. |
+
+</div>
 
 ---
 
