@@ -3,12 +3,12 @@ title: "Jev Typesafe AI, Antigravity ve Askeri Düzey Siber Güvenlik Mimarisi"
 description: "Jev Typesafe AI otonom güvenlik denetçisi nedir, neler yapabilir? Google Antigravity ekosistemi ile birlikte ozanozdil.com üzerinde uyguladığımız Zero Trust sertleştirme operasyonu."
 pubDate: "2026-09-27T21:40:00.000+03:00"
 updatedDate: "2026-09-27T21:40:00.000+03:00"
-tags: ["siber güvenlik", "yapay zeka", "jev typesafe ai", "google antigravity", "zero trust", "hancore", "omarchy"]
+tags: ["siber güvenlik", "yapay zeka", "jev typesafe ai", "google antigravity", "zero trust", "askeri duzey guvenlik", "omarchy"]
 draft: false
 legacyUrl: ""
 ---
 
-> **Özet:** Otonom siber güvenlik mimarilerinde yeni bir paradigma olan Jev Typesafe AI, Google Antigravity (AGY) ekosistemiyle entegre çalışan bağımsız bir baş denetçi ajanıdır. Bu makalede, Jev Typesafe AI teknolojisinin temel çalışma prensiplerini, deterministik güvenlik denetim yeteneklerini ve Antigravity otonom ajanlarıyla birlikte bu platformu (ozanozdil.com) askeri düzeyde (Military Grade / HANCORE) nasıl sertleştirdiğimizi teknik detaylarıyla inceliyoruz.
+> **Özet:** Otonom siber güvenlik mimarilerinde yeni bir paradigma olan Jev Typesafe AI, Google Antigravity (AGY) ekosistemiyle entegre çalışan bağımsız bir baş denetçi ajanıdır. Bu makalede, Jev Typesafe AI teknolojisinin temel çalışma prensiplerini, deterministik güvenlik denetim yeteneklerini ve Antigravity otonom ajanlarıyla birlikte bu platformu (ozanozdil.com) askeri düzeyde (Military Grade / Defense-in-Depth) nasıl sertleştirdiğimizi teknik detaylarıyla inceliyoruz.
 
 ## 1. Jev Typesafe AI Nedir?
 
@@ -44,8 +44,8 @@ Kullanıcı tarafından gönderilebilen `x-forwarded-for` başlığı iptal edil
 * Sisteme gönderilen Markdown URL verilerinde (ör. `//evil.com`) oluşabilecek protokolden bağımsız yönlendirme zafiyetleri için statik kalkanlar yazıldı.
 * Yapay zeka sohbet asistanına gönderilen mesajlarda, model manipülasyonlarına (ignore instructions, dan mode) karşı "Pre-flight" ön bellek kontrolü eklendi. Girdi verisi katı uzunluk ve karakter sınamalarına tabi tutuldu.
 
-### E. HANCORE Sıfır Emoji Standardizasyonu
-Antigravity, kod tabanı, dokümantasyon ve arayüz dosyalarında bulunan tüm unicode emojileri tespit ederek sildi. Sistem bütünüyle, saf tipografi (JetBrainsMono Nerd Font) ve profesyonel teknik iletişim standardizasyonuna (HANCORE) oturtuldu.
+### E. Askeri Düzey Sıfır Emoji Standardizasyonu
+Antigravity, kod tabanı, dokümantasyon ve arayüz dosyalarında bulunan tüm unicode emojileri tespit ederek sildi. Sistem bütünüyle, saf tipografi (JetBrainsMono Nerd Font) ve profesyonel teknik iletişim odaklı askeri düzey güvenlik standardizasyonuna oturtuldu.
 
 ## 3. Yapay Zeka Ajanları ve Arama Motorları İçin Optimizasyon (LLM-SEO)
 

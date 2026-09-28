@@ -54,7 +54,7 @@ NetRadar, yalnızca pasif bir izleyici olmakla kalmaz, aynı zamanda yerel ağ y
 
 ## 4. Güvenlik ve Savunma Standartları Uyumu
 
-NetRadar, Omarchy Linux ve HANCORE-linux pazar yeri güvenlik mimarisine uygun olarak geliştirilmiştir:
+NetRadar, Omarchy Linux ve askeri düzeyde güvenlik mimarisine uygun olarak geliştirilmiştir:
 
 1. **Alt Süreç İzolasyonu:** Tüm harici sistem komutları `cmd.process_group(0)` ile bağımsız süreç grubunda, temizlenmiş ortam değişkenleriyle (`PATH=/usr/bin:/bin`, `LC_ALL=C`) ve `O_NONBLOCK` boru okumalarıyla çalıştırılır.
 2. **Sınırlı Arabellek ve Bellek Tavanı:** Süreç borusu okumaları 64 KiB tavan sınırla (`MAX_BUFFER_CAP = 64 * 1024`), kalıcı durum dosyaları ise 1 MiB tavan sınırla (`MAX_REGISTRY_FILE_SIZE = 1024 * 1024`) sınırlandırılmıştır. Bellek tüketimi ve DoS saldırıları engellenmiştir.

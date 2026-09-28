@@ -109,4 +109,4 @@ Terminalden hızlı durum kontrolü için:
 ### Bağlantılar ve Kaynak Kod
 * **GitHub Deposu:** [ozdil/omarchy-omanotes](https://github.com/ozdil/omarchy-omanotes)
 * **Lisans:** MIT Lisansı
-* **Küratör & Standart:** Omarchy Linux (`AGENTS.md`) & HANCORE Plugin Marketplace Baseline
+* **Küratör & Standart:** Omarchy Linux (`CONTRIBUTING.md`) & Askeri Düzey Güvenlik Mimarisi Standartları

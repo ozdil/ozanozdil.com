@@ -112,9 +112,9 @@ QuickNews, Omarchy Linux'un diğer yerel araçlarında (OmaStudio, NetRadar, Oma
 
 ---
 
-## 6. HANCORE Linux Güvenlik Standartları
+## 6. Askeri Düzeyde Güvenlik Standartları
 
-QuickNews, sistem güvenliğini en üst düzeyde tutmak adına katı HANCORE yönergelerine tam uyumla geliştirilmiştir:
+QuickNews, sistem güvenliğini en üst düzeyde tutmak adına katı askeri düzeyde güvenlik yönergelerine tam uyumla geliştirilmiştir:
 
 1. **SSRF Savunması (Server-Side Request Forgery Koruması):** İstemci, bir haber kaynağına bağlanmadan önce hedef IP adresini doğrular. Özel ağ (RFC 1918: `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`), yerel bağlantı (RFC 3927: `169.254.0.0/16`) ve geri döngü (`127.0.0.0/8`) bloklarına yönlendirilen istekler soket seviyesinde reddedilir.
 2. **Bellek ve Yanıt Tavan Sınırları:** Ağ üzerinden çekilen XML veya HTML verileri için 8 MiB tavan sınır uygulanır (`take(MAX_BYTES)`). Devasa boyutlu yanıtlarla belleği tüketmeye yönelik hizmet engelleme (DoS) girişimleri bertaraf edilir.

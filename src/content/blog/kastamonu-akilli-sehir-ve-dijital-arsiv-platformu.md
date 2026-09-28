@@ -38,7 +38,7 @@ Projenin sadece kapalı devre savunma tarafı yok; aynı zamanda **Port 3001** �
 * Tahminsel Yapay Zeka, geçmiş verileri analiz ederek hangi mahallede ne tür bir arıza çıkabileceğini hesaplıyor.
 * T.C. Cumhurbaşkanlığı Ulusal Akıllı Şehirler Eylem Planı'na ve Avrupa'daki modern kentsel şeffaflık yasalarına tam uyum sağlanıyor.
 
-## HANCORE Linux ve Disiplinli Geliştirme Kültürü
+## Askeri Düzeyde Güvenlik ve Disiplinli Geliştirme Kültürü
 
 Kod tabanının tamamında katı kurallarım devreye girdi:
 * **Sıfır Unicode Emoji Politikası:** Hem arka planda hem kullanıcı arayüzünde ciddiyeti zedeleyen tüm emojiler yasaklandı. Uyarılar ve hata mesajları askeri protokol formatında tasarlandı.
