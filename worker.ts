@@ -195,7 +195,6 @@ export default {
       pLower.startsWith('/.ssh') ||
       pLower.startsWith('/.docker') ||
       pLower.startsWith('/.kube') ||
-      pLower.startsWith('/gizli') ||
       pLower.startsWith('/proc') ||
       pLower.startsWith('/etc') ||
       pLower.startsWith('/admin') ||
