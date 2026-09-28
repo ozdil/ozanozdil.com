@@ -187,6 +187,8 @@ export default {
 
     // Drop known exploit probes, CMS scanners, and sensitive paths
     if (
+      pLower === '/gizli' ||
+      pLower.startsWith('/gizli/') ||
       pLower.startsWith('/wp-') ||
       pLower.includes('.php') ||
       pLower.startsWith('/.env') ||
@@ -209,7 +211,7 @@ export default {
     ) {
       return new Response('Not Found', {
         status: 404,
-        headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'public, max-age=86400' },
+        headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store, no-cache, must-revalidate' },
       });
     }
 
