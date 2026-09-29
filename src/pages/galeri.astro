@@ -197,21 +197,21 @@ const imageGallerySchema = {
 
                 <!-- Top Badges: Clean Glass Pills -->
                 <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-20 pointer-events-none font-mono text-xs">
-                  <span class="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] border border-white/20 flex items-center gap-1.5">
+                  <span class="glass-badge-dark px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] border border-white/20 flex items-center gap-1.5">
                     <span>{album.location}</span>
                   </span>
 
-                  <span class="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] border border-white/20 font-medium">
+                  <span class="glass-badge-dark px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] border border-white/20 font-medium">
                     {album.year}
                   </span>
                 </div>
 
                 <!-- Bottom Badges -->
                 <div class="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between text-xs font-mono text-[#ffffff] z-20 pointer-events-none">
-                  <span class="bg-black/75 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">
+                  <span class="glass-badge-dark bg-black/75 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">
                     {album.photoCount} Kare
                   </span>
-                  <span class="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[#ffffff] border border-white/20 font-medium">
+                  <span class="glass-badge-dark px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-[#ffffff] border border-white/20 font-medium">
                     Fujifilm GFX
                   </span>
                 </div>
@@ -291,7 +291,7 @@ const imageGallerySchema = {
   <!-- LIGHTBOX / FOTOĞRAF VE EXIF MODAL -->
   <dialog
     id="photoModal"
-    class="backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-[#121215] text-[#f4f4f5] border border-[#27272a] rounded-[28px] max-w-6xl w-[95vw] sm:w-full p-0 shadow-2xl overflow-y-auto max-h-[92vh] m-auto select-none"
+    class="backdrop:bg-black/25 dark:backdrop:bg-black/95 backdrop:backdrop-blur-xl bg-[#121215] text-[#f4f4f5] border border-[#27272a] rounded-[28px] max-w-6xl w-[95vw] sm:w-full p-0 shadow-2xl overflow-y-auto max-h-[92vh] m-auto select-none"
   >
     <!-- Modal Top Window Titlebar -->
     <div class="sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#18181b] border-b border-[#27272a] text-xs font-mono">
@@ -315,7 +315,7 @@ const imageGallerySchema = {
     </div>
 
     <!-- Modal Viewport with Image & Transparent Protection Shield -->
-    <div class="relative bg-black flex items-center justify-center min-h-[220px] sm:min-h-[360px] max-h-[55vh] sm:max-h-[70vh] overflow-hidden select-none group">
+    <div class="modal-viewport relative bg-black flex items-center justify-center min-h-[220px] sm:min-h-[360px] max-h-[55vh] sm:max-h-[70vh] overflow-hidden select-none group transition-colors">
       <img
         id="photoModalImg"
         src=""
@@ -329,7 +329,7 @@ const imageGallerySchema = {
 
       <!-- Watermark Badge overlay -->
       <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 z-20 pointer-events-none flex items-center gap-2">
-        <span class="px-3 py-1 rounded-full text-[10px] font-mono bg-black/80 backdrop-blur-md text-white/90 border border-white/15 shadow-xl flex items-center gap-1.5">
+        <span class="glass-badge-dark px-3 py-1 rounded-full text-[10px] font-mono bg-black/80 backdrop-blur-md text-white/90 border border-white/15 shadow-xl flex items-center gap-1.5">
           <span class="text-[#a1a1aa]">●</span>
           <span>FUJIFILM GFX 16-BIT MEDIUM FORMAT</span>
         </span>
@@ -508,13 +508,13 @@ const imageGallerySchema = {
             <div class="absolute inset-0 z-10" oncontextmenu="return false;"></div>
 
             <div class="absolute top-3 left-3 z-20 pointer-events-none">
-              <span class="px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] text-[10px] font-mono border border-white/15">
+              <span class="glass-badge-dark px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[#ffffff] text-[10px] font-mono border border-white/15">
                 #${String(idx + 1).padStart(2, '0')}
               </span>
             </div>
 
             <div class="absolute bottom-3 left-3 right-3 z-20 pointer-events-none flex items-center justify-between text-[10px] font-mono text-white/90">
-              <span class="px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/15">
+              <span class="glass-badge-dark px-2.5 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/15">
                 ${escapeHtml(e.fNumber)} • ${escapeHtml(e.exposureTime)} • ISO ${escapeHtml(e.iso)}
               </span>
             </div>

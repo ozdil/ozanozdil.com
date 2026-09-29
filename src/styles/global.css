@@ -156,6 +156,33 @@ html:not(.dark) [class*="hover:bg-[#e4e4e7]"]:hover {
   color: #ffffff !important;
 }
 
+/* Light mode modal & backdrop enhancements */
+html:not(.dark) dialog::backdrop {
+  background-color: rgba(250, 250, 250, 0.88) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+html:not(.dark) dialog#photoModal {
+  background-color: var(--surface-bg) !important;
+  border-color: var(--border-color) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+html:not(.dark) #photoModal .modal-viewport {
+  background-color: #f4f4f5 !important;
+}
+
+html:not(.dark) #photoModal #photoModalImg {
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.12));
+}
+
+/* Galeri ve kart görselleri üzerindeki yarı saydam koyu rozetlerin metin rengini beyaz tut */
+.glass-badge-dark,
+.glass-badge-dark * {
+  color: #ffffff !important;
+}
+
 /* Keep code blocks dark and crisp in light mode for readability */
 html:not(.dark) .markdown-body pre {
   background-color: #18181b !important;

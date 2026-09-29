@@ -355,13 +355,13 @@ const jsonLd = {
       })();
     </script>
 
-    <!-- Inline script to prevent theme flash - Default dark theme -->
+    <!-- Inline script to prevent theme flash - Default light theme -->
     <script is:inline>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        return 'dark';
+        return 'light';
       })();
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
