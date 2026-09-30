@@ -40,8 +40,10 @@ const postUrl = `${siteUrl}/blog/${post.slug}`;
     tags: post.data.tags,
   }}
 >
-  <!-- Reading Progress Bar -->
-  <div id="qs-read-progress-bar" class="fixed top-0 left-0 h-[2px] bg-[#ffffff] z-[51] transition-all duration-75 w-0 pointer-events-none"></div>
+  <!-- Reading Progress Bar (Arka plan rayı + aktif gösterge) -->
+  <div class="fixed top-0 left-0 w-full h-[2.5px] bg-[#27272a]/40 z-[51] pointer-events-none">
+    <div id="qs-read-progress-bar" class="h-full bg-[#ffffff] transition-all duration-75 w-0"></div>
+  </div>
 
   <article class="py-6 sm:py-12 space-y-10 sm:space-y-14">
     <!-- Top Bar: Back & AI Raw Actions -->

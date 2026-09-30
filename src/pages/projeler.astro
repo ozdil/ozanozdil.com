@@ -220,6 +220,15 @@ const repositories = [
     url: 'https://github.com/ozdil'
   }
 ];
+
+const categories = [
+  { id: 'all', label: 'Tümü' },
+  { id: 'rust', label: 'Rust' },
+  { id: 'quickshell', label: 'Quickshell / Wayland' },
+  { id: 'security', label: 'Siber Savunma' },
+  { id: 'ai', label: 'Yapay Zekâ' },
+  { id: 'audio', label: 'Ses & Fotonik' }
+];
 ---
 
 <BaseLayout
@@ -241,12 +250,62 @@ const repositories = [
       <p class="mt-4 text-base sm:text-lg text-[#a1a1aa] max-w-lg mx-auto font-serif leading-relaxed">
         Linux, sistem mimarileri, Rust/QML kabuk bileşenleri ve açık kaynak çalışmalarım.
       </p>
+
+      <!-- Live Search & Filter Bar -->
+      <div class="relative max-w-md mx-auto mt-6">
+        <input
+          id="project-search-input"
+          type="search"
+          placeholder="Projelerde ara (Rust, QML, Savunma)... [/]"
+          class="w-full px-4 py-2.5 pl-10 pr-9 rounded-xl border border-[#27272a] bg-[#18181b] text-[#ffffff] placeholder-[#71717a] font-mono text-xs focus:outline-none focus:border-[#52525b] transition-colors"
+          autocomplete="off"
+        />
+        <svg class="absolute left-3.5 top-3 w-4 h-4 text-[#71717a] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <span class="absolute right-3.5 top-2.5 px-1.5 py-0.5 rounded border border-[#27272a] bg-[#121215] text-[10px] font-mono text-[#71717a] pointer-events-none hidden sm:inline-block">/</span>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div id="project-category-filters" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-5 font-mono text-xs">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            data-cat={cat.id}
+            class={`proj-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border ${
+              idx === 0
+                ? 'bg-[#ffffff] text-[#09090b] border-[#ffffff] font-semibold'
+                : 'bg-[#18181b] text-[#a1a1aa] border-[#27272a] hover:text-[#ffffff] hover:border-[#3f3f46]'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
     </header>
 
+    <!-- Empty State -->
+    <div id="project-empty-state" class="hidden py-16 text-center font-mono text-sm text-[#71717a] border border-dashed border-[#27272a] rounded-xl bg-[#121215]">
+      <p>Arama kriterinize uygun açık kaynak proje bulunamadı.</p>
+      <button
+        id="project-reset-btn"
+        type="button"
+        class="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#18181b] text-[#ffffff] hover:underline cursor-pointer font-medium text-xs border border-[#27272a]"
+      >
+        [Filtreleri sıfırla]
+      </button>
+    </div>
+
     <!-- Repositories Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="project-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {repositories.map((repo) => (
-        <article class="relative clean-card bg-[#121215] border border-[#27272a] hover:border-[#3f3f46] rounded-[22px] p-6 flex flex-col justify-between group shadow-xl overflow-hidden transition-colors">
+        <article
+          class="project-card relative clean-card bg-[#121215] border border-[#27272a] hover:border-[#3f3f46] rounded-[22px] p-6 flex flex-col justify-between group shadow-xl overflow-hidden transition-colors"
+          data-name={repo.name.toLowerCase()}
+          data-desc={repo.desc.toLowerCase()}
+          data-lang={repo.lang.toLowerCase()}
+          data-tags={JSON.stringify(repo.tags.map((t) => t.toLowerCase()))}
+        >
           <div class="space-y-4">
             <!-- Top Language & Status Line -->
             <div class="flex items-center justify-between text-[11px] font-mono pb-2.5 border-b border-[#27272a]">
@@ -300,3 +359,112 @@ const repositories = [
     </div>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function initProjectsFilter() {
+    const searchInput = document.getElementById('project-search-input');
+    const filterPills = document.querySelectorAll('.proj-filter-pill');
+    const projectCards = document.querySelectorAll('.project-card');
+    const emptyState = document.getElementById('project-empty-state');
+    const resetBtn = document.getElementById('project-reset-btn');
+
+    let currentCat = 'all';
+    let searchQuery = '';
+
+    function filterProjects() {
+      let visibleCount = 0;
+
+      projectCards.forEach((card) => {
+        const name = card.getAttribute('data-name') || '';
+        const desc = card.getAttribute('data-desc') || '';
+        const lang = card.getAttribute('data-lang') || '';
+        const tags = JSON.parse(card.getAttribute('data-tags') || '[]');
+
+        const combinedText = `${name} ${desc} ${lang} ${tags.join(' ')}`;
+
+        // Check query match
+        const matchesQuery = !searchQuery || combinedText.includes(searchQuery);
+
+        // Check category match
+        let matchesCat = true;
+        if (currentCat === 'rust') {
+          matchesCat = lang.includes('rust') || tags.includes('rust');
+        } else if (currentCat === 'quickshell') {
+          matchesCat = lang.includes('qml') || tags.includes('quickshell') || tags.includes('wayland') || tags.includes('hyprland');
+        } else if (currentCat === 'security') {
+          matchesCat = tags.includes('siber-savunma') || tags.includes('security') || tags.includes('sentinel') || tags.includes('zero-trust');
+        } else if (currentCat === 'ai') {
+          matchesCat = tags.includes('ai') || tags.includes('ollama') || tags.includes('llms-txt');
+        } else if (currentCat === 'audio') {
+          matchesCat = tags.includes('audio') || tags.includes('pipewire') || tags.includes('photography') || tags.includes('dsp') || tags.includes('16-bit-raw');
+        }
+
+        if (matchesQuery && matchesCat) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = (e.target.value || '').trim().toLowerCase();
+        filterProjects();
+      });
+
+      // Shortcut: Press "/" to focus search
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== searchInput && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    }
+
+    filterPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        currentCat = pill.getAttribute('data-cat') || 'all';
+
+        filterPills.forEach((p) => {
+          p.classList.remove('bg-[#ffffff]', 'text-[#09090b]', 'border-[#ffffff]', 'font-semibold');
+          p.classList.add('bg-[#18181b]', 'text-[#a1a1aa]', 'border-[#27272a]');
+        });
+
+        pill.classList.remove('bg-[#18181b]', 'text-[#a1a1aa]', 'border-[#27272a]');
+        pill.classList.add('bg-[#ffffff]', 'text-[#09090b]', 'border-[#ffffff]', 'font-semibold');
+
+        filterProjects();
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        searchQuery = '';
+        currentCat = 'all';
+
+        filterPills.forEach((p) => {
+          if (p.getAttribute('data-cat') === 'all') {
+            p.classList.add('bg-[#ffffff]', 'text-[#09090b]', 'border-[#ffffff]', 'font-semibold');
+            p.classList.remove('bg-[#18181b]', 'text-[#a1a1aa]', 'border-[#27272a]');
+          } else {
+            p.classList.remove('bg-[#ffffff]', 'text-[#09090b]', 'border-[#ffffff]', 'font-semibold');
+            p.classList.add('bg-[#18181b]', 'text-[#a1a1aa]', 'border-[#27272a]');
+          }
+        });
+
+        filterProjects();
+      });
+    }
+  })();
+</script>

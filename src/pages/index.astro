@@ -65,31 +65,31 @@ const formatDate = (date: Date) => {
           </p>
         </div>
 
-        <!-- Quick Metadata Badges -->
-        <div class="flex flex-wrap items-center gap-2 pt-1 font-mono text-xs text-[#71717a]">
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+        <!-- Quick Metadata Badges: Ergonomik & Temiz Hiyerarşi -->
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 font-mono text-xs text-[#71717a]">
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
             Kastamonu, TR
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
             Kastamonu Belediyesi (2019 — Günümüz)
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
             KTÜ Orman Fakültesi
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff]">
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff] font-medium">
             Omarchy Linux
           </span>
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
             Cloudflare Edge & Workers KV
           </span>
         </div>
 
         <!-- Action Buttons (Pill Group) -->
-        <div class="flex flex-wrap items-center gap-3 pt-4 font-mono text-xs">
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-3 font-mono text-xs">
           <button
             type="button"
             onclick="document.getElementById('ai-chat-btn')?.click()"
-            class="px-5 py-2.5 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-2 shadow-md cursor-pointer"
+            class="px-5 py-2.5 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-2 shadow-md cursor-pointer focus-visible:ring-2 focus-visible:ring-white"
           >
             <span>Ozan AI ile Konuş</span>
             <span>↗</span>
@@ -104,7 +104,7 @@ const formatDate = (date: Date) => {
             href="https://github.com/ozdil"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-5 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
+            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
           >
             <span>GitHub</span>
             <span>↗</span>
@@ -112,7 +112,7 @@ const formatDate = (date: Date) => {
           <a
             href="/llms.txt"
             target="_blank"
-            class="px-5 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
+            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
           >
             <span>llms.txt</span>
             <span>↗</span>
@@ -165,6 +165,27 @@ const formatDate = (date: Date) => {
             <div class="text-[#a1a1aa] text-[11px]">Canlı popülarite ölçümü, RFC 9421 Bot Auth ve sıfır sunucu maliyeti.</div>
           </div>
         </div>
+
+        {latestPosts.length > 0 && (
+          <!-- Hızlı Köprü: Son Yayınlanan Araştırma Şeridi -->
+          <div class="pt-3 border-t border-[#27272a] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px]">
+            <div class="flex items-center gap-2 text-[#71717a] truncate">
+              <span class="px-2 py-0.5 rounded bg-[#18181b] text-[#ffffff] font-mono text-[10px] border border-[#27272a] uppercase">
+                Son Yazı
+              </span>
+              <span class="text-[#a1a1aa] truncate font-sans">
+                {latestPosts[0].data.title}
+              </span>
+            </div>
+            <a
+              href={`/blog/${latestPosts[0].slug}`}
+              class="inline-flex items-center gap-1 text-[#ffffff] hover:underline font-mono text-[11px] whitespace-nowrap shrink-0"
+            >
+              <span>İncele</span>
+              <span>→</span>
+            </a>
+          </div>
+        )}
       </div>
     </section>
 
