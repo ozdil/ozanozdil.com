@@ -177,9 +177,16 @@ html:not(.dark) #photoModal #photoModalImg {
   filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.12));
 }
 
-/* Galeri ve kart görselleri üzerindeki yarı saydam koyu rozetlerin metin rengini beyaz tut */
+/* Galeri ve kart görselleri üzerindeki yarı saydam koyu rozetler (hem koyu hem açık temada daima okunabilir kalmalı) */
 .glass-badge-dark,
-.glass-badge-dark * {
+html:not(.dark) .glass-badge-dark {
+  background-color: rgba(9, 9, 11, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.glass-badge-dark *,
+html:not(.dark) .glass-badge-dark * {
   color: #ffffff !important;
 }
 
