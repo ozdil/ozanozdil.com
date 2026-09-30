@@ -52,11 +52,11 @@ Allow: /
 Content-Signal: ai-train=yes, search=yes, ai-input=yes
 
 # ------------------------------------------------------------------------------
-# Sitemaps, Agentmap & Feeds
+# Sitemaps & Feeds
 # ------------------------------------------------------------------------------
 Sitemap: https://ozanozdil.com/sitemap-index.xml
 Sitemap: https://ozanozdil.com/sitemap-images.xml
-Agentmap: https://ozanozdil.com/.well-known/ai-catalog.json
+# Agentmap / ARD: https://ozanozdil.com/.well-known/ai-catalog.json (Discovered via HTML link rel="ai-catalog" and HTTP Link header)
 
 # ------------------------------------------------------------------------------
 # LLM & AI Agents Context Directory (https://llmstxt.org)
