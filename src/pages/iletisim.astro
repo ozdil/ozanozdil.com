@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const contactChannels = [
+  {
+    category: 'Doğrudan E-Posta',
+    title: 'ozan@pm.me',
+    desc: 'Proton Mail üzerinden uçtan uca şifreli (E2EE), güvenli ve doğrudan kişisel iletişim adresi.',
+    badge: 'PGP / Proton E2EE',
+    actionText: 'E-Posta Gönder',
+    href: 'mailto:ozan@pm.me',
+    isExternal: false,
+    copyable: true,
+  },
+  {
+    category: 'Açık Kaynak Kod & Ar-Ge',
+    title: 'github.com/ozdil',
+    desc: 'Omarchy Linux ekosistemi, Rust/QML araçları, çekirdek optimizasyonları ve açık kaynak depolar.',
+    badge: 'Açık Kaynak',
+    actionText: 'Profili Ziyaret Et',
+    href: 'https://github.com/ozdil',
+    isExternal: true,
+    copyable: false,
+  },
+  {
+    category: 'Kamu Bilişimi & Kurumsal Ar-Ge',
+    title: 'Kastamonu Belediyesi',
+    desc: 'Akıllı Şehir Platformu, NATO STANAG/DoD dijital savunma mimarisi ve kurumsal açık kaynak altyapıları.',
+    badge: 'Kurumsal Ar-Ge',
+    actionText: 'Organizasyonu İncele',
+    href: 'https://github.com/Kastamonu-Belediye-Baskanligi',
+    isExternal: true,
+    copyable: false,
+  },
+  {
+    category: 'Sosyal Ağ & Mikroblog',
+    title: 'nsosyal.com/ozanozdil',
+    desc: 'Teknoloji, açık kaynak felsefesi, Linux gelişmeleri ve bağımsız ağ paylaşımları.',
+    badge: 'Bağımsız Ağ',
+    actionText: 'Takip Et',
+    href: 'https://nsosyal.com/ozanozdil',
+    isExternal: true,
+    copyable: false,
+  },
+  {
+    category: 'Oyun & Donanım',
+    title: 'steamcommunity.com/id/ozanozdil',
+    desc: 'Steam Deck optimizasyonları, Linux oyunculuk testleri, Proton uyumluluk gözlemleri ve donanım kütüphanesi.',
+    badge: 'Steam Deck & Linux',
+    actionText: 'Steam Profili',
+    href: 'https://steamcommunity.com/id/ozanozdil',
+    isExternal: true,
+    copyable: false,
+  },
+  {
+    category: 'Bağımsız Ar-Ge Desteği',
+    title: 'buymeacoffee.com/ozdil',
+    desc: 'Açık kaynak Omarchy ekosistemini, donanım testlerini ve bağımsız araştırmaları destekleyin.',
+    badge: 'Açık Kaynak Katkı',
+    actionText: 'Destek Ol',
+    href: 'https://buymeacoffee.com/ozdil',
+    isExternal: true,
+    copyable: false,
+  },
+];
+---
+
+<BaseLayout
+  title="İletişim — Ozan Özdil"
+  description="Ozan Özdil doğrudan e-posta (ozan@pm.me), açık kaynak kod depoları, kurumsal altyapı ve sosyal ağ iletişim kanalları."
+  currentPath="/iletisim"
+  maxWidthClass="max-w-5xl"
+>
+  <div class="py-4 sm:py-8 space-y-10 font-mono">
+    <!-- Header -->
+    <header class="rounded-[24px] border border-[#27272a] bg-[#121215] p-8 sm:p-12 text-center shadow-xl">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-[#71717a] uppercase tracking-wider mb-3 font-semibold">
+        <span class="w-2 h-2 rounded-full bg-[#52525b] animate-pulse"></span>
+        <span>// DOĞRUDAN VE GÜVENLİ ERİŞİM</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-[#ffffff] leading-[1.32] pb-1">
+        İletişim
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-[#a1a1aa] max-w-xl mx-auto font-serif leading-relaxed">
+        Sistem mimarileri, açık kaynak projeler, kurumsal danışmanlık veya doğrudan mesajlaşma için kanallar.
+      </p>
+    </header>
+
+    <!-- Primary Email Focus Card -->
+    <section class="rounded-[24px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 shadow-xl relative overflow-hidden" aria-label="Birincil E-Posta">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-xs text-[#71717a] font-mono">
+            <span class="px-2 py-0.5 rounded-full bg-[#18181b] text-[#ffffff] border border-[#3f3f46] text-[10px]">
+              BİRİNCİL KANAL
+            </span>
+            <span>// PROTON MAIL</span>
+          </div>
+          <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff]">
+            ozan@pm.me
+          </h2>
+          <p class="font-sans text-xs sm:text-sm text-[#a1a1aa] max-w-xl leading-relaxed">
+            Şifreli, doğrudan ve gizlilik odaklı kişisel iletişim kanalım. Teknik iş birlikleri, soru veya değerlendirmeler için e-posta gönderebilirsiniz.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+          <a
+            href="mailto:ozan@pm.me"
+            class="px-5 py-2.5 rounded-full bg-[#ffffff] text-[#09090b] text-xs font-semibold hover:bg-[#e4e4e7] transition-all flex items-center justify-center gap-2 flex-1 md:flex-initial shadow-md"
+          >
+            <span>E-Posta Gönder</span>
+            <span>↗</span>
+          </a>
+          <button
+            type="button"
+            id="copy-mail-btn"
+            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#d4d4d8] hover:text-[#ffffff] hover:bg-[#27272a] border border-[#27272a] hover:border-[#3f3f46] text-xs transition-all flex items-center justify-center gap-2 cursor-pointer flex-1 md:flex-initial"
+            data-email="ozan@pm.me"
+          >
+            <span id="copy-btn-text">Kopyala</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Channels Grid -->
+    <section class="space-y-6" aria-label="Tüm İletişim Kanalları">
+      <div class="flex items-center justify-between pb-3 border-b border-[#27272a]">
+        <div class="font-mono text-xs text-[#71717a] uppercase font-semibold">
+          // RESMİ KANALLAR & AĞLAR
+        </div>
+        <div class="text-[11px] text-[#52525b] font-mono">
+          [06 KANAL AKTİF]
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {contactChannels.map((channel, idx) => (
+          <article class="clean-card bg-[#121215] border border-[#27272a] hover:border-[#3f3f46] rounded-[22px] p-6 flex flex-col justify-between group shadow-xl transition-colors space-y-4">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-[11px] font-mono">
+                <span class="text-[#71717a] font-semibold">{channel.category}</span>
+                <span class="px-2 py-0.5 rounded-md bg-[#18181b] text-[#d4d4d8] border border-[#27272a] text-[10px]">
+                  {channel.badge}
+                </span>
+              </div>
+
+              <div class="space-y-1.5">
+                <h3 class="font-mono text-base font-semibold text-[#ffffff] group-hover:text-[#ffffff] transition-colors break-all">
+                  {channel.title}
+                </h3>
+                <p class="font-sans text-xs text-[#a1a1aa] leading-relaxed">
+                  {channel.desc}
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-[#27272a]/60 flex items-center justify-between font-mono text-xs">
+              <span class="text-[10px] text-[#52525b]">
+                0{idx + 1} //
+              </span>
+              <a
+                href={channel.href}
+                target={channel.isExternal ? '_blank' : undefined}
+                rel={channel.isExternal ? 'noopener noreferrer' : undefined}
+                class="inline-flex items-center gap-1.5 text-[#d4d4d8] hover:text-[#ffffff] font-medium group-hover:underline transition-colors"
+              >
+                <span>{channel.actionText}</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Location & Working Model Card -->
+    <section class="rounded-[24px] bg-[#121215] border border-[#27272a] p-6 sm:p-8 shadow-xl space-y-4" aria-label="Konum ve Çalışma Modeli">
+      <div class="font-mono text-xs text-[#71717a] uppercase font-semibold">
+        // KONUM & ÇALIŞMA DİNAMİĞİ
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-xs">
+        <div class="space-y-1">
+          <span class="text-[#71717a] block text-[11px]">Yerleşik Konum</span>
+          <p class="text-[#ffffff] font-medium text-sm">Kastamonu, Türkiye</p>
+          <p class="text-[#a1a1aa] text-[11px] font-sans">UTC+3 (TRT) zaman dilimi</p>
+        </div>
+        <div class="space-y-1">
+          <span class="text-[#71717a] block text-[11px]">Çalışma Formatı</span>
+          <p class="text-[#ffffff] font-medium text-sm">Asenkron & Bağımsız</p>
+          <p class="text-[#a1a1aa] text-[11px] font-sans">E-posta ve Git tabanlı iş akışları</p>
+        </div>
+        <div class="space-y-1">
+          <span class="text-[#71717a] block text-[11px]">Güvenlik Standartı</span>
+          <p class="text-[#ffffff] font-medium text-sm">Sıfır Güven (Zero-Trust)</p>
+          <p class="text-[#a1a1aa] text-[11px] font-sans">Şifreli iletişim ve açık kaynak protokolleri</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (function () {
+      const copyBtn = document.getElementById('copy-mail-btn');
+      const copyText = document.getElementById('copy-btn-text');
+      if (!copyBtn || !copyText) return;
+
+      copyBtn.addEventListener('click', async function () {
+        const email = copyBtn.getAttribute('data-email');
+        if (!email) return;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          copyText.textContent = 'Kopyalandı!';
+          copyBtn.classList.add('border-[#3f3f46]', 'text-[#ffffff]');
+          setTimeout(function () {
+            copyText.textContent = 'Kopyala';
+            copyBtn.classList.remove('border-[#3f3f46]', 'text-[#ffffff]');
+          }, 2000);
+        } catch (err) {
+          // Fallback
+          const input = document.createElement('input');
+          input.value = email;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand('copy');
+          document.body.removeChild(input);
+          copyText.textContent = 'Kopyalandı!';
+          setTimeout(function () {
+            copyText.textContent = 'Kopyala';
+          }, 2000);
+        }
+      });
+    })();
+  </script>
+</BaseLayout>
