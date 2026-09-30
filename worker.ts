@@ -396,6 +396,51 @@ export default {
       }
     }
 
+    // Live Telemetry Endpoint: GET /api/telemetry
+    if (url.pathname === '/api/telemetry') {
+      const corsHeaders = {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Access-Control-Allow-Origin': '*',
+        'Cache-Control': 'public, max-age=15',
+      };
+
+      try {
+        let liveArticleViews: Record<string, number> = {};
+        if (env.BLOG_VIEWS) {
+          const list = await env.BLOG_VIEWS.list({ prefix: 'views:', limit: 100 });
+          await Promise.all(
+            list.keys.map(async (k) => {
+              const val = await env.BLOG_VIEWS!.get(k.name);
+              if (val) {
+                const slug = k.name.replace(/^views:/, '');
+                liveArticleViews[slug] = Number(val);
+              }
+            })
+          );
+        }
+
+        // Live edge telemetry response
+        const data = {
+          timestamp: new Date().toISOString(),
+          status: 'ONLINE',
+          edgeNode: request.headers.get('cf-ray') || 'FRA',
+          clientCountry: request.headers.get('cf-ipcountry') || 'TR',
+          protocol: request.headers.get('cf-visitor') ? 'HTTPS' : 'HTTP/3',
+          liveViews: liveArticleViews,
+        };
+
+        return new Response(JSON.stringify(data), {
+          status: 200,
+          headers: corsHeaders,
+        });
+      } catch (err: any) {
+        return new Response(JSON.stringify({ error: 'Telemetry unavailable', timestamp: new Date().toISOString() }), {
+          status: 200,
+          headers: corsHeaders,
+        });
+      }
+    }
+
     // Handle AI Chat Endpoint: POST /api/chat
     if (url.pathname === '/api/chat') {
       const origin = request.headers.get('Origin');

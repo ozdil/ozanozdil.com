@@ -85,7 +85,7 @@ const maxReq = Math.max(...trendData.map(d => d.req));
     <header class="rounded-[28px] border border-[#27272a] bg-[#121215] p-8 sm:p-12 text-center shadow-xl space-y-4">
       <div class="inline-flex items-center gap-2 font-mono text-xs text-[#71717a] uppercase tracking-wider font-semibold">
         <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
-        <span>// SIFIR-İZLEYİCİ • CANLI SİSTEM TELEMETRİSİ • EDGE VERİLERİ</span>
+        <span id="telemetry-live-status">// SIFIR-İZLEYİCİ • CANLI SİSTEM TELEMETRİSİ • EDGE AKTİF</span>
       </div>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-[#ffffff] leading-[1.25]">
         Açık Veri & Canlı Gösterge
@@ -98,8 +98,8 @@ const maxReq = Math.max(...trendData.map(d => d.req));
         <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
           RFC 9421 Bot Koruması
         </span>
-        <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
-          330+ Global PoP Noktası
+        <span id="telemetry-edge-node" class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+          Uç Nokta: Anycast CDN
         </span>
         <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff]">
           %100 Gizlilik Odaklı (No-Cookies)
@@ -109,9 +109,23 @@ const maxReq = Math.max(...trendData.map(d => d.req));
 
     <!-- 2. KPI Kartları (Sistem Metrikleri) -->
     <section class="space-y-4" aria-label="Temel Sistem İstatistikleri">
-      <div class="flex items-center justify-between font-mono text-xs text-[#71717a] px-1">
-        <span>// CANLI AĞ VE ERİŞİM METRİKLERİ</span>
-        <span>SON 26 GÜN (5 — 30 EYLÜL)</span>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between font-mono text-xs text-[#71717a] px-1 gap-2">
+        <div class="flex items-center gap-2">
+          <span>// CANLI AĞ VE ERİŞİM METRİKLERİ</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#10b981]"></span>
+          <span id="telemetry-sync-indicator" class="text-[11px] text-[#a1a1aa]">Canlı Senkronize</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="telemetry-last-sync" class="text-[11px] text-[#71717a]">Son Güncelleme: Anlık</span>
+          <button
+            id="btn-refresh-telemetry"
+            type="button"
+            class="px-2 py-0.5 rounded border border-[#27272a] bg-[#18181b] hover:bg-[#27272a] text-[#ffffff] transition-colors cursor-pointer text-[10px]"
+            title="Telemetri Verilerini Şimdi Yenile"
+          >
+            [↻ Yenile]
+          </button>
+        </div>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -373,7 +387,11 @@ const maxReq = Math.max(...trendData.map(d => d.req));
                     </span>
                   </td>
                   <td class="py-3.5 px-4 text-right font-medium">
-                    <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#ffffff] text-[11px] group-hover:border-[#3f3f46]">
+                    <span
+                      class="telemetry-post-badge px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#ffffff] text-[11px] group-hover:border-[#3f3f46] inline-block min-w-[4ch] text-center"
+                      data-slug={post.slug}
+                      data-views={post.views}
+                    >
                       {post.views.toLocaleString('tr-TR')}
                     </span>
                   </td>
@@ -387,3 +405,88 @@ const maxReq = Math.max(...trendData.map(d => d.req));
 
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (function initLiveTelemetry() {
+    const liveStatus = document.getElementById('telemetry-live-status');
+    const edgeNodeBadge = document.getElementById('telemetry-edge-node');
+    const syncIndicator = document.getElementById('telemetry-sync-indicator');
+    const lastSyncText = document.getElementById('telemetry-last-sync');
+    const refreshBtn = document.getElementById('btn-refresh-telemetry');
+    const postBadges = document.querySelectorAll('.telemetry-post-badge');
+
+    let isFetching = false;
+
+    async function fetchLiveTelemetry() {
+      if (isFetching) return;
+      isFetching = true;
+
+      if (syncIndicator) syncIndicator.textContent = 'Senkronize ediliyor...';
+
+      try {
+        const res = await fetch('/api/telemetry');
+        if (!res.ok) throw new Error('API Error');
+        const data = await res.json();
+
+        // 1. Update Edge Node and Location Info
+        if (data.edgeNode && edgeNodeBadge) {
+          const ray = String(data.edgeNode);
+          const pop = ray.includes('-') ? ray.split('-')[1] : ray.slice(-3);
+          edgeNodeBadge.textContent = `Uç Nokta: ${pop || 'Anycast'} • ${data.clientCountry || 'Global'}`;
+        }
+
+        if (syncIndicator) {
+          syncIndicator.textContent = 'Canlı Edge KV Aktif';
+          syncIndicator.classList.remove('text-[#a1a1aa]');
+          syncIndicator.classList.add('text-[#10b981]');
+        }
+
+        if (lastSyncText) {
+          const now = new Date();
+          const timeStr = now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          lastSyncText.textContent = `Son Güncelleme: ${timeStr}`;
+        }
+
+        // 2. Update Article Views from Live KV
+        if (data.liveViews && typeof data.liveViews === 'object') {
+          postBadges.forEach((badge) => {
+            const slug = badge.getAttribute('data-slug');
+            if (slug && typeof data.liveViews[slug] === 'number') {
+              const liveCount = data.liveViews[slug];
+              const currentCount = Number(badge.getAttribute('data-views') || 0);
+              if (liveCount > currentCount) {
+                badge.textContent = liveCount.toLocaleString('tr-TR');
+                badge.classList.add('border-[#10b981]', 'text-[#10b981]');
+                setTimeout(() => {
+                  badge.classList.remove('border-[#10b981]', 'text-[#10b981]');
+                }, 3000);
+              }
+            }
+          });
+        }
+      } catch (err) {
+        console.warn('Canlı telemetri senkronizasyonu atlandı:', err);
+        if (syncIndicator) syncIndicator.textContent = 'Edge Ön-Bellek Modu';
+      } finally {
+        isFetching = false;
+      }
+    }
+
+    // Initial fetch on mount
+    fetchLiveTelemetry();
+
+    // Manual Refresh button
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', () => {
+        fetchLiveTelemetry();
+      });
+    }
+
+    // Auto polling every 45 seconds while page is active
+    setInterval(() => {
+      if (document.visibilityState === 'visible') {
+        fetchLiveTelemetry();
+      }
+    }, 45000);
+  })();
+</script>
