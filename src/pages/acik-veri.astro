@@ -115,15 +115,18 @@ const maxReq = Math.max(...trendData.map(d => d.req));
           <span class="w-1.5 h-1.5 rounded-full bg-[#10b981]"></span>
           <span id="telemetry-sync-indicator" class="text-[11px] text-[#a1a1aa]">Canlı Senkronize</span>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2.5">
           <span id="telemetry-last-sync" class="text-[11px] text-[#71717a]">Son Güncelleme: Anlık</span>
           <button
             id="btn-refresh-telemetry"
             type="button"
-            class="px-2 py-0.5 rounded border border-[#27272a] bg-[#18181b] hover:bg-[#27272a] text-[#ffffff] transition-colors cursor-pointer text-[10px]"
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all cursor-pointer shadow-md text-[11px] active:scale-95 select-none"
             title="Telemetri Verilerini Şimdi Yenile"
           >
-            [↻ Yenile]
+            <svg id="refresh-icon" class="w-3 h-3 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span id="refresh-btn-text">Yenile</span>
           </button>
         </div>
       </div>
@@ -417,10 +420,15 @@ const maxReq = Math.max(...trendData.map(d => d.req));
 
     let isFetching = false;
 
+    const refreshIcon = document.getElementById('refresh-icon');
+    const refreshText = document.getElementById('refresh-btn-text');
+
     async function fetchLiveTelemetry() {
       if (isFetching) return;
       isFetching = true;
 
+      if (refreshIcon) refreshIcon.classList.add('animate-spin');
+      if (refreshText) refreshText.textContent = 'Yenileniyor...';
       if (syncIndicator) syncIndicator.textContent = 'Senkronize ediliyor...';
 
       try {
@@ -469,6 +477,8 @@ const maxReq = Math.max(...trendData.map(d => d.req));
         if (syncIndicator) syncIndicator.textContent = 'Edge Ön-Bellek Modu';
       } finally {
         isFetching = false;
+        if (refreshIcon) refreshIcon.classList.remove('animate-spin');
+        if (refreshText) refreshText.textContent = 'Yenile';
       }
     }
 
