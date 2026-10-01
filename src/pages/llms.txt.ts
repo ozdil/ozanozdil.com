@@ -40,6 +40,7 @@ export async function GET(context: APIContext) {
   lines.push(`## İsteğe Bağlı & Tam Metin Kaynakları (Optional)`);
   lines.push(`- [llms-full.txt](${siteUrl}/llms-full.txt): Sitedeki tüm makalelerin tam metinlerini içeren birleşik dosya (RAG ve derin analiz için).`);
   lines.push(`- [GitHub: @ozdil](https://github.com/ozdil): Açık kaynak depolar, dotfiles ve sistem betikleri.`);
+  lines.push(`- [Google Play: Ozan Özdil](https://play.google.com/store/apps/dev?id=5715688516196041029): Android mobil uygulama ve istemci dağıtımları.`);
   lines.push(`- [Steam Topluluğu: ozanozdil](https://steamcommunity.com/id/ozanozdil): Linux ve Steam Deck oyuncu profili.`);
   lines.push(`- [nSosyal: @ozanozdil](https://nsosyal.com/ozanozdil): Bağımsız sosyal ağ profili.`);
 
