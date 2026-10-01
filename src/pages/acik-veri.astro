@@ -136,9 +136,9 @@ const maxReq = Math.max(...trendData.map(d => d.req));
         <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] shadow-xl space-y-2">
           <div class="flex items-center justify-between text-[#71717a] font-mono text-xs">
             <span>Toplam İstek</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-[#71717a]"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-[#10b981]"></span>
           </div>
-          <div class="text-2xl sm:text-3xl font-serif font-normal text-[#ffffff]">
+          <div id="stat-total-requests" class="text-2xl sm:text-3xl font-serif font-normal text-[#ffffff] transition-all duration-300">
             {telemetrySummary.totalRequests}
           </div>
           <div class="text-[11px] font-mono text-[#a1a1aa]">
@@ -150,9 +150,9 @@ const maxReq = Math.max(...trendData.map(d => d.req));
         <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] shadow-xl space-y-2">
           <div class="flex items-center justify-between text-[#71717a] font-mono text-xs">
             <span>Sayfa Görüntüleme</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-[#71717a]"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-[#10b981]"></span>
           </div>
-          <div class="text-2xl sm:text-3xl font-serif font-normal text-[#ffffff]">
+          <div id="stat-total-pageviews" class="text-2xl sm:text-3xl font-serif font-normal text-[#ffffff] transition-all duration-300">
             {telemetrySummary.totalPageViews}
           </div>
           <div class="text-[11px] font-mono text-[#a1a1aa]">
@@ -166,7 +166,7 @@ const maxReq = Math.max(...trendData.map(d => d.req));
             <span>Günlük Tekil Ziyaret</span>
             <span class="w-1.5 h-1.5 rounded-full bg-[#71717a]"></span>
           </div>
-          <div class="text-2xl sm:text-3xl font-serif font-normal text-[#ffffff]">
+          <div id="stat-daily-uniques" class="text-2xl sm:text-3xl font-serif font-normal text-[#ffffff] transition-all duration-300">
             {telemetrySummary.averageDailyVisitors}
           </div>
           <div class="text-[11px] font-mono text-[#a1a1aa]">
@@ -180,10 +180,10 @@ const maxReq = Math.max(...trendData.map(d => d.req));
             <span>Edge Önbellek Oranı</span>
             <span class="w-1.5 h-1.5 rounded-full bg-[#10b981]"></span>
           </div>
-          <div class="text-2xl sm:text-3xl font-serif font-normal text-[#10b981]">
+          <div id="stat-cache-ratio" class="text-2xl sm:text-3xl font-serif font-normal text-[#10b981] transition-all duration-300">
             {telemetrySummary.cacheHitRatio}
           </div>
-          <div class="text-[11px] font-mono text-[#a1a1aa]">
+          <div id="stat-saved-bandwidth" class="text-[11px] font-mono text-[#a1a1aa]">
             {telemetrySummary.savedBandwidth} Bant Tasarrufu
           </div>
         </div>
@@ -322,7 +322,7 @@ const maxReq = Math.max(...trendData.map(d => d.req));
             </li>
             <li class="flex items-center justify-between pb-2 border-b border-[#27272a]">
               <span class="text-[#71717a]">Ortalama Edge Gecikmesi:</span>
-              <span class="text-[#10b981] font-semibold">~18 ms</span>
+              <span id="stat-edge-latency" class="text-[#10b981] font-semibold">~18 ms</span>
             </li>
             <li class="flex items-center justify-between">
               <span class="text-[#71717a]">Ajan Desteği:</span>
@@ -416,12 +416,35 @@ const maxReq = Math.max(...trendData.map(d => d.req));
     const syncIndicator = document.getElementById('telemetry-sync-indicator');
     const lastSyncText = document.getElementById('telemetry-last-sync');
     const refreshBtn = document.getElementById('btn-refresh-telemetry');
+    const refreshIcon = document.getElementById('refresh-icon');
+    const refreshText = document.getElementById('refresh-btn-text');
+
+    const statTotalRequests = document.getElementById('stat-total-requests');
+    const statTotalPageviews = document.getElementById('stat-total-pageviews');
+    const statDailyUniques = document.getElementById('stat-daily-uniques');
+    const statCacheRatio = document.getElementById('stat-cache-ratio');
+    const statEdgeLatency = document.getElementById('stat-edge-latency');
     const postBadges = document.querySelectorAll('.telemetry-post-badge');
 
     let isFetching = false;
 
-    const refreshIcon = document.getElementById('refresh-icon');
-    const refreshText = document.getElementById('refresh-btn-text');
+    function animateNumber(element, start, end, duration = 800) {
+      if (!element || start === end) return;
+      const startTime = performance.now();
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (end - start) * easeOut);
+        element.textContent = current.toLocaleString('tr-TR');
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          element.textContent = end.toLocaleString('tr-TR');
+        }
+      }
+      requestAnimationFrame(update);
+    }
 
     async function fetchLiveTelemetry() {
       if (isFetching) return;
@@ -431,20 +454,29 @@ const maxReq = Math.max(...trendData.map(d => d.req));
       if (refreshText) refreshText.textContent = 'Yenileniyor...';
       if (syncIndicator) syncIndicator.textContent = 'Senkronize ediliyor...';
 
+      const t0 = performance.now();
+
       try {
-        const res = await fetch('/api/telemetry');
+        const res = await fetch('/api/telemetry?t=' + Date.now(), { cache: 'no-store' });
+        const latencyMs = Math.round(performance.now() - t0);
+
         if (!res.ok) throw new Error('API Error');
         const data = await res.json();
 
-        // 1. Update Edge Node and Location Info
-        if (data.edgeNode && edgeNodeBadge) {
-          const ray = String(data.edgeNode);
-          const pop = ray.includes('-') ? ray.split('-')[1] : ray.slice(-3);
-          edgeNodeBadge.textContent = `Uç Nokta: ${pop || 'Anycast'} • ${data.clientCountry || 'Global'}`;
+        // 1. Update Edge Latency measured live
+        if (statEdgeLatency) {
+          statEdgeLatency.textContent = `${latencyMs} ms`;
+          statEdgeLatency.classList.add('text-[#10b981]');
+        }
+
+        // 2. Update Edge Node and Location Info
+        if (edgeNodeBadge) {
+          const pop = data.edgePoP || (data.edgeNode ? String(data.edgeNode).slice(-3) : 'Anycast');
+          edgeNodeBadge.textContent = `Uç Nokta: ${pop} • ${data.clientCountry || 'Global'} • ${data.protocol || 'HTTP/3'}`;
         }
 
         if (syncIndicator) {
-          syncIndicator.textContent = 'Canlı Edge KV Aktif';
+          syncIndicator.textContent = 'Canlı Edge KV Senkronize';
           syncIndicator.classList.remove('text-[#a1a1aa]');
           syncIndicator.classList.add('text-[#10b981]');
         }
@@ -455,7 +487,28 @@ const maxReq = Math.max(...trendData.map(d => d.req));
           lastSyncText.textContent = `Son Güncelleme: ${timeStr}`;
         }
 
-        // 2. Update Article Views from Live KV
+        // 3. Update Dynamic KPI Cards with smooth odometer animation
+        if (data.totals) {
+          if (statTotalRequests && data.totals.requests) {
+            const curVal = parseInt(statTotalRequests.textContent.replace(/\./g, ''), 10) || 109999;
+            if (data.totals.requests !== curVal) {
+              animateNumber(statTotalRequests, curVal, data.totals.requests);
+              statTotalRequests.classList.add('text-[#10b981]');
+              setTimeout(() => statTotalRequests.classList.remove('text-[#10b981]'), 2000);
+            }
+          }
+
+          if (statTotalPageviews && data.totals.pageviews) {
+            const curVal = parseInt(statTotalPageviews.textContent.replace(/\./g, ''), 10) || 33867;
+            if (data.totals.pageviews !== curVal) {
+              animateNumber(statTotalPageviews, curVal, data.totals.pageviews);
+              statTotalPageviews.classList.add('text-[#10b981]');
+              setTimeout(() => statTotalPageviews.classList.remove('text-[#10b981]'), 2000);
+            }
+          }
+        }
+
+        // 4. Update Article Views from Live KV
         if (data.liveViews && typeof data.liveViews === 'object') {
           postBadges.forEach((badge) => {
             const slug = badge.getAttribute('data-slug');
@@ -463,6 +516,7 @@ const maxReq = Math.max(...trendData.map(d => d.req));
               const liveCount = data.liveViews[slug];
               const currentCount = Number(badge.getAttribute('data-views') || 0);
               if (liveCount > currentCount) {
+                badge.setAttribute('data-views', String(liveCount));
                 badge.textContent = liveCount.toLocaleString('tr-TR');
                 badge.classList.add('border-[#10b981]', 'text-[#10b981]');
                 setTimeout(() => {
@@ -492,11 +546,11 @@ const maxReq = Math.max(...trendData.map(d => d.req));
       });
     }
 
-    // Auto polling every 45 seconds while page is active
+    // Auto polling every 30 seconds while page is visible
     setInterval(() => {
       if (document.visibilityState === 'visible') {
         fetchLiveTelemetry();
       }
-    }, 45000);
+    }, 30000);
   })();
 </script>

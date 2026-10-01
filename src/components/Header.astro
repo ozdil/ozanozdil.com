@@ -21,15 +21,8 @@ const navItems = [
 
 <header class="sticky top-0 left-0 right-0 z-50 w-full bg-[#121215]/95 backdrop-blur-md border-b border-[#27272a] transition-all font-mono">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-15">
-    <!-- Left: Branding (Text-only minimalist logo, no avatar) -->
-    <div class="flex items-center space-x-3 sm:space-x-6 min-w-0">
-      <a href="/" class="flex items-center space-x-2 group flex-shrink-0" title="Ozan Özdil">
-        <span class="text-sm sm:text-base font-semibold text-[#ffffff] group-hover:text-[#a1a1aa] transition-colors whitespace-nowrap">
-          Ozan Özdil
-        </span>
-      </a>
-
-      <!-- Navigation Menu (Desktop Only) -->
+    <!-- Left: Navigation Menu (Desktop Only) -->
+    <div class="flex items-center space-x-1 sm:space-x-2 min-w-0">
       <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs font-mono" aria-label="Menü">
         {navItems.map((item) => {
           const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
