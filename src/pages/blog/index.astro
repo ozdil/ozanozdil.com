@@ -28,48 +28,92 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         Teknoloji, açık kaynak, siber güvenlik, dijital egemenlik, yapay zekâ, Linux ve sistem mimarisi üzerine araştırmalar ve notlar.
       </p>
 
-      <!-- Live Search Box -->
-      <div class="relative max-w-lg mx-auto mt-6">
-        <input
-          id="qs-search-input"
-          type="search"
-          placeholder="Yazılarda anlık ara... [/]"
-          class="w-full px-4 py-2.5 pl-10 pr-9 rounded-xl border border-[#27272a] bg-[#18181b] text-[#ffffff] placeholder-[#71717a] font-mono text-xs focus:outline-none focus:border-[#52525b] transition-colors"
-          autocomplete="off"
-        />
-        <svg class="absolute left-3.5 top-3 w-4 h-4 text-[#71717a] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-        <span class="absolute right-3.5 top-2.5 px-1.5 py-0.5 rounded border border-[#27272a] bg-[#121215] text-[10px] font-mono text-[#71717a] pointer-events-none hidden sm:inline-block">/</span>
+      <!-- Live Search & Filter Bar -->
+      <div class="relative max-w-xl mx-auto mt-6 flex items-center gap-2">
+        <div class="relative flex-1">
+          <input
+            id="qs-search-input"
+            type="search"
+            placeholder="Yazılarda anlık ara... [/]"
+            class="w-full px-4 py-2.5 pl-10 pr-9 rounded-xl border border-[#27272a] bg-[#18181b] text-[#ffffff] placeholder-[#71717a] font-mono text-xs focus:outline-none focus:border-[#52525b] transition-colors"
+            autocomplete="off"
+          />
+          <svg class="absolute left-3.5 top-3 w-4 h-4 text-[#71717a] pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span class="absolute right-3.5 top-2.5 px-1.5 py-0.5 rounded border border-[#27272a] bg-[#121215] text-[10px] font-mono text-[#71717a] pointer-events-none hidden sm:inline-block">/</span>
+        </div>
+
+        <!-- Filter Toggle Button -->
+        <button
+          id="qs-toggle-filters-btn"
+          type="button"
+          class="relative shrink-0 inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-[#27272a] bg-[#18181b] hover:bg-[#27272a] text-[#d4d4d8] hover:text-[#ffffff] font-mono text-xs transition-colors cursor-pointer"
+          title="Konu Etiketlerini Filtrele"
+          aria-expanded="false"
+        >
+          <svg class="w-3.5 h-3.5 text-[#a1a1aa]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+          </svg>
+          <span class="hidden sm:inline">Etiketler</span>
+          <span id="qs-filter-badge" class="px-1.5 py-0.2 rounded-full bg-[#27272a] text-[10px] text-[#a1a1aa] font-semibold">Tümü</span>
+        </button>
       </div>
 
-      <!-- Topic Tags Filter Deck: Minimal Shell Pills -->
+      <!-- Collapsible Tags Filter Panel -->
       {allTags.length > 0 && (
-        <div id="qs-tag-filters" class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-5 font-mono text-xs w-full">
-          <button
-            type="button"
-            data-filter-tag="all"
-            class="qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#ffffff] text-[#09090b] border-[#ffffff] font-semibold"
-          >
-            Tümü ({sortedPosts.length})
-          </button>
-          {allTags.map((tag) => (
+        <div
+          id="qs-tag-panel"
+          class="hidden max-w-xl mx-auto mt-4 p-4 rounded-2xl border border-[#27272a] bg-[#18181b] shadow-2xl transition-all"
+        >
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-[#27272a] text-xs font-mono">
+            <span class="text-[#a1a1aa] font-medium">// KONU FİLTRESİ ({allTags.length} etiket)</span>
+            <button
+              id="qs-close-panel-btn"
+              type="button"
+              class="text-[#71717a] hover:text-[#ffffff] transition-colors cursor-pointer text-[11px]"
+            >
+              [Kapat]
+            </button>
+          </div>
+          <div id="qs-tag-filters" class="flex flex-wrap items-center justify-start gap-1.5 font-mono text-xs max-h-60 overflow-y-auto pr-1">
             <button
               type="button"
-              data-filter-tag={tag.toLowerCase()}
-              class="qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#18181b] text-[#a1a1aa] border-[#27272a] hover:text-[#ffffff] hover:border-[#3f3f46]"
+              data-filter-tag="all"
+              class="qs-filter-pill px-3 py-1 rounded-lg text-xs transition-all cursor-pointer border bg-[#ffffff] text-[#09090b] border-[#ffffff] font-semibold"
             >
-              #{tag}
+              Tümü ({sortedPosts.length})
             </button>
-          ))}
+            {allTags.map((tag) => (
+              <button
+                type="button"
+                data-filter-tag={tag.toLowerCase()}
+                class="qs-filter-pill px-2.5 py-1 rounded-lg text-xs transition-all cursor-pointer border bg-[#121215] text-[#a1a1aa] border-[#27272a] hover:text-[#ffffff] hover:border-[#3f3f46]"
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </header>
 
     <!-- Filter & Status Bar -->
     <div class="px-4 py-3 rounded-xl bg-[#121215] border border-[#27272a] flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[#71717a]">
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 sm:gap-3">
         <span id="qs-stats-counter" class="text-[#ffffff] font-medium">Toplam {sortedPosts.length} yazı</span>
+        <div id="qs-active-filter-indicator" class="hidden items-center gap-1.5 pl-2 border-l border-[#27272a]">
+          <span class="text-[#71717a]">Filtre:</span>
+          <span id="qs-active-tag-name" class="px-2 py-0.5 rounded bg-[#27272a] text-[#ffffff] text-[11px]"></span>
+          <button
+            id="qs-clear-tag-btn"
+            type="button"
+            class="text-[#71717a] hover:text-[#ffffff] cursor-pointer"
+            title="Filtreyi Temizle"
+          >
+            ×
+          </button>
+        </div>
       </div>
 
       <div class="flex items-center gap-2">
@@ -201,6 +245,14 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     const cardTagBtns = document.querySelectorAll('[data-tag-button]');
     const searchInput = document.getElementById('qs-search-input');
 
+    const toggleFilterBtn = document.getElementById('qs-toggle-filters-btn');
+    const tagPanel = document.getElementById('qs-tag-panel');
+    const closePanelBtn = document.getElementById('qs-close-panel-btn');
+    const filterBadge = document.getElementById('qs-filter-badge');
+    const activeFilterIndicator = document.getElementById('qs-active-filter-indicator');
+    const activeTagName = document.getElementById('qs-active-tag-name');
+    const clearTagBtn = document.getElementById('qs-clear-tag-btn');
+
     const statsCounter = document.getElementById('qs-stats-counter');
     const pageInfo = document.getElementById('qs-page-info');
     const prevBtn = document.getElementById('qs-prev-btn');
@@ -209,9 +261,52 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
     const pageNumbersContainer = document.getElementById('qs-page-numbers');
     const paginationContainer = document.getElementById('qs-pagination-container');
 
+    if (toggleFilterBtn && tagPanel) {
+      toggleFilterBtn.addEventListener('click', () => {
+        const isHidden = tagPanel.classList.contains('hidden');
+        if (isHidden) {
+          tagPanel.classList.remove('hidden');
+          toggleFilterBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          tagPanel.classList.add('hidden');
+          toggleFilterBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    if (closePanelBtn && tagPanel) {
+      closePanelBtn.addEventListener('click', () => {
+        tagPanel.classList.add('hidden');
+        if (toggleFilterBtn) toggleFilterBtn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    if (clearTagBtn) {
+      clearTagBtn.addEventListener('click', () => {
+        const allPill = document.querySelector('[data-filter-tag="all"]');
+        if (allPill) allPill.click();
+        else filterPosts('all', undefined);
+      });
+    }
+
     function filterPosts(tag, query) {
       if (tag !== undefined) currentTag = (tag || 'all').toLowerCase();
       if (query !== undefined) currentQuery = (query || '').toLowerCase().trim();
+
+      if (filterBadge) {
+        filterBadge.textContent = currentTag === 'all' ? 'Tümü' : `#${currentTag}`;
+      }
+
+      if (activeFilterIndicator && activeTagName) {
+        if (currentTag === 'all') {
+          activeFilterIndicator.classList.add('hidden');
+          activeFilterIndicator.classList.remove('inline-flex');
+        } else {
+          activeFilterIndicator.classList.remove('hidden');
+          activeFilterIndicator.classList.add('inline-flex');
+          activeTagName.textContent = `#${currentTag}`;
+        }
+      }
 
       matchingItems = [];
 
@@ -310,10 +405,10 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
         const tag = pill.getAttribute('data-filter-tag') || 'all';
 
         filterPills.forEach((p) => {
-          p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#18181b] text-[#a1a1aa] border-[#27272a] hover:text-[#ffffff] hover:border-[#3f3f46]';
+          p.className = 'qs-filter-pill px-2.5 py-1 rounded-lg text-xs transition-all cursor-pointer border bg-[#121215] text-[#a1a1aa] border-[#27272a] hover:text-[#ffffff] hover:border-[#3f3f46]';
         });
 
-        pill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#ffffff] text-[#09090b] border-[#ffffff] font-semibold';
+        pill.className = 'qs-filter-pill px-3 py-1 rounded-lg text-xs transition-all cursor-pointer border bg-[#ffffff] text-[#09090b] border-[#ffffff] font-semibold';
 
         filterPosts(tag, undefined);
       });
@@ -397,9 +492,9 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags || []).filter
       const targetPill = document.querySelector(`[data-filter-tag="${initialTag.toLowerCase()}"]`);
       if (targetPill) {
         filterPills.forEach((p) => {
-          p.className = 'qs-filter-pill px-2.5 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#18181b] text-[#a1a1aa] border-[#27272a] hover:text-[#ffffff] hover:border-[#3f3f46]';
+          p.className = 'qs-filter-pill px-2.5 py-1 rounded-lg text-xs transition-all cursor-pointer border bg-[#121215] text-[#a1a1aa] border-[#27272a] hover:text-[#ffffff] hover:border-[#3f3f46]';
         });
-        targetPill.className = 'qs-filter-pill px-3 py-1.5 rounded-lg text-xs transition-all cursor-pointer border bg-[#ffffff] text-[#09090b] border-[#ffffff] font-semibold';
+        targetPill.className = 'qs-filter-pill px-3 py-1 rounded-lg text-xs transition-all cursor-pointer border bg-[#ffffff] text-[#09090b] border-[#ffffff] font-semibold';
       }
       filterPosts(initialTag.toLowerCase(), initialQuery);
     } else {
