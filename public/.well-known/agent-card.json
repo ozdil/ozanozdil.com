@@ -28,6 +28,11 @@
       "id": "read-llms-full",
       "name": "Read Full Knowledge Base",
       "description": "Retrieve full text documentation of all published articles via llms-full.txt."
+    },
+    {
+      "id": "explore-gallery",
+      "name": "Explore Architectural & Heritage Photo Gallery",
+      "description": "Inspect 105 medium format 16-bit RAW photographs of UNESCO wooden mosques (Mahmutbey Mosque), Agli Castle, and historical architecture with full EXIF metadata."
     }
   ]
 }

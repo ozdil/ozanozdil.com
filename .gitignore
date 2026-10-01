@@ -28,3 +28,6 @@ scratch/
 # Arşiv ve gizli kaynaklar
 _archive_sources/
 
+# Wrangler
+.wrangler/
+

@@ -44,10 +44,49 @@ const imageGallerySchema = {
       },
       "creator": {
         "@type": "Person",
-        "name": "Ozan Özdil"
+        "name": "Ozan Özdil",
+        "url": "https://ozanozdil.com"
       },
       "copyrightNotice": "© 2026 Ozan Özdil. Tüm hakları saklıdır.",
-      "acquireLicensePage": "https://ozanozdil.com/"
+      "license": "https://ozanozdil.com/galeri",
+      "acquireLicensePage": "https://ozanozdil.com/iletisim",
+      "exifData": [
+        {
+          "@type": "PropertyValue",
+          "name": "CameraModel",
+          "value": photo.exif.camera
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "LensModel",
+          "value": photo.exif.lens
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "FocalLength",
+          "value": photo.exif.focalLength
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "FNumber",
+          "value": photo.exif.fNumber
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "ExposureTime",
+          "value": photo.exif.exposureTime
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "ISO",
+          "value": String(photo.exif.iso)
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "SensorFormat",
+          "value": "Medium Format 43.8x32.9mm"
+        }
+      ]
     }))
   )
 };
@@ -286,6 +325,49 @@ const imageGallerySchema = {
         <!-- Injected dynamically from JSON -->
       </div>
     </div>
+
+    <!-- AI BOTLARI VE ARAMA MOTORLARI İÇİN SSR SEMANTİK ARŞİV KATALOĞU (CRAWLABLE SEMANTIC ARCHIVE) -->
+    <section class="sr-only" aria-label="Fotoğraf Galerisi Tam İndeks ve EXIF Kataloğu">
+      <h2>Ozan Özdil Mimari & Doğa Fotoğrafları Arşivi (Tüm Fotoğraflar ve EXIF Verileri)</h2>
+      {albums.map((album) => (
+        <article id={`archive-${album.slug || album.id}`}>
+          <h3>{album.title} — {album.locationFull} ({album.year})</h3>
+          <p>{album.description}</p>
+          <p>Kullanılan Ekipman: {album.equipment}</p>
+          <ul>
+            {album.photos.map((photo, pIdx) => (
+              <li>
+                <h4>{photo.title} ({pIdx + 1}/{album.photoCount})</h4>
+                <p>{photo.caption}</p>
+                <img
+                  src={photo.thumb}
+                  alt={`${photo.title} - ${album.locationFull} - Ozan Özdil`}
+                  loading="lazy"
+                  width={photo.width}
+                  height={photo.height}
+                />
+                <dl>
+                  <dt>Tarih:</dt>
+                  <dd>{photo.dateTaken}</dd>
+                  <dt>Gövde:</dt>
+                  <dd>{photo.exif.camera}</dd>
+                  <dt>Lens:</dt>
+                  <dd>{photo.exif.lens}</dd>
+                  <dt>Odak Uzaklığı:</dt>
+                  <dd>{photo.exif.focalLength} (35mm: {photo.exif.focalLength35mm})</dd>
+                  <dt>Pozlama:</dt>
+                  <dd>{photo.exif.fNumber}, {photo.exif.exposureTime}, ISO {photo.exif.iso}</dd>
+                  <dt>Sensör Formatı:</dt>
+                  <dd>Orta Format (43.8 x 32.9 mm, 16-bit RAW)</dd>
+                  <dt>Telif:</dt>
+                  <dd>© 2026 Ozan Özdil. Tüm hakları saklıdır.</dd>
+                </dl>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </section>
   </div>
 
   <!-- LIGHTBOX / FOTOĞRAF VE EXIF MODAL -->
@@ -458,22 +540,26 @@ const imageGallerySchema = {
 
   // Back to Albums View
   document.getElementById('btn-back-albums')?.addEventListener('click', () => {
-    showAlbumsView();
-    history.pushState(null, '', '/galeri');
+    showAlbumsView(true);
   });
 
-  function showAlbumsView() {
+  function showAlbumsView(updateHistory = true) {
+    if (updateHistory && window.location.hash) {
+      history.pushState(null, '', '/galeri');
+    }
     photoView.classList.add('hidden');
     albumView.classList.remove('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function openAlbum(slug) {
+  function openAlbum(slug, updateHistory = true) {
     const found = albums.find((a) => a.slug === slug || a.id === slug);
     if (!found) return;
 
     currentAlbum = found;
-    history.replaceState(null, '', `/galeri#${slug}`);
+    if (updateHistory) {
+      history.pushState(null, '', `/galeri#${slug}`);
+    }
 
     activeTitle.textContent = currentAlbum.title;
     activeLocationBadge.textContent = currentAlbum.locationFull;
@@ -658,9 +744,22 @@ const imageGallerySchema = {
       .replace(/'/g, '&#039;');
   }
 
-  // Handle URL hash on load
+  // Handle URL hash changes & browser back/forward buttons
+  function handleHashChange() {
+    const hash = window.location.hash.replace('#', '').trim();
+    if (hash) {
+      openAlbum(hash, false);
+    } else {
+      showAlbumsView(false);
+    }
+  }
+
+  window.addEventListener('popstate', handleHashChange);
+  window.addEventListener('hashchange', handleHashChange);
+
+  // Initial load check
   if (window.location.hash) {
-    const slug = window.location.hash.replace('#', '');
-    openAlbum(slug);
+    const slug = window.location.hash.replace('#', '').trim();
+    openAlbum(slug, false);
   }
 </script>

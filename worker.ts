@@ -31,6 +31,7 @@ KRİTİK TALİMATLAR VE KURALLAR:
 2. OMASTUDIO HAKKINDA DOĞRULUK: OmaStudio KESİNLİKLE bir animasyon veya görsel efekt yazılımı DEĞİLDİR! OmaStudio; Ozan Özdil tarafından Rust dili ve Slint GUI arayüz kütüphanesiyle Wayland mimarisi için geliştirilmiş, 16-bit orta format RAW fotoğrafları (özellikle Fujifilm GFX serisi) işlemek ve banyo etmek üzere sıfır kilitlenme (zero-lock) ve kalıcı daemon mantığıyla tasarlanmış bağımsız bir RAW fotoğraf motorudur.
 3. YANIT DİLİ VE TONU: Ziyaretçinin dilinde (genellikle Türkçe) yanıt ver. Yanıtların net, akıcı, teknik olarak kusursuz ve öz olsun. Uydurma yapma, spekülasyona girme.
 4. SIFIR EMOJİ: Yanıtlarında hiçbir unicode emoji kullanma.
+5. KÜLTÜREL MİRAS & FOTOĞRAF ARŞİVİ: Kastamonu Kasaba Köyü Mahmutbey Camii (UNESCO Dünya Mirası, 1366 Candaroğulları dönemi çivisiz ahşap hipostil cami), Ağlı Kalesi ve Karadeniz coğrafyası 102 MP Fujifilm GFX orta format fotonik sistemle belgelenmiştir. Mahmutbey Camii hakkında kündekâri kapısı (Ankaralı Nakkaş Mahmud oğlu Abdullah), organik kök boyaları (alizarin, indigotin), sismik süneklik ve metal çivisiz kurtboğazı ahşap geçme tekniği konularında derinlemesine bilimsel ve mimari bilgi sahibisin. İlgili bilimsel makale: https://ozanozdil.com/blog/kasaba-koyu-mahmutbey-camii-ahsap-mimari-ve-unesco-analizi ve galeri: https://ozanozdil.com/galeri
 
 OZAN ÖZDİL KİMDİR VE KARİYER BİLGİ BANKASI:
 - Kimdir: YZ Kodcusu (AI Coder), açık kaynak sistem araştırmacısı, Linux/Arch/CachyOS/Omarchy geliştiricisi, Steam Deck tutkunu, bağımsız belgesel fotoğrafçısı.
@@ -90,8 +91,12 @@ function getFallbackAnswer(query: string): string {
     return "Ozan Özdil; YZ Kodcusu (AI Coder), açık kaynak sistem araştırmacısı, Linux/Arch/CachyOS/Omarchy geliştiricisi, Steam Deck meraklısı ve Fujifilm GFX orta format fotoğrafçısıdır. Kastamonu Belediyesi bünyesinde 2019'dan bu yana Başkan Danışmanlığı, Bilgi İşlem Müdürlüğü ve Açık Kaynak Sistem Koordinatörlüğü görevlerinde bulunmuştur. Detaylı biyografisi için [Hakkımda](https://ozanozdil.com/hakkimda) sayfasını inceleyebilirsiniz.";
   }
 
+  if (q.includes('mahmutbey') || q.includes('çivisiz') || q.includes('kasaba köyü') || q.includes('unesco cami')) {
+    return "Kastamonu Kasaba Köyü Mahmutbey Camii, 1366 yılında Candaroğlu Hükümdarı Adil Bey'in oğlu Emir Mahmud Bey tarafından yaptırılmış ve 2023 yılında UNESCO Dünya Mirası Listesi'ne dahil edilmiş eşsiz bir ahşap hipostil şaheserdir.\\n\\n**Öne Çıkan Bilimsel Özellikleri:**\\n- **Çivisiz Karkas ve Zıvana Mekaniği:** Taşıyıcı sisteminde metal çivi kullanılmamış; kurtboğazı geçmeler, ahşap zıvanalar ve kamalarla sismik enerjiyi dağıtacak şekilde sünek inşa edilmiştir.\\n- **Kök Boyası Kimyası:** Tavan ve bindirme kirişlerindeki kalem işleri rubia tinctorum (alizarin), çivit otu (indigotin) ve muhabbet çiçeği (luteolin) gibi organik pigmentlerle bezenmiş olup 660 yıldır canlılığını korumaktadır.\\n- **Anıtsal Kündekâri Kapı:** Ankaralı Nakkaş Mahmud oğlu Abdullah tarafından hakiki kündekâri (tutkalsız ve çivisiz geometrik geçme) tekniğiyle oyulmuştur.\\n\\nKapsamlı mimari monografi için [Mahmutbey Camii Bilimsel Makalesi](https://ozanozdil.com/blog/kasaba-koyu-mahmutbey-camii-ahsap-mimari-ve-unesco-analizi) yazısına, 102 MP orta format fotonik çekimler için [Fotoğraf Galerisi](https://ozanozdil.com/galeri#mahmutbey-camii) bölümüne göz atabilirsiniz.";
+  }
+
   if (q.includes('fotoğraf') || q.includes('galeri') || q.includes('kamera') || q.includes('gfx')) {
-    return "Ozan, Fujifilm GFX 50R ve GFX 100 orta format kameralarla UNESCO tescilli tarihi ahşap camileri, Kastamonu Ağlı Kalesi'ni ve Karadeniz yaylalarını belgelemektedir. Fotoğraf çalışmalarını [Fotoğraf Galerisi](https://ozanozdil.com/galeri) sayfasında yüksek çözünürlükle keşfedebilirsiniz.";
+    return "Ozan Özdil, Fujifilm GFX 50R ve GFX 100 orta format kameralarla UNESCO tescilli tarihi ahşap camileri (Mahmutbey Camii), Kastamonu Ağlı Kalesi'ni ve Karadeniz yaylalarını belgelemektedir. Tüm sergideki 105 fotoğraf, 16-bit RAW fotonik kalitesi, optik pozlama parametreleri ve EXIF detaylarıyla [Fotoğraf Galerisi](https://ozanozdil.com/galeri) sayfasında yer almaktadır.";
   }
 
   if (q.includes('iletişim') || q.includes('ulaş') || q.includes('sosyal') || q.includes('mail')) {
