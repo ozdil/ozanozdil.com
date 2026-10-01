@@ -26,32 +26,32 @@ Oysa otonom bir yapay zeka ajanının temel gereksinimleri ışıltılı pazarla
     <span class="text-[11px] font-mono text-[#71717a]">Sistem Mimarisi Karşılaştırması</span>
   </div>
   <div class="space-y-3">
-    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0">01</span>
+    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-start justify-between gap-3">
+      <div class="flex items-start gap-3">
+        <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0 mt-0.5">01</span>
         <div>
           <h5 class="font-bold text-sm text-[#ffffff]">Donanım Bağımlılığı İllüzyonu</h5>
-          <p class="text-xs text-[#a1a1aa] mt-0.5">Proprietary hızlandırıcılar ve NPU'lar olmadan ajan çalışmayacağı iddia edilir. Oysa CPU/RAM üzerinde çalışan hafif kuantize modeller (GGUF, AWQ) ve açık kaynaklı çıkarım motorları (vLLM, llama.cpp) Linux üzerinde sıfır kısıtlama ile çalışır.</p>
+          <p class="text-xs text-[#a1a1aa] mt-1 leading-relaxed">Proprietary hızlandırıcılar ve NPU'lar olmadan ajan çalışmayacağı iddia edilir. Oysa CPU/RAM üzerinde çalışan hafif kuantize modeller (GGUF, AWQ) ve açık kaynaklı çıkarım motorları (vLLM, llama.cpp) Linux üzerinde sıfır kısıtlama ile çalışır.</p>
         </div>
       </div>
       <span class="font-mono text-xs text-[#ef4444] hidden sm:inline shrink-0 ml-2">İllüzyon</span>
     </div>
-    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0">02</span>
+    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-start justify-between gap-3">
+      <div class="flex items-start gap-3">
+        <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0 mt-0.5">02</span>
         <div>
           <h5 class="font-bold text-sm text-[#ffffff]">GUI Odaklı Hantal Ajanlar vs. IPC & Shell Doğallığı</h5>
-          <p class="text-xs text-[#a1a1aa] mt-0.5">Windows tarafında ajanlar ekran görüntüsü alıp pikselleri tıklamaya çalışarak devasa gecikme ve hata üretirken; Linux'ta ajanlar doğrudan stdout/stdin, UNIX domain socket'leri ve CLI araçlarıyla deterministik etkileşime girer.</p>
+          <p class="text-xs text-[#a1a1aa] mt-1 leading-relaxed">Windows tarafında ajanlar ekran görüntüsü alıp pikselleri tıklamaya çalışarak devasa gecikme ve hata üretirken; Linux'ta ajanlar doğrudan stdout/stdin, UNIX domain socket'leri ve CLI araçlarıyla deterministik etkileşime girer.</p>
         </div>
       </div>
       <span class="font-mono text-xs text-[#10b981] hidden sm:inline shrink-0 ml-2">Linux Üstünlüğü</span>
     </div>
-    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0">03</span>
+    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-start justify-between gap-3">
+      <div class="flex items-start gap-3">
+        <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0 mt-0.5">03</span>
         <div>
           <h5 class="font-bold text-sm text-[#ffffff]">Güvenlik ve İzolasyon: Kara Kutu vs. Linux Çekirdeği</h5>
-          <p class="text-xs text-[#a1a1aa] mt-0.5">Kapalı sistemlerde arka planda dönen telemetri ve ajan yetkileri kullanıcıdan gizlenir. Linux'ta ise cgroups v2, namespaces, Landlock ve seccomp ile ajanın her bir sistem çağrısı milimetrik kontrol altındadır.</p>
+          <p class="text-xs text-[#a1a1aa] mt-1 leading-relaxed">Kapalı sistemlerde arka planda dönen telemetri ve ajan yetkileri kullanıcıdan gizlenir. Linux'ta ise cgroups v2, namespaces, Landlock ve seccomp ile ajanın her bir sistem çağrısı milimetrik kontrol altındadır.</p>
         </div>
       </div>
       <span class="font-mono text-xs text-[#38bdf8] hidden sm:inline shrink-0 ml-2">Tam İzolasyon</span>
@@ -171,9 +171,38 @@ Tablodan da açıkça görüleceği üzere; Windows tarafında bir ajanın yerel
 Omarchy felsefesi, masaüstü ortamını sadece pencereleri yöneten pasif bir katman olarak değil; kullanıcının zihinsel akışını koruyan, deterministik ve yüksek performanslı bir çalışma alanı olarak tanımlar.
 
 Bu felsefe içinde yapay zeka ajanları:
-1. **Pencerelerin Arka Planında Değil, İş Akışının İçindedir:** Quickshell bar widget'ları, Wayland kompozitör sinyalleri ve IPC köprüleri sayesinde ajanın o an hangi dosyayı derlediği veya hangi görevi çözdüğü durum çubuğunda mikrosaniyelik gecikmeyle görünür.
-2. **Terminal Doğallığı:** Ajan bir GUI tıklayıcısı değil, yetenekli bir terminal operatörüdür. Kod refactoring'i, bağımlılık güncellemeleri, birim testlerin koşulması ve güvenlik taramaları saf Unix boruları üzerinden gerçekleşir.
-3. **Sıfır İllüzyon, Saf Verim:** Ajan için gösterişli animasyonlara veya 60 GB VRAM harcayan dev modellere gerek yoktur. Kod analizi için DeepSeek ve Codex, mimari planlama için Claude ve Antigravity, çevrim dışı güvenlik ve hassas veri kontrolü için yerel Gemma modelleri bir konsorsiyum halinde koordine edilir.
+
+<div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 not-prose font-mono shadow-xl">
+  <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
+    <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#ffffff]">
+      // OMARCHY MASAÜSTÜNDE AJAN ROLÜ VE ENTEGRASYON
+    </span>
+    <span class="text-[11px] font-mono text-[#71717a]">3 Temel Dinamik</span>
+  </div>
+  <div class="space-y-3">
+    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-start gap-3">
+      <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0 mt-0.5">01</span>
+      <div>
+        <h5 class="font-bold text-sm text-[#ffffff]">Pencerelerin Arka Planında Değil, İş Akışının İçindedir</h5>
+        <p class="text-xs text-[#a1a1aa] mt-1 leading-relaxed">Quickshell bar widget'ları, Wayland kompozitör sinyalleri ve IPC köprüleri sayesinde ajanın o an hangi dosyayı derlediği veya hangi görevi çözdüğü durum çubuğunda mikrosaniyelik gecikmeyle görünür.</p>
+      </div>
+    </div>
+    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-start gap-3">
+      <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0 mt-0.5">02</span>
+      <div>
+        <h5 class="font-bold text-sm text-[#ffffff]">Terminal Doğallığı</h5>
+        <p class="text-xs text-[#a1a1aa] mt-1 leading-relaxed">Ajan bir GUI tıklayıcısı değil, yetenekli bir terminal operatörüdür. Kod refactoring'i, bağımlılık güncellemeleri, birim testlerin koşulması ve güvenlik taramaları saf Unix boruları üzerinden gerçekleşir.</p>
+      </div>
+    </div>
+    <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-start gap-3">
+      <span class="w-7 h-7 rounded-lg bg-[#27272a] text-[#ffffff] flex items-center justify-center font-mono font-bold text-xs shrink-0 mt-0.5">03</span>
+      <div>
+        <h5 class="font-bold text-sm text-[#ffffff]">Sıfır İllüzyon, Saf Verim</h5>
+        <p class="text-xs text-[#a1a1aa] mt-1 leading-relaxed">Ajan için gösterişli animasyonlara veya 60 GB VRAM harcayan dev modellere gerek yoktur. Kod analizi için DeepSeek ve Codex, mimari planlama için Claude ve Antigravity, çevrim dışı güvenlik ve hassas veri kontrolü için yerel Gemma modelleri bir konsorsiyum halinde koordine edilir.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 

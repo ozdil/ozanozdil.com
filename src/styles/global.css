@@ -312,8 +312,16 @@ p, blockquote, li {
 
 .markdown-body ul {
   list-style-type: square;
-  padding-left: 1.25rem;
+  list-style-position: inside;
+  padding-left: 0.5rem;
   margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .markdown-body ul {
+    list-style-position: outside;
+    padding-left: 1.5rem;
+  }
 }
 
 .markdown-body ul > li::marker {
@@ -322,8 +330,16 @@ p, blockquote, li {
 
 .markdown-body ol {
   list-style-type: decimal;
-  padding-left: 1.25rem;
+  list-style-position: inside;
+  padding-left: 0.5rem;
   margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .markdown-body ol {
+    list-style-position: outside;
+    padding-left: 1.5rem;
+  }
 }
 
 .markdown-body ol > li::marker {
@@ -331,9 +347,10 @@ p, blockquote, li {
 }
 
 .markdown-body li {
-  margin-bottom: 0.35rem;
-  line-height: 1.7;
+  margin-bottom: 0.4rem;
+  line-height: 1.75;
   color: var(--text-main);
+  word-break: break-word;
 }
 
 .markdown-body blockquote {
