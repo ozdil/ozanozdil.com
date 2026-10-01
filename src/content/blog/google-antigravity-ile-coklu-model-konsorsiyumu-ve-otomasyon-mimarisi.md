@@ -242,16 +242,16 @@ Konsorsiyumun işleyişi, rastgele sohbet formatında değil, **Yönlendirilmiş
 (8. Antigravity: Birleştirme, Test ve Deterministik Teslimat)
 ```
 
-### Bilimsel Temeller ve Güvenlik Protokolleri (HANCORE Standartları)
+### Bilimsel Temeller ve Kurumsal Düzeyde Güvenlik Protokolleri (Sıfır Güven Mimarisi)
 
-Bu konsorsiyum çalışırken siber güvenlik ve sistem kararlılığını teminat altına almak üzere beş zorunlu kuralı çalışma zamanında işletir:
+Bu konsorsiyum çalışırken kurumsal düzeyde siber güvenlik ve sistem kararlılığını teminat altına almak üzere beş zorunlu kuralı çalışma zamanında işletir:
 
 <div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 not-prose font-mono shadow-xl">
   <div class="flex items-center justify-between border-b border-[#27272a] pb-3 mb-6">
     <span class="font-mono text-xs uppercase tracking-wider font-semibold text-[#ffffff]">
-      // HANCORE GÜVENLİK STANDARTLARI
+      // SIFIR GÜVEN MİMARİSİ (ZERO-TRUST) & KURUMSAL GÜVENLİK
     </span>
-    <span class="text-[11px] font-mono text-[#71717a]">Askeri Düzey Savunma</span>
+    <span class="text-[11px] font-mono text-[#71717a]">Kurumsal Düzeyde Savunma</span>
   </div>
   <div class="space-y-3">
     <div class="p-4 rounded-xl border border-[#27272a] bg-[#18181b] flex items-center justify-between">
