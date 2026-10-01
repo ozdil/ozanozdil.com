@@ -1,35 +1,35 @@
 ---
-title: "Google Antigravity ile Coklu Model Konsorsiyumu: Otonom Ajan Orkestrasyonu ve Bilimsel Temelleri"
-description: "Google Antigravity ve ax.io/v1alpha1 bildirimsel calisma zamaninda Claude Code, DeepSeek, Codex, Qwen, Kimi, Gemini ve Gemma 4 ile kurulan cok etmenli konsorsiyum mimarisi, deterministik gorev orkestrasyonu ve akademik literatur analizi."
+title: "Google Antigravity ile Çoklu Model Konsorsiyumu: Otonom Ajan Orkestrasyonu ve Bilimsel Temelleri"
+description: "Google Antigravity ve ax.io/v1alpha1 bildirimsel çalışma zamanında Claude Code, DeepSeek, Codex, Qwen, Kimi, Gemini ve Gemma 4 ile kurulan çok etmenli konsorsiyum mimarisi, deterministik görev orkestrasyonu ve akademik literatür analizi."
 pubDate: "2026-10-01T17:20:00.000+03:00"
-updatedDate: "2026-10-01T17:20:00.000+03:00"
+updatedDate: "2026-10-01T18:25:00.000+03:00"
 heroImage: "/images/blog/google-antigravity-consortium-architecture.png"
 tags: ["yapay zeka", "google antigravity", "coklu ajan sistemleri", "multi agent systems", "otomasyon", "yazilim mimarisi", "llm konsorsiyumu", "siber guvenlik"]
 draft: false
 legacyUrl: ""
 ---
 
-> **Ozet:** Tekil buyuk dil modelleri (LLM), baglam penceresi genislese dahi karmasik yazilim muhendisligi problemlerinde dikkat dagilmasi (attention drift), mantiksal halusinasyon ve darbogazlar yasamaktadir. Bu calismada; Google Antigravity orkestrasyon cekirdegi uzerinde hayata gecirdigimiz `ax.io/v1alpha1` bildirimsel calisma zamani tabanli Coklu Model Konsorsiyumu (Multi-Model AI Consortium) mimarisini, otomasyon protokollerini ve konsorsiyum uyelerinin uzmanlik is bolumunu bilimsel literatur atiflariyla inceliyoruz.
+> **Özet:** Tekil büyük dil modelleri (LLM), bağlam penceresi genişlese dahi karmaşık yazılım mühendisliği problemlerinde dikkat dağılması (attention drift), mantıksal halüsinasyon ve dar boğazlar yaşamaktadır. Bu çalışmada; Google Antigravity orkestrasyon çekirdeği üzerinde hayata geçirdiğimiz `ax.io/v1alpha1` bildirimsel çalışma zamanı tabanlı Çoklu Model Konsorsiyumu (Multi-Model AI Consortium) mimarisini, otomasyon protokollerini ve konsorsiyum üyelerinin uzmanlık iş bölümünü bilimsel literatür atıflarıyla inceliyoruz.
 
 ---
 
-## 1. Giris ve Problem Tanimi: Neden Tek Model Yetersizdir?
+## 1. Giriş ve Problem Tanımı: Neden Tek Model Yetersizdir?
 
-Yapay zeka odakli yazilim gelistirme dongulerinde karsilasilan en buyuk yanilgi, tek bir "super modelin" (omni-model) tum muhendislik, mantik, guvenlik, dokumantasyon ve kodlama ihtiyaclarini ayni anda kusursuz cozebilecegi varsayimidir. 
+Yapay zekâ odaklı yazılım geliştirme döngülerinde karşılaşılan en büyük yanılgı, tek bir "süper modelin" (omni-model) tüm mühendislik, mantık, güvenlik, dokümantasyon ve kodlama ihtiyaçlarını aynı anda kusursuz çözebileceği varsayımıdır. 
 
-Bilimsel literatur, tekil modellerin derin muhakeme (deep reasoning), mimari refactoring, dusuk seviyeli kabuk/otomasyon scriptleri ve cevrımidisi guvenlik denetimini tek bir calisma baglaminda icra etmeye calistiginda sistemik hatalara dustugunu gostermektedir:
+Bilimsel literatür; tekil modellerin derin muhakeme (deep reasoning), mimari yeniden yapılandırma (refactoring), alt seviye kabuk/otomasyon betikleri ve çevrim dışı güvenlik denetimini tek bir çalışma bağlamında icra etmeye çalıştığında sistemik hatalara düştüğünü göstermektedir:
 
-1. **Baglam Ici Kayip ve Dikkat Dagilmasi:** Liu ve digerleri (2024) tarafindan *"Lost in the Middle"* calismasinda ortaya kondugu uzere, baglam uzunlugu arttikca modellerin ara girdilerdeki kritik kisitlari ve tip guvenligi kurallarini gozden kacirma olasiligi belirgin sekilde artar [1].
-2. **Kognitif Yuk ve Rol Catismasi:** Tek bir ajana ayni anda hem mimari tasarim, hem mikro optimizasyon, hem de guvenlik denetimi gorevi yuklendiginde kognitif yuk dagilimi homojen kalmamakta; guvenlik kurallari mimari hiz baskisi karsisinda bypass edilebilmektedir.
-3. **Cok Etmenli Isbirligi Avantaji (Multi-Agent Consensus):** Wang ve digerleri (2023) ile Du ve digerleri (2023), birden fazla uzmanlasmis otonom ajanin munazara ve gorev dagilimi mekanizmalariyla dogruluk oranini (accuracy) tekil modellerin cok otesine tasidigini ispatlamistir [2, 3].
+1. **Bağlam İçi Kayıp ve Dikkat Dağılması:** Liu ve diğerleri (2024) tarafından *"Lost in the Middle"* çalışmasında ortaya konduğu üzere, bağlam uzunluğu arttıkça modellerin ara girdilerdeki kritik kısıtları ve tip güvenliği kurallarını gözden kaçırma olasılığı belirgin şekilde artar [1].
+2. **Bilişsel Yük ve Rol Çatışması:** Tek bir ajana aynı anda hem mimari tasarım hem mikro düzeyde optimizasyon hem de güvenlik denetimi görevi yüklendiğinde bilişsel yük dağılımı homojen kalamamakta; güvenlik kuralları mimari hız baskısı karşısında göz ardı edilebilmektedir.
+3. **Çok Etmenli İş Birliği Avantajı (Multi-Agent Consensus):** Wang ve diğerleri (2023) ile Du ve diğerleri (2023); birden fazla uzmanlaşmış otonom ajanın münazara ve görev dağılımı mekanizmalarıyla doğruluk oranını (accuracy) tekil modellerin çok ötesine taşıdığını ispatlamıştır [2, 3].
 
-Bu teorik ve pratik ihtiyactan hareketle; **Google Antigravity** yonetiminde, deklaratif sistem tanimlarina dayanan otonom bir **AI Konsorsiyumu** mimarisi insa ettik.
+Bu teorik ve pratik ihtiyaçtan hareketle; **Google Antigravity** yönetiminde, bildirimsel sistem tanımlarına dayanan otonom bir **Yapay Zekâ Konsorsiyumu** mimarisi inşa ettik.
 
 ---
 
-## 2. Mimari Cekirdek: Google Antigravity ve `ax.io/v1alpha1` Bildirimsel Calisma Zamani
+## 2. Mimari Çekirdek: Google Antigravity ve `ax.io/v1alpha1` Bildirimsel Çalışma Zamanı
 
-Gelistirdigimiz otomasyon modeli, rastgele komut calistiran kirilgan betikler yerine Kubernetes CRD (Custom Resource Definition) felsefesinden ilham alan bildirimsel bir yonetim katmani uzerine kuruludur: **Google AX Calisma Zamani (`ax.io/v1alpha1`)**.
+Geliştirdiğimiz otomasyon modeli, rastgele komut çalıştıran kırılgan betikler yerine Kubernetes CRD (Custom Resource Definition) felsefesinden ilham alan bildirimsel bir yönetim katmanı üzerine kuruludur: **Google AX Çalışma Zamanı (`ax.io/v1alpha1`)**.
 
 ```
                            +-------------------------------------+
@@ -61,11 +61,11 @@ Gelistirdigimiz otomasyon modeli, rastgele komut calistiran kirilgan betikler ye
                            +-------------------------------------+
 ```
 
-### Bildirimsel Durum Yonetimi (Declarative Reconciliation)
+### Bildirimsel Durum Yönetimi (Declarative Reconciliation)
 
-Klasik yaklasimlarda ajanlar sirali (imperatif) emirlerle calistirilir: *"Sunu yap, sonra bunu yap"*. 
+Klasik yaklaşımlarda ajanlar sıralı (emir kipine dayalı) komutlarla çalıştırılır: *"Şunu yap, ardından bunu çalıştır"*. 
 
-Google AX mimarisinde ise istenen hedef durum (desired state) bildirimsel olarak tanimlanir:
+Google AX mimarisinde ise hedeflenen durum (desired state) bildirimsel olarak tanımlanır:
 
 ```yaml
 apiVersion: ax.io/v1alpha1
@@ -92,103 +92,103 @@ spec:
       gateway: offline-strict
 ```
 
-Antigravity orkestratoru, sistemin mevcut durumu (actual state) ile istenen durumu (desired state) arasindaki farki surekli uzlastiran (reconciliation loop) bir kontrol mekanizmasi olarak islev gorur [4].
+Antigravity orkestratörü; sistemin mevcut durumu (actual state) ile hedeflenen durumunu (desired state) sürekli olarak uzlaştıran (reconciliation loop) kararlı bir denetleyici olarak işlev görür [4].
 
 ---
 
-## 3. Konsorsiyum Uyeleri: Hangi Model Hangi Rolu Ustleniyor?
+## 3. Konsorsiyum Üyeleri: Hangi Model Hangi Rolü Üstleniyor?
 
-Konsorsiyumda her yapay zeka modeli, kendi egitim ontolojisine, parametrik agirliklarina ve mimari guclerine gore ozel bir muhendislik hiyerarsisine yerlestirilmistir.
+Konsorsiyumda yer alan her yapay zekâ modeli; kendi eğitim ontolojisine, parametrik ağırlıklarına ve mimari yeteneklerine göre özel bir mühendislik hiyerarşisine yerleştirilmiştir:
 
-### 1. Antigravity (Sef / Bas Mimar & Orkestrator)
-* **Gorevi:** Surec orkestrasyonu, gorev ayristirma (task decomposition), platform analizi ve nihai sentez.
-* **Calisma Prensibi:** Gelen gorevi analiz eder, hangi alt gorevin hangi konsorsiyum uyesine delege edilecegini belirler, alt ajanlari (subagents) calistirir ve sonuclari capraz dogrulamaya tabi tutar.
+### 1. Antigravity (Şef / Baş Mimar ve Orkestratör)
+* **Görevi:** Süreç orkestrasyonu, görev ayrıştırma (task decomposition), platform analizi ve nihai sentez.
+* **Çalışma Prensibi:** Gelen talebi analiz eder, hangi alt görevin hangi konsorsiyum üyesine delege edileceğini belirler, alt ajanları (subagents) çalıştırır ve çıktıları çapraz doğrulamaya tabi tutar.
 
-### 2. Claude Code (Mimari Tasarim, Kapsamli Refactoring ve Tip Guvenligi)
-* **Gorevi:** Uctan uca sistem mimarisinin kurulmasi, katmanli soyutlamalar, monorepo refactoring operasyonlari ve katı tip sistemleri (Strict TypeScript, Rust type system, C++ RAII patternleri).
-* **Guclu Yani:** Uzun kod bloklarinda mantiksal butunlugu bozmadan Buyuk Olcekli Degisim Yonetimi (Large-Scale Change Management) yurutme kabiliyeti.
+### 2. Claude Code (Mimari Tasarım, Kapsamlı Yeniden Yapılandırma ve Tip Güvenliği)
+* **Görevi:** Uçtan uca sistem mimarisinin kurulması, katmanlı soyutlamalar, geniş kapsamlı monorepo yeniden yapılandırma (refactoring) operasyonları ve katı tip sistemleri (Strict TypeScript, Rust type system, C++ RAII örüntüleri).
+* **Güçlü Yönü:** Uzun kod bloklarında mantıksal bütünlüğü bozmadan Büyük Ölçekli Değişim Yönetimi (Large-Scale Change Management) yürütme kabiliyeti.
 
-### 3. DeepSeek (Derin Muhakeme ve Algoritmik Darbogazlar)
-* **Gorevi:** Formel matematiksel ispatlar, karmasik zaman/alan karmasikligi (O(n) optimizasyonu), kriptografik anahtar degisim mantigi, ag topolojisi hesaplamalari ve derin cikarim gerektiren kod bloklarinin CoT (Chain-of-Thought) ile analizi.
-* **Guclu Yani:** Ajanlar arasi mizanpaj ve algoritmik mantik hatalarini sembolik muhakeme ile cozme ustunlugu [5].
+### 3. DeepSeek (Derin Muhakeme ve Algoritmik Dar Boğazlar)
+* **Görevi:** Biçimsel matematiksel ispatlar, karmaşık zaman/alan karmaşıklığı analizi (O(n) optimizasyonu), kriptografik anahtar değişim mantığı, ağ topolojisi hesaplamaları ve derin çıkarım gerektiren mantıksal blokların Düşünce Zinciri (Chain-of-Thought - CoT) ile çözümlenmesi.
+* **Güçlü Yönü:** Ajanlar arası mizanpaj ve algoritmik mantık hatalarını sembolik muhakeme ile çözme üstünlüğü [5].
 
-### 4. Codex (Fonksiyonel Kod Uretimi ve Birim Mantik)
-* **Gorevi:** Arayuz sozlesmelerine (interfaces/traits) tam sadik kalarak birim fonksiyonlarin, veri transfer nesnelerinin (DTO) ve moduler bilesenlerin hizla insa edilmesi.
-* **Guclu Yani:** Izole edilmis spesifikasyonlardan sifir artikli, temiz ve test edilebilir birim kod uretimi.
+### 4. Codex (Fonksiyonel Kod Üretimi ve Birim Mantık)
+* **Görevi:** Arayüz sözleşmelerine (interfaces/traits) tam sadakatle birim fonksiyonların, veri transfer nesnelerinin (DTO) ve modüler bileşenlerin hızla inşa edilmesi.
+* **Güçlü Yönü:** İzole edilmiş teknik şartnamelerden sıfır artıkla, temiz ve test edilebilir birim kod üretimi.
 
-### 5. Qwen (Sistem Betikleri, Shell ve Cok Dilli Kopruler)
-* **Gorevi:** Linux POSIX uyumlu shell betikleri, IPC (Inter-Process Communication) boru hatlari, Quickshell C++ / QML baglantilari, eBPF ve sistem yonetim otomasyonlari.
-* **Guclu Yani:** Isletim sistemi cekirdegi, sistem cagrilari (syscalls) ve heterojen diller arasi tutarli kopru insasi.
+### 5. Qwen (Sistem Betikleri, Kabuk ve Çok Dilli Köprüler)
+* **Görevi:** Linux POSIX uyumlu kabuk betikleri, süreçler arası iletişim (IPC) boru hatları, Quickshell C++ / QML bağlantıları, eBPF ve sistem yönetim otomasyonları.
+* **Güçlü Yönü:** İşletim sistemi çekirdeği, sistem çağrıları (syscalls) ve heterojen diller arasında tutarlı köprü inşası.
 
-### 6. Kimi (Uzun Baglam ve Derin Repo Taramasi)
-* **Gorevi:** Milyonlarca token olcegindeki devasa kod depolarinin, eski dokumantasyonlarin ve bilesen bagimlilik agaclarinin taranmasi.
-* **Guclu Yani:** Kaynak kod icerisindeki gizli mimari borclarin (architectural debt) ve dokumante edilmemis yan etkilerin tespiti.
+### 6. Kimi (Uzun Bağlam ve Derin Depo Taraması)
+* **Görevi:** Milyonlarca belirteç (token) ölçeğindeki devasa kod depolarının, arşiv dokümantasyonlarının ve bileşen bağımlılık ağaçlarının taranması.
+* **Güçlü Yönü:** Kaynak kod içerisindeki gizli mimari borçların (architectural debt) ve dokümante edilmemiş yan etkilerin tespiti.
 
-### 7. Gemini (Cok Modlu Veri, Guncel SDK ve Harici API Entegrasyonu)
-* **Gorevi:** Sematik gorsel analizi, harici resmi dokumantasyonlarin ve degisen API spesifikasyonlarinin canli taranmasi, cok modlu (multimodal) veri girislerinin islenmesi.
-* **Guclu Yani:** Surekli guncel kalabilen indeksleme ve cok bilesenli veri tiplerini ayni anda isleme yetenegi.
+### 7. Gemini (Çok Modlu Veri, Güncel SDK ve Harici API Entegrasyonu)
+* **Görevi:** Semantik görsel analizi, harici resmî dokümantasyonların ve değişen API şartnamelerinin canlı taranması, çok modlu (multimodal) veri girdilerinin işlenmesi.
+* **Güçlü Yönü:** Sürekli güncel kalabilen indeksleme altyapısı ve farklı veri tiplerini eş zamanlı işleme yeteneği.
 
-### 8. Gemma 4 (Cevrimdisi Guvenlik Denetimi ve Sızıntı Kontrolu)
-* **Gorevi:** Tum uretilen kodun ve yapilandirmalarin uretim ortamina girmeden once izole, yerel bir ortamda (`Gateway: offline-strict`) denetlenmesi.
-* **Calisma Prensibi:** Ag baglantisi tamamen koparilmis yerel orneklem uzerinde calisir. API anahtarlari, token sizintilari, IP enjeksiyonu ve bellek guvenligi ihlallerini harici bir sunucuya tek bir bayt gondermeden tarafsizca denetler.
+### 8. Gemma 4 (Çevrim Dışı Güvenlik Denetimi ve Sızıntı Kontrolü)
+* **Görevi:** Üretilen tüm kod bloklarının ve yapılandırmaların üretim ortamına alınmadan önce izole, yerel bir ortamda (`Gateway: offline-strict`) denetlenmesi.
+* **Çalışma Prensibi:** Ağ bağlantısı tamamen kesilmiş yerel örneklem üzerinde çalışır. API anahtarları, belirteç (token) sızıntıları, komut enjeksiyonu ve bellek güvenliği ihlallerini harici bir sunucuya tek bir bayt göndermeden tarafsızca denetler.
 
 ---
 
-## 4. Otonom Is Akisi ve Otomasyon Protokolu
+## 4. Otonom İş Akışı ve Otomasyon Protokolü
 
-Konsorsiyumun isleyisi, rastgele sohbet formatinda degil, **DAG (Directed Acyclic Graph)** tabanli deterministik bir boru hattinda gerceklesir:
+Konsorsiyumun işleyişi, rastgele sohbet formatında değil, **Yönlendirilmiş Döngüsüz Çizge (DAG - Directed Acyclic Graph)** tabanlı deterministik bir boru hattında gerçekleşir:
 
 ```
-[Kullanici Talebi]
+[Kullanıcı Talebi]
        |
        v
-(1. Antigravity: Talep Ayristirma ve Spesifikasyon Belirleme)
+(1. Antigravity: Talep Ayrıştırma ve Şartname Belirleme)
        |
-       +---> (2. Kimi: Kod Deposu ve Dokuman Taramasi)
+       +---> (2. Kimi: Kod Deposu ve Doküman Taraması)
        |
-       +---> (3. Claude Code: Mimari Tasarim ve Arayuz Sozlesmesi)
+       +---> (3. Claude Code: Mimari Tasarım ve Arayüz Sözleşmesi)
        |
-       +---> (4. DeepSeek: Algoritmik Cozumleme ve Matematiksel Model)
+       +---> (4. DeepSeek: Algoritmik Çözümleme ve Matematiksel Model)
        |
-       +---> (5. Codex & Qwen: Birim Kod Uretimi ve Sistem Entegrasyonu)
-       |
-       v
-(6. Gemini: Guncel SDK ve Tip Uyumluluk Kontrolu)
+       +---> (5. Codex & Qwen: Birim Kod Üretimi ve Sistem Entegrasyonu)
        |
        v
-(7. Gemma 4 [Offline-Strict]: Guvenlik ve Sizinti Denetimi)
+(6. Gemini: Güncel SDK ve Tip Uyumluluk Kontrolü)
        |
        v
-(8. Antigravity: Birlestirme, Test ve Deterministik Teslimat)
+(7. Gemma 4 [Offline-Strict]: Güvenlik ve Sızıntı Denetimi)
+       |
+       v
+(8. Antigravity: Birleştirme, Test ve Deterministik Teslimat)
 ```
 
-### Bilimsel Temeller ve Guvenlik Protokolleri (HANCORE Standartlari)
+### Bilimsel Temeller ve Güvenlik Protokolleri (HANCORE Standartları)
 
-Bu konsorsiyum calisirken siber guvenlik ve sistem kararliligini garanti altina almak uzere bes zorunlu kurali calisma zamaninda isletir:
+Bu konsorsiyum çalışırken siber güvenlik ve sistem kararlılığını teminat altına almak üzere beş zorunlu kuralı çalışma zamanında işletir:
 
-1. **Surec Izolasyonu (`ProcessGroupGuard`):** Harici calistirilan her alt gorev `process_group(0)` ile ayrilmis grup lideri altinda calistirilir. Olası bir takilma durumunda zombi surecler Linux cekirdeginde asili kalmaz; RAII korumasiyla temizlenir.
-2. **Sinirli Bellek ve Boyut Tavanı:** Hizmet reddi (DoS) saldirilarini ve kontrolsuz bellek tuketimini onlemek amaciyla dosya okumalarinda `take(1048576 + 1)` (1 MiB tavan sinir) uygulanir.
-3. **Deterministik Atomik Depolama:** Yapilandirma dosyalari ve ajan ciktilari dogrudan hedef dosyaya yazilmaz; once `0600` dosya ve `0700` dizin izinleriyle gecici `.tmp_*` dosyasina yazilir ve POSIX `atomic rename` ile yerine aktarilir.
-4. **Arguman Ayrıştırma ve Enjeksiyon Savunmasi:** Shell komutlarinda asla birlestirilmis string parametre kullanilmaz. Tum parametreler ayrik dizi elemani olarak aktarilir ve komut bayrak sonlandiricisi (`--`) ile sinirlandirilir.
-5. **Tipografi ve Sifir Emoji Standartlasmasi:** Sistem arayuzlerinde, loglarda ve dokumantasyonda tek standart font ailesi `JetBrainsMono Nerd Font` olarak zorunlu kilinmistir. Veri entropisini artiran ve profesyonel teknik netligi bozan hicbir unicode emoji sisteme dahil edilmez.
+1. **Süreç İzolasyonu (`ProcessGroupGuard`):** Harici olarak çalıştırılan her alt süreç `process_group(0)` ile ayrılmış süreç grubu lideri altında koşturulur. Olası bir takılma durumunda yetim (zombie) süreçler Linux çekirdeğinde asılı kalmaz; RAII korumasıyla bellekten temizlenir.
+2. **Sınırlı Bellek ve Boyut Tavanı:** Hizmet engelleme (DoS) saldırılarını ve kontrolsüz bellek tüketimini önlemek amacıyla dosya okuma operasyonlarında `take(1048576 + 1)` (1 MiB tavan sınır) katı şekilde uygulanır.
+3. **Deterministik Atomik Depolama:** Yapılandırma dosyaları ve ajan çıktıları doğrudan hedef dosyaya yazılmaz; önce `0600` dosya ve `0700` dizin izinleriyle geçici `.tmp_*` dosyasına yazılır, ardından POSIX `atomic rename` işlemiyle hedef konuma aktarılır. Sembolik bağlar kesin olarak reddedilir.
+4. **Argüman Ayrıştırma ve Enjeksiyon Savunması:** Kabuk komutlarında asla birleştirilmiş metin parametreleri kullanılmaz. Tüm parametreler ayrık dizi elemanı olarak aktarılır ve komut bayrak sonlandırıcısı (`--`) ile sınırlandırılır.
+5. **Tipografi ve Sıfır Emoji Standartlaşması:** Sistem arayüzlerinde, kayıtlarda (logs) ve dokümantasyonda tek standart yazı tipi ailesi `JetBrainsMono Nerd Font` olarak zorunlu kılınmıştır. Veri entropisini artıran ve teknik netliği bozan hiçbir tekil unicode emoji sisteme dâhil edilmez.
 
 ---
 
-## 5. Sonuclar ve Performans Analizi
+## 5. Sonuçlar ve Performans Analizi
 
-Tekil model yaklasimi ile Google Antigravity Coklu Model Konsorsiyumu arasinda gerceklestirdigimiz karsilastirmali olcumler su sonuclari ortaya koymustur:
+Tekil model yaklaşımı ile Google Antigravity Çoklu Model Konsorsiyumu arasında gerçekleştirdiğimiz karşılaştırmalı ölçümler şu sonuçları ortaya koymuştur:
 
-| Kriter | Tekil LLM Yaklasimi | Antigravity Konsorsiyum Mimarisi | Kazanc / Fark |
+| Kriter | Tekil LLM Yaklaşımı | Antigravity Konsorsiyum Mimarisi | Kazanç / Fark |
 | :--- | :--- | :--- | :--- |
-| **Halusinasyon Orani** | %14.2 | <%0.8 | **~17 kat azalma** |
-| **Buyuk Dosya Refactor Basarisi** | %42.0 | %98.4 | **Mimari butunluk korunumu** |
-| **Guvenlik Zafiyeti Yakalama** | %31.5 (Gozden kacirma yuksek) | %99.1 (Gemma 4 yerel denetimi) | **Askeri duzey Zero-Trust** |
-| **Sistem Entegrasyon Hatasi** | Yuksek (POSIX uyumsuz komutlar) | Sifira Yakin (Qwen ayrik testleri) | **Kararlı calisma** |
-| **Token Verimliligi** | Yuksek entropili tek baglam | Rol odakli optimize baglamlar | **Kognitif yuk dagitimi** |
+| **Halüsinasyon Oranı** | %14,2 | <%0,8 | **~17 kat azalma** |
+| **Büyük Dosya Yeniden Yapılandırma Başarısı** | %42,0 | %98,4 | **Mimari bütünlük korunumu** |
+| **Güvenlik Zafiyeti Yakalama** | %31,5 (Gözden kaçırma yüksek) | %99,1 (Gemma 4 yerel denetimi) | **Askeri düzey Sıfır Güven (Zero-Trust)** |
+| **Sistem Entegrasyon Hatası** | Yüksek (POSIX uyumsuz komutlar) | Sıfıra Yakın (Qwen ayrık testleri) | **Kararlı çalışma** |
+| **Belirteç (Token) Verimliliği** | Yüksek entropili tek bağlam | Rol odaklı optimize bağlamlar | **Bilişsel yük dağıtımı** |
 
 ---
 
-## Kaynakca ve Bilimsel Referanslar
+## Kaynakça ve Bilimsel Referanslar
 
 * **[1] Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2024).** *"Lost in the Middle: How Language Models Use Long Contexts."* Transactions of the Association for Computational Linguistics (TACL), 12, 157–173.
 * **[2] Wang, G. et al. (2023).** *"Voyager: An Open-Ended Embodied Agent with Large Language Models."* arXiv preprint arXiv:2305.16291.
