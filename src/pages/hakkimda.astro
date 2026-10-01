@@ -159,7 +159,7 @@ const competencies = [
   <div class="space-y-16 sm:space-y-24 py-8 sm:py-16">
 
     <!-- ================================================================= -->
-    <!-- BÖLÜM 1: EDİTORYAL HERO (PROFİL FOTOĞRAFSIZ, NET VE TİPOGRAFİK)   -->
+    <!-- BÖLÜM 1: EDİTORYAL HERO (PORTRE VE TİPOGRAFİK BAŞLIK)             -->
     <!-- ================================================================= -->
     <header class="relative clean-card rounded-[24px] p-6 sm:p-10 shadow-xl overflow-hidden border border-[#27272a] bg-[#121215]" aria-label="Profil ve Tanıtım">
       <div class="flex items-center justify-between pb-5 border-b border-[#27272a] font-mono text-[11px] text-[#71717a]">
@@ -174,42 +174,63 @@ const competencies = [
         </div>
       </div>
 
-      <div class="space-y-4 pt-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[#18181b] text-[#a1a1aa] border border-[#27272a]">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-          <span>HAKKIMDA & TEKNİK ÖZGEÇMİŞ</span>
+      <div class="pt-8 flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-10">
+        <!-- Portre Fotoğrafı -->
+        <div class="relative shrink-0 group">
+          <div class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-2xl overflow-hidden border border-[#3f3f46] bg-[#18181b] shadow-2xl transition-all duration-300 group-hover:border-[#71717a]">
+            <img
+              src="/images/ozan-ozdil-portrait.jpg"
+              alt="Ozan Özdil"
+              width="384"
+              height="384"
+              class="w-full h-full object-cover object-center grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-500 group-hover:scale-105"
+              loading="eager"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+          </div>
+          <div class="absolute -bottom-2.5 -right-2.5 px-2 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-[10px] font-mono text-[#a1a1aa] shadow-md hidden sm:block">
+            LEICA // MONO
+          </div>
         </div>
 
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-[#ffffff] leading-tight">
-          Ozan Özdil
-        </h1>
+        <!-- Başlık ve Künye Bilgileri -->
+        <div class="space-y-4 text-center md:text-left flex-1 min-w-0">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-[#18181b] text-[#a1a1aa] border border-[#27272a]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
+            <span>HAKKIMDA & TEKNİK ÖZGEÇMİŞ</span>
+          </div>
 
-        <p class="font-serif text-lg sm:text-xl text-[#d4d4d8] font-normal leading-relaxed">
-          Orman Mühendisi • Kastamonu Belediyesi • Açık Kaynak Sistem Mimarı
-        </p>
+          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#ffffff] leading-tight">
+            Ozan Özdil
+          </h1>
 
-        <!-- Metadata Chips -->
-        <div class="flex flex-wrap items-center gap-2 pt-2 font-mono text-xs text-[#a1a1aa]">
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
-            Kastamonu, TR
-          </span>
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
-            KTÜ Orman Fakültesi
-          </span>
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
-            Kastamonu Belediyesi (2019 — Günümüz)
-          </span>
-          <a
-            href="https://github.com/Kastamonu-Belediye-Baskanligi"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a] hover:border-[#52525b] hover:text-[#ffffff] transition-colors"
-          >
-            Kastamonu Belediyesi GitHub (A&G // BİM) ↗
-          </a>
-          <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff]">
-            Omarchy & Arch Linux
-          </span>
+          <p class="font-serif text-base sm:text-xl text-[#d4d4d8] font-normal leading-relaxed">
+            Orman Mühendisi • Kastamonu Belediyesi • Açık Kaynak Sistem Mimarı
+          </p>
+
+          <!-- Metadata Chips -->
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-2 font-mono text-xs text-[#a1a1aa]">
+            <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+              Kastamonu, TR
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+              KTÜ Orman Fakültesi
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a]">
+              Kastamonu Belediyesi (2019 — Günümüz)
+            </span>
+            <a
+              href="https://github.com/Kastamonu-Belediye-Baskanligi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1 rounded-full bg-[#18181b] border border-[#27272a] hover:border-[#52525b] hover:text-[#ffffff] transition-colors"
+            >
+              Kastamonu Belediyesi GitHub (A&G // BİM) ↗
+            </a>
+            <span class="px-3 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff]">
+              Omarchy & Arch Linux
+            </span>
+          </div>
         </div>
       </div>
     </header>
