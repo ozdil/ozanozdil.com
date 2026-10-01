@@ -14,7 +14,7 @@ legacyUrl: ""
 
 ## Karşılaştırma Matrisi ve Test Sonuçları
 
-<div class="my-8 overflow-hidden rounded-2xl border border-[#27272a] bg-[#0c0e17] not-prose shadow-2xl">
+<div class="my-8 overflow-hidden rounded-2xl border border-[#27272a] bg-[#121215] not-prose shadow-2xl">
   <img 
     src="/images/blog/flagships-2026/hero-flagships-comparison.png" 
     alt="Amiral Gemisi Mobil Cihazlar Bilimsel Kıyaslaması 2026" 
@@ -22,34 +22,34 @@ legacyUrl: ""
     loading="lazy"
   />
   <div class="p-6 font-mono">
-    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#22283e] pb-4 mb-4">
-      <span class="text-xs uppercase tracking-wider font-semibold text-[#60a5fa]">
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#27272a] pb-4 mb-4">
+      <span class="text-xs uppercase tracking-wider font-semibold text-[#38bdf8]">
         // LABORATUVAR METRİKLERİ VE ALT SİSTEM SKOR TABLOSU
       </span>
-      <span class="text-xs text-[#94a3b8]">
+      <span class="text-xs text-[#71717a]">
         Tarih: Ekim 2026 | Test Metodolojisi: Fotonik & Termodinamik
       </span>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-      <div class="bg-[#111422] p-4 rounded-xl border border-[#f97316]/30">
+      <div class="bg-[#18181b] p-4 rounded-xl border border-[#f97316]/40">
         <div class="text-[#f97316] font-bold text-sm mb-1">Xiaomi 18 Pro Max</div>
-        <div class="text-[#f8fafc] text-xl font-bold">97.1 / 100</div>
-        <div class="text-[#94a3b8] mt-2">Özgün 12 Bit DDIC, ACES IDT Log, 8500mAh Si/C, Surge P3+G2+T1</div>
+        <div class="text-[#ffffff] text-xl font-bold">97.1 / 100</div>
+        <div class="text-[#a1a1aa] mt-2">Özgün 12 Bit DDIC, ACES IDT Log, 8500mAh Si/C, Surge P3+G2+T1</div>
       </div>
-      <div class="bg-[#111422] p-4 rounded-xl border border-[#38bdf8]/30">
+      <div class="bg-[#18181b] p-4 rounded-xl border border-[#38bdf8]/40">
         <div class="text-[#38bdf8] font-bold text-sm mb-1">vivo X500 Pro Max</div>
-        <div class="text-[#f8fafc] text-xl font-bold">96.5 / 100</div>
-        <div class="text-[#94a3b8] mt-2">0.95 e- UHCG, Zeiss APO Florit, 45MB SRAM vivo V4 NPU</div>
+        <div class="text-[#ffffff] text-xl font-bold">96.5 / 100</div>
+        <div class="text-[#a1a1aa] mt-2">0.95 e- UHCG, Zeiss APO Florit, 45MB SRAM vivo V4 NPU</div>
       </div>
-      <div class="bg-[#111422] p-4 rounded-xl border border-[#a855f7]/30">
+      <div class="bg-[#18181b] p-4 rounded-xl border border-[#a855f7]/40">
         <div class="text-[#a855f7] font-bold text-sm mb-1">Apple iPhone 18 PM</div>
-        <div class="text-[#f8fafc] text-xl font-bold">94.8 / 100</div>
-        <div class="text-[#94a3b8] mt-2">TSMC 2nm GAAFET, ProRes RAW, UMA Sıfır-Kopya, &lt;7.2ms Okuma</div>
+        <div class="text-[#ffffff] text-xl font-bold">94.8 / 100</div>
+        <div class="text-[#a1a1aa] mt-2">TSMC 2nm GAAFET, ProRes RAW, UMA Sıfır-Kopya, &lt;7.2ms Okuma</div>
       </div>
-      <div class="bg-[#111422] p-4 rounded-xl border border-[#10b981]/30">
+      <div class="bg-[#18181b] p-4 rounded-xl border border-[#10b981]/40">
         <div class="text-[#10b981] font-bold text-sm mb-1">OPPO Find X10 PM</div>
-        <div class="text-[#f8fafc] text-xl font-bold">92.6 / 100</div>
-        <div class="text-[#94a3b8] mt-2">Üçlü 200MP Nyquist MTF, SUPERVOOC S %99.5 Güç Verimi</div>
+        <div class="text-[#ffffff] text-xl font-bold">92.6 / 100</div>
+        <div class="text-[#a1a1aa] mt-2">Üçlü 200MP Nyquist MTF, SUPERVOOC S %99.5 Güç Verimi</div>
       </div>
     </div>
   </div>
@@ -125,30 +125,30 @@ Görüntüleme niteliğini megapiksel sayısı değil; tam kuyu sığası (Full-
 Yarı iletken performansında tavanı belirleyen etmen, transistörün kapı geometrisi ve ısıl direnç ($R_{\text{th}}$) sınırlarıdır.
 
 <div class="my-8 rounded-2xl border border-[#27272a] bg-[#121215] p-6 not-prose font-mono text-xs shadow-xl">
-  <div class="text-[#93c5fd] font-bold text-sm mb-4 border-b border-[#27272a] pb-2">
+  <div class="text-[#38bdf8] font-bold text-sm mb-4 border-b border-[#27272a] pb-2">
     // TRANSİSTÖR TOPOLOJİLERİ VE MİKROMİMARİ KIYASLAMASI
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div class="border border-[#38bdf8]/20 bg-[#161a29] p-4 rounded-xl">
+    <div class="border border-[#27272a] bg-[#18181b] p-4 rounded-xl">
       <div class="text-[#38bdf8] font-bold text-sm mb-2">Apple A20 Pro</div>
-      <div class="text-[#94a3b8] mb-1">Litografi: TSMC N2P (2nm GAAFET)</div>
-      <div class="text-[#94a3b8] mb-1">Kapı: Dört Yönlü Nanokatman Kuşatması</div>
-      <div class="text-[#22c55e] mb-1">Kaçak Akım (I_off): Minimum Düzeyde</div>
-      <div class="text-[#94a3b8]">Bellek: 64 Bit UMA (Sıfır Kopya)</div>
+      <div class="text-[#a1a1aa] mb-1">Litografi: TSMC N2P (2nm GAAFET)</div>
+      <div class="text-[#a1a1aa] mb-1">Kapı: Dört Yönlü Nanokatman Kuşatması</div>
+      <div class="text-[#10b981] mb-1">Kaçak Akım (I_off): Minimum Düzeyde</div>
+      <div class="text-[#a1a1aa]">Bellek: 64 Bit UMA (Sıfır Kopya)</div>
     </div>
-    <div class="border border-[#f97316]/20 bg-[#161a29] p-4 rounded-xl">
+    <div class="border border-[#27272a] bg-[#18181b] p-4 rounded-xl">
       <div class="text-[#f97316] font-bold text-sm mb-2">Snapdragon 8 Elite Extreme</div>
-      <div class="text-[#94a3b8] mb-1">Litografi: TSMC N3P (3nm Nanosheet)</div>
-      <div class="text-[#94a3b8] mb-1">Çekirdek: 2 Prime (4.5 GHz) + 6 Performans</div>
-      <div class="text-[#22c55e] mb-1">Tepe Frekans: En Yüksek Saat Hızı</div>
-      <div class="text-[#94a3b8]">Kullanım: Xiaomi 18 PM ve OPPO Find X10</div>
+      <div class="text-[#a1a1aa] mb-1">Litografi: TSMC N3P (3nm Nanosheet)</div>
+      <div class="text-[#a1a1aa] mb-1">Çekirdek: 2 Prime (4.5 GHz) + 6 Performans</div>
+      <div class="text-[#10b981] mb-1">Tepe Frekans: En Yüksek Saat Hızı</div>
+      <div class="text-[#a1a1aa]">Kullanım: Xiaomi 18 PM ve OPPO Find X10</div>
     </div>
-    <div class="border border-[#10b981]/20 bg-[#161a29] p-4 rounded-xl">
+    <div class="border border-[#27272a] bg-[#18181b] p-4 rounded-xl">
       <div class="text-[#10b981] font-bold text-sm mb-2">Dimensity 9500</div>
-      <div class="text-[#94a3b8] mb-1">Litografi: TSMC N3P (Tamamı Büyük Çekirdek)</div>
-      <div class="text-[#94a3b8] mb-1">Çekirdek: 4x Cortex-X6 + 4x A730</div>
-      <div class="text-[#22c55e] mb-1">Önbellek: 16MB SLC + Geniş L3 Alanı</div>
-      <div class="text-[#94a3b8]">Kullanım: vivo X500 Pro Max</div>
+      <div class="text-[#a1a1aa] mb-1">Litografi: TSMC N3P (Tamamı Büyük Çekirdek)</div>
+      <div class="text-[#a1a1aa] mb-1">Çekirdek: 4x Cortex-X6 + 4x A730</div>
+      <div class="text-[#10b981] mb-1">Önbellek: 16MB SLC + Geniş L3 Alanı</div>
+      <div class="text-[#a1a1aa]">Kullanım: vivo X500 Pro Max</div>
     </div>
   </div>
 </div>
