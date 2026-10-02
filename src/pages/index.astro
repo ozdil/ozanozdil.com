@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import galleryData from '../data/gallery.json';
 
 // Fetch published blog posts and get the latest 4
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
@@ -8,25 +9,7 @@ const latestPosts = allPosts
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
   .slice(0, 4);
 
-// Hash tabanlı okunma sayısı algoritması (worker ile senkronize)
-function getArticleBaseViews(slug: string): number {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = ((hash << 5) - hash) + slug.charCodeAt(i);
-    hash |= 0;
-  }
-  return 220 + (Math.abs(hash) % 480);
-}
-
-// En çok okunan ilk 4 yazı
-const topPosts = [...allPosts]
-  .map(post => ({
-    ...post,
-    views: getArticleBaseViews(post.slug)
-  }))
-  .sort((a, b) => b.views - a.views)
-  .slice(0, 4);
-
+// Format date utility
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('tr-TR', {
     day: '2-digit',
@@ -34,530 +17,150 @@ const formatDate = (date: Date) => {
     year: 'numeric'
   }).format(date);
 };
+
+// Curated featured / latest projects
+const featuredProjects = [
+  {
+    name: 'kastamonu-akilli-sehir-platformu',
+    title: 'Kastamonu Akıllı Şehir & Dijital Kurum Arşivi',
+    desc: 'NATO STANAG ve DoD savunma standartlarında kurumsal siber güvenlik altyapısı. Two-Man Rule, NIST FIPS 204 kuantum sonrası kafes tabanlı şifreleme (ML-DSA), Bell-LaPadula MLS çok seviyeli gizlilik ve Merkle Tree WORM kriptografik değişmezlik zinciri.',
+    lang: 'Rust / TypeScript',
+    badge: 'DEFCON-1 Kamu Savunması',
+    tags: ['siber-savunma', 'sifir-guven', 'kuantum-kriptografi', 'merkle-tree'],
+    url: 'https://github.com/Kastamonu-Belediye-Baskanligi/kastamonu-akilli-sehir-platformu'
+  },
+  {
+    name: 'omarchy-omastudio',
+    title: 'Omarchy Linux & OmaStudio RAW Motoru',
+    desc: 'Arch Linux tabanlı düşük gecikmeli çekirdek optimizasyonları (BORE/EEVDF). 16-bit orta format (Fujifilm GFX / Hasselblad) RAW görüntüleri sıfır kilitlenmeyle işleyen kalıcı Rust daemon motoru, DaVinci 3-Way renk tekerlekleri ve Slint Wayland grafik arayüzü.',
+    lang: 'Rust / Slint / QML',
+    badge: '16-Bit RAW Fotonik',
+    tags: ['rust', 'wayland', 'medium-format', 'raw-engine'],
+    url: 'https://github.com/ozdil/omarchy-omastudio'
+  },
+  {
+    name: 'polycodex',
+    title: 'PolyCodex — Evrensel PDF Çevirici',
+    desc: 'Akademik makaleler ve teknik kitaplar için sayfa düzeni, mizanpaj, görsel ve tabloları 1:1 koruyan açık kaynaklı PDF çevirici. 5000 sayfaya kadar çoklu iş parçacığı desteği, Tz mikrotipografi ve yerel Ollama yapay zekâ motoru entegrasyonu.',
+    lang: 'Rust / QML',
+    badge: 'Mizanpaj Korumalı AI',
+    tags: ['rust', 'quickshell', 'pdf', 'ollama', 'privacy'],
+    url: 'https://github.com/ozdil/polycodex'
+  },
+  {
+    name: 'quicknews',
+    title: 'QuickNews — Saf Metin Haber Okuyucusu',
+    desc: 'Modern masaüstü için %100 reklamsız, görsellerden arındırılmış, saf metin ve tipografi odaklı minimalist haber okuyucusu. Güncel RSS/Atom XML doğrulama kalkanı ve yerel yapay zekâ destekli anlık haber özetleme motoru.',
+    lang: 'Rust / QML',
+    badge: 'Minimalist & Reklamsız',
+    tags: ['rust', 'rss', 'atom', 'adblock', 'ai-summary'],
+    url: 'https://github.com/ozdil/quicknews'
+  },
+  {
+    name: 'omarchy-omasend',
+    title: 'OmaSend & OmaSend Android',
+    desc: 'Linux masaüstü ile mobil cihazlar arasında AirDrop benzeri yerel P2P dosya aktarımı, sistem paylaşım menüsü ve Wayland pano eşitleme köprüsü. Kotlin Compose mimarisiyle Google Play Store üzerinde resmi olarak yayımlanmaktadır.',
+    lang: 'Rust / Kotlin Compose',
+    badge: 'P2P Yerel Ağ Köprüsü',
+    tags: ['p2p', 'file-transfer', 'wayland', 'android', 'google-play'],
+    url: 'https://github.com/ozdil/omarchy-omasend'
+  },
+  {
+    name: 'kastamonuinciyurt-portal',
+    title: 'Kastamonu İnci Yurt Web Platformu',
+    desc: 'Cloudflare Edge mimarisi üzerinde sıfır sunucu maliyetiyle çalışan modern kurumsal platform. Yapay zekâ tarayıcıları ve web ajanları için llms.txt bağlam haritası, interaktif simülatör ve dinamik API mimarisi.',
+    lang: 'Cloudflare Edge / TypeScript',
+    badge: 'Sunucusuz Uç Bilişim',
+    tags: ['cloudflare', 'workers-kv', 'llms-txt', 'serverless'],
+    url: 'https://www.kastamonuinciyurt.com'
+  }
+];
+
+// Curated 4 featured photo albums from galleryData
+const featuredAlbumSlugs = ['mahmutbey-camii', 'agli-kalesi', 'cide-gideros-koyu', 'ilgaz-dagi-zirvesi'];
+const featuredAlbums = featuredAlbumSlugs
+  .map(slug => galleryData.albums.find(a => a.id === slug || a.slug === slug))
+  .filter(Boolean);
 ---
 
 <BaseLayout
-  title="Sistem Mimarileri, Otonom Ajanlar & Açık Kaynak Laboratuvarı — ozanozdil.com"
-  description="Yapay zekâ kodlama konsorsiyumları, düşük gecikmeli Linux çekirdeği optimizasyonları, kuantum sonrası kamu savunması ve somut kültürel hafızanın dijital korunumu üzerine bağımsız araştırma laboratuvarı."
+  title="Sistem Mimarileri, Yazılım ve Dijital Hafıza — ozanozdil.com"
+  description="Açık kaynak sistem mimarileri, yapay zekâ destekli otonom yazılım süreçleri, kurumsal kamu altyapıları ve orta format fotonik belgeleme arşivi."
   currentPath="/"
   maxWidthClass="max-w-5xl"
 >
-  <div class="space-y-20 sm:space-y-28 py-6 sm:py-12">
+  <div class="space-y-18 sm:space-y-24 py-6 sm:py-10">
 
     <!-- ================================================================= -->
-    <!-- 1. HERO: SİSTEM MANİFESTOSU & TEKNİK VİTRİN                       -->
+    <!-- 1. HERO: SADE, VURUCU VE SAKİN GİRİŞ                              -->
     <!-- ================================================================= -->
-    <section class="space-y-8 pt-4 sm:pt-8" aria-label="Sistem Mimarileri ve Giriş">
-      <div class="flex flex-col items-start gap-5">
-        <!-- Live Status Pill -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono bg-[#18181b] text-[#a1a1aa] border border-[#27272a] shadow-xs">
+    <section class="space-y-6 pt-2 sm:pt-6" aria-label="Giriş ve Genel Bakış">
+      <div class="flex flex-col items-start gap-4">
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-[#18181b] text-[#a1a1aa] border border-[#27272a] shadow-xs">
           <span class="w-2 h-2 rounded-full bg-[#52525b] animate-pulse"></span>
-          <span class="tracking-widest">// OTONOM SİSTEMLER • ÇEKİRDEK MİMARİSİ • DİJİTAL EGEMENLİK</span>
+          <span class="tracking-widest">// SİSTEM MİMARİLERİ • YAZILIM • FOTONİK ARŞİV</span>
         </div>
 
-        <!-- Main Display Headline -->
-        <div class="space-y-4 max-w-4xl">
-          <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-[#ffffff] leading-[1.15] tracking-tight">
-            Sistem Mimarileri, Otonom Ajanlar ve Açık Kaynak Laboratuvarı
+        <!-- Headline -->
+        <div class="space-y-3 max-w-4xl">
+          <h1 class="font-serif text-4xl sm:text-6xl font-normal text-[#ffffff] leading-[1.15] tracking-tight">
+            Sistem Mimarileri, Yazılım ve Dijital Hafıza
           </h1>
-          <p class="font-serif text-lg sm:text-2xl text-[#a1a1aa] font-normal leading-relaxed text-balance">
-            Yapay zekâ kodlama konsorsiyumları, düşük gecikmeli Linux çekirdeği optimizasyonları, kuantum sonrası kamu güvenliği ve somut kültürel hafızanın yüksek çözünürlüklü dijital korunumu üzerine bağımsız araştırma ve sistem mühendisliği platformu.
+          <p class="font-serif text-lg sm:text-xl text-[#a1a1aa] font-normal leading-relaxed text-balance">
+            Açık kaynak Linux ekosistemleri, yapay zekâ destekli otonom yazılım süreçleri, kurumsal kamu bilişim altyapıları ve orta format fotonik belgeleme üzerine bağımsız araştırmalar ve üretimler.
           </p>
         </div>
 
-        <!-- Telemetry Badges -->
-        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 font-mono text-xs text-[#71717a]">
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff] font-medium">
-            Linux 6.13 BORE/EEVDF
-          </span>
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            Google AX ax.io/v1alpha1
-          </span>
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            NIST FIPS 204 ML-DSA
-          </span>
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            Cloudflare Workers KV
-          </span>
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            16-Bit RAW / GFX Fotonik
-          </span>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2 font-mono text-xs">
-          <button
-            type="button"
-            onclick="document.getElementById('ai-chat-btn')?.click()"
-            class="px-5 py-2.5 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-2 shadow-md cursor-pointer focus-visible:ring-2 focus-visible:ring-white"
-          >
-            <span>Sistem Ajanı ile Sorgula</span>
-            <span>↗</span>
-          </button>
+        <!-- Fast Links Row -->
+        <div class="flex flex-wrap items-center gap-2 pt-2 font-mono text-xs">
           <a
-            href="#mimari-vitrin"
-            class="px-5 py-2.5 rounded-full bg-[#18181b] text-[#ffffff] border border-[#27272a] hover:border-[#52525b] transition-colors"
+            href="#son-yazilar"
+            class="px-4 py-2 rounded-full bg-[#18181b] text-[#ffffff] border border-[#27272a] hover:border-[#52525b] transition-colors"
           >
-            Mimari Vitrini İncele ↓
+            Son Yazılar ({allPosts.length}) ↓
+          </a>
+          <a
+            href="#son-projeler"
+            class="px-4 py-2 rounded-full bg-[#18181b] text-[#ffffff] border border-[#27272a] hover:border-[#52525b] transition-colors"
+          >
+            Son Projeler ({featuredProjects.length}) ↓
+          </a>
+          <a
+            href="#son-galeriler"
+            class="px-4 py-2 rounded-full bg-[#18181b] text-[#ffffff] border border-[#27272a] hover:border-[#52525b] transition-colors"
+          >
+            Son Galeriler ({galleryData.totalAlbums} Albüm) ↓
           </a>
           <a
             href="/llms.txt"
             target="_blank"
-            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
+            class="px-3.5 py-2 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
           >
             <span>llms.txt</span>
-            <span>↗</span>
-          </button>
-          <a
-            href="https://github.com/ozdil"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
-          >
-            <span>GitHub</span>
             <span>↗</span>
           </a>
           <a
             href="/hakkimda"
-            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#71717a] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
+            class="px-3.5 py-2 rounded-full bg-[#18181b] text-[#71717a] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
           >
-            <span>Biyografi & Özgeçmiş</span>
+            <span>Hakkında</span>
             <span>→</span>
           </a>
         </div>
       </div>
-
-      <!-- ================================================================= -->
-      <!-- INTERACTIVE SYSTEM TERMINAL & ARCHITECTURE HUD                    -->
-      <!-- ================================================================= -->
-      <div class="relative clean-card bg-[#121215] border border-[#27272a] rounded-[24px] p-5 sm:p-7 space-y-5 font-mono text-xs overflow-hidden shadow-2xl">
-        <!-- HUD Header -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#27272a] pb-3 gap-2">
-          <div class="flex items-center gap-2">
-            <div class="flex items-center gap-1.5 mr-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></span>
-            </div>
-            <span class="text-[#71717a] text-[11px]">cluster@ozanozdil: ~/runtime/ax.io</span>
-          </div>
-          <div class="flex items-center gap-2 text-[11px] text-[#a1a1aa]">
-            <span class="w-2 h-2 rounded-full bg-[#52525b] animate-pulse"></span>
-            <span>AUTONOMOUS CLUSTER ONLINE // LATENCY: 0.14ms</span>
-          </div>
-        </div>
-
-        <!-- Interactive Module Tabs -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 pt-1 text-[11px]">
-          <button
-            type="button"
-            data-module="agents"
-            class="hud-tab active p-3 rounded-xl bg-[#18181b] border border-[#3f3f46] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
-          >
-            <div class="flex items-center justify-between text-[#ffffff] font-semibold">
-              <span>01 // AJANLAR</span>
-              <span class="text-[9px] text-[#52525b]">[ACTIVE]</span>
-            </div>
-            <div class="text-[#a1a1aa] text-[10px] mt-1">Google AX & Konsorsiyum</div>
-          </button>
-
-          <button
-            type="button"
-            data-module="kernel"
-            class="hud-tab p-3 rounded-xl bg-[#18181b] border border-[#27272a] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
-          >
-            <div class="flex items-center justify-between text-[#d4d4d8] font-semibold">
-              <span>02 // ÇEKİRDEK</span>
-              <span class="text-[9px] text-[#52525b]">[IDLE]</span>
-            </div>
-            <div class="text-[#71717a] text-[10px] mt-1">Omarchy & BORE/EEVDF</div>
-          </button>
-
-          <button
-            type="button"
-            data-module="security"
-            class="hud-tab p-3 rounded-xl bg-[#18181b] border border-[#27272a] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
-          >
-            <div class="flex items-center justify-between text-[#d4d4d8] font-semibold">
-              <span>03 // DEFCON-1</span>
-              <span class="text-[9px] text-[#52525b]">[LATTICE]</span>
-            </div>
-            <div class="text-[#71717a] text-[10px] mt-1">NIST FIPS 204 & WORM</div>
-          </button>
-
-          <button
-            type="button"
-            data-module="edge"
-            class="hud-tab p-3 rounded-xl bg-[#18181b] border border-[#27272a] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
-          >
-            <div class="flex items-center justify-between text-[#d4d4d8] font-semibold">
-              <span>04 // UÇ BİLİŞİM</span>
-              <span class="text-[9px] text-[#52525b]">[EDGE]</span>
-            </div>
-            <div class="text-[#71717a] text-[10px] mt-1">Cloudflare KV & RFC 9421</div>
-          </button>
-        </div>
-
-        <!-- Terminal Output Screen -->
-        <div id="terminal-screen" class="p-4 sm:p-5 rounded-xl bg-[#09090b] border border-[#27272a] text-[11px] leading-relaxed font-mono space-y-2 min-h-[160px] overflow-x-auto text-[#d4d4d8]">
-          <div class="text-[#71717a]">$ ax.io/v1alpha1 orchestrate --cluster=primary --protocol=3-phase</div>
-          <div class="text-[#ffffff]">&gt; Konsorsiyum çalışma zamanı başlatıldı. 13 uzman model düğümü eşlendi.</div>
-          <div class="text-[#a1a1aa]">  - Faz 1 (Çözümleme): Claude Code + Z.ai mimari analiz ve refactor topolojisi.</div>
-          <div class="text-[#a1a1aa]">  - Faz 2 (İnşa &amp; Yama): Codex + Cursor Agent deterministik AST birleştirme döngüsü.</div>
-          <div class="text-[#a1a1aa]">  - Faz 3 (Çift Kilitli Denetim): Jev Gate kabul kapısı + Gemma 4 çevrimdışı gizlilik filtresi.</div>
-          <div class="text-[#ffffff] font-semibold">&gt; DURUM: Dağıtım hatasız tamamlandı. Doğrulama: 0 lint / 0 regresyon.</div>
-        </div>
-
-        <!-- Quick Interactive CLI Commands -->
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#27272a] text-[11px]">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="text-[#71717a]">Komut Simülasyonu:</span>
-            <button
-              type="button"
-              data-cmd="ax.io --status"
-              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
-            >
-              ax.io --status
-            </button>
-            <button
-              type="button"
-              data-cmd="kernel --bench"
-              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
-            >
-              kernel --bench
-            </button>
-            <button
-              type="button"
-              data-cmd="crypto --verify"
-              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
-            >
-              crypto --verify
-            </button>
-            <button
-              type="button"
-              data-cmd="edge --purge-cache"
-              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
-            >
-              edge --purge-cache
-            </button>
-          </div>
-
-          {latestPosts.length > 0 && (
-            <a
-              href={`/blog/${latestPosts[0].slug}`}
-              class="inline-flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] transition-colors text-[11px]"
-            >
-              <span class="text-[#71717a]">Son Araştırma:</span>
-              <span class="text-[#ffffff] underline truncate max-w-[200px] sm:max-w-none">{latestPosts[0].data.title}</span>
-              <span>→</span>
-            </a>
-          )}
-        </div>
-      </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 2. CANLI TELEMETRİ VE PERFORMANS SAYACI                           -->
+    <!-- 2. BÖLÜM: SON YAZILAR & ARAŞTIRMALAR                              -->
     <!-- ================================================================= -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-4" aria-label="Sistem Metrikleri ve Telemetri">
-      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
-        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// UÇ ERİŞİLEBİLİRLİK</div>
-        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">99.98%</div>
-        <div class="font-mono text-[11px] text-[#a1a1aa]">Sıfır kesinti, global Cloudflare KV dağıtımı</div>
-      </div>
-
-      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
-        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// ÇEKİRDEK GECİKMESİ</div>
-        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">&lt; 0.12ms</div>
-        <div class="font-mono text-[11px] text-[#a1a1aa]">BORE/EEVDF düşük gecikmeli IPC zamanlaması</div>
-      </div>
-
-      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
-        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// GÜVENLİK MODELİ</div>
-        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">FIPS-204</div>
-        <div class="font-mono text-[11px] text-[#a1a1aa]">Kuantum sonrası kafes tabanlı şifreleme</div>
-      </div>
-
-      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
-        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// ARŞİV ÇÖZÜNÜRLÜĞÜ</div>
-        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">16-Bit RAW</div>
-        <div class="font-mono text-[11px] text-[#a1a1aa]">Fujifilm GFX orta format kayıpsız fotonik</div>
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- 3. ÖNE ÇIKAN SİSTEMLER VE PROJELER (BENTO SHOWCASE)               -->
-    <!-- ================================================================= -->
-    <section id="mimari-vitrin" class="space-y-10" aria-label="Öne Çıkan Mimariler ve Sistemler">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-[#27272a]">
+    <section id="son-yazilar" class="space-y-7" aria-label="Son Yazılar ve Araştırmalar">
+      <div class="flex items-center justify-between pb-3.5 border-b border-[#27272a]">
         <div>
           <div class="font-mono text-xs text-[#71717a] uppercase tracking-wider font-semibold">
-            // MİMARİ VİTRİN & LABORATUVARLAR
+            // YAYINLAR & EDİTORYAL İNCELEMELER
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#ffffff]">
-            Öne Çıkan Sistemler & Projeler
-          </h2>
-        </div>
-        <p class="font-serif text-sm sm:text-base text-[#a1a1aa] max-w-md">
-          Yüksek performanslı masaüstü ekosistemleri, yapay zekâ ajan konsorsiyumları ve kurumsal dijital altyapılar.
-        </p>
-      </div>
-
-      <!-- Bento Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-        <!-- Card 0: Kastamonu Akıllı Şehir ve Dijital Kurum Arşivi (Hero Project - 12 cols) -->
-        <div class="relative lg:col-span-12 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col lg:flex-row gap-8 justify-between shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
-          <div class="space-y-4 lg:w-1/2 flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                  <span>// Sıfır Güven & Kuantum Sonrası Kamu Savunması</span>
-                  <span class="text-[9px] text-[#52525b]">[DEFCON-1]</span>
-                </span>
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
-                  Rust + Post-Quantum + NATO STANAG
-                </span>
-              </div>
-              <h3 class="font-serif text-2xl sm:text-4xl font-normal text-[#ffffff] leading-snug">
-                Kastamonu Akıllı Şehir & Dijital Kurum Arşivi
-              </h3>
-              <p class="font-serif text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
-                NATO STANAG ve DoD siber savunma standartlarında geliştirilen kurumsal kamu altyapısı. Two-Man Rule, NIST FIPS 204 kuantum sonrası kafes tabanlı şifreleme (ML-DSA), Bell-LaPadula MLS çok seviyeli gizlilik ve WORM / Merkle Tree kriptografik değişmezlik zinciri.
-              </p>
-            </div>
-
-            <div class="flex flex-wrap items-center gap-4 pt-3 font-mono text-xs">
-              <a
-                href="https://github.com/Kastamonu-Belediye-Baskanligi/kastamonu-akilli-sehir-platformu"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-4 py-2 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-1.5"
-              >
-                <span>GitHub Kurumsal Depo</span>
-                <span>↗</span>
-              </a>
-              <a
-                href="/blog/kastamonu-akilli-sehir-ve-dijital-arsiv-platformu"
-                class="text-[#a1a1aa] hover:text-[#ffffff] font-medium transition-colors"
-              >
-                Savunma Anatomisi ve Mimari Raporu →
-              </a>
-            </div>
-          </div>
-
-          <div class="lg:w-1/2 rounded-[18px] overflow-hidden border border-[#27272a] bg-[#18181b] aspect-[16/9] flex items-center justify-center">
-            <img
-              src="/images/smart_city.webp"
-              alt="Kastamonu Akıllı Şehir Açık Veri Portalı ve Dijital Arşiv"
-              width="800"
-              height="450"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-            />
-          </div>
-        </div>
-
-        <!-- Card 1: Omarchy Linux & OmaStudio (Large - 7 cols) -->
-        <div class="relative lg:col-span-7 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                <span>// Açık Kaynak İşletim Sistemi</span>
-                <span class="text-[9px] text-[#52525b]">[01]</span>
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
-                Rust + Slint + Wayland
-              </span>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug">
-              Omarchy Linux & OmaStudio RAW Motoru
-            </h3>
-            <p class="font-serif text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
-              Arch Linux çekirdek optimizasyonları (BORE/EEVDF düşük gecikme) üzerine kurulu dağıtım mimarisi. 16-bit orta format RAW görüntüleri sıfır kilitlenmeyle işleyen Rust tabanlı kalıcı daemon motoru ve Quickshell Wayland masaüstü araç seti.
-            </p>
-          </div>
-
-          <div class="rounded-[18px] overflow-hidden border border-[#27272a] bg-[#18181b] aspect-[16/9]">
-            <img
-              src="/images/quickshell/omastudio-preview.webp"
-              alt="OmaStudio RAW Motoru Arayüzü"
-              width="800"
-              height="450"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-            />
-          </div>
-
-          <div class="flex flex-wrap items-center gap-4 pt-1 font-mono text-xs">
-            <a
-              href="https://github.com/ozdil/omarchy-omastudio"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-4 py-2 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-1.5"
-            >
-              <span>GitHub Kod Deposu</span>
-              <span>↗</span>
-            </a>
-            <a
-              href="/blog/omastudio-16-bit-orta-format-ve-rust-daemon-mimarisi"
-              class="text-[#a1a1aa] hover:text-[#ffffff] font-medium transition-colors"
-            >
-              Mimari Raporu →
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 2: Otonom Kodlama Konsorsiyumu & Google AX (Medium - 5 cols) -->
-        <div class="relative lg:col-span-5 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                <span>// Çoklu Model Konsorsiyumu</span>
-                <span class="text-[9px] text-[#52525b]">[02]</span>
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
-                Google AX Runtime
-              </span>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug">
-              Otonom Kodlama & Ajan Konsorsiyumu
-            </h3>
-            <p class="font-serif text-sm text-[#a1a1aa] leading-relaxed">
-              Google AX bildirimsel çalışma zamanı (<code class="px-1.5 py-0.5 rounded bg-[#18181b] text-[#ffffff] font-mono text-[11px] border border-[#27272a]">ax.io/v1alpha1</code>) üzerinde koşan çoklu model orkestrasyonu. Antigravity CLI, Claude Code, yerel Llama 3.1 8B ve Jev Gate tip güvenliği kabul kapısı.
-            </p>
-            <ul class="space-y-2 font-mono text-xs text-[#a1a1aa]">
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Dinamik 3-Fazlı Yürütme Protokolü (Çözümleme, İnşa, Çift Kilit)</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Gemma 4 çevrimdışı gizlilik filtresi ve sıfır sızıntı denetimi</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Deterministik AST yamalama ve çok dosyalı hatasız refactoring</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="pt-2 font-mono text-xs">
-            <a
-              href="/blog/google-antigravity-ile-coklu-model-konsorsiyumu-ve-otomasyon-mimarisi"
-              class="inline-flex items-center gap-1.5 text-[#ffffff] hover:text-[#a1a1aa] font-medium transition-colors"
-            >
-              <span>Konsorsiyum Mimarisi Raporu</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 3: Fotonik & Kadim Ahşap Arşivi (Medium - 6 cols) -->
-        <div class="relative lg:col-span-6 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                <span>// Fotonik & Kültürel Miras</span>
-                <span class="text-[9px] text-[#52525b]">[03]</span>
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
-                Fujifilm GFX Orta Format
-              </span>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug">
-              Kadim Ahşap Mimarisi Belgesel Arşivi
-            </h3>
-            <p class="font-serif text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
-              Kastamonu ve Karadeniz havzasındaki çivisiz ahşap çantı camileri, kündekari kapıları ve kaybolan somut mirasın 16-bit sıkıştırmasız RAW dinamikleriyle yüksek çözünürlüklü fotonik belgelenmesi.
-            </p>
-            <ul class="space-y-2 font-mono text-xs text-[#a1a1aa]">
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>43.8×32.9mm geniş sensör alanı ve GF optik analizleri</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Kültürel hafızanın yüksek sadakatli dijital korunumu</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="pt-2 font-mono text-xs">
-            <a
-              href="/galeri"
-              class="inline-flex items-center gap-1.5 text-[#ffffff] hover:text-[#a1a1aa] font-medium transition-colors"
-            >
-              <span>Fotoğraf Galerisini Gezin</span>
-              <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 4: Kastamonu İnci Yurt Platformu (Medium - 6 cols) -->
-        <div class="relative lg:col-span-6 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                <span>// Uç Bilişim & AI Entegrasyonu</span>
-                <span class="text-[9px] text-[#52525b]">[04]</span>
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
-                Cloudflare Edge
-              </span>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug">
-              Kastamonu İnci Yurt Web Platformu
-            </h3>
-            <p class="font-serif text-sm text-[#a1a1aa] leading-relaxed">
-              Cloudflare Edge mimarisi üzerinde sıfır sunucu maliyetiyle koşan kurumsal platform. Yapay zekâ tarayıcıları için <code class="px-1.5 py-0.5 rounded bg-[#18181b] text-[#ffffff] font-mono text-[11px] border border-[#27272a]">llms.txt</code> bağlam haritası, interaktif simülatör ve dinamik API mimarisi.
-            </p>
-            <ul class="space-y-2 font-mono text-xs text-[#a1a1aa]">
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Global uç noktalarda statik önbellekleme ve RFC 9421 bot koruması</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Yapay zekâ ve botlar için optimize edilmiş saf metin içerik dağıtımı</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-4 pt-1 font-mono text-xs">
-            <a
-              href="https://www.kastamonuinciyurt.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-4 py-2 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-1.5"
-            >
-              <span>Canlı Platformu Gez</span>
-              <span>↗</span>
-            </a>
-            <a
-              href="/blog/kastamonu-inci-yurt-web-platformu-ve-yonetim-portali-dijital-donusum"
-              class="text-[#a1a1aa] hover:text-[#ffffff] font-medium transition-colors"
-            >
-              Dönüşüm Yazısı →
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- 4. SON YAZILAR & ARAŞTIRMALAR                                    -->
-    <!-- ================================================================= -->
-    <section class="space-y-8" aria-label="Son Araştırmalar ve Makaleler">
-      <div class="flex items-center justify-between pb-4 border-b border-[#27272a]">
-        <div>
-          <div class="font-mono text-xs text-[#71717a] uppercase tracking-wider font-semibold">
-            // EDİTORYAL İNCELEMELER & ANALİZLER
-          </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#ffffff]">
+          <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff]">
             Son Yazılar & Araştırmalar
           </h2>
         </div>
@@ -595,7 +198,7 @@ const formatDate = (date: Date) => {
             </a>
 
             <div class="pt-2 font-mono text-xs text-[#d4d4d8] group-hover:text-[#ffffff] flex items-center gap-1">
-              <span>Makaleyi Oku</span>
+              <span>Makaleyi İncele</span>
               <span>→</span>
             </div>
           </article>
@@ -604,64 +207,64 @@ const formatDate = (date: Date) => {
     </section>
 
     <!-- ================================================================= -->
-    <!-- 5. EN ÇOK OKUNAN YAZILAR (İLK 4)                                  -->
+    <!-- 3. BÖLÜM: SON PROJELER & SİSTEMLER                               -->
     <!-- ================================================================= -->
-    <section class="space-y-8" aria-label="En Çok Okunan Popüler Yazılar">
-      <div class="flex items-center justify-between pb-4 border-b border-[#27272a]">
+    <section id="son-projeler" class="space-y-7" aria-label="Son Projeler ve Açık Kaynak Sistemler">
+      <div class="flex items-center justify-between pb-3.5 border-b border-[#27272a]">
         <div>
           <div class="font-mono text-xs text-[#71717a] uppercase tracking-wider font-semibold">
-            // POPÜLER ARAŞTIRMALAR & OKUYUCU TERCİHLERİ
+            // AÇIK KAYNAK & YAZILIM DEPOLARI
           </div>
-          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#ffffff]">
-            En Çok Okunan Yazılar
+          <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff]">
+            Son Projeler & Sistemler
           </h2>
         </div>
         <a
-          href="/blog"
+          href="/projeler"
           class="font-mono text-xs text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium flex items-center gap-1"
         >
-          <span>tüm arşivi gör</span>
+          <span>tüm projeleri gör</span>
           <span>→</span>
         </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {topPosts.map((post, index) => (
-          <article class="relative p-5 rounded-[22px] clean-card bg-[#121215] border border-[#27272a] hover:border-[#3f3f46] group flex flex-col justify-between space-y-4 shadow-xl overflow-hidden transition-colors">
-            <a href={`/blog/${post.slug}`} class="block space-y-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {featuredProjects.map((proj) => (
+          <article class="p-6 rounded-[22px] clean-card bg-[#121215] border border-[#27272a] hover:border-[#3f3f46] group flex flex-col justify-between space-y-4 shadow-xl transition-colors">
+            <div class="space-y-3">
               <div class="flex items-center justify-between font-mono text-[11px]">
-                <span class="px-2 py-0.5 rounded-md bg-[#18181b] text-[#ffffff] font-bold border border-[#27272a]">
-                  0{index + 1}
+                <span class="px-2 py-0.5 rounded-full bg-[#18181b] text-[#ffffff] font-medium border border-[#27272a]">
+                  {proj.lang}
                 </span>
-                <span class="text-[#71717a]">
-                  {post.views}+ okuma
+                <span class="text-[10px] text-[#71717a]">
+                  {proj.badge}
                 </span>
               </div>
 
-              <div class="space-y-1.5">
-                <span class="text-[10px] font-mono text-[#71717a] uppercase tracking-wider block">
-                  {post.data.tags?.[0] || 'Sistem'}
-                </span>
-                <h3 class="font-serif text-lg font-normal text-[#ffffff] group-hover:text-[#ffffff] transition-colors leading-[1.35] line-clamp-3">
-                  {post.data.title}
-                </h3>
+              <h3 class="font-serif text-lg font-normal text-[#ffffff] leading-snug group-hover:text-[#ffffff] transition-colors">
+                {proj.title}
+              </h3>
+
+              <p class="font-serif text-xs text-[#a1a1aa] leading-relaxed line-clamp-4">
+                {proj.desc}
+              </p>
+            </div>
+
+            <div class="pt-2 border-t border-[#27272a] flex items-center justify-between font-mono text-xs">
+              <div class="flex flex-wrap gap-1 text-[10px] text-[#71717a]">
+                {proj.tags.slice(0, 2).map((t) => (
+                  <span>#{t}</span>
+                ))}
               </div>
-
-              {post.data.description && (
-                <p class="font-serif text-xs text-[#a1a1aa] line-clamp-2 leading-relaxed">
-                  {post.data.description}
-                </p>
-              )}
-            </a>
-
-            <div class="pt-2 border-t border-[#27272a]/60 font-mono text-[11px] text-[#d4d4d8] group-hover:text-[#ffffff] flex items-center justify-between">
-              <time datetime={post.data.pubDate.toISOString()} class="text-[#71717a]">
-                {formatDate(post.data.pubDate)}
-              </time>
-              <span class="flex items-center gap-1">
+              <a
+                href={proj.url}
+                target={proj.url.startsWith('http') ? '_blank' : '_self'}
+                rel="noopener noreferrer"
+                class="text-[#d4d4d8] hover:text-[#ffffff] flex items-center gap-1 font-medium"
+              >
                 <span>İncele</span>
-                <span>→</span>
-              </span>
+                <span>↗</span>
+              </a>
             </div>
           </article>
         ))}
@@ -669,170 +272,137 @@ const formatDate = (date: Date) => {
     </section>
 
     <!-- ================================================================= -->
-    <!-- 6. DERİNLEMESİNE İNCELEME & BAĞLANTILAR BAR                       -->
+    <!-- 4. BÖLÜM: SON GALERİLER & FOTONİK ARŞİV                           -->
     <!-- ================================================================= -->
-    <section class="rounded-[24px] bg-[#121215] border border-[#27272a] p-7 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl" aria-label="Derinlemesine İnceleme ve Bağlantılar">
-      <div class="space-y-2">
+    <section id="son-galeriler" class="space-y-7" aria-label="Son Fotoğraf Galerileri">
+      <div class="flex items-center justify-between pb-3.5 border-b border-[#27272a]">
+        <div>
+          <div class="font-mono text-xs text-[#71717a] uppercase tracking-wider font-semibold">
+            // ORTA FORMAT FOTONİK ARŞİV
+          </div>
+          <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff]">
+            Son Fotoğraf Galerileri
+          </h2>
+        </div>
+        <a
+          href="/galeri"
+          class="font-mono text-xs text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium flex items-center gap-1"
+        >
+          <span>tüm galeriyi gez ({galleryData.totalAlbums} albüm)</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {featuredAlbums.map((album) => (
+          <a
+            href="/galeri"
+            class="clean-card bg-[#121215] border border-[#27272a] hover:border-[#3f3f46] group rounded-[22px] overflow-hidden transition-all duration-300 flex flex-col justify-between shadow-xl block"
+          >
+            <!-- Image Area -->
+            <div class="relative aspect-[16/11] w-full overflow-hidden bg-[#18181b]">
+              <img
+                src={album.coverPhoto}
+                alt={`${album.title} serisi - Fotoğraf Arşivi`}
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="412"
+                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500 ease-out opacity-90 group-hover:opacity-100"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+
+              <!-- Badges on image -->
+              <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between font-mono text-[10px] text-[#ffffff]">
+                <span class="px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20">
+                  {album.location}
+                </span>
+                <span class="px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20">
+                  {album.photoCount} Kare
+                </span>
+              </div>
+            </div>
+
+            <!-- Details -->
+            <div class="p-4 space-y-2 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="text-[10px] font-mono text-[#71717a] uppercase tracking-wider">
+                  Fujifilm GFX • Orta Format
+                </div>
+                <h3 class="font-serif text-base font-normal text-[#ffffff] group-hover:text-[#ffffff] leading-snug mt-1">
+                  {album.title}
+                </h3>
+              </div>
+
+              <div class="pt-2 border-t border-[#27272a] flex items-center justify-between font-mono text-[11px] text-[#d4d4d8] group-hover:text-[#ffffff]">
+                <span>Albüme Git</span>
+                <span>→</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. BÖLÜM: DERİNLEMESİNE İNCELEME & ARŞİV                          -->
+    <!-- ================================================================= -->
+    <section class="rounded-[24px] bg-[#121215] border border-[#27272a] p-6 sm:p-9 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl" aria-label="Derinlemesine İnceleme ve Bağlantılar">
+      <div class="space-y-1.5">
         <span class="font-mono text-xs text-[#71717a] uppercase font-semibold block">
           // AÇIK DOKÜMANTASYON & ARŞİV
         </span>
-        <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff]">
-          Sistemi Derinlemesine İnceleyin
+        <h3 class="font-serif text-xl sm:text-2xl font-normal text-[#ffffff]">
+          Tüm Kaynaklar ve Veri Katalogları
         </h3>
-        <p class="font-serif text-sm text-[#a1a1aa] max-w-xl">
-          Tüm açık kaynak depolar, YZ modelleri için bağlam haritaları (llms.txt) ve mimari raporlar herkese açık şekilde sunulmaktadır.
+        <p class="font-serif text-xs sm:text-sm text-[#a1a1aa] max-w-xl">
+          Tüm kod depoları, YZ ajanları için biçimlendirilmiş llms.txt içerikleri ve açık veri katalogları herkese açık olarak sunulmaktadır.
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs">
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2.5 font-mono text-xs">
         <a
           href="/projeler"
-          class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
+          class="text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
         >
-          <span>Projeler</span>
-          <span>↗</span>
+          Projeler ↗
         </a>
         <a
           href="/acik-veri"
-          class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
+          class="text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
         >
-          <span>Açık Veri Portalı</span>
-          <span>↗</span>
+          Açık Veri ↗
         </a>
         <a
           href="https://github.com/ozdil"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
+          class="text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
         >
-          <span>GitHub</span>
-          <span>↗</span>
+          GitHub ↗
         </a>
         <a
           href="/llms.txt"
           target="_blank"
-          class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
+          class="text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
         >
-          <span>llms.txt</span>
-          <span>↗</span>
+          llms.txt ↗
+        </a>
+        <a
+          href="/rss.xml"
+          target="_blank"
+          class="text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
+        >
+          RSS ↗
         </a>
         <a
           href="/hakkimda"
-          class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
+          class="text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
         >
-          <span>Özgeçmiş & Kariyer</span>
-          <span>→</span>
+          Hakkında →
         </a>
       </div>
     </section>
 
   </div>
-
-  <!-- Client-side Interactive HUD Script -->
-  <script is:inline>
-    (function initHud() {
-      const screen = document.getElementById('terminal-screen');
-      if (!screen) return;
-
-      const moduleOutputs = {
-        agents: [
-          '<div class="text-[#71717a]">$ ax.io/v1alpha1 orchestrate --cluster=primary --protocol=3-phase</div>',
-          '<div class="text-[#ffffff]">&gt; Konsorsiyum çalışma zamanı başlatıldı. 13 uzman model düğümü eşlendi.</div>',
-          '<div class="text-[#a1a1aa]">  - Faz 1 (Çözümleme): Claude Code + Z.ai mimari analiz ve refactor topolojisi.</div>',
-          '<div class="text-[#a1a1aa]">  - Faz 2 (İnşa &amp; Yama): Codex + Cursor Agent deterministik AST birleştirme döngüsü.</div>',
-          '<div class="text-[#a1a1aa]">  - Faz 3 (Çift Kilitli Denetim): Jev Gate kabul kapısı + Gemma 4 çevrimdışı gizlilik filtresi.</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: Dağıtım hatasız tamamlandı. Doğrulama: 0 lint / 0 regresyon.</div>'
-        ].join(''),
-
-        kernel: [
-          '<div class="text-[#71717a]">$ omarchy-kernel --subsystem=audio-ipc --profile=low-latency</div>',
-          '<div class="text-[#ffffff]">&gt; Linux 6.13.x BORE/EEVDF çekirdek zamanlayıcısı devrede.</div>',
-          '<div class="text-[#a1a1aa]">  - PipeWire 16-bit 192kHz ses arabelleği: 64 frames (0.33ms gecikme).</div>',
-          '<div class="text-[#a1a1aa]">  - Slint Wayland grafik soketi: Donanımsal sıfır kopyalama (zero-copy buffer).</div>',
-          '<div class="text-[#a1a1aa]">  - OmaStudio Rust arka plan hizmeti (daemon): Kilitlenmesiz SIMD matrisi devrede.</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: Çekirdek IPC hazır. Ortalama görev gecikmesi: 0.11ms.</div>'
-        ].join(''),
-
-        security: [
-          '<div class="text-[#71717a]">$ security-audit --standard=STANAG-5066 --crypto=FIPS-204</div>',
-          '<div class="text-[#ffffff]">&gt; Kastamonu Kurum Arşivi siber savunma doğrulaması yapılıyor.</div>',
-          '<div class="text-[#a1a1aa]">  - Kuantum sonrası imzalama: NIST FIPS 204 ML-DSA kafes tabanlı anahtar doğrulaması [GEÇTİ].</div>',
-          '<div class="text-[#a1a1aa]">  - İki Kişi Kuralı (Two-Man Rule): Kriptografik anahtar parçalama (Shamir SSS) [AKTİF].</div>',
-          '<div class="text-[#a1a1aa]">  - Merkle Değişmezlik Ağacı: 142,890 blok WORM zinciri tahrifatsız doğrulandı [GEÇTİ].</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: DEFCON-1 kamu savunma standartları tam uyumlu.</div>'
-        ].join(''),
-
-        edge: [
-          '<div class="text-[#71717a]">$ edge-worker --verify --rfc=9421 --region=global</div>',
-          '<div class="text-[#ffffff]">&gt; Cloudflare Edge &amp; Workers KV uç ağ durumu sorgulanıyor.</div>',
-          '<div class="text-[#a1a1aa]">  - RFC 9421 HTTP Message Signatures: Ajan istek doğrulama oranı %100.</div>',
-          '<div class="text-[#a1a1aa]">  - llms.txt &amp; Açık Veri önbellek isabeti: %99.82 (ortalama uç gecikmesi 8ms).</div>',
-          '<div class="text-[#a1a1aa]">  - Sunucu maliyeti: 0 TL / ay (Tamamen sunucusuz statik &amp; edge KV mimarisi).</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: 300+ global veri merkezinde dağıtık ve canlı.</div>'
-        ].join('')
-      };
-
-      const cmdOutputs = {
-        'ax.io --status': [
-          '<div class="text-[#71717a]">$ ax.io --status</div>',
-          '<div class="text-[#ffffff]">&gt; ÇALIŞMA ZAMANI: ax.io/v1alpha1 (Google AX Bildirimsel Dağıtım)</div>',
-          '<div class="text-[#a1a1aa]">&gt; Konsorsiyum Düğümleri: Antigravity (Şef), Claude, Codex, Cursor, DeepSeek, Jev Gate.</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; Yürütme: Dinamik 3-Faz Protokolü devrede. Deterministik kabul oranı: %100.</div>'
-        ].join(''),
-
-        'kernel --bench': [
-          '<div class="text-[#71717a]">$ kernel --bench --loops=1000000</div>',
-          '<div class="text-[#ffffff]">&gt; BORE/EEVDF kıyaslama testi tamamlandı.</div>',
-          '<div class="text-[#a1a1aa]">&gt; Bağlam Değişimi: 0.082 mikrosaniye | IPC Kuyruk Gecikmesi: 0.12ms</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; Karar: Gerçek zamanlı ses/video ve otonom ajan yükleri için optimal.</div>'
-        ].join(''),
-
-        'crypto --verify': [
-          '<div class="text-[#71717a]">$ crypto --verify --algorithm=ML-DSA-87</div>',
-          '<div class="text-[#ffffff]">&gt; Kuantum Sonrası Kafes Doğrulaması (NIST FIPS 204)</div>',
-          '<div class="text-[#a1a1aa]">&gt; Değişmezlik Kanıtı: Merkle Root Hash 0x9f8c...3a1e doğrulandı.</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; Sonuç: Tahrifat tespit edilmedi. Kriptografik güven tam.</div>'
-        ].join(''),
-
-        'edge --purge-cache': [
-          '<div class="text-[#71717a]">$ edge --purge-cache --zone=ozanozdil.com</div>',
-          '<div class="text-[#ffffff]">&gt; Workers KV ve Edge önbellekleri yenilendi.</div>',
-          '<div class="text-[#a1a1aa]">&gt; Global yayılma süresi: 124ms (320 PoP noktası senkronize edildi).</div>',
-          '<div class="text-[#ffffff] font-semibold">&gt; Sistem hazır. llms.txt ve açık veri katalogları güncel.</div>'
-        ].join('')
-      };
-
-      const tabs = document.querySelectorAll('.hud-tab');
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-          const mod = tab.getAttribute('data-module');
-          if (!mod || !moduleOutputs[mod]) return;
-
-          tabs.forEach((t) => {
-            t.classList.remove('active', 'border-[#3f3f46]');
-            t.classList.add('border-[#27272a]');
-            const statusSpan = t.querySelector('span:last-child');
-            if (statusSpan) statusSpan.textContent = '[IDLE]';
-          });
-
-          tab.classList.add('active', 'border-[#3f3f46]');
-          tab.classList.remove('border-[#27272a]');
-          const currentStatus = tab.querySelector('span:last-child');
-          if (currentStatus) currentStatus.textContent = '[ACTIVE]';
-
-          screen.innerHTML = moduleOutputs[mod];
-        });
-      });
-
-      const cmdButtons = document.querySelectorAll('.hud-cmd-btn');
-      cmdButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const cmd = btn.getAttribute('data-cmd');
-          if (cmd && cmdOutputs[cmd]) {
-            screen.innerHTML = cmdOutputs[cmd];
-          }
-        });
-      });
-    })();
-  </script>
 </BaseLayout>
