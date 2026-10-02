@@ -308,17 +308,17 @@ const featuredAlbums = featuredAlbumSlugs
                 decoding="async"
                 width="600"
                 height="412"
-                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500 ease-out opacity-90 group-hover:opacity-100"
+                class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500 ease-out opacity-95 group-hover:opacity-100 pointer-events-none"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity pointer-events-none"></div>
 
               <!-- Badges on image -->
-              <div class="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between font-mono text-[10px] text-[#ffffff]">
-                <span class="px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20">
-                  {album.location}
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] z-20 pointer-events-none">
+                <span class="glass-badge-dark px-2.5 py-1 rounded-full flex items-center gap-1 shadow-md">
+                  <span>{album.location}</span>
                 </span>
-                <span class="px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20">
-                  {album.photoCount} Kare
+                <span class="glass-badge-dark px-2.5 py-1 rounded-full font-medium shadow-md">
+                  <span>{album.photoCount} Kare</span>
                 </span>
               </div>
             </div>

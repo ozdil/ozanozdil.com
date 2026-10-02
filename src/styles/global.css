@@ -141,7 +141,9 @@ html:not(.dark) [class*="text-[#71717a]"] {
   color: var(--text-subtle) !important;
 }
 
-html:not(.dark) [class*="hover:text-[#ffffff]"]:hover {
+html:not(.dark) [class*="hover:text-[#ffffff]"]:hover,
+html:not(.dark) .group:hover [class*="group-hover:text-[#ffffff]"],
+html:not(.dark) [class*="group-hover:text-[#ffffff]"]:hover {
   color: var(--text-title) !important;
 }
 
@@ -180,9 +182,11 @@ html:not(.dark) #photoModal #photoModalImg {
 /* Galeri ve kart görselleri üzerindeki yarı saydam koyu rozetler (hem koyu hem açık temada daima okunabilir kalmalı) */
 .glass-badge-dark,
 html:not(.dark) .glass-badge-dark {
-  background-color: rgba(9, 9, 11, 0.75) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(9, 9, 11, 0.82) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
   color: #ffffff !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
 .glass-badge-dark *,
