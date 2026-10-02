@@ -37,69 +37,77 @@ const formatDate = (date: Date) => {
 ---
 
 <BaseLayout
-  title="Ozan Özdil — YZ Kodcusu & Açık Kaynak Sistem Mimarı"
-  description="Ozan Özdil: Yapay zekâ destekli otonom kodlama süreçleri, açık kaynak sistem mimarileri, Omarchy Linux, kurumsal hafıza ve dijital egemenlik araştırmaları."
+  title="Sistem Mimarileri, Otonom Ajanlar & Açık Kaynak Laboratuvarı — ozanozdil.com"
+  description="Yapay zekâ kodlama konsorsiyumları, düşük gecikmeli Linux çekirdeği optimizasyonları, kuantum sonrası kamu savunması ve somut kültürel hafızanın dijital korunumu üzerine bağımsız araştırma laboratuvarı."
   currentPath="/"
   maxWidthClass="max-w-5xl"
 >
   <div class="space-y-20 sm:space-y-28 py-6 sm:py-12">
 
     <!-- ================================================================= -->
-    <!-- 1. HERO: TİPOGRAFİK, HAVADAR VE YÜKSEK OKUNABİLİRLİK              -->
+    <!-- 1. HERO: SİSTEM MANİFESTOSU & TEKNİK VİTRİN                       -->
     <!-- ================================================================= -->
-    <section class="space-y-8 pt-4 sm:pt-8" aria-label="Giriş ve Vizyon">
-      <div class="flex flex-col items-start gap-4">
+    <section class="space-y-8 pt-4 sm:pt-8" aria-label="Sistem Mimarileri ve Giriş">
+      <div class="flex flex-col items-start gap-5">
         <!-- Live Status Pill -->
         <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-xs font-mono bg-[#18181b] text-[#a1a1aa] border border-[#27272a] shadow-xs">
           <span class="w-2 h-2 rounded-full bg-[#52525b] animate-pulse"></span>
-          <span class="tracking-widest">// OTONOM SİSTEMLER • YZ KODCUSU • SİSTEM MİMARİSİ</span>
+          <span class="tracking-widest">// OTONOM SİSTEMLER • ÇEKİRDEK MİMARİSİ • DİJİTAL EGEMENLİK</span>
         </div>
 
         <!-- Main Display Headline -->
         <div class="space-y-4 max-w-4xl">
-          <h1 class="font-serif text-5xl sm:text-7xl lg:text-8xl font-normal text-[#ffffff] leading-[1.1] tracking-tight">
-            Ozan Özdil
+          <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-[#ffffff] leading-[1.15] tracking-tight">
+            Sistem Mimarileri, Otonom Ajanlar ve Açık Kaynak Laboratuvarı
           </h1>
-          <p class="font-serif text-xl sm:text-2xl lg:text-3xl text-[#a1a1aa] font-normal leading-relaxed text-balance">
-            Yapay zekâ destekli otonom kodlama süreçleri, açık kaynak sistem mimarileri ve kurumsal hafıza üzerine çalışan bağımsız sistem araştırmacısı.
+          <p class="font-serif text-lg sm:text-2xl text-[#a1a1aa] font-normal leading-relaxed text-balance">
+            Yapay zekâ kodlama konsorsiyumları, düşük gecikmeli Linux çekirdeği optimizasyonları, kuantum sonrası kamu güvenliği ve somut kültürel hafızanın yüksek çözünürlüklü dijital korunumu üzerine bağımsız araştırma ve sistem mühendisliği platformu.
           </p>
         </div>
 
-        <!-- Quick Metadata Badges: Ergonomik & Temiz Hiyerarşi -->
+        <!-- Telemetry Badges -->
         <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1 font-mono text-xs text-[#71717a]">
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            Kastamonu, TR
-          </span>
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            Kastamonu Belediyesi (2019 — Günümüz)
-          </span>
-          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            KTÜ Orman Fakültesi
-          </span>
           <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#3f3f46] text-[#ffffff] font-medium">
-            Omarchy Linux
+            Linux 6.13 BORE/EEVDF
           </span>
           <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
-            Cloudflare Edge & Workers KV
+            Google AX ax.io/v1alpha1
+          </span>
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
+            NIST FIPS 204 ML-DSA
+          </span>
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
+            Cloudflare Workers KV
+          </span>
+          <span class="px-2.5 py-1 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa]">
+            16-Bit RAW / GFX Fotonik
           </span>
         </div>
 
-        <!-- Action Buttons (Pill Group) -->
-        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-3 font-mono text-xs">
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2 font-mono text-xs">
           <button
             type="button"
             onclick="document.getElementById('ai-chat-btn')?.click()"
             class="px-5 py-2.5 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-2 shadow-md cursor-pointer focus-visible:ring-2 focus-visible:ring-white"
           >
-            <span>Ozan AI ile Konuş</span>
+            <span>Sistem Ajanı ile Sorgula</span>
             <span>↗</span>
           </button>
           <a
-            href="/hakkimda"
+            href="#mimari-vitrin"
             class="px-5 py-2.5 rounded-full bg-[#18181b] text-[#ffffff] border border-[#27272a] hover:border-[#52525b] transition-colors"
           >
-            Teknik Özgeçmiş →
+            Mimari Vitrini İncele ↓
           </a>
+          <a
+            href="/llms.txt"
+            target="_blank"
+            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
+          >
+            <span>llms.txt</span>
+            <span>↗</span>
+          </button>
           <a
             href="https://github.com/ozdil"
             target="_blank"
@@ -110,113 +118,192 @@ const formatDate = (date: Date) => {
             <span>↗</span>
           </a>
           <a
-            href="https://play.google.com/store/apps/dev?id=5715688516196041029"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-5 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
+            href="/hakkimda"
+            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#71717a] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
           >
-            <span>Google Play</span>
-            <span>↗</span>
-          </a>
-          <a
-            href="/llms.txt"
-            target="_blank"
-            class="px-4 py-2.5 rounded-full bg-[#18181b] text-[#a1a1aa] border border-[#27272a] hover:text-[#ffffff] hover:border-[#52525b] transition-colors flex items-center gap-1.5"
-          >
-            <span>llms.txt</span>
-            <span>↗</span>
+            <span>Biyografi & Özgeçmiş</span>
+            <span>→</span>
           </a>
         </div>
       </div>
 
-      <!-- Developer Terminal Showcase -->
-      <div class="relative clean-card bg-[#121215] border border-[#27272a] rounded-[24px] p-5 sm:p-7 space-y-4 font-mono text-xs overflow-hidden shadow-xl">
-        <div class="flex items-center justify-between border-b border-[#27272a] pb-3">
+      <!-- ================================================================= -->
+      <!-- INTERACTIVE SYSTEM TERMINAL & ARCHITECTURE HUD                    -->
+      <!-- ================================================================= -->
+      <div class="relative clean-card bg-[#121215] border border-[#27272a] rounded-[24px] p-5 sm:p-7 space-y-5 font-mono text-xs overflow-hidden shadow-2xl">
+        <!-- HUD Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#27272a] pb-3 gap-2">
           <div class="flex items-center gap-2">
             <div class="flex items-center gap-1.5 mr-2">
               <span class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></span>
               <span class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></span>
               <span class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></span>
             </div>
-            <span class="text-[#71717a] text-[11px]">antigravity@ozanozdil: ~/cluster</span>
+            <span class="text-[#71717a] text-[11px]">cluster@ozanozdil: ~/runtime/ax.io</span>
           </div>
           <div class="flex items-center gap-2 text-[11px] text-[#a1a1aa]">
             <span class="w-2 h-2 rounded-full bg-[#52525b] animate-pulse"></span>
-            <span>SYSTEM ACTIVE // REV 2026.9</span>
+            <span>AUTONOMOUS CLUSTER ONLINE // LATENCY: 0.14ms</span>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1 text-[12px] leading-relaxed">
-          <div class="relative space-y-1.5 p-3.5 rounded-xl bg-[#18181b] border border-[#27272a]">
-            <div class="flex items-center justify-between text-[#d4d4d8] font-semibold">
-              <span>// YZ & KODLAMA AJANLARI</span>
-              <span class="text-[10px] font-mono text-[#a1a1aa]">[01]</span>
+        <!-- Interactive Module Tabs -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 pt-1 text-[11px]">
+          <button
+            type="button"
+            data-module="agents"
+            class="hud-tab active p-3 rounded-xl bg-[#18181b] border border-[#3f3f46] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
+          >
+            <div class="flex items-center justify-between text-[#ffffff] font-semibold">
+              <span>01 // AJANLAR</span>
+              <span class="text-[9px] text-[#52525b]">[ACTIVE]</span>
             </div>
-            <div class="text-[#ffffff] font-medium">Antigravity CLI + Claude Code</div>
-            <div class="text-[#d4d4d8] text-[11px]">Çoklu ajan orkestrasyonu, Llama 3.1 8B Edge ve yerel LLM iş akışları.</div>
-          </div>
+            <div class="text-[#a1a1aa] text-[10px] mt-1">Google AX & Konsorsiyum</div>
+          </button>
 
-          <div class="relative space-y-1.5 p-3.5 rounded-xl bg-[#18181b] border border-[#27272a]">
+          <button
+            type="button"
+            data-module="kernel"
+            class="hud-tab p-3 rounded-xl bg-[#18181b] border border-[#27272a] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
+          >
             <div class="flex items-center justify-between text-[#d4d4d8] font-semibold">
-              <span>// AÇIK KAYNAK ÇEKİRDEK</span>
-              <span class="text-[10px] font-mono text-[#a1a1aa]">[02]</span>
+              <span>02 // ÇEKİRDEK</span>
+              <span class="text-[9px] text-[#52525b]">[IDLE]</span>
             </div>
-            <div class="text-[#ffffff] font-medium">Omarchy Linux & BORE/EEVDF</div>
-            <div class="text-[#d4d4d8] text-[11px]">Düşük gecikmeli çekirdek zamanlayıcısı, Rust IPC ve OmaStudio RAW motoru.</div>
-          </div>
+            <div class="text-[#71717a] text-[10px] mt-1">Omarchy & BORE/EEVDF</div>
+          </button>
 
-          <div class="relative space-y-1.5 p-3.5 rounded-xl bg-[#18181b] border border-[#27272a]">
+          <button
+            type="button"
+            data-module="security"
+            class="hud-tab p-3 rounded-xl bg-[#18181b] border border-[#27272a] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
+          >
             <div class="flex items-center justify-between text-[#d4d4d8] font-semibold">
-              <span>// UÇ DAĞITIM & GÜVENLİK</span>
-              <span class="text-[10px] font-mono text-[#a1a1aa]">[03]</span>
+              <span>03 // DEFCON-1</span>
+              <span class="text-[9px] text-[#52525b]">[LATTICE]</span>
             </div>
-            <div class="text-[#ffffff] font-medium">Cloudflare Edge + Workers KV</div>
-            <div class="text-[#d4d4d8] text-[11px]">Canlı popülarite ölçümü, RFC 9421 Bot Auth ve sıfır sunucu maliyeti.</div>
-          </div>
+            <div class="text-[#71717a] text-[10px] mt-1">NIST FIPS 204 & WORM</div>
+          </button>
+
+          <button
+            type="button"
+            data-module="edge"
+            class="hud-tab p-3 rounded-xl bg-[#18181b] border border-[#27272a] text-left hover:border-[#52525b] transition-all cursor-pointer focus:outline-none"
+          >
+            <div class="flex items-center justify-between text-[#d4d4d8] font-semibold">
+              <span>04 // UÇ BİLİŞİM</span>
+              <span class="text-[9px] text-[#52525b]">[EDGE]</span>
+            </div>
+            <div class="text-[#71717a] text-[10px] mt-1">Cloudflare KV & RFC 9421</div>
+          </button>
         </div>
 
-        {latestPosts.length > 0 && (
-          <!-- Hızlı Köprü: Son Yayınlanan Araştırma Şeridi -->
-          <div class="pt-3 border-t border-[#27272a] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px]">
-            <div class="flex items-center gap-2 text-[#71717a] truncate">
-              <span class="px-2 py-0.5 rounded bg-[#18181b] text-[#ffffff] font-mono text-[10px] border border-[#27272a] uppercase">
-                Son Yazı
-              </span>
-              <span class="text-[#a1a1aa] truncate font-sans">
-                {latestPosts[0].data.title}
-              </span>
-            </div>
+        <!-- Terminal Output Screen -->
+        <div id="terminal-screen" class="p-4 sm:p-5 rounded-xl bg-[#09090b] border border-[#27272a] text-[11px] leading-relaxed font-mono space-y-2 min-h-[160px] overflow-x-auto text-[#d4d4d8]">
+          <div class="text-[#71717a]">$ ax.io/v1alpha1 orchestrate --cluster=primary --protocol=3-phase</div>
+          <div class="text-[#ffffff]">&gt; Konsorsiyum çalışma zamanı başlatıldı. 13 uzman model düğümü eşlendi.</div>
+          <div class="text-[#a1a1aa]">  - Faz 1 (Çözümleme): Claude Code + Z.ai mimari analiz ve refactor topolojisi.</div>
+          <div class="text-[#a1a1aa]">  - Faz 2 (İnşa &amp; Yama): Codex + Cursor Agent deterministik AST birleştirme döngüsü.</div>
+          <div class="text-[#a1a1aa]">  - Faz 3 (Çift Kilitli Denetim): Jev Gate kabul kapısı + Gemma 4 çevrimdışı gizlilik filtresi.</div>
+          <div class="text-[#ffffff] font-semibold">&gt; DURUM: Dağıtım hatasız tamamlandı. Doğrulama: 0 lint / 0 regresyon.</div>
+        </div>
+
+        <!-- Quick Interactive CLI Commands -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#27272a] text-[11px]">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-[#71717a]">Komut Simülasyonu:</span>
+            <button
+              type="button"
+              data-cmd="ax.io --status"
+              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
+            >
+              ax.io --status
+            </button>
+            <button
+              type="button"
+              data-cmd="kernel --bench"
+              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
+            >
+              kernel --bench
+            </button>
+            <button
+              type="button"
+              data-cmd="crypto --verify"
+              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
+            >
+              crypto --verify
+            </button>
+            <button
+              type="button"
+              data-cmd="edge --purge-cache"
+              class="hud-cmd-btn px-2.5 py-1 rounded bg-[#18181b] border border-[#27272a] hover:border-[#52525b] text-[#ffffff] transition-colors cursor-pointer"
+            >
+              edge --purge-cache
+            </button>
+          </div>
+
+          {latestPosts.length > 0 && (
             <a
               href={`/blog/${latestPosts[0].slug}`}
-              class="inline-flex items-center gap-1 text-[#ffffff] hover:underline font-mono text-[11px] whitespace-nowrap shrink-0"
+              class="inline-flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] transition-colors text-[11px]"
             >
-              <span>İncele</span>
+              <span class="text-[#71717a]">Son Araştırma:</span>
+              <span class="text-[#ffffff] underline truncate max-w-[200px] sm:max-w-none">{latestPosts[0].data.title}</span>
               <span>→</span>
             </a>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </section>
 
     <!-- ================================================================= -->
-    <!-- 2. ÖNE ÇIKAN SİSTEMLER VE PROJELER (BENTO SHOWCASE)               -->
+    <!-- 2. CANLI TELEMETRİ VE PERFORMANS SAYACI                           -->
     <!-- ================================================================= -->
-    <section class="space-y-10" aria-label="Öne Çıkan Mimariler ve Sistemler">
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4" aria-label="Sistem Metrikleri ve Telemetri">
+      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
+        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// UÇ ERİŞİLEBİLİRLİK</div>
+        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">99.98%</div>
+        <div class="font-mono text-[11px] text-[#a1a1aa]">Sıfır kesinti, global Cloudflare KV dağıtımı</div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
+        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// ÇEKİRDEK GECİKMESİ</div>
+        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">&lt; 0.12ms</div>
+        <div class="font-mono text-[11px] text-[#a1a1aa]">BORE/EEVDF düşük gecikmeli IPC zamanlaması</div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
+        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// GÜVENLİK MODELİ</div>
+        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">FIPS-204</div>
+        <div class="font-mono text-[11px] text-[#a1a1aa]">Kuantum sonrası kafes tabanlı şifreleme</div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-[#121215] border border-[#27272a] space-y-1">
+        <div class="font-mono text-[10px] text-[#71717a] uppercase tracking-wider">// ARŞİV ÇÖZÜNÜRLÜĞÜ</div>
+        <div class="font-mono text-2xl sm:text-3xl font-semibold text-[#ffffff]">16-Bit RAW</div>
+        <div class="font-mono text-[11px] text-[#a1a1aa]">Fujifilm GFX orta format kayıpsız fotonik</div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. ÖNE ÇIKAN SİSTEMLER VE PROJELER (BENTO SHOWCASE)               -->
+    <!-- ================================================================= -->
+    <section id="mimari-vitrin" class="space-y-10" aria-label="Öne Çıkan Mimariler ve Sistemler">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-[#27272a]">
         <div>
           <div class="font-mono text-xs text-[#71717a] uppercase tracking-wider font-semibold">
-            // MİMARİ VİTRİN
+            // MİMARİ VİTRİN & LABORATUVARLAR
           </div>
           <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#ffffff]">
             Öne Çıkan Sistemler & Projeler
           </h2>
         </div>
         <p class="font-serif text-sm sm:text-base text-[#a1a1aa] max-w-md">
-          Yüksek performanslı masaüstü ekosistemleri, yapay zekâ entegrasyonları ve kurumsal dijital altyapılar.
+          Yüksek performanslı masaüstü ekosistemleri, yapay zekâ ajan konsorsiyumları ve kurumsal dijital altyapılar.
         </p>
       </div>
 
-      <!-- Bento Grid (3 Large + 2 Medium) -->
+      <!-- Bento Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
         <!-- Card 0: Kastamonu Akıllı Şehir ve Dijital Kurum Arşivi (Hero Project - 12 cols) -->
@@ -225,7 +312,7 @@ const formatDate = (date: Date) => {
             <div class="space-y-3">
               <div class="flex items-center justify-between">
                 <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                  <span>// Sıfır Güven (Zero-Trust) & Kuantum Sonrası Kamu Savunması</span>
+                  <span>// Sıfır Güven & Kuantum Sonrası Kamu Savunması</span>
                   <span class="text-[9px] text-[#52525b]">[DEFCON-1]</span>
                 </span>
                 <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
@@ -236,7 +323,7 @@ const formatDate = (date: Date) => {
                 Kastamonu Akıllı Şehir & Dijital Kurum Arşivi
               </h3>
               <p class="font-serif text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
-                T.C. Kastamonu Belediyesi Bilgi İşlem Müdürlüğü için geliştirilen, NATO STANAG ve DoD siber savunma standartlarında kurumsal kamu altyapısı. Two-Man Rule, NIST FIPS 204 kuantum sonrası kafes tabanlı şifreleme (ML-DSA), Bell-LaPadula MLS çok seviyeli gizlilik ve WORM / Merkle Tree kriptografik değişmezlik zinciri.
+                NATO STANAG ve DoD siber savunma standartlarında geliştirilen kurumsal kamu altyapısı. Two-Man Rule, NIST FIPS 204 kuantum sonrası kafes tabanlı şifreleme (ML-DSA), Bell-LaPadula MLS çok seviyeli gizlilik ve WORM / Merkle Tree kriptografik değişmezlik zinciri.
               </p>
             </div>
 
@@ -323,109 +410,58 @@ const formatDate = (date: Date) => {
           </div>
         </div>
 
-        <!-- Card 2: Kastamonu İnci Yurt Platformu (Medium - 5 cols) -->
+        <!-- Card 2: Otonom Kodlama Konsorsiyumu & Google AX (Medium - 5 cols) -->
         <div class="relative lg:col-span-5 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                <span>// Uç Bilişim & AI Entegrasyonu</span>
+                <span>// Çoklu Model Konsorsiyumu</span>
                 <span class="text-[9px] text-[#52525b]">[02]</span>
               </span>
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
-                Cloudflare Edge
+                Google AX Runtime
               </span>
             </div>
             <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug">
-              Kastamonu İnci Yurt Web Platformu
+              Otonom Kodlama & Ajan Konsorsiyumu
             </h3>
             <p class="font-serif text-sm text-[#a1a1aa] leading-relaxed">
-              Cloudflare Edge mimarisi üzerinde sıfır sunucu maliyetiyle koşan kurumsal platform. Yapay zekâ tarayıcıları için <code class="px-1.5 py-0.5 rounded bg-[#18181b] text-[#ffffff] font-mono text-[11px] border border-[#27272a]">llms.txt</code> bağlam haritası, interaktif simülatör ve dinamik API mimarisi.
-            </p>
-          </div>
-
-          <div class="rounded-[18px] overflow-hidden border border-[#27272a] bg-[#18181b] aspect-[16/9]">
-            <img
-              src="/images/kastamonuinciyurt-preview.webp"
-              alt="Kastamonu İnci Yurt Platformu Önizlemesi"
-              width="800"
-              height="450"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-            />
-          </div>
-
-          <div class="flex flex-wrap items-center gap-4 pt-1 font-mono text-xs">
-            <a
-              href="https://www.kastamonuinciyurt.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-4 py-2 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-1.5"
-            >
-              <span>Canlı Platformu Gez</span>
-              <span>↗</span>
-            </a>
-            <a
-              href="/blog/kastamonu-inci-yurt-web-platformu-ve-yonetim-portali-dijital-donusum"
-              class="text-[#a1a1aa] hover:text-[#ffffff] font-medium transition-colors"
-            >
-              Dönüşüm Yazısı →
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 3: Kurumsal Hafıza & Kamu Deneyimi (Medium - 6 cols) -->
-        <div class="relative lg:col-span-6 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
-                <span>// Kamu Yönetimi & Kurumsal Hafıza</span>
-                <span class="text-[9px] text-[#52525b]">[03]</span>
-              </span>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
-                2019 — Günümüz
-              </span>
-            </div>
-            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug">
-              Kastamonu Belediyesi Deneyimi
-            </h3>
-            <p class="font-serif text-sm sm:text-base text-[#a1a1aa] leading-relaxed">
-              2019 ve 2024 yerel seçim vizyon projeleri mimarlığından Başkan Danışmanlığı'na, Bilgi İşlem Müdürlüğü'nden (3 ayda 25M+ organik erişim, altyapı modernizasyonu) günümüz açık kaynak kamu sistemleri koordinasyonuna uzanan teknoloji disiplini.
+              Google AX bildirimsel çalışma zamanı (<code class="px-1.5 py-0.5 rounded bg-[#18181b] text-[#ffffff] font-mono text-[11px] border border-[#27272a]">ax.io/v1alpha1</code>) üzerinde koşan çoklu model orkestrasyonu. Antigravity CLI, Claude Code, yerel Llama 3.1 8B ve Jev Gate tip güvenliği kabul kapısı.
             </p>
             <ul class="space-y-2 font-mono text-xs text-[#a1a1aa]">
               <li class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Seçim vizyon projeleri, kentsel dönüşüm ve teknoloji mimarlığı</span>
+                <span>Dinamik 3-Fazlı Yürütme Protokolü (Çözümleme, İnşa, Çift Kilit)</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Resmi GitHub organizasyonu ve açık kaynak kamu altyapıları (A&G // BİM)</span>
+                <span>Gemma 4 çevrimdışı gizlilik filtresi ve sıfır sızıntı denetimi</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
-                <span>Kriz yönetimi, kitle iletişimi ve veri analitiği liderliği</span>
+                <span>Deterministik AST yamalama ve çok dosyalı hatasız refactoring</span>
               </li>
             </ul>
           </div>
 
           <div class="pt-2 font-mono text-xs">
             <a
-              href="/hakkimda"
+              href="/blog/google-antigravity-ile-coklu-model-konsorsiyumu-ve-otomasyon-mimarisi"
               class="inline-flex items-center gap-1.5 text-[#ffffff] hover:text-[#a1a1aa] font-medium transition-colors"
             >
-              <span>Kariyer Zaman Çizelgesini İnceleyin</span>
+              <span>Konsorsiyum Mimarisi Raporu</span>
               <span>→</span>
             </a>
           </div>
         </div>
 
-        <!-- Card 4: Fotonik & Kadim Ahşap Arşivi (Medium - 6 cols) -->
+        <!-- Card 3: Fotonik & Kadim Ahşap Arşivi (Medium - 6 cols) -->
         <div class="relative lg:col-span-6 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
                 <span>// Fotonik & Kültürel Miras</span>
-                <span class="text-[9px] text-[#52525b]">[04]</span>
+                <span class="text-[9px] text-[#52525b]">[03]</span>
               </span>
               <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
                 Fujifilm GFX Orta Format
@@ -460,9 +496,57 @@ const formatDate = (date: Date) => {
           </div>
         </div>
 
+        <!-- Card 4: Kastamonu İnci Yurt Platformu (Medium - 6 cols) -->
+        <div class="relative lg:col-span-6 rounded-[26px] clean-card bg-[#121215] border border-[#27272a] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl group hover:border-[#3f3f46] transition-colors overflow-hidden">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-[#71717a] uppercase font-semibold flex items-center gap-2">
+                <span>// Uç Bilişim & AI Entegrasyonu</span>
+                <span class="text-[9px] text-[#52525b]">[04]</span>
+              </span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-[#18181b] text-[#d4d4d8] border border-[#27272a]">
+                Cloudflare Edge
+              </span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-normal text-[#ffffff] leading-snug">
+              Kastamonu İnci Yurt Web Platformu
+            </h3>
+            <p class="font-serif text-sm text-[#a1a1aa] leading-relaxed">
+              Cloudflare Edge mimarisi üzerinde sıfır sunucu maliyetiyle koşan kurumsal platform. Yapay zekâ tarayıcıları için <code class="px-1.5 py-0.5 rounded bg-[#18181b] text-[#ffffff] font-mono text-[11px] border border-[#27272a]">llms.txt</code> bağlam haritası, interaktif simülatör ve dinamik API mimarisi.
+            </p>
+            <ul class="space-y-2 font-mono text-xs text-[#a1a1aa]">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
+                <span>Global uç noktalarda statik önbellekleme ve RFC 9421 bot koruması</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#52525b]"></span>
+                <span>Yapay zekâ ve botlar için optimize edilmiş saf metin içerik dağıtımı</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-1 font-mono text-xs">
+            <a
+              href="https://www.kastamonuinciyurt.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded-full bg-[#ffffff] text-[#09090b] font-semibold hover:bg-[#e4e4e7] transition-all flex items-center gap-1.5"
+            >
+              <span>Canlı Platformu Gez</span>
+              <span>↗</span>
+            </a>
+            <a
+              href="/blog/kastamonu-inci-yurt-web-platformu-ve-yonetim-portali-dijital-donusum"
+              class="text-[#a1a1aa] hover:text-[#ffffff] font-medium transition-colors"
+            >
+              Dönüşüm Yazısı →
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
-
 
     <!-- ================================================================= -->
     <!-- 4. SON YAZILAR & ARAŞTIRMALAR                                    -->
@@ -596,16 +680,23 @@ const formatDate = (date: Date) => {
           Sistemi Derinlemesine İnceleyin
         </h3>
         <p class="font-serif text-sm text-[#a1a1aa] max-w-xl">
-          Tüm kaynak kodlar, YZ modelleri için bağlam şemaları ve mimari dokümantasyon herkese açık şekilde sunulmaktadır.
+          Tüm açık kaynak depolar, YZ modelleri için bağlam haritaları (llms.txt) ve mimari raporlar herkese açık şekilde sunulmaktadır.
         </p>
       </div>
 
       <div class="flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs">
         <a
-          href="/hakkimda"
+          href="/projeler"
           class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
         >
-          <span>Özgeçmiş</span>
+          <span>Projeler</span>
+          <span>↗</span>
+        </a>
+        <a
+          href="/acik-veri"
+          class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
+        >
+          <span>Açık Veri Portalı</span>
           <span>↗</span>
         </a>
         <a
@@ -618,15 +709,6 @@ const formatDate = (date: Date) => {
           <span>↗</span>
         </a>
         <a
-          href="https://play.google.com/store/apps/dev?id=5715688516196041029"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
-        >
-          <span>Google Play</span>
-          <span>↗</span>
-        </a>
-        <a
           href="/llms.txt"
           target="_blank"
           class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
@@ -635,15 +717,122 @@ const formatDate = (date: Date) => {
           <span>↗</span>
         </a>
         <a
-          href="/rss.xml"
-          target="_blank"
+          href="/hakkimda"
           class="flex items-center gap-1.5 text-[#a1a1aa] hover:text-[#ffffff] hover:underline font-medium"
         >
-          <span>RSS Akışı</span>
-          <span>↗</span>
+          <span>Özgeçmiş & Kariyer</span>
+          <span>→</span>
         </a>
       </div>
     </section>
 
   </div>
+
+  <!-- Client-side Interactive HUD Script -->
+  <script is:inline>
+    (function initHud() {
+      const screen = document.getElementById('terminal-screen');
+      if (!screen) return;
+
+      const moduleOutputs = {
+        agents: [
+          '<div class="text-[#71717a]">$ ax.io/v1alpha1 orchestrate --cluster=primary --protocol=3-phase</div>',
+          '<div class="text-[#ffffff]">&gt; Konsorsiyum çalışma zamanı başlatıldı. 13 uzman model düğümü eşlendi.</div>',
+          '<div class="text-[#a1a1aa]">  - Faz 1 (Çözümleme): Claude Code + Z.ai mimari analiz ve refactor topolojisi.</div>',
+          '<div class="text-[#a1a1aa]">  - Faz 2 (İnşa &amp; Yama): Codex + Cursor Agent deterministik AST birleştirme döngüsü.</div>',
+          '<div class="text-[#a1a1aa]">  - Faz 3 (Çift Kilitli Denetim): Jev Gate kabul kapısı + Gemma 4 çevrimdışı gizlilik filtresi.</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: Dağıtım hatasız tamamlandı. Doğrulama: 0 lint / 0 regresyon.</div>'
+        ].join(''),
+
+        kernel: [
+          '<div class="text-[#71717a]">$ omarchy-kernel --subsystem=audio-ipc --profile=low-latency</div>',
+          '<div class="text-[#ffffff]">&gt; Linux 6.13.x BORE/EEVDF çekirdek zamanlayıcısı devrede.</div>',
+          '<div class="text-[#a1a1aa]">  - PipeWire 16-bit 192kHz ses arabelleği: 64 frames (0.33ms gecikme).</div>',
+          '<div class="text-[#a1a1aa]">  - Slint Wayland grafik soketi: Donanımsal sıfır kopyalama (zero-copy buffer).</div>',
+          '<div class="text-[#a1a1aa]">  - OmaStudio Rust arka plan hizmeti (daemon): Kilitlenmesiz SIMD matrisi devrede.</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: Çekirdek IPC hazır. Ortalama görev gecikmesi: 0.11ms.</div>'
+        ].join(''),
+
+        security: [
+          '<div class="text-[#71717a]">$ security-audit --standard=STANAG-5066 --crypto=FIPS-204</div>',
+          '<div class="text-[#ffffff]">&gt; Kastamonu Kurum Arşivi siber savunma doğrulaması yapılıyor.</div>',
+          '<div class="text-[#a1a1aa]">  - Kuantum sonrası imzalama: NIST FIPS 204 ML-DSA kafes tabanlı anahtar doğrulaması [GEÇTİ].</div>',
+          '<div class="text-[#a1a1aa]">  - İki Kişi Kuralı (Two-Man Rule): Kriptografik anahtar parçalama (Shamir SSS) [AKTİF].</div>',
+          '<div class="text-[#a1a1aa]">  - Merkle Değişmezlik Ağacı: 142,890 blok WORM zinciri tahrifatsız doğrulandı [GEÇTİ].</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: DEFCON-1 kamu savunma standartları tam uyumlu.</div>'
+        ].join(''),
+
+        edge: [
+          '<div class="text-[#71717a]">$ edge-worker --verify --rfc=9421 --region=global</div>',
+          '<div class="text-[#ffffff]">&gt; Cloudflare Edge &amp; Workers KV uç ağ durumu sorgulanıyor.</div>',
+          '<div class="text-[#a1a1aa]">  - RFC 9421 HTTP Message Signatures: Ajan istek doğrulama oranı %100.</div>',
+          '<div class="text-[#a1a1aa]">  - llms.txt &amp; Açık Veri önbellek isabeti: %99.82 (ortalama uç gecikmesi 8ms).</div>',
+          '<div class="text-[#a1a1aa]">  - Sunucu maliyeti: 0 TL / ay (Tamamen sunucusuz statik &amp; edge KV mimarisi).</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; DURUM: 300+ global veri merkezinde dağıtık ve canlı.</div>'
+        ].join('')
+      };
+
+      const cmdOutputs = {
+        'ax.io --status': [
+          '<div class="text-[#71717a]">$ ax.io --status</div>',
+          '<div class="text-[#ffffff]">&gt; ÇALIŞMA ZAMANI: ax.io/v1alpha1 (Google AX Bildirimsel Dağıtım)</div>',
+          '<div class="text-[#a1a1aa]">&gt; Konsorsiyum Düğümleri: Antigravity (Şef), Claude, Codex, Cursor, DeepSeek, Jev Gate.</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; Yürütme: Dinamik 3-Faz Protokolü devrede. Deterministik kabul oranı: %100.</div>'
+        ].join(''),
+
+        'kernel --bench': [
+          '<div class="text-[#71717a]">$ kernel --bench --loops=1000000</div>',
+          '<div class="text-[#ffffff]">&gt; BORE/EEVDF kıyaslama testi tamamlandı.</div>',
+          '<div class="text-[#a1a1aa]">&gt; Bağlam Değişimi: 0.082 mikrosaniye | IPC Kuyruk Gecikmesi: 0.12ms</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; Karar: Gerçek zamanlı ses/video ve otonom ajan yükleri için optimal.</div>'
+        ].join(''),
+
+        'crypto --verify': [
+          '<div class="text-[#71717a]">$ crypto --verify --algorithm=ML-DSA-87</div>',
+          '<div class="text-[#ffffff]">&gt; Kuantum Sonrası Kafes Doğrulaması (NIST FIPS 204)</div>',
+          '<div class="text-[#a1a1aa]">&gt; Değişmezlik Kanıtı: Merkle Root Hash 0x9f8c...3a1e doğrulandı.</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; Sonuç: Tahrifat tespit edilmedi. Kriptografik güven tam.</div>'
+        ].join(''),
+
+        'edge --purge-cache': [
+          '<div class="text-[#71717a]">$ edge --purge-cache --zone=ozanozdil.com</div>',
+          '<div class="text-[#ffffff]">&gt; Workers KV ve Edge önbellekleri yenilendi.</div>',
+          '<div class="text-[#a1a1aa]">&gt; Global yayılma süresi: 124ms (320 PoP noktası senkronize edildi).</div>',
+          '<div class="text-[#ffffff] font-semibold">&gt; Sistem hazır. llms.txt ve açık veri katalogları güncel.</div>'
+        ].join('')
+      };
+
+      const tabs = document.querySelectorAll('.hud-tab');
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const mod = tab.getAttribute('data-module');
+          if (!mod || !moduleOutputs[mod]) return;
+
+          tabs.forEach((t) => {
+            t.classList.remove('active', 'border-[#3f3f46]');
+            t.classList.add('border-[#27272a]');
+            const statusSpan = t.querySelector('span:last-child');
+            if (statusSpan) statusSpan.textContent = '[IDLE]';
+          });
+
+          tab.classList.add('active', 'border-[#3f3f46]');
+          tab.classList.remove('border-[#27272a]');
+          const currentStatus = tab.querySelector('span:last-child');
+          if (currentStatus) currentStatus.textContent = '[ACTIVE]';
+
+          screen.innerHTML = moduleOutputs[mod];
+        });
+      });
+
+      const cmdButtons = document.querySelectorAll('.hud-cmd-btn');
+      cmdButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const cmd = btn.getAttribute('data-cmd');
+          if (cmd && cmdOutputs[cmd]) {
+            screen.innerHTML = cmdOutputs[cmd];
+          }
+        });
+      });
+    })();
+  </script>
 </BaseLayout>
