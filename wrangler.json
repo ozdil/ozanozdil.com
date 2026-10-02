@@ -17,7 +17,10 @@
 		"binding": "AI"
 	},
 	"observability": {
-		"enabled": true
+		"enabled": true,
+		"traces": {
+			"enabled": true
+		}
 	},
 	"kv_namespaces": [
 		{
