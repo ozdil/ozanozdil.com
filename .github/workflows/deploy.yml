@@ -39,6 +39,9 @@ jobs:
       - name: Install Node Dependencies
         run: npm ci
 
+      - name: Validate Turkish Language & Terms
+        run: python3 scripts/check-turkish-content.py
+
       - name: Build Static Site
         run: npm run build
 
