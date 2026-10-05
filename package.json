@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "python3 scripts/generate-og-images.py || true && python3 scripts/generate_image_sitemap.py && astro build",
+    "check:content": "python3 scripts/check-turkish-content.py",
+    "build": "python3 scripts/check-turkish-content.py && (python3 scripts/generate-og-images.py || true) && python3 scripts/generate_image_sitemap.py && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
