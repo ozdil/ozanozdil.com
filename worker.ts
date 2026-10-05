@@ -161,8 +161,13 @@ function checkChatRateLimit(clientIp: string): { allowed: boolean; retryAfter?: 
   return { allowed: true };
 }
 
+interface ExecutionContext {
+  waitUntil: (promise: Promise<any>) => void;
+  passThroughOnException: () => void;
+}
+
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx?: ExecutionContext): Promise<Response> {
     try {
       const url = new URL(request.url);
       const accept = request.headers.get('Accept') || '';
@@ -426,8 +431,8 @@ export default {
       const country = (request.headers.get('cf-ipcountry') || 'TR').toUpperCase().slice(0, 2);
       const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 
-      // Fire and forget counter increments (never block client response)
-      (async () => {
+      // Asynchronous counter increments with ctx.waitUntil (never block client response)
+      const telemetryTask = (async () => {
         try {
           const promises: Promise<any>[] = [];
           
@@ -477,6 +482,10 @@ export default {
           // Silent catch for telemetry persistence
         }
       })();
+
+      if (ctx && typeof ctx.waitUntil === 'function') {
+        ctx.waitUntil(telemetryTask);
+      }
     }
 
     // Live Telemetry Endpoint: GET /api/telemetry

@@ -307,10 +307,14 @@
         });
 
         const data = await response.json();
-        const answer = data.answer || 'Üzgünüm, şu anda yanıt üretemedim.';
-        chatHistory.push({ role: 'assistant', content: answer });
-
-        appendAssistantMessage(formatMarkdown(answer));
+        if (!response.ok) {
+          const errMsg = data.error || 'İstek işlenirken bir sorun oluştu.';
+          appendAssistantMessage(formatMarkdown(errMsg));
+        } else {
+          const answer = data.answer || 'Üzgünüm, şu anda yanıt üretemedim.';
+          chatHistory.push({ role: 'assistant', content: answer });
+          appendAssistantMessage(formatMarkdown(answer));
+        }
       } catch (err) {
         console.error('Chat error:', err);
         appendAssistantMessage(
