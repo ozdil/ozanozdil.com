@@ -15,12 +15,6 @@ legacyUrl: ""
 ## Karşılaştırma Matrisi ve Test Sonuçları
 
 <div class="my-8 overflow-hidden rounded-2xl border border-[#27272a] bg-[#121215] not-prose shadow-2xl">
-  <img 
-    src="/images/blog/flagships-2026/hero-flagships-comparison.png" 
-    alt="Amiral Gemisi Mobil Cihazlar Bilimsel Kıyaslaması 2026" 
-    class="w-full h-auto object-cover border-b border-[#27272a]"
-    loading="lazy"
-  />
   <div class="p-6 font-mono">
     <div class="flex flex-wrap items-center justify-between gap-4 border-b border-[#27272a] pb-4 mb-4">
       <span class="text-xs uppercase tracking-wider font-semibold text-[#38bdf8]">
@@ -61,7 +55,7 @@ legacyUrl: ""
 
 Mobil ekranlarda renk üretiminin doğruluğu; panelin yalnızca tepe ışıma gücüne (lüminesans) değil, **Panel Sürücü Tümdevresi (DDIC)** içerisindeki Sayısaldan Örneğe Çeviricilerin (DAC) bit derinliğine ve alt piksel geometrisine bağlıdır.
 
-<div class="my-8 overflow-hidden rounded-2xl border border-[#27272a] bg-[#0c0e17] not-prose shadow-2xl">
+<div class="my-8 overflow-hidden rounded-2xl border border-[#27272a] infographic-dark not-prose shadow-2xl">
   <img 
     src="/images/blog/flagships-2026/display-12bit-comparison.png" 
     alt="Ekran Fotonikleri ve 12 Bit DDIC Mimarisi" 
@@ -92,7 +86,7 @@ vivo ve OPPO modelleri, iki adet organik ışıma katmanının bir Yük Üretim 
 
 Görüntüleme niteliğini megapiksel sayısı değil; tam kuyu sığası (Full-Well Capacity), fotodiyot okuma gürültüsü tabakası ($\sigma_{\text{readout}}$) ve endüstri standardı renk uzayı dönüşüm matrisleri belirler.
 
-<div class="my-8 overflow-hidden rounded-2xl border border-[#27272a] bg-[#0c0e17] not-prose shadow-2xl">
+<div class="my-8 overflow-hidden rounded-2xl border border-[#27272a] infographic-dark not-prose shadow-2xl">
   <img 
     src="/images/blog/flagships-2026/sensor-optics-comparison.png" 
     alt="Algılayıcı ve Video Fiziği: LYTIA UHCG vs ACES vs ProRes RAW" 

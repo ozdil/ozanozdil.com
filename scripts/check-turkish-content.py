@@ -77,6 +77,12 @@ def check_file(file_path: Path):
     if re.search(r"\w\s+[,.:;!?]", text_only):
         warnings.append("Noktalama işaretlerinden önce gereksiz boşluk bırakılmış.")
 
+    # 4. Açık/Koyu Tema Uyumu Kontrolü
+    # Koyu arkaplanlı görsellerin infographic-dark/frame sınıfları olmadan doğrudan bg-[#0c0e17] vb. alması
+    unframed_dark_imgs = re.findall(r'<div[^>]*class="[^"]*bg-\[#(?:0c0e17|0d1016)\][^"]*"[^>]*>\s*<img', content)
+    if unframed_dark_imgs:
+        warnings.append("Koyu arkaplanlı görsel konteyneri tespit edildi. Açık tema uyumu için 'infographic-dark' sınıfı kullanılması önerilir.")
+
     return errors, warnings
 
 def main():

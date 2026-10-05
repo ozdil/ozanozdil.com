@@ -84,11 +84,14 @@ html:not(.dark) [class*="bg-[#09090b]"] {
   background-color: var(--canvas-bg) !important;
 }
 
+html:not(.dark) [class*="bg-[#0c0e17]"],
+html:not(.dark) [class*="bg-[#0d1016]"],
 html:not(.dark) [class*="bg-[#121215]"] {
   background-color: var(--surface-bg) !important;
 }
 
-html:not(.dark) [class*="bg-[#18181b]"] {
+html:not(.dark) [class*="bg-[#18181b]"],
+html:not(.dark) [class*="bg-[#141820]"] {
   background-color: var(--surface-subtle) !important;
 }
 
@@ -104,7 +107,8 @@ html:not(.dark) [class*="hover:bg-[#27272a]"]:hover {
   background-color: var(--surface-hover) !important;
 }
 
-html:not(.dark) [class*="border-[#27272a]"] {
+html:not(.dark) [class*="border-[#27272a]"],
+html:not(.dark) [class*="border-[#1f2430]"] {
   border-color: var(--border-color) !important;
 }
 
@@ -212,6 +216,20 @@ html:not(.dark) .markdown-body pre {
   background-color: var(--surface-subtle) !important;
   border-color: var(--border-color) !important;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Infographic dark visual frames: keep background dark and crisp with clear border */
+.markdown-body .infographic-dark,
+.markdown-body .infographic-frame {
+  background-color: #0c0e17 !important;
+  border-color: #27272a !important;
+}
+
+html:not(.dark) .markdown-body .infographic-dark,
+html:not(.dark) .markdown-body .infographic-frame {
+  background-color: #0c0e17 !important;
+  border-color: #d4d4d8 !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Timeline tracks and vertical lines in articles */

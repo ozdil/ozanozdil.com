@@ -70,3 +70,17 @@ draft: false
 
 Makale içeriği burada başlar...
 ```
+
+---
+
+## 6. Açık ve Koyu Tema Uyumu Standartları
+
+- **Evrensel Tema Desteği:** ozanozdil.com hem koyu (`dark`) hem açık (`light`) modları kusursuz destekler. Her makale ve bileşen her iki modda da temiz, ferah ve yüksek kontrastlı görünmelidir.
+- **Kural 1 - Sabit Koyu Renkler Kullanılmamalıdır:**
+  - Makale içi özel HTML kartlarında veya infografik bloklarında yalnızca koyu temayı hedefleyen sabit sınıflar (`bg-[#121215]`, `bg-[#0c0e17]`, `text-[#ffffff]`) yalın şekilde bırakılmamalıdır.
+  - Kartlar standart `.rounded-2xl` veya `.rounded-xl` sınıfları kullandığında `global.css` aracılığıyla otomatik olarak açık temada `--surface-bg` / `--surface-subtle`, koyu temada ise koyu tonları alacaktır.
+- **Kural 2 - Koyu Arka Planlı İnfografik Görselleri:**
+  - Görseli çevreleyen koyu arka planlı infografik kartları için `.infographic-dark` veya `.infographic-frame` sınıfları kullanılmalıdır. Bu sınıflar hem koyu modda kusursuz bütünlük sağlar hem de açık modda etrafına yumuşak açık gri bir çerçeve (`#d4d4d8`) ve hafif gölge ekleyerek görselin beyaz sayfada zarafetle durmasını sağlar.
+- **Kural 3 - Başlık Görseli Tekrarı Yapılmamalıdır:**
+  - `heroImage` ön bilgisi zaten sayfa üstünde çerçeveli olarak sunulduğundan, makale metninin hemen başında aynı görsel tekrar eklenmemelidir.
+
