@@ -1,0 +1,188 @@
+---
+import fosswireLatestFallback from '../data/fosswire_latest.json';
+
+interface NewsItem {
+  title: string;
+  url: string;
+  category?: string;
+  source?: string;
+  published_at?: string;
+}
+
+const fallbackNews: NewsItem[] = (fosswireLatestFallback as NewsItem[]).slice(0, 30);
+---
+
+<div
+  id="fosswire-ticker-bar"
+  class="relative w-full overflow-hidden select-none font-mono text-xs z-40 bg-[#0c0d12]/95 backdrop-blur-md border-b border-[#27272a] shadow-lg transition-colors"
+  aria-label="FOSSWire Canlı Haber Akışı"
+>
+  <!-- Üst ve Alt İnce Siber / Yanar Döner Işıltı Çizgisi -->
+  <div class="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-emerald-500 via-cyan-400 via-indigo-500 via-fuchsia-500 to-emerald-500 animate-shimmer bg-[length:200%_100%] opacity-90"></div>
+
+  <div class="max-w-7xl mx-auto px-2 sm:px-4 flex items-stretch h-10">
+    <!-- Sabit Sol Başlık Rozeti: Yanar Döner Neon Gradient & Cam Efekti -->
+    <a
+      href="https://fosswire.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="relative flex items-center gap-2.5 px-3.5 py-1 my-1 rounded-md bg-gradient-to-r from-[#18181b] via-[#1c1d24] to-[#18181b] hover:from-[#22232a] hover:to-[#22232a] text-[#ffffff] border border-[#3f3f46]/80 hover:border-emerald-500/60 shadow-sm transition-all flex-shrink-0 z-20 group overflow-hidden"
+      title="FOSSWire.org — Açık Kaynak ve Açık Donanım Haberleri"
+    >
+      <!-- Rozet İçi Canlı Işıltı Arka Planı -->
+      <span class="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-cyan-500/15 to-purple-500/10 opacity-75 group-hover:opacity-100 transition-opacity pointer-events-none"></span>
+
+      <!-- Canlı Nabız Göstergesi (Çift Halka) -->
+      <span class="relative flex h-2.5 w-2.5 items-center justify-center">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+      </span>
+
+      <!-- Başlık Metni: Canlı Degrade Geçişi -->
+      <span class="relative font-bold tracking-wider text-[11px] uppercase bg-gradient-to-r from-emerald-300 via-cyan-200 to-indigo-300 bg-clip-text text-transparent group-hover:from-emerald-200 group-hover:to-cyan-100 transition-all drop-shadow-sm whitespace-nowrap">
+        FOSSWire'dan Son Haberler
+      </span>
+
+      <!-- Canlı Nabız Rozet Kenar Göstergesi -->
+      <span class="hidden md:inline-block text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 uppercase font-semibold">
+        CANLI
+      </span>
+    </a>
+
+    <!-- Kayan Haber Alanı (Viewport) -->
+    <div
+      class="relative flex-1 overflow-hidden flex items-center group/ticker pl-2 sm:pl-3"
+      id="ticker-viewport"
+    >
+      <!-- Sol ve Sağ Derinlik / Maske Geçişleri -->
+      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0c0d12] to-transparent z-10"></div>
+      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0c0d12] to-transparent z-10"></div>
+
+      <!-- Kayan Şerit (Kesintisiz Marquee Döngüsü) -->
+      <div
+        id="ticker-track"
+        class="flex items-center whitespace-nowrap will-change-transform animate-ticker group-hover/ticker:pause-animation"
+      >
+        <!-- SSR Başlangıç Şeridi 1 -->
+        <div class="flex items-center space-x-6 pr-6 ticker-chunk" id="ticker-chunk-1">
+          {fallbackNews.map((item) => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2.5 text-[#d4d4d8] hover:text-[#ffffff] transition-all text-xs py-1 group/item"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 group-hover/item:bg-emerald-400 group-hover/item:scale-125 transition-all shadow-[0_0_6px_rgba(16,185,129,0.4)]"></span>
+              {item.source && (
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#18181b] text-[#a1a1aa] border border-[#27272a] group-hover/item:border-cyan-500/40 group-hover/item:text-cyan-300 transition-colors">
+                  {item.source}
+                </span>
+              )}
+              <span class="group-hover/item:text-cyan-200 group-hover/item:underline underline-offset-2 transition-colors font-medium">
+                {item.title}
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <!-- SSR Başlangıç Şeridi 2 (Sonsuz Kesintisiz Döngü) -->
+        <div class="flex items-center space-x-6 pr-6 ticker-chunk" id="ticker-chunk-2" aria-hidden="true">
+          {fallbackNews.map((item) => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabindex="-1"
+              class="inline-flex items-center gap-2.5 text-[#d4d4d8] hover:text-[#ffffff] transition-all text-xs py-1 group/item"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 group-hover/item:bg-emerald-400 group-hover/item:scale-125 transition-all shadow-[0_0_6px_rgba(16,185,129,0.4)]"></span>
+              {item.source && (
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#18181b] text-[#a1a1aa] border border-[#27272a] group-hover/item:border-cyan-500/40 group-hover/item:text-cyan-300 transition-colors">
+                  {item.source}
+                </span>
+              )}
+              <span class="group-hover/item:text-cyan-200 group-hover/item:underline underline-offset-2 transition-colors font-medium">
+                {item.title}
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-ticker {
+    display: inline-flex;
+    animation: ticker 90s linear infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 6s ease infinite;
+  }
+
+  .pause-animation {
+    animation-play-state: paused !important;
+  }
+</style>
+
+<script is:inline>
+  (function initFosswireTicker() {
+    async function refreshNews() {
+      try {
+        var res = await fetch('https://fosswire.org/api/v1/news.json', { cache: 'no-cache' });
+        if (!res.ok) return;
+        var data = await res.json();
+        var articles = (data.articles || []).slice(0, 30);
+        if (!articles.length) return;
+
+        function buildHtml(list, isAriaHidden) {
+          return list.map(function(item) {
+            var title = item.title_tr || item.title;
+            var url = item.canonical_url || ('https://fosswire.org/news/' + item.slug + '.html');
+            var src = item.source ? '<span class="text-[10px] px-1.5 py-0.5 rounded bg-[#18181b] text-[#a1a1aa] border border-[#27272a] group-hover/item:border-cyan-500/40 group-hover/item:text-cyan-300 transition-colors">' + item.source + '</span>' : '';
+            var tabAttr = isAriaHidden ? ' tabindex="-1"' : '';
+            return '<a href="' + url + '" target="_blank" rel="noopener noreferrer"' + tabAttr + ' class="inline-flex items-center gap-2.5 text-[#d4d4d8] hover:text-[#ffffff] transition-all text-xs py-1 group/item"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 group-hover/item:bg-emerald-400 group-hover/item:scale-125 transition-all shadow-[0_0_6px_rgba(16,185,129,0.4)]"></span>' + src + '<span class="group-hover/item:text-cyan-200 group-hover/item:underline underline-offset-2 transition-colors font-medium">' + title + '</span></a>';
+          }).join('');
+        }
+
+        var chunk1 = document.getElementById('ticker-chunk-1');
+        var chunk2 = document.getElementById('ticker-chunk-2');
+        if (chunk1 && chunk2) {
+          chunk1.innerHTML = buildHtml(articles, false);
+          chunk2.innerHTML = buildHtml(articles, true);
+        }
+      } catch (err) {
+        // Fallback SSR verisi kullanılmaya devam eder
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      refreshNews();
+    } else {
+      window.addEventListener('load', refreshNews);
+    }
+  })();
+</script>

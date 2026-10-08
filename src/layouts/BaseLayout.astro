@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import AiChatModal from '../components/AiChatModal.astro';
+import FosswireTicker from '../components/FosswireTicker.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
   description?: string;
   image?: string;
   currentPath?: string;
+  showTicker?: boolean;
   type?: 'website' | 'article';
   article?: {
     pubDate?: Date;
@@ -24,6 +26,7 @@ const {
   image = '/og-image.png',
   type = 'website',
   article,
+  showTicker = false,
   maxWidthClass = 'max-w-4xl',
 } = Astro.props;
 
@@ -388,6 +391,7 @@ const jsonLd = {
   </head>
   <body class="min-h-screen flex flex-col bg-[#09090b] text-[#f4f4f5] selection:bg-[#3f3f46] selection:text-[#ffffff] font-sans antialiased transition-colors duration-200 relative overflow-x-clip">
     <Header currentPath={currentPath} />
+    {(showTicker || currentPath === '/') && <FosswireTicker />}
 
     <main class={`flex-grow w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10 ${maxWidthClass}`}>
       <slot />

@@ -44,12 +44,14 @@ OZAN ÖZDİL KİMDİR VE KARİYER BİLGİ BANKASI:
   * 2024 - Günümüz: Açık Kaynak Sistem Koordinasyonu ve Kurumsal Bilişim Altyapısı. Resmi GitHub organizasyonu (Kastamonu-Belediye-Baskanligi), Araştırma ve Geliştirme (A&G) ile Bilgi İşlem (BİM) açık kaynak ve akıllı şehir projelerini koordine etmektedir.
 
 AÇIK KAYNAK PROJELER VE SİSTEMLER:
-1. OmaStudio RAW Motoru: Rust ve Slint GUI ile Wayland için geliştirilmiş, 16-bit orta format RAW fotoğrafları (Fujifilm GFX) işleyen bağımsız fotoğraf banyo motoru. (Kesinlikle animasyon aracı değildir).
-2. omarchy-omanotes: Rust ve QML tabanlı, Zero-Knowledge AES-256-GCM uçtan uca şifreli (E2EE), Google Drive / Git bulut senkronizasyonlu Google Keep tarzı not uygulaması. (https://github.com/ozdil/omarchy-omanotes)
-3. omarchy-shell: Quickshell tabanlı, Qt/QML çekirdekli modern Wayland masaüstü kabuğu.
-4. omarchy-omasend & omasend-android: AirDrop benzeri yerel P2P dosya aktarımı ve pano eşitleme aracı (Linux için Rust/QML, Android için Kotlin/Compose).
-5. Siber Güvenlik Araçları (Omarchy): omarchy-cyber-sentinel (ağ izleme), omarchy-badusb-shield (BadUSB kalkanı), omarchy-cve-radar (CVE açığı tarama), omarchy-auth-watch (yetkisiz SSH/oturum izleme), omarchy-ghost-mac (dinamik MAC gizleme), omarchy-dns-leak-guard (DoH/DoT DNS denetleyici), omarchy-tripwire-vault (honeypot/dosya izleme).
-6. Masaüstü & Tema: quickshell-oled-themes, omarchy-turkiye-theme, quickshell-game-hud, QuickNews (RSS/haber widget'ı), NetRadar (ağ hız ve arayüz izleme).
+1. FOSSWire (fosswire.org): Açık kaynak yazılım (FOSS) ve açık donanım (RISC-V, Linux çekirdeği) için sıfır reklam, sıfır gözetleme/takipçi ve sıfır tık tuzağı ilkeleriyle çalışan otonom haber ve teknik sentez telgrafı.
+2. DeckOpt: Valve Steam Deck (LCD/OLED) ve SteamOS 3.x için Google Gemini 2.5 Flash ve katı deterministik donanım sınırlarıyla çalışan otonom yerleşik oyun optimizasyon motoru.
+3. OmaStudio RAW Motoru: Rust ve Slint GUI ile Wayland için geliştirilmiş, 16-bit orta format RAW fotoğrafları (Fujifilm GFX) işleyen bağımsız fotoğraf banyo motoru. (Kesinlikle animasyon aracı değildir).
+4. omarchy-omanotes: Rust ve QML tabanlı, Zero-Knowledge AES-256-GCM uçtan uca şifreli (E2EE), Google Drive / Git bulut senkronizasyonlu Google Keep tarzı not uygulaması. (https://github.com/ozdil/omarchy-omanotes)
+5. omarchy-shell: Quickshell tabanlı, Qt/QML çekirdekli modern Wayland masaüstü kabuğu.
+6. omarchy-omasend & omasend-android: AirDrop benzeri yerel P2P dosya aktarımı ve pano eşitleme aracı (Linux için Rust/QML, Android için Kotlin/Compose).
+7. Siber Güvenlik Araçları (Omarchy): omarchy-cyber-sentinel (ağ izleme), omarchy-badusb-shield (BadUSB kalkanı), omarchy-cve-radar (CVE açığı tarama), omarchy-auth-watch (yetkisiz SSH/oturum izleme), omarchy-ghost-mac (dinamik MAC gizleme), omarchy-dns-leak-guard (DoH/DoT DNS denetleyici), omarchy-tripwire-vault (honeypot/dosya izleme).
+8. Masaüstü & Tema: quickshell-oled-themes, omarchy-turkiye-theme, quickshell-game-hud, QuickNews (RSS/haber widget'ı), NetRadar (ağ hız ve arayüz izleme).
 
 ÖNEMLİ BAĞLANTILAR:
 - Ana Sayfa: https://ozanozdil.com
@@ -79,8 +81,12 @@ function getFallbackAnswer(query: string): string {
     return "Ozan, Steam Deck ve Linux oyunculuğu üzerine kapsamlı donanım ve yazılım optimizasyonları yapmaktadır. Proton GE ayarları, Gamescope yapılandırmaları, TDP yönetimi ve batarya optimizasyonu hakkında detaylı rehberler hazırlamıştır. [Yazılar](https://ozanozdil.com/blog) sayfasından Steam Deck incelemelerine ve [Steam Profiline](https://steamcommunity.com/id/ozanozdil) ulaşabilirsiniz.";
   }
 
+  if (q.includes('fosswire') || q.includes('telgraf') || q.includes('açık donanım haber')) {
+    return "FOSSWire (https://fosswire.org), açık kaynak yazılım (FOSS) ve açık donanım (Open Hardware) ekosistemi için tasarlanmış bağımsız ve otonom bir haber telgrafıdır.\\n\\n**Öne Çıkan İlkeleri:**\\n- **Sıfır Reklam & Sıfır Takipçi:** Ticari reklamlar, izleme betikleri ve çerez duvarları tamamen reddedilmiştir.\\n- **Sıfır Tık Tuzağı (Clickbait):** Sansasyonel başlıklar yerine birincil mühendislik kaynaklarına (Linux LKML, RISC-V, OSHWA) dayalı derin teknik analizler sunar.\\n- **Açık REST API:** Canlı haberler https://fosswire.org/api/v1/news.json uç noktası üzerinden serbestçe tüketilebilir.\\n\\nDetaylı mimari incelemesi için [FOSSWire Mimari Raporu](https://ozanozdil.com/blog/fosswire-acik-kaynak-ve-acik-donanim-otonom-haber-telgrafi) makalesine göz atabilirsiniz.";
+  }
+
   if (q.includes('proje') || q.includes('eklenti') || q.includes('plugin') || q.includes('araç') || q.includes('github') || q.includes('kod')) {
-    return "Ozan Özdil'in geliştirdiği öne çıkan açık kaynak sistemler:\\n\\n1. **OmaStudio:** Rust & Slint tabanlı 16-bit orta format RAW fotoğraf işleme motoru.\\n2. **omarchy-omanotes:** E2EE AES-256-GCM şifreli bulut senkronizasyonlu not defteri.\\n3. **omarchy-omasend:** Linux ve Android arasında P2P dosya ve pano paylaşımı.\\n4. **omarchy-shell & Quickshell:** Wayland için modüler masaüstü kabuğu ve widget seti (QuickNews, NetRadar, Game HUD).\\n5. **Siber Güvenlik Suite:** Cyber Sentinel, BadUSB Shield, CVE Radar, Auth Watch, Ghost MAC, DNS Leak Guard, Tripwire Vault.\\n\\nTüm projelere [Projeler](https://ozanozdil.com/projeler) sayfasından veya [GitHub: @ozdil](https://github.com/ozdil) üzerinden ulaşabilirsiniz.";
+    return "Ozan Özdil'in geliştirdiği öne çıkan açık kaynak sistemler:\\n\\n1. **FOSSWire:** Açık kaynak ve açık donanım otonom haber telgrafı (https://fosswire.org).\\n2. **DeckOpt:** Steam Deck ve SteamOS için Gemini YZ tabanlı otonom donanım optimizasyon motoru.\\n3. **OmaStudio:** Rust & Slint tabanlı 16-bit orta format RAW fotoğraf işleme motoru.\\n4. **omarchy-omanotes:** E2EE AES-256-GCM şifreli bulut senkronizasyonlu not defteri.\\n5. **omarchy-omasend:** Linux ve Android arasında P2P dosya ve pano paylaşımı.\\n6. **omarchy-shell & Quickshell:** Wayland için modüler masaüstü kabuğu ve widget seti (QuickNews, NetRadar, Game HUD).\\n7. **Siber Güvenlik Suite:** Cyber Sentinel, BadUSB Shield, CVE Radar, Auth Watch, Ghost MAC, DNS Leak Guard, Tripwire Vault.\\n\\nTüm projelere [Projeler](https://ozanozdil.com/projeler) sayfasından veya [GitHub: @ozdil](https://github.com/ozdil) üzerinden ulaşabilirsiniz.";
   }
 
   if (q.includes('eğitim') || q.includes('okul') || q.includes('üniversite') || q.includes('ktü') || q.includes('orman')) {
@@ -968,7 +974,7 @@ export default {
       newHeaders.set('Cross-Origin-Resource-Policy', 'same-origin');
       newHeaders.set(
         'Content-Security-Policy',
-        "default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://static.cloudflareinsights.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://translate-pa.googleapis.com https://cloudflareinsights.com; frame-src 'self' https://translate.google.com https://www.youtube-nocookie.com https://www.youtube.com; media-src 'self' data: https:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests; base-uri 'self'; form-action 'self';"
+        "default-src 'self'; script-src 'self' 'unsafe-inline' https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://static.cloudflareinsights.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://fosswire.org https://translate.googleapis.com https://translate-pa.googleapis.com https://cloudflareinsights.com; frame-src 'self' https://translate.google.com https://www.youtube-nocookie.com https://www.youtube.com; media-src 'self' data: https:; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests; base-uri 'self'; form-action 'self';"
       );
       newHeaders.set('Permissions-Policy', 'accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), xr-spatial-tracking=(), browsing-topics=()');
       newHeaders.set('Vary', 'Accept');

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="100%" stop-color="#121215" />
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-grad)" />
+
+  <!-- Grid overlay -->
+  <g stroke="#27272a" stroke-width="1" opacity="0.4">
+    <line x1="80" y1="0" x2="80" y2="630" />
+    <line x1="240" y1="0" x2="240" y2="630" />
+    <line x1="400" y1="0" x2="400" y2="630" />
+    <line x1="560" y1="0" x2="560" y2="630" />
+    <line x1="720" y1="0" x2="720" y2="630" />
+    <line x1="880" y1="0" x2="880" y2="630" />
+    <line x1="1040" y1="0" x2="1040" y2="630" />
+    <line x1="0" y1="90" x2="1200" y2="90" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="330" x2="1200" y2="330" />
+    <line x1="0" y1="450" x2="1200" y2="450" />
+    <line x1="0" y1="570" x2="1200" y2="570" />
+  </g>
+
+  <!-- Status pill -->
+  <rect x="100" y="90" width="340" height="36" rx="18" fill="#18181b" stroke="#27272a" stroke-width="1" />
+  <circle cx="124" cy="108" r="5" fill="#10b981" />
+  <text x="142" y="113" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa" letter-spacing="2">FOSSWIRE.ORG // AUTONOMOUS WIRE</text>
+
+  <!-- Title -->
+  <text x="100" y="210" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="52" font-weight="700" fill="#ffffff" letter-spacing="-1">FOSSWire</text>
+  <text x="100" y="270" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="24" fill="url(#accent-grad)">Açık Kaynak &amp; Açık Donanım Haber Telgrafı</text>
+
+  <!-- Architecture Boxes -->
+  <g transform="translate(100, 340)">
+    <!-- Box 1 -->
+    <rect x="0" y="0" width="300" height="180" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="24" y="40" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#10b981">01. KAYNAK SİNYALİ</text>
+    <text x="24" y="75" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5">Upstream &amp; Çekirdek</text>
+    <text x="24" y="110" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">LKML, RISC-V, OSHWA,</text>
+    <text x="24" y="132" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Linux Çekirdeği, CNCF</text>
+
+    <!-- Box 2 -->
+    <rect x="340" y="0" width="300" height="180" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="364" y="40" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#06b6d4">02. OTONOM SENTEZ</text>
+    <text x="364" y="75" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5">Sıfır Gürültü &amp; Reklam</text>
+    <text x="364" y="110" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Teknik Mimari Analizi,</text>
+    <text x="364" y="132" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Ekosistem Etki Raporu</text>
+
+    <!-- Box 3 -->
+    <rect x="680" y="0" width="300" height="180" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="704" y="40" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a855f7">03. UÇ DAĞITIM</text>
+    <text x="704" y="75" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5">Açık REST &amp; Edge</text>
+    <text x="704" y="110" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">/api/v1/news.json,</text>
+    <text x="704" y="132" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">llms.txt, Astro SSG</text>
+  </g>
+</svg>
