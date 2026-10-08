@@ -1,5 +1,5 @@
 ---
-title: "FOSSWire: Açık Kaynak ve Açık Donanım İçin Sıfır Reklamlı Otonom Haber Telgrafı"
+title: "FOSSWire.org: Açık Kaynak ve Açık Donanım İçin Sıfır Reklamlı Otonom Haber Telgrafı"
 description: "Ticari reklam ağlarının, gözetleme izleyicilerinin ve tık tuzaklarının reddedildiği; Linux çekirdeği, RISC-V açık silikon ve FOSS ekosistemine odaklanan otonom haber ve teknik analiz platformu FOSSWire (fosswire.org) mimarisi."
 pubDate: 2026-10-08
 heroImage: "/images/blog/fosswire-architecture.svg"
