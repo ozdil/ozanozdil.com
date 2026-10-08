@@ -14,49 +14,46 @@ const fallbackNews: NewsItem[] = (fosswireLatestFallback as NewsItem[]).slice(0,
 
 <div
   id="fosswire-ticker-bar"
-  class="relative w-full overflow-hidden select-none font-mono text-xs z-40 bg-[#0c0d12]/95 backdrop-blur-md border-b border-[#27272a] shadow-lg transition-colors"
+  class="relative w-full overflow-hidden select-none font-mono text-xs z-30 transition-colors border-b duration-200"
   aria-label="FOSSWire Canlı Haber Akışı"
 >
-  <!-- Üst ve Alt İnce Siber / Yanar Döner Işıltı Çizgisi -->
-  <div class="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-emerald-500 via-cyan-400 via-indigo-500 via-fuchsia-500 to-emerald-500 animate-shimmer bg-[length:200%_100%] opacity-90"></div>
+  <!-- Üst İnce Yanar Döner Siber Işıltı Çizgisi -->
+  <div class="ticker-shimmer-line absolute top-0 left-0 right-0 h-[1.5px] z-20"></div>
 
-  <div class="max-w-7xl mx-auto px-2 sm:px-4 flex items-stretch h-10">
-    <!-- Sabit Sol Başlık Rozeti: Yanar Döner Neon Gradient & Cam Efekti -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center h-10 gap-2">
+    <!-- Sabit Sol Başlık Rozeti: Yanar Döner Neon Efekti -->
     <a
       href="https://fosswire.org"
       target="_blank"
       rel="noopener noreferrer"
-      class="relative flex items-center gap-2.5 px-3.5 py-1 my-1 rounded-md bg-gradient-to-r from-[#18181b] via-[#1c1d24] to-[#18181b] hover:from-[#22232a] hover:to-[#22232a] text-[#ffffff] border border-[#3f3f46]/80 hover:border-emerald-500/60 shadow-sm transition-all flex-shrink-0 z-20 group overflow-hidden"
+      class="ticker-badge relative flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium transition-all flex-shrink-0 z-20 group whitespace-nowrap shadow-xs"
       title="FOSSWire.org — Açık Kaynak ve Açık Donanım Haberleri"
     >
-      <!-- Rozet İçi Canlı Işıltı Arka Planı -->
-      <span class="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-cyan-500/15 to-purple-500/10 opacity-75 group-hover:opacity-100 transition-opacity pointer-events-none"></span>
-
-      <!-- Canlı Nabız Göstergesi (Çift Halka) -->
-      <span class="relative flex h-2.5 w-2.5 items-center justify-center">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+      <!-- Canlı Nabız Göstergesi -->
+      <span class="relative flex h-2 w-2 items-center justify-center flex-shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
       </span>
 
-      <!-- Başlık Metni: Canlı Degrade Geçişi -->
-      <span class="relative font-bold tracking-wider text-[11px] uppercase bg-gradient-to-r from-emerald-300 via-cyan-200 to-indigo-300 bg-clip-text text-transparent group-hover:from-emerald-200 group-hover:to-cyan-100 transition-all drop-shadow-sm whitespace-nowrap">
+      <!-- Başlık Metni -->
+      <span class="ticker-badge-text font-bold tracking-wider text-[11px] uppercase transition-colors">
         FOSSWire'dan Son Haberler
       </span>
 
-      <!-- Canlı Nabız Rozet Kenar Göstergesi -->
-      <span class="hidden md:inline-block text-[9px] px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 uppercase font-semibold">
+      <!-- CANLI Rozeti -->
+      <span class="ticker-live-pill text-[9px] px-1.5 py-0.2 rounded font-semibold uppercase tracking-wider">
         CANLI
       </span>
     </a>
 
     <!-- Kayan Haber Alanı (Viewport) -->
     <div
-      class="relative flex-1 overflow-hidden flex items-center group/ticker pl-2 sm:pl-3"
+      class="relative flex-1 overflow-hidden flex items-center group/ticker h-full min-w-0"
       id="ticker-viewport"
     >
-      <!-- Sol ve Sağ Derinlik / Maske Geçişleri -->
-      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0c0d12] to-transparent z-10"></div>
-      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0c0d12] to-transparent z-10"></div>
+      <!-- Sol ve Sağ Maske Geçişleri -->
+      <div class="ticker-fade-left pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10"></div>
+      <div class="ticker-fade-right pointer-events-none absolute right-0 top-0 bottom-0 w-12 z-10"></div>
 
       <!-- Kayan Şerit (Kesintisiz Marquee Döngüsü) -->
       <div
@@ -70,15 +67,15 @@ const fallbackNews: NewsItem[] = (fosswireLatestFallback as NewsItem[]).slice(0,
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2.5 text-[#d4d4d8] hover:text-[#ffffff] transition-all text-xs py-1 group/item"
+              class="ticker-news-link inline-flex items-center gap-2 text-xs py-1 transition-colors group/item"
             >
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 group-hover/item:bg-emerald-400 group-hover/item:scale-125 transition-all shadow-[0_0_6px_rgba(16,185,129,0.4)]"></span>
+              <span class="ticker-bullet w-1.5 h-1.5 rounded-full transition-transform group-hover/item:scale-125"></span>
               {item.source && (
-                <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#18181b] text-[#a1a1aa] border border-[#27272a] group-hover/item:border-cyan-500/40 group-hover/item:text-cyan-300 transition-colors">
+                <span class="ticker-source-tag text-[10px] px-1.5 py-0.5 rounded transition-colors">
                   {item.source}
                 </span>
               )}
-              <span class="group-hover/item:text-cyan-200 group-hover/item:underline underline-offset-2 transition-colors font-medium">
+              <span class="ticker-news-title font-medium transition-colors">
                 {item.title}
               </span>
             </a>
@@ -93,15 +90,15 @@ const fallbackNews: NewsItem[] = (fosswireLatestFallback as NewsItem[]).slice(0,
               target="_blank"
               rel="noopener noreferrer"
               tabindex="-1"
-              class="inline-flex items-center gap-2.5 text-[#d4d4d8] hover:text-[#ffffff] transition-all text-xs py-1 group/item"
+              class="ticker-news-link inline-flex items-center gap-2 text-xs py-1 transition-colors group/item"
             >
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 group-hover/item:bg-emerald-400 group-hover/item:scale-125 transition-all shadow-[0_0_6px_rgba(16,185,129,0.4)]"></span>
+              <span class="ticker-bullet w-1.5 h-1.5 rounded-full transition-transform group-hover/item:scale-125"></span>
               {item.source && (
-                <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#18181b] text-[#a1a1aa] border border-[#27272a] group-hover/item:border-cyan-500/40 group-hover/item:text-cyan-300 transition-colors">
+                <span class="ticker-source-tag text-[10px] px-1.5 py-0.5 rounded transition-colors">
                   {item.source}
                 </span>
               )}
-              <span class="group-hover/item:text-cyan-200 group-hover/item:underline underline-offset-2 transition-colors font-medium">
+              <span class="ticker-news-title font-medium transition-colors">
                 {item.title}
               </span>
             </a>
@@ -113,6 +110,166 @@ const fallbackNews: NewsItem[] = (fosswireLatestFallback as NewsItem[]).slice(0,
 </div>
 
 <style>
+  /* ========================================================================= */
+  /* KOYU TEMA (DARK MODE - DEFAULT)                                          */
+  /* ========================================================================= */
+  #fosswire-ticker-bar {
+    background-color: rgba(18, 18, 21, 0.95);
+    border-color: #27272a;
+  }
+
+  .ticker-shimmer-line {
+    background: linear-gradient(90deg, #10b981, #06b6d4, #6366f1, #d946ef, #10b981);
+    background-size: 200% 100%;
+    animation: shimmer 6s ease infinite;
+    opacity: 0.85;
+  }
+
+  .ticker-badge {
+    background: #18181b;
+    border: 1px solid #27272a;
+    color: #ffffff;
+  }
+
+  .ticker-badge:hover {
+    background: #27272a;
+    border-color: #3f3f46;
+  }
+
+  .ticker-badge-text {
+    background: linear-gradient(90deg, #34d399, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .ticker-live-pill {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
+
+  .ticker-fade-left {
+    background: linear-gradient(to right, #121215, transparent);
+  }
+
+  .ticker-fade-right {
+    background: linear-gradient(to left, #121215, transparent);
+  }
+
+  .ticker-news-link {
+    color: #a1a1aa;
+  }
+
+  .ticker-news-link:hover {
+    color: #ffffff;
+  }
+
+  .ticker-bullet {
+    background-color: rgba(16, 185, 129, 0.6);
+  }
+
+  .ticker-news-link:hover .ticker-bullet {
+    background-color: #34d399;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  .ticker-source-tag {
+    background-color: #18181b;
+    color: #71717a;
+    border: 1px solid #27272a;
+  }
+
+  .ticker-news-link:hover .ticker-source-tag {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.3);
+  }
+
+  .ticker-news-title:hover {
+    color: #f4f4f5;
+  }
+
+  /* ========================================================================= */
+  /* AÇIK TEMA (LIGHT MODE)                                                    */
+  /* ========================================================================= */
+  :global(html:not(.dark)) #fosswire-ticker-bar {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+    border-color: #e4e4e7 !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+  }
+
+  :global(html:not(.dark)) .ticker-shimmer-line {
+    background: linear-gradient(90deg, #059669, #0284c7, #4f46e5, #c026d3, #059669) !important;
+    background-size: 200% 100% !important;
+    animation: shimmer 6s ease infinite !important;
+    opacity: 0.95 !important;
+  }
+
+  :global(html:not(.dark)) .ticker-badge {
+    background: #f4f4f5 !important;
+    border-color: #e4e4e7 !important;
+    color: #09090b !important;
+  }
+
+  :global(html:not(.dark)) .ticker-badge:hover {
+    background: #e4e4e7 !important;
+    border-color: #d4d4d8 !important;
+  }
+
+  :global(html:not(.dark)) .ticker-badge-text {
+    background: linear-gradient(90deg, #047857, #0369a1, #4338ca) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  :global(html:not(.dark)) .ticker-live-pill {
+    background-color: rgba(5, 150, 105, 0.12) !important;
+    color: #047857 !important;
+    border-color: rgba(5, 150, 105, 0.25) !important;
+  }
+
+  :global(html:not(.dark)) .ticker-fade-left {
+    background: linear-gradient(to right, #ffffff, transparent) !important;
+  }
+
+  :global(html:not(.dark)) .ticker-fade-right {
+    background: linear-gradient(to left, #ffffff, transparent) !important;
+  }
+
+  :global(html:not(.dark)) .ticker-news-link {
+    color: #52525b !important;
+  }
+
+  :global(html:not(.dark)) .ticker-news-link:hover {
+    color: #09090b !important;
+  }
+
+  :global(html:not(.dark)) .ticker-bullet {
+    background-color: rgba(5, 150, 105, 0.7) !important;
+  }
+
+  :global(html:not(.dark)) .ticker-news-link:hover .ticker-bullet {
+    background-color: #059669 !important;
+    box-shadow: 0 0 6px rgba(5, 150, 105, 0.4) !important;
+  }
+
+  :global(html:not(.dark)) .ticker-source-tag {
+    background-color: #f4f4f5 !important;
+    color: #71717a !important;
+    border-color: #e4e4e7 !important;
+  }
+
+  :global(html:not(.dark)) .ticker-news-link:hover .ticker-source-tag {
+    color: #0284c7 !important;
+    border-color: rgba(2, 132, 199, 0.3) !important;
+  }
+
+  :global(html:not(.dark)) .ticker-news-title:hover {
+    color: #09090b !important;
+  }
+
+  /* ========================================================================= */
+  /* ANİMASYONLAR                                                              */
+  /* ========================================================================= */
   @keyframes ticker {
     0% {
       transform: translateX(0);
@@ -139,10 +296,6 @@ const fallbackNews: NewsItem[] = (fosswireLatestFallback as NewsItem[]).slice(0,
     animation: ticker 90s linear infinite;
   }
 
-  .animate-shimmer {
-    animation: shimmer 6s ease infinite;
-  }
-
   .pause-animation {
     animation-play-state: paused !important;
   }
@@ -162,9 +315,9 @@ const fallbackNews: NewsItem[] = (fosswireLatestFallback as NewsItem[]).slice(0,
           return list.map(function(item) {
             var title = item.title_tr || item.title;
             var url = item.canonical_url || ('https://fosswire.org/news/' + item.slug + '.html');
-            var src = item.source ? '<span class="text-[10px] px-1.5 py-0.5 rounded bg-[#18181b] text-[#a1a1aa] border border-[#27272a] group-hover/item:border-cyan-500/40 group-hover/item:text-cyan-300 transition-colors">' + item.source + '</span>' : '';
+            var src = item.source ? '<span class="ticker-source-tag text-[10px] px-1.5 py-0.5 rounded transition-colors">' + item.source + '</span>' : '';
             var tabAttr = isAriaHidden ? ' tabindex="-1"' : '';
-            return '<a href="' + url + '" target="_blank" rel="noopener noreferrer"' + tabAttr + ' class="inline-flex items-center gap-2.5 text-[#d4d4d8] hover:text-[#ffffff] transition-all text-xs py-1 group/item"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500/60 group-hover/item:bg-emerald-400 group-hover/item:scale-125 transition-all shadow-[0_0_6px_rgba(16,185,129,0.4)]"></span>' + src + '<span class="group-hover/item:text-cyan-200 group-hover/item:underline underline-offset-2 transition-colors font-medium">' + title + '</span></a>';
+            return '<a href="' + url + '" target="_blank" rel="noopener noreferrer"' + tabAttr + ' class="ticker-news-link inline-flex items-center gap-2 text-xs py-1 transition-colors group/item"><span class="ticker-bullet w-1.5 h-1.5 rounded-full transition-transform group-hover/item:scale-125"></span>' + src + '<span class="ticker-news-title font-medium transition-colors">' + title + '</span></a>';
           }).join('');
         }
 
