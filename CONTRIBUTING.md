@@ -84,3 +84,19 @@ Makale içeriği burada başlar...
 - **Kural 3 - Başlık Görseli Tekrarı Yapılmamalıdır:**
   - `heroImage` ön bilgisi zaten sayfa üstünde çerçeveli olarak sunulduğundan, makale metninin hemen başında aynı görsel tekrar eklenmemelidir.
 
+---
+
+## 7. Zorunlu Makale Yayınlama ve Dağıtım Protokolü (Otomasyon)
+
+Her yeni makale yazıldığında veya güncellendiğinde işlem asla yarıda bırakılmayacak; aşağıdaki adımlar tek bir otomasyon zinciriyle (`npm run publish`) çalıştırılacaktır:
+
+1. **Yayın Tarihi Kuralı:** Yeni yazılan makalenin `pubDate` değeri mutlaka güncel tarih/saat olmalıdır. Astro motoru en yeni tarihi otomatik olarak listenin en başına alır.
+2. **Otomasyon Komutu:** Makale yazıldıktan sonra doğrudan `npm run publish` çalıştırılacaktır.
+3. **Doğrulama Zinciri:**
+   - Türkçe imla ve sıfır emoji denetimi,
+   - OG kart görselleri ve görsel site haritası üretimi,
+   - `dist/blog/index.html` içinde yeni makalenin 1. sırada olduğunun teyidi,
+   - `dist/index.html` içindeki "Son Yazılar & Araştırmalar" bölümünde 1. sırada olduğunun teyidi,
+   - Git deposuna işleme (`git commit`) ve `origin main` dalına gönderme (`git push`),
+   - Cloudflare Workers canlı ortamına aktarım (`npx wrangler deploy`).
+
