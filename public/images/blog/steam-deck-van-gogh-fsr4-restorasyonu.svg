@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="100%" stop-color="#121215" />
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-grad)" />
+
+  <!-- Grid overlay -->
+  <g stroke="#27272a" stroke-width="1" opacity="0.35">
+    <line x1="80" y1="0" x2="80" y2="630" />
+    <line x1="240" y1="0" x2="240" y2="630" />
+    <line x1="400" y1="0" x2="400" y2="630" />
+    <line x1="560" y1="0" x2="560" y2="630" />
+    <line x1="720" y1="0" x2="720" y2="630" />
+    <line x1="880" y1="0" x2="880" y2="630" />
+    <line x1="1040" y1="0" x2="1040" y2="630" />
+    <line x1="0" y1="90" x2="1200" y2="90" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="330" x2="1200" y2="330" />
+    <line x1="0" y1="450" x2="1200" y2="450" />
+    <line x1="0" y1="570" x2="1200" y2="570" />
+  </g>
+
+  <!-- Status pill -->
+  <rect x="100" y="85" width="460" height="36" rx="18" fill="#18181b" stroke="#27272a" stroke-width="1" />
+  <circle cx="124" cy="103" r="5" fill="#ec4899" />
+  <text x="142" y="108" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa" letter-spacing="2">VAN GOGH APU // RDNA 2 // FSR 4.1 DERİN ANALİZ</text>
+
+  <!-- Title -->
+  <text x="100" y="195" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="44" font-weight="700" fill="#ffffff" letter-spacing="-1">Steam Deck ve Van Gogh APU</text>
+  <text x="100" y="250" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="24" fill="url(#accent-grad)">2027 Yapay Zekâ Restorasyonu: FSR 4.1 ve DP4a</text>
+
+  <!-- Architecture Boxes -->
+  <g transform="translate(100, 310)">
+    <!-- Box 1 -->
+    <rect x="0" y="0" width="300" height="210" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="24" y="38" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#ec4899">01. VAN GOGH MİMARİSİ</text>
+    <text x="24" y="70" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5">RDNA 2 &amp; 8 CU Sınırı</text>
+    <text x="24" y="105" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Aerith / Sephiroth SoC</text>
+    <text x="24" y="128" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">4C/8T Zen 2, 15W TDP</text>
+    <text x="24" y="151" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">WMMA Yoksunluğu</text>
+    <text x="24" y="174" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Donanım Düzeyi Kısıtlar</text>
+
+    <!-- Box 2 -->
+    <rect x="340" y="0" width="300" height="210" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="364" y="38" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#8b5cf6">02. DP4a HESAPLAMA GÖÇÜ</text>
+    <text x="364" y="70" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5">INT8 Sinir Ağı Çıkarımı</text>
+    <text x="364" y="105" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">FSR 4.1 ML Boru Hattı</text>
+    <text x="364" y="128" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Görsel Kararlılık Artışı</text>
+    <text x="364" y="151" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">400p'den 800p Rekonstrüksiyon</text>
+    <text x="364" y="174" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Düşük Çözünürlük Başarımı</text>
+
+    <!-- Box 3 -->
+    <rect x="680" y="0" width="300" height="210" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="704" y="38" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#3b82f6">03. 2027 ENTEGRASYONU</text>
+    <text x="704" y="70" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5">SteamOS &amp; Gamescope</text>
+    <text x="704" y="105" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Mesa &amp; Proton Redstone</text>
+    <text x="704" y="128" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Drop-in FSR 3.1 Geçişi</text>
+    <text x="704" y="151" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Sistem Seviyesi Katman</text>
+    <text x="704" y="174" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">AAA Başarım Restorasyonu</text>
+  </g>
+
+  <!-- Footer metadata -->
+  <text x="100" y="580" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="11" fill="#71717a">OZANOZDIL.COM // DONANIM MÜHENDİSLİĞİ &amp; SİSTEM MİMARİSİ // PROTOKOL: JEV-GATE-OK</text>
+</svg>
