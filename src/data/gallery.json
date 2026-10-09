@@ -1192,7 +1192,7 @@
       "cover": "/gallery/azdavay-saray-selalesi/01_DSF0206.webp",
       "coverThumb": "/gallery/azdavay-saray-selalesi/thumbs/01_DSF0206.webp",
       "coverAspect": 0.75,
-      "photoCount": 4,
+      "photoCount": 3,
       "photos": [
         {
           "id": "azdavay-saray-selalesi_01",
@@ -1225,34 +1225,6 @@
         {
           "id": "azdavay-saray-selalesi_02",
           "index": 2,
-          "title": "Şelale Çağlayanı • 91s Derin Pozlama",
-          "caption": "91 saniyelik uzun pozlamayla mistik bir sis tabakasına dönüşen şelale.",
-          "src": "/gallery/azdavay-saray-selalesi/04_DSF0209.webp",
-          "thumb": "/gallery/azdavay-saray-selalesi/thumbs/04_DSF0209.webp",
-          "width": 1536,
-          "height": 2048,
-          "aspectRatio": 0.75,
-          "orientation": "vertical",
-          "dateTaken": "2020-10-12 13:15:43",
-          "exif": {
-            "camera": "Fujifilm GFX 50R",
-            "make": "FUJIFILM",
-            "lens": "GF50mmF3.5 R LM WR",
-            "fNumber": "f/8.0",
-            "exposureTime": "91s",
-            "iso": "400",
-            "focalLength": "50mm",
-            "focalLength35mm": "40mm eq.",
-            "dateTimeOriginal": "2020:10:12 13:15:43",
-            "exposureProgram": "Manual",
-            "meteringMode": "Multi-segment",
-            "artist": "Ozan Özdil",
-            "copyright": "© Ozan Özdil. Tüm hakları saklıdır."
-          }
-        },
-        {
-          "id": "azdavay-saray-selalesi_03",
-          "index": 3,
           "title": "Kanyon Havzası • Anlık Enstantane",
           "caption": "Suyun berraklığını ve dipteki çakıl taşlarını donduran 1/250s anlık kare.",
           "src": "/gallery/azdavay-saray-selalesi/06_DSF0211.webp",
@@ -1279,8 +1251,8 @@
           }
         },
         {
-          "id": "azdavay-saray-selalesi_04",
-          "index": 4,
+          "id": "azdavay-saray-selalesi_03",
+          "index": 3,
           "title": "Şelale Tülü & Kayalık Duvar • 90s",
           "caption": "Kayanın dokusuyla suyun pürüzsüzlüğünün oluşturduğu yüksek dinamik aralık.",
           "src": "/gallery/azdavay-saray-selalesi/08_DSF0214.webp",
