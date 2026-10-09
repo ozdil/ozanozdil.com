@@ -3,7 +3,7 @@ title: "Topyekûn Savunma ve Dijital Egemenlik: Elektronik Harp Tehditleri Işı
 description: "İsrail'in Orta Doğu'da sergilediği siber-kinetik saldırılar, çağrı cihazı sabotajları ve GPS aldatmaları; haberleşme ve seyrüseferin ulusal güvenlik kalkanı olduğunu gösterdi. Malatya'da üretilecek ASELSAN - Türk Telekom telefonu ve Başarsoft - BvB milli navigasyon projesinin derin teknik ve ekonomik analizi."
 pubDate: "2026-10-09T16:35:00.000+03:00"
 updatedDate: "2026-10-09T16:35:00.000+03:00"
-heroImage: "/images/topyekun-savunma-dijital-egemenlik.jpg"
+heroImage: "/images/blog/topyekun-savunma-dijital-egemenlik.svg"
 tags: ["dijital egemenlik", "elektronik harp", "aselsan", "türk telekom", "başarsoft", "bvb navigasyon", "siber güvenlik", "milli teknoloji hamlesi", "togg", "tedarik zinciri güvenliği", "topyekûn savunma"]
 draft: false
 ---

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090b" />
+      <stop offset="100%" stop-color="#121215" />
+    </linearGradient>
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="50%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="cyan-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-grad)" />
+
+  <!-- Technical Grid Overlay -->
+  <g stroke="#27272a" stroke-width="1" opacity="0.3">
+    <line x1="80" y1="0" x2="80" y2="630" />
+    <line x1="240" y1="0" x2="240" y2="630" />
+    <line x1="400" y1="0" x2="400" y2="630" />
+    <line x1="560" y1="0" x2="560" y2="630" />
+    <line x1="720" y1="0" x2="720" y2="630" />
+    <line x1="880" y1="0" x2="880" y2="630" />
+    <line x1="1040" y1="0" x2="1040" y2="630" />
+    <line x1="0" y1="90" x2="1200" y2="90" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="330" x2="1200" y2="330" />
+    <line x1="0" y1="450" x2="1200" y2="450" />
+    <line x1="0" y1="570" x2="1200" y2="570" />
+  </g>
+
+  <!-- Status Pill -->
+  <rect x="100" y="80" width="560" height="36" rx="18" fill="#18181b" stroke="#27272a" stroke-width="1" />
+  <circle cx="124" cy="98" r="5" fill="#ef4444" />
+  <text x="142" y="103" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa" letter-spacing="2">TOPYEKUN SAVUNMA // ELEKTRONIK HARP &amp; VERI EGEMENLIGI</text>
+
+  <!-- Title & Subtitle -->
+  <text x="100" y="185" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="42" font-weight="700" fill="#ffffff" letter-spacing="-1">Elektronik Harp Çaginda Milli Zirh</text>
+  <text x="100" y="240" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="22" fill="url(#accent-grad)">ASELSAN-TT Yerli Telefon &amp; Basarsoft-BvB Milli Navigasyon</text>
+
+  <!-- Architecture Boxes -->
+  <g transform="translate(100, 295)">
+    <!-- Box 1: ASELSAN Telefon -->
+    <rect x="0" y="0" width="315" height="235" rx="12" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="24" y="38" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#ef4444" font-weight="600">01. DONANIM SAVUNMASI</text>
+    <text x="24" y="70" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5" font-weight="600">ASELSAN &amp; TT Cihazi</text>
+    <text x="24" y="105" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Malatya 1. OSB Uretim Ussu</text>
+    <text x="24" y="130" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Milli Donanimsal HSM Kripto</text>
+    <text x="24" y="155" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Fiziksel Devre Kesici (Kill-Switch)</text>
+    <text x="24" y="180" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Dahili Acil Durum Uydu Anteni</text>
+    <text x="24" y="205" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#71717a">Tedarik Zinciri Sabotaj Kalkani</text>
+
+    <!-- Box 2: BvB Navigasyon -->
+    <rect x="342" y="0" width="315" height="235" rx="12" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="366" y="38" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#f97316" font-weight="600">02. SEYRUSEFER EGEMENLIGI</text>
+    <text x="366" y="70" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5" font-weight="600">Basarsoft - BvB &amp; Togg</text>
+    <text x="366" y="105" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">81 Il Serit Seviyesinde CBS</text>
+    <text x="366" y="130" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Kulturel NLP Adres Motoru</text>
+    <text x="366" y="155" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Togg &amp; TT Hibrit Canli Trafik</text>
+    <text x="366" y="180" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">GPS Aldatmasina (Spoofing) Direnc</text>
+    <text x="366" y="205" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#71717a">EGM Radar &amp; 112 Afet Modu</text>
+
+    <!-- Box 3: Tehdit Modeli -->
+    <rect x="684" y="0" width="315" height="235" rx="12" fill="#18181b" stroke="#27272a" stroke-width="1" />
+    <text x="708" y="38" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#06b6d4" font-weight="600">03. TEHDIT KORUMASI</text>
+    <text x="708" y="70" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="16" fill="#f4f4f5" font-weight="600">Siber-Kinetik Guvenlik</text>
+    <text x="708" y="105" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Tuzakli Donanima Karsi Yerli SMT</text>
+    <text x="708" y="130" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Pegasus Sifir-Tiklama Bagisikligi</text>
+    <text x="708" y="155" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Lavender Hedefleme Madenciligi Engeli</text>
+    <text x="708" y="180" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#a1a1aa">Milli Sunucularda %100 Veri Izolasyonu</text>
+    <text x="708" y="205" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#71717a">Ulusal Kriz Sureklilik Plani</text>
+  </g>
+
+  <!-- Bottom Brand Footprint -->
+  <text x="1000" y="580" text-anchor="end" font-family="JetBrainsMono Nerd Font, JetBrains Mono, monospace" font-size="12" fill="#52525b">ozanozdil.com // milli teknoloji doktrini</text>
+</svg>
