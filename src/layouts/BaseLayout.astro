@@ -110,8 +110,8 @@ const personEntity = {
   'alternateName': ['ozdil', 'Ozan Ozdil'],
   'url': 'https://ozanozdil.com',
   'image': 'https://ozanozdil.com/avatar.jpg',
-  'jobTitle': 'YZ Kodcusu, Sistem Araştırmacısı & Fotoğrafçı',
-  'description': 'Açık kaynak sistem okuryazarlığı, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve orta format fotoğrafçılık.',
+  'jobTitle': 'YZ Kodcusu & Açık Kaynak Sistem Mimarı',
+  'description': 'Yapay zekâ destekli otonom kodlama süreçleri, açık kaynak sistem mimarileri, Omarchy Linux ve kurumsal hafıza üzerine çalışan bağımsız sistem araştırmacısı.',
   'knowsAbout': [
     'Linux',
     'Open Source Software',
@@ -128,8 +128,10 @@ const personEntity = {
   ],
   'sameAs': [
     'https://github.com/ozdil',
+    'https://play.google.com/store/apps/dev?id=5715688516196041029',
     'https://steamcommunity.com/id/ozanozdil',
-    'https://nsosyal.com/ozanozdil'
+    'https://nsosyal.com/ozanozdil',
+    'https://fosswire.org'
   ]
 };
 
@@ -138,7 +140,8 @@ const websiteEntity = {
   '@id': 'https://ozanozdil.com/#website',
   'url': 'https://ozanozdil.com',
   'name': 'Ozan Özdil',
-  'description': 'YZ Kodcusu. Açık kaynak sistem okuryazarlığı, Omarchy ve CachyOS takibi, Steam Deck ile Linux oyunculuğu ve orta format fotoğrafçılık.',
+  'alternateName': 'ozanozdil.com',
+  'description': 'YZ Kodcusu & Açık Kaynak Sistem Mimarı. Omarchy Linux, Steam Deck optimizasyonları ve kurumsal sistem araştırmaları.',
   'inLanguage': 'tr-TR',
   'publisher': {
     '@id': 'https://ozanozdil.com/#person'
@@ -153,13 +156,63 @@ const websiteEntity = {
   }
 };
 
+const siteNavigationEntity = {
+  '@type': 'ItemList',
+  '@id': 'https://ozanozdil.com/#site-navigation',
+  'name': 'Site Navigasyonu',
+  'itemListElement': [
+    {
+      '@type': 'SiteNavigationElement',
+      'position': 1,
+      'name': 'Yazılar & Araştırmalar',
+      'description': 'Teknoloji, açık kaynak, siber güvenlik, dijital egemenlik, Linux ve YZ üzerine araştırmalar ve notlar.',
+      'url': 'https://ozanozdil.com/blog'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      'position': 2,
+      'name': 'Projeler & Yazılımlar',
+      'description': 'FOSSWire, DeckOpt, PolyCodex, OmaStudio, OmaSend ve açık kaynak yazılım depoları.',
+      'url': 'https://ozanozdil.com/projeler'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      'position': 3,
+      'name': 'Hakkımda & Deneyim',
+      'description': 'Özgeçmiş, teknik uzmanlıklar, kamu bilişimi ve sistem mimarisi deneyimleri.',
+      'url': 'https://ozanozdil.com/hakkimda'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      'position': 4,
+      'name': 'Fotoğraf Galerisi & Arşiv',
+      'description': 'Orta format Fujifilm GFX sistemiyle çekilmiş tarihi ve mimari fotoğraf sergisi.',
+      'url': 'https://ozanozdil.com/galeri'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      'position': 5,
+      'name': 'Açık Veri & llms.txt',
+      'description': 'Kurumsal açık veri katalogları ve yapay zekâ ajanları için llms.txt içerikleri.',
+      'url': 'https://ozanozdil.com/acik-veri'
+    },
+    {
+      '@type': 'SiteNavigationElement',
+      'position': 6,
+      'name': 'İletişim & Kanallar',
+      'description': 'E-posta, PGP/E2EE anahtarları, GitHub ve sosyal ağ iletişim kanalları.',
+      'url': 'https://ozanozdil.com/iletisim'
+    }
+  ]
+};
+
 const breadcrumbEntity = {
   '@type': 'BreadcrumbList',
   '@id': `${canonicalURL.toString()}#breadcrumb`,
   'itemListElement': breadcrumbItems
 };
 
-const graphElements: any[] = [websiteEntity, personEntity, breadcrumbEntity];
+const graphElements: any[] = [websiteEntity, personEntity, breadcrumbEntity, siteNavigationEntity];
 
 if (type === 'article' && article?.pubDate) {
   graphElements.push({
